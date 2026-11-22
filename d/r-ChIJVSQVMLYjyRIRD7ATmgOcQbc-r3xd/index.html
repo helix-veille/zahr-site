@@ -406,13 +406,13 @@ function three(){const T=window.THREE,el=$('#keys');if(!T){el.innerHTML='<div cl
  const lS=()=>{const s=new T.Shape();s.moveTo(-.5,-.8);s.lineTo(.6,-.8);s.lineTo(.6,-.45);s.lineTo(-.12,-.45);s.lineTo(-.12,.9);s.lineTo(-.5,.9);s.lineTo(-.5,-.8);return s};
  const bottle=()=>{const g=new T.Group();const b=new T.Mesh(new T.CylinderGeometry(.62,.7,1.25,4,1),gloss(0x7a1f2b));b.rotation.y=Math.PI/4;g.add(b);const n=new T.Mesh(new T.CylinderGeometry(.22,.26,.2,24),metal);n.position.y=.72;g.add(n);const cap=new T.Mesh(new T.CylinderGeometry(.24,.24,.95,24),gloss(0x1a1416));cap.position.y=1.28;g.add(cap);return g};
  const nail=()=>{const g=new T.Group();g.add(ex(nailS(),.14,gloss(0xf0c9bd)));const h=ex(heart(),.05,gloss(0xb3263a));h.scale.setScalar(.32);h.position.set(0,.25,.16);g.add(h);return g};
- const pearl=()=>new T.Mesh(new T.SphereGeometry(.62,40,30),new T.MeshPhysicalMaterial({color:0xf3e2d4,roughness:.12,clearcoat:1,metalness:.1,sheen:1}));
+ const pearl=()=>new T.Mesh(new T.SphereGeometry(.62,40,30),new T.MeshPhysicalMaterial({color:0xf3e2d4,roughness:.12,clearcoat:1,metalness:.1}));
  const charms=[bottle(),nail(),ex(heart(),.35,gloss(0xc2283f)),ex(lS(),.3,gloss(0x1a1416)),pearl()];
  const ring=new T.Mesh(new T.TorusGeometry(1.25,.11,20,80),metal);sc.add(ring);
  const linkG=new T.TorusGeometry(.13,.035,8,16);
  const S=charms.map((c,i)=>{const len=[4.2,5.6,4.8,6.2,3.8][i],ang=(-.55+i*.275)*Math.PI*.55;const ch={c,len,ax:(Math.random()-.5)*.4,az:(Math.random()-.5)*.3,vx:0,vz:0,ang,links:[]};const n=Math.round(len/.24);for(let k=0;k<n;k++){const m=new T.Mesh(linkG,metal);sc.add(m);ch.links.push(m)}sc.add(c);c.scale.setScalar(mob()?.85:1);return ch});
  let top=new T.Vector3();
- const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const vh=2*Math.tan(15*Math.PI/180)*22;top.set(mob()?0:0,vh/2-1.2,0);ring.position.copy(top)};size();addEventListener('resize',size);
+ const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.position.z=mob()?34:22;cam.updateProjectionMatrix();const vh=2*Math.tan(15*Math.PI/180)*cam.position.z;top.set(mob()?0:0,vh/2-1.2,0);ring.position.copy(top)};size();addEventListener('resize',size);
  const proj=new T.Vector3();
  let last=performance.now();
  keysT=()=>{const r=el.getBoundingClientRect();if(r.bottom<0)return;const now=performance.now(),dt=Math.min(.033,(now-last)/1000);last=now;const t=now/1000;
