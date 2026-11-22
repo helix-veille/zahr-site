@@ -185,6 +185,19 @@ h2 em{font-style:italic;font-weight:900;color:var(--cyan)}
 .res{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,64px);margin-top:44px;align-items:start}
 form{display:grid;gap:22px}
 fieldset{border:0;display:grid;gap:10px}
+.kind{display:grid;grid-template-columns:1fr 1fr;gap:12px;perspective:900px}
+.kd{position:relative}
+.kd input{position:absolute;opacity:0;inset:0;cursor:pointer;z-index:2}
+.kd span{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:16px 18px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.02));transition:transform .35s,box-shadow .35s,background .35s,border-color .35s;transform:rotateX(8deg) translateZ(0)}
+.kd svg{grid-row:1/3;width:34px;height:34px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;padding:7px;border-radius:12px;background:rgba(31,139,255,.25);box-sizing:content-box}
+.kd b{font-size:17px;font-style:italic;font-weight:900;letter-spacing:-.02em}
+.kd small{color:var(--mut);font-size:12.5px}
+.kd input:checked+span{transform:rotateX(0) translateZ(24px);border-color:var(--blue);background:linear-gradient(150deg,rgba(31,139,255,.45),rgba(31,139,255,.12));box-shadow:0 18px 40px rgba(31,139,255,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+.kd input:checked+span small{color:#d8e8ff}
+.kd input:focus-visible+span{outline:2px solid var(--cyan);outline-offset:3px}
+#gAuto,#gBat{display:grid;gap:22px}#gAuto[hidden],#gBat[hidden]{display:none}
+@media(max-width:520px){.kind{grid-template-columns:1fr}.kd span{padding:13px 15px}}
+.svc .sdev{margin-top:12px;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:99px;background:#fff;color:#05070c;font-weight:800;font-size:13px;border:0;cursor:pointer;pointer-events:auto}
 legend{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{position:relative}
@@ -438,9 +451,14 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
 <section class="s" id="reserver" aria-labelledby="res-t">
  <div class="kick">Réservation</div>
  <h2 id="res-t">Votre créneau,<br><em>en 30 secondes.</em></h2>
- <p class="lede">Choisissez votre voiture et la prestation, on vous rappelle pour confirmer le prix et l'heure. Rien n'est payé en ligne.</p>
+ <p class="lede">Votre voiture, votre maison, vos bureaux ou un chantier qui se termine : choisissez la prestation, on vous rappelle pour confirmer le prix et l'heure. Rien n'est payé en ligne.</p>
  <div class="res">
   <form id="form" novalidate>
+   <div class="kind" role="radiogroup" aria-label="Votre demande concerne">
+    <label class="kd"><input type="radio" name="kind" value="auto" checked><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.5-5A2 2 0 0 1 8.4 9.5h7.2a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="15" width="18" height="4" rx="1.5"/><circle cx="7" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><b>Ma voiture</b><small>Intérieur, extérieur ou complet</small></span></label>
+    <label class="kd"><input type="radio" name="kind" value="bat"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/></svg><b>Maison &amp; pro</b><small>Fin de chantier, toiture, façade, bureaux…</small></span></label>
+   </div>
+   <div id="gAuto">
    <fieldset><legend>Votre véhicule</legend><div class="chips" id="vtype">
     <label class="chip"><input type="radio" name="veh" value="Citadine / compacte"><span>Citadine / compacte</span></label>
     <label class="chip"><input type="radio" name="veh" value="Berline"><span>Berline</span></label>
@@ -452,15 +470,34 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
     <label class="chip"><input type="radio" name="pre" value="Intérieur"><span>Intérieur</span></label>
     <label class="chip"><input type="radio" name="pre" value="Extérieur"><span>Extérieur</span></label>
     <label class="chip"><input type="radio" name="pre" value="Intérieur + extérieur"><span>Intérieur + extérieur</span></label>
-    <label class="chip"><input type="radio" name="pre" value="Maison / pro (toiture, façade, terrasse…)"><span>Maison / pro</span></label>
    </div></fieldset>
+   </div>
+   <div id="gBat" hidden>
+   <fieldset><legend>Le lieu</legend><div class="chips">
+    <label class="chip"><input type="radio" name="veh" value="Maison"><span>Maison</span></label>
+    <label class="chip"><input type="radio" name="veh" value="Appartement"><span>Appartement</span></label>
+    <label class="chip"><input type="radio" name="veh" value="Bureaux / commerce"><span>Bureaux / commerce</span></label>
+    <label class="chip"><input type="radio" name="veh" value="Chantier / local neuf"><span>Chantier / local neuf</span></label>
+   </div></fieldset>
+   <fieldset><legend>La prestation</legend><div class="chips">
+    <label class="chip"><input type="radio" name="pre" value="Fin de chantier"><span>Fin de chantier</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Toiture"><span>Toiture</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Façade"><span>Façade</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Panneaux solaires"><span>Panneaux solaires</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Terrasse"><span>Terrasse</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Vitres"><span>Vitres</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Locaux de bureau"><span>Locaux de bureau</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Moquette"><span>Moquette</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Canapés / textile"><span>Canapés / textile</span></label>
+   </div></fieldset>
+   </div>
    <div class="grid2">
     <label class="f">Ville (Var)<input name="ville" autocomplete="address-level2" placeholder="Brignoles, Toulon…" required></label>
     <label class="f">Date souhaitée<input type="date" name="date" required></label>
     <label class="f">Moment<select name="moment"><option>Matin</option><option>Après-midi</option><option>Peu importe</option></select></label>
     <label class="f">Votre prénom<input name="nom" autocomplete="given-name" required></label>
    </div>
-   <label class="f">Précisions (facultatif)<textarea name="msg" placeholder="Poils d'animaux, taches sur les sièges, accès à l'eau…"></textarea></label>
+   <label class="f">Précisions (facultatif)<textarea name="msg" placeholder="Taches, poils d'animaux, surface en m², étage, accès à l'eau…"></textarea></label>
    <label class="consent"><input type="checkbox" id="ok" required><span>J'accepte que ces informations soient envoyées à Shining Cars pour traiter ma demande, par message Instagram, WhatsApp ou SMS depuis mon téléphone. Voir la <button type="button" data-legal="conf" style="text-decoration:underline">politique de confidentialité</button>.</span></label>
    <p class="err" id="err" role="alert"></p>
    <div class="sendrow"><button class="btn btn-ig" type="submit" data-via="ig"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Envoyer sur Instagram</button><button class="btn btn-glass" type="submit" data-via="wa">WhatsApp</button><button class="btn btn-glass" type="submit" data-via="sms">SMS</button><a class="btn btn-glass" href="tel:+33665345684">Appeler</a></div>
@@ -471,7 +508,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
    <div class="glare"></div>
    <div class="tp"><b>SHINING<span style="color:var(--cyan)">CARS</span></b><span class="pill">Ticket</span></div>
    <div class="photo" id="tPh" data-m="ext"><div class="layer l-ext"><img id="tImg" src="img/tk-exterieur.jpg" alt="Carrosserie noire brillante après un lavage extérieur"></div><div class="layer l-in"><img src="img/tk-interieur.jpg" alt="Habitacle cuir impeccable après un nettoyage intérieur"></div><div class="layer l-both"><img src="img/tk-complet.jpg" alt="Voiture propre dedans et dehors, portière ouverte"></div><div class="layer l-pro"><img src="img/tk-maison.jpg" alt="Maison provençale, façade et terrasse nettoyées"></div><span class="pill tag" id="tTag">Extérieur</span></div>
-   <dl><dt>Véhicule</dt><dd id="tVeh">—</dd><dt>Prestation</dt><dd id="tPre">—</dd><dt>Lieu</dt><dd id="tVil">—</dd><dt>Date</dt><dd id="tDat">—</dd><dt>Tarif</dt><dd>Devis gratuit</dd></dl>
+   <dl><dt id="tVehL">Véhicule</dt><dd id="tVeh">—</dd><dt>Prestation</dt><dd id="tPre">—</dd><dt>Lieu</dt><dd id="tVil">—</dd><dt>Date</dt><dd id="tDat">—</dd><dt>Tarif</dt><dd>Devis gratuit</dd></dl>
    <div class="gauge"><div class="water" id="water"></div><span id="gtxt">0 % rempli</span></div>
   </div></div>
  </div>
@@ -760,7 +797,7 @@ const tw=$('#tw');
 const IMG=['svc-auto','svc-toiture','svc-facade','svc-solaire','svc-terrasse','svc-chantier','svc-bureau','svc-vitres','svc-moquette'];
 SV.push(['Textile','Canapés, fauteuils et sièges en tissu : détachés et rafraîchis.',SV[8][2]]);IMG.push('svc-textile');SV[8]=['Moquette','Moquettes et tapis nettoyés en profondeur, chez vous ou au bureau.',SV[8][2]];
 const NS=SV.length,dots=$('#svcDots');
-const cardsS=SV.map((s,i)=>{const a=document.createElement('article');a.className='svc';a.innerHTML=`<div class="pic"><img src="img/${IMG[i]}-v2.jpg" alt="${s[0]} : prestation Shining Cars" decoding="async"><div class="txt"><div><div class="num">${String(i+1).padStart(2,'0')} / ${String(NS).padStart(2,'0')}</div><h3>${s[0]}</h3><p>${s[1]}</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24">${s[2]}</svg></div></div></div>`;tw.appendChild(a);dots.appendChild(document.createElement('i'));return a;});
+const cardsS=SV.map((s,i)=>{const a=document.createElement('article');a.className='svc';a.innerHTML=`<div class="pic"><img src="img/${IMG[i]}-v2.jpg" alt="${s[0]} : prestation Shining Cars" decoding="async"><div class="txt"><div><div class="num">${String(i+1).padStart(2,'0')} / ${String(NS).padStart(2,'0')}</div><h3>${s[0]}</h3><p>${s[1]}</p><button type="button" class="sdev" data-s="${s[0]}">Demander un devis →</button></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24">${s[2]}</svg></div></div></div>`;tw.appendChild(a);dots.appendChild(document.createElement('i'));return a;});
 function tunnel(){
  const sec=$('#services'),r=sec.getBoundingClientRect(),H=innerHeight,W=innerWidth;
  const sw=Math.min(W<760?W*.84:W*.5,H*.5*1.5,760);tw.style.setProperty('--sw',sw+'px');
@@ -800,7 +837,7 @@ const form=$('#form'),ticket=$('#ticket');
 const catImg={'Citadine / compacte':'golf-gti','Berline':'audi-rs-etron-gt','SUV':'mercedes-glc','Sportive':'mclaren','Utilitaire / van':'bmw-x4'};
 function setExt(src,alt){if(alt)$('#tImg').alt=alt;}
 function setMode(m,tag){$('#tPh').dataset.m=m;$('#tTag').textContent=tag;}
-function preset(c){const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}setExt('img/'+c.k+'.jpg',c.n+' nettoyée par Shining Cars');if(!form.querySelector('input[name=pre]:checked'))setMode('ext','Extérieur');form.dataset.car=c.n;upd();}
+function preset(c){if(form.dataset.kind!=='auto')setKind('auto');const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}setExt('img/'+c.k+'.jpg',c.n+' nettoyée par Shining Cars');if(!form.querySelector('input[name=pre]:checked'))setMode('ext','Extérieur');form.dataset.car=c.n;upd();}
 function upd(){
  const fd=new FormData(form),veh=fd.get('veh'),pre=fd.get('pre'),v=(fd.get('ville')||'').trim(),d=fd.get('date');
  $('#tVeh').textContent=form.dataset.car?form.dataset.car+(veh?' ('+veh+')':''):(veh||'—');
@@ -809,16 +846,22 @@ function upd(){
  const n=[veh,pre,v,d,(fd.get('nom')||'').trim(),$('#ok').checked].filter(Boolean).length,pc=Math.round(n/6*100);
  $('#water').style.height=pc+'%';$('#water').classList.toggle('empty',pc===0);$('#gtxt').textContent=pc+' % rempli';
 }
-form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)setExt('img/'+k+'.jpg');}if(e.target.name==='pre'){const v=e.target.value;if(v==='Intérieur')setMode('in','Intérieur');else if(v==='Extérieur')setMode('ext','Extérieur');else if(v.startsWith('Intérieur +'))setMode('both','Intérieur + extérieur');else setMode('pro','Maison / pro');}upd();});
+const BIMG={'Fin de chantier':'svc-chantier','Toiture':'svc-toiture','Façade':'svc-facade','Panneaux solaires':'svc-solaire','Terrasse':'svc-terrasse','Vitres':'svc-vitres','Locaux de bureau':'svc-bureau','Moquette':'svc-moquette','Canapés / textile':'svc-textile'};
+function setPro(k,alt){const im=$('#tPh .l-pro img');const src='img/'+k+(k.startsWith('svc')?'-v2':'')+'.jpg';if(!im.src.endsWith(src))im.src=src;if(alt)im.alt=alt;}
+function setKind(k){const a=k==='auto';form.dataset.kind=k;$('#gAuto').hidden=!a;$('#gBat').hidden=a;$('#gAuto').querySelectorAll('input').forEach(i=>{i.disabled=!a;if(!a)i.checked=false;});$('#gBat').querySelectorAll('input').forEach(i=>{i.disabled=a;if(a)i.checked=false;});const r=form.querySelector('input[name=kind][value='+k+']');if(r)r.checked=true;delete form.dataset.car;$('#tVehL').textContent=a?'Véhicule':'Lieu d’intervention';if(a)setMode('ext','Extérieur');else{setPro('tk-maison','Maison provençale, façade et terrasse nettoyées');setMode('pro','Maison & pro');}upd();}
+form.addEventListener('input',e=>{if(e.target.name==='kind'){setKind(e.target.value);return;}if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;}if(e.target.name==='pre'){const v=e.target.value;if(form.dataset.kind==='bat'){setPro(BIMG[v]||'tk-maison',v+' : résultat après nettoyage');setMode('pro',v);}else if(v==='Intérieur')setMode('in','Intérieur');else if(v==='Extérieur')setMode('ext','Extérieur');else setMode('both','Intérieur + extérieur');}upd();});
+setKind('auto');
+const SVMAP={'Toiture':'Toiture','Façade':'Façade','Panneaux solaires':'Panneaux solaires','Terrasse':'Terrasse','Fin de chantier':'Fin de chantier','Locaux de bureau':'Locaux de bureau','Vitres':'Vitres','Moquette':'Moquette','Textile':'Canapés / textile'};
+document.querySelectorAll('.svc .sdev').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const n=b.dataset.s;if(n==='Nettoyage automobile'){setKind('auto');}else{setKind('bat');const r=form.querySelector('#gBat input[name=pre][value="'+SVMAP[n]+'"]');if(r){r.checked=true;r.dispatchEvent(new Event('input',{bubbles:true}));}}$('#reserver').scrollIntoView({behavior:RM?'auto':'smooth'});}));
 form.addEventListener('change',upd);
 const dt=form.querySelector('input[type=date]');dt.min=new Date().toISOString().slice(0,10);
 form.addEventListener('submit',e=>{
  e.preventDefault();const via=e.submitter&&e.submitter.dataset.via||'wa',fd=new FormData(form),err=$('#err');
- const miss=[];if(!fd.get('veh'))miss.push('le véhicule');if(!fd.get('pre'))miss.push('la prestation');if(!(fd.get('ville')||'').trim())miss.push('la ville');if(!fd.get('date'))miss.push('la date');if(!(fd.get('nom')||'').trim())miss.push('votre prénom');
+ const bat=form.dataset.kind==='bat';const miss=[];if(!fd.get('veh'))miss.push(bat?'le lieu':'le véhicule');if(!fd.get('pre'))miss.push('la prestation');if(!(fd.get('ville')||'').trim())miss.push('la ville');if(!fd.get('date'))miss.push('la date');if(!(fd.get('nom')||'').trim())miss.push('votre prénom');
  if(miss.length){err.textContent='Il manque : '+miss.join(', ')+'.';return;}
  if(!$('#ok').checked){err.textContent='Cochez la case de consentement pour envoyer la demande.';$('#ok').focus();return;}
  err.textContent='';
- const msg=`Bonjour Shining Cars, je suis ${fd.get('nom').trim()}.\nDemande de nettoyage :\n- Véhicule : ${form.dataset.car?form.dataset.car+' / ':''}${fd.get('veh')}\n- Prestation : ${fd.get('pre')}\n- Lieu : ${fd.get('ville').trim()}\n- Date souhaitée : ${$('#tDat').textContent}\n${(fd.get('msg')||'').trim()?'- Précisions : '+fd.get('msg').trim()+'\n':''}Pouvez-vous me donner un prix et confirmer l'heure ? Merci !`;
+ const msg=`Bonjour Shining Cars, je suis ${fd.get('nom').trim()}.\nDemande de devis ${bat?'maison / pro':'voiture'} :\n- ${bat?'Lieu':'Véhicule'} : ${form.dataset.car?form.dataset.car+' / ':''}${fd.get('veh')}\n- Prestation : ${fd.get('pre')}\n- Ville : ${fd.get('ville').trim()}\n- Date souhaitée : ${$('#tDat').textContent}\n${(fd.get('msg')||'').trim()?'- Précisions : '+fd.get('msg').trim()+'\n':''}Pouvez-vous me donner un prix et confirmer l'heure ? Merci !`;
  if(via==='ig'){
   const ta=document.createElement('textarea');ta.value=msg;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,msg.length);try{document.execCommand('copy')}catch(x){}ta.remove();
   try{navigator.clipboard&&navigator.clipboard.writeText(msg).catch(()=>{})}catch(x){}
@@ -834,7 +877,7 @@ ticket.parentElement.addEventListener('pointerleave',()=>ticket.style.transform=
 upd();
 
 /* ---------- Instagram: prepare message ---------- */
-const IGMSG='Bonjour Shining Cars ! Je souhaite un devis pour un nettoyage.\n- Véhicule : \n- Prestation (intérieur / extérieur / complet) : \n- Ville : \n- Date souhaitée : \nMerci !';
+const IGMSG='Bonjour Shining Cars ! Je souhaite un devis pour un nettoyage.\n- Voiture ou lieu (maison, bureaux, chantier…) : \n- Prestation (intérieur, extérieur, fin de chantier, toiture, façade…) : \n- Ville : \n- Date souhaitée : \nMerci !';
 const gt=document.createElement('p');gt.className='toast';gt.setAttribute('role','status');gt.style.cssText='position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:95;max-width:min(520px,92vw);display:none;background:#0a1830;box-shadow:0 10px 30px rgba(0,0,0,.4)';document.body.appendChild(gt);
 function copyTxt(t){const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);try{document.execCommand('copy')}catch(x){}ta.remove();try{navigator.clipboard&&navigator.clipboard.writeText(t).catch(()=>{})}catch(x){}}
 document.querySelectorAll('a[href="https://ig.me/m/shiningcarss"]').forEach(a=>a.addEventListener('click',()=>{copyTxt(IGMSG);gt.textContent='Message préparé et copié ✔ Dans la conversation Instagram qui s\'ouvre : collez-le (appui long → Coller), complétez puis envoyez.';gt.style.display='block';clearTimeout(gt._t);gt._t=setTimeout(()=>gt.style.display='none',9000);}));
