@@ -150,8 +150,8 @@ header.lt .pill.f span{color:var(--w)}
 .day b{font:800 30px Syne,sans-serif;line-height:1}
 .day[aria-pressed=true]{background:var(--w);color:var(--k);transform:rotateX(-14deg) translateY(4px)}
 .clockw{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
-.clock{position:relative;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2a2a,#0c0c0c 70%);box-shadow:0 0 0 6px #1c1c1c,0 0 0 8px #3a3a3a,0 30px 60px rgba(0,0,0,.6),inset 0 0 30px #000;transform:perspective(800px) rotateX(10deg)}
-.clock .slot{position:absolute;left:50%;top:50%;width:38px;height:24px;margin:-12px -19px;border-radius:6px;font:600 10px "JetBrains Mono",monospace;background:rgba(255,255,255,.05);transition:.25s}
+.clock{position:relative;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2a2a,#0c0c0c 70%);box-shadow:0 0 0 6px #1c1c1c,0 0 0 8px #3a3a3a,0 30px 60px rgba(0,0,0,.6),inset 0 0 30px #000;transform:perspective(800px) rotateX(10deg)}
+.clock .slot{position:absolute;left:50%;top:50%;width:34px;height:22px;margin:-11px -17px;border-radius:6px;font:600 9px "JetBrains Mono",monospace;background:rgba(255,255,255,.05);transition:.25s}
 .clock .slot[aria-pressed=true]{background:var(--gold);color:var(--k)}
 .clock .slot:disabled{opacity:.18;cursor:not-allowed}
 .clock .hand{position:absolute;left:50%;top:50%;width:4px;height:70px;margin-left:-2px;background:var(--gold);transform-origin:50% 0;transform:rotate(180deg);transition:transform .8s cubic-bezier(.3,1.5,.5,1);border-radius:2px}
@@ -223,10 +223,16 @@ dialog .x{float:right;border:1px solid var(--k);border-radius:999px;padding:6px 
  header{padding:12px 16px;grid-template-columns:1fr auto}
  nav.c{display:none}
  .hr .pill:not(.f){display:none}
- .w1{font-size:40vw;top:19vh}.w2{font-size:24vw;bottom:auto;top:57vh}
+ #hero{height:170vh}
+ .w1{font-size:40vw;top:27vh}.w2{font-size:17vw;bottom:auto;top:58vh}
+ h2{font-size:30px}
+ #why .stepP{flex-direction:column;gap:2px;border-radius:18px;max-width:300px;padding:10px 18px}
+ #why .stepP b{white-space:nowrap}
+ .mir:not([aria-pressed=true]) .ini{display:none}
+ .clock{width:310px;height:310px}
  #chair{height:52vh;bottom:30vh}
  .hcopy h1{left:18px;top:76px;font-size:24px;max-width:300px}
- .hcopy .st{left:18px;right:auto;top:150px;text-align:left}
+ .hcopy .st{left:18px;right:auto;top:178px;text-align:left}
  .hcopy .bl{left:18px;right:18px;bottom:22px}
  .hs .tip{width:170px;left:-60px;top:44px}
  .hs.r .tip{left:auto;right:-10px}
@@ -243,7 +249,7 @@ dialog .x{float:right;border:1px solid var(--k);border-radius:999px;padding:6px 
  .clockw{grid-template-columns:1fr;justify-items:center}
  .card3d{position:relative;top:0}
  .map{height:420px}
- .big3d{font-size:44vw}
+ .big3d{font-size:34vw}
  .ck{left:10px;right:10px;bottom:10px;max-width:none}
  .demo{bottom:auto;top:auto;right:8px;bottom:8px;font-size:9px}
 }
@@ -469,7 +475,7 @@ const DN=['dim','lun','mar','mer','jeu','ven','sam'],MN=['janv.','févr.','mars'
 const days=[];for(let k=0;days.length<8;k++){const d=new Date(now);d.setDate(d.getDate()+k);if(d.getDay()!==0)days.push(d)}
 $('#cDay').innerHTML=days.map((d,i)=>`<button type="button" class="day" aria-pressed="false" data-k="d" data-v="${i}"><span class="mono">${DN[d.getDay()]}</span><b>${d.getDate()}</b><span class="mono" style="opacity:.6">${MN[d.getMonth()]}</span></button>`).join('');
 const SL=[];for(let m=570;m<=1110;m+=30)SL.push(m);
-const clock=$('#clock'),R=()=>clock.offsetWidth/2-26;
+const clock=$('#clock'),R=()=>clock.offsetWidth/2-22;
 SL.forEach((m,i)=>{const b=document.createElement('button');b.type='button';b.className='slot';b.dataset.k='h';b.dataset.v=i;b.setAttribute('aria-pressed','false');b.textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0');b.setAttribute('aria-label',Math.floor(m/60)+' h '+String(m%60).padStart(2,'0'));clock.appendChild(b)});
 const placeSlots=()=>$$('.slot').forEach((b,i)=>{const a=(SL[i]/60%12)/12*Math.PI*2;b.style.transform=`translate(${Math.sin(a)*R()}px,${-Math.cos(a)*R()}px)`});placeSlots();
 function slotsState(){const isToday=sel.d!==null&&days[sel.d].toDateString()===now.toDateString();$$('.slot').forEach((b,i)=>{b.disabled=isToday&&SL[i]<=mins+30;if(b.disabled&&sel.h===i){sel.h=null;b.setAttribute('aria-pressed','false')}})}
@@ -508,7 +514,7 @@ function three(){const T=window.THREE;
  const hb=C(.06,.06,.5,chrome);hb.position.set(0,4.95,-1.2);ch.add(hb);
  [-1,1].forEach(s=>{const arm=B(.32,.22,1.9,leather);arm.position.set(s*1.3,2.75,.05);ch.add(arm);const ap=C(.07,.07,.75,chrome);ap.position.set(s*1.3,2.3,.75);ch.add(ap);const ap2=ap.clone();ap2.position.z=-.6;ch.add(ap2);const tr=B(.36,.05,1.95,gold);tr.position.set(s*1.3,2.62,.05);ch.add(tr)});
  const foot=B(1.8,.12,.7,chrome);foot.position.set(0,.85,1.6);ch.add(foot);const fs=C(.05,.05,1.1,chrome);fs.position.set(0,1.3,1.25);fs.rotation.x=.5;ch.add(fs);
- const floor=new T.Mesh(new T.CircleGeometry(6,64),new T.MeshStandardMaterial({color:0x2a2724,roughness:.9}));floor.rotation.x=-Math.PI/2;sc.add(floor);
+ const fcv=document.createElement('canvas');fcv.width=fcv.height=256;const fg=fcv.getContext('2d'),fgr=fg.createRadialGradient(128,128,0,128,128,128);fgr.addColorStop(0,'rgba(70,64,58,1)');fgr.addColorStop(.6,'rgba(50,46,42,.6)');fgr.addColorStop(1,'rgba(40,36,32,0)');fg.fillStyle=fgr;fg.fillRect(0,0,256,256);const floor=new T.Mesh(new T.CircleGeometry(6,64),new T.MeshBasicMaterial({map:new T.CanvasTexture(fcv),transparent:true,depthWrite:false}));floor.rotation.x=-Math.PI/2;sc.add(floor);
  ch.rotation.y=-.5;
  const szC=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()};szC();addEventListener('resize',szC);
  let ry=-.5;chairT=(p)=>{if(!vis(el))return;const target=-.5+p*1.1+(RM?0:(mx/innerWidth-.5)*.5);ry+=(target-ry)*.06;ch.rotation.y=ry+(RM?0:Math.sin(performance.now()/1600)*.04);rd.render(sc,cam)};
@@ -524,7 +530,7 @@ function three(){const T=window.THREE;
  const se=$('#seats'),rs=mk(se),scS=new T.Scene(),cs=new T.PerspectiveCamera(35,1,.1,80);cs.position.z=16;lights(scS,1.3);
  const objs=[clipper(),comb(),razor()];objs.forEach(o=>scS.add(o));
  const szS=()=>{const w=se.clientWidth,h=se.clientHeight;rs.setSize(w,h,false);cs.aspect=w/h;cs.updateProjectionMatrix()};szS();addEventListener('resize',szS);
- const seatsPos=()=>{const a=cs.aspect,wx=Math.tan(17.5*Math.PI/180)*16*a,wy=Math.tan(17.5*Math.PI/180)*16;return mob()?[[-wx*.6,wy*.74],[wx*.6,wy*.72],[0,-wy*.8]]:[[-wx*.8,wy*.52],[wx*.8,wy*.48],[wx*.6,-wy*.66]]};
+ const seatsPos=()=>{const a=cs.aspect,wx=Math.tan(17.5*Math.PI/180)*16*a,wy=Math.tan(17.5*Math.PI/180)*16;return mob()?[[-wx*.6,wy*.6],[wx*.6,wy*.58],[0,-wy*.66]]:[[-wx*.8,wy*.52],[wx*.8,wy*.48],[wx*.6,-wy*.66]]};
  const cur=objs.map((o,i)=>{const p0=seatsPos()[i];return{x:p0[0],y:p0[1],i}});let lt=performance.now();
  seatT=(p,step)=>{const n=performance.now(),dt=Math.min(.1,(n-lt)/1000);lt=n;if(!vis(se))return;const S=seatsPos(),t=n/1000,kk=RM?1:1-Math.pow(.94,dt*60),sc=mob()?.62:.85;objs.forEach((o,i)=>{const k=(i+step)%3,[tx,ty]=S[k];o.scale.setScalar(sc);cur[i].x+=(tx-cur[i].x)*kk;cur[i].y+=(ty-cur[i].y)*kk;o.position.set(cur[i].x,cur[i].y+(RM?0:Math.sin(t*1.2+i)*.25),0);o.rotation.set(.3+Math.sin(t*.7+i)*.15,t*.5+i*2,(i===1?.2:-.4))});rs.render(scS,cs)};
 }
