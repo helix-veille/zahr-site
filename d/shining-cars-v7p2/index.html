@@ -13,7 +13,7 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#04060b;--ink:#eef4ff;--mut:#8fa3c2;--blue:#1f8bff;--cyan:#46d2ff;--line:rgba(140,190,255,.18);--glass:rgba(255,255,255,.08);--pad:clamp(16px,2.6vw,44px);--f:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif}
-html,body{overflow-x:hidden;max-width:100vw}
+html,body{overflow-x:clip;max-width:100vw}
 html{scroll-behavior:auto}
 body{background:var(--bg);color:var(--ink);font-family:var(--f);-webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit;text-decoration:none}
@@ -119,7 +119,8 @@ h1 em{font-style:italic;font-weight:800;color:var(--cyan)}
 .mini{height:34px;padding:0 14px;font-size:12px}
 .stage.nojs{position:relative;height:auto}
 @media(max-width:760px),(orientation:portrait){
- .statement .ln{font-size:6.4vw}
+ .statement .ln{font-size:min(6.4vw,3.6vh)}
+ .marquee{display:none}
  .fleetline{font-size:6.2vw;top:16%}
  .bar{grid-template-columns:44px 1fr 1fr 44px;grid-template-rows:auto auto}
  .bar .t-name{grid-column:1/-1;grid-row:1}
@@ -187,13 +188,14 @@ label.f{display:grid;gap:7px;font-size:13px;font-weight:600;color:#c6d6f0}
 .ticket dt{color:var(--mut)}
 .ticket dd{font-weight:600;text-align:right}
 .ticket .gauge{margin-top:22px;height:64px;border-radius:14px;border:1px solid var(--line);position:relative;overflow:hidden;background:rgba(255,255,255,.03)}
+.ticket .water.empty::before{display:none}
 .ticket .water{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,rgba(70,210,255,.75),rgba(31,139,255,.9));transition:height .6s cubic-bezier(.22,1,.36,1)}
 .ticket .water::before{content:"";position:absolute;left:-50%;top:-10px;width:200%;height:20px;background:radial-gradient(ellipse at 25% 100%,rgba(70,210,255,.75) 50%,transparent 52%) 0 0/50% 100% repeat-x;animation:wave 2.4s linear infinite}
 @keyframes wave{to{transform:translateX(25%)}}
 .ticket .gauge span{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:700;letter-spacing:.08em;z-index:2}
 .ticket .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.18),transparent 45%);pointer-events:none}
 .note{font-size:12px;color:var(--mut);margin-top:12px}
-@media(max-width:900px){.res{grid-template-columns:1fr}.ticket-wrap{position:relative;top:0;order:-1}.grid2{grid-template-columns:1fr}}
+@media(max-width:900px){.res{grid-template-columns:1fr}.ticket-wrap{position:relative;top:0}.grid2{grid-template-columns:1fr}}
 
 /* ZONE / MAP */
 #zone{background:linear-gradient(180deg,#04060b,#071024)}
@@ -232,7 +234,7 @@ footer{position:relative;padding:clamp(70px,10vh,120px) var(--pad) 40px;backgrou
 .plate3d .back b{font-size:clamp(24px,4.6vw,42px);font-weight:900;letter-spacing:.02em}
 .plate3d .edge{transform:translateZ(-6px);background:#0a1830;backface-visibility:visible}
 @keyframes flip{0%,40%{transform:rotateX(0) rotateY(-12deg)}50%,90%{transform:rotateX(180deg) rotateY(12deg)}100%{transform:rotateX(360deg) rotateY(-12deg)}}
-.fbig{font-size:16vw;font-weight:900;font-style:italic;letter-spacing:-.05em;line-height:.85;margin-top:60px;background:linear-gradient(180deg,#1a2c4f,#04060b 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;user-select:none}
+.fbig{font-size:12.4vw;font-weight:900;font-style:italic;letter-spacing:-.05em;line-height:.85;margin-top:60px;background:linear-gradient(180deg,#1a2c4f,#04060b 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;user-select:none}
 .fcols{display:flex;flex-wrap:wrap;gap:14px 28px;font-size:13px;color:var(--mut);margin-top:28px;align-items:center}
 .fcols button{font-size:13px;color:var(--mut);text-decoration:underline}
 .fcols button:hover{color:#fff}
@@ -402,7 +404,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
    <h2>Prêt à <em>briller ?</em></h2>
    <div class="sendrow" style="margin-top:26px"><a class="btn btn-blue" href="tel:+33665345684">06 65 34 56 84</a><a class="btn btn-glass" href="https://wa.me/33665345684" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-glass" href="https://www.instagram.com/shiningcarss/" target="_blank" rel="noopener">@shiningcarss</a></div>
   </div>
-  <div class="plate3d-scene" aria-hidden="true"><div class="plate3d"><div class="edge"></div><div class="front"><div><b>SHININGCARS</b><small>DOMESTIC LUXURY CLEAN</small></div></div><div class="back"><b>06 65 34 56 84</b></div></div></div>
+  <div class="plate3d-scene" aria-hidden="true"><div class="plate3d"><div class="front"><div><b>SHININGCARS</b><small>DOMESTIC LUXURY CLEAN</small></div></div><div class="back"><b>06 65 34 56 84</b></div></div></div>
  </div>
  <div class="fbig" aria-hidden="true">SHINING CARS</div>
  <div class="fcols">
@@ -491,9 +493,9 @@ function geo(){
  const W=innerWidth,H=stageH(),small=W<760||H>W,pad=Math.max(16,Math.min(W*.026,44));
  const full={x:0,y:0,w:W,h:H,r:0};
  let card;
- if(small){const w=W-pad*2;card={x:pad,y:Math.max(84,H*.12),w,h:w/1.3,r:16};}
+ if(small){const w=Math.min(W-pad*2,H*.4*1.3);card={x:(W-w)/2,y:Math.max(84,H*.12),w,h:w/1.3,r:16};}
  else{const w=W*.46,h=w/1.3;card={x:pad,y:(H-h)/2-H*.03,w,h,r:22};}
- const cw0=small?W*.34:Math.min(W*.12,(H*.38)*9/16);
+ const cw0=small?Math.min(W*.34,H*.34*9/16):Math.min(W*.12,(H*.38)*9/16);
  const cw1=small?Math.min(W*.66,(H*.5)*9/16):Math.min(W*.3,(H*.58)*9/16);
  const sm={x:W/2-cw0*1.6/2,y:H*.73-(cw0*1.6/1.3)/2,w:cw0*1.6,h:cw0*1.6/1.3,r:14};
  return {W,H,small,pad,full,card,sm,cw0,cw1};
@@ -636,7 +638,8 @@ const arches=SV.map((s,i)=>{const a=document.createElement('article');a.classNam
 function tunnel(){
  const sec=$('#services'),r=sec.getBoundingClientRect(),H=innerHeight;
  const p=clamp(-r.top/(sec.offsetHeight-H),0,1);
- const z0=p*(SV.length-1)*SP+SP*.2;
+ const q=p*(SV.length-1),fq=Math.floor(q),t=q-fq,e=t<.3?0:t>.7?1:(u=>u*u*(3-2*u))((t-.3)/.4);
+ const z0=(fq+e)*SP+SP*.1;
  arches.forEach((a,i)=>{const z=-i*SP+z0;const vis=z>-SP*3.2&&z<520;a.style.visibility=vis?'visible':'hidden';if(!vis)return;
   const op=z>0?clamp(1-z/480,0,1):clamp(1+(z+SP*2.6)/(SP*.6),0,1)*clamp(1+z/(SP*3),.25,1);
   a.style.transform=`translate3d(0,0,${z}px) rotateZ(${(i%2?1:-1)*Math.max(0,-z)/SP*3}deg)`;a.style.opacity=op.toFixed(3);});
@@ -654,7 +657,7 @@ function upd(){
  $('#tPre').textContent=pre||'—';$('#tVil').textContent=v||'—';
  $('#tDat').textContent=d?new Date(d+'T12:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'})+' · '+fd.get('moment'):'—';
  const n=[veh,pre,v,d,(fd.get('nom')||'').trim(),$('#ok').checked].filter(Boolean).length,pc=Math.round(n/6*100);
- $('#water').style.height=pc+'%';$('#gtxt').textContent=pc+' % rempli';
+ $('#water').style.height=pc+'%';$('#water').classList.toggle('empty',pc===0);$('#gtxt').textContent=pc+' % rempli';
 }
 form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)$('#tImg').src='img/'+k+'.jpg';}upd();});
 form.addEventListener('change',upd);
