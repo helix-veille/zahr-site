@@ -65,7 +65,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-row{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(22px,4vw,64px);padding:0 var(--pad) clamp(30px,6vh,58px)}
 .hl{min-width:min(100%,380px);max-width:780px}
 .badge{display:flex;align-items:center;gap:12px;margin-bottom:clamp(16px,2.6vh,26px);opacity:0;animation:softIn .7s .15s cubic-bezier(.22,1,.36,1) forwards}
-.plate{display:inline-grid;place-items:center;height:34px;padding:0 12px;border-radius:6px;background:#fff;color:#04060b;font-weight:900;font-style:italic;font-size:13px;line-height:1;box-shadow:0 0 0 2px #0a1830 inset,0 6px 20px rgba(0,0,0,.35)}
+.plate{white-space:nowrap;display:inline-grid;place-items:center;height:34px;padding:0 12px;border-radius:6px;background:#fff;color:#04060b;font-weight:900;font-style:italic;font-size:13px;line-height:1;box-shadow:0 0 0 2px #0a1830 inset,0 6px 20px rgba(0,0,0,.35)}
 .plate small{display:block;font-size:7px;letter-spacing:.14em;font-style:normal;font-weight:700;color:var(--blue);margin-top:2px}
 .badge span{font-size:clamp(14px,1.2vw,17px)}
 h1{font-size:clamp(34px,5.4vw,70px);font-weight:600;letter-spacing:-.03em;line-height:1}
@@ -256,7 +256,7 @@ dialog .db{padding:22px;font-size:14px;color:#c6d6f0;display:grid;gap:12px}
 dialog .db h4{color:#fff;font-size:15px;margin-top:8px}
 dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);font-size:20px}
 .demo-tag{position:fixed;right:10px;bottom:10px;z-index:40;font-size:10px;padding:5px 9px;border-radius:99px;background:rgba(4,6,11,.7);border:1px solid var(--line);color:#8fa3c2;pointer-events:none}
-@media(max-width:760px){.demo-tag{display:none}}
+@media(max-width:600px){.logo span{display:none}.full{display:none}}
 
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
@@ -276,7 +276,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
   <a href="#zone">Zone</a>
  </nav>
  <a class="logo" href="#top" aria-label="Shining Cars, retour en haut"><img src="img/logo.png" alt="Logo Shining Cars"><span>SHINING<i>CARS</i></span></a>
- <a class="btn btn-glass" href="https://wa.me/33665345684?text=Bonjour%20Shining%20Cars%2C%20je%20voudrais%20un%20devis%20pour%20un%20nettoyage." target="_blank" rel="noopener">Devis WhatsApp <span aria-hidden="true">→</span></a>
+ <a class="btn btn-glass" href="https://wa.me/33665345684?text=Bonjour%20Shining%20Cars%2C%20je%20voudrais%20un%20devis%20pour%20un%20nettoyage." target="_blank" rel="noopener">Devis<span class="full"> WhatsApp</span> <span aria-hidden="true">→</span></a>
 </header>
 
 <main id="top">
@@ -321,7 +321,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
    <button class="tile arrow t-prev" id="prev" aria-label="Voiture précédente">←</button>
    <div class="tile t-name"><div class="nm swap" id="cName">McLaren 675LT</div><div class="ds swap" id="cDesc">Nettoyage complet</div><div class="row2"><a class="btn btn-glass mini" id="cLink" href="#" target="_blank" rel="noopener">Voir la vidéo ↗</a></div></div>
    <div class="tile t-pills"><div class="row2"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Var</span><span class="pill swap" id="cCat">Sportive</span></div><div class="ds">À domicile</div></div>
-   <div class="tile t-price"><div class="pr"><small>Tarif</small><b>Sur devis</b></div><a class="btn btn-blue mini" id="cBook" href="#reserver">Réserver le même</a></div>
+   <div class="tile t-price"><div class="pr"><small>Tarif</small><b>Sur devis</b></div><a class="btn btn-blue mini" id="cBook" href="#reserver">Réserver<span class="full"> le même</span></a></div>
    <button class="tile arrow t-next" id="next" aria-label="Voiture suivante">→</button>
   </div>
   <span id="voitures" class="sr">Voitures</span>
@@ -641,7 +641,7 @@ function tunnel(){
  const q=p*(SV.length-1),fq=Math.floor(q),t=q-fq,e=t<.3?0:t>.7?1:(u=>u*u*(3-2*u))((t-.3)/.4);
  const z0=(fq+e)*SP+SP*.1;
  arches.forEach((a,i)=>{const z=-i*SP+z0;const vis=z>-SP*3.2&&z<520;a.style.visibility=vis?'visible':'hidden';if(!vis)return;
-  const op=z>0?clamp(1-z/480,0,1):clamp(1+(z+SP*2.6)/(SP*.6),0,1)*clamp(1+z/(SP*3),.25,1);
+  const op=z>0?clamp(1-z/480,0,1):clamp(1+(z+SP*2.6)/(SP*.6),0,1)*clamp(1+z/(SP*1.1),.1,1);
   a.style.transform=`translate3d(0,0,${z}px) rotateZ(${(i%2?1:-1)*Math.max(0,-z)/SP*3}deg)`;a.style.opacity=op.toFixed(3);});
  $('#tprog').style.width=(p*100)+'%';
 }
