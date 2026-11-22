@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>FL Auto — Garage multimarques à La Farlède</title>
+<meta name="description" content="FL Auto, réparateur automobile multimarques à La Farlède : révision, vidange, freinage, distribution, suspension, pneus, batterie. Prise de rendez-vous en ligne.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E46D2'/%3E%3Ctext x='32' y='43' font-family='Arial Black,Arial' font-weight='900' font-style='italic' font-size='30' text-anchor='middle' fill='white'%3EFL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=bebas-neue:400|space-grotesk:400,500,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#060B1C; --navy2:#0B1430; --blue:#1E46D2; --blue2:#3D6BFF; --ice:#DCE6FF;
+  --txt:#E8EEFF; --mute:#A9B6D8; --hot:#FF6B2C; --line:rgba(140,170,255,.18);
+  --disp:'Bebas Neue',Impact,'Arial Narrow Bold',sans-serif;
+  --body:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--txt);font-family:var(--body);line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid #FFD23F;outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:10px 14px;z-index:999;border-radius:8px}
+.skip:focus{left:8px}
+
+/* ---------- header ---------- */
+header.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,4vw,40px);background:linear-gradient(180deg,rgba(6,11,28,.92),rgba(6,11,28,0));}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--disp);font-size:28px;letter-spacing:1px}
+.logo{width:40px;height:40px;flex:none}
+.nav{display:flex;gap:8px;align-items:center}
+.nav a{font-size:14px;text-decoration:none;padding:8px 12px;border-radius:999px;color:var(--ice)}
+.nav a:hover{background:rgba(61,107,255,.18)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);border:0;cursor:pointer;text-decoration:none;padding:12px 18px;border-radius:999px;background:var(--blue);color:#fff;transition:transform .2s,background .2s}
+.btn:hover{background:var(--blue2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1.5px solid var(--blue2);color:#fff}
+@media(max-width:760px){.nav a.l{display:none}}
+
+/* ---------- atelier (three.js scrolly) ---------- */
+#atelier{position:relative}
+.stage{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage .vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 65% 50%,transparent 40%,rgba(6,11,28,.85) 100%)}
+.hud{position:absolute;right:clamp(14px,3vw,36px);bottom:22px;font:500 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;gap:14px;align-items:center}
+.hud b{color:#fff;font-family:var(--disp);font-size:22px;letter-spacing:1px}
+.hud .bar{width:120px;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.hud .bar i{display:block;height:100%;width:0;background:var(--blue2)}
+#fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:flex-end;padding-right:6vw}
+#fallback svg{width:min(640px,80vw)}
+.nogl #fallback{display:flex}
+.nogl #gl{display:none}
+
+.steps{position:relative;z-index:2;margin-top:-100vh}
+.step{min-height:100vh;display:flex;align-items:center;padding:110px clamp(16px,5vw,64px) 60px}
+.card{max-width:440px;background:rgba(8,14,36,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:22px;padding:26px 26px 24px;box-shadow:0 30px 80px rgba(0,0,0,.4);opacity:.25;transform:translateY(30px) rotateX(8deg);transition:opacity .6s,transform .6s}
+.step.on .card{opacity:1;transform:none}
+.kick{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);font-weight:700;display:flex;align-items:center;gap:10px}
+.kick i{width:28px;height:2px;background:var(--blue2);display:block}
+.card h2,.hero h1{font-family:var(--disp);font-weight:400;letter-spacing:.5px;line-height:.95}
+.card h2{font-size:clamp(40px,5vw,58px);margin:10px 0 12px}
+.card p{color:var(--mute);font-size:16px}
+.card .btn{margin-top:18px}
+.hero{max-width:620px}
+.hero h1{font-size:clamp(64px,10vw,132px)}
+.hero h1 span{color:var(--blue2);display:block}
+.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--ice);margin:18px 0 24px;max-width:470px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .meta{margin-top:26px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--mute)}
+.hero .meta b{color:#fff}
+.step.hero-step .card{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0;opacity:1;transform:none;max-width:640px}
+.scrollhint{margin-top:34px;display:flex;align-items:center;gap:12px;font-size:13px;color:var(--mute)}
+.scrollhint span{width:22px;height:36px;border:2px solid var(--mute);border-radius:12px;position:relative}
+.scrollhint span:after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;margin-left:-2px;background:var(--blue2);border-radius:2px;animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(12px);opacity:0}}
+.swatches{display:flex;gap:8px;margin-top:14px}
+.swatches button{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.4);cursor:pointer}
+.swatches button[aria-pressed=true]{border-color:#fff;transform:scale(1.15)}
+@media(max-width:760px){
+  .step{align-items:flex-end;padding:90px 14px 28px}
+  .card{max-width:none;width:100%}
+  .step.hero-step{align-items:flex-start;padding-top:96px}
+  .stage .vign{background:linear-gradient(180deg,rgba(6,11,28,.2),rgba(6,11,28,.15) 45%,rgba(6,11,28,.9))}
+}
+
+/* ---------- section titles ---------- */
+.sec{position:relative;padding:110px clamp(16px,5vw,64px)}
+.sec h2.big{font-family:var(--disp);font-weight:400;font-size:clamp(48px,7vw,96px);line-height:.92;max-width:900px}
+.sec h2.big em{font-style:normal;color:var(--blue2)}
+.sec .sub{color:var(--mute);max-width:560px;margin-top:14px;font-size:17px}
+
+/* ---------- road (process) ---------- */
+#route{height:340vh;padding:0;position:relative}
+#route .sticky{position:sticky;top:0;height:100vh;overflow:hidden;perspective:520px;perspective-origin:50% 30%}
+#route .head{position:absolute;top:96px;left:clamp(16px,5vw,64px);z-index:3;max-width:560px}
+.road{position:absolute;left:50%;bottom:-30vh;width:min(520px,70vw);height:260vh;margin-left:calc(min(520px,70vw)/-2);transform-origin:50% 100%;transform:rotateX(76deg);background:
+  linear-gradient(90deg,transparent 3%,#FFD23F 3%,#FFD23F 4%,transparent 4%,transparent 96%,#FFD23F 96%,#FFD23F 97%,transparent 97%),
+  linear-gradient(180deg,#1A2140,#0F152E);
+  box-shadow:0 0 120px rgba(61,107,255,.25)}
+.road:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:10px;margin-left:-5px;background:repeating-linear-gradient(180deg,#fff 0 70px,transparent 70px 150px);background-position:0 var(--dash,0px);opacity:.85}
+.horizon{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 8%,rgba(61,107,255,.35),transparent 70%)}
+.signs{list-style:none;position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
+.sign{position:absolute;left:50%;top:44%;width:min(380px,74vw);margin-left:calc(min(380px,74vw)/-2);transform-style:preserve-3d;will-change:transform,opacity}
+.sign .plate{background:#F4F7FF;color:#0A1330;border-radius:16px;padding:18px 20px;border:5px solid var(--blue);box-shadow:0 20px 40px rgba(0,0,0,.45)}
+.sign .plate .n{font-family:var(--disp);font-size:44px;color:var(--blue);line-height:1}
+.sign .plate h3{font-size:20px;margin:4px 0 6px}
+.sign .plate p{font-size:15px;color:#2B3555}
+.sign .pole{width:10px;height:160px;margin:0 auto;background:linear-gradient(90deg,#8C97B8,#D9DFEE,#8C97B8)}
+.odo{position:absolute;right:clamp(16px,5vw,64px);bottom:28px;z-index:3;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.odo .digits{display:flex;background:#000;border:2px solid #39415f;border-radius:6px;padding:4px;gap:2px}
+.odo .d{width:22px;height:32px;overflow:hidden;background:#111;border-radius:3px;font:700 24px/32px var(--body);color:#fff;text-align:center}
+.odo .d span{display:block;transition:transform .3s}
+
+/* ---------- cockpit (booking v2) ---------- */
+#rdv{background:radial-gradient(80% 60% at 20% 0%,rgba(30,70,210,.25),transparent 70%)}
+.cockpit{margin-top:46px;display:grid;grid-template-columns:minmax(280px,1fr) minmax(540px,1.7fr) minmax(290px,1fr);gap:22px;align-items:start;
+  padding:26px;border-radius:28px;border:1px solid var(--line);
+  background:
+   repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 4px,transparent 4px 8px),
+   repeating-linear-gradient(-45deg,rgba(0,0,0,.35) 0 4px,transparent 4px 8px),
+   linear-gradient(180deg,#0d1226,#070a16);
+  box-shadow:inset 0 0 0 6px rgba(0,0,0,.35),inset 0 0 0 7px rgba(61,107,255,.25),0 40px 90px rgba(0,0,0,.5)}
+.cockpit fieldset{border:0;min-width:0;position:relative;background:rgba(6,10,24,.75);border-radius:20px;padding:20px;border:1px dashed rgba(140,170,255,.25)}
+.cockpit legend{font:700 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ice);display:flex;align-items:center;gap:8px;padding:0 6px}
+.cockpit legend span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;letter-spacing:0}
+@media(max-width:1200px){.cockpit{grid-template-columns:1fr;max-width:640px;margin-left:auto;margin-right:auto}}
+@media(max-width:760px){.cockpit{padding:12px;border-radius:20px}.cockpit fieldset{padding:16px 12px}}
+
+/* shifter */
+.shifter{perspective:700px}
+.gate{position:relative;width:100%;max-width:340px;margin:18px auto 6px;aspect-ratio:320/260;transform:rotateX(26deg);transform-style:preserve-3d;
+  background:radial-gradient(120% 100% at 50% 0%,#2a3150,#10142a);border-radius:22px;box-shadow:inset 0 2px 0 rgba(255,255,255,.08),0 24px 30px rgba(0,0,0,.5)}
+.slots-svg{position:absolute;inset:0;width:100%;height:100%}
+.slots-svg path{fill:none;stroke:#04060d;stroke-width:16;stroke-linecap:round;filter:drop-shadow(0 1px 0 rgba(255,255,255,.12))}
+.knob{position:absolute;left:var(--kx,50.6%);top:var(--ky,50%);width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;z-index:3;pointer-events:none;
+  background:radial-gradient(circle at 34% 28%,#fff 0,#c9cfdc 14%,#59617a 48%,#141826 80%);box-shadow:0 18px 22px rgba(0,0,0,.6),inset 0 -4px 8px rgba(0,0,0,.5);
+  transition:left .28s cubic-bezier(.5,0,.3,1),top .28s cubic-bezier(.5,0,.3,1);display:grid;place-items:center;transform:translateZ(30px)}
+.knob span{font:700 20px var(--disp);color:#0A1330;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.knob:before{content:"";position:absolute;inset:-14px;border-radius:50%;z-index:-1;background:radial-gradient(circle,rgba(0,0,0,.5),transparent 70%)}
+.gears{position:absolute;inset:0}
+.gear{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;border:2px solid rgba(140,170,255,.35);background:rgba(10,14,30,.6);color:#fff;font:700 18px var(--disp);cursor:pointer;z-index:2}
+.gear:hover{border-color:var(--blue2)}
+.gear[aria-checked=true]{background:var(--blue);border-color:#fff;opacity:0}
+.gear i{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font:600 11px var(--body);letter-spacing:.02em;color:var(--ice);font-style:normal;pointer-events:none}
+.gear.up i{bottom:calc(100% + 6px)}.gear.dn i{top:calc(100% + 6px)}
+.engaged{text-align:center;font-size:14px;color:var(--mute);margin-top:34px;min-height:22px}
+.engaged b{color:#fff}
+
+/* dials */
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dash .gauge{display:flex;flex-direction:column;align-items:center}
+@media(max-width:640px){.dash{grid-template-columns:1fr}}
+.dial{position:relative;width:min(280px,100%);aspect-ratio:1;margin-top:10px;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,#141a33 0,#090c19 62%,#04050b 70%,#2b3147 71%,#0a0d19 74%,#1c2238 100%);
+  box-shadow:0 0 0 3px #39415f,0 0 40px rgba(61,107,255,.25),inset 0 0 30px rgba(0,0,0,.8)}
+.dial .ticks{position:absolute;inset:0;width:100%;height:100%}
+.dial .ticks line{stroke:#7d89b3;stroke-width:2}
+.dial .ticks line.maj{stroke:#dfe6ff;stroke-width:3}
+.dial .ticks path.red{fill:none;stroke:#ff3b3b;stroke-width:6;opacity:.85}
+.dial .ticks text{fill:#ff7b7b;font:700 10px var(--body);letter-spacing:.1em}
+.dial .opt{position:absolute;transform:translate(-50%,-50%);background:none;border:0;color:#cfd8f5;font:600 11px/1.1 var(--body);cursor:pointer;padding:4px;border-radius:8px;text-align:center;z-index:2;min-width:34px}
+.dial .opt b{display:block;font:400 17px var(--disp);color:#fff;letter-spacing:.5px}
+.dial .opt[aria-checked=true]{color:#fff;background:rgba(61,107,255,.35)}
+.dial .opt[aria-checked=true] b{color:#9fc0ff}
+.needle{position:absolute;left:50%;top:50%;width:6px;height:44%;margin-left:-3px;transform-origin:50% 100%;transform:translateY(-100%) rotate(var(--a,-135deg));
+  background:linear-gradient(180deg,#ff5a3c,#ff2a1a 70%,#7a0d05);border-radius:3px 3px 1px 1px;box-shadow:0 0 12px rgba(255,80,40,.7);transition:transform .9s cubic-bezier(.3,1.5,.5,1);z-index:1}
+.dial:after{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#aab3c9,#1b2033);z-index:1}
+.hubtxt{position:absolute;left:0;right:0;bottom:16%;text-align:center;z-index:1}
+.hubtxt b{display:block;font:400 26px var(--disp);color:#9fc0ff;letter-spacing:1px;text-shadow:0 0 10px rgba(61,107,255,.8)}
+.hubtxt small{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+
+/* screen */
+.lcd{margin-top:12px;border-radius:14px;padding:14px;background:linear-gradient(180deg,#0a1a2e,#061020);box-shadow:inset 0 0 0 1px rgba(120,200,255,.25),inset 0 0 30px rgba(0,140,255,.15);display:grid;gap:10px}
+.lcd label{display:flex;flex-direction:column;font:600 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#7fb6ff}
+.lcd label small{letter-spacing:0;text-transform:none;color:#6d84ad}
+.lcd input{margin-top:4px;background:transparent;border:0;border-bottom:1.5px solid rgba(127,182,255,.4);color:#e6f2ff;font:500 16px ui-monospace,Menlo,Consolas,monospace;padding:6px 2px;min-width:0;width:100%}
+.lcd input:focus{outline:none;border-bottom-color:#7fb6ff;box-shadow:0 6px 12px -8px rgba(127,182,255,.9)}
+.lcd input::placeholder{color:#4d6488}
+.screen .consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mute);margin:14px 0 6px}
+.screen .consent input{margin-top:2px;width:18px;height:18px;flex:none;accent-color:#3D6BFF}
+.screen .consent a{color:#9fc0ff}
+.startrow{display:flex;align-items:center;gap:16px;margin-top:10px}
+.start{flex:none;width:118px;height:118px;border-radius:50%;cursor:pointer;border:0;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  background:radial-gradient(circle at 50% 40%,#2a1015,#0c0507 62%),#000;
+  box-shadow:0 0 0 6px #1a1d28,0 0 0 9px #8e97ad,0 0 0 11px #1a1d28,inset 0 0 0 3px #ff2d3a,inset 0 0 18px rgba(255,45,58,.6),0 14px 30px rgba(0,0,0,.6);transition:transform .12s}
+.start:active{transform:scale(.95)}
+.start .s1{font:600 9px var(--body);letter-spacing:.24em;text-transform:uppercase;color:#ffb3b8}
+.start .s2{font:400 30px var(--disp);letter-spacing:2px;color:#fff;text-shadow:0 0 10px #ff2d3a}
+.start.run{animation:runp 1s ease-in-out infinite}
+@keyframes runp{50%{box-shadow:0 0 0 6px #1a1d28,0 0 0 9px #8e97ad,0 0 0 11px #1a1d28,inset 0 0 0 3px #3dff8a,inset 0 0 26px rgba(61,255,138,.7),0 0 40px rgba(61,255,138,.5)}}
+.formmsg{font-size:13.5px;font-weight:600}
+.formmsg.ok{color:#5BE39A}.formmsg.err{color:#FF8A80}
+.callbox{margin-top:14px;font-size:13px;color:var(--mute)}
+.callbox a{color:#9fc0ff;font-weight:700}
+@media(max-width:760px){.sign{width:60vw;margin-left:-30vw}.sign .plate{padding:14px}.sign .plate .n{font-size:34px}}
+
+/* ---------- infos: door + tire + map ---------- */
+#infos .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:46px}
+@media(max-width:900px){#infos .grid{grid-template-columns:1fr}}
+.door{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#000;perspective:900px;border:1px solid var(--line)}
+.door img{width:100%;height:100%;object-fit:cover}
+.door .shutter{position:absolute;inset:0;transform-origin:50% 0;background:
+  repeating-linear-gradient(180deg,#C9D0E2 0 22px,#9AA3BD 22px 24px,#DDE2EE 24px 26px);
+  box-shadow:inset 0 -10px 20px rgba(0,0,0,.35);transform:translateY(calc(var(--open,0) * -100%)) rotateX(calc(var(--open,0) * 25deg))}
+.door .shutter .handle{position:absolute;left:50%;bottom:16px;width:120px;height:14px;margin-left:-60px;background:#5A6380;border-radius:4px}
+.door .shutter .lbl{position:absolute;left:0;right:0;top:40%;text-align:center;font-family:var(--disp);font-size:clamp(36px,6vw,64px);color:#1E46D2;letter-spacing:3px}
+.door figcaption{position:absolute;left:14px;bottom:14px;background:rgba(6,11,28,.8);padding:8px 12px;border-radius:10px;font-size:13px}
+.tirebox{background:linear-gradient(160deg,var(--navy2),#060A18);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;align-items:center}
+.tirebox h3{font-family:var(--disp);font-weight:400;font-size:38px;align-self:flex-start}
+.tirebox .today{align-self:flex-start;font-size:14px;color:var(--mute);margin-bottom:8px}
+.drumwrap{perspective:900px;width:100%;max-width:340px;height:240px;position:relative;margin:12px 0}
+.drum{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,1.4,.4,1)}
+.tread{position:absolute;left:0;right:0;top:50%;height:96px;margin-top:-48px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;
+  background:
+   repeating-linear-gradient(90deg,transparent 0 18px,rgba(0,0,0,.55) 18px 22px),
+   linear-gradient(180deg,#2A2F3F,#14171F 50%,#2A2F3F);
+  border:3px solid #0B0D12;display:flex;align-items:center;justify-content:space-between;padding:0 22px;color:#fff}
+.tread .day{font-family:var(--disp);font-size:36px;letter-spacing:1px}
+.tread .hrs{font-size:14px;text-align:right;line-height:1.35;color:#DDE4F7}
+.tread.closed .hrs{color:#FF9A70}
+.tread.is-today{border-color:var(--blue2);box-shadow:0 0 0 2px var(--blue2),0 0 30px rgba(61,107,255,.5)}
+.drumctl{display:flex;gap:10px}
+.drumctl button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--blue2);background:transparent;color:#fff;font-size:20px;cursor:pointer}
+.drumctl button:hover{background:rgba(61,107,255,.2)}
+.map{position:relative;margin-top:28px;border-radius:22px;overflow:hidden;height:440px;border:1px solid var(--line);background:#0A1128}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map:before{content:"";position:absolute;inset:0;background:#1E46D2;mix-blend-mode:color;z-index:1;pointer-events:none}
+.map:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(70% 70% at 50% 50%,transparent 55%,rgba(6,11,28,.85))}
+.map .ph{position:absolute;inset:0;background:
+  linear-gradient(90deg,transparent 49.6%,rgba(61,107,255,.35) 49.6% 50.4%,transparent 50.4%),
+  linear-gradient(0deg,transparent 49.6%,rgba(61,107,255,.35) 49.6% 50.4%,transparent 50.4%),
+  repeating-linear-gradient(28deg,transparent 0 60px,rgba(140,170,255,.08) 60px 62px),
+  repeating-linear-gradient(118deg,transparent 0 80px,rgba(140,170,255,.08) 80px 82px),#0A1128}
+.map .ph .askmap{position:absolute;left:50%;top:22%;transform:translateX(-50%);z-index:3;text-align:center;max-width:320px;font-size:14px;color:var(--ice)}
+.map .ph .askmap .btn{margin-top:10px}
+.pin{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-100%);pointer-events:none}
+.pin .bub{width:62px;height:62px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:bob 2.4s ease-in-out infinite}
+.pin .bub svg{transform:rotate(45deg);width:44px;height:44px}
+.pin .pulse{position:absolute;left:50%;bottom:-8px;width:26px;height:10px;margin-left:-13px;border-radius:50%;background:rgba(61,107,255,.7);animation:pulse 2.4s infinite}
+@keyframes bob{50%{transform:rotate(-45deg) translate(4px,-4px)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,107,255,.7)}100%{box-shadow:0 0 0 30px rgba(61,107,255,0)}}
+.glass{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(8,14,36,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:16px;padding:16px 18px;max-width:330px}
+.glass b{font-family:var(--disp);font-size:26px;font-weight:400;letter-spacing:1px;display:block}
+.glass p{font-size:14px;color:var(--mute);margin:4px 0 12px}
+
+/* ---------- footer ---------- */
+footer{padding:80px clamp(16px,5vw,64px) 40px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.plate3d{perspective:700px}
+.lplate{display:flex;align-items:stretch;background:#F4F7FF;border:3px solid #0A1330;border-radius:10px;overflow:hidden;font:700 clamp(34px,7vw,64px)/1 var(--body);color:#0A1330;letter-spacing:4px;transform:rotateX(var(--rx,10deg)) rotateY(var(--ry,-14deg));transition:transform .2s;box-shadow:0 30px 50px rgba(0,0,0,.5)}
+.lplate .eu,.lplate .dep{width:52px;background:#1E46D2;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:8px 0;font-size:18px;letter-spacing:0}
+.lplate .num{padding:14px 22px}
+.lplate .dep{justify-content:space-between}
+.lplate .dep small{font-size:12px}
+.legal{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:14px}
+.legal button{background:none;border:0;color:var(--mute);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.legal button:hover{color:#fff}
+.zahr{font-size:12px;color:#7E8BB0}
+.zahr a{color:#A9B6D8}
+
+/* ---------- dialogs & cookies ---------- */
+dialog{max-width:680px;width:calc(100% - 28px);border:1px solid var(--line);border-radius:18px;background:#0B1430;color:var(--txt);padding:28px;margin:auto}
+dialog::backdrop{background:rgba(2,4,12,.75)}
+dialog h2{font-family:var(--disp);font-weight:400;font-size:40px;margin-bottom:10px}
+dialog h3{font-size:16px;margin:16px 0 4px;color:#fff}
+dialog p,dialog li{font-size:14px;color:var(--mute)}
+dialog ul{padding-left:18px}
+dialog .close{float:right;background:none;border:1.5px solid var(--line);color:#fff;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px}
+#cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;max-width:560px;margin:0 auto;background:#0B1430;border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 20px 60px rgba(0,0,0,.6);display:none}
+#cookies.show{display:block}
+#cookies p{font-size:14px;color:var(--ice)}
+#cookies .acts{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+#cookies .acts .btn{flex:1;justify-content:center;min-width:130px}
+#cookies .acts .btn.ghost{background:var(--navy2);border-color:#fff}
+#cookies a{color:var(--blue2)}
+.demo-badge{position:fixed;left:12px;bottom:12px;z-index:40;font-size:11px;background:rgba(6,11,28,.85);border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--mute)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fl" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="15" fill="#1E46D2"/>
+    <path d="M14 44 L22 18 H41 L39.6 23 H27.4 L25.6 29 H36 L34.6 34 H24.2 L21 44Z" fill="#fff"/>
+    <path d="M37 44 L43.5 22 H49.5 L44.4 39 H53 L51.6 44Z" fill="#fff"/>
+    <path d="M8 50 H40" stroke="#7FA0FF" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M44 50 H56" stroke="#7FA0FF" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <a class="brand" href="#atelier" aria-label="FL Auto, retour en haut"><svg class="logo" aria-hidden="true"><use href="#fl"/></svg>FL AUTO</a>
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="l" href="#atelier-services">Prestations</a>
+    <a class="l" href="#infos">Horaires &amp; accès</a>
+    <a class="btn" href="#rdv">Prendre RDV</a>
+  </nav>
+</header>
+
+<main id="main">
+<!-- ========== ATELIER 3D ========== -->
+<section id="atelier" aria-label="L'atelier FL Auto et ses prestations">
+  <div class="stage" aria-hidden="true">
+    <canvas id="gl"></canvas>
+    <div id="fallback">
+      <svg viewBox="0 0 600 260" role="img" aria-label="Silhouette de voiture">
+        <path d="M40 190 L60 140 L170 120 L250 70 L420 70 L500 120 L560 140 L570 190Z" fill="#1E46D2"/>
+        <path d="M265 82 L400 82 L455 120 L215 122Z" fill="#9FB6FF" opacity=".6"/>
+        <circle cx="150" cy="195" r="42" fill="#111"/><circle cx="150" cy="195" r="22" fill="#C9D0E2"/>
+        <circle cx="460" cy="195" r="42" fill="#111"/><circle cx="460" cy="195" r="22" fill="#C9D0E2"/>
+      </svg>
+    </div>
+    <div class="vign"></div>
+    <div class="hud"><span id="hudtxt">Atelier</span><b id="hudn">00</b><span class="bar"><i id="hudbar"></i></span></div>
+  </div>
+
+  <div class="steps">
+    <div class="step hero-step on" data-step="0">
+      <div class="card hero">
+        <div class="kick"><i></i>Garage multimarques · La Farlède</div>
+        <h1>FL Auto<span>l'atelier à ciel ouvert</span></h1>
+        <p class="lead">Révision, freins, distribution, pneus… Faites défiler : la voiture monte sur le pont et on vous montre ce qu'on fait, pièce par pièce.</p>
+        <div class="ctas">
+          <a class="btn" href="#rdv">Prendre rendez-vous</a>
+          <a class="btn ghost" href="tel:+33494330678">04 94 33 06 78</a>
+        </div>
+        <div class="meta"><span><b>585</b> rue Baron Dominique Larrey</span><span>Lun–ven · <b>7h30–12h / 13h30–18h</b></span></div>
+        <div class="scrollhint"><span></span>Faites défiler pour lever la voiture</div>
+      </div>
+    </div>
+
+    <div id="atelier-services"></div>
+    <div class="step" data-step="1">
+      <div class="card"><div class="kick"><i></i>01 · Entretien</div>
+        <h2>Révision &amp; vidange</h2>
+        <p>Révision selon les préconisations du constructeur, vidange et filtres. Faire entretenir votre voiture chez FL Auto préserve la garantie constructeur.</p>
+        <a class="btn" href="#rdv" data-svc="Révision / vidange">Réserver une révision</a></div>
+    </div>
+    <div class="step" data-step="2">
+      <div class="card"><div class="kick"><i></i>02 · Sécurité</div>
+        <h2>Freinage</h2>
+        <p>Disques, plaquettes, étriers : on contrôle et on remplace ce qui doit l'être pour que la voiture s'arrête net, à chaque fois.</p>
+        <a class="btn" href="#rdv" data-svc="Freinage">Faire contrôler mes freins</a></div>
+    </div>
+    <div class="step" data-step="3">
+      <div class="card"><div class="kick"><i></i>03 · Moteur</div>
+        <h2>Distribution</h2>
+        <p>Remplacement de la courroie de distribution aux échéances prévues par le constructeur, pour éviter la casse moteur.</p>
+        <a class="btn" href="#rdv" data-svc="Distribution">Demander un rendez-vous</a></div>
+    </div>
+    <div class="step" data-step="4">
+      <div class="card"><div class="kick"><i></i>04 · Tenue de route</div>
+        <h2>Suspension &amp; amortisseurs</h2>
+        <p>Voiture sur le pont, on vérifie ressorts et amortisseurs et on remplace les pièces usées pour retrouver une conduite stable.</p>
+        <a class="btn" href="#rdv" data-svc="Suspension / amortisseurs">Prendre rendez-vous</a></div>
+    </div>
+    <div class="step" data-step="5">
+      <div class="card"><div class="kick"><i></i>05 · Adhérence</div>
+        <h2>Pneus</h2>
+        <p>Montage et remplacement des pneus, pour rouler sereinement sur les routes du Var, été comme hiver.</p>
+        <a class="btn" href="#rdv" data-svc="Pneus">Changer mes pneus</a></div>
+    </div>
+    <div class="step" data-step="6">
+      <div class="card"><div class="kick"><i></i>06 · Démarrage</div>
+        <h2>Batterie</h2>
+        <p>La voiture peine à démarrer ? Contrôle et changement de batterie à l'atelier.</p>
+        <a class="btn" href="#rdv" data-svc="Batterie">Prendre rendez-vous</a></div>
+    </div>
+    <div class="step" data-step="7">
+      <div class="card"><div class="kick"><i></i>07 · Toutes marques</div>
+        <h2>Multimarques</h2>
+        <p>Citadine, familiale, utilitaire : les garagistes de FL Auto interviennent sur tous les types de véhicules. Changez la couleur pour voir.</p>
+        <div class="swatches" role="group" aria-label="Couleur de la voiture">
+          <button type="button" style="background:#1E46D2" data-col="#1E46D2" aria-label="Bleu" aria-pressed="true"></button>
+          <button type="button" style="background:#E9ECF2" data-col="#E9ECF2" aria-label="Blanc" aria-pressed="false"></button>
+          <button type="button" style="background:#B3121F" data-col="#B3121F" aria-label="Rouge" aria-pressed="false"></button>
+          <button type="button" style="background:#2A2E36" data-col="#2A2E36" aria-label="Gris anthracite" aria-pressed="false"></button>
+          <button type="button" style="background:#C98A1B" data-col="#C98A1B" aria-label="Orange" aria-pressed="false"></button>
+        </div>
+        <a class="btn" href="#rdv">Réserver pour ma voiture</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ROUTE (process) ========== -->
+<section id="route" aria-labelledby="route-t">
+  <div class="sticky">
+    <div class="horizon"></div>
+    <div class="head">
+      <h2 class="big" id="route-t">Votre voiture,<br><em>de la route à l'atelier</em></h2>
+      <p class="sub">Quatre étapes, sans surprise.</p>
+    </div>
+    <div class="road" id="road" aria-hidden="true"></div>
+    <ol class="signs" id="signs">
+      <li class="sign"><div class="plate"><div class="n">01</div><h3>Vous réservez</h3><p>Choisissez la prestation et un créneau ci-dessous, ou appelez le garage.</p></div><div class="pole"></div></li>
+      <li class="sign"><div class="plate"><div class="n">02</div><h3>On confirme</h3><p>Le garage vous recontacte pour valider le rendez-vous.</p></div><div class="pole"></div></li>
+      <li class="sign"><div class="plate"><div class="n">03</div><h3>Vous déposez</h3><p>Au 585 rue Baron Dominique Larrey, à La Farlède.</p></div><div class="pole"></div></li>
+      <li class="sign"><div class="plate"><div class="n">04</div><h3>Vous récupérez</h3><p>On vous prévient dès que la voiture est prête.</p></div><div class="pole"></div></li>
+    </ol>
+    <div class="odo" aria-hidden="true">Compteur <div class="digits" id="odo"></div> km</div>
+  </div>
+</section>
+
+<!-- ========== RDV ========== -->
+<section id="rdv" class="sec" aria-labelledby="rdv-t">
+  <h2 class="big" id="rdv-t">Passez <em>la première</em></h2>
+  <p class="sub">Engagez une prestation, réglez le jour et l'heure sur les compteurs, puis appuyez sur Start. Le garage vous rappelle pour confirmer.</p>
+  <form id="rdvform" class="cockpit" novalidate>
+    <fieldset class="shifter">
+      <legend><span>1</span> Prestation</legend>
+      <div class="gate" id="gate">
+        <svg class="slots-svg" viewBox="0 0 320 260" aria-hidden="true">
+          <path d="M50 40 V220 M125 40 V220 M200 40 V220 M275 40 V130 M50 130 H275" />
+        </svg>
+        <div class="knob" id="knob" aria-hidden="true"><span id="knobn">N</span></div>
+        <div class="gears" role="radiogroup" aria-label="Prestation souhaitée" id="gears"></div>
+      </div>
+      <p class="engaged" id="engaged" aria-live="polite">Point mort — choisissez un rapport</p>
+    </fieldset>
+
+    <div class="dash">
+      <fieldset class="gauge">
+        <legend><span>2</span> Jour</legend>
+        <div class="dial" id="ddial"><svg class="ticks" viewBox="0 0 280 280" aria-hidden="true"></svg><div class="needle" aria-hidden="true"></div><div class="hubtxt" aria-hidden="true"><b id="dsel">—</b><small>jour</small></div></div>
+      </fieldset>
+      <fieldset class="gauge">
+        <legend><span>3</span> Heure</legend>
+        <div class="dial" id="hdial"><svg class="ticks" viewBox="0 0 280 280" aria-hidden="true"></svg><div class="needle" aria-hidden="true"></div><div class="hubtxt" aria-hidden="true"><b id="hsel">—</b><small>dépôt</small></div></div>
+      </fieldset>
+    </div>
+
+    <fieldset class="screen">
+      <legend><span>4</span> Vous</legend>
+      <div class="lcd">
+        <label>Nom<input id="nom" autocomplete="name" required></label>
+        <label>Téléphone<input id="tel" type="tel" autocomplete="tel" required></label>
+        <label>Véhicule<input id="veh" placeholder="marque et modèle" required></label>
+        <label>Kilométrage <small>(facultatif)</small><input id="km" inputmode="numeric"></label>
+      </div>
+      <label class="consent"><input type="checkbox" id="ok" required><span>J'accepte que FL Auto utilise ces informations uniquement pour me recontacter au sujet de ce rendez-vous. <a href="#" data-dlg="d-conf">Confidentialité</a></span></label>
+      <div class="startrow">
+        <button class="start" type="submit"><span class="s1">Engine</span><span class="s2">START</span><span class="s1">Envoyer</span></button>
+        <p class="formmsg" id="formmsg" role="status" aria-live="polite"></p>
+      </div>
+      <p class="callbox">Plus pressé ? <a href="tel:+33494330678">04 94 33 06 78</a></p>
+    </fieldset>
+  </form>
+</section>
+
+<!-- ========== INFOS ========== -->
+<section id="infos" class="sec" aria-labelledby="infos-t">
+  <h2 class="big" id="infos-t">On vous ouvre <em>la porte</em></h2>
+  <p class="sub">Zone d'activités de La Farlède, entre Toulon et Solliès-Pont.</p>
+  <div class="grid">
+    <figure class="door" id="door">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q5QKJ3syMSe7zV8usoxgXVNQFpwKcOmLhBSkMGEpNIi2_a1c3n8aINchFVamNyIURIK4QMzP1AoyU7cPoFER6scRK7_p9AHIWhKY0X6MGqXe7v-kqlsyq36jLA4sE9VZRKs2S2Iw=w1200-h900-k-no" alt="Façade du garage FL Auto, porte de l'atelier ouverte, au 585 rue Baron Dominique Larrey à La Farlède" loading="lazy">
+      <div class="shutter" aria-hidden="true"><div class="lbl">FL AUTO</div><div class="handle"></div></div>
+      <figcaption>585 rue Baron Dominique Larrey · 83210 La Farlède</figcaption>
+    </figure>
+    <div class="tirebox">
+      <h3>Horaires</h3>
+      <p class="today" id="todaytxt"></p>
+      <div class="drumwrap" aria-hidden="true"><div class="drum" id="drum"></div></div>
+      <div class="drumctl">
+        <button type="button" id="dprev" aria-label="Jour précédent">▲</button>
+        <button type="button" id="dnext" aria-label="Jour suivant">▼</button>
+      </div>
+      <p class="sr" id="drumlive" aria-live="polite"></p>
+      <table class="sr"><caption>Horaires d'ouverture</caption><tbody>
+        <tr><th>Lundi à vendredi</th><td>7h30–12h et 13h30–18h</td></tr>
+        <tr><th>Samedi et dimanche</th><td>Fermé</td></tr></tbody></table>
+    </div>
+  </div>
+  <div class="map" id="map">
+    <div class="ph" id="mapph"><div class="askmap"><p>Le plan Google Maps se charge seulement si vous acceptez les cookies tiers.</p><button class="btn" type="button" id="mapok">Afficher le plan</button></div></div>
+    <div class="pin" aria-hidden="true"><div class="bub"><svg><use href="#fl"/></svg></div><div class="pulse"></div></div>
+    <div class="glass"><b>FL Auto</b><p>585 rue Baron Dominique Larrey<br>83210 La Farlède · 04 94 33 06 78</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=FL+Auto+585+Rue+Baron+Dominique+Larrey+83210+La+Farl%C3%A8de">Itinéraire</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="plate3d" id="plate3d" aria-hidden="true"><div class="lplate"><div class="eu">F</div><div class="num">FL-AUTO</div><div class="dep"><small>&nbsp;</small>83</div></div></div>
+  <p>FL Auto · réparateur automobile multimarques · 585 rue Baron Dominique Larrey, 83210 La Farlède · <a href="tel:+33494330678">04 94 33 06 78</a></p>
+  <nav class="legal" aria-label="Informations légales">
+    <button type="button" data-dlg="d-ml">Mentions légales</button>
+    <button type="button" data-dlg="d-conf">Confidentialité</button>
+    <button type="button" data-dlg="d-cgv">CGV / CGU</button>
+    <button type="button" data-dlg="d-rem">Remboursement</button>
+    <button type="button" data-dlg="d-cook">Cookies</button>
+    <button type="button" id="cookreset">Gérer les cookies</button>
+  </nav>
+  <p class="zahr">Démo réalisée par <a href="https://zahr.fr" target="_blank" rel="noopener">ZAHR</a> · site de démonstration, non officiel</p>
+</footer>
+
+<div class="demo-badge">Démo ZAHR</div>
+
+<div id="cookies" role="dialog" aria-modal="false" aria-labelledby="ck-t">
+  <p id="ck-t"><b>Cookies</b> — Ce site n'utilise aucun cookie publicitaire ni de mesure d'audience. Seul le plan Google Maps (service tiers) peut déposer des cookies, et il ne se charge que si vous l'acceptez. <a href="#" data-dlg="d-cook">En savoir plus</a></p>
+  <div class="acts"><button class="btn ghost" id="ckno" type="button">Refuser</button><button class="btn" id="ckyes" type="button">Accepter</button></div>
+</div>
+
+<dialog id="d-ml" aria-labelledby="d-ml-t"><button class="close" aria-label="Fermer">✕</button><h2 id="d-ml-t">Mentions légales</h2>
+  <h3>Éditeur du site</h3><p>FL Auto, réparateur automobile, 585 rue Baron Dominique Larrey, 83210 La Farlède. Téléphone : 04 94 33 06 78. Forme juridique, capital, SIRET et RCS : [à compléter]. Directeur de la publication : [à compléter].</p>
+  <h3>Hébergement</h3><p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+  <h3>Conception</h3><p>ZAHR — zahr.fr. Ce site est une démonstration.</p>
+  <h3>Propriété intellectuelle</h3><p>Les textes, le logo FL Auto et les visuels de ce site ne peuvent être réutilisés sans autorisation. La photo de la façade provient de la fiche Google du garage. Polices Bebas Neue et Space Grotesk sous licence SIL Open Font License.</p>
+</dialog>
+<dialog id="d-conf" aria-labelledby="d-conf-t"><button class="close" aria-label="Fermer">✕</button><h2 id="d-conf-t">Confidentialité</h2>
+  <h3>Données collectées</h3><p>Uniquement ce que vous saisissez dans le formulaire de rendez-vous : nom, téléphone, véhicule, kilométrage (facultatif), prestation et créneau souhaités.</p>
+  <h3>Pourquoi</h3><p>Pour vous recontacter et organiser votre rendez-vous, sur la base de votre consentement. Ces données ne sont ni vendues ni utilisées pour de la publicité.</p>
+  <h3>Durée de conservation</h3><p>Le temps de traiter votre demande, puis 3 ans au plus si aucun rendez-vous n'a lieu.</p>
+  <h3>Vos droits</h3><p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données, ou retirer votre consentement, en appelant le 04 94 33 06 78 ou en écrivant au garage (adresse ci-dessus). Vous pouvez aussi saisir la CNIL (cnil.fr).</p>
+  <h3>Services tiers</h3><ul><li>Google Maps : chargé uniquement après votre accord.</li><li>Polices : fonts.bunny.net (sans cookie).</li><li>Animation 3D : bibliothèque Three.js chargée depuis cdnjs (sans cookie).</li></ul>
+  <h3>Mineurs</h3><p>Le formulaire s'adresse aux personnes majeures. Une personne mineure doit obtenir l'accord d'un parent avant d'envoyer une demande.</p>
+</dialog>
+<dialog id="d-cgv" aria-labelledby="d-cgv-t"><button class="close" aria-label="Fermer">✕</button><h2 id="d-cgv-t">CGV / CGU</h2>
+  <h3>Utilisation du site</h3><p>Le site présente le garage et permet de demander un rendez-vous. Une demande envoyée n'est un rendez-vous qu'après confirmation par le garage. Les informations sont données à titre indicatif.</p>
+  <h3>Prestations</h3><p>Les travaux sont réalisés à l'atelier après accord du client sur l'intervention et son prix (devis ou ordre de réparation signé au garage). Aucun paiement n'est effectué sur ce site.</p>
+  <h3>Prix</h3><p>Les prix sont communiqués au garage ou sur devis. Aucun frais n'est facturé pour une demande de rendez-vous.</p>
+  <h3>Garanties</h3><p>Les garanties légales s'appliquent aux pièces et aux travaux réalisés.</p>
+</dialog>
+<dialog id="d-rem" aria-labelledby="d-rem-t"><button class="close" aria-label="Fermer">✕</button><h2 id="d-rem-t">Remboursement</h2>
+  <p>Aucun paiement n'est demandé sur ce site : il n'y a donc rien à rembourser en ligne. Pour annuler ou déplacer un rendez-vous, appelez simplement le garage au 04 94 33 06 78, sans frais. Toute réclamation sur une prestation réalisée se traite directement avec le garage, dans le cadre des garanties légales.</p>
+</dialog>
+<dialog id="d-cook" aria-labelledby="d-cook-t"><button class="close" aria-label="Fermer">✕</button><h2 id="d-cook-t">Cookies</h2>
+  <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Votre choix sur les cookies est simplement mémorisé dans votre navigateur.</p>
+  <h3>Google Maps</h3><p>Le plan est fourni par Google, qui peut déposer ses propres cookies. Il ne se charge que si vous acceptez. Vous pouvez changer d'avis à tout moment avec le lien « Gérer les cookies » en bas de page.</p>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null}}
+
+/* ---------------- dialogs ---------------- */
+$$('[data-dlg]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var d=document.getElementById(b.getAttribute('data-dlg'));if(d&&d.showModal)d.showModal();});});
+$$('dialog .close').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close();});});
+$$('dialog').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close();});});
+
+/* ---------------- cookies / map ---------------- */
+var ck=$('#cookies');
+function loadMap(){
+  if($('#map iframe'))return;
+  var f=document.createElement('iframe');
+  f.title='Plan d\'accès au garage FL Auto';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';
+  f.src='https://www.google.com/maps?q=FL+Auto,+585+Rue+Baron+Dominique+Larrey,+83210+La+Farl%C3%A8de&z=16&output=embed';
+  $('#map').insertBefore(f,$('#map').firstChild);$('#mapph').style.display='none';
+}
+function setCk(v){store('flauto-ck',v);ck.classList.remove('show');if(v==='yes')loadMap();}
+var cv=store('flauto-ck');
+if(cv==='yes')loadMap(); else if(cv!=='no') ck.classList.add('show');
+$('#ckyes').onclick=function(){setCk('yes')};$('#ckno').onclick=function(){setCk('no')};
+$('#mapok').onclick=function(){setCk('yes')};
+$('#cookreset').onclick=function(){ck.classList.add('show');$('#ckyes').focus();};
+
+/* ---------------- steps / scrolly ---------------- */
+var steps=$$('.step'), cur=0;
+var names=['Atelier','Révision','Freinage','Distribution','Suspension','Pneus','Batterie','Multimarques'];
+function setStep(i){cur=i;steps.forEach(function(s){s.classList.toggle('on',+s.dataset.step===i)});
+  $('#hudtxt').textContent=names[i];$('#hudn').textContent=('0'+i).slice(-2);$('#hudbar').style.width=(i/7*100)+'%';}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setStep(+e.target.dataset.step)})},{rootMargin:'-45% 0px -45% 0px'});
+steps.forEach(function(s){io.observe(s)});
+
+/* preselect service from CTA */
+$$('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var v=a.dataset.svc;$$('input[name=svc]').forEach(function(r){r.checked=(r.value===v)});});});
+
+/* ---------------- THREE ---------------- */
+var carColor=new (window.THREE?THREE.Color:Object)('#1E46D2');
+$$('.swatches button').forEach(function(b){b.addEventListener('click',function(){$$('.swatches button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');if(window.THREE)carColor=new THREE.Color(b.dataset.col);});});
+
+function noGL(){document.body.classList.add('nogl');}
+function webglOK(){try{var c=document.createElement('canvas');return !!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){return false}}
+if(!window.THREE||!webglOK()){noGL();}else{try{initGL();}catch(err){console.warn(err);noGL();}}
+
+function initGL(){
+  var T=THREE, canvas=$('#gl');
+  var renderer=new T.WebGLRenderer({canvas:canvas,antialias:true,alpha:false});
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.outputEncoding=T.sRGBEncoding;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
+  renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+  var scene=new T.Scene();scene.background=new T.Color('#060B1C');scene.fog=new T.Fog('#060B1C',12,30);
+  var cam=new T.PerspectiveCamera(38,1,0.1,100);
+
+  /* lights */
+  scene.add(new T.HemisphereLight('#9fb4ff','#0a0f22',0.55));
+  var key=new T.SpotLight('#ffffff',1.6,30,Math.PI/5,0.5,1.2);key.position.set(4,9,5);key.castShadow=true;key.shadow.mapSize.set(1024,1024);scene.add(key);scene.add(key.target);
+  var rim=new T.PointLight('#3D6BFF',2.2,14);rim.position.set(-4,3,-3);scene.add(rim);
+  var fill=new T.PointLight('#ffffff',0.5,12);fill.position.set(-3,2,5);scene.add(fill);
+
+  /* floor + grid + walls */
+  var floor=new T.Mesh(new T.PlaneGeometry(40,40),new T.MeshStandardMaterial({color:'#0b1124',roughness:.35,metalness:.4}));
+  floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;scene.add(floor);
+  var grid=new T.GridHelper(40,40,'#2a4bd0','#16213f');grid.material.transparent=true;grid.material.opacity=.35;grid.position.y=.002;scene.add(grid);
+  var wallM=new T.MeshStandardMaterial({color:'#0a1128',roughness:.9});
+  var wall=new T.Mesh(new T.PlaneGeometry(40,10),wallM);wall.position.set(0,5,-6);scene.add(wall);
+  // neon tubes
+  var neonM=new T.MeshBasicMaterial({color:'#cfe0ff'});
+  for(var n=-2;n<=2;n++){var tube=new T.Mesh(new T.BoxGeometry(2.4,.05,.12),neonM);tube.position.set(n*3.2,5.2,-1);scene.add(tube);}
+  // sign on wall (canvas texture)
+  var sc=document.createElement('canvas');sc.width=1024;sc.height=256;var g=sc.getContext('2d');
+  g.fillStyle='#0a1128';g.fillRect(0,0,1024,256);g.font='italic 900 150px Arial Black, Arial';g.textAlign='center';g.textBaseline='middle';
+  g.shadowColor='#3D6BFF';g.shadowBlur=40;g.fillStyle='#e8eeff';g.fillText('FL AUTO',512,128);
+  var sTex=new T.CanvasTexture(sc);sTex.encoding=T.sRGBEncoding;
+  var sign=new T.Mesh(new T.PlaneGeometry(6,1.5),new T.MeshBasicMaterial({map:sTex,transparent:true}));sign.position.set(0,3.6,-5.95);scene.add(sign);
+
+  /* lift */
+  var steel=new T.MeshStandardMaterial({color:'#8d97b6',metalness:.85,roughness:.35});
+  var blueM=new T.MeshStandardMaterial({color:'#1E46D2',metalness:.4,roughness:.4});
+  [-1.45,1.45].forEach(function(z){
+    var post=new T.Mesh(new T.BoxGeometry(.28,3.4,.28),blueM);post.position.set(0,1.7,z*1.08);post.castShadow=true;scene.add(post);
+    var base=new T.Mesh(new T.BoxGeometry(.7,.06,.7),steel);base.position.set(0,.03,z*1.08);scene.add(base);
+  });
+  var liftG=new T.Group();scene.add(liftG);
+  [-1,1].forEach(function(sx){[-1,1].forEach(function(sz){
+    var arm=new T.Mesh(new T.BoxGeometry(1.3,.07,.14),steel);arm.position.set(sx*.65,.06,sz*1.0);arm.rotation.y=sx*sz*.35;liftG.add(arm);
+    var pad=new T.Mesh(new T.CylinderGeometry(.11,.11,.07,16),new T.MeshStandardMaterial({color:'#222'}));pad.position.set(sx*1.2,.1,sz*.78);liftG.add(pad);
+  })});
+
+  /* car — coupé sportif générique (aucune marque) */
+  var car=new T.Group();liftG.add(car);car.position.y=0;
+  // environment reflections (studio)
+  try{
+    var pm=new T.PMREMGenerator(renderer),es=new T.Scene();
+    es.add(new T.Mesh(new T.BoxGeometry(30,14,30),new T.MeshBasicMaterial({color:'#0b1022',side:T.BackSide})));
+    var pan=function(w,h,c,x,y,z,ry,rx){var m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:c,side:T.DoubleSide}));m.position.set(x,y,z);m.rotation.set(rx||0,ry||0,0);es.add(m);};
+    pan(14,2.2,'#ffffff',0,6.8,0,0,Math.PI/2);pan(10,1.2,'#dfe8ff',0,4,-12,0,0);pan(10,1.2,'#dfe8ff',0,4,12,0,0);
+    pan(1.4,8,'#3D6BFF',-12,4,0,Math.PI/2,0);pan(1.4,8,'#ffffff',12,4,0,Math.PI/2,0);
+    scene.environment=pm.fromScene(es,.03).texture;
+  }catch(e){}
+  var paint=new T.MeshPhysicalMaterial({color:'#1E46D2',metalness:.55,roughness:.22,clearcoat:1,clearcoatRoughness:.06,transparent:true,opacity:1,envMapIntensity:1.3});
+  function prof(pts){var c=new T.SplineCurve(pts.map(function(p){return new T.Vector2(p[0],p[1])})).getPoints(500);
+    return function(x){if(x<=c[0].x)return c[0].y;for(var i=1;i<c.length;i++){if(c[i].x>=x){var a=c[i-1],b=c[i],t=(x-a.x)/((b.x-a.x)||1);return a.y+(b.y-a.y)*t;}}return c[c.length-1].y;};}
+  function loft(x0,x1,nx,nu,sec){
+    var pos=[],idx=[];
+    for(var i=0;i<=nx;i++){var x=x0+(x1-x0)*i/nx;for(var j=0;j<nu;j++){var p=sec(x,j/nu);pos.push(p[0],p[1],p[2]);}}
+    for(i=0;i<nx;i++)for(j=0;j<nu;j++){var a=i*nu+j,b=i*nu+(j+1)%nu,c=a+nu,d=b+nu;idx.push(a,c,b,b,c,d);}
+    // caps
+    [0,nx].forEach(function(r,k){var cx=0,cy=0,cz=0;for(var j=0;j<nu;j++){cx+=pos[(r*nu+j)*3];cy+=pos[(r*nu+j)*3+1];cz+=pos[(r*nu+j)*3+2];}
+      var ci=pos.length/3;pos.push(cx/nu,cy/nu,cz/nu);for(j=0;j<nu;j++){var a=r*nu+j,b=r*nu+(j+1)%nu;if(k===0)idx.push(ci,b,a);else idx.push(ci,a,b);}});
+    var g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setIndex(idx);g.computeVertexNormals();return g;}
+  function se(u,n){var a=u*Math.PI*2,c=Math.cos(a),s=Math.sin(a);return [Math.sign(c)*Math.pow(Math.abs(c),2/n),Math.sign(s)*Math.pow(Math.abs(s),2/n)];}
+  var WF=1.42,WR=-1.38,WY=.35,AR=.41;
+  var top=prof([[-2.27,.56],[-2.2,.76],[-2.0,.86],[-1.6,.9],[-1.0,.91],[-.2,.9],[.55,.87],[1.1,.8],[1.7,.7],[2.1,.58],[2.3,.42]]);
+  var bot0=prof([[-2.27,.3],[-1.9,.18],[0,.15],[1.9,.17],[2.3,.26]]);
+  var hw=prof([[-2.27,.74],[-2.05,.93],[-1.4,.99],[-.4,.93],[.6,.94],[1.42,.98],[2.0,.9],[2.3,.66]]);
+  function bot(x){var b=bot0(x);[WF,WR].forEach(function(w){var d=x-w;if(Math.abs(d)<AR)b=Math.max(b,WY+Math.sqrt(AR*AR-d*d)*.92);});return Math.min(b,top(x)-.05);}
+  function bodySec(x,u){var t=top(x),b=bot(x),c=(t+b)/2,h=(t-b)/2,p=se(u,3.4),y=c+p[1]*h,s=p[1];
+    var w=hw(x)*(s>0?1-.16*s*s:1-.05*s*s);return [x,y,p[0]*w];}
+  var bodyGeo=loft(-2.27,2.3,180,64,bodySec);
+  var body=new T.Mesh(bodyGeo,paint);body.castShadow=true;car.add(body);
+  var edges=new T.Mesh(loft(-2.27,2.3,46,22,bodySec),new T.MeshBasicMaterial({color:'#7FA0FF',wireframe:true,transparent:true,opacity:0,depthWrite:false}));edges.scale.set(1.004,1.004,1.004);car.add(edges);
+  // greenhouse (glass + black roof)
+  var glassM=new T.MeshPhysicalMaterial({color:'#05070d',metalness:.3,roughness:.04,clearcoat:1,transparent:true,opacity:.92,envMapIntensity:1.6});
+  var roof=prof([[-1.75,.86],[-1.45,.95],[-1.0,1.08],[-.5,1.16],[-.1,1.17],[.25,1.1],[.62,.88]]);
+  var ghw=prof([[-1.75,.7],[-1.0,.78],[-.2,.79],[.62,.74]]);
+  var glass=new T.Mesh(loft(-1.75,.62,90,48,function(x,u){var t=Math.max(roof(x),.875),b=.84,c=(t+b)/2,h=(t-b)/2,p=se(u,2.6),s=p[1];
+    return [x,c+p[1]*h,p[0]*ghw(x)*(s>0?1-.3*s*s:1)];}),glassM);car.add(glass);
+  // details
+  var black=new T.MeshStandardMaterial({color:'#07080c',roughness:.5,metalness:.3});
+  var chrome=new T.MeshStandardMaterial({color:'#dfe4ee',metalness:1,roughness:.12});
+  var led=new T.MeshStandardMaterial({color:'#ffffff',emissive:'#d6e4ff',emissiveIntensity:2.2});
+  var redL=new T.MeshStandardMaterial({color:'#400',emissive:'#ff1530',emissiveIntensity:2});
+  function box(w,h,d,m,x,y,z,ry,rz){var o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.rotation.set(0,ry||0,rz||0);car.add(o);return o;}
+  [-1,1].forEach(function(sz){
+    box(.34,.035,.2,led,2.08,.6,sz*.6,sz*.35,-.25);          // headlight blade
+    box(.05,.12,.06,led,2.16,.5,sz*.74,0,0);                  // DRL
+    box(.12,.06,.16,black,.48,.98,sz*.9,0,0);                 // mirror
+    box(.04,.05,.06,black,.5,.94,sz*.83,0,0);
+    box(2.1,.07,.05,black,0,.2,sz*.93,0,0);                   // side skirt
+    box(.7,.16,.02,black,-.75,.52,sz*.94,0,0).rotation.x=sz*.12; // side intake
+    var ex=new T.Mesh(new T.CylinderGeometry(.055,.055,.16,20),chrome);ex.rotation.z=Math.PI/2;ex.position.set(-2.25,.27,sz*.42);car.add(ex);
+    box(.04,.14,.04,black,-1.98,.95,sz*.55,0,0);              // wing stands
+  });
+  box(.03,.045,1.5,redL,-2.22,.76,0,0,0);                    // full-width LED tail
+  box(.2,.12,1.3,black,2.24,.3,0,0,0);                       // front intake
+  box(.36,.1,1.3,black,-2.18,.24,0,0,.25);                   // diffuser
+  box(.32,.025,1.7,black,-1.98,1.03,0,0,.06);                // wing
+  box(3.2,.1,1.5,black,0,.2,0,0,0);                          // floor
+  // internals (x-ray)
+  var parts={};
+  function hiMat(c){return new T.MeshStandardMaterial({color:c,metalness:.6,roughness:.4,emissive:'#000',emissiveIntensity:1})}
+  var blk=new T.Mesh(new T.BoxGeometry(.7,.3,.8),hiMat('#5b6478'));blk.position.set(1.32,.48,0);car.add(blk);
+  var cover=new T.Mesh(new T.BoxGeometry(.55,.06,.6),hiMat('#1E46D2'));cover.position.set(1.32,.66,0);car.add(cover);
+  var sump=new T.Mesh(new T.BoxGeometry(.5,.1,.5),hiMat('#2c3240'));sump.position.set(1.32,.28,0);car.add(sump);
+  parts.engine=[blk,cover,sump];
+  var belt=new T.Mesh(new T.TorusGeometry(.16,.022,8,40),hiMat('#222'));belt.position.set(1.32,.5,.44);belt.scale.set(1,1.4,1);car.add(belt);
+  var pul1=new T.Mesh(new T.CylinderGeometry(.075,.075,.05,20),hiMat('#aab'));pul1.rotation.x=Math.PI/2;pul1.position.set(1.32,.62,.44);car.add(pul1);
+  var pul2=pul1.clone();pul2.position.set(1.32,.38,.44);car.add(pul2);
+  parts.belt=[belt,pul1,pul2];
+  var batt=new T.Mesh(new T.BoxGeometry(.26,.18,.18),hiMat('#15171d'));batt.position.set(1.85,.42,-.45);car.add(batt);
+  var bt1=new T.Mesh(new T.CylinderGeometry(.025,.025,.05,10),hiMat('#d33'));bt1.position.set(1.9,.53,-.41);car.add(bt1);
+  var bt2=new T.Mesh(new T.CylinderGeometry(.025,.025,.05,10),hiMat('#333'));bt2.position.set(1.8,.53,-.41);car.add(bt2);
+  parts.battery=[batt,bt1,bt2];
+  // wheels
+  var wheels=[],discs=[],springs=[],tires=[];
+  var tireProf=[[.235,-.135],[.31,-.138],[.345,-.11],[.356,-.04],[.356,.04],[.345,.11],[.31,.138],[.235,.135]].map(function(p){return new T.Vector2(p[0],p[1])});
+  var tireGeo=new T.LatheGeometry(tireProf,48);
+  var rimM=new T.MeshStandardMaterial({color:'#2b2f38',metalness:.9,roughness:.25});
+  var rimEdge=new T.MeshStandardMaterial({color:'#cfd5e3',metalness:1,roughness:.15});
+  [[WR,1],[WR,-1],[WF,1],[WF,-1]].forEach(function(p){
+    var w=new T.Group();w.position.set(p[0],WY,p[1]*.83);car.add(w);
+    var tire=new T.Mesh(tireGeo,new T.MeshStandardMaterial({color:'#121317',roughness:.85,emissive:'#000'}));tire.rotation.x=Math.PI/2;tire.castShadow=true;w.add(tire);tires.push(tire);
+    var lip=new T.Mesh(new T.TorusGeometry(.232,.012,8,48),rimEdge);lip.position.z=p[1]*.12;w.add(lip);
+    var barrel=new T.Mesh(new T.CylinderGeometry(.232,.232,.22,40,1,true),rimM);barrel.rotation.x=Math.PI/2;w.add(barrel);
+    for(var k=0;k<10;k++){var sp=new T.Mesh(new T.BoxGeometry(.026,.2,.03),k%2?rimEdge:rimM);var an=k*Math.PI/5;
+      sp.position.set(Math.cos(an)*.125,Math.sin(an)*.125,p[1]*.105);sp.rotation.z=an-Math.PI/2+.12;w.add(sp);}
+    var hub=new T.Mesh(new T.CylinderGeometry(.045,.05,.04,6),rimEdge);hub.rotation.x=Math.PI/2;hub.position.z=p[1]*.11;w.add(hub);
+    var disc=new T.Mesh(new T.CylinderGeometry(.19,.19,.028,40),new T.MeshStandardMaterial({color:'#8a909c',metalness:.95,roughness:.35,emissive:'#000'}));disc.rotation.x=Math.PI/2;disc.position.z=p[1]*.03;w.add(disc);discs.push(disc);
+    var cal=new T.Mesh(new T.TorusGeometry(.17,.035,10,20,1.1),new T.MeshStandardMaterial({color:'#d21f2b',metalness:.3,roughness:.35,emissive:'#000'}));
+    cal.rotation.z=.5;cal.position.z=p[1]*.06;
+    var wrap=new T.Group();wrap.position.copy(w.position);wrap.add(cal);car.add(wrap);discs.push(cal);
+    wheels.push(w);
+    var pts=[];for(var t=0;t<=1;t+=.02){var a=t*Math.PI*2*6;pts.push(new T.Vector3(Math.cos(a)*.07,t*.4,Math.sin(a)*.07));}
+    var spr=new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts),160,.016,6),hiMat('#d8a21a'));spr.position.set(p[0],.38,p[1]*.55);car.add(spr);springs.push(spr);
+    var damp=new T.Mesh(new T.CylinderGeometry(.03,.03,.45,10),hiMat('#555'));damp.position.set(p[0],.6,p[1]*.55);car.add(damp);springs.push(damp);
+  });
+  parts.discs=discs;parts.springs=springs;parts.tires=tires;
+  var hl=led;
+
+  /* step targets */
+  var V=function(x,y,z){return new T.Vector3(x,y,z)};
+  var S=[
+    {cam:V(6.2,2.6,6.6),look:V(0,.8,0),lift:0,xray:0,hi:null},
+    {cam:V(4.6,2.6,3.2),look:V(1.4,1.1,0),lift:.35,xray:1,hi:'engine'},
+    {cam:V(3.0,1.4,3.6),look:V(1.35,.8,.8),lift:.6,xray:.15,hi:'discs'},
+    {cam:V(3.2,2.0,3.4),look:V(1.42,1.1,.45),lift:.45,xray:1,hi:'belt'},
+    {cam:V(3.6,.55,4.4),look:V(0,1.6,0),lift:1.4,xray:.85,hi:'springs'},
+    {cam:V(-2.6,1.2,4.4),look:V(-1.3,.8,.6),lift:.25,xray:0,hi:'tires'},
+    {cam:V(4.0,2.8,-2.6),look:V(1.8,1.0,-.5),lift:.35,xray:1,hi:'battery'},
+    {cam:V(-5.8,2.2,5.8),look:V(0,.8,0),lift:0,xray:0,hi:null}
+  ];
+  var camPos=S[0].cam.clone(),camLook=S[0].look.clone(),lift=0,xray=0;
+  var hiKeys=['engine','discs','belt','springs','tires','battery'];
+  var mob=false;
+  function resize(){var w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;mob=w<760;cam.fov=mob?52:38;cam.updateProjectionMatrix();}
+  addEventListener('resize',resize);resize();
+  var clock=new T.Clock(),visible=true;
+  new IntersectionObserver(function(e){visible=e[0].isIntersecting}).observe($('#atelier'));
+  function tick(){
+    requestAnimationFrame(tick);
+    if(!visible)return;
+    var dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime,st=S[cur],k=RM?1:1-Math.pow(.02,dt);
+    var tc=st.cam.clone();
+    if(mob){tc.multiplyScalar(1.25);tc.y+=.6;}
+    if(cur===0&&!RM){var a=Math.sin(t*.15)*.35;tc.set(Math.cos(a+.75)*9*(mob?1.2:1),2.6,Math.sin(a+.75)*9*(mob?1.2:1));}
+    if(cur===7&&!RM){var b=t*.25;tc.set(Math.cos(b)*8.2,2.2,Math.sin(b)*8.2);}
+    var lk=st.look;if(cur===0)lk=mob?V(0,2.1,0):V(-1.1,.9,1.2);
+    camPos.lerp(tc,k);camLook.lerp(lk,k);
+    if(mob){/* shift subject up a bit on mobile */}
+    cam.position.copy(camPos);cam.lookAt(camLook);
+    lift+= (st.lift-lift)*k; liftG.position.y=lift;
+    xray+= (st.xray-xray)*k;
+    paint.opacity=1-xray*.86;paint.depthWrite=xray<.5;glassM.opacity=.88*(1-xray*.8);
+    edges.material.opacity=xray*.9;
+    paint.color.lerp(carColor,k*.6);
+    var pulse=.5+.5*Math.sin(t*4);
+    hiKeys.forEach(function(kk){var on=st.hi===kk;parts[kk].forEach(function(m){
+      if(!m.material.emissive)return;
+      var col=kk==='discs'?new T.Color('#ff4a12'):new T.Color('#3D6BFF');
+      m.material.emissive.lerp(on?col:new T.Color('#000'),k);m.material.emissiveIntensity=on?(.5+pulse*1.2):1;});});
+    // animations
+    var spin=(cur===5?6:cur===0||cur===7?1.2:0)*dt;
+    wheels.forEach(function(w){w.rotation.z-=spin;});
+    wheels[2].children.forEach(function(c){if(discs.indexOf(c)<0){var z=c.scale.x+((cur===2?.001:1)-c.scale.x)*k;c.scale.set(z,z,z);}});
+    belt.rotation.z+=dt*(cur===3?4:.5);pul1.rotation.y+=dt*6;pul2.rotation.y+=dt*6;
+    if(cur===4){springs.forEach(function(sp,i){if(i%2===0)sp.scale.y=.85+.15*Math.sin(t*5+i);});}
+    renderer.render(scene,cam);
+  }
+  tick();
+}
+
+/* ---------------- road ---------------- */
+var signs=$$('#signs .sign'),road=$('#road'),routeS=$('#route');
+var odo=$('#odo');var START=84250;
+for(var i=0;i<6;i++){var d=document.createElement('div');d.className='d';d.innerHTML='<span></span>';odo.appendChild(d);}
+function setOdo(v){var s=('000000'+Math.floor(v)).slice(-6);$$('.d span',odo).forEach(function(sp,i){sp.textContent=s[i];});}
+function roadUpd(){
+  var r=routeS.getBoundingClientRect(),h=routeS.offsetHeight-innerHeight;
+  var p=Math.min(1,Math.max(0,-r.top/h));
+  road.style.setProperty('--dash',(p*2400)+'px');
+  setOdo(START+p*42);
+  var N=signs.length;
+  signs.forEach(function(sg,i){
+    var q=p*(N+.6)-i;                       // 0 = far away, 1 = passed
+    q=Math.min(1.2,Math.max(-.2,q));
+    var z=1700-q*2100;                      // from far to just behind the viewer
+    var side=(i%2?1:-1), near=Math.max(0,Math.min(1,1-z/1700));
+    var x=side*(innerWidth<760?near*8:60+near*170);
+    var op=q<0?0:q<.12?q/.12:q>.92?Math.max(0,1-(q-.92)/.12):1;
+    sg.style.transform='translate3d('+x+'px,0,'+(-z)+'px)';
+    sg.style.opacity=op.toFixed(3);
+  });
+}
+/* ---------------- door ---------------- */
+var door=$('#door');
+function doorUpd(){var r=door.getBoundingClientRect();var p=1-(r.top-innerHeight*.15)/(innerHeight*.6);door.style.setProperty('--open',Math.min(1,Math.max(0,p)).toFixed(3));}
+/* ---------------- plate ---------------- */
+var pl=$('#plate3d .lplate');
+addEventListener('pointermove',function(e){if(RM)return;var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;pl.style.setProperty('--ry',(x*30)+'deg');pl.style.setProperty('--rx',(-y*20+6)+'deg');},{passive:true});
+
+var ticking=false;
+function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(function(){roadUpd();doorUpd();ticking=false;});}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+if(RM){door.style.setProperty('--open',1);}
+
+/* ---------------- hours drum ---------------- */
+var DAYS=[['Lundi','7h30–12h<br>13h30–18h'],['Mardi','7h30–12h<br>13h30–18h'],['Mercredi','7h30–12h<br>13h30–18h'],['Jeudi','7h30–12h<br>13h30–18h'],['Vendredi','7h30–12h<br>13h30–18h'],['Samedi','Fermé'],['Dimanche','Fermé']];
+var drum=$('#drum'),R=Math.round(96/2/Math.tan(Math.PI/7))+4,today=(new Date().getDay()+6)%7,sel=today;
+DAYS.forEach(function(d,i){var el=document.createElement('div');el.className='tread'+(d[1]==='Fermé'?' closed':'')+(i===today?' is-today':'');
+  el.innerHTML='<span class="day">'+d[0]+'</span><span class="hrs">'+d[1]+'</span>';el.style.transform='rotateX('+(-i*360/7)+'deg) translateZ('+R+'px)';drum.appendChild(el);});
+function turn(){drum.style.transform='translateZ('+(-R)+'px) rotateX('+(sel*360/7)+'deg)';$('#drumlive').textContent=DAYS[sel][0]+' : '+DAYS[sel][1].replace('<br>',' et ');}
+$('#dprev').onclick=function(){sel--;turn()};$('#dnext').onclick=function(){sel++;turn()};turn();
+(function(){var n=new Date(),m=n.getHours()*60+n.getMinutes(),wd=today<5,open=wd&&((m>=450&&m<720)||(m>=810&&m<1080));
+  $('#todaytxt').textContent='Aujourd\'hui, '+DAYS[today][0].toLowerCase()+' : '+(open?'ouvert en ce moment':'fermé en ce moment');})();
+
+/* ---------------- cockpit booking ---------------- */
+var GEARS=[['1','Révision / vidange',50,40],['2','Freinage',50,220],['3','Distribution',125,40],['4','Suspension / amortisseurs',125,220],['5','Pneus',200,40],['6','Batterie',200,220],['R','Autre / diagnostic',275,40]];
+var gearsBox=$('#gears'),knob=$('#knob'),svcSel=null,gearTimer=null;
+function kpos(x,y){knob.style.setProperty('--kx',(x/320*100)+'%');knob.style.setProperty('--ky',(y/260*100)+'%');}
+kpos(162,130);
+function engage(i,focus){
+  var g=GEARS[i];svcSel=g[1];
+  $$('.gear',gearsBox).forEach(function(b,j){b.setAttribute('aria-checked',j===i?'true':'false');b.tabIndex=j===i?0:-1;});
+  if(focus)$$('.gear',gearsBox)[i].focus();
+  clearTimeout(gearTimer);
+  // knob travels through neutral like a real gearbox
+  kpos(knob._x||162,130);
+  gearTimer=setTimeout(function(){kpos(g[2],130);gearTimer=setTimeout(function(){kpos(g[2],g[3]);knob._x=g[2];},RM?0:260);},RM?0:260);
+  $('#knobn').textContent=g[0];
+  $('#engaged').innerHTML='Rapport engagé : <b>'+g[0]+' — '+g[1]+'</b>';
+}
+GEARS.forEach(function(g,i){var b=document.createElement('button');b.type='button';b.className='gear '+(g[3]<130?'up':'dn');b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.tabIndex=i===0?0:-1;
+  b.style.left=(g[2]/320*100)+'%';b.style.top=(g[3]/260*100)+'%';b.innerHTML=g[0]+'<i>'+g[1].split(' / ')[0]+'</i>';b.setAttribute('aria-label','Rapport '+g[0]+' : '+g[1]);
+  b.onclick=function(){engage(i)};
+  b.onkeydown=function(e){var d={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(d){e.preventDefault();engage((i+d+GEARS.length)%GEARS.length,true);}};
+  gearsBox.appendChild(b);});
+/* preselect from the 3D section CTAs */
+$$('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var v=a.dataset.svc;GEARS.forEach(function(g,i){if(g[1]===v)engage(i);});});});
+
+function buildDial(el,opts,red){
+  var svg=$('.ticks',el),ns='http://www.w3.org/2000/svg',n=opts.length,R=96,h='';
+  function ang(i){return -120+240*i/(n-1);}
+  for(var k=0;k<=48;k++){var a=(-135+270*k/48)*Math.PI/180,r1=k%4?124:118;h+='<line class="'+(k%4?'':'maj')+'" x1="'+(140+Math.sin(a)*r1)+'" y1="'+(140-Math.cos(a)*r1)+'" x2="'+(140+Math.sin(a)*130)+'" y2="'+(140-Math.cos(a)*130)+'"/>';}
+  if(red){var a1=(ang(red[0])+6)*Math.PI/180,a2=(ang(red[1])-6)*Math.PI/180,rr=112;
+    h+='<path class="red" d="M'+(140+Math.sin(a1)*rr)+' '+(140-Math.cos(a1)*rr)+' A'+rr+' '+rr+' 0 0 1 '+(140+Math.sin(a2)*rr)+' '+(140-Math.cos(a2)*rr)+'"/>';
+}
+  svg.innerHTML=h;
+  var box=document.createElement('div');box.setAttribute('role','radiogroup');box.setAttribute('aria-label',el.closest('fieldset').querySelector('legend').textContent.replace(/^\d\s*/,''));el.appendChild(box);
+  var btns=opts.map(function(o,i){var b=document.createElement('button');b.type='button';b.className='opt';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.tabIndex=i===0?0:-1;
+    var a=ang(i)*Math.PI/180;b.style.left=(50+Math.sin(a)*R/2.8)+'%';b.style.top=(50-Math.cos(a)*R/2.8)+'%';b.innerHTML=o.html;b.setAttribute('aria-label',o.label);box.appendChild(b);return b;});
+  var api={val:null,set:function(i,focus){btns.forEach(function(b,j){b.setAttribute('aria-checked',j===i?'true':'false');b.tabIndex=j===i?0:-1;});if(focus)btns[i].focus();
+      el.querySelector('.needle').style.setProperty('--a',ang(i)+'deg');api.val=opts[i];api.onset&&api.onset(opts[i]);},
+    sweep:function(){var nd=el.querySelector('.needle');nd.style.setProperty('--a','135deg');setTimeout(function(){nd.style.setProperty('--a',api.val?ang(opts.indexOf(api.val))+'deg':'-135deg');},700);}};
+  btns.forEach(function(b,i){b.onclick=function(){api.set(i)};b.onkeydown=function(e){var d={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(d){e.preventDefault();api.set((i+d+n)%n,true);}};});
+  return api;
+}
+var JOURS=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],dayOpts=[],dd=new Date();
+while(dayOpts.length<8){dd.setDate(dd.getDate()+1);var wd=dd.getDay();if(wd>0&&wd<6){var c=new Date(dd);dayOpts.push({date:c,html:JOURS[wd]+'<b>'+c.getDate()+'</b>',label:c.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}),short:JOURS[wd].replace('.','')+' '+c.getDate()});}}
+var hourOpts=['7h30','8h30','9h30','10h30','11h30','13h30','14h30','15h30','16h30','17h30'].map(function(h){return {html:'<b>'+h.replace('h30','')+'</b>h30',label:h,short:h};});
+var dayDial=buildDial($('#ddial'),dayOpts),hourDial=buildDial($('#hdial'),hourOpts,[4,5]);
+dayDial.onset=function(o){$('#dsel').textContent=o.short.toUpperCase();};
+hourDial.onset=function(o){$('#hsel').textContent=o.short.toUpperCase();};
+/* start-up gauge sweep when the cockpit comes into view */
+new IntersectionObserver(function(e,ob){if(e[0].isIntersecting&&!RM){dayDial.sweep();hourDial.sweep();ob.disconnect();}},{threshold:.4}).observe($('.dash'));
+
+$('#rdvform').addEventListener('submit',function(e){e.preventDefault();var msg=$('#formmsg'),st=$('.start');msg.className='formmsg';st.classList.remove('run');
+  var err=[];
+  if(!svcSel)err.push('un rapport (prestation)');if(!dayDial.val)err.push('le jour');if(!hourDial.val)err.push('l\'heure');
+  if(!$('#nom').value.trim())err.push('votre nom');
+  if(!/^[0-9 +().-]{9,}$/.test($('#tel').value.trim()))err.push('un numéro de téléphone valide');
+  if(!$('#veh').value.trim())err.push('le véhicule');
+  if(!$('#ok').checked)err.push('votre accord pour être recontacté');
+  if(err.length){msg.classList.add('err');msg.textContent='Le moteur ne démarre pas : il manque '+err.join(', ')+'.';return;}
+  st.classList.add('run');if(!RM){dayDial.sweep();hourDial.sweep();}
+  msg.classList.add('ok');msg.textContent='Contact ! '+svcSel+', '+dayDial.val.label+' à '+hourDial.val.label+'. Démo : sur le vrai site, la demande arrive directement au garage, qui vous rappelle pour confirmer.';
+});
+})();
+</script>
+</body>
+</html>
