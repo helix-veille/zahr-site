@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tournée du jour · ZAHR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0f0d;--card:#151a17;--line:rgba(255,255,255,.1);--txt:#eef2ee;--mid:#a3aea6;--acc:#3ddc84;--warn:#f0b35a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.5 Inter,system-ui,sans-serif;padding:20px 16px 80px;max-width:760px;margin:0 auto}
+h1{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--mid);margin:6px 0 18px}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:transparent;color:var(--mid);border-radius:999px;padding:8px 14px;font:600 13px Inter;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--txt);color:var(--bg)}
+.tip{border:1px solid rgba(240,179,90,.35);background:rgba(240,179,90,.08);border-radius:14px;padding:12px 14px;color:#f3d6a8;font-size:13px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+.card.done{opacity:.55}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.top b{font-size:17px}
+.top small{display:block;color:var(--mid)}
+.score{font-weight:700;color:var(--acc);white-space:nowrap}
+.demo{display:inline-flex;margin:12px 0;color:var(--acc);font-weight:600;text-decoration:none}
+.demo:hover{text-decoration:underline}
+textarea{width:100%;min-height:140px;background:#0f1311;color:var(--txt);border:1px solid var(--line);border-radius:12px;padding:12px;font:14px/1.5 Inter;resize:vertical}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.acts a,.acts button{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:10px 14px;font:600 13px Inter;text-decoration:none;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--txt)}
+.acts .main{background:var(--acc);color:#06210f;border-color:var(--acc)}
+.acts .ok{border-color:rgba(61,220,132,.5);color:var(--acc)}
+.acts .no{color:var(--mid)}
+.note{display:block;font-size:12px;color:var(--mid);margin-top:8px}
+.empty{color:var(--mid);text-align:center;padding:40px 0}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+</style>
+</head>
+<body>
+<h1>Tournée du jour</h1>
+<p class="sub" id="sub">Chargement…</p>
+<div class="tabs" role="group" aria-label="Filtre"><button type="button" data-f="todo" aria-pressed="true">À envoyer</button><button type="button" data-f="done" aria-pressed="false">Envoyés</button><button type="button" data-f="skip" aria-pressed="false">Écartés</button></div>
+<p class="tip">Relis chaque démo avant d'envoyer. Étale tes envois dans la journée (pas plus de 5 à 10 par jour) pour ne pas être pris pour du spam. Si quelqu'un répond « non merci », marque-le écarté et ne le relance pas.</p>
+<div id="list"></div>
+<script>
+(async()=>{
+const K='zahr-tournee-v1';let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
+let data=[];try{data=await fetch('tournee.json?x='+Date.now(),{cache:'no-store'}).then(r=>r.json())}catch(e){}
+let f='todo';
+const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mobile=t=>/^0[67]/.test((t||'').replace(/\s/g,''));
+const intl=t=>'33'+(t||'').replace(/\s/g,'').slice(1);
+function msgOf(p){return (st[p.id]&&st[p.id].msg)||p.message}
+function render(){
+ const L=data.filter(p=>(st[p.id]&&st[p.id].s||'todo')===f).sort((a,b)=>(b.added||'').localeCompare(a.added||'')||b.score-a.score);
+ const todo=data.filter(p=>!(st[p.id]&&st[p.id].s)).length;
+ document.getElementById('sub').textContent=`${todo} démo${todo>1?'s':''} à envoyer · ${data.length} au total`;
+ document.getElementById('list').innerHTML=L.length?L.map(p=>{const m=msgOf(p),enc=encodeURIComponent(m),mob=mobile(p.phone);
+  return `<article class="card ${f!=='todo'?'done':''}" data-id="${esc(p.id)}">
+  <div class="top"><div><b>${esc(p.name)}</b><small>${esc(p.activity)} · ${esc(p.city)}${p.phone?' · '+esc(p.phone):''}</small></div><span class="score">${p.score||''}/100</span></div>
+  <a class="demo" href="${esc(p.demo)}" target="_blank" rel="noopener">Voir la démo →</a>
+  <label class="note" for="m-${esc(p.id)}">Message (modifiable)</label>
+  <textarea id="m-${esc(p.id)}" data-m="${esc(p.id)}">${esc(m)}</textarea>
+  <div class="acts">
+   ${mob?`<a class="main" href="https://wa.me/${intl(p.phone)}?text=${enc}" target="_blank" rel="noopener">WhatsApp</a><a href="sms:${p.phone.replace(/\s/g,'')}?&body=${enc}">SMS</a>`:''}
+   ${p.instagram?`<a class="${mob?'':'main'}" href="https://ig.me/m/${esc(p.instagram)}" target="_blank" rel="noopener" data-copy="1">Instagram (message copié)</a>`:''}
+   ${p.phone?`<a href="tel:${p.phone.replace(/\s/g,'')}">Appeler</a>`:''}
+   <button type="button" data-copyonly="1">Copier le message</button>
+   ${f==='todo'?`<button type="button" class="ok" data-s="done">✓ Envoyé</button><button type="button" class="no" data-s="skip">Écarter</button>`:`<button type="button" data-s="todo">Remettre à envoyer</button>`}
+  </div>
+  ${!mob&&!p.instagram?'<p class="note">Numéro fixe : pas de WhatsApp. Appelle, ou passe au salon avec la démo sur ton téléphone.</p>':''}
+  ${!mob&&p.instagram?'<p class="note">Numéro fixe : le message est copié, colle-le dans Instagram.</p>':''}
+ </article>`}).join(''):'<p class="empty">Rien ici pour le moment.</p>';
+}
+document.addEventListener('input',e=>{const id=e.target.dataset.m;if(id){st[id]=Object.assign(st[id]||{},{msg:e.target.value});save()}});
+document.addEventListener('change',e=>{if(e.target.dataset.m)render()});
+document.addEventListener('click',async e=>{
+ const t=e.target.closest('button,a');if(!t)return;
+ if(t.dataset.f){f=t.dataset.f;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b===t));render();return}
+ const c=t.closest('.card');if(!c)return;const id=c.dataset.id,p=data.find(x=>x.id===id);
+ if(t.dataset.copy||t.dataset.copyonly){try{await navigator.clipboard.writeText(msgOf(p));if(t.dataset.copyonly){t.textContent='Copié ✓';setTimeout(()=>t.textContent='Copier le message',1500)}}catch(_){}}
+ if(t.dataset.s){st[id]=Object.assign(st[id]||{},{s:t.dataset.s==='todo'?undefined:t.dataset.s,at:new Date().toISOString()});save();render()}
+});
+render();
+})();
+</script>
+</body>
+</html>
