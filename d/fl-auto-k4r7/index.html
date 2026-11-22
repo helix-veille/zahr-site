@@ -122,7 +122,8 @@ header.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:c
 .page.right{right:0;background:linear-gradient(90deg,#DCE2F2,#F6F8FD 8%,#F6F8FD);color:#0A1330;border-radius:0 12px 12px 0}
 .page.left:before{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(180deg,transparent 0 33px,rgba(30,70,210,.12) 33px 34px);pointer-events:none}
 .cover{position:absolute;right:0;top:0;bottom:0;width:50%;transform-origin:0 50%;transform-style:preserve-3d;transition:transform 1.6s cubic-bezier(.6,0,.2,1) .2s;z-index:5}
-.book.open .cover{transform:rotateY(-178deg)}
+.book.open .cover{transform:rotateY(-178deg);pointer-events:none}
+.book.open .cover .back{opacity:0;transition:opacity .3s 1.7s}
 .cover .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:0 12px 12px 0}
 .cover .front{background:linear-gradient(135deg,#1E46D2,#0E2A8C);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;color:#fff;box-shadow:inset 8px 0 18px rgba(0,0,0,.35)}
 .cover .front .t{font-family:var(--disp);font-size:56px;letter-spacing:2px;text-align:center;line-height:.95}
@@ -679,7 +680,8 @@ function initGL(){
     if(mob){tc.multiplyScalar(1.25);tc.y+=.6;}
     if(cur===0&&!RM){var a=Math.sin(t*.15)*.35;tc.set(Math.cos(a+.75)*9*(mob?1.2:1),2.6,Math.sin(a+.75)*9*(mob?1.2:1));}
     if(cur===7&&!RM){var b=t*.25;tc.set(Math.cos(b)*8.2,2.2,Math.sin(b)*8.2);}
-    camPos.lerp(tc,k);camLook.lerp(st.look,k);
+    var lk=st.look;if(cur===0)lk=mob?V(0,2.1,0):V(-1.1,.9,1.2);
+    camPos.lerp(tc,k);camLook.lerp(lk,k);
     if(mob){/* shift subject up a bit on mobile */}
     cam.position.copy(camPos);cam.lookAt(camLook);
     lift+= (st.lift-lift)*k; liftG.position.y=lift;
@@ -695,6 +697,7 @@ function initGL(){
     // animations
     var spin=(cur===5?6:cur===0||cur===7?1.2:0)*dt;
     wheels.forEach(function(w){w.rotation.z-=spin;});
+    wheels[2].children.forEach(function(c){if(discs.indexOf(c)<0){var z=c.scale.x+((cur===2?.001:1)-c.scale.x)*k;c.scale.set(z,z,z);}});
     belt.rotation.z+=dt*(cur===3?4:.5);pul1.rotation.y+=dt*6;pul2.rotation.y+=dt*6;
     if(cur===4){springs.forEach(function(sp,i){if(i%2===0)sp.scale.y=.85+.15*Math.sin(t*5+i);});}
     renderer.render(scene,cam);
