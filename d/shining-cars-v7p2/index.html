@@ -99,20 +99,30 @@ h1 em{font-style:italic;font-weight:800;color:var(--cyan)}
 @keyframes mq{to{transform:translateX(-50%)}}
 .fleetline{position:absolute;left:50%;top:13%;transform:translateX(-50%);width:min(15em,92vw);text-align:center;font-size:min(3.6vw,5.2vh);font-weight:600;letter-spacing:-.04em;line-height:1.12;z-index:4;pointer-events:none}
 .fleetline .w{display:inline-block;opacity:0;filter:blur(10px)}
-.fleetline em{font-style:italic;color:var(--cyan)}
+.fleetline em{font-style:italic;color:var(--blue)}
+.fleetline{color:#0a1020}
+.stage .light{position:absolute;inset:0;opacity:0;background:radial-gradient(70% 55% at 50% 42%,#fff,#e8eef6 65%,#d3deec);pointer-events:none}
+.stage .light::after{content:"";position:absolute;left:0;right:0;top:58%;height:42%;background:linear-gradient(180deg,rgba(10,30,60,.06),transparent 40%)}
 .row{position:absolute;left:0;top:0;width:100%;height:0;z-index:3;perspective:1300px;pointer-events:none}
-.car{position:absolute;left:0;top:0;margin:0;border-radius:18px;overflow:hidden;background:#0d1424;will-change:transform,width,filter,opacity;transform-origin:50% 50%;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(140,190,255,.14)}
-.car img{width:100%;height:100%;object-fit:cover}
-.car::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(4,6,11,.55));pointer-events:none}
-.car figcaption{position:absolute;left:12px;bottom:10px;right:12px;font-size:12px;font-weight:700;z-index:1;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.car{position:absolute;left:0;top:0;margin:0;will-change:transform,width,filter,opacity;transform-origin:50% 80%;cursor:pointer}
+.car canvas{width:100%;height:100%;display:block;filter:drop-shadow(0 18px 14px rgba(10,20,40,.18))}
+.car:hover canvas{filter:drop-shadow(0 22px 18px rgba(31,139,255,.3))}
+.car::after{content:"";position:absolute;left:12%;right:12%;bottom:4%;height:8%;border-radius:50%;background:radial-gradient(closest-side,rgba(10,20,40,.28),transparent);z-index:-1}
+.car figcaption{position:absolute;left:0;right:0;top:100%;margin-top:6px;text-align:center;font-size:12px;font-weight:700;color:#1a2a44;white-space:nowrap}
+.car .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(.8);width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:rgba(10,20,40,.82);color:#fff;opacity:0;transition:.3s;box-shadow:0 0 0 6px rgba(31,139,255,.25)}
+.car.center .play{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.car .play svg{width:22px;height:22px;fill:#fff;margin-left:3px}
 .bar{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(14px,2.6vh,28px);z-index:8;display:grid;grid-template-columns:56px 1.6fr 1fr 1.2fr 56px;gap:10px}
-.tile{background:rgba(16,26,46,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:14px;padding:14px 16px;opacity:0;transform:translateY(30px);display:flex;flex-direction:column;justify-content:center;gap:8px;min-width:0}
+.tile{color:#0a1020;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(10,30,60,.1);border-radius:14px;padding:14px 16px;opacity:0;transform:translateY(30px);display:flex;flex-direction:column;justify-content:center;gap:8px;min-width:0}
 .tile.arrow{display:grid;place-items:center;padding:0;font-size:22px;transition:background .2s}
-.tile.arrow:hover{background:rgba(31,139,255,.4)}
+.tile.arrow:hover{background:#0a1020;color:#fff}
+.tile .pill{background:#e6ecf4;border-color:transparent;color:#0a1020}
+.tile .btn-glass{background:#0a1020;color:#fff;border-color:#0a1020;box-shadow:none}
+.tile .btn-glass:hover{background:var(--blue);border-color:var(--blue)}
 .tile .nm{font-size:clamp(20px,2.4vw,36px);font-weight:800;font-style:italic;letter-spacing:-.03em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tile .ds{font-size:13px;color:var(--mut)}
+.tile .ds{font-size:13px;color:#56657e}
 .tile .row2{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.tile .pr small{display:block;font-size:11px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.tile .pr small{display:block;font-size:11px;color:#56657e;letter-spacing:.08em;text-transform:uppercase}
 .tile .pr b{font-size:clamp(18px,1.8vw,26px);font-weight:800}
 .swap{transition:filter .35s,opacity .35s}
 .swap.out{filter:blur(8px);opacity:0}
@@ -196,6 +206,31 @@ label.f{display:grid;gap:7px;font-size:13px;font-weight:600;color:#c6d6f0}
 .ticket .gauge span{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:700;letter-spacing:.08em;z-index:2}
 .ticket .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.18),transparent 45%);pointer-events:none}
 .note{font-size:12px;color:var(--mut);margin-top:12px}
+.btn-ig{background:linear-gradient(45deg,#1f8bff,#46d2ff 40%,#7b5cff);color:#fff;box-shadow:0 8px 30px rgba(31,139,255,.35)}
+.btn-ig:hover{filter:brightness(1.1);color:#fff}
+.btn-ig svg,.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.toast{margin-top:4px;padding:12px 14px;border-radius:12px;background:rgba(70,210,255,.12);border:1px solid rgba(70,210,255,.4);font-size:13px;color:#dff6ff}
+.ticket .photo{position:relative}
+.ticket .photo img{position:absolute;inset:0;transition:opacity .7s}
+.ticket .photo #tIn{opacity:0}
+.ticket .photo.in #tIn{opacity:1}.ticket .photo.in #tImg{opacity:0}
+.ticket .photo.both #tIn{animation:swapIn 5s infinite}
+@keyframes swapIn{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+.ticket .photo .tag{position:absolute;left:10px;top:10px;z-index:2}
+/* INTERIEURS */
+#interieurs{padding:0;height:380vh;background:radial-gradient(70% 60% at 50% 50%,#0b1630,#04060b 75%)}
+.cab{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.cab-head{position:absolute;left:var(--pad);top:clamp(80px,12vh,110px);z-index:5;max-width:720px}
+.cab-head h2{font-size:clamp(28px,3.4vw,52px)}
+.cab-head p{color:var(--mut);margin-top:10px;max-width:520px;font-size:clamp(14px,1.1vw,17px)}
+.cab-view{position:absolute;inset:0;perspective:900px;perspective-origin:50% 58%}
+.ring{position:absolute;left:50%;top:58%;width:0;height:0;transform-style:preserve-3d}
+.pan{position:absolute;margin:0;border-radius:16px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 0 0 1px rgba(140,200,255,.25),0 0 40px rgba(31,139,255,.18);background:#0d1424}
+.pan img{width:100%;height:100%;object-fit:cover}
+.pan::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(4,6,11,.75));pointer-events:none}
+.pan figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;font-weight:800;font-style:italic;font-size:clamp(16px,1.5vw,22px)}
+.cab-cap{position:absolute;left:0;right:0;bottom:26px;text-align:center;z-index:5;font-size:13px;color:var(--mut)}
+.cab-cap b{color:#fff}
 @media(max-width:900px){.res{grid-template-columns:1fr}.ticket-wrap{position:relative;top:0}.grid2{grid-template-columns:1fr}}
 
 /* ZONE / MAP */
@@ -240,6 +275,19 @@ footer{position:relative;padding:clamp(70px,10vh,120px) var(--pad) 40px;backgrou
 .fcols button{font-size:13px;color:var(--mut);text-decoration:underline}
 .fcols button:hover{color:#fff}
 .demo{font-size:11px;color:#5c6d8a;margin-top:18px}
+#vid{width:min(980px,94vw)}
+#vid .vb{display:grid;grid-template-columns:minmax(0,400px) 1fr;gap:26px;padding:22px;align-items:start}
+#vid .frame{position:relative;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:70vh;width:100%}
+#vid .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+#vid .poster{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+#vid .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+#vid .poster div{position:relative;padding:20px;display:grid;gap:12px;justify-items:center;font-size:13px;color:#dbe6f6}
+#vid .vside h4{font-size:clamp(24px,3vw,40px);font-weight:900;font-style:italic;letter-spacing:-.03em;color:#fff;line-height:1}
+#vid .vside .profile{margin:16px 0;background:radial-gradient(closest-side,#fff,#e8eef6);border-radius:16px;padding:8px}
+#vid .vside .profile img{width:100%;display:block;mix-blend-mode:multiply}
+#vid .vside ul{list-style:none;display:grid;gap:8px;font-size:14px;color:#c6d6f0;margin-bottom:18px}
+#vid .vside li::before{content:"✓ ";color:var(--cyan);font-weight:800}
+@media(max-width:760px){#vid .vb{grid-template-columns:1fr}#vid .frame{max-height:62vh;max-width:360px;margin:0 auto}}
 @media(max-width:760px){.ft{grid-template-columns:1fr}}
 
 /* COOKIES + LEGAL */
@@ -273,10 +321,11 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
   <a href="#top" data-go="0" class="on">Accueil</a>
   <a href="#voitures" data-go="7.3">Voitures</a>
   <a href="#services">Services</a>
+  <a href="#interieurs">Intérieurs</a>
   <a href="#zone">Zone</a>
  </nav>
  <a class="logo" href="#top" aria-label="Shining Cars, retour en haut"><img src="img/logo.png" alt="Logo Shining Cars"><span>SHINING<i>CARS</i></span></a>
- <a class="btn btn-glass" href="https://wa.me/33665345684?text=Bonjour%20Shining%20Cars%2C%20je%20voudrais%20un%20devis%20pour%20un%20nettoyage." target="_blank" rel="noopener">Devis<span class="full"> WhatsApp</span> <span aria-hidden="true">→</span></a>
+ <a class="btn btn-glass" href="https://ig.me/m/shiningcarss" target="_blank" rel="noopener">Rendez-vous<span class="full"> sur Insta</span> <span aria-hidden="true">→</span></a>
 </header>
 
 <main id="top">
@@ -302,6 +351,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
 <div id="track">
  <div class="stage" id="stage">
   <div class="glow" id="glow"></div>
+  <div class="light" id="light"></div>
   <div class="filmbox" id="fbox"><canvas id="film" width="1280" height="720" aria-hidden="true"></canvas><div class="shine" id="shine"></div></div>
   <div class="fcap" id="fcap"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Tout le Var</span><p style="margin-top:14px">On arrive. On se gare devant chez vous.<br><span>Pas de station, pas d'attente : juste le résultat.</span></p></div>
   <div class="statement" id="stmt">
@@ -315,13 +365,13 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
    <div class="ctas"><a class="btn btn-glass" href="#reserver">Réserver un créneau</a></div>
   </div>
   <div class="marquee" id="mq" aria-hidden="true"><div class="mq"><span>McLaren</span><span>Audi</span><span>Porsche</span><span>BMW</span><span>Mercedes-Benz</span><span>Volkswagen</span><span>Intérieur</span><span>Extérieur</span><span>Jantes</span><span>Sièges</span><span>McLaren</span><span>Audi</span><span>Porsche</span><span>BMW</span><span>Mercedes-Benz</span><span>Volkswagen</span><span>Intérieur</span><span>Extérieur</span><span>Jantes</span><span>Sièges</span></div></div>
-  <p class="fleetline" id="fline">Pas une galerie de catalogue : de <em>vraies voitures</em> nettoyées par Shining Cars, chez leurs propriétaires, dans le Var.</p>
+  <p class="fleetline" id="fline">Choisissez une voiture : chacune a <em>vraiment été nettoyée</em> par Shining Cars, chez son propriétaire, dans le Var.</p>
   <div class="row" id="row" role="group" aria-roledescription="carrousel" aria-label="Voitures nettoyées par Shining Cars"></div>
   <div class="bar" id="bar" aria-live="polite">
    <button class="tile arrow t-prev" id="prev" aria-label="Voiture précédente">←</button>
-   <div class="tile t-name"><div class="nm swap" id="cName">McLaren 675LT</div><div class="ds swap" id="cDesc">Nettoyage complet</div><div class="row2"><a class="btn btn-glass mini" id="cLink" href="#" target="_blank" rel="noopener">Voir la vidéo ↗</a></div></div>
+   <div class="tile t-name"><div class="nm swap" id="cName">McLaren 675LT</div><div class="ds swap" id="cDesc">Nettoyage complet</div><div class="row2"><button class="btn btn-glass mini" id="cLink" type="button">▶ Voir le nettoyage</button></div></div>
    <div class="tile t-pills"><div class="row2"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Var</span><span class="pill swap" id="cCat">Sportive</span></div><div class="ds">À domicile</div></div>
-   <div class="tile t-price"><div class="pr"><small>Tarif</small><b>Sur devis</b></div><a class="btn btn-blue mini" id="cBook" href="#reserver">Réserver<span class="full"> le même</span></a></div>
+   <div class="tile t-price"><div class="pr"><small>Tarif</small><b>Devis gratuit</b></div><a class="btn btn-blue mini" id="cBook" href="#reserver">Réserver<span class="full"> le même</span></a></div>
    <button class="tile arrow t-next" id="next" aria-label="Voiture suivante">→</button>
   </div>
   <span id="voitures" class="sr">Voitures</span>
@@ -364,16 +414,17 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
     <label class="f">Votre prénom<input name="nom" autocomplete="given-name" required></label>
    </div>
    <label class="f">Précisions (facultatif)<textarea name="msg" placeholder="Poils d'animaux, taches sur les sièges, accès à l'eau…"></textarea></label>
-   <label class="consent"><input type="checkbox" id="ok" required><span>J'accepte que ces informations soient envoyées à Shining Cars pour traiter ma demande, par WhatsApp ou SMS depuis mon téléphone. Voir la <button type="button" data-legal="conf" style="text-decoration:underline">politique de confidentialité</button>.</span></label>
+   <label class="consent"><input type="checkbox" id="ok" required><span>J'accepte que ces informations soient envoyées à Shining Cars pour traiter ma demande, par message Instagram, WhatsApp ou SMS depuis mon téléphone. Voir la <button type="button" data-legal="conf" style="text-decoration:underline">politique de confidentialité</button>.</span></label>
    <p class="err" id="err" role="alert"></p>
-   <div class="sendrow"><button class="btn btn-blue" type="submit" data-via="wa">Envoyer par WhatsApp</button><button class="btn btn-glass" type="submit" data-via="sms">Envoyer par SMS</button><a class="btn btn-glass" href="tel:+33665345684">Appeler</a></div>
-   <p class="note">Le message s'ouvre dans votre appli, prêt à envoyer : vous le relisez avant. Ce site n'enregistre rien.</p>
+   <div class="sendrow"><button class="btn btn-ig" type="submit" data-via="ig"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Envoyer sur Instagram</button><button class="btn btn-glass" type="submit" data-via="wa">WhatsApp</button><button class="btn btn-glass" type="submit" data-via="sms">SMS</button><a class="btn btn-glass" href="tel:+33665345684">Appeler</a></div>
+   <p class="toast" id="toast" role="status" hidden></p>
+   <p class="note">Instagram : votre demande est copiée, la conversation avec @shiningcarss s'ouvre, il ne reste qu'à coller et envoyer. WhatsApp et SMS : le message s'ouvre déjà rempli. Ce site n'enregistre rien.</p>
   </form>
   <div class="ticket-wrap"><div class="ticket" id="ticket">
    <div class="glare"></div>
    <div class="tp"><b>SHINING<span style="color:var(--cyan)">CARS</span></b><span class="pill">Ticket</span></div>
-   <div class="photo"><img id="tImg" src="img/mclaren.jpg" alt="Voiture choisie pour la réservation"></div>
-   <dl><dt>Véhicule</dt><dd id="tVeh">—</dd><dt>Prestation</dt><dd id="tPre">—</dd><dt>Lieu</dt><dd id="tVil">—</dd><dt>Date</dt><dd id="tDat">—</dd><dt>Tarif</dt><dd>Sur devis</dd></dl>
+   <div class="photo in" id="tPh"><img id="tImg" src="img/mclaren.jpg" alt="Extérieur d'une voiture nettoyée par Shining Cars"><img id="tIn" src="img/interieur-2.jpg" alt="Intérieur cuir nettoyé par Shining Cars"><span class="pill tag" id="tTag">Intérieur</span></div>
+   <dl><dt>Véhicule</dt><dd id="tVeh">—</dd><dt>Prestation</dt><dd id="tPre">—</dd><dt>Lieu</dt><dd id="tVil">—</dd><dt>Date</dt><dd id="tDat">—</dd><dt>Tarif</dt><dd>Devis gratuit</dd></dl>
    <div class="gauge"><div class="water" id="water"></div><span id="gtxt">0 % rempli</span></div>
   </div></div>
  </div>
@@ -396,6 +447,14 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
   </div></div>
  </div>
 </section>
+<!-- INTERIEURS -->
+<section id="interieurs" aria-labelledby="int-t">
+ <div class="cab" id="cab">
+  <div class="cab-head"><div class="kick">Intérieurs</div><h2 id="int-t">Installez-vous <em>dans l'habitacle.</em></h2><p>Porsche 911 Carrera 4S : aspiration complète, tapis, dépoussiérage, cuir nettoyé et traité, tableau de bord et portières.</p></div>
+  <div class="cab-view"><div class="ring" id="ring"></div></div>
+  <p class="cab-cap" id="cabCap" aria-live="polite"></p>
+ </div>
+</section>
 </main>
 
 <footer>
@@ -403,7 +462,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
   <div>
    <div class="kick">Contact</div>
    <h2>Prêt à <em>briller ?</em></h2>
-   <div class="sendrow" style="margin-top:26px"><a class="btn btn-blue" href="tel:+33665345684">06 65 34 56 84</a><a class="btn btn-glass" href="https://wa.me/33665345684" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-glass" href="https://www.instagram.com/shiningcarss/" target="_blank" rel="noopener">@shiningcarss</a></div>
+   <div class="sendrow" style="margin-top:26px"><a class="btn btn-ig" href="https://ig.me/m/shiningcarss" target="_blank" rel="noopener">Écrire sur Instagram</a><a class="btn btn-blue" href="tel:+33665345684">06 65 34 56 84</a><a class="btn btn-glass" href="https://wa.me/33665345684" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-glass" href="https://www.instagram.com/shiningcarss/" target="_blank" rel="noopener">@shiningcarss</a></div>
   </div>
   <div class="plate3d-scene" aria-hidden="true"><div class="plate3d"><div class="front"><div><b>SHININGCARS</b><small>DOMESTIC LUXURY CLEAN</small></div></div><div class="back"><b>06 65 34 56 84</b></div></div></div>
  </div>
@@ -425,6 +484,16 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
  <div class="b"><button class="btn btn-glass" id="ckNo" type="button">Refuser</button><button class="btn btn-glass" id="ckYes" type="button">Accepter</button></div>
 </div>
 
+<dialog id="vid" aria-labelledby="vT"><div class="dh"><h3 id="vT">Le nettoyage</h3><button class="x" type="button" id="vX" aria-label="Fermer">×</button></div>
+ <div class="vb">
+  <div class="frame" id="vFrame"></div>
+  <div class="vside"><h4 id="vName">—</h4><div class="profile"><img id="vProf" src="" alt=""></div>
+   <ul id="vList"></ul>
+   <div class="sendrow"><button class="btn btn-blue" type="button" id="vBook">Réserver le même</button><a class="btn btn-glass" id="vIg" href="#" target="_blank" rel="noopener">Voir sur Instagram ↗</a></div>
+   <p class="note">Vidéo publiée par @shiningcarss sur Instagram. Illustration de profil générée pour le site.</p>
+  </div>
+ </div>
+</dialog>
 <dialog id="legal" aria-labelledby="lgT"><div class="dh"><h3 id="lgT">—</h3><button class="x" type="button" id="lgX" aria-label="Fermer">×</button></div><div class="db" id="lgB"></div></dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -472,7 +541,9 @@ const CARS=[
 ];
 const N=CARS.length, START=3;
 const row=$('#row');
-const cards=CARS.map((c,i)=>{const f=document.createElement('figure');f.className='car';f.innerHTML=`<img src="img/${c.k}.jpg" alt="${c.n} nettoyée par Shining Cars" loading="${i===START?'eager':'lazy'}" decoding="async"><figcaption>${c.n}</figcaption>`;row.appendChild(f);return f;});
+const cards=CARS.map((c,i)=>{const f=document.createElement('figure');f.className='car';f.setAttribute('role','button');f.tabIndex=0;f.setAttribute('aria-label',c.n+' : voir le nettoyage');const cv=document.createElement('canvas');cv.width=700;cv.height=280;f.appendChild(cv);f.insertAdjacentHTML('beforeend',`<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span><figcaption>${c.n}</figcaption>`);
+ const im=new Image();im.decoding='async';im.onload=()=>{const x=cv.getContext('2d');x.drawImage(im,0,0,700,280);try{const d=x.getImageData(0,0,700,280),p=d.data;for(let j=0;j<p.length;j+=4){const s=765-(p[j]+p[j+1]+p[j+2]);if(s<54)p[j+3]=Math.round(255*Math.max(0,(s-12)/42));}x.putImageData(d,0,0);}catch(e){}};im.src='img/profil/'+c.k+'.jpg';
+ row.appendChild(f);return f;});
 
 /* ---------- film frames ---------- */
 const FR=151, frames=new Array(FR), cv=$('#film'), cx=cv.getContext('2d');
@@ -486,7 +557,7 @@ const furl=i=>`https://res.cloudinary.com/ce2yatay/video/upload/so_${Math.max(0,
 function nearest(f){f=Math.round(f);for(let d=0;d<FR;d++){if(frames[f-d])return frames[f-d];if(frames[f+d])return frames[f+d];}return null;}
 
 /* ---------- state ---------- */
-const S={bx:0,by:0,bw:1,bh:1,br:0,f:0,zoom:.86,cardBg:0,glow:0,shine:0,
+const S={bx:0,by:0,bw:1,bh:1,br:0,f:0,zoom:.86,cardBg:0,light:0,glow:0,shine:0,
  cap:1,stmt:0,mq:0,film:1,row:{y:.73,op:0,focus:0,blur:16},pos:START,bar:0,fl:0};
 let G={};
 function geo(){
@@ -495,8 +566,8 @@ function geo(){
  let card;
  if(small){const w=Math.min(W-pad*2,H*.4*1.3);card={x:(W-w)/2,y:Math.max(84,H*.12),w,h:w/1.3,r:16};}
  else{const w=W*.46,h=w/1.3;card={x:pad,y:(H-h)/2-H*.03,w,h,r:22};}
- const cw0=small?Math.min(W*.34,H*.34*9/16):Math.min(W*.12,(H*.38)*9/16);
- const cw1=small?Math.min(W*.66,(H*.5)*9/16):Math.min(W*.3,(H*.58)*9/16);
+ const cw0=small?W*.56:Math.min(W*.22,H*.2*2.5);
+ const cw1=small?W*.94:Math.min(W*.62,H*.42*2.5);
  const sm={x:W/2-cw0*1.6/2,y:H*.73-(cw0*1.6/1.3)/2,w:cw0*1.6,h:cw0*1.6/1.3,r:14};
  return {W,H,small,pad,full,card,sm,cw0,cw1};
 }
@@ -512,7 +583,8 @@ function paint(){
  const b=$('#fbox'),g=G;
  b.style.width=S.bw+'px';b.style.height=S.bh+'px';b.style.transform=`translate3d(${S.bx}px,${S.by}px,0)`;b.style.borderRadius=S.br+'px';
  b.style.opacity=S.film;
- b.style.background=`rgb(${Math.round(lerp(0,13,S.cardBg))},${Math.round(lerp(0,22,S.cardBg))},${Math.round(lerp(0,42,S.cardBg))})`;
+ b.style.background=`rgb(${Math.round(lerp(0,233,S.cardBg))},${Math.round(lerp(0,238,S.cardBg))},${Math.round(lerp(0,245,S.cardBg))})`;
+ $('#light').style.opacity=S.light;
  const sc=Math.min(Math.max(S.bw/1280,S.bh/720),1.37*S.bw/1280)*S.zoom;
  cv.style.width=1280*sc+'px';cv.style.height=720*sc+'px';cv.style.transform='translate(-50%,-50%)';
  const im=nearest(S.f); if(im){cx.clearRect(0,0,1280,720);cx.drawImage(im,0,0,1280,720);}
@@ -528,14 +600,14 @@ function renderRow(){
  const y=r.y*g.H; row.style.top=y+'px';
  cards.forEach((el,i)=>{
   const d=wrapD(i,S.pos),ad=Math.abs(d);
-  const cw=lerp(g.cw0,ad<1?lerp(g.cw1,g.cw1*.62,ad):g.cw1*.62,fx);
-  const gap=lerp(g.cw0*1.14,g.cw1*.74,fx);
+  const cw=lerp(g.cw0,ad<1?lerp(g.cw1,g.cw1*.5,ad):g.cw1*.5,fx);
+  const gap=lerp(g.cw0*1.06,g.cw1*.78,fx);
   const x=g.W/2+d*gap;
-  const rot=-clamp(d,-1.4,1.4)*fx*32, z=-ad*fx*160;
+  const rot=-clamp(d,-1.4,1.4)*fx*22, z=-ad*fx*140;
   const blur=r.blur+fx*Math.min(ad,2)*7;
   let op=r.op*(fx>0?clamp(1-fx*(ad-.0)*.32,0,1):1); if(ad>3.2)op*=clamp(4-ad,0,1);
-  el.style.width=cw+'px';el.style.height=cw*16/9+'px';
-  el.style.transform=`translate3d(${x-cw/2}px,${-cw*16/9/2}px,${z}px) rotateY(${rot}deg)`;
+  el.style.width=cw+'px';el.style.height=cw/2.5+'px';el.classList.toggle('center',fx>.9&&ad<.3);
+  el.style.transform=`translate3d(${x-cw/2}px,${-cw/2.5/2}px,${z}px) rotateY(${rot}deg)`;
   el.style.filter=`blur(${blur.toFixed(1)}px)`;el.style.opacity=op.toFixed(3);el.style.zIndex=String(100-Math.round(ad*10));
   el.style.pointerEvents=op>.4?'auto':'none';
  });
@@ -545,7 +617,7 @@ function renderRow(){
 let cur=START;
 function setInfo(i,instant){
  const c=CARS[i],els=['#cName','#cDesc','#cCat'].map(s=>$(s));
- const apply=()=>{$('#cName').textContent=c.n;$('#cDesc').textContent=c.d;$('#cCat').textContent=c.c;$('#cLink').href='https://www.instagram.com/shiningcarss/reel/'+c.r+'/';$('#cLink').setAttribute('aria-label','Voir la vidéo de la '+c.n+' sur Instagram');els.forEach(e=>e.classList.remove('out'));};
+ const apply=()=>{$('#cName').textContent=c.n;$('#cDesc').textContent=c.d;$('#cCat').textContent=c.c;$('#cLink').setAttribute('aria-label','Voir le nettoyage de la '+c.n);els.forEach(e=>e.classList.remove('out'));};
  if(instant||RM){apply();return;} els.forEach(e=>e.classList.add('out')); setTimeout(apply,300);
 }
 function go(dir){
@@ -555,10 +627,21 @@ function go(dir){
  else{S.pos=((target%N)+N)%N;renderRow();}
 }
 $('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
-addEventListener('keydown',e=>{if(S.row.focus<.9||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);});
+addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||S.row.focus<.9||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);});
 let tx=null;row.parentElement.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
 row.parentElement.addEventListener('touchend',e=>{if(tx===null||S.row.focus<.9)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(dx<0?1:-1);tx=null;});
-cards.forEach((el,i)=>el.addEventListener('click',()=>{if(S.row.focus<.9)return;const d=Math.round(wrapD(i,S.pos));if(d)go(d>0?1:-1);}));
+cards.forEach((el,i)=>{const act=()=>{if(S.row.focus<.9)return;const d=Math.round(wrapD(i,S.pos));if(d)go(d>0?1:-1);else openVid(i);};el.addEventListener('click',act);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});});
+const vd=$('#vid');let vCur=0;
+function vidFrame(c){const f=$('#vFrame');f.innerHTML=`<iframe title="Vidéo Instagram : ${c.n}" src="https://www.instagram.com/reel/${c.r}/embed/" allow="autoplay; encrypted-media" loading="lazy"></iframe>`;}
+function openVid(i){const c=CARS[i];vCur=i;$('#vName').textContent=c.n;$('#vProf').src='img/profil/'+c.k+'.jpg';$('#vProf').alt=c.n+' de profil (illustration)';$('#vIg').href='https://www.instagram.com/shiningcarss/reel/'+c.r+'/';
+ $('#vList').innerHTML=(c.d.includes('intérieur /')?['Intérieur : aspiration, plastiques, sièges','Extérieur : lavage, jantes, finition']:c.d.includes('intérieur')?['Aspiration complète','Plastiques, sièges et tapis']:['Lavage extérieur et jantes','Intérieur et finition']).concat(['Réalisé à domicile, dans le Var']).map(t=>`<li>${t}</li>`).join('');
+ let ok=null;try{ok=localStorage.getItem('sc-ck')}catch(e){}
+ if(ok==='yes')vidFrame(c);else $('#vFrame').innerHTML=`<div class="poster"><img src="img/${c.k}.jpg" alt=""><div><b style="color:#fff;font-size:16px">${c.d}</b>La vidéo est hébergée par Instagram, qui peut déposer des cookies.<button class="btn btn-ig" type="button" id="vPlay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor" stroke="none"/></svg>Lancer la vidéo</button></div></div>`;
+ const p=$('#vPlay');if(p)p.onclick=()=>vidFrame(c);
+ vd.showModal();}
+$('#cLink').onclick=()=>openVid(cur);
+$('#vX').onclick=()=>{vd.close();};vd.addEventListener('close',()=>{$('#vFrame').innerHTML='';});vd.addEventListener('click',e=>{if(e.target===vd)vd.close();});
+$('#vBook').onclick=()=>{vd.close();preset(CARS[vCur]);document.querySelector('#reserver').scrollIntoView({behavior:RM?'auto':'smooth'});};
 $('#cBook').addEventListener('click',()=>preset(CARS[cur]));
 setInfo(cur,true);
 
@@ -572,7 +655,7 @@ function setBox(r){S.bx=r.x;S.by=r.y;S.bw=r.w;S.bh=r.h;S.br=r.r;}
 function build(){
  G=geo(); placeStatement();
  if(tl){tl.kill();st&&st.kill();}
- setBox(G.full);S.f=0;S.zoom=.86;S.cardBg=0;S.glow=0;S.cap=1;S.mq=0;S.film=1;S.row.y=.73;S.row.op=0;S.row.focus=0;S.row.blur=16;
+ setBox(G.full);S.f=0;S.zoom=.86;S.cardBg=0;S.light=0;S.glow=0;S.cap=1;S.mq=0;S.film=1;S.row.y=.73;S.row.op=0;S.row.focus=0;S.row.blur=16;
  if(!window.gsap||!window.ScrollTrigger){fallback();return;}
  gsap.registerPlugin(ScrollTrigger);
  gsap.set(lines,{opacity:0,y:26,filter:'blur(12px)'});gsap.set('#stmt .ctas',{opacity:0});
@@ -590,6 +673,7 @@ function build(){
    .to(lines,{opacity:0,filter:'blur(12px)',duration:.6,stagger:.05},4.3).to('#stmt .ctas',{opacity:0,duration:.4},4.3).to(S,{mq:0,duration:.6},4.3)
    .to(S,{bx:sm.x,by:sm.y,bw:sm.w,bh:sm.h,br:sm.r,zoom:.9,duration:1.2},4.3)
    .to(S,{cardBg:1,duration:.8},5.3)
+   .to(S,{light:1,duration:.9},5.4)
    .to(S,{film:0,duration:.7},5.6)
    .to(S.row,{op:1,blur:0,duration:1},5.4)
    .to(flw,{opacity:1,filter:'blur(0px)',stagger:.045,duration:.5},5.8)
@@ -605,7 +689,7 @@ function build(){
 function fallback(){
  document.documentElement.classList.add('nogsap');
  $('#track').style.height='auto';const sg=$('#stage');sg.style.position='relative';sg.style.height='auto';sg.style.minHeight='100vh';
- S.film=0;S.glow=1;S.cap=0;S.row.op=1;S.row.blur=0;S.row.focus=1;S.row.y=.45;
+ S.film=0;S.glow=1;S.light=1;S.cap=0;S.row.op=1;S.row.blur=0;S.row.focus=1;S.row.y=.45;
  lines.forEach(l=>l.style.opacity=1);tiles.forEach(t=>{t.style.opacity=1;t.style.transform='none'});
  $('#stmt').style.display='none';paint();
 }
@@ -647,10 +731,18 @@ function tunnel(){
 }
 addEventListener('scroll',tunnel,{passive:true});addEventListener('resize',tunnel);tunnel();
 
+/* ---------- interiors: inside-the-cabin ring ---------- */
+const INT=[['Poste de conduite'],['Volant et sièges cuir'],['Tapis dépoussiérés'],['Côté passager'],['Contre-porte et seuil'],['Places arrière'],['Banquette arrière']];
+const ring=$('#ring'),NI=INT.length;let pw=0,R=0;
+const pans=INT.map((t,i)=>{const f=document.createElement('figure');f.className='pan';f.innerHTML=`<img src="img/interieur-${i+1}.jpg" alt="${t[0]} d'une Porsche 911 après nettoyage par Shining Cars" loading="lazy" decoding="async"><figcaption>${t[0]}</figcaption>`;ring.appendChild(f);return f;});
+function ringGeo(){const W=innerWidth,H=innerHeight;pw=Math.min(W<760?W*.62:W*.24,H*.5*3/4,380);const ph=pw*4/3;R=pw/(2*Math.tan(Math.PI/NI))*1.06;pans.forEach((p,i)=>{p.style.width=pw+'px';p.style.height=ph+'px';p.style.left=-pw/2+'px';p.style.top=-ph/2+'px';p.style.transform=`rotateY(${i*360/NI}deg) translateZ(${-R}px)`;});cabin();}
+function cabin(){const sec=$('#interieurs'),r=sec.getBoundingClientRect(),H=innerHeight;const p=clamp(-r.top/(sec.offsetHeight-H),0,1);const q=p*(NI-1),fq=Math.floor(q),t=q-fq,e=t<.35?0:t>.65?1:(u=>u*u*(3-2*u))((t-.35)/.3);const a=(fq+e)*360/NI;ring.style.transform=`translateZ(${R*.55}px) rotateY(${-a}deg)`;const k=Math.round(fq+e)%NI;$('#cabCap').innerHTML=`<b>${String(k+1).padStart(2,'0')} / ${String(NI).padStart(2,'0')}</b> · ${INT[k][0]}`;}
+addEventListener('scroll',cabin,{passive:true});addEventListener('resize',ringGeo);ringGeo();
+
 /* ---------- booking ---------- */
 const form=$('#form'),ticket=$('#ticket');
 const catImg={'Citadine / compacte':'golf-gti','Berline':'audi-rs-etron-gt','SUV':'mercedes-glc','Sportive':'mclaren','Utilitaire / van':'bmw-x4'};
-function preset(c){const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}$('#tImg').src='img/'+c.k+'.jpg';$('#tImg').alt=c.n;form.dataset.car=c.n;upd();}
+function preset(c){$('#tPh').classList.remove('in');$('#tTag').textContent='Extérieur';const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}$('#tImg').src='img/'+c.k+'.jpg';$('#tImg').alt=c.n;form.dataset.car=c.n;upd();}
 function upd(){
  const fd=new FormData(form),veh=fd.get('veh'),pre=fd.get('pre'),v=(fd.get('ville')||'').trim(),d=fd.get('date');
  $('#tVeh').textContent=form.dataset.car?form.dataset.car+(veh?' ('+veh+')':''):(veh||'—');
@@ -659,7 +751,7 @@ function upd(){
  const n=[veh,pre,v,d,(fd.get('nom')||'').trim(),$('#ok').checked].filter(Boolean).length,pc=Math.round(n/6*100);
  $('#water').style.height=pc+'%';$('#water').classList.toggle('empty',pc===0);$('#gtxt').textContent=pc+' % rempli';
 }
-form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)$('#tImg').src='img/'+k+'.jpg';}upd();});
+form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)$('#tImg').src='img/'+k+'.jpg';}if(e.target.name==='pre'){const v=e.target.value,ph=$('#tPh');ph.classList.toggle('in',v==='Intérieur');ph.classList.toggle('both',v==='Intérieur + extérieur');$('#tTag').textContent=v==='Intérieur'?'Intérieur':v==='Extérieur'?'Extérieur':v.startsWith('Int')?'Intérieur + extérieur':'Prestation';}upd();});
 form.addEventListener('change',upd);
 const dt=form.querySelector('input[type=date]');dt.min=new Date().toISOString().slice(0,10);
 form.addEventListener('submit',e=>{
@@ -669,6 +761,13 @@ form.addEventListener('submit',e=>{
  if(!$('#ok').checked){err.textContent='Cochez la case de consentement pour envoyer la demande.';$('#ok').focus();return;}
  err.textContent='';
  const msg=`Bonjour Shining Cars, je suis ${fd.get('nom').trim()}.\nDemande de nettoyage :\n- Véhicule : ${form.dataset.car?form.dataset.car+' / ':''}${fd.get('veh')}\n- Prestation : ${fd.get('pre')}\n- Lieu : ${fd.get('ville').trim()}\n- Date souhaitée : ${$('#tDat').textContent}\n${(fd.get('msg')||'').trim()?'- Précisions : '+fd.get('msg').trim()+'\n':''}Pouvez-vous me donner un prix et confirmer l'heure ? Merci !`;
+ if(via==='ig'){
+  const ta=document.createElement('textarea');ta.value=msg;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,msg.length);try{document.execCommand('copy')}catch(x){}ta.remove();
+  try{navigator.clipboard&&navigator.clipboard.writeText(msg).catch(()=>{})}catch(x){}
+  window.open('https://ig.me/m/shiningcarss','_blank','noopener');
+  const t=$('#toast');t.hidden=false;t.textContent='Demande copiée ✔ La conversation Instagram avec @shiningcarss s\'ouvre : collez le message (appui long → Coller) puis envoyez.';
+  return;
+ }
  const u=via==='sms'?'sms:+33665345684?&body='+encodeURIComponent(msg):'https://wa.me/33665345684?text='+encodeURIComponent(msg);
  window.open(u,via==='sms'?'_self':'_blank','noopener');
 });
@@ -690,11 +789,11 @@ $('#ckYes').onclick=()=>setCk('yes');$('#ckNo').onclick=()=>setCk('no');$('#ckRe
 
 /* ---------- legal ---------- */
 const L={
- ml:['Mentions légales',`<h4>Éditeur du site</h4><p>Shining Cars — détailing et nettoyage à domicile, Brignoles (83). Responsable : [nom du gérant à compléter]. SIRET : [à compléter]. Adresse : [à compléter]. Téléphone : 06 65 34 56 84.</p><h4>Hébergement</h4><p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Conception</h4><p>Site réalisé par ZAHR (zahr.fr).</p><h4>Photos et médias</h4><p>Les photos des voitures proviennent du compte Instagram @shiningcarss et sont utilisées avec l'accord de Shining Cars ; les plaques d'immatriculation visibles ont été floutées. Les vidéos d'ambiance et la séquence de la berline noire sont des visuels d'illustration fournis par des banques d'images tierces. Les noms de marques automobiles cités désignent uniquement des véhicules nettoyés et appartiennent à leurs propriétaires respectifs.</p><h4>Polices</h4><p>Archivo, sous licence SIL Open Font License, servie par Bunny Fonts.</p>`],
- conf:['Politique de confidentialité',`<p>Ce site ne crée aucun compte et n'enregistre aucune donnée. Le formulaire de réservation prépare simplement un message que vous envoyez vous-même par WhatsApp ou SMS à Shining Cars.</p><h4>Données traitées</h4><p>Prénom, ville, date souhaitée, type de véhicule et de prestation, précisions éventuelles : uniquement ce qui est nécessaire pour vous répondre et organiser l'intervention.</p><h4>Base légale et durée</h4><p>Votre consentement (case à cocher) et les mesures précontractuelles à votre demande. Les messages sont conservés par Shining Cars le temps de traiter la demande puis au maximum 3 ans après le dernier contact.</p><h4>Services tiers</h4><p>WhatsApp (Meta) si vous choisissez cet envoi ; Google Maps uniquement si vous l'acceptez ; Bunny Fonts (polices), cdnjs/Cloudflare (scripts), Cloudinary et SceneAI (images et vidéos d'illustration), GitHub Pages (hébergement), qui reçoivent votre adresse IP technique pour afficher le site.</p><h4>Vos droits</h4><p>Accès, rectification, suppression, opposition : écrivez ou appelez au 06 65 34 56 84 pour demander la suppression de vos messages. Vous pouvez aussi saisir la CNIL (cnil.fr). Le service n'est pas destiné aux mineurs sans l'accord d'un parent.</p>`],
+ ml:['Mentions légales',`<h4>Éditeur du site</h4><p>Shining Cars — détailing et nettoyage à domicile, Brignoles (83). Responsable : [nom du gérant à compléter]. SIRET : [à compléter]. Adresse : [à compléter]. Téléphone : 06 65 34 56 84.</p><h4>Hébergement</h4><p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Conception</h4><p>Site réalisé par ZAHR (zahr.fr).</p><h4>Photos et médias</h4><p>Les photos des voitures et des intérieurs proviennent du compte Instagram @shiningcarss et sont utilisées avec l'accord de Shining Cars ; les plaques d'immatriculation visibles ont été floutées. Les vidéos d'ambiance et la séquence de la berline noire sont des visuels d'illustration fournis par des banques d'images tierces. Les vues de profil des voitures sont des illustrations générées par intelligence artificielle pour représenter les modèles nettoyés ; les vidéos sont celles publiées par @shiningcarss sur Instagram. Les noms de marques automobiles cités désignent uniquement des véhicules nettoyés et appartiennent à leurs propriétaires respectifs.</p><h4>Polices</h4><p>Archivo, sous licence SIL Open Font License, servie par Bunny Fonts.</p>`],
+ conf:['Politique de confidentialité',`<p>Ce site ne crée aucun compte et n'enregistre aucune donnée. Le formulaire de réservation prépare simplement un message que vous envoyez vous-même à Shining Cars par Instagram (message copié puis collé dans la conversation), WhatsApp ou SMS.</p><h4>Données traitées</h4><p>Prénom, ville, date souhaitée, type de véhicule et de prestation, précisions éventuelles : uniquement ce qui est nécessaire pour vous répondre et organiser l'intervention.</p><h4>Base légale et durée</h4><p>Votre consentement (case à cocher) et les mesures précontractuelles à votre demande. Les messages sont conservés par Shining Cars le temps de traiter la demande puis au maximum 3 ans après le dernier contact.</p><h4>Services tiers</h4><p>Instagram et WhatsApp (Meta) si vous choisissez ces envois ; Google Maps uniquement si vous l'acceptez ; Bunny Fonts (polices), cdnjs/Cloudflare (scripts), Cloudinary et SceneAI (images et vidéos d'illustration), GitHub Pages (hébergement), qui reçoivent votre adresse IP technique pour afficher le site.</p><h4>Vos droits</h4><p>Accès, rectification, suppression, opposition : écrivez ou appelez au 06 65 34 56 84 pour demander la suppression de vos messages. Vous pouvez aussi saisir la CNIL (cnil.fr). Le service n'est pas destiné aux mineurs sans l'accord d'un parent.</p>`],
  cgv:['Conditions générales',`<h4>Objet</h4><p>Les présentes conditions encadrent les prestations de nettoyage et de détailing réalisées par Shining Cars au domicile ou sur le lieu indiqué par le client, dans le Var.</p><h4>Devis et prix</h4><p>Chaque prestation fait l'objet d'un prix communiqué avant l'intervention (par message ou téléphone), selon le véhicule, son état et la prestation choisie. Aucun frais n'est ajouté sans accord préalable du client. Aucun paiement n'est demandé sur ce site.</p><h4>Rendez-vous</h4><p>La demande envoyée depuis le site n'est confirmée qu'après accord de Shining Cars sur la date et l'heure. Le client garantit l'accès au véhicule et, si besoin, à un point d'eau et d'électricité, sauf indication contraire de Shining Cars.</p><h4>Réalisation</h4><p>Shining Cars s'engage à réaliser la prestation avec soin. Les défauts existants (rayures, usure, taches incrustées) ne peuvent pas toujours être supprimés ; ils sont signalés au client.</p><h4>Réclamation</h4><p>Toute réclamation est à formuler le jour même par téléphone ou message, photos à l'appui. En cas de litige, le client consommateur peut recourir gratuitement à un médiateur de la consommation [nom du médiateur à compléter].</p><h4>Utilisation du site</h4><p>Le site est fourni à titre d'information et de prise de contact ; son contenu ne peut pas être réutilisé sans autorisation.</p>`],
  remb:['Annulation et remboursement',`<p>Vous pouvez annuler ou déplacer un rendez-vous gratuitement en prévenant au moins 24 heures à l'avance par téléphone ou message au 06 65 34 56 84.</p><p>Le paiement se fait après la prestation, aucun acompte n'est demandé via ce site. Si une prestation n'a pas pu être réalisée du fait de Shining Cars, rien n'est dû. Si un défaut de réalisation est constaté et signalé le jour même, Shining Cars repasse sur la zone concernée ou propose un geste commercial adapté.</p><p>Pour une prestation réservée à distance et commencée à votre demande avant la fin du délai de rétractation de 14 jours, ce droit ne s'applique plus une fois la prestation entièrement exécutée.</p>`],
- cook:['Cookies',`<p>Ce site ne dépose aucun cookie de mesure d'audience ni de publicité.</p><p>Il mémorise seulement votre choix (accepter ou refuser la carte) dans votre navigateur.</p><p>Si vous acceptez, la carte Google Maps est chargée et Google peut déposer ses propres cookies. Vous pouvez changer d'avis à tout moment avec le lien « Gérer les cookies » en bas de page.</p>`]
+ cook:['Cookies',`<p>Ce site ne dépose aucun cookie de mesure d'audience ni de publicité.</p><p>Il mémorise seulement votre choix (accepter ou refuser la carte) dans votre navigateur.</p><p>Si vous acceptez, la carte Google Maps et les vidéos Instagram sont chargées, et Google ou Instagram peuvent déposer leurs propres cookies. Une vidéo peut aussi être lancée ponctuellement avec le bouton « Lancer la vidéo ». Vous pouvez changer d'avis à tout moment avec le lien « Gérer les cookies » en bas de page.</p>`]
 };
 const dlg=$('#legal');
 document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>{const [t,h]=L[b.dataset.legal];$('#lgT').textContent=t;$('#lgB').innerHTML=h;dlg.showModal();}));
