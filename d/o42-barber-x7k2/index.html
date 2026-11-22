@@ -160,7 +160,7 @@ input:focus,select:focus{border-color:var(--wood);outline:none}
 .tk-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid rgba(26,19,16,.1);font-size:14px}
 .tk-row span:first-child{color:#6b5a4c;font:400 10px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding-top:3px;flex:none}
 .tk-row span:last-child{text-align:right;font-weight:600}
-.tk-tot{display:flex;justify-content:space-between;margin-top:16px;font:400 18px Michroma,sans-serif}
+.tk-tot{display:flex;justify-content:space-between;margin-top:16px;font:400 18px Michroma,sans-serif}.tk-tot #tT{font:600 20px Inter,system-ui,sans-serif}
 .bars{height:46px;margin-top:22px;background:repeating-linear-gradient(90deg,#1a1310 0 2px,transparent 2px 4px,#1a1310 4px 7px,transparent 7px 9px,#1a1310 9px 10px,transparent 10px 14px)}
 .ticket .verso{position:absolute;inset:0;transform:rotateY(180deg);display:grid;place-items:center;text-align:center;background:linear-gradient(160deg,#9a4f36,#5a2a1b);color:var(--cream)}
 .ticket .verso b{font:400 18px Michroma,sans-serif;letter-spacing:.12em;display:block;margin:16px 0 10px}
@@ -213,7 +213,7 @@ dialog p{color:var(--mid);font-size:14px}
 dialog .x{position:sticky;top:0;float:right;background:none;border:1px solid var(--line);color:var(--cream);border-radius:999px;padding:6px 12px;cursor:pointer}
 @media (max-width:820px){
  :root{--u:1px}
- header{padding:14px 16px;grid-template-columns:1fr auto}
+ header{padding:14px 16px;grid-template-columns:1fr auto;background:rgba(14,12,11,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
  nav,.hd-r .ghost{display:none}
  .hero{grid-template-columns:1fr;grid-template-rows:1fr 190px;height:100svh}
  .stage{cursor:auto}.ring{display:none}
