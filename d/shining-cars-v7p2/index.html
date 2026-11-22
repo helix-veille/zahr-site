@@ -162,6 +162,20 @@ h2 em{font-style:italic;font-weight:900;color:var(--cyan)}
 .brush{position:absolute;top:0;bottom:0;width:22px;border-radius:12px;background:repeating-linear-gradient(0deg,rgba(70,210,255,.55) 0 3px,rgba(31,139,255,.15) 3px 7px);opacity:.55;animation:spin 1.2s linear infinite}
 .brush.l{left:-34px}.brush.r{right:-34px}
 @keyframes spin{to{background-position:0 28px}}
+.svc{position:absolute;left:50%;top:60%;width:var(--sw);margin-left:calc(var(--sw)/-2);transform-style:preserve-3d;will-change:transform,opacity}
+.svc .pic{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/2;box-shadow:0 40px 70px rgba(0,0,0,.55),0 0 0 1px rgba(140,200,255,.28)}
+.svc .pic img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.06);transition:transform 1.2s}
+.svc.on .pic img{transform:scale(1)}
+.svc .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(4,6,11,.88))}
+.svc .txt{position:absolute;left:22px;right:22px;bottom:18px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.svc .num{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--cyan)}
+.svc h3{font-size:clamp(24px,3vw,44px);font-weight:900;font-style:italic;letter-spacing:-.04em;line-height:1}
+.svc p{color:#d4e2f6;font-size:clamp(13px,1vw,15px);margin-top:6px;max-width:420px}
+.svc .ic{width:52px;height:52px;flex:none;border-radius:14px;display:grid;place-items:center;background:rgba(31,139,255,.35);border:1px solid rgba(140,200,255,.5);backdrop-filter:blur(8px)}
+.svc .ic svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc-dots{position:absolute;left:0;right:0;bottom:56px;display:flex;justify-content:center;gap:8px;z-index:5}
+.svc-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.25);transition:.3s}
+.svc-dots i.on{width:26px;background:var(--cyan)}
 .tun-prog{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;height:2px;background:rgba(255,255,255,.1);z-index:5}
 .tun-prog i{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
 @media(max-width:760px){.arch{flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:20px;border-radius:26px}.brush{display:none}}
@@ -193,7 +207,7 @@ label.f{display:grid;gap:7px;font-size:13px;font-weight:600;color:#c6d6f0}
 .ticket{position:relative;border-radius:24px;padding:26px;background:linear-gradient(160deg,rgba(31,139,255,.25),rgba(10,18,34,.9) 45%),#0a1222;border:1px solid rgba(140,200,255,.3);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px rgba(31,139,255,.18);transform-style:preserve-3d;transition:transform .2s ease-out;overflow:hidden}
 .ticket .tp{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
 .ticket .tp b{font-weight:900;font-style:italic;font-size:22px}
-.ticket .photo{height:180px;border-radius:14px;overflow:hidden;margin-bottom:18px;transform:translateZ(30px);background:#0d1424}
+.ticket .photo{height:240px;border-radius:14px;overflow:hidden;margin-bottom:18px;transform:translateZ(30px);background:#0d1424}
 .ticket .photo img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
 .ticket dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;transform:translateZ(20px)}
 .ticket dt{color:var(--mut)}
@@ -211,11 +225,16 @@ label.f{display:grid;gap:7px;font-size:13px;font-weight:600;color:#c6d6f0}
 .btn-ig svg,.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
 .toast{margin-top:4px;padding:12px 14px;border-radius:12px;background:rgba(70,210,255,.12);border:1px solid rgba(70,210,255,.4);font-size:13px;color:#dff6ff}
 .ticket .photo{position:relative}
-.ticket .photo img{position:absolute;inset:0;transition:opacity .7s}
-.ticket .photo #tIn{opacity:0}
-.ticket .photo.in #tIn{opacity:1}.ticket .photo.in #tImg{opacity:0}
-.ticket .photo.both #tIn{animation:swapIn 5s infinite}
-@keyframes swapIn{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+.ticket .photo .layer{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.ticket .photo[data-m="ext"] .l-ext,.ticket .photo[data-m="in"] .l-in,.ticket .photo[data-m="both"] .l-both,.ticket .photo[data-m="pro"] .l-pro{opacity:1}
+.ticket .photo .layer img{position:absolute;inset:0;width:100%;height:100%}
+.ticket .photo .bg{object-fit:cover;filter:blur(16px) brightness(.55);transform:scale(1.25)}
+.ticket .photo .fg{object-fit:contain}
+.ticket .photo .l-both img{object-fit:cover}
+.ticket .photo .l-both .b2{clip-path:polygon(58% 0,100% 0,100% 100%,42% 100%)}
+.ticket .photo .l-both .b1{clip-path:polygon(0 0,58% 0,42% 100%,0 100%)}
+.ticket .photo .l-both::after{content:"";position:absolute;top:-10%;bottom:-10%;left:50%;width:3px;background:linear-gradient(var(--cyan),#fff,var(--cyan));transform:rotate(9deg);box-shadow:0 0 18px var(--cyan)}
+.ticket .photo .l-both span{position:absolute;bottom:10px;z-index:2;font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px;background:rgba(4,6,11,.7)}
 .ticket .photo .tag{position:absolute;left:10px;top:10px;z-index:2}
 /* INTERIEURS */
 #interieurs{padding:0;height:380vh;background:radial-gradient(70% 60% at 50% 50%,#0b1630,#04060b 75%)}
@@ -232,6 +251,19 @@ label.f{display:grid;gap:7px;font-size:13px;font-weight:600;color:#c6d6f0}
 .pan figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;font-weight:800;font-style:italic;font-size:clamp(16px,1.5vw,22px)}
 .cab-cap{position:absolute;left:0;right:0;bottom:26px;text-align:center;z-index:5;font-size:13px;color:var(--mut)}
 .cab-cap b{color:#fff}
+.cab-nav{position:absolute;top:58%;z-index:7;width:52px;height:52px;border-radius:50%;background:rgba(10,20,40,.7);border:1px solid rgba(140,200,255,.35);color:#fff;font-size:20px;backdrop-filter:blur(10px)}
+.cab-nav:hover{background:var(--blue)}
+.cab-nav.prev{left:var(--pad)}.cab-nav.next{right:var(--pad)}
+.pan{cursor:pointer}
+.pan:focus-visible{outline:3px solid var(--cyan)}
+.pan figcaption small{display:block;font-size:12px;font-weight:500;font-style:normal;color:#c6d6f0;margin-top:4px}
+#lb{width:min(900px,94vw);background:#04060b}
+#lb .lbw{position:relative;display:grid;place-items:center;padding:14px;touch-action:pan-y}
+#lb img{max-width:100%;max-height:70vh;border-radius:14px;display:block}
+#lb .lbn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(10,20,40,.75);color:#fff;font-size:20px;border:1px solid rgba(140,200,255,.35)}
+#lb .lbn.p{left:22px}#lb .lbn.n{right:22px}
+#lb .lbc{padding:0 22px 20px;color:#c6d6f0;font-size:14px}
+#lb .lbc b{display:block;color:#fff;font-size:20px;font-style:italic;font-weight:900}
 @media(max-width:900px){.res{grid-template-columns:1fr}.ticket-wrap{position:relative;top:0}.grid2{grid-template-columns:1fr}}
 
 /* ZONE / MAP */
@@ -382,9 +414,20 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
 <!-- SERVICES -->
 <section id="services" aria-labelledby="svc-t">
  <div class="tun" id="tun">
-  <div class="tun-head"><div class="kick">Le tunnel Shining</div><h2 id="svc-t">Plus qu'un lavage,<br><em>un environnement propre.</em></h2></div>
+  <div class="tun-head"><div class="kick">Nos prestations</div><h2 id="svc-t">Plus qu'un lavage,<br><em>un environnement propre.</em></h2></div>
   <div class="tun-world" id="tw"></div>
+  <div class="svc-dots" id="svcDots" aria-hidden="true"></div>
   <div class="tun-prog"><i id="tprog"></i></div>
+ </div>
+</section>
+
+<!-- INTERIEURS -->
+<section id="interieurs" aria-labelledby="int-t">
+ <div class="cab" id="cab">
+  <div class="cab-head"><div class="kick">Intérieurs</div><h2 id="int-t">Installez-vous <em>dans l'habitacle.</em></h2><p>Porsche 911 Carrera 4S : aspiration complète, tapis, dépoussiérage, cuir nettoyé et traité, tableau de bord et portières. Glissez ou touchez une photo pour l'ouvrir.</p></div>
+  <div class="cab-view"><div class="ring" id="ring"></div></div>
+  <button class="cab-nav prev" id="cabPrev" type="button" aria-label="Photo précédente">←</button><button class="cab-nav next" id="cabNext" type="button" aria-label="Photo suivante">→</button>
+  <p class="cab-cap" id="cabCap" aria-live="polite"></p>
  </div>
 </section>
 
@@ -424,7 +467,7 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
   <div class="ticket-wrap"><div class="ticket" id="ticket">
    <div class="glare"></div>
    <div class="tp"><b>SHINING<span style="color:var(--cyan)">CARS</span></b><span class="pill">Ticket</span></div>
-   <div class="photo in" id="tPh"><img id="tImg" src="img/mclaren.jpg" alt="Extérieur d'une voiture nettoyée par Shining Cars"><img id="tIn" src="img/interieur-2.jpg" alt="Intérieur cuir nettoyé par Shining Cars"><span class="pill tag" id="tTag">Intérieur</span></div>
+   <div class="photo" id="tPh" data-m="ext"><div class="layer l-ext"><img class="bg" id="tImgBg" src="img/exterieur-1.jpg" alt=""><img class="fg" id="tImg" src="img/exterieur-1.jpg" alt="Extérieur d'une voiture propre après passage de Shining Cars"></div><div class="layer l-in"><img class="bg" src="img/interieur-1.jpg" alt=""><img class="fg" src="img/interieur-1.jpg" alt="Intérieur nettoyé par Shining Cars"></div><div class="layer l-both"><img class="b1" src="img/exterieur-1.jpg" alt="Extérieur"><img class="b2" src="img/interieur-2.jpg" alt="Intérieur"><span style="left:10px">Extérieur</span><span style="right:10px">Intérieur</span></div><div class="layer l-pro"><img class="bg" src="img/svc-facade.jpg" alt=""><img class="fg" src="img/svc-facade.jpg" alt="Nettoyage de façade"></div><span class="pill tag" id="tTag">Extérieur</span></div>
    <dl><dt>Véhicule</dt><dd id="tVeh">—</dd><dt>Prestation</dt><dd id="tPre">—</dd><dt>Lieu</dt><dd id="tVil">—</dd><dt>Date</dt><dd id="tDat">—</dd><dt>Tarif</dt><dd>Devis gratuit</dd></dl>
    <div class="gauge"><div class="water" id="water"></div><span id="gtxt">0 % rempli</span></div>
   </div></div>
@@ -446,14 +489,6 @@ dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,
    <div class="mapcard"><b>Shining Cars</b>Brignoles (83) · déplacement dans tout le Var<br><a class="btn btn-glass mini" href="https://www.google.com/maps/search/?api=1&query=Brignoles%2083170" target="_blank" rel="noopener">Ouvrir dans Maps ↗</a></div>
    <button class="btn btn-glass mini mapload" id="mapload" type="button">Afficher la carte Google</button>
   </div></div>
- </div>
-</section>
-<!-- INTERIEURS -->
-<section id="interieurs" aria-labelledby="int-t">
- <div class="cab" id="cab">
-  <div class="cab-head"><div class="kick">Intérieurs</div><h2 id="int-t">Installez-vous <em>dans l'habitacle.</em></h2><p>Porsche 911 Carrera 4S : aspiration complète, tapis, dépoussiérage, cuir nettoyé et traité, tableau de bord et portières.</p></div>
-  <div class="cab-view"><div class="ring" id="ring"></div></div>
-  <p class="cab-cap" id="cabCap" aria-live="polite"></p>
  </div>
 </section>
 </main>
@@ -532,7 +567,6 @@ addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>innerHeight*.
 /* ---------- cars data ---------- */
 const CARS=[
  {k:'golf-gti',n:'Volkswagen Golf 8 GTI',d:'Nettoyage complet',c:'Citadine / compacte',r:'DcMDo9sI-Cm'},
- {k:'audi-q3',n:'Audi Q3',d:'Nettoyage intérieur / extérieur',c:'SUV',r:'Dc_J1BAoG_U'},
  {k:'audi-rs-etron-gt',n:'Audi RS e-tron GT',d:'Nettoyage intérieur / extérieur',c:'Berline',r:'Dc3588KoLZH'},
  {k:'mclaren',n:'McLaren 675LT',d:'Nettoyage complet',c:'Sportive',r:'DQw3XI4CH3S'},
  {k:'porsche-panamera',n:'Porsche Panamera Turbo S',d:'Nettoyage intérieur',c:'Berline',r:'DdW52sCohUF'},
@@ -540,7 +574,7 @@ const CARS=[
  {k:'bmw-x4',n:'BMW X4 xDrive20d',d:'Nettoyage complet',c:'SUV',r:'Dc_KJXnBS7o'},
  {k:'audi-q6',n:'Audi Q6',d:'Nettoyage complet',c:'SUV',r:'Db6I09aI6ay'}
 ];
-const N=CARS.length, START=3;
+const N=CARS.length, START=2;
 const row=$('#row');
 const cards=CARS.map((c,i)=>{const f=document.createElement('figure');f.className='car';f.setAttribute('role','button');f.tabIndex=0;f.setAttribute('aria-label',c.n+' : voir le nettoyage');const cv=document.createElement('canvas');cv.width=700;cv.height=280;f.appendChild(cv);f.insertAdjacentHTML('beforeend',`<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span><figcaption>${c.n}</figcaption>`);
  const im=new Image();im.decoding='async';im.onload=()=>{const x=cv.getContext('2d');x.drawImage(im,0,0,700,280);try{const d=x.getImageData(0,0,700,280),p=d.data;for(let j=0;j<p.length;j+=4){const s=765-(p[j]+p[j+1]+p[j+2]);if(s<54)p[j+3]=Math.round(255*Math.max(0,(s-12)/42));}x.putImageData(d,0,0);}catch(e){}};im.src='img/profil/'+c.k+'.jpg';
@@ -718,32 +752,51 @@ const SV=[
  ['Vitres','Des vitres impeccables, à l’intérieur comme à l’extérieur.','<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/><path d="M15 6l2 2"/>'],
  ['Moquette & textile','Moquettes, sièges et tissus détachés en profondeur.','<path d="M4 18c2-1 4-1 6 0s4 1 6 0 4-1 4-1"/><path d="M6 14V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8"/>']
 ];
-const tw=$('#tw'),SP=720;
-const arches=SV.map((s,i)=>{const a=document.createElement('article');a.className='arch';a.innerHTML=`<span class="brush l"></span><span class="brush r"></span><div><div class="num">${String(i+1).padStart(2,'0')} / ${String(SV.length).padStart(2,'0')}</div><h3>${s[0]}</h3><p>${s[1]}</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24">${s[2]}</svg></div>`;tw.appendChild(a);return a;});
+const tw=$('#tw');
+const IMG=['svc-auto','svc-toiture','svc-facade','svc-solaire','svc-terrasse','svc-chantier','svc-bureau','svc-vitres','svc-moquette'];
+SV.push(['Textile','Canapés, fauteuils et sièges en tissu : détachés et rafraîchis.',SV[8][2]]);IMG.push('svc-textile');SV[8]=['Moquette','Moquettes et tapis nettoyés en profondeur, chez vous ou au bureau.',SV[8][2]];
+const NS=SV.length,dots=$('#svcDots');
+const cardsS=SV.map((s,i)=>{const a=document.createElement('article');a.className='svc';a.innerHTML=`<div class="pic"><img src="img/${IMG[i]}.jpg" alt="${s[0]} : prestation Shining Cars" decoding="async"><div class="txt"><div><div class="num">${String(i+1).padStart(2,'0')} / ${String(NS).padStart(2,'0')}</div><h3>${s[0]}</h3><p>${s[1]}</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24">${s[2]}</svg></div></div></div>`;tw.appendChild(a);dots.appendChild(document.createElement('i'));return a;});
 function tunnel(){
- const sec=$('#services'),r=sec.getBoundingClientRect(),H=innerHeight;
+ const sec=$('#services'),r=sec.getBoundingClientRect(),H=innerHeight,W=innerWidth;
+ const sw=Math.min(W<760?W*.84:W*.5,H*.5*1.5,760);tw.style.setProperty('--sw',sw+'px');
  const p=clamp(-r.top/(sec.offsetHeight-H),0,1);
- const q=p*(SV.length-1),fq=Math.floor(q),t=q-fq,e=t<.3?0:t>.7?1:(u=>u*u*(3-2*u))((t-.3)/.4);
- const z0=(fq+e)*SP+SP*.1;
- arches.forEach((a,i)=>{const z=-i*SP+z0;const vis=z>-SP*3.2&&z<520;a.style.visibility=vis?'visible':'hidden';if(!vis)return;
-  const op=z>0?clamp(1-z/480,0,1):clamp(1+(z+SP*2.6)/(SP*.6),0,1)*clamp(1+z/(SP*1.1),.1,1);
-  a.style.transform=`translate3d(0,0,${z}px) rotateZ(${(i%2?1:-1)*Math.max(0,-z)/SP*3}deg)`;a.style.opacity=op.toFixed(3);});
+ const q=p*(NS-1),fq=Math.floor(q),t=q-fq,e=t<.3?0:t>.7?1:(u=>u*u*(3-2*u))((t-.3)/.4),pos=fq+e;
+ cardsS.forEach((a,i)=>{const d=i-pos,ad=Math.abs(d);const x=d*sw*(W<760?.86:.78),rot=-clamp(d,-1.5,1.5)*38,z=-Math.min(ad,3)*260;
+  a.style.transform=`translate3d(${x}px,-50%,${z}px) rotateY(${rot}deg)`;a.style.opacity=clamp(1.6-ad*.55,0,1).toFixed(3);a.style.zIndex=String(50-Math.round(ad*10));a.classList.toggle('on',ad<.3);a.style.visibility=ad>3.2?'hidden':'visible';});
+ [...dots.children].forEach((d,i)=>d.classList.toggle('on',i===Math.round(pos)));
  $('#tprog').style.width=(p*100)+'%';
 }
 addEventListener('scroll',tunnel,{passive:true});addEventListener('resize',tunnel);tunnel();
 
 /* ---------- interiors: inside-the-cabin ring ---------- */
-const INT=[['Poste de conduite'],['Volant et sièges cuir'],['Tapis dépoussiérés'],['Côté passager'],['Contre-porte et seuil'],['Places arrière'],['Banquette arrière']];
+const INT=[['Tableau de bord','Planche de bord, console et volant dépoussiérés'],['Cuir nettoyé et traité','Sièges cuir nettoyés puis nourris'],['Tapis dépoussiérés','Tapis et pédalier aspirés en profondeur'],['Aspiration complète','Côté passager : sièges, sol et recoins'],['Portières et seuils','Contre-portes et bas de caisse nettoyés'],['Places arrière','Assises arrière aspirées et cuir nettoyé'],['Banquette arrière','Cuir, ceintures et sol à l\u2019arrière']];
 const ring=$('#ring'),NI=INT.length;let pw=0,R=0;
-const pans=INT.map((t,i)=>{const f=document.createElement('figure');f.className='pan';f.innerHTML=`<img src="img/interieur-${i+1}.jpg" alt="${t[0]} d'une Porsche 911 après nettoyage par Shining Cars" loading="lazy" decoding="async"><figcaption>${t[0]}</figcaption>`;ring.appendChild(f);return f;});
+const pans=INT.map((t,i)=>{const f=document.createElement('figure');f.className='pan';f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',t[0]+' : ouvrir la photo');f.innerHTML=`<img src="img/interieur-${i+1}.jpg" alt="${t[0]} d'une Porsche 911 après nettoyage par Shining Cars" decoding="async"><figcaption>${t[0]}<small>${t[1]}</small></figcaption>`;ring.appendChild(f);return f;});
+let off=0,offT=0,curK=0,raf=0;
+function animOff(){off+=(offT-off)*.14;if(Math.abs(offT-off)<.002)off=offT;cabin();if(off!==offT)raf=requestAnimationFrame(animOff);else raf=0;}
+function nudge(d){offT+=d;if(!raf)raf=requestAnimationFrame(animOff);}
 function ringGeo(){const W=innerWidth,H=innerHeight;pw=Math.min(W<760?W*.62:W*.24,H*.5*3/4,380);const ph=pw*4/3;R=pw/(2*Math.tan(Math.PI/NI))*1.06;pans.forEach((p,i)=>{p.style.width=pw+'px';p.style.height=ph+'px';p.style.left=-pw/2+'px';p.style.top=-ph/2+'px';p.style.transform=`rotateY(${i*360/NI}deg) translateZ(${-R}px)`;});cabin();}
-function cabin(){const sec=$('#interieurs'),r=sec.getBoundingClientRect(),H=innerHeight;const p=clamp(-r.top/(sec.offsetHeight-H),0,1);const q=p*(NI-1),fq=Math.floor(q),t=q-fq,e=t<.35?0:t>.65?1:(u=>u*u*(3-2*u))((t-.35)/.3);const a=(fq+e)*360/NI;ring.style.transform=`translateZ(${R*.45}px) rotateY(${-a}deg)`;const k=Math.round(fq+e)%NI;$('#cabCap').innerHTML=`<b>${String(k+1).padStart(2,'0')} / ${String(NI).padStart(2,'0')}</b> · ${INT[k][0]}`;}
+function cabin(){const sec=$('#interieurs'),r=sec.getBoundingClientRect(),H=innerHeight;const p=clamp(-r.top/(sec.offsetHeight-H),0,1);const q=p*(NI-1),fq=Math.floor(q),t=q-fq,e=t<.35?0:t>.65?1:(u=>u*u*(3-2*u))((t-.35)/.3);const pos=fq+e+off,a=pos*360/NI;ring.style.transform=`translateZ(${R*.45}px) rotateY(${-a}deg)`;const k=((Math.round(pos)%NI)+NI)%NI;curK=k;$('#cabCap').innerHTML=`<b>${String(k+1).padStart(2,'0')} / ${String(NI).padStart(2,'0')}</b> · ${INT[k][0]}`;}
 addEventListener('scroll',cabin,{passive:true});addEventListener('resize',ringGeo);ringGeo();
+$('#cabPrev').onclick=()=>nudge(-1);$('#cabNext').onclick=()=>nudge(1);
+const lb=document.createElement('dialog');lb.id='lb';lb.setAttribute('aria-label','Photo intérieur');lb.innerHTML='<div class="dh"><h3>Intérieur</h3><button class="x" type="button" aria-label="Fermer">×</button></div><div class="lbw"><img alt=""><button class="lbn p" type="button" aria-label="Photo précédente">←</button><button class="lbn n" type="button" aria-label="Photo suivante">→</button></div><p class="lbc"></p>';document.body.appendChild(lb);
+let lbI=0;function lbShow(i){lbI=(i+NI)%NI;const im=lb.querySelector('img');im.src='img/interieur-'+(lbI+1)+'.jpg';im.alt=INT[lbI][0];lb.querySelector('.lbc').innerHTML=`<b>${INT[lbI][0]}</b>${INT[lbI][1]} · ${lbI+1} / ${NI}`;}
+function lbOpen(i){lbShow(i);if(!lb.open)lb.showModal();}
+lb.querySelector('.x').onclick=()=>lb.close();lb.querySelector('.p').onclick=()=>lbShow(lbI-1);lb.querySelector('.n').onclick=()=>lbShow(lbI+1);lb.addEventListener('click',e=>{if(e.target===lb)lb.close();});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')lbShow(lbI-1);if(e.key==='ArrowRight')lbShow(lbI+1);});
+let lx=null;lb.addEventListener('touchstart',e=>{lx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{if(lx===null)return;const dx=e.changedTouches[0].clientX-lx;if(Math.abs(dx)>40)lbShow(lbI+(dx<0?1:-1));lx=null;});
+let sx=null,moved=false;const cabEl=$('#cab');
+cabEl.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;moved=false},{passive:true});
+cabEl.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){moved=true;nudge(dx<0?1:-1);}sx=null;});
+pans.forEach((p,i)=>{const act=()=>{if(moved){moved=false;return;}let d=i-curK;if(d>NI/2)d-=NI;if(d<-NI/2)d+=NI;if(d===0)lbOpen(i);else nudge(d);};p.addEventListener('click',act);p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});});
 
 /* ---------- booking ---------- */
 const form=$('#form'),ticket=$('#ticket');
 const catImg={'Citadine / compacte':'golf-gti','Berline':'audi-rs-etron-gt','SUV':'mercedes-glc','Sportive':'mclaren','Utilitaire / van':'bmw-x4'};
-function preset(c){$('#tPh').classList.remove('in');$('#tTag').textContent='Extérieur';const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}$('#tImg').src='img/'+c.k+'.jpg';$('#tImg').alt=c.n;form.dataset.car=c.n;upd();}
+function setExt(src,alt){$('#tImg').src=src;$('#tImgBg').src=src;if(alt)$('#tImg').alt=alt;}
+function setMode(m,tag){$('#tPh').dataset.m=m;$('#tTag').textContent=tag;}
+function preset(c){const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}setExt('img/'+c.k+'.jpg',c.n+' nettoyée par Shining Cars');if(!form.querySelector('input[name=pre]:checked'))setMode('ext','Extérieur');form.dataset.car=c.n;upd();}
 function upd(){
  const fd=new FormData(form),veh=fd.get('veh'),pre=fd.get('pre'),v=(fd.get('ville')||'').trim(),d=fd.get('date');
  $('#tVeh').textContent=form.dataset.car?form.dataset.car+(veh?' ('+veh+')':''):(veh||'—');
@@ -752,7 +805,7 @@ function upd(){
  const n=[veh,pre,v,d,(fd.get('nom')||'').trim(),$('#ok').checked].filter(Boolean).length,pc=Math.round(n/6*100);
  $('#water').style.height=pc+'%';$('#water').classList.toggle('empty',pc===0);$('#gtxt').textContent=pc+' % rempli';
 }
-form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)$('#tImg').src='img/'+k+'.jpg';}if(e.target.name==='pre'){const v=e.target.value,ph=$('#tPh');ph.classList.toggle('in',v==='Intérieur');ph.classList.toggle('both',v==='Intérieur + extérieur');$('#tTag').textContent=v==='Intérieur'?'Intérieur':v==='Extérieur'?'Extérieur':v.startsWith('Int')?'Intérieur + extérieur':'Prestation';}upd();});
+form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)setExt('img/'+k+'.jpg');}if(e.target.name==='pre'){const v=e.target.value;if(v==='Intérieur')setMode('in','Intérieur');else if(v==='Extérieur')setMode('ext','Extérieur');else if(v.startsWith('Intérieur +'))setMode('both','Intérieur + extérieur');else setMode('pro','Maison / pro');}upd();});
 form.addEventListener('change',upd);
 const dt=form.querySelector('input[type=date]');dt.min=new Date().toISOString().slice(0,10);
 form.addEventListener('submit',e=>{
@@ -775,6 +828,12 @@ form.addEventListener('submit',e=>{
 ticket.parentElement.addEventListener('pointermove',e=>{if(RM)return;const r=ticket.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;ticket.style.transform=`rotateY(${(x-.5)*16}deg) rotateX(${(.5-y)*12}deg)`;ticket.style.setProperty('--gx',x*100+'%');ticket.style.setProperty('--gy',y*100+'%');});
 ticket.parentElement.addEventListener('pointerleave',()=>ticket.style.transform='');
 upd();
+
+/* ---------- Instagram: prepare message ---------- */
+const IGMSG='Bonjour Shining Cars ! Je souhaite un devis pour un nettoyage.\n- Véhicule : \n- Prestation (intérieur / extérieur / complet) : \n- Ville : \n- Date souhaitée : \nMerci !';
+const gt=document.createElement('p');gt.className='toast';gt.setAttribute('role','status');gt.style.cssText='position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:95;max-width:min(520px,92vw);display:none;background:#0a1830;box-shadow:0 10px 30px rgba(0,0,0,.4)';document.body.appendChild(gt);
+function copyTxt(t){const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);try{document.execCommand('copy')}catch(x){}ta.remove();try{navigator.clipboard&&navigator.clipboard.writeText(t).catch(()=>{})}catch(x){}}
+document.querySelectorAll('a[href="https://ig.me/m/shiningcarss"]').forEach(a=>a.addEventListener('click',()=>{copyTxt(IGMSG);gt.textContent='Message préparé et copié ✔ Dans la conversation Instagram qui s\'ouvre : collez-le (appui long → Coller), complétez puis envoyez.';gt.style.display='block';clearTimeout(gt._t);gt._t=setTimeout(()=>gt.style.display='none',9000);}));
 
 /* ---------- map (after consent) + tilt ---------- */
 const mapw=$('#mapw');
