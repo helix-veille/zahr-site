@@ -101,7 +101,7 @@ nav a:hover{color:var(--cream)}
 .cats{display:flex;gap:8px;flex-wrap:wrap}
 .cats button{font:400 10px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mid);cursor:pointer}
 .cats button[aria-pressed=true]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
-.drum-wrap{position:relative;perspective:1400px;display:grid;place-items:center;min-height:0;touch-action:pan-y}
+.drum-wrap{position:relative;perspective:1800px;display:grid;place-items:center;min-height:0;touch-action:pan-y}
 .drum{position:relative;width:0;height:0;transform-style:preserve-3d}
 .pole{position:absolute;width:200px;height:440px;left:-100px;top:-220px;transform:translateZ(0)}
 .pole canvas{width:100%;height:100%;display:block}
@@ -409,7 +409,7 @@ $$('#cats button').forEach(b=>b.onclick=()=>{$$('#cats button').forEach(x=>x.set
 const dw=$('#drumWrap');
 dw.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;dragD=true;dsx=e.clientX;dst=drumOff});
 addEventListener('pointermove',e=>{if(dragD)drumOff=dst+(e.clientX-dsx)*.35});addEventListener('pointerup',()=>dragD=false);
-function renderDrum(){if(!vis(carte))return;const t=drumBase()+drumOff;drumA+=(t-drumA)*(RM?1:.12);const R=mob()?240:470;DC.forEach((d,k)=>{d.style.transform=`rotateY(${k*step+drumA}deg) translateZ(${R}px)`});drum.style.transform='rotateX(-8deg)'}
+function renderDrum(){if(!vis(carte))return;const t=drumBase()+drumOff;drumA+=(t-drumA)*(RM?1:.12);const R=mob()?450:620;DC.forEach((d,k)=>{d.style.transform=`translateY(${mob()?50:60}px) rotateY(${k*step+drumA}deg) translateZ(${R}px)`});drum.style.transform='rotateX(-8deg)'}
 
 /* 4 equipe */
 $('#team').innerHTML=TEAM.map((n,i)=>`<div class="tc" data-i="${i}"><div class="fc front"><div class="corner">${n[0]}<small>O'42</small></div><div class="mid"><svg style="color:#efe6da"><use href="#lg"/></svg><b>${n}</b><span>Barbier</span></div><div class="corner b">${n[0]}<small>O'42</small></div></div><div class="fc back"><svg style="color:#efe6da"><use href="#lg"/></svg></div></div>`).join('');
