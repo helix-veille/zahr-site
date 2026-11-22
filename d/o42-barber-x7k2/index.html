@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>O'42 Barber · Hyères — More than a barber</title>
 <meta name="description" content="O'42 Barber, barbier à Hyères : coupes, dégradés, barbe et rasage à l'ancienne dans un loft brique et bois. Réservation en ligne.">
@@ -10,435 +10,505 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&display=swap" rel="stylesheet">
 <style>
-:root{--u:min(calc(100vw/1600),calc(100vh/900));--ink:#0e0c0b;--ink2:#171311;--cream:#efe6da;--mid:#b3a79a;--dim:#7d7269;--brick:#9a4f36;--wood:#c4935f;--line:rgba(239,230,218,.14)}
+:root{--u:min(calc(100vw/1600),calc(100vh/900));--ink:#0e0c0b;--ink2:#171311;--cream:#efe6da;--mid:#b3a79a;--dim:#8a7f75;--brick:#9a4f36;--wood:#c4935f;--line:rgba(239,230,218,.14)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
-.stage,.rail{min-width:0;contain:paint}
 body{background:var(--ink);color:var(--cream);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--wood);outline-offset:3px}
 .mi{font-family:Michroma,sans-serif;text-transform:uppercase;letter-spacing:.16em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .skip{position:absolute;left:-999px;top:8px;background:var(--cream);color:var(--ink);padding:8px 14px;z-index:999}
 .skip:focus{left:8px}
-
-/* HEADER */
-header{position:fixed;inset:0 0 auto;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 40px;background:linear-gradient(var(--ink),rgba(14,12,11,.0));}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo svg{width:42px;height:42px}
-.logo span{font-size:13px}
-nav ul{display:flex;gap:40px;list-style:none}
-nav a{font-size:11px;text-decoration:none;color:var(--mid);transition:color .2s}
-nav a:hover{color:var(--cream)}
-.hd-r{display:flex;justify-content:flex-end;gap:14px;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:10px;font:500 11px Michroma,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;border-radius:999px;border:1px solid var(--cream);background:var(--cream);color:var(--ink);text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+.kick{font-size:10px;color:var(--wood);margin-bottom:18px}
+h2.big{font-family:Michroma,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:400;font-size:clamp(22px,3vw,42px);line-height:1.25}
+.lead{color:var(--mid);margin-top:18px;max-width:480px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 11px Michroma,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;border-radius:999px;border:1px solid var(--cream);background:var(--cream);color:var(--ink);text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
 .btn:hover{transform:translateY(-1px);background:#fff}
 .btn.ghost{background:transparent;color:var(--cream);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--cream)}
-
-/* STAGE (lookbook) */
+header{position:fixed;inset:0 0 auto;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 40px;background:linear-gradient(rgba(14,12,11,.9),rgba(14,12,11,0))}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:42px;height:42px}
+.logo span{font-size:13px}
+nav ul{display:flex;gap:36px;list-style:none}
+nav a{font-size:11px;text-decoration:none;color:var(--mid);transition:color .2s}
+nav a:hover{color:var(--cream)}
+.hd-r{display:flex;justify-content:flex-end;gap:14px;align-items:center}
+/* 1 LOOKBOOK */
 .hero{display:grid;grid-template-columns:1fr calc(380*var(--u));height:100svh;min-height:560px}
-.stage{position:relative;overflow:hidden;cursor:none;touch-action:pan-y;user-select:none;outline:none;
- background:radial-gradient(120% 90% at 78% 70%,#3a2219 0%,#1c1411 45%,#0e0c0b 80%)}
-.stage::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 calc(38*var(--u)),rgba(154,79,54,.07) calc(38*var(--u)) calc(40*var(--u))),repeating-linear-gradient(90deg,transparent 0 calc(118*var(--u)),rgba(154,79,54,.05) calc(118*var(--u)) calc(120*var(--u)));mask:linear-gradient(90deg,transparent,#000 70%);opacity:.9}
+.stage{position:relative;overflow:hidden;cursor:none;touch-action:pan-y;user-select:none;outline:none;min-width:0;contain:paint;background:radial-gradient(120% 90% at 78% 70%,#3a2219 0%,#1c1411 45%,#0e0c0b 80%)}
+.stage::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 38px,rgba(154,79,54,.07) 38px 40px),repeating-linear-gradient(90deg,transparent 0 118px,rgba(154,79,54,.05) 118px 120px);-webkit-mask:linear-gradient(90deg,transparent,#000 70%);mask:linear-gradient(90deg,transparent,#000 70%)}
 .haze{position:absolute;inset:0;background:linear-gradient(90deg,#0e0c0b 0%,rgba(14,12,11,.55) 30%,transparent 60%);pointer-events:none;z-index:120}
 .intro{position:absolute;left:calc(46*var(--u));top:calc(120*var(--u));z-index:130;max-width:calc(420*var(--u))}
 .intro h1{font-size:calc(30*var(--u));line-height:1.35;font-weight:400}
 .intro p{margin-top:calc(16*var(--u));font-size:calc(15*var(--u));color:var(--mid);line-height:1.65}
 .intro .rate{margin-top:calc(18*var(--u));font-size:calc(10*var(--u));color:var(--wood)}
 .look{position:absolute;left:calc(46*var(--u));bottom:calc(44*var(--u));z-index:130}
-.look .row{display:flex;align-items:flex-end;gap:calc(16*var(--u));font-size:calc(29*var(--u));line-height:calc(38*var(--u))}
-.roll{height:calc(38*var(--u));overflow:hidden}
-.roll div{will-change:transform}
-.roll span{display:block;height:calc(38*var(--u))}
+.look .row{display:flex;align-items:center;gap:14px;font-size:calc(29*var(--u))}
+.roll{--lh:calc(40*var(--u));height:var(--lh);overflow:hidden;clip-path:inset(0)}
+.roll span{display:block;height:var(--lh);line-height:var(--lh)}
 .look .cap{margin-top:calc(10*var(--u));font-size:calc(10*var(--u));color:var(--mid)}
 .ctrls{display:flex;gap:10px;margin-top:calc(16*var(--u))}
 .ctrls button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--cream);cursor:pointer;font-size:16px}
 .ctrls button:hover{border-color:var(--cream)}
 .m{position:absolute;left:0;top:0;transform-origin:50% 100%;will-change:transform,filter,opacity}
-.m .card{width:100%;height:100%;border-radius:calc(22*var(--u));overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.55);background:#222}
+.m .card{width:100%;height:100%;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.55);background:#222}
 .m img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 .m .tag{position:absolute;left:14px;bottom:14px;font:400 10px Michroma,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:rgba(14,12,11,.72);backdrop-filter:blur(6px);padding:8px 12px;border-radius:999px}
-.m::after{content:"";position:absolute;left:8%;right:8%;bottom:-3%;height:4%;background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent)}
-.ring{position:fixed;left:0;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;border:2px solid var(--cream);border-radius:999px;pointer-events:none;z-index:200;opacity:0;transition:width .22s cubic-bezier(.2,.8,.2,1),height .22s cubic-bezier(.2,.8,.2,1),margin .22s,opacity .2s;display:grid;place-items:center;font:9px Michroma,sans-serif;letter-spacing:.12em}
+.ring{position:fixed;left:0;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;border:2px solid var(--cream);border-radius:999px;pointer-events:none;z-index:200;opacity:0;transition:width .22s,height .22s,margin .22s,opacity .2s;display:grid;place-items:center;font:9px Michroma,sans-serif;letter-spacing:.12em}
 .ring.drag{width:96px;height:34px;margin:-17px 0 0 -48px}
 .ring.on{opacity:1}
-
-/* RAIL */
-.rail{position:relative;overflow:hidden;background:var(--ink2);border-left:1px solid var(--line)}
+.rail{position:relative;overflow:hidden;background:var(--ink2);border-left:1px solid var(--line);min-width:0;contain:paint}
 .rail h2{position:absolute;z-index:3;top:calc(96*var(--u));left:24px;font-size:10px;color:var(--dim)}
 .track{position:absolute;inset:0}
 .pc{position:absolute;left:0;right:0;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;border-bottom:1px solid var(--line)}
 .pc:nth-child(odd){background:#1d1815}
-.pc .n{font-size:11px;line-height:1.5}
+.pc .n{font-size:11px;line-height:1.5;padding-right:40px}
 .pc .d{font-size:13px;color:var(--mid)}
 .pc .p{font-size:22px;font-weight:500}
-.pc .plus{position:absolute;right:22px;bottom:22px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--cream);transition:transform .25s,background .2s}
-.pc .plus:hover{transform:rotate(90deg);border-color:var(--cream)}
-.pc .plus[aria-pressed=true]{background:var(--cream);color:var(--ink)}
+.plus{position:absolute;right:22px;bottom:22px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--cream);font-size:16px;transition:transform .25s,background .2s}
+.plus:hover{transform:rotate(90deg);border-color:var(--cream)}
+.plus[aria-pressed=true]{background:var(--cream);color:var(--ink)}
 .pc .ico{position:absolute;top:22px;right:24px;font-size:10px;color:var(--wood)}
-
-/* SECTIONS */
+/* 2 LOFT 3D */
+.loft{height:320vh;position:relative}
+.loft .stick{position:sticky;top:0;height:100svh;overflow:hidden;perspective:900px;perspective-origin:50% 45%;background:#120d0b}
+.room{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.room .f{position:absolute;backface-visibility:hidden}
+.wall-b{width:1400px;height:820px;left:-700px;top:-460px;transform:translateZ(-1900px);background:repeating-linear-gradient(0deg,#2a1610 0 3px,transparent 3px 42px),repeating-linear-gradient(90deg,#2a1610 0 3px,transparent 3px 92px),linear-gradient(#7d3d27,#5a2a1b);box-shadow:inset 0 0 220px 60px rgba(0,0,0,.75)}
+.wall-l,.wall-r{width:2000px;height:820px;top:-460px;transform-origin:0 50%;background:repeating-linear-gradient(0deg,#2a1610 0 3px,transparent 3px 42px),repeating-linear-gradient(90deg,#2a1610 0 3px,transparent 3px 92px),linear-gradient(90deg,#4a2116,#7a3a26);box-shadow:inset 0 0 200px 40px rgba(0,0,0,.7)}
+.wall-l{left:-700px;transform:translateZ(100px) rotateY(90deg)}
+.wall-r{left:700px;transform:translateZ(-1900px) rotateY(-90deg)}
+.floor{width:1400px;height:2000px;left:-700px;top:360px;transform-origin:50% 0;transform:translateZ(100px) rotateX(90deg);background:repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0 2px,transparent 2px 120px),linear-gradient(#b98652,#6e4a29)}
+.ceil{width:1400px;height:2000px;left:-700px;top:-460px;transform-origin:50% 0;transform:translateZ(100px) rotateX(90deg);background:linear-gradient(#0d0a09,#1a1311)}
+.lamp{width:2px;height:170px;top:-460px;background:#0d0a09}
+.lamp::after{content:"";position:absolute;left:-44px;top:168px;width:90px;height:46px;border-radius:90px 90px 0 0;background:#151110;box-shadow:0 40px 120px 40px rgba(255,190,120,.25)}
+.frame{width:380px;height:500px;top:-300px;padding:14px;background:#1a120e;border:2px solid #c4935f;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.loft-copy{position:absolute;left:40px;bottom:12vh;z-index:5;width:min(460px,calc(100% - 80px));height:220px}
+.loft-copy .step{position:absolute;left:0;bottom:0;width:100%;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.loft-copy .step.on{opacity:1;transform:none}
+.loft-copy h2{font-family:Michroma,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:400;font-size:clamp(20px,2.6vw,36px);line-height:1.25;text-shadow:0 4px 30px #000}
+.loft-copy p{margin-top:12px;text-shadow:0 2px 20px #000;opacity:.9}
+.progress{position:absolute;right:30px;top:50%;width:2px;height:120px;margin-top:-60px;background:var(--line);z-index:5}
+.progress i{display:block;width:100%;background:var(--wood);height:0}
+/* 3 CARTE : barillet + poteau 3D */
+.carte{height:260vh;position:relative}
+.carte .stick{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;padding:110px 40px 30px;background:radial-gradient(70% 60% at 50% 55%,#24160f,#0e0c0b 70%)}
+.carte-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.cats{display:flex;gap:8px;flex-wrap:wrap}
+.cats button{font:400 10px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mid);cursor:pointer}
+.cats button[aria-pressed=true]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.drum-wrap{position:relative;perspective:1400px;display:grid;place-items:center;min-height:0;touch-action:pan-y}
+.drum{position:relative;width:0;height:0;transform-style:preserve-3d}
+.pole{position:absolute;width:200px;height:440px;left:-100px;top:-220px;transform:translateZ(0)}
+.pole canvas{width:100%;height:100%;display:block}
+.pole-fb{width:70px;height:330px;margin:55px auto;border-radius:35px;background:repeating-linear-gradient(135deg,#9a4f36 0 22px,#efe6da 22px 44px,#1d1815 44px 66px,#efe6da 66px 88px);background-size:100% 176px;animation:polefb 2s linear infinite;box-shadow:inset -14px 0 20px rgba(0,0,0,.45),inset 10px 0 14px rgba(255,255,255,.25)}
+@keyframes polefb{to{background-position:0 176px}}
+.dc{position:absolute;width:230px;height:290px;left:-115px;top:-145px;border-radius:20px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,rgba(40,28,22,.97),rgba(18,14,12,.97));border:1px solid rgba(196,147,95,.35);box-shadow:0 30px 60px rgba(0,0,0,.5);backface-visibility:hidden;transition:opacity .3s}
+.dc .cat{font:400 9px Michroma,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--wood)}
+.dc .n{font:400 13px/1.45 Michroma,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.dc .meta{display:flex;align-items:flex-end;justify-content:space-between}
+.dc .p{font-size:26px;font-weight:600}
+.dc .dur{color:var(--mid);font-size:13px}
+.dc .plus{position:static}
+.dc.dim{opacity:.22}
+.carte-ft{display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--mid);font-size:13px;flex-wrap:wrap}
+.basket{font-size:14px;color:var(--cream)}
+/* 4 EQUIPE */
 section.blk{padding:120px 40px;max-width:1280px;margin:0 auto}
-.kick{font-size:10px;color:var(--wood);margin-bottom:18px}
-h2.big{font-family:Michroma,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:400;font-size:clamp(24px,3.2vw,44px);line-height:1.25}
-.loft{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
-.loft p{color:var(--mid);margin-top:22px;max-width:520px}
-.loft .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.loft .pics img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px}
-.loft .pics img:last-child{margin-top:60px}
-.facts{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap}
-.facts div{border-top:1px solid var(--line);padding-top:14px;min-width:140px}
-.facts b{display:block;font:400 12px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-.facts span{font-size:14px;color:var(--mid)}
-.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:0 60px;margin-top:50px}
-.menu h3{font:400 12px Michroma,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--wood);margin:34px 0 8px}
-.li{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
-.li .t{flex:1}
-.li .dur{color:var(--dim);font-size:13px}
-.li .pr{font-weight:600;min-width:84px;text-align:right}
-.team{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
-.mb{border:1px solid var(--line);border-radius:18px;padding:28px 22px;display:flex;flex-direction:column;gap:30px;min-height:190px;justify-content:space-between;background:linear-gradient(160deg,#1d1714,#120f0d)}
-.mb .ini{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--brick);font:14px Michroma,sans-serif}
-.mb b{font:400 14px Michroma,sans-serif;letter-spacing:.14em;text-transform:uppercase}
-.mb span{display:block;color:var(--dim);font-size:13px;margin-top:4px}
-
-/* BOOKING */
-.book{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
-form{background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:32px;display:grid;gap:18px}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:50px;perspective:1200px}
+.tc{position:relative;aspect-ratio:3/4.2;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.8,.2,1);transform:rotateY(180deg)}
+.tc.in{transform:rotateY(0)}
+.tc.live{transition:transform .15s linear}
+.tc .fc{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;overflow:hidden;border:1px solid rgba(196,147,95,.4)}
+.tc .front{background:linear-gradient(160deg,#2a1a13,#120e0c);display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.tc .corner{font:400 22px Michroma,sans-serif;line-height:1.1}
+.tc .corner small{display:block;font-size:9px;letter-spacing:.14em;color:var(--wood)}
+.tc .corner.b{display:none}
+.tc .mid{text-align:center}
+.tc .mid b{display:block;font:400 20px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.tc .mid span{color:var(--mid);font-size:13px}
+.tc .mid svg{width:74px;height:74px;margin:0 auto 14px;display:block}
+.tc .back{transform:rotateY(180deg);background:repeating-linear-gradient(45deg,#6e3424 0 10px,#5a2a1b 10px 20px);display:grid;place-items:center}
+.tc .back svg{width:110px;height:110px}
+.tc .pick{position:absolute;left:50%;bottom:16px;transform:translateX(-50%) translateZ(2px);white-space:nowrap;padding:10px 14px;font-size:9px}
+/* 5 RESERVATION + TICKET */
+.book{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+form{background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;gap:18px}
 label{font-size:13px;color:var(--mid);display:grid;gap:8px}
 input,select{font:inherit;color:var(--cream);background:#0f0d0c;border:1px solid var(--line);border-radius:12px;padding:13px 14px;width:100%}
 input:focus,select:focus{border-color:var(--wood);outline:none}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.slots{display:flex;flex-wrap:wrap;gap:8px}
-.slots button{font:500 13px Inter;border:1px solid var(--line);background:transparent;color:var(--cream);border-radius:999px;padding:8px 12px;cursor:pointer}
-.slots button[aria-pressed=true]{background:var(--cream);color:var(--ink)}
-.slots .none{color:var(--dim);font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:500 13px Inter;border:1px solid var(--line);background:transparent;color:var(--cream);border-radius:999px;padding:8px 12px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--cream);color:var(--ink)}
+.chips .none{color:var(--dim);font-size:13px}
 .chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--mid)}
 .chk input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:var(--wood)}
-.sel{font-size:14px;color:var(--cream);min-height:22px}
-.ok{display:none;text-align:center;padding:40px 20px}
-.ok.show{display:block}
-.ok b{font:400 16px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:14px}
-.ok p{color:var(--mid)}
-.info{display:grid;gap:26px}
-.hours{width:100%;border-collapse:collapse;font-size:15px}
+.lk{background:none;border:0;color:var(--cream);text-decoration:underline;cursor:pointer;font:inherit}
+.err{color:#e8a08a;font-size:14px}
+.tk-wrap{position:sticky;top:110px;perspective:1000px}
+.ticket{position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.ticket .face{border-radius:20px;padding:30px 28px;background:linear-gradient(160deg,#f3eadf,#e2d3c2);color:#1a1310;box-shadow:0 40px 80px rgba(0,0,0,.55);backface-visibility:hidden;position:relative;overflow:hidden}
+.ticket .face::before,.ticket .face::after{content:"";position:absolute;top:56%;width:30px;height:30px;border-radius:50%;background:var(--ink)}
+.ticket .face::before{left:-15px}.ticket .face::after{right:-15px}
+.tk-top{display:flex;justify-content:space-between;align-items:center;border-bottom:2px dashed rgba(26,19,16,.25);padding-bottom:18px;margin-bottom:18px}
+.tk-top b{font:400 14px Michroma,sans-serif;letter-spacing:.14em}
+.tk-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid rgba(26,19,16,.1);font-size:14px}
+.tk-row span:first-child{color:#6b5a4c;font:400 10px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding-top:3px;flex:none}
+.tk-row span:last-child{text-align:right;font-weight:600}
+.tk-tot{display:flex;justify-content:space-between;margin-top:16px;font:400 18px Michroma,sans-serif}
+.bars{height:46px;margin-top:22px;background:repeating-linear-gradient(90deg,#1a1310 0 2px,transparent 2px 4px,#1a1310 4px 7px,transparent 7px 9px,#1a1310 9px 10px,transparent 10px 14px)}
+.ticket .verso{position:absolute;inset:0;transform:rotateY(180deg);display:grid;place-items:center;text-align:center;background:linear-gradient(160deg,#9a4f36,#5a2a1b);color:var(--cream)}
+.ticket .verso b{font:400 18px Michroma,sans-serif;letter-spacing:.12em;display:block;margin:16px 0 10px}
+.ticket .verso p{color:rgba(239,230,218,.9);padding:0 24px;font-size:14px}
+.ticket.done{transform:rotateY(180deg)!important}
+/* 6 INFOS */
+.infos{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start}
+.flap{display:flex;gap:4px;margin:24px 0 8px;flex-wrap:wrap;perspective:300px}
+.flap span{width:30px;height:42px;display:grid;place-items:center;background:#1d1714;border-radius:5px;font:400 17px Michroma,sans-serif;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,.6)}
+.flap span::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.6)}
+.flap span.go{animation:flip .12s linear}
+@keyframes flip{50%{transform:rotateX(90deg)}}
+.flap.green span{color:#a6dca0}
+.flap.red span{color:#e8a08a}
+.hours{width:100%;border-collapse:collapse;font-size:15px;margin-top:20px}
 .hours td{padding:9px 0;border-bottom:1px solid var(--line)}
 .hours td:last-child{text-align:right;color:var(--mid)}
 .hours tr.today td{color:var(--cream);font-weight:600}
-.map{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10;display:grid;place-items:center;background:#15110f;text-align:center;padding:20px}
-.map iframe{width:100%;height:100%;border:0}
-.map p{color:var(--mid);font-size:14px;margin-bottom:14px}
-
-footer{border-top:1px solid var(--line);padding:50px 40px 90px;display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;color:var(--dim);font-size:13px}
-footer ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none}
-footer button{background:none;border:0;color:var(--mid);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.demo{position:fixed;left:16px;bottom:16px;z-index:60;font:9px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;background:rgba(14,12,11,.8);border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--mid);text-decoration:none}
-
-/* COOKIES + LEGAL */
+.map{position:relative;height:480px;border-radius:20px;overflow:hidden;border:1px solid rgba(196,147,95,.35);background:#1a100c}
+.map iframe{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:#7a3a26;mix-blend-mode:color;opacity:.7}
+.map::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 120px 40px rgba(14,10,8,.9)}
+.map .ph{position:absolute;inset:0;background:repeating-linear-gradient(28deg,transparent 0 58px,rgba(196,147,95,.14) 58px 61px),repeating-linear-gradient(-62deg,transparent 0 90px,rgba(196,147,95,.1) 90px 93px),linear-gradient(#1f130e,#120c09)}
+.pin{position:absolute;z-index:2;left:50%;top:50%;width:64px;height:64px;margin:-80px 0 0 -32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--cream);display:grid;place-items:center;pointer-events:none;animation:pinb 2.4s ease-in-out infinite;box-shadow:0 0 0 10px rgba(239,230,218,.15),0 0 0 22px rgba(239,230,218,.06)}
+.pin svg{width:46px;height:46px;transform:rotate(45deg)}
+@keyframes pinb{50%{box-shadow:0 0 0 16px rgba(239,230,218,.12),0 0 0 34px rgba(239,230,218,.04)}}
+.mcard{position:absolute;z-index:3;left:22px;bottom:22px;right:22px;max-width:330px;background:rgba(14,10,8,.88);backdrop-filter:blur(10px);border:1px solid var(--wood);border-radius:16px;padding:20px 22px;display:grid;gap:4px}
+.mcard b{font:400 13px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.mcard small{color:var(--mid);margin-bottom:10px}
+.mconsent{position:absolute;z-index:3;top:22px;right:22px}
+/* 7 FOOTER */
+footer{border-top:1px solid var(--line);padding:40px 40px 100px;display:grid;grid-template-columns:200px 1fr;gap:30px;align-items:center}
+.coin{width:200px;height:200px}
+.coin canvas{width:100%;height:100%;display:block}
+.coin-fb{width:150px;height:150px;margin:25px;border-radius:50%;border:3px solid var(--wood);display:grid;place-items:center;font:400 40px Michroma,sans-serif;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotateY(360deg)}}
+.ft{display:flex;flex-direction:column;gap:16px;color:var(--dim);font-size:13px}
+.ft ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none}
+.ft button{background:none;border:0;color:var(--mid);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.demo{position:fixed;left:16px;bottom:16px;z-index:60;font:9px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;background:rgba(14,12,11,.85);border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--mid);text-decoration:none}
 .ck{position:fixed;right:16px;bottom:16px;z-index:300;max-width:400px;background:#1b1613;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .ck p{font-size:14px;color:var(--mid);margin-bottom:16px}
 .ck .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ck .acts .btn{justify-content:center}
 .ck[hidden]{display:none}
 dialog{margin:auto;max-width:760px;width:calc(100% - 32px);max-height:86vh;background:#15110f;color:var(--cream);border:1px solid var(--line);border-radius:20px;padding:34px}
 dialog::backdrop{background:rgba(0,0,0,.7)}
 dialog h3{font:400 15px Michroma,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
 dialog h4{margin:20px 0 6px;font-size:15px}
-dialog p,dialog li{color:var(--mid);font-size:14px}
-dialog ul{padding-left:18px}
+dialog p{color:var(--mid);font-size:14px}
 dialog .x{position:sticky;top:0;float:right;background:none;border:1px solid var(--line);color:var(--cream);border-radius:999px;padding:6px 12px;cursor:pointer}
-
 @media (max-width:820px){
  :root{--u:1px}
  header{padding:14px 16px;grid-template-columns:1fr auto}
- nav{display:none}
- .hd-r .ghost{display:none}
- .hero{grid-template-columns:1fr;grid-template-rows:1fr 200px;height:100svh}
- .stage{cursor:auto}
- .ring{display:none}
+ nav,.hd-r .ghost{display:none}
+ .hero{grid-template-columns:1fr;grid-template-rows:1fr 190px;height:100svh}
+ .stage{cursor:auto}.ring{display:none}
  .intro{top:84px;left:16px;right:16px;max-width:none}
- .intro h1{font-size:20px}
- .intro p{display:none}
- .look{left:16px;bottom:16px}
- .look .row{font-size:22px;line-height:30px}
- .roll,.roll span{height:30px}
- .rail{border-left:0;border-top:1px solid var(--line)}
- .rail h2{top:12px;left:16px}
+ .intro h1{font-size:20px}.intro p{display:none}
+ .look{left:16px;bottom:16px}.look .row{font-size:22px}.roll{--lh:30px}
+ .rail{border-left:0;border-top:1px solid var(--line)}.rail h2{display:none}
  .pc{top:0;bottom:0;width:170px;padding:16px;border-bottom:0;border-right:1px solid var(--line)}
  .pc .p{font-size:18px}
+ .loft .stick{perspective:600px}
+ .loft-copy{left:18px;width:calc(100% - 60px);bottom:8vh}
+ .carte .stick{padding:84px 16px 18px}
+ .dc{width:170px;height:220px;left:-85px;top:-110px;padding:16px}
+ .dc .p{font-size:20px}.dc .n{font-size:11px}
+ .pole{width:130px;height:300px;left:-65px;top:-150px}
  section.blk{padding:80px 18px}
- .loft,.book,.menu{grid-template-columns:1fr}
- .team{grid-template-columns:1fr 1fr}
+ .team{grid-template-columns:1fr 1fr;gap:16px 14px}
+ .tc .mid b{font-size:15px}.tc .mid svg{width:54px;height:54px}
+ .book,.infos{grid-template-columns:1fr}
+ .tk-wrap{position:relative;top:0}
  .two{grid-template-columns:1fr}
- footer{padding:40px 18px 90px}
+ .map{height:420px}
+ footer{grid-template-columns:1fr;padding:30px 18px 100px}
+ .coin{width:150px;height:150px}
  .ck{left:12px;right:12px;bottom:12px;max-width:none}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tc{transition:none}.pin,.pole-fb,.coin-fb{animation:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#reserver">Aller à la réservation</a>
-
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="lg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="24" y="28" text-anchor="middle" font-family="Michroma,sans-serif" font-size="14" fill="currentColor">42</text><text x="24" y="37" text-anchor="middle" font-family="Michroma,sans-serif" font-size="4.2" letter-spacing="1" fill="#c4935f">BARBER</text></symbol></defs></svg>
 <header>
- <a class="logo" href="#top" aria-label="O'42 Barber, accueil">
-  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#efe6da" stroke-width="1.5"/><text x="24" y="28" text-anchor="middle" font-family="Michroma,sans-serif" font-size="14" fill="#efe6da">42</text><text x="24" y="37" text-anchor="middle" font-family="Michroma,sans-serif" font-size="4.2" letter-spacing="1" fill="#c4935f">BARBER</text></svg>
-  <span class="mi">O'42 Barber</span>
- </a>
- <nav aria-label="Navigation principale"><ul class="mi">
-  <li><a href="#loft">Le loft</a></li><li><a href="#prestations">Prestations</a></li><li><a href="#equipe">L'équipe</a></li><li><a href="#infos">Infos</a></li>
- </ul></nav>
- <div class="hd-r">
-  <a class="btn ghost" href="tel:+33988320309">09 88 32 03 09</a>
-  <a class="btn" href="#reserver">Réserver</a>
- </div>
+ <a class="logo" href="#top" aria-label="O'42 Barber, accueil"><svg aria-hidden="true" style="color:#efe6da"><use href="#lg"/></svg><span class="mi">O'42 Barber</span></a>
+ <nav aria-label="Navigation principale"><ul class="mi"><li><a href="#loft">Le loft</a></li><li><a href="#carte">La carte</a></li><li><a href="#equipe">L'équipe</a></li><li><a href="#infos">Infos</a></li></ul></nav>
+ <div class="hd-r"><a class="btn ghost" href="tel:+33988320309">09 88 32 03 09</a><a class="btn" href="#reserver">Réserver</a></div>
 </header>
-
 <main id="top">
 <div class="hero">
  <div class="stage" id="stage" tabindex="0" role="region" aria-roledescription="carrousel" aria-label="Lookbook des coupes O'42. Flèches gauche et droite pour changer de coupe.">
   <div class="haze" aria-hidden="true"></div>
-  <div class="intro">
-   <h1 class="mi">More than<br>a barber.</h1>
-   <p>Dégradés, coupes texturées, dessins, barbe taillée au rasoir. Un loft brique et bois brut au cœur de Hyères, et une équipe qui prend le temps de bien faire.</p>
-   <div class="rate mi">42 av. Alphonse Denis · Hyères</div>
-  </div>
-  <div class="look">
-   <div class="row mi"><span>Look</span><div class="roll" aria-hidden="true"><div id="rollIn"></div></div></div>
-   <div class="cap mi" id="lookCap" aria-live="polite"></div>
-   <div class="ctrls"><button type="button" id="prev" aria-label="Coupe précédente">←</button><button type="button" id="next" aria-label="Coupe suivante">→</button></div>
-  </div>
+  <div class="intro"><h1 class="mi">More than<br>a barber.</h1><p>Dégradés, coupes texturées, dessins, barbe taillée au rasoir. Un loft brique et bois brut au cœur de Hyères, et une équipe qui prend le temps de bien faire.</p><div class="rate mi">42 av. Alphonse Denis · Hyères</div></div>
+  <div class="look"><div class="row mi"><span>Look</span><div class="roll" aria-hidden="true"><div id="rollIn"></div></div></div><div class="cap mi" id="lookCap" aria-live="polite"></div><div class="ctrls"><button type="button" id="prev" aria-label="Coupe précédente">←</button><button type="button" id="next" aria-label="Coupe suivante">→</button></div></div>
  </div>
- <aside class="rail" aria-label="Prestations à ajouter à la réservation">
-  <h2 class="mi">La carte</h2>
-  <div class="track" id="track"></div>
- </aside>
+ <aside class="rail" aria-label="Prestations à ajouter à la réservation"><h2 class="mi">La carte</h2><div class="track" id="track"></div></aside>
 </div>
 <div class="ring" id="ring" aria-hidden="true"></div>
-
-<section class="blk" id="loft">
- <div class="loft">
-  <div>
-   <div class="kick mi">Le loft</div>
-   <h2 class="big">Brique, bois brut,<br>fauteuils en cuir.</h2>
-   <p>Chez O'42, on vient pour une coupe et on reste pour l'ambiance : de la bonne musique, un cadre de loft industriel et des barbiers qui maîtrisent toutes les techniques, du dégradé net au rasage à l'ancienne à la serviette chaude.</p>
-   <div class="facts">
-    <div><b>7j/7</b><span>Ouvert tous les jours</span></div>
-    <div><b>4 barbiers</b><span>Keuch, Yo, Theo, Ryan</span></div>
-    <div><b>Dès 10 €</b><span>Contours, coloration barbe</span></div>
-   </div>
+<section class="loft" id="loft" aria-label="Le loft O'42">
+ <div class="stick">
+  <div class="room" id="room" aria-hidden="true">
+   <div class="f ceil"></div><div class="f floor"></div><div class="f wall-l"></div><div class="f wall-r"></div><div class="f wall-b"></div>
+   <div class="f lamp" style="left:-200px;transform:translateZ(-500px)"></div><div class="f lamp" style="left:200px;transform:translateZ(-1200px)"></div>
+   <div class="f frame" style="left:-690px;transform:translateZ(-300px) rotateY(90deg);transform-origin:0 50%"><img data-i="1" alt="" loading="lazy"></div>
+   <div class="f frame" style="left:690px;transform:translateZ(-700px) rotateY(-90deg);transform-origin:0 50%"><img data-i="2" alt="" loading="lazy"></div>
+   <div class="f frame" style="left:-690px;transform:translateZ(-1100px) rotateY(90deg);transform-origin:0 50%"><img data-i="4" alt="" loading="lazy"></div>
+   <div class="f frame" style="left:690px;transform:translateZ(-1500px) rotateY(-90deg);transform-origin:0 50%"><img data-i="7" alt="" loading="lazy"></div>
+   <div class="f frame" style="left:-190px;transform:translateZ(-1880px)"><img data-i="5" alt="" loading="lazy"></div>
   </div>
-  <div class="pics">
-   <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Rp7aSCnriveBGu3CKwXzdjO6uzgn0Fe1N5BWPfKggeOtUljyjoGoe5lKQylN9_lwCgveNoEBZHoDRvJgBN6nacFoPsHubZxGeVU_qUp2cVVdG7wgVnGoyC8qzxCMT0yZlASl6EmABAZm9n=w1000" alt="Le salon O'42 : murs de brique, parquet clair et fauteuil de barbier noir" loading="lazy" width="600" height="800">
-   <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T51YodPK1n4Wtz7t1UhsV0R24UxRiC5HDwb9KwHOUCV81n5ecPCglaigDqAWW5rZ9KQAf5gC7BiaNEqTeJTEg75n66Tgtediu4odZYMTfnRfUSo9Y_AnoxEfq5ImszJhYKw1CFSzGdcgla=w1000" alt="Espace de coupe O'42 avec une fresque graffiti colorée et un fauteuil en cuir" loading="lazy" width="600" height="800">
+  <div class="loft-copy">
+   <div class="step on"><div class="kick mi">Le loft</div><h2>Brique, bois brut,<br>fauteuils en cuir.</h2><p>Entre. On t'emmène au fond de la salle.</p></div>
+   <div class="step"><h2>Un loft industriel<br>en plein Hyères.</h2><p>De la bonne musique, une lumière chaude et des murs qui racontent les coupes de la maison.</p></div>
+   <div class="step"><h2>Toutes les techniques.</h2><p>Du dégradé net au rasage à l'ancienne, sept jours sur sept.</p></div>
   </div>
+  <div class="progress" aria-hidden="true"><i id="lp"></i></div>
  </div>
 </section>
-
-<section class="blk" id="prestations">
- <div class="kick mi">Prestations</div>
- <h2 class="big">La carte O'42</h2>
- <div class="menu" id="menu"></div>
+<section class="carte" id="carte" aria-labelledby="carteT">
+ <div class="stick">
+  <div class="carte-hd"><div><div class="kick mi">Prestations</div><h2 class="big" id="carteT">La carte O'42</h2></div><div class="cats" id="cats" role="group" aria-label="Catégories"></div></div>
+  <div class="drum-wrap" id="drumWrap"><div class="drum" id="drum"><div class="pole" id="pole"></div></div></div>
+  <div class="carte-ft"><span>Fais défiler ou glisse pour tourner le barillet · « + » pour ajouter</span><span class="basket" id="basket" aria-live="polite"></span><a class="btn" href="#reserver">Réserver</a></div>
+ </div>
 </section>
-
 <section class="blk" id="equipe">
- <div class="kick mi">L'équipe</div>
- <h2 class="big">Quatre paires de mains.</h2>
- <div class="team">
-  <div class="mb"><div class="ini">K</div><div><b>Keuch</b><span>Barbier</span></div></div>
-  <div class="mb"><div class="ini">Y</div><div><b>Yo</b><span>Barbier</span></div></div>
-  <div class="mb"><div class="ini">T</div><div><b>Theo</b><span>Barbier</span></div></div>
-  <div class="mb"><div class="ini">R</div><div><b>Ryan</b><span>Barbier</span></div></div>
- </div>
+ <div class="kick mi">L'équipe</div><h2 class="big">Choisis ta carte.</h2>
+ <p class="lead">Quatre barbiers, quatre mains sûres. Choisis ta carte pour réserver avec lui.</p>
+ <div class="team" id="team"></div>
 </section>
-
 <section class="blk" id="reserver">
- <div class="book">
-  <div>
-   <div class="kick mi">Réservation</div>
-   <h2 class="big">Ton créneau<br>en 30 secondes.</h2>
-   <p style="color:var(--mid);margin-top:22px;max-width:440px">Choisis ta prestation, ton barbier et ton heure. La demande arrive directement sur le téléphone du salon, et tu reçois la confirmation.</p>
-  </div>
+ <div class="kick mi">Réservation</div><h2 class="big">Ton ticket se remplit<br>pendant que tu choisis.</h2>
+ <div class="book" style="margin-top:46px">
   <form id="bk" novalidate>
-   <div id="fields" style="display:grid;gap:18px">
-    <div><span style="font-size:13px;color:var(--mid)">Prestations choisies</span><div class="sel" id="selList">Ajoute une prestation depuis la carte, ou choisis ci-dessous.</div></div>
-    <label>Prestation<select id="fPresta" required></select></label>
-    <div class="two">
-     <label>Barbier<select id="fBarber"><option>Sans préférence</option><option>Keuch</option><option>Yo</option><option>Theo</option><option>Ryan</option></select></label>
-     <label>Date<input type="date" id="fDate" required></label>
-    </div>
-    <div><span style="font-size:13px;color:var(--mid)">Heure</span><div class="slots" id="slots" role="group" aria-label="Heures disponibles"></div></div>
-    <div class="two">
-     <label>Prénom<input id="fName" autocomplete="given-name" required></label>
-     <label>Téléphone<input id="fTel" type="tel" autocomplete="tel" required inputmode="tel"></label>
-    </div>
-    <label class="chk"><input type="checkbox" id="fOk" required><span>J'accepte que mon prénom et mon numéro soient utilisés uniquement pour gérer ce rendez-vous. <button type="button" class="lk" data-open="conf" style="background:none;border:0;color:var(--cream);text-decoration:underline;cursor:pointer;font:inherit">En savoir plus</button></span></label>
-    <p id="err" role="alert" style="color:#e39b84;font-size:14px;min-height:0"></p>
-    <button class="btn" type="submit" style="justify-content:center">Envoyer la demande</button>
-   </div>
-   <div class="ok" id="ok" role="status"><b>Demande envoyée</b><p id="okTxt"></p></div>
+   <label>Prestation<select id="fPresta"></select></label>
+   <div class="sr" aria-live="polite" id="selLive"></div>
+   <div class="two"><label>Barbier<select id="fBarber"><option>Sans préférence</option><option>Keuch</option><option>Yo</option><option>Theo</option><option>Ryan</option></select></label><label>Date<input type="date" id="fDate"></label></div>
+   <div><span style="font-size:13px;color:var(--mid)">Heure</span><div class="chips" id="slots" role="group" aria-label="Heures disponibles" style="margin-top:8px"></div></div>
+   <div class="two"><label>Prénom<input id="fName" autocomplete="given-name"></label><label>Téléphone<input id="fTel" type="tel" autocomplete="tel" inputmode="tel"></label></div>
+   <label class="chk"><input type="checkbox" id="fOk"><span>J'accepte que mon prénom et mon numéro servent uniquement à gérer ce rendez-vous. <button type="button" class="lk" data-open="conf">En savoir plus</button></span></label>
+   <p class="err" id="err" role="alert"></p>
+   <button class="btn" type="submit">Envoyer la demande</button>
   </form>
+  <div class="tk-wrap"><div class="ticket" id="ticket">
+   <div class="face" aria-hidden="true">
+    <div class="tk-top"><b>O'42 BARBER</b><svg width="38" height="38" style="color:#1a1310"><use href="#lg"/></svg></div>
+    <div class="tk-row"><span>Prestations</span><span id="tP">—</span></div>
+    <div class="tk-row"><span>Barbier</span><span id="tB">Sans préférence</span></div>
+    <div class="tk-row"><span>Date</span><span id="tD">—</span></div>
+    <div class="tk-row"><span>Heure</span><span id="tH">—</span></div>
+    <div class="tk-row"><span>Au nom de</span><span id="tN">—</span></div>
+    <div class="tk-tot"><span>Total</span><span id="tT">0 €</span></div>
+    <div class="bars"></div>
+   </div>
+   <div class="face verso" role="status"><div><svg width="70" height="70" style="color:#efe6da"><use href="#lg"/></svg><b>Demande envoyée</b><p id="okTxt"></p></div></div>
+  </div></div>
  </div>
 </section>
-
 <section class="blk" id="infos">
- <div class="book">
-  <div class="info">
-   <div><div class="kick mi">Infos pratiques</div><h2 class="big">42 av. Alphonse Denis<br>83400 Hyères</h2></div>
+ <div class="infos">
+  <div>
+   <div class="kick mi">Infos pratiques</div><h2 class="big">42 av. Alphonse Denis<br>83400 Hyères</h2>
+   <div class="flap" id="flap" aria-hidden="true"></div><p class="sr" id="flapTxt"></p>
    <table class="hours" aria-label="Horaires d'ouverture"><tbody id="hours"></tbody></table>
-   <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="tel:+33988320309">Appeler le salon</a><a class="btn ghost" href="https://www.instagram.com/o42barber/" rel="noopener" target="_blank">Instagram</a></div>
+   <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><a class="btn" href="tel:+33988320309">Appeler · 09 88 32 03 09</a><a class="btn ghost" href="https://www.instagram.com/o42barber/" rel="noopener" target="_blank">Instagram</a></div>
   </div>
-  <div class="map" id="map"><div><p>La carte est fournie par Google Maps, qui peut déposer des cookies.</p><button class="btn" type="button" id="mapBtn">Afficher la carte</button></div></div>
+  <div class="map" id="map">
+   <div class="ph" id="mapPh"></div>
+   <div class="pin" aria-hidden="true"><svg style="color:#1a1310"><use href="#lg"/></svg></div>
+   <div class="mconsent" id="mapC"><button class="btn ghost" type="button" id="mapBtn">Afficher le plan Google</button></div>
+   <div class="mcard"><b>O'42 Barber</b><small>42 avenue Alphonse Denis, 83400 Hyères</small><div><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=O42Barber+42+Avenue+Alphonse+Denis+83400+Hy%C3%A8res" target="_blank" rel="noopener">Itinéraire</a></div></div>
+  </div>
  </div>
 </section>
 </main>
-
 <footer>
- <div>© O'42 Barber · Hyères</div>
- <ul>
-  <li><button type="button" data-open="ml">Mentions légales</button></li>
-  <li><button type="button" data-open="conf">Confidentialité</button></li>
-  <li><button type="button" data-open="cgv">CGV / CGU</button></li>
-  <li><button type="button" data-open="ann">Annulation et remboursement</button></li>
-  <li><button type="button" data-open="ck">Cookies</button></li>
- </ul>
+ <div class="coin" id="coin" aria-hidden="true"></div>
+ <div class="ft"><div>© O'42 Barber · Hyères · More than a barber</div>
+  <ul><li><button type="button" data-open="ml">Mentions légales</button></li><li><button type="button" data-open="conf">Confidentialité</button></li><li><button type="button" data-open="cgv">CGV / CGU</button></li><li><button type="button" data-open="ann">Annulation et remboursement</button></li><li><button type="button" data-open="ck">Cookies</button></li></ul>
+ </div>
 </footer>
 <a class="demo" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
-
-<div class="ck" id="ck" role="dialog" aria-label="Cookies" hidden>
- <p>Ce site n'utilise aucun cookie de suivi. Seule la carte Google Maps peut en déposer si tu l'affiches. Tu acceptes ?</p>
- <div class="acts"><button class="btn ghost" type="button" id="ckNo">Refuser</button><button class="btn ghost" type="button" id="ckYes">Accepter</button></div>
-</div>
-
+<div class="ck" id="ck" role="dialog" aria-label="Cookies" hidden><p>Ce site n'utilise aucun cookie de suivi. Seul le plan Google Maps peut en déposer si tu l'affiches. Tu acceptes ?</p><div class="acts"><button class="btn ghost" type="button" id="ckNo">Refuser</button><button class="btn ghost" type="button" id="ckYes">Accepter</button></div></div>
 <dialog id="dlg" aria-labelledby="dlgT"><button class="x" type="button" id="dlgX">Fermer</button><div id="dlgC"></div></dialog>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 <script>
-(()=>{
-const LOOKS=[
- {src:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QwH_-9AfDrTybzYYxzhM-HmdVGktqSBmZUP1woZJj9fdtS3YyJ5B8I4CRQWGAkK1vJyuYFxDrRIhrUe2emmr5y0VZKk7kokZRdSlwU3skmExOzmF9TjBXDvai5CcpS3BOvmsyNxcijn3Rq",alt:"Coupe dégradée avec dreadlocks sur le dessus, réalisée au salon",t:"Dégradé & locks"},
- {src:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QCJmuzYpduGf5ykvV7EBBe0F0m0nVachIHOjZI8wami-ONfjGwCbddq8AblO9GDGx30a-HDLsReFQ6DBu2q47jIpM0dHrJMS5FU9yBmFvlJshTpgZ6dCbWOyFUTQaFbsH9fVso",alt:"Dessin coloré tracé à la tondeuse sur l'arrière du crâne",t:"Hair design"},
- {src:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QH_kgtRotL3z5zuwQdV0vlar4F86naIqFLtbyislaE-5dSJZswzZfkgx3OOH3sj0fMVu0QHx4yJbChCYZF9awn7zs4GPZN7isytpXgIhFcC20W_IxqJcTHkhLK9Y4KDbSNWhaX",alt:"Barbier finissant une coupe sur un client, fond jaune",t:"Coupe transformation"},
- {src:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SWjeWMdfQszUA_26tuoHilFjIhNB1Sdc0Xo4THOOmOIDTIxqnuXSn7TEt-zshkqJqauNmAq2vh1_WfcOZCi8Z50Uwo3EUyJcKb3GMHjuTzrO3gZo7HtF-y3-XLscBBqSxCVvY5asZDO114",alt:"Un barbier d'O'42 assis dans un fauteuil de barbier, devant le mur de brique",t:"L'équipe O'42"},
- {src:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T51YodPK1n4Wtz7t1UhsV0R24UxRiC5HDwb9KwHOUCV81n5ecPCglaigDqAWW5rZ9KQAf5gC7BiaNEqTeJTEg75n66Tgtediu4odZYMTfnRfUSo9Y_AnoxEfq5ImszJhYKw1CFSzGdcgla",alt:"Fauteuil en cuir et fresque graffiti dans le salon",t:"Le loft"},
- {src:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Rp7aSCnriveBGu3CKwXzdjO6uzgn0Fe1N5BWPfKggeOtUljyjoGoe5lKQylN9_lwCgveNoEBZHoDRvJgBN6nacFoPsHubZxGeVU_qUp2cVVdG7wgVnGoyC8qzxCMT0yZlASl6EmABAZm9n",alt:"Vue du salon avec parquet et murs de brique",t:"Le salon"}
-];
-const P=[
- {c:"Coiffure",n:"Coiffure cheveux courts",d:30,p:"25 €"},
- {c:"Coiffure",n:"Coiffure cheveux longs",d:45,p:"30 €"},
- {c:"Coiffure",n:"Coiffure transformation",d:45,p:"35 €"},
- {c:"Coiffure",n:"Enfant (– de 16 ans)",d:30,p:"20 €"},
- {c:"Coiffure",n:"Enfant cheveux longs (– de 16 ans)",d:45,p:"25 €"},
- {c:"Coiffure",n:"Contours",d:15,p:"10 €"},
- {c:"Barbe",n:"Barbe complète",d:15,p:"15 €"},
- {c:"Barbe",n:"Contours de barbe",d:15,p:"15 €"},
- {c:"Barbe",n:"Rasage à l'ancienne",d:30,p:"22 €"},
- {c:"Forfaits",n:"Coiffure + barbe",d:45,p:"30 €"},
- {c:"Forfaits",n:"Cheveux longs + barbe",d:55,p:"35 €"},
- {c:"Forfaits",n:"Transformation + barbe",d:55,p:"40 €"},
- {c:"Forfaits",n:"Rasage crâne + barbe",d:30,p:"25 €"},
- {c:"Soin & technique",n:"Soin du visage",d:40,p:"dès 35 €"},
- {c:"Soin & technique",n:"Relaxant cheveux",d:20,p:"dès 15 €"},
- {c:"Soin & technique",n:"Coloration barbe",d:15,p:"dès 10 €"}
-];
+addEventListener('DOMContentLoaded',()=>{
+const G="https://lh3.googleusercontent.com/gps-cs-s/";
+const IMG={1:"ANWiy9Rp7aSCnriveBGu3CKwXzdjO6uzgn0Fe1N5BWPfKggeOtUljyjoGoe5lKQylN9_lwCgveNoEBZHoDRvJgBN6nacFoPsHubZxGeVU_qUp2cVVdG7wgVnGoyC8qzxCMT0yZlASl6EmABAZm9n",2:"ANWiy9T51YodPK1n4Wtz7t1UhsV0R24UxRiC5HDwb9KwHOUCV81n5ecPCglaigDqAWW5rZ9KQAf5gC7BiaNEqTeJTEg75n66Tgtediu4odZYMTfnRfUSo9Y_AnoxEfq5ImszJhYKw1CFSzGdcgla",4:"ANWiy9QCJmuzYpduGf5ykvV7EBBe0F0m0nVachIHOjZI8wami-ONfjGwCbddq8AblO9GDGx30a-HDLsReFQ6DBu2q47jIpM0dHrJMS5FU9yBmFvlJshTpgZ6dCbWOyFUTQaFbsH9fVso",5:"ANWiy9SWjeWMdfQszUA_26tuoHilFjIhNB1Sdc0Xo4THOOmOIDTIxqnuXSn7TEt-zshkqJqauNmAq2vh1_WfcOZCi8Z50Uwo3EUyJcKb3GMHjuTzrO3gZo7HtF-y3-XLscBBqSxCVvY5asZDO114",7:"ANWiy9QH_kgtRotL3z5zuwQdV0vlar4F86naIqFLtbyislaE-5dSJZswzZfkgx3OOH3sj0fMVu0QHx4yJbChCYZF9awn7zs4GPZN7isytpXgIhFcC20W_IxqJcTHkhLK9Y4KDbSNWhaX",8:"ANWiy9QwH_-9AfDrTybzYYxzhM-HmdVGktqSBmZUP1woZJj9fdtS3YyJ5B8I4CRQWGAkK1vJyuYFxDrRIhrUe2emmr5y0VZKk7kokZRdSlwU3skmExOzmF9TjBXDvai5CcpS3BOvmsyNxcijn3Rq"};
+const LOOKS=[{i:8,alt:"Coupe dégradée avec dreadlocks sur le dessus, réalisée au salon",t:"Dégradé & locks"},{i:4,alt:"Dessin coloré tracé à la tondeuse sur l'arrière du crâne",t:"Hair design"},{i:7,alt:"Barbier finissant une coupe sur un client, fond jaune",t:"Coupe transformation"},{i:5,alt:"Un barbier d'O'42 assis dans un fauteuil de barbier, devant le mur de brique",t:"L'équipe O'42"},{i:2,alt:"Fauteuil en cuir et fresque graffiti dans le salon",t:"Le loft"},{i:1,alt:"Vue du salon avec parquet et murs de brique",t:"Le salon"}];
+const P=[{c:"Coiffure",n:"Coiffure cheveux courts",d:30,p:25},{c:"Coiffure",n:"Coiffure cheveux longs",d:45,p:30},{c:"Coiffure",n:"Coiffure transformation",d:45,p:35},{c:"Coiffure",n:"Enfant (– de 16 ans)",d:30,p:20},{c:"Coiffure",n:"Enfant cheveux longs (– de 16 ans)",d:45,p:25},{c:"Coiffure",n:"Contours",d:15,p:10},{c:"Barbe",n:"Barbe complète",d:15,p:15},{c:"Barbe",n:"Contours de barbe",d:15,p:15},{c:"Barbe",n:"Rasage à l'ancienne",d:30,p:22},{c:"Forfaits",n:"Coiffure + barbe",d:45,p:30},{c:"Forfaits",n:"Cheveux longs + barbe",d:55,p:35},{c:"Forfaits",n:"Transformation + barbe",d:55,p:40},{c:"Forfaits",n:"Rasage crâne + barbe",d:30,p:25},{c:"Soin & technique",n:"Soin du visage",d:40,p:35,f:1},{c:"Soin & technique",n:"Relaxant cheveux",d:20,p:15,f:1},{c:"Soin & technique",n:"Coloration barbe",d:15,p:10,f:1}];
+const price=x=>(x.f?'dès ':'')+x.p+' €';
+const TEAM=["Keuch","Yo","Theo","Ryan"];
 const HRS=[["Lundi","09:00","17:00"],["Mardi","09:00","18:00"],["Mercredi","09:00","20:00"],["Jeudi","09:00","20:00"],["Vendredi","09:00","20:00"],["Samedi","09:00","20:00"],["Dimanche","10:00","18:00"]];
-const $=s=>document.querySelector(s);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const pad=n=>String(n).padStart(2,'0');
+const mob=()=>matchMedia('(max-width:820px)').matches;
+const pad=n=>String(n).padStart(2,'0'),wrap=(v,n)=>((v%n)+n)%n,clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const prog=el=>{const r=el.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight),0,1)};
+const vis=el=>{const r=el.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};
+$$('img[data-i]').forEach(im=>im.src=G+IMG[im.dataset.i]+'=w800');
+const chosen=new Set(),subs=[];
+const toggle=k=>{chosen.has(k)?chosen.delete(k):chosen.add(k);subs.forEach(f=>f())};
+let mx=innerWidth/2,my=innerHeight/2;addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
 
-/* ---- Lookbook ---- */
-const N=LOOKS.length, stage=$('#stage');
-const KX=[1.25,.70,.47,.33,.225,.145,.08], KF=[1.12,.93,.80,.72,.66,.62,.595], KH=[1.05,.74,.53,.41,.32,.25,.19], KB=[0,0,1.5,4,8,12,17], KO=[1,1,1,.92,.75,.45,0];
-const lerpT=(T,d)=>{d=Math.max(-1,Math.min(5,d));const i=Math.floor(d+1),f=d+1-i;return i>=6?T[6]:T[i]+(T[i+1]-T[i])*f};
-const wrap=(v,n)=>((v%n)+n)%n;
-const els=LOOKS.map((L,i)=>{const e=document.createElement('div');e.className='m';e.innerHTML=`<div class="card"><img src="${L.src}=w900" alt="${L.alt}" draggable="false"></div><span class="tag">${L.t}</span>`;e.dataset.i=i;stage.appendChild(e);return e});
+/* 1 lookbook */
+const N=LOOKS.length,stage=$('#stage');
+const KX=[1.25,.70,.47,.33,.225,.145,.08],KF=[1.12,.93,.80,.72,.66,.62,.595],KH=[1.05,.74,.53,.41,.32,.25,.19],KB=[0,0,1.5,4,8,12,17],KO=[1,1,1,.92,.75,.45,0];
+const lerpT=(T,d)=>{d=clamp(d,-1,5);const i=Math.floor(d+1),f=d+1-i;return i>=6?T[6]:T[i]+(T[i+1]-T[i])*f};
+const els=LOOKS.map(L=>{const e=document.createElement('div');e.className='m';e.innerHTML=`<div class="card"><img src="${G+IMG[L.i]}=w900" alt="${L.alt}" draggable="false"></div><span class="tag">${L.t}</span>`;stage.appendChild(e);return e});
 $('#rollIn').innerHTML=[...LOOKS,LOOKS[0]].map((_,i)=>`<span>${pad(i%N+1)}</span>`).join('');
-let p=0,target=0,W=0,H=0,last=0,dirty=true;
-function size(){const r=stage.getBoundingClientRect();W=r.width;H=r.height;els.forEach(e=>{e.style.height=(H*1.0)+'px';e.style.width=(H*0.72)+'px'});dirty=true}
-function render(){
- els.forEach((e,i)=>{let d=wrap(i-p,N);if(d>N-1)d-=N;const s=lerpT(KH,d),x=lerpT(KX,d)*W,f=lerpT(KF,d)*H,b=lerpT(KB,d)/s,o=lerpT(KO,d);
-  const w=H*.72;e.style.transform=`translate(${x-w/2}px,${f-H}px) scale(${s})`;e.style.filter=b>.05?`blur(${b.toFixed(2)}px) brightness(${(1-Math.min(d,5)*.08).toFixed(2)})`:'none';e.style.opacity=o.toFixed(3);e.style.zIndex=100-Math.round(d*10);e.setAttribute('aria-hidden',Math.round(d)===0?'false':'true')});
- const lh=$('.roll').getBoundingClientRect().height;$('#rollIn').style.transform=`translateY(${-wrap(p,N)*lh}px)`;
- const cur=wrap(Math.round(p),N);$('#lookCap').textContent=LOOKS[cur].t;
- renderRail();
-}
-function loop(t){const dt=Math.min(50,t-(last||t));last=t;
- if(Math.abs(target-p)>.0004){p+=RM?(target-p):(target-p)*(1-Math.exp(-dt*.0072));dirty=true}else if(p!==target){p=target;dirty=true}
- if(dirty){render();dirty=false}requestAnimationFrame(loop)}
-let auto=setInterval(()=>{if(!drag&&!document.hidden)target=Math.round(target)+1},4200);
-const bump=()=>{clearInterval(auto);auto=setInterval(()=>{if(!drag&&!document.hidden)target=Math.round(target)+1},6000)};
-$('#next').onclick=()=>{target=Math.round(target)+1;bump()};$('#prev').onclick=()=>{target=Math.round(target)-1;bump()};
-stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){target=Math.round(target)+1;bump();e.preventDefault()}if(e.key==='ArrowLeft'){target=Math.round(target)-1;bump();e.preventDefault()}});
-let drag=false,sx=0,st=0,moved=0;
-stage.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;drag=true;sx=e.clientX;st=target;moved=0;stage.setPointerCapture(e.pointerId);ring.classList.add('drag');ring.textContent='GLISSE';bump()});
-stage.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-sx;moved=Math.max(moved,Math.abs(dx));target=st+dx/Math.max(150,W*.2)});
-const up=e=>{if(!drag)return;drag=false;ring.classList.remove('drag');ring.textContent='';target=Math.round(target)};
-stage.addEventListener('pointerup',up);stage.addEventListener('pointercancel',up);
-let wt;stage.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;e.preventDefault();target+=Math.max(-120,Math.min(120,e.deltaX))/420;clearTimeout(wt);wt=setTimeout(()=>target=Math.round(target),150);bump()},{passive:false});
-/* ring */
-const ring=$('#ring');let rx=0,ry=0,mx=0,my=0;
-stage.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')ring.classList.add('on')});stage.addEventListener('pointerleave',()=>ring.classList.remove('on'));
-addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
-(function rl(){rx+=(mx-rx)*.32;ry+=(my-ry)*.32;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(rl)})();
-
-/* ---- Rail ---- */
-const RP=P.slice(0,12), track=$('#track'), mob=()=>matchMedia('(max-width:820px)').matches;
-const chosen=new Set();
-RP.forEach((x,i)=>{const c=document.createElement('div');c.className='pc';c.innerHTML=`<span class="ico mi">${x.d} min</span><span class="n mi">${x.n}</span><span class="d">${x.c}</span><span class="p">${x.p}</span><button type="button" class="plus" aria-pressed="false" aria-label="Ajouter ${x.n} à la réservation">+</button>`;track.appendChild(c);
- c.querySelector('.plus').onclick=b=>{const k=P.indexOf(x);chosen.has(k)?chosen.delete(k):chosen.add(k);syncSel()}});
+let p=0,target=0,W=0,H=0,last=0,dirty=true,drag=false;
+function size(){const r=stage.getBoundingClientRect();W=r.width;H=r.height;els.forEach(e=>{e.style.height=H+'px';e.style.width=(H*.72)+'px'});dirty=true}
+const track=$('#track');
+P.slice(0,12).forEach(x=>{const k=P.indexOf(x),c=document.createElement('div');c.className='pc';c.innerHTML=`<span class="ico mi">${x.d} min</span><span class="n mi">${x.n}</span><span class="d">${x.c}</span><span class="p">${price(x)}</span><button type="button" class="plus" data-k="${k}" aria-pressed="false" aria-label="Ajouter ${x.n}">+</button>`;track.appendChild(c)});
 function renderRail(){const cards=[...track.children],n=cards.length,R=track.getBoundingClientRect();
  if(mob()){const cw=170;cards.forEach((c,i)=>{let x=wrap(i*cw-p*2*cw,n*cw);if(x>R.width+cw)x-=n*cw;c.style.transform=`translate3d(${x}px,0,0)`;c.style.height=''})}
- else{const ch=R.height/3;cards.forEach((c,i)=>{let y=wrap(i*ch-p*2*ch,n*ch);if(y>R.height)y-=n*ch;c.style.height=ch+'px';c.style.transform=`translate3d(0,${y}px,0)`;c.style.width=''})}}
+ else{const ch=R.height/3;cards.forEach((c,i)=>{let y=wrap(i*ch-p*2*ch,n*ch);if(y>R.height)y-=n*ch;c.style.height=ch+'px';c.style.transform=`translate3d(0,${y}px,0)`})}}
+function render(){els.forEach((e,i)=>{let d=wrap(i-p,N);if(d>N-1)d-=N;const s=lerpT(KH,d),x=lerpT(KX,d)*W,f=lerpT(KF,d)*H,b=lerpT(KB,d)/s,o=lerpT(KO,d),w=H*.72;
+ e.style.transform=`translate(${x-w/2}px,${f-H}px) scale(${s})`;e.style.filter=b>.05?`blur(${b.toFixed(2)}px) brightness(${(1-Math.min(d,5)*.08).toFixed(2)})`:'none';e.style.opacity=o.toFixed(3);e.style.zIndex=100-Math.round(d*10);e.setAttribute('aria-hidden',Math.round(d)===0?'false':'true')});
+ const sp=$('#rollIn span');$('#rollIn').style.transform=`translateY(${-wrap(p,N)*(sp?sp.offsetHeight:30)}px)`;$('#lookCap').textContent=LOOKS[wrap(Math.round(p),N)].t;renderRail()}
+let auto;const bump=t=>{clearInterval(auto);auto=setInterval(()=>{if(!drag&&!document.hidden&&vis(stage))target=Math.round(target)+1},t||6000)};bump(4200);
+$('#next').onclick=()=>{target=Math.round(target)+1;bump()};$('#prev').onclick=()=>{target=Math.round(target)-1;bump()};
+stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){target=Math.round(target)+(e.key==='ArrowRight'?1:-1);bump();e.preventDefault()}});
+const ring=$('#ring');let sx=0,st=0,rx=mx,ry=my;
+stage.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;drag=true;sx=e.clientX;st=target;stage.setPointerCapture(e.pointerId);ring.classList.add('drag');ring.textContent='GLISSE';bump()});
+stage.addEventListener('pointermove',e=>{if(drag)target=st+(e.clientX-sx)/Math.max(150,W*.2)});
+const up=()=>{if(!drag)return;drag=false;ring.classList.remove('drag');ring.textContent='';target=Math.round(target)};
+stage.addEventListener('pointerup',up);stage.addEventListener('pointercancel',up);
+let wt;stage.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;e.preventDefault();target+=clamp(e.deltaX,-120,120)/420;clearTimeout(wt);wt=setTimeout(()=>target=Math.round(target),150);bump()},{passive:false});
+stage.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')ring.classList.add('on')});stage.addEventListener('pointerleave',()=>ring.classList.remove('on'));
 
-/* ---- Menu ---- */
-const cats=[...new Set(P.map(x=>x.c))];
-$('#menu').innerHTML=cats.map(c=>`<div><h3>${c}</h3>${P.filter(x=>x.c===c).map(x=>`<div class="li"><span class="t">${x.n}</span><span class="dur">${x.d} min</span><span class="pr">${x.p}</span></div>`).join('')}</div>`).join('');
+/* 2 loft 3D */
+const loft=$('#loft'),room=$('#room'),steps=$$('.loft-copy .step');
+function renderLoft(){if(!vis(loft))return;const t=prog(loft),z=t*1500,sw=Math.sin(t*Math.PI*2)*6,lx=(mx/innerWidth-.5)*8,ly=(my/innerHeight-.5)*5;
+ room.style.transform=`translateZ(${z}px) rotateY(${sw+lx}deg) rotateX(${-ly}deg)`;const s=Math.min(2,Math.floor(t*3));steps.forEach((e,i)=>e.classList.toggle('on',i===s));$('#lp').style.height=(t*100)+'%'}
 
-/* ---- Hours ---- */
-const today=(new Date().getDay()+6)%7;
-$('#hours').innerHTML=HRS.map((h,i)=>`<tr class="${i===today?'today':''}"><td>${h[0]}</td><td>${h[1].replace(':','h')} – ${h[2].replace(':','h')}</td></tr>`).join('');
+/* 3 barillet */
+const drum=$('#drum'),carte=$('#carte'),cats=[...new Set(P.map(x=>x.c))],step=360/P.length;
+const DC=P.map((x,k)=>{const d=document.createElement('div');d.className='dc';d.innerHTML=`<span class="cat">${x.c}</span><span class="n">${x.n}</span><div class="meta"><div><div class="p">${price(x)}</div><div class="dur">${x.d} min</div></div><button type="button" class="plus" data-k="${k}" aria-pressed="false" aria-label="Ajouter ${x.n}, ${price(x)}">+</button></div>`;drum.appendChild(d);return d});
+$('#cats').innerHTML=['Tout',...cats].map(c=>`<button type="button" aria-pressed="${c==='Tout'}">${c}</button>`).join('');
+let drumA=0,drumOff=0,dragD=false,dsx=0,dst=0;const drumBase=()=>-prog(carte)*360*1.4;
+$$('#cats button').forEach(b=>b.onclick=()=>{$$('#cats button').forEach(x=>x.setAttribute('aria-pressed',x===b));const c=b.textContent==='Tout'?null:b.textContent;
+ if(c){const k=P.findIndex(x=>x.c===c),n=P.filter(x=>x.c===c).length;drumOff=-(k+(n-1)/2)*step-drumBase()}DC.forEach((d,k)=>d.classList.toggle('dim',!!c&&P[k].c!==c))});
+const dw=$('#drumWrap');
+dw.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;dragD=true;dsx=e.clientX;dst=drumOff});
+addEventListener('pointermove',e=>{if(dragD)drumOff=dst+(e.clientX-dsx)*.35});addEventListener('pointerup',()=>dragD=false);
+function renderDrum(){if(!vis(carte))return;const t=drumBase()+drumOff;drumA+=(t-drumA)*(RM?1:.12);const R=mob()?240:470;DC.forEach((d,k)=>{d.style.transform=`rotateY(${k*step+drumA}deg) translateZ(${R}px)`});drum.style.transform='rotateX(-8deg)'}
 
-/* ---- Booking ---- */
-const fP=$('#fPresta');fP.innerHTML='<option value="">Choisir une prestation</option>'+P.map((x,i)=>`<option value="${i}">${x.n} · ${x.p}</option>`).join('');
-fP.onchange=()=>{if(fP.value!==''){chosen.add(+fP.value);syncSel()}};
-function syncSel(){$('#selList').textContent=chosen.size?[...chosen].map(i=>`${P[i].n} (${P[i].p})`).join(' · '):'Ajoute une prestation depuis la carte, ou choisis ci-dessous.';
- [...track.children].forEach((c,i)=>c.querySelector('.plus').setAttribute('aria-pressed',chosen.has(P.indexOf(RP[i]))));buildSlots()}
-const fD=$('#fDate');const d0=new Date();fD.min=`${d0.getFullYear()}-${pad(d0.getMonth()+1)}-${pad(d0.getDate())}`;fD.value=fD.min;
+/* 4 equipe */
+$('#team').innerHTML=TEAM.map((n,i)=>`<div class="tc" data-i="${i}"><div class="fc front"><div class="corner">${n[0]}<small>O'42</small></div><div class="mid"><svg style="color:#efe6da"><use href="#lg"/></svg><b>${n}</b><span>Barbier</span></div><div class="corner b">${n[0]}<small>O'42</small></div></div><div class="fc back"><svg style="color:#efe6da"><use href="#lg"/></svg></div></div>`).join('');
+const tcs=$$('.tc');
+tcs.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='btn pick';const n=TEAM[t.dataset.i];b.textContent='Avec '+n;b.setAttribute('aria-label','Réserver avec '+n);b.onclick=()=>{$('#fBarber').value=n;sync();$('#reserver').scrollIntoView({behavior:RM?'auto':'smooth'})};t.querySelector('.front').appendChild(b)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;setTimeout(()=>{t.classList.add('in');setTimeout(()=>t.classList.add('live'),1150)},(+t.dataset.i)*220);io.unobserve(t)}}),{threshold:.3});
+tcs.forEach(t=>RM?t.classList.add('in','live'):io.observe(t));
+function renderTeam(){if(mob())return;tcs.forEach(t=>{if(!t.classList.contains('live'))return;const r=t.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const dx=(mx-(r.left+r.width/2))/innerWidth,dy=(my-(r.top+r.height/2))/innerHeight;t.style.transform=`rotateY(${dx*18}deg) rotateX(${-dy*14}deg)`})}
+
+/* 5 reservation */
+const fP=$('#fPresta'),fD=$('#fDate');
+fP.innerHTML='<option value="">Ajouter une prestation…</option>'+P.map((x,i)=>`<option value="${i}">${x.n} · ${price(x)}</option>`).join('');
+fP.onchange=()=>{if(fP.value!==''){const k=+fP.value;if(!chosen.has(k))toggle(k);fP.value=''}};
+const d0=new Date();fD.min=`${d0.getFullYear()}-${pad(d0.getMonth()+1)}-${pad(d0.getDate())}`;fD.value=fD.min;
 let slot='';
-function buildSlots(){const box=$('#slots');box.innerHTML='';slot='';if(!fD.value)return;
- const d=new Date(fD.value+'T12:00');const h=HRS[(d.getDay()+6)%7];const dur=[...chosen].reduce((a,i)=>a+P[i].d,0)||30;
- let [a,b]=[h[1],h[2]].map(t=>{const[x,y]=t.split(':');return +x*60+ +y});const now=new Date();const isToday=fD.value===fD.min;const nm=now.getHours()*60+now.getMinutes()+30;
- const out=[];for(let m=a;m+dur<=b;m+=30){if(isToday&&m<nm)continue;out.push(m)}
+function buildSlots(){const box=$('#slots'),keep=slot;box.innerHTML='';slot='';const d=new Date(fD.value+'T12:00');if(isNaN(d))return;const h=HRS[(d.getDay()+6)%7];
+ const dur=[...chosen].reduce((a,i)=>a+P[i].d,0)||30,[a,b]=[h[1],h[2]].map(t=>{const[x,y]=t.split(':');return x*60+ +y});
+ const now=new Date(),nm=now.getHours()*60+now.getMinutes()+30,today=fD.value===fD.min,out=[];
+ for(let m=a;m+dur<=b;m+=30){if(today&&m<nm)continue;out.push(m)}
  if(!out.length){box.innerHTML='<span class="none">Plus de créneau ce jour-là, choisis une autre date.</span>';return}
- out.forEach(m=>{const bt=document.createElement('button');bt.type='button';bt.textContent=`${pad(m/60|0)}h${pad(m%60)}`;bt.setAttribute('aria-pressed','false');bt.onclick=()=>{box.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));bt.setAttribute('aria-pressed','true');slot=bt.textContent};box.appendChild(bt)})}
-fD.onchange=buildSlots;buildSlots();
-$('#bk').onsubmit=e=>{e.preventDefault();const err=$('#err');const name=$('#fName').value.trim(),tel=$('#fTel').value.replace(/\s/g,'');
- const m=!chosen.size?'Choisis au moins une prestation.':!slot?'Choisis une heure.':!name?'Indique ton prénom.':!/^(\+33|0)[1-9]\d{8}$/.test(tel)?'Indique un numéro de téléphone valide.':!$('#fOk').checked?'Coche la case pour accepter l\'utilisation de tes coordonnées.':'';
- if(m){err.textContent=m;return}err.textContent='';
- const d=new Date(fD.value+'T12:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
- $('#fields').style.display='none';$('#ok').classList.add('show');
- $('#okTxt').textContent=`Merci ${name} ! Ta demande pour ${[...chosen].map(i=>P[i].n).join(' + ')} le ${d} à ${slot} (${$('#fBarber').value.toLowerCase()}) a bien été transmise au salon. Tu recevras la confirmation par SMS.`};
+ out.forEach(m=>{const bt=document.createElement('button'),lb=`${pad(m/60|0)}h${pad(m%60)}`;bt.type='button';bt.textContent=lb;const on=lb===keep;if(on)slot=lb;bt.setAttribute('aria-pressed',on);bt.onclick=()=>{$$('#slots button').forEach(x=>x.setAttribute('aria-pressed','false'));bt.setAttribute('aria-pressed','true');slot=lb;sync()};box.appendChild(bt)})}
+function sync(){const L=[...chosen],tot=L.reduce((a,i)=>a+P[i].p,0),fr=L.some(i=>P[i].f);
+ $('#tP').textContent=L.length?L.map(i=>P[i].n).join(' + '):'—';$('#tB').textContent=$('#fBarber').value;
+ $('#tD').textContent=fD.value?new Date(fD.value+'T12:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}):'—';
+ $('#tH').textContent=slot||'—';$('#tN').textContent=$('#fName').value.trim()||'—';$('#tT').textContent=(fr?'dès ':'')+tot+' €';
+ $('#basket').textContent=L.length?`${L.length} prestation${L.length>1?'s':''} · ${(fr?'dès ':'')+tot} €`:'';
+ $('#selLive').textContent=L.length?'Prestations choisies : '+L.map(i=>P[i].n).join(', '):'';
+ $$('.plus').forEach(b=>b.setAttribute('aria-pressed',chosen.has(+b.dataset.k)))}
+subs.push(()=>{buildSlots();sync()});
+document.addEventListener('click',e=>{const b=e.target.closest('.plus');if(b)toggle(+b.dataset.k)});
+fD.onchange=()=>{slot='';buildSlots();sync()};$('#fBarber').onchange=sync;$('#fName').oninput=sync;
+buildSlots();sync();
+const tk=$('#ticket');
+function renderTicket(){if(mob()||tk.classList.contains('done')||!vis(tk))return;const r=tk.getBoundingClientRect(),dx=(mx-(r.left+r.width/2))/innerWidth,dy=(my-(r.top+r.height/2))/innerHeight;tk.style.transform=`rotateY(${dx*16}deg) rotateX(${-dy*12}deg)`}
+$('#bk').onsubmit=e=>{e.preventDefault();const name=$('#fName').value.trim(),tel=$('#fTel').value.replace(/\s/g,'');
+ const m=!chosen.size?'Choisis au moins une prestation.':!slot?'Choisis une heure.':!name?'Indique ton prénom.':!/^(\+33|0)[1-9]\d{8}$/.test(tel)?'Indique un numéro de téléphone valide.':!$('#fOk').checked?"Coche la case pour accepter l'utilisation de tes coordonnées.":'';
+ $('#err').textContent=m;if(m)return;
+ $('#okTxt').textContent=`Merci ${name} ! Ta demande du ${$('#tD').textContent} à ${slot} est transmise au salon. Tu recevras la confirmation par SMS.`;
+ tk.classList.add('done');if(mob())tk.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})};
 
-/* ---- Cookies / map ---- */
+/* 6 infos */
+const ti=(new Date().getDay()+6)%7,hh=HRS[ti],nowM=d0.getHours()*60+d0.getMinutes(),toM=t=>{const[x,y]=t.split(':');return x*60+ +y};
+const open=nowM>=toM(hh[1])&&nowM<toM(hh[2]),msg=open?`OUVERT ${hh[2].replace(':','H')}`:'FERMÉ';
+$('#flapTxt').textContent=open?`Ouvert aujourd'hui jusqu'à ${hh[2].replace(':','h')}`:'Fermé pour le moment';
+const flap=$('#flap');flap.classList.add(open?'green':'red');flap.innerHTML=[...msg].map(()=>'<span>&nbsp;</span>').join('');
+const AL="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";let flapped=false;
+new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting||flapped)return;flapped=true;o.disconnect();[...flap.children].forEach((s,i)=>{const ch=msg[i];if(ch===' '||RM){s.textContent=ch===' '?' ':ch;return}let n=8+i*2;const tm=setInterval(()=>{s.classList.remove('go');void s.offsetWidth;s.classList.add('go');if(--n<=0){s.textContent=ch;clearInterval(tm)}else s.textContent=AL[Math.random()*AL.length|0]},70)})},{threshold:.6}).observe(flap);
+$('#hours').innerHTML=HRS.map((h,i)=>`<tr class="${i===ti?'today':''}"><td>${h[0]}</td><td>${h[1].replace(':','h')} – ${h[2].replace(':','h')}</td></tr>`).join('');
 const ck=$('#ck');let consent=null;try{consent=localStorage.getItem('o42-ck')}catch(e){}
 if(consent===null)ck.hidden=false;
+function showMap(){if($('#map iframe'))return;$('#mapPh').insertAdjacentHTML('afterend','<iframe title="Plan : O\'42 Barber, 42 avenue Alphonse Denis, Hyères" loading="lazy" src="https://www.google.com/maps?q=O42Barber,+42+Av.+Alphonse+Denis,+83400+Hy%C3%A8res&z=16&output=embed"></iframe>');const c=$('#mapC');if(c)c.remove()}
 const setC=v=>{consent=v;try{localStorage.setItem('o42-ck',v)}catch(e){}ck.hidden=true;if(v==='1')showMap()};
-$('#ckYes').onclick=()=>setC('1');$('#ckNo').onclick=()=>setC('0');
-function showMap(){$('#map').innerHTML='<iframe title="Carte : O\'42 Barber, 42 avenue Alphonse Denis, Hyères" loading="lazy" src="https://www.google.com/maps?q=O42Barber,+42+Av.+Alphonse+Denis,+83400+Hy%C3%A8res&output=embed"></iframe>'}
-$('#mapBtn').onclick=()=>setC('1');if(consent==='1')showMap();
+$('#ckYes').onclick=()=>setC('1');$('#ckNo').onclick=()=>setC('0');$('#mapBtn').onclick=()=>setC('1');if(consent==='1')showMap();
 
-/* ---- Legal ---- */
+/* Three.js : poteau + piece */
+let tick=null,lastScroll=scrollY,poleSpeed=0;
+function three(){if(tick)return;const T=window.THREE,poleEl=$('#pole'),coinEl=$('#coin');
+ if(!T){poleEl.innerHTML='<div class="pole-fb"></div>';coinEl.innerHTML='<div class="coin-fb">42</div>';tick=()=>{};return}
+ const mk=(el,w,h)=>{const r=new T.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(2,devicePixelRatio));r.setSize(w,h,false);el.appendChild(r.domElement);return r};
+ const cv=document.createElement('canvas');cv.width=256;cv.height=512;const g=cv.getContext('2d'),cols=['#9a4f36','#efe6da','#1d1815','#efe6da'];
+ g.save();g.translate(128,256);g.rotate(-Math.PI/5);for(let i=-16;i<16;i++){g.fillStyle=cols[wrap(i,4)];g.fillRect(-400,i*44,800,44)}g.restore();
+ const tex=new T.CanvasTexture(cv);tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.repeat.set(1,1.4);
+ const s1=new T.Scene(),c1=new T.PerspectiveCamera(30,200/440,.1,50);c1.position.set(0,0,9.2);const rd1=mk(poleEl,200,440),grp=new T.Group();s1.add(grp);
+ grp.add(new T.Mesh(new T.CylinderGeometry(.55,.55,3.6,48,1,true),new T.MeshStandardMaterial({map:tex,roughness:.45,metalness:.05})));
+ grp.add(new T.Mesh(new T.CylinderGeometry(.68,.68,3.7,48,1,true),new T.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.16,roughness:.05,clearcoat:1})));
+ const brass=new T.MeshStandardMaterial({color:0xc4935f,metalness:.85,roughness:.28});
+ [[1.95,1],[-1.95,-1]].forEach(([y,s])=>{const cap=new T.Mesh(new T.CylinderGeometry(.78,.78,.28,48),brass);cap.position.y=y;grp.add(cap);const dome=new T.Mesh(new T.SphereGeometry(.5,32,16,0,Math.PI*2,0,Math.PI/2),brass);dome.position.y=y+.14*s;if(s<0)dome.rotation.x=Math.PI;grp.add(dome)});
+ s1.add(new T.AmbientLight(0xffffff,.55));const kl=new T.DirectionalLight(0xffe2c4,1.1);kl.position.set(3,4,5);s1.add(kl);const pl=new T.PointLight(0x9a4f36,1.2,20);pl.position.set(-3,-2,3);s1.add(pl);grp.rotation.z=.06;
+ const s2=new T.Scene(),c2=new T.PerspectiveCamera(32,1,.1,50);c2.position.set(0,0,6);const rd2=mk(coinEl,200,200);
+ const fc=document.createElement('canvas');fc.width=fc.height=512;const h=fc.getContext('2d');
+ const drawFace=()=>{const rg=h.createRadialGradient(200,180,40,256,256,260);rg.addColorStop(0,'#3a2219');rg.addColorStop(1,'#120c09');h.fillStyle=rg;h.fillRect(0,0,512,512);h.strokeStyle='#c4935f';h.lineWidth=10;h.beginPath();h.arc(256,256,226,0,Math.PI*2);h.stroke();h.lineWidth=3;h.beginPath();h.arc(256,256,200,0,Math.PI*2);h.stroke();h.textAlign='center';h.fillStyle='#efe6da';h.font='150px Michroma, sans-serif';h.fillText('42',256,300);h.fillStyle='#c4935f';h.font='30px Michroma, sans-serif';h.fillText('B A R B E R',256,370)};drawFace();
+ const ftex=new T.CanvasTexture(fc);if(document.fonts)document.fonts.ready.then(()=>{drawFace();ftex.needsUpdate=true});
+ const side=new T.MeshStandardMaterial({color:0xc4935f,metalness:.9,roughness:.3}),face=new T.MeshStandardMaterial({map:ftex,metalness:.3,roughness:.45});
+ const coin=new T.Mesh(new T.CylinderGeometry(1.6,1.6,.22,64),[side,face,face]);coin.rotation.x=Math.PI/2;const cg=new T.Group();cg.add(coin);s2.add(cg);
+ s2.add(new T.AmbientLight(0xffffff,.6));const l2=new T.DirectionalLight(0xffe7cf,1.2);l2.position.set(2,3,4);s2.add(l2);
+ let spin=0;
+ tick=()=>{const v=scrollY-lastScroll;lastScroll=scrollY;poleSpeed+=(Math.min(Math.abs(v),80)*.004-poleSpeed)*.08;
+  if(vis(poleEl)){if(!RM){tex.offset.y-=.004+poleSpeed;grp.rotation.y+=.004}rd1.render(s1,c1)}
+  if(vis(coinEl)){if(!RM)spin+=.01;const tx=(mx/innerWidth-.5)*1.2,ty=(my/innerHeight-.5)*.8;cg.rotation.y+=(spin+tx-cg.rotation.y)*.06;cg.rotation.x+=(ty-cg.rotation.x)*.06;rd2.render(s2,c2)}}}
+if(window.THREE)three();else{const sc=$('script[src*="three"]');sc.addEventListener('load',three);sc.addEventListener('error',three);setTimeout(three,5000)}
+
+/* boucle */
+function loop(t){const dt=Math.min(50,t-(last||t));last=t;
+ if(Math.abs(target-p)>.0004){p+=RM?(target-p):(target-p)*(1-Math.exp(-dt*.0072));dirty=true}else if(p!==target){p=target;dirty=true}
+ if(dirty&&vis(stage)){render();dirty=false}
+ rx+=(mx-rx)*.32;ry+=(my-ry)*.32;ring.style.transform=`translate(${rx}px,${ry}px)`;
+ renderLoft();renderDrum();renderTeam();renderTicket();if(tick)tick();requestAnimationFrame(loop)}
+addEventListener('resize',size);size();render();requestAnimationFrame(loop);
+
+/* legal */
 const L={
-ml:`<h3 id="dlgT">Mentions légales</h3><h4>Éditeur</h4><p>O'42 Barber, 42 avenue Alphonse Denis, 83400 Hyères. Téléphone : 09 88 32 03 09. Forme juridique, SIRET et responsable de la publication : à compléter avec le salon.</p><h4>Hébergement</h4><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Réalisation</h4><p>ZAHR, création de sites web, Var.</p><h4>Propriété</h4><p>Les photos et le logo appartiennent à O'42 Barber. Toute reproduction sans accord est interdite.</p>`,
-conf:`<h3 id="dlgT">Politique de confidentialité</h3><p>Le formulaire de réservation collecte uniquement ton prénom, ton numéro de téléphone et les détails du rendez-vous. Ces données servent seulement à gérer ta réservation (base légale : ton consentement et l'exécution du service demandé).</p><h4>Durée de conservation</h4><p>Les demandes sont supprimées au plus tard 12 mois après le rendez-vous.</p><h4>Destinataires</h4><p>Seul le salon O'42 Barber y a accès. Aucune donnée n'est vendue ni transmise à des tiers.</p><h4>Tes droits</h4><p>Tu peux demander l'accès, la rectification ou la suppression de tes données à tout moment, en appelant le salon au 09 88 32 03 09 ou en passant au salon. Tu peux aussi saisir la CNIL (cnil.fr).</p><h4>Mineurs</h4><p>Pour un rendez-vous d'un enfant de moins de 15 ans, la réservation doit être faite par un parent.</p>`,
-cgv:`<h3 id="dlgT">Conditions générales</h3><h4>Prestations et prix</h4><p>Les prix affichés sont en euros TTC et correspondent à la carte du salon. Les prix « dès » dépendent de la longueur et de la nature des cheveux ; le tarif exact est annoncé avant la prestation.</p><h4>Réservation</h4><p>La demande en ligne est confirmée par le salon. Le paiement se fait sur place, aucun prépaiement n'est demandé en ligne.</p><h4>Retard</h4><p>Au-delà de 10 minutes de retard, le salon peut proposer un autre créneau.</p><h4>Utilisation du site</h4><p>Le site est fourni pour informer et réserver. Merci de ne pas envoyer de fausses demandes.</p>`,
-ann:`<h3 id="dlgT">Annulation et remboursement</h3><p>Tu peux annuler ou déplacer ton rendez-vous gratuitement en prévenant le salon au moins 24 h à l'avance, par téléphone au 09 88 32 03 09.</p><p>Aucun paiement n'étant pris en ligne, il n'y a pas de remboursement à effectuer. Si une prestation ne te convient pas, parles-en directement au barbier : le salon cherchera une solution avec toi.</p>`,
-ck:`<h3 id="dlgT">Cookies</h3><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Il mémorise seulement ton choix sur les cookies dans ton navigateur.</p><p>La carte Google Maps n'est chargée que si tu l'acceptes ; Google peut alors déposer ses propres cookies (voir la politique de Google).</p><p><button class="btn ghost" type="button" onclick="localStorage.removeItem('o42-ck');location.reload()">Modifier mon choix</button></p>`
-};
-const dlg=$('#dlg');document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>{$('#dlgC').innerHTML=L[b.dataset.open];dlg.showModal()});
+ml:`<h3 id="dlgT">Mentions légales</h3><h4>Éditeur</h4><p>O'42 Barber, 42 avenue Alphonse Denis, 83400 Hyères. Téléphone : 09 88 32 03 09. Forme juridique, SIRET et responsable de la publication : à compléter avec le salon.</p><h4>Hébergement</h4><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Réalisation</h4><p>ZAHR, création de sites web, Var.</p><h4>Propriété</h4><p>Les photos et le logo appartiennent à O'42 Barber. Toute reproduction sans accord est interdite. Polices Inter et Michroma sous licence SIL Open Font License.</p>`,
+conf:`<h3 id="dlgT">Politique de confidentialité</h3><p>Le formulaire de réservation collecte uniquement ton prénom, ton numéro de téléphone et les détails du rendez-vous. Ces données servent seulement à gérer ta réservation (base légale : ton consentement et l'exécution du service demandé).</p><h4>Durée de conservation</h4><p>Les demandes sont supprimées au plus tard 12 mois après le rendez-vous.</p><h4>Destinataires</h4><p>Seul le salon O'42 Barber y a accès. Aucune donnée n'est vendue ni transmise à des tiers.</p><h4>Tes droits</h4><p>Tu peux demander l'accès, la rectification ou la suppression de tes données à tout moment, en appelant le salon au 09 88 32 03 09 ou en passant au salon. Tu peux aussi saisir la CNIL (cnil.fr).</p><h4>Mineurs</h4><p>Pour un enfant de moins de 15 ans, la réservation doit être faite par un parent.</p>`,
+cgv:`<h3 id="dlgT">Conditions générales</h3><h4>Prestations et prix</h4><p>Les prix affichés sont en euros TTC et correspondent à la carte du salon. Les prix « dès » dépendent de la longueur et de la nature des cheveux ; le tarif exact est annoncé avant la prestation. Le total du ticket est indicatif.</p><h4>Réservation</h4><p>La demande en ligne est confirmée par le salon. Le paiement se fait sur place, aucun prépaiement n'est demandé en ligne.</p><h4>Retard</h4><p>Au-delà de 10 minutes de retard, le salon peut proposer un autre créneau.</p><h4>Utilisation du site</h4><p>Le site sert à informer et à réserver. Merci de ne pas envoyer de fausses demandes.</p>`,
+ann:`<h3 id="dlgT">Annulation et remboursement</h3><p>Tu peux annuler ou déplacer ton rendez-vous gratuitement en prévenant le salon au moins 24 h à l'avance, par téléphone au 09 88 32 03 09.</p><p>Aucun paiement n'étant pris en ligne, il n'y a rien à rembourser. Si une prestation ne te convient pas, parles-en directement au barbier : le salon cherchera une solution avec toi.</p>`,
+ck:`<h3 id="dlgT">Cookies</h3><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Il mémorise seulement ton choix dans ton navigateur.</p><p>Le plan Google Maps n'est chargé que si tu l'acceptes ; Google peut alors déposer ses propres cookies.</p><p style="margin-top:14px"><button class="btn ghost" type="button" id="ckReset">Modifier mon choix</button></p>`};
+const dlg=$('#dlg');document.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b){$('#dlgC').innerHTML=L[b.dataset.open];dlg.showModal()}if(e.target.id==='ckReset'){try{localStorage.removeItem('o42-ck')}catch(_){}location.reload()}});
 $('#dlgX').onclick=()=>dlg.close();
-
-addEventListener('resize',size);size();requestAnimationFrame(loop);
-})();
+});
 </script>
 </body>
 </html>
