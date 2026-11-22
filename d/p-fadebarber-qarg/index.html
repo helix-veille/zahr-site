@@ -524,9 +524,9 @@ function three(){const T=window.THREE;
  const se=$('#seats'),rs=mk(se),scS=new T.Scene(),cs=new T.PerspectiveCamera(35,1,.1,80);cs.position.z=16;lights(scS,1.3);
  const objs=[clipper(),comb(),razor()];objs.forEach(o=>scS.add(o));
  const szS=()=>{const w=se.clientWidth,h=se.clientHeight;rs.setSize(w,h,false);cs.aspect=w/h;cs.updateProjectionMatrix()};szS();addEventListener('resize',szS);
- const seatsPos=()=>{const a=cs.aspect,wx=Math.tan(17.5*Math.PI/180)*16*a,wy=Math.tan(17.5*Math.PI/180)*16;return mob()?[[-wx*.55,wy*.62],[wx*.55,wy*.6],[0,-wy*.7]]:[[-wx*.62,wy*.5],[wx*.62,wy*.45],[wx*.05,-wy*.72]]};
- const cur=objs.map((o,i)=>({x:0,y:0,i}));
- seatT=(p,step)=>{if(!vis(se))return;const S=seatsPos(),t=performance.now()/1000;objs.forEach((o,i)=>{const k=(i+step)%3,[tx,ty]=S[k];cur[i].x+=(tx-cur[i].x)*(RM?1:.06);cur[i].y+=(ty-cur[i].y)*(RM?1:.06);o.position.set(cur[i].x,cur[i].y+(RM?0:Math.sin(t*1.2+i)*.25),0);o.rotation.set(.3+Math.sin(t*.7+i)*.15,t*.5+i*2,(i===1?.2:-.4))});rs.render(scS,cs)};
+ const seatsPos=()=>{const a=cs.aspect,wx=Math.tan(17.5*Math.PI/180)*16*a,wy=Math.tan(17.5*Math.PI/180)*16;return mob()?[[-wx*.6,wy*.74],[wx*.6,wy*.72],[0,-wy*.8]]:[[-wx*.8,wy*.52],[wx*.8,wy*.48],[wx*.6,-wy*.66]]};
+ const cur=objs.map((o,i)=>{const p0=seatsPos()[i];return{x:p0[0],y:p0[1],i}});let lt=performance.now();
+ seatT=(p,step)=>{const n=performance.now(),dt=Math.min(.1,(n-lt)/1000);lt=n;if(!vis(se))return;const S=seatsPos(),t=n/1000,kk=RM?1:1-Math.pow(.94,dt*60),sc=mob()?.62:.85;objs.forEach((o,i)=>{const k=(i+step)%3,[tx,ty]=S[k];o.scale.setScalar(sc);cur[i].x+=(tx-cur[i].x)*kk;cur[i].y+=(ty-cur[i].y)*kk;o.position.set(cur[i].x,cur[i].y+(RM?0:Math.sin(t*1.2+i)*.25),0);o.rotation.set(.3+Math.sin(t*.7+i)*.15,t*.5+i*2,(i===1?.2:-.4))});rs.render(scS,cs)};
 }
 /* why steps */
 const STEPS=[['24 h/24','Réservation en ligne, même la nuit'],['Sans RDV','Tu peux aussi passer directement au salon'],['Sur place','Tu règles au salon, après ta coupe']];let stepI=-1;
