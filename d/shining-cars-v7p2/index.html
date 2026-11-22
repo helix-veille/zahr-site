@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shining Cars — Détailing automobile à domicile dans le Var</title>
+<meta name="description" content="Shining Cars : nettoyage et détailing automobile à domicile, intérieur et extérieur, dans tout le Var. Devis par téléphone ou WhatsApp au 06 65 34 56 84.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#04060b">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=archivo:400,500,600,700,800,800i,900i&display=swap">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#04060b;--ink:#eef4ff;--mut:#8fa3c2;--blue:#1f8bff;--cyan:#46d2ff;--line:rgba(140,190,255,.18);--glass:rgba(255,255,255,.08);--pad:clamp(16px,2.6vw,44px);--f:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif}
+html,body{overflow-x:hidden;max-width:100vw}
+html{scroll-behavior:auto}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+a:hover{color:#fff}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:10px;font-size:14px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:background .25s,color .25s,transform .15s,border-color .25s}
+.btn:active{transform:scale(.97)}
+.btn-glass{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 16px rgba(0,0,0,.18);color:#fff}
+.btn-glass:hover{background:#fff;color:#04060b;border-color:#fff}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 8px 30px rgba(31,139,255,.35)}
+.btn-blue:hover{background:#3d9dff;color:#fff}
+.btn-white{background:#fff;color:#04060b}
+.btn-white:hover{background:#dce9ff;color:#04060b}
+.pill{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 13px;border-radius:99px;font-size:12px;font-weight:600;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);white-space:nowrap}
+.pill svg{width:12px;height:12px}
+
+/* PRELOADER */
+#pre{position:fixed;inset:0;z-index:90;background:var(--bg);display:grid;place-items:center;transition:opacity .6s}
+#pre.out{opacity:0;pointer-events:none}
+#pre .in{display:grid;justify-items:center;gap:18px}
+#pre img{width:92px;height:92px;border-radius:50%;box-shadow:0 0 50px rgba(31,139,255,.45)}
+#pre b{font-size:13px;letter-spacing:.25em;font-weight:600;color:#b9d6ff}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(14px,2.2vw,26px) var(--pad);transition:background .35s,backdrop-filter .35s}
+.nav.solid{background:rgba(4,6,11,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav .links{display:flex;gap:clamp(22px,3vw,42px);font-size:14px;font-weight:500;color:rgba(255,255,255,.82)}
+.nav .links a{padding-bottom:3px;border-bottom:2px solid transparent}
+.nav .links a.on{color:#fff;border-color:#fff}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-style:italic;font-size:20px;letter-spacing:-.01em}
+.logo img{width:36px;height:36px;border-radius:50%}
+.logo span i{color:var(--cyan);font-style:italic}
+.nav .logo{position:absolute;left:50%;transform:translateX(-50%)}
+@media(max-width:900px){.nav .links{display:none}.nav .logo{position:static;transform:none}}
+
+/* HERO */
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;overflow:hidden;background:#0a0a0b}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;pointer-events:none}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,6,11,.55) 0%,rgba(4,6,11,.12) 30%,rgba(4,10,24,.3) 55%,rgba(4,6,11,.94) 100%)}
+.giant{position:absolute;top:clamp(78px,11vh,104px);left:0;right:0;text-align:center;z-index:2;font-weight:900;font-style:italic;line-height:.9;letter-spacing:-.035em;white-space:nowrap;font-size:15.2vw;background:linear-gradient(180deg,#fff 50%,#7fa9e6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;pointer-events:none}
+.giant .sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.95) 50%,transparent 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 5.5s 2.2s infinite}
+@keyframes sweep{0%{background-position:150% 0}40%,100%{background-position:-60% 0}}
+.drops{position:absolute;inset:0;z-index:2;pointer-events:none;perspective:700px}
+.drop{position:absolute;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95) 0 6%,rgba(255,255,255,.25) 12%,rgba(120,190,255,.08) 45%,rgba(255,255,255,.18) 70%,rgba(255,255,255,.35) 100%);backdrop-filter:blur(2px) brightness(1.25);-webkit-backdrop-filter:blur(2px) brightness(1.25);box-shadow:0 6px 14px rgba(0,0,0,.25),inset -3px -5px 8px rgba(0,30,80,.25);transform-style:preserve-3d;animation:slide linear infinite}
+@keyframes slide{0%{transform:translate3d(0,-10vh,0) rotateX(20deg)}100%{transform:translate3d(0,120vh,60px) rotateX(-10deg)}}
+.hero-row{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(22px,4vw,64px);padding:0 var(--pad) clamp(30px,6vh,58px)}
+.hl{min-width:min(100%,380px);max-width:660px}
+.badge{display:flex;align-items:center;gap:12px;margin-bottom:clamp(16px,2.6vh,26px);opacity:0;animation:softIn .7s .15s cubic-bezier(.22,1,.36,1) forwards}
+.plate{display:inline-grid;place-items:center;height:34px;padding:0 12px;border-radius:6px;background:#fff;color:#04060b;font-weight:900;font-style:italic;font-size:13px;line-height:1;box-shadow:0 0 0 2px #0a1830 inset,0 6px 20px rgba(0,0,0,.35)}
+.plate small{display:block;font-size:7px;letter-spacing:.14em;font-style:normal;font-weight:700;color:var(--blue);margin-top:2px}
+.badge span{font-size:clamp(14px,1.2vw,17px)}
+h1{font-size:clamp(34px,5.4vw,70px);font-weight:600;letter-spacing:-.03em;line-height:1}
+h1 .w{display:inline-block;opacity:0;transform:translateY(26px);animation:wordIn .8s cubic-bezier(.22,1,.36,1) forwards}
+h1 em{font-style:italic;font-weight:800;color:var(--cyan)}
+.hr{width:min(100%,470px);margin-left:auto}
+.hr p{font-size:clamp(15px,1.15vw,18px);color:rgba(255,255,255,.88);margin-bottom:clamp(20px,3.4vh,34px)}
+.hr p .w{opacity:0;animation:fadeW .6s ease-out forwards}
+.hr .cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:softIn .7s 1.6s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes wordIn{to{opacity:1;transform:none}}
+@keyframes softIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeW{to{opacity:1}}
+@media(max-width:760px){.giant{font-size:17vw;top:84px}.hr{margin-left:0}}
+
+/* FILM TRACK */
+#track{position:relative;height:760vh;background:#000}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+.stage .glow{position:absolute;inset:0;opacity:0;background:radial-gradient(60% 50% at 70% 40%,rgba(31,139,255,.22),transparent 70%),radial-gradient(50% 40% at 20% 85%,rgba(70,210,255,.12),transparent 70%),#060b16}
+.filmbox{position:absolute;left:0;top:0;overflow:hidden;background:#000;isolation:isolate;will-change:transform,width,height}
+.filmbox canvas{position:absolute;left:50%;top:50%;mix-blend-mode:screen}
+.filmbox .shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(120,200,255,.25) 48%,transparent 60%);background-size:300% 100%;background-position:120% 0;mix-blend-mode:screen;pointer-events:none}
+.fcap{position:absolute;left:var(--pad);top:42%;max-width:420px;z-index:6}
+.fcap p{font-size:clamp(16px,1.5vw,22px);font-weight:500;letter-spacing:-.01em}
+.fcap p span{color:var(--mut)}
+.statement{position:absolute;z-index:4;display:flex;flex-direction:column;justify-content:space-between}
+.statement .ln{display:block;font-size:3.4vw;font-weight:600;letter-spacing:-.045em;line-height:1.08;opacity:0}
+.statement .ln em{font-style:italic;font-weight:800;color:var(--cyan)}
+.statement .ctas{opacity:0;margin-top:22px}
+.marquee{position:absolute;left:0;right:0;bottom:7vh;z-index:4;overflow:hidden;opacity:0;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee .mq{display:flex;gap:60px;width:max-content;animation:mq 30s linear infinite;font-size:clamp(20px,2.2vw,34px);font-weight:800;font-style:italic;color:#3a4d6c;letter-spacing:-.02em}
+@keyframes mq{to{transform:translateX(-50%)}}
+.fleetline{position:absolute;left:50%;top:22%;transform:translateX(-50%);width:min(11.6em,92vw);text-align:center;font-size:min(3.6vw,5.2vh);font-weight:600;letter-spacing:-.04em;line-height:1.12;z-index:4;pointer-events:none}
+.fleetline .w{display:inline-block;opacity:0;filter:blur(10px)}
+.fleetline em{font-style:italic;color:var(--cyan)}
+.row{position:absolute;left:0;top:0;width:100%;height:0;z-index:3;perspective:1300px;pointer-events:none}
+.car{position:absolute;left:0;top:0;margin:0;border-radius:18px;overflow:hidden;background:#0d1424;will-change:transform,width,filter,opacity;transform-origin:50% 50%;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(140,190,255,.14)}
+.car img{width:100%;height:100%;object-fit:cover}
+.car::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(4,6,11,.55));pointer-events:none}
+.car figcaption{position:absolute;left:12px;bottom:10px;right:12px;font-size:12px;font-weight:700;z-index:1;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.bar{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(14px,2.6vh,28px);z-index:8;display:grid;grid-template-columns:56px 1.6fr 1fr 1.2fr 56px;gap:10px}
+.tile{background:rgba(16,26,46,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:14px;padding:14px 16px;opacity:0;transform:translateY(30px);display:flex;flex-direction:column;justify-content:center;gap:8px;min-width:0}
+.tile.arrow{display:grid;place-items:center;padding:0;font-size:22px;transition:background .2s}
+.tile.arrow:hover{background:rgba(31,139,255,.4)}
+.tile .nm{font-size:clamp(20px,2.4vw,36px);font-weight:800;font-style:italic;letter-spacing:-.03em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile .ds{font-size:13px;color:var(--mut)}
+.tile .row2{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tile .pr small{display:block;font-size:11px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.tile .pr b{font-size:clamp(18px,1.8vw,26px);font-weight:800}
+.swap{transition:filter .35s,opacity .35s}
+.swap.out{filter:blur(8px);opacity:0}
+.mini{height:34px;padding:0 14px;font-size:12px}
+.stage.nojs{position:relative;height:auto}
+@media(max-width:760px),(orientation:portrait){
+ .statement .ln{font-size:6.4vw}
+ .fleetline{font-size:6.2vw;top:16%}
+ .bar{grid-template-columns:44px 1fr 1fr 44px;grid-template-rows:auto auto}
+ .bar .t-name{grid-column:1/-1;grid-row:1}
+ .bar .t-prev{grid-row:2}.bar .t-pills{grid-row:2}.bar .t-price{grid-row:2}.bar .t-next{grid-row:2}
+ .tile{padding:10px 12px}.tile .ds{font-size:12px}
+ .t-pills .pill{height:26px;font-size:11px;padding:0 9px}
+}
+
+/* SECTIONS COMMON */
+section.s{position:relative;padding:clamp(80px,12vh,140px) var(--pad)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.kick::before{content:"";width:28px;height:2px;background:var(--cyan)}
+h2{font-size:clamp(34px,5.6vw,84px);font-weight:700;letter-spacing:-.045em;line-height:.98}
+h2 em{font-style:italic;font-weight:900;color:var(--cyan)}
+.lede{max-width:560px;color:var(--mut);font-size:clamp(15px,1.2vw,18px);margin-top:18px}
+
+/* SERVICES TUNNEL */
+#services{padding:0;height:420vh;background:radial-gradient(80% 60% at 50% 40%,#0b1630,#04060b 70%)}
+.tun{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:900px;perspective-origin:50% 50%}
+.tun-head{position:absolute;left:var(--pad);top:clamp(84px,13vh,120px);z-index:5;max-width:600px}
+.tun-world{position:absolute;inset:0;transform-style:preserve-3d}
+.arch{position:absolute;left:50%;top:54%;width:min(78vw,900px);height:min(62vh,560px);margin:calc(min(62vh,560px)/-2) 0 0 calc(min(78vw,900px)/-2);border-radius:40px;border:2px solid rgba(70,210,255,.55);box-shadow:0 0 40px rgba(31,139,255,.35),inset 0 0 40px rgba(31,139,255,.25);display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:26px 30px;will-change:transform,opacity;backface-visibility:hidden}
+.arch .num{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--cyan)}
+.arch h3{font-size:clamp(26px,3.6vw,54px);font-weight:800;font-style:italic;letter-spacing:-.04em;line-height:1}
+.arch p{color:#c6d6f0;font-size:clamp(13px,1.05vw,16px);max-width:340px}
+.arch .ic{width:clamp(54px,6vw,84px);height:clamp(54px,6vw,84px);flex:none;border-radius:20px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(31,139,255,.4),rgba(70,210,255,.1));border:1px solid rgba(140,200,255,.4)}
+.arch .ic svg{width:55%;height:55%;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.brush{position:absolute;top:0;bottom:0;width:22px;border-radius:12px;background:repeating-linear-gradient(0deg,rgba(70,210,255,.55) 0 3px,rgba(31,139,255,.15) 3px 7px);opacity:.55;animation:spin 1.2s linear infinite}
+.brush.l{left:-34px}.brush.r{right:-34px}
+@keyframes spin{to{background-position:0 28px}}
+.tun-prog{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;height:2px;background:rgba(255,255,255,.1);z-index:5}
+.tun-prog i{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+@media(max-width:760px){.arch{flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:20px;border-radius:26px}.brush{display:none}}
+
+/* RESERVATION */
+#reserver{background:#04060b}
+.res{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,64px);margin-top:44px;align-items:start}
+form{display:grid;gap:22px}
+fieldset{border:0;display:grid;gap:10px}
+legend{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;gap:8px;height:46px;padding:0 18px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:600;font-size:14px;transition:.2s}
+.chip input:checked+span{background:var(--blue);border-color:var(--blue);box-shadow:0 8px 24px rgba(31,139,255,.35)}
+.chip input:focus-visible+span{outline:2px solid var(--cyan);outline-offset:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label.f{display:grid;gap:7px;font-size:13px;font-weight:600;color:#c6d6f0}
+.f input,.f select,.f textarea{width:100%;height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;font:inherit;font-size:15px}
+.f textarea{height:96px;padding:12px 14px;resize:vertical}
+.f select option{color:#000}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(70,210,255,.2)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:#c6d6f0}
+.consent input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--blue)}
+.consent a{text-decoration:underline}
+.sendrow{display:flex;gap:12px;flex-wrap:wrap}
+.err{color:#ff9aa8;font-size:13px;min-height:18px}
+.ticket-wrap{position:sticky;top:110px;perspective:1000px}
+.ticket{position:relative;border-radius:24px;padding:26px;background:linear-gradient(160deg,rgba(31,139,255,.25),rgba(10,18,34,.9) 45%),#0a1222;border:1px solid rgba(140,200,255,.3);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px rgba(31,139,255,.18);transform-style:preserve-3d;transition:transform .2s ease-out;overflow:hidden}
+.ticket .tp{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.ticket .tp b{font-weight:900;font-style:italic;font-size:22px}
+.ticket .photo{height:180px;border-radius:14px;overflow:hidden;margin-bottom:18px;transform:translateZ(30px);background:#0d1424}
+.ticket .photo img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;transform:translateZ(20px)}
+.ticket dt{color:var(--mut)}
+.ticket dd{font-weight:600;text-align:right}
+.ticket .gauge{margin-top:22px;height:64px;border-radius:14px;border:1px solid var(--line);position:relative;overflow:hidden;background:rgba(255,255,255,.03)}
+.ticket .water{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,rgba(70,210,255,.75),rgba(31,139,255,.9));transition:height .6s cubic-bezier(.22,1,.36,1)}
+.ticket .water::before{content:"";position:absolute;left:-50%;top:-10px;width:200%;height:20px;background:radial-gradient(ellipse at 25% 100%,rgba(70,210,255,.75) 50%,transparent 52%) 0 0/50% 100% repeat-x;animation:wave 2.4s linear infinite}
+@keyframes wave{to{transform:translateX(25%)}}
+.ticket .gauge span{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:700;letter-spacing:.08em;z-index:2}
+.ticket .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.18),transparent 45%);pointer-events:none}
+.note{font-size:12px;color:var(--mut);margin-top:12px}
+@media(max-width:900px){.res{grid-template-columns:1fr}.ticket-wrap{position:relative;top:0;order:-1}.grid2{grid-template-columns:1fr}}
+
+/* ZONE / MAP */
+#zone{background:linear-gradient(180deg,#04060b,#071024)}
+.zone{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,4vw,64px);align-items:center;margin-top:30px}
+.mapscene{perspective:1400px}
+.mapw{position:relative;aspect-ratio:4/3;border-radius:26px;overflow:hidden;transform:rotateX(28deg) rotateZ(-6deg) scale(.92);transform-origin:50% 70%;transition:transform 1.1s cubic-bezier(.22,1,.36,1);box-shadow:0 60px 80px rgba(0,0,0,.55),0 0 0 1px rgba(140,200,255,.25);background:#0a1426}
+.mapw.flat{transform:none}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapw::before{content:"";position:absolute;inset:0;background:#1f8bff;mix-blend-mode:color;opacity:.55;z-index:1;pointer-events:none}
+.mapw::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,transparent 55%,rgba(4,6,11,.85));z-index:1;pointer-events:none}
+.mapfake{position:absolute;inset:0;background:linear-gradient(rgba(70,210,255,.08) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(70,210,255,.08) 1px,transparent 1px) 0 0/40px 40px,radial-gradient(60% 50% at 50% 50%,#11284d,#0a1426)}
+.mapfake svg{position:absolute;inset:8%;width:84%;height:84%}
+.pin{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-100%);display:grid;justify-items:center}
+.pin img{width:58px;height:58px;border-radius:50%;border:3px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:bob 2.4s ease-in-out infinite}
+.pin i{width:2px;height:22px;background:#fff}
+.pin::after{content:"";position:absolute;bottom:-8px;width:16px;height:16px;border-radius:50%;border:2px solid var(--cyan);animation:ping 2s ease-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes ping{from{transform:scale(.6);opacity:1}to{transform:scale(4);opacity:0}}
+.mapcard{position:absolute;left:16px;bottom:16px;z-index:3;padding:14px 16px;border-radius:14px;background:rgba(10,20,40,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);font-size:13px;max-width:280px}
+.mapcard b{display:block;font-size:15px;margin-bottom:4px}
+.mapcard .btn{margin-top:10px}
+.mapload{position:absolute;right:16px;top:16px;z-index:3}
+.towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+@media(max-width:900px){.zone{grid-template-columns:1fr}.mapw{transform:rotateX(18deg) scale(.96)}}
+
+/* FOOTER */
+footer{position:relative;padding:clamp(70px,10vh,120px) var(--pad) 40px;background:#020308;overflow:hidden}
+.ft{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.plate3d-scene{perspective:900px;width:min(420px,80vw);height:calc(min(420px,80vw)*.26);justify-self:center}
+.plate3d{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:flip 9s cubic-bezier(.65,0,.35,1) infinite}
+.plate3d>div{position:absolute;inset:0;border-radius:10px;display:grid;place-items:center;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.plate3d .front{background:#fff;color:#04060b;box-shadow:0 0 0 4px #0a1830 inset,0 30px 50px rgba(0,0,0,.5)}
+.plate3d .front b{font-size:clamp(26px,5vw,46px);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:1}
+.plate3d .front small{display:block;font-size:clamp(8px,1.2vw,11px);letter-spacing:.3em;font-weight:700;color:var(--blue);margin-top:4px}
+.plate3d .back{background:var(--blue);color:#fff;transform:rotateX(180deg);box-shadow:0 30px 50px rgba(0,0,0,.5)}
+.plate3d .back b{font-size:clamp(24px,4.6vw,42px);font-weight:900;letter-spacing:.02em}
+.plate3d .edge{transform:translateZ(-6px);background:#0a1830;backface-visibility:visible}
+@keyframes flip{0%,40%{transform:rotateX(0) rotateY(-12deg)}50%,90%{transform:rotateX(180deg) rotateY(12deg)}100%{transform:rotateX(360deg) rotateY(-12deg)}}
+.fbig{font-size:16vw;font-weight:900;font-style:italic;letter-spacing:-.05em;line-height:.85;margin-top:60px;background:linear-gradient(180deg,#1a2c4f,#04060b 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;user-select:none}
+.fcols{display:flex;flex-wrap:wrap;gap:14px 28px;font-size:13px;color:var(--mut);margin-top:28px;align-items:center}
+.fcols button{font-size:13px;color:var(--mut);text-decoration:underline}
+.fcols button:hover{color:#fff}
+.demo{font-size:11px;color:#5c6d8a;margin-top:18px}
+@media(max-width:760px){.ft{grid-template-columns:1fr}}
+
+/* COOKIES + LEGAL */
+#ck{position:fixed;left:var(--pad);right:var(--pad);bottom:16px;z-index:80;max-width:720px;margin:0 auto;padding:18px;border-radius:16px;background:rgba(10,18,34,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);display:none;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;color:#c6d6f0}
+#ck.show{display:flex}
+#ck p{flex:1 1 300px}
+#ck .b{display:flex;gap:10px;flex:1 1 auto;justify-content:flex-end}
+#ck .b .btn{flex:1;justify-content:center;min-width:120px}
+dialog{margin:auto;width:min(760px,92vw);max-height:86vh;border:1px solid var(--line);border-radius:20px;background:#0a1222;color:var(--ink);padding:0}
+dialog::backdrop{background:rgba(2,4,10,.75);backdrop-filter:blur(4px)}
+dialog .dh{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:#0a1222;border-bottom:1px solid var(--line)}
+dialog .dh h3{font-size:20px;font-weight:800;font-style:italic}
+dialog .db{padding:22px;font-size:14px;color:#c6d6f0;display:grid;gap:12px}
+dialog .db h4{color:#fff;font-size:15px;margin-top:8px}
+dialog .x{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);font-size:20px}
+.demo-tag{position:fixed;right:10px;bottom:10px;z-index:40;font-size:10px;padding:5px 9px;border-radius:99px;background:rgba(4,6,11,.7);border:1px solid var(--line);color:#8fa3c2;pointer-events:none}
+@media(max-width:760px){.demo-tag{display:none}}
+
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+ .drops{display:none}
+}
+</style>
+</head>
+<body>
+<a class="sr" href="#reserver">Aller à la réservation</a>
+<div id="pre" aria-hidden="true"><div class="in"><img src="img/logo.png" alt=""><b id="pct">0%</b></div></div>
+
+<header class="nav" id="nav">
+ <nav class="links" aria-label="Navigation principale">
+  <a href="#top" data-go="0" class="on">Accueil</a>
+  <a href="#voitures" data-go="7.3">Voitures</a>
+  <a href="#services">Services</a>
+  <a href="#zone">Zone</a>
+ </nav>
+ <a class="logo" href="#top" aria-label="Shining Cars, retour en haut"><img src="img/logo.png" alt="Logo Shining Cars"><span>SHINING<i>CARS</i></span></a>
+ <a class="btn btn-glass" href="https://wa.me/33665345684?text=Bonjour%20Shining%20Cars%2C%20je%20voudrais%20un%20devis%20pour%20un%20nettoyage." target="_blank" rel="noopener">Devis WhatsApp <span aria-hidden="true">→</span></a>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Accueil">
+ <video id="hv" autoplay muted loop playsinline preload="auto" aria-hidden="true" src="https://cdn.sceneai.art/Hero%20section%20video%20file%20(2)/37091057-3719-4207-815c-745ebf57aeb4.mp4"></video>
+ <div class="shade"></div>
+ <div class="drops" id="drops"></div>
+ <div class="giant" aria-hidden="true">SHINING<span class="sweep">SHINING</span></div>
+ <div class="hero-row">
+  <div class="hl">
+   <div class="badge"><span class="plate">SHININGCARS<small>DOMESTIC LUXURY CLEAN</small></span><span>Détailing automobile à domicile</span></div>
+   <h1 id="h1"><span class="w">Votre</span> <span class="w">voiture</span> <span class="w"><em>brille.</em></span><br><span class="w">Sans</span> <span class="w">bouger</span> <span class="w">de</span> <span class="w">chez</span> <span class="w">vous.</span></h1>
+  </div>
+  <div class="hr">
+   <p id="sub">On vient chez vous partout dans le Var, intérieur et extérieur, avec le matériel et le soin du détail.</p>
+   <div class="cta"><a class="btn btn-white" href="#voitures" data-go="7.3">Choisir ma voiture <span aria-hidden="true">↗</span></a><a class="btn btn-glass" href="tel:+33665345684">06 65 34 56 84</a></div>
+  </div>
+ </div>
+</section>
+
+<!-- FILM + CARS -->
+<div id="track">
+ <div class="stage" id="stage">
+  <div class="glow" id="glow"></div>
+  <div class="filmbox" id="fbox"><canvas id="film" width="1280" height="720" aria-hidden="true"></canvas><div class="shine" id="shine"></div></div>
+  <div class="fcap" id="fcap"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Tout le Var</span><p style="margin-top:14px">On arrive. On se gare devant chez vous.<br><span>Pas de station, pas d'attente : juste le résultat.</span></p></div>
+  <div class="statement" id="stmt">
+   <div>
+    <span class="ln">Ce n'est pas un simple lavage.</span>
+    <span class="ln">C'est un <em>retour à neuf.</em></span>
+    <span class="ln">On vient à vous,</span>
+    <span class="ln">avec l'eau, le matériel</span>
+    <span class="ln">et le soin du détail.</span>
+   </div>
+   <div class="ctas"><a class="btn btn-glass" href="#reserver">Réserver un créneau</a></div>
+  </div>
+  <div class="marquee" id="mq" aria-hidden="true"><div class="mq"><span>McLaren</span><span>Audi</span><span>Porsche</span><span>BMW</span><span>Mercedes-Benz</span><span>Volkswagen</span><span>Intérieur</span><span>Extérieur</span><span>Jantes</span><span>Sièges</span><span>McLaren</span><span>Audi</span><span>Porsche</span><span>BMW</span><span>Mercedes-Benz</span><span>Volkswagen</span><span>Intérieur</span><span>Extérieur</span><span>Jantes</span><span>Sièges</span></div></div>
+  <p class="fleetline" id="fline">Pas une galerie de catalogue : de <em>vraies voitures</em> nettoyées par Shining Cars, chez leurs propriétaires, dans le Var.</p>
+  <div class="row" id="row" role="group" aria-roledescription="carrousel" aria-label="Voitures nettoyées par Shining Cars"></div>
+  <div class="bar" id="bar" aria-live="polite">
+   <button class="tile arrow t-prev" id="prev" aria-label="Voiture précédente">←</button>
+   <div class="tile t-name"><div class="nm swap" id="cName">McLaren 675LT</div><div class="ds swap" id="cDesc">Nettoyage complet</div><div class="row2"><a class="btn btn-glass mini" id="cLink" href="#" target="_blank" rel="noopener">Voir la vidéo ↗</a></div></div>
+   <div class="tile t-pills"><div class="row2"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Var</span><span class="pill swap" id="cCat">Sportive</span></div><div class="ds">À domicile</div></div>
+   <div class="tile t-price"><div class="pr"><small>Tarif</small><b>Sur devis</b></div><a class="btn btn-blue mini" id="cBook" href="#reserver">Réserver le même</a></div>
+   <button class="tile arrow t-next" id="next" aria-label="Voiture suivante">→</button>
+  </div>
+  <span id="voitures" class="sr">Voitures</span>
+ </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" aria-labelledby="svc-t">
+ <div class="tun" id="tun">
+  <div class="tun-head"><div class="kick">Le tunnel Shining</div><h2 id="svc-t">Plus qu'un lavage,<br><em>un environnement propre.</em></h2></div>
+  <div class="tun-world" id="tw"></div>
+  <div class="tun-prog"><i id="tprog"></i></div>
+ </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="s" id="reserver" aria-labelledby="res-t">
+ <div class="kick">Réservation</div>
+ <h2 id="res-t">Votre créneau,<br><em>en 30 secondes.</em></h2>
+ <p class="lede">Choisissez votre voiture et la prestation, on vous rappelle pour confirmer le prix et l'heure. Rien n'est payé en ligne.</p>
+ <div class="res">
+  <form id="form" novalidate>
+   <fieldset><legend>Votre véhicule</legend><div class="chips" id="vtype">
+    <label class="chip"><input type="radio" name="veh" value="Citadine / compacte"><span>Citadine / compacte</span></label>
+    <label class="chip"><input type="radio" name="veh" value="Berline"><span>Berline</span></label>
+    <label class="chip"><input type="radio" name="veh" value="SUV"><span>SUV</span></label>
+    <label class="chip"><input type="radio" name="veh" value="Sportive"><span>Sportive</span></label>
+    <label class="chip"><input type="radio" name="veh" value="Utilitaire / van"><span>Utilitaire / van</span></label>
+   </div></fieldset>
+   <fieldset><legend>La prestation</legend><div class="chips" id="ptype">
+    <label class="chip"><input type="radio" name="pre" value="Intérieur"><span>Intérieur</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Extérieur"><span>Extérieur</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Intérieur + extérieur"><span>Intérieur + extérieur</span></label>
+    <label class="chip"><input type="radio" name="pre" value="Maison / pro (toiture, façade, terrasse…)"><span>Maison / pro</span></label>
+   </div></fieldset>
+   <div class="grid2">
+    <label class="f">Ville (Var)<input name="ville" autocomplete="address-level2" placeholder="Brignoles, Toulon…" required></label>
+    <label class="f">Date souhaitée<input type="date" name="date" required></label>
+    <label class="f">Moment<select name="moment"><option>Matin</option><option>Après-midi</option><option>Peu importe</option></select></label>
+    <label class="f">Votre prénom<input name="nom" autocomplete="given-name" required></label>
+   </div>
+   <label class="f">Précisions (facultatif)<textarea name="msg" placeholder="Poils d'animaux, taches sur les sièges, accès à l'eau…"></textarea></label>
+   <label class="consent"><input type="checkbox" id="ok" required><span>J'accepte que ces informations soient envoyées à Shining Cars pour traiter ma demande, par WhatsApp ou SMS depuis mon téléphone. Voir la <button type="button" data-legal="conf" style="text-decoration:underline">politique de confidentialité</button>.</span></label>
+   <p class="err" id="err" role="alert"></p>
+   <div class="sendrow"><button class="btn btn-blue" type="submit" data-via="wa">Envoyer par WhatsApp</button><button class="btn btn-glass" type="submit" data-via="sms">Envoyer par SMS</button><a class="btn btn-glass" href="tel:+33665345684">Appeler</a></div>
+   <p class="note">Le message s'ouvre dans votre appli, prêt à envoyer : vous le relisez avant. Ce site n'enregistre rien.</p>
+  </form>
+  <div class="ticket-wrap"><div class="ticket" id="ticket">
+   <div class="glare"></div>
+   <div class="tp"><b>SHINING<span style="color:var(--cyan)">CARS</span></b><span class="pill">Ticket</span></div>
+   <div class="photo"><img id="tImg" src="img/mclaren.jpg" alt="Voiture choisie pour la réservation"></div>
+   <dl><dt>Véhicule</dt><dd id="tVeh">—</dd><dt>Prestation</dt><dd id="tPre">—</dd><dt>Lieu</dt><dd id="tVil">—</dd><dt>Date</dt><dd id="tDat">—</dd><dt>Tarif</dt><dd>Sur devis</dd></dl>
+   <div class="gauge"><div class="water" id="water"></div><span id="gtxt">0 % rempli</span></div>
+  </div></div>
+ </div>
+</section>
+
+<!-- ZONE -->
+<section class="s" id="zone" aria-labelledby="zone-t">
+ <div class="zone">
+  <div>
+   <div class="kick">Zone d'intervention</div>
+   <h2 id="zone-t">Basé à Brignoles.<br><em>Partout dans le Var.</em></h2>
+   <p class="lede">On se déplace chez vous, au travail ou sur votre lieu de stockage. Indiquez votre ville, on vous dit quand on peut passer.</p>
+   <div class="towns"><span class="pill">Brignoles</span><span class="pill">Toulon</span><span class="pill">Hyères</span><span class="pill">Fréjus</span><span class="pill">Saint-Maximin</span><span class="pill">Draguignan</span><span class="pill">La Seyne</span><span class="pill">Le Luc</span></div>
+  </div>
+  <div class="mapscene"><div class="mapw" id="mapw">
+   <div class="mapfake" id="mapfake"><svg viewBox="0 0 400 300" aria-hidden="true"><path d="M40 120 C90 60 170 50 230 70 S340 90 370 150 C360 210 300 250 220 245 S80 240 50 190 Z" fill="rgba(31,139,255,.12)" stroke="rgba(70,210,255,.5)" stroke-width="2"/><path d="M60 170 C140 150 260 175 360 140" stroke="rgba(70,210,255,.35)" stroke-width="2" fill="none" stroke-dasharray="6 8"/></svg></div>
+   <div class="pin"><img src="img/logo.png" alt="Shining Cars"><i></i></div>
+   <div class="mapcard"><b>Shining Cars</b>Brignoles (83) · déplacement dans tout le Var<br><a class="btn btn-glass mini" href="https://www.google.com/maps/search/?api=1&query=Brignoles%2083170" target="_blank" rel="noopener">Ouvrir dans Maps ↗</a></div>
+   <button class="btn btn-glass mini mapload" id="mapload" type="button">Afficher la carte Google</button>
+  </div></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="ft">
+  <div>
+   <div class="kick">Contact</div>
+   <h2>Prêt à <em>briller ?</em></h2>
+   <div class="sendrow" style="margin-top:26px"><a class="btn btn-blue" href="tel:+33665345684">06 65 34 56 84</a><a class="btn btn-glass" href="https://wa.me/33665345684" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-glass" href="https://www.instagram.com/shiningcarss/" target="_blank" rel="noopener">@shiningcarss</a></div>
+  </div>
+  <div class="plate3d-scene" aria-hidden="true"><div class="plate3d"><div class="edge"></div><div class="front"><div><b>SHININGCARS</b><small>DOMESTIC LUXURY CLEAN</small></div></div><div class="back"><b>06 65 34 56 84</b></div></div></div>
+ </div>
+ <div class="fbig" aria-hidden="true">SHINING CARS</div>
+ <div class="fcols">
+  <span>© Shining Cars · Brignoles, Var</span>
+  <button type="button" data-legal="ml">Mentions légales</button>
+  <button type="button" data-legal="conf">Confidentialité</button>
+  <button type="button" data-legal="cgv">CGV / CGU</button>
+  <button type="button" data-legal="remb">Annulation et remboursement</button>
+  <button type="button" data-legal="cook">Cookies</button>
+  <button type="button" id="ckReopen">Gérer les cookies</button>
+ </div>
+ <p class="demo">Démo réalisée par ZAHR · zahr.fr</p>
+</footer>
+<span class="demo-tag">Démo réalisée par ZAHR</span>
+
+<div id="ck" role="dialog" aria-label="Cookies et contenus tiers">
+ <p>Ce site n'utilise aucun cookie publicitaire ni mesure d'audience. La carte Google ne se charge que si vous l'acceptez (Google peut alors déposer des cookies).</p>
+ <div class="b"><button class="btn btn-glass" id="ckNo" type="button">Refuser</button><button class="btn btn-glass" id="ckYes" type="button">Accepter</button></div>
+</div>
+
+<dialog id="legal" aria-labelledby="lgT"><div class="dh"><h3 id="lgT">—</h3><button class="x" type="button" id="lgX" aria-label="Fermer">×</button></div><div class="db" id="lgB"></div></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), lerp=(a,b,t)=>a+(b-a)*t;
+
+/* ---------- hero video: never stops ---------- */
+const hv=$('#hv'); hv.loop=true;
+const kick=()=>{const p=hv.play(); if(p&&p.catch)p.catch(()=>{});};
+['pause','ended','loadedmetadata','canplay'].forEach(e=>hv.addEventListener(e,()=>{if(e==='ended')hv.currentTime=0;kick();}));
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)kick();});
+setInterval(()=>{if(hv.paused)kick();},1000); kick();
+
+/* ---------- preloader ---------- */
+const pre=$('#pre'),pct=$('#pct'); let done=false;
+const finish=()=>{if(done)return;done=true;pre.classList.add('out');};
+hv.addEventListener('progress',()=>{try{if(hv.duration&&hv.buffered.length){pct.textContent=Math.min(100,Math.round(hv.buffered.end(hv.buffered.length-1)/hv.duration*100))+'%';}}catch(e){}});
+hv.addEventListener('canplaythrough',finish); setTimeout(finish,6000);
+
+/* ---------- hero words ---------- */
+document.querySelectorAll('#h1 .w').forEach((w,i)=>w.style.animationDelay=(0.3+i*0.09)+'s');
+const sub=$('#sub'); sub.innerHTML=sub.textContent.split(' ').map((w,i)=>`<span class="w" style="animation-delay:${(1+i*0.05).toFixed(2)}s">${w}</span>`).join(' ');
+
+/* ---------- water drops (3D glass) ---------- */
+if(!RM){const D=$('#drops');for(let i=0;i<14;i++){const d=document.createElement('i');d.className='drop';const s=8+Math.random()*22;d.style.cssText=`left:${Math.random()*100}%;top:${-10-Math.random()*30}%;width:${s}px;height:${s*1.25}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*20}s;opacity:${.5+Math.random()*.5}`;D.appendChild(d);}}
+
+/* ---------- nav solid on scroll ---------- */
+const nav=$('#nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>innerHeight*.6),{passive:true});
+
+/* ---------- cars data ---------- */
+const CARS=[
+ {k:'golf-gti',n:'Volkswagen Golf 8 GTI',d:'Nettoyage complet',c:'Citadine / compacte',r:'DcMDo9sI-Cm'},
+ {k:'audi-q3',n:'Audi Q3',d:'Nettoyage intérieur / extérieur',c:'SUV',r:'Dc_J1BAoG_U'},
+ {k:'audi-rs-etron-gt',n:'Audi RS e-tron GT',d:'Nettoyage intérieur / extérieur',c:'Berline',r:'Dc3588KoLZH'},
+ {k:'mclaren',n:'McLaren 675LT',d:'Nettoyage complet',c:'Sportive',r:'DQw3XI4CH3S'},
+ {k:'porsche-panamera',n:'Porsche Panamera Turbo S',d:'Nettoyage intérieur',c:'Berline',r:'DdW52sCohUF'},
+ {k:'mercedes-glc',n:'Mercedes GLC 400e',d:'Nettoyage intérieur / extérieur',c:'SUV',r:'DdMbqyjQiqW'},
+ {k:'bmw-x4',n:'BMW X4 xDrive20d',d:'Nettoyage complet',c:'SUV',r:'Dc_KJXnBS7o'},
+ {k:'audi-q6',n:'Audi Q6',d:'Nettoyage complet',c:'SUV',r:'Db6I09aI6ay'}
+];
+const N=CARS.length, START=3;
+const row=$('#row');
+const cards=CARS.map((c,i)=>{const f=document.createElement('figure');f.className='car';f.innerHTML=`<img src="img/${c.k}.jpg" alt="${c.n} nettoyée par Shining Cars" loading="${i===START?'eager':'lazy'}" decoding="async"><figcaption>${c.n}</figcaption>`;row.appendChild(f);return f;});
+
+/* ---------- film frames ---------- */
+const FR=151, frames=new Array(FR), cv=$('#film'), cx=cv.getContext('2d');
+const furl=i=>`https://res.cloudinary.com/ce2yatay/video/upload/so_${Math.max(0,(i-0.5)/15).toFixed(3)},q_72/avelon-drive/hero-film.webp`;
+(function loadFrames(){
+ const order=[0];[16,8,4,2,1].forEach(st=>{for(let i=0;i<FR;i+=st)if(!order.includes(i))order.push(i);});
+ let k=0,active=0;
+ const next=()=>{while(active<6&&k<order.length){const i=order[k++];active++;const im=new Image();im.decoding='async';im.onload=()=>{frames[i]=im;active--;if(i===0||Math.abs(i-S.f)<3)paint();next();};im.onerror=()=>{active--;next();};im.src=furl(i);}};
+ next();
+})();
+function nearest(f){f=Math.round(f);for(let d=0;d<FR;d++){if(frames[f-d])return frames[f-d];if(frames[f+d])return frames[f+d];}return null;}
+
+/* ---------- state ---------- */
+const S={bx:0,by:0,bw:1,bh:1,br:0,f:0,zoom:.86,cardBg:0,glow:0,shine:0,
+ cap:1,stmt:0,mq:0,film:1,row:{y:.73,op:0,focus:0,blur:16},pos:START,bar:0,fl:0};
+let G={};
+function geo(){
+ const W=innerWidth,H=stageH(),small=W<760||H>W,pad=Math.max(16,Math.min(W*.026,44));
+ const full={x:0,y:0,w:W,h:H,r:0};
+ let card;
+ if(small){const w=W-pad*2;card={x:pad,y:Math.max(84,H*.12),w,h:w/1.3,r:16};}
+ else{const w=W*.46,h=w/1.3;card={x:pad,y:(H-h)/2-H*.03,w,h,r:22};}
+ const cw0=small?W*.34:Math.min(W*.12,(H*.38)*9/16);
+ const cw1=small?Math.min(W*.66,(H*.5)*9/16):Math.min(W*.3,(H*.58)*9/16);
+ const sm={x:W/2-cw0*1.6/2,y:H*.73-(cw0*1.6/1.3)/2,w:cw0*1.6,h:cw0*1.6/1.3,r:14};
+ return {W,H,small,pad,full,card,sm,cw0,cw1};
+}
+function stageH(){return $('#stage').clientHeight||innerHeight;}
+
+function placeStatement(){
+ const st=$('#stmt'),g=G;
+ if(g.small){st.style.cssText=`left:${g.pad}px;top:${g.card.y+g.card.h+22}px;width:${g.W-g.pad*2}px;height:auto`;}
+ else{const L=g.card.x+g.card.w+g.W*.04;st.style.cssText=`left:${L}px;top:${g.card.y}px;width:${g.W-L-g.pad}px;height:${g.card.h}px`;}
+}
+
+function paint(){
+ const b=$('#fbox'),g=G;
+ b.style.width=S.bw+'px';b.style.height=S.bh+'px';b.style.transform=`translate3d(${S.bx}px,${S.by}px,0)`;b.style.borderRadius=S.br+'px';
+ b.style.opacity=S.film;
+ b.style.background=`rgb(${Math.round(lerp(0,13,S.cardBg))},${Math.round(lerp(0,22,S.cardBg))},${Math.round(lerp(0,42,S.cardBg))})`;
+ const sc=Math.min(Math.max(S.bw/1280,S.bh/720),1.37*S.bw/1280)*S.zoom;
+ cv.style.width=1280*sc+'px';cv.style.height=720*sc+'px';cv.style.transform='translate(-50%,-50%)';
+ const im=nearest(S.f); if(im){cx.clearRect(0,0,1280,720);cx.drawImage(im,0,0,1280,720);}
+ $('#shine').style.backgroundPosition=`${lerp(120,-60,S.shine)}% 0`;
+ $('#glow').style.opacity=S.glow;
+ const cap=$('#fcap');cap.style.opacity=S.cap;cap.style.filter=`blur(${(1-S.cap)*14}px)`;cap.style.transform=`translateY(${(1-S.cap)*-30}px)`;
+ $('#mq').style.opacity=S.mq;
+ renderRow();
+}
+function wrapD(i,p){let d=i-p;d=((d%N)+N)%N;if(d>N/2)d-=N;return d;}
+function renderRow(){
+ const g=G,r=S.row,fx=r.focus;
+ const y=r.y*g.H; row.style.top=y+'px';
+ cards.forEach((el,i)=>{
+  const d=wrapD(i,S.pos),ad=Math.abs(d);
+  const cw=lerp(g.cw0,ad<1?lerp(g.cw1,g.cw1*.62,ad):g.cw1*.62,fx);
+  const gap=lerp(g.cw0*1.14,g.cw1*.74,fx);
+  const x=g.W/2+d*gap;
+  const rot=-clamp(d,-1.4,1.4)*fx*32, z=-ad*fx*160;
+  const blur=r.blur+fx*Math.min(ad,2)*7;
+  let op=r.op*(fx>0?clamp(1-fx*(ad-.0)*.32,0,1):1); if(ad>3.2)op*=clamp(4-ad,0,1);
+  el.style.width=cw+'px';el.style.height=cw*16/9+'px';
+  el.style.transform=`translate3d(${x-cw/2}px,${-cw*16/9/2}px,${z}px) rotateY(${rot}deg)`;
+  el.style.filter=`blur(${blur.toFixed(1)}px)`;el.style.opacity=op.toFixed(3);el.style.zIndex=String(100-Math.round(ad*10));
+  el.style.pointerEvents=op>.4?'auto':'none';
+ });
+}
+
+/* ---------- carousel interaction ---------- */
+let cur=START;
+function setInfo(i,instant){
+ const c=CARS[i],els=['#cName','#cDesc','#cCat'].map(s=>$(s));
+ const apply=()=>{$('#cName').textContent=c.n;$('#cDesc').textContent=c.d;$('#cCat').textContent=c.c;$('#cLink').href='https://www.instagram.com/shiningcarss/reel/'+c.r+'/';$('#cLink').setAttribute('aria-label','Voir la vidéo de la '+c.n+' sur Instagram');els.forEach(e=>e.classList.remove('out'));};
+ if(instant||RM){apply();return;} els.forEach(e=>e.classList.add('out')); setTimeout(apply,300);
+}
+function go(dir){
+ cur=(cur+dir+N)%N; setInfo(cur);
+ const target=S.pos+dir;
+ if(window.gsap&&!RM){gsap.to(S,{pos:target,duration:.9,ease:'power3.inOut',onUpdate:renderRow,onComplete:()=>{S.pos=((S.pos%N)+N)%N;renderRow();}});}
+ else{S.pos=((target%N)+N)%N;renderRow();}
+}
+$('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
+addEventListener('keydown',e=>{if(S.row.focus<.9||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);});
+let tx=null;row.parentElement.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+row.parentElement.addEventListener('touchend',e=>{if(tx===null||S.row.focus<.9)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(dx<0?1:-1);tx=null;});
+cards.forEach((el,i)=>el.addEventListener('click',()=>{if(S.row.focus<.9)return;const d=Math.round(wrapD(i,S.pos));if(d)go(d>0?1:-1);}));
+$('#cBook').addEventListener('click',()=>preset(CARS[cur]));
+setInfo(cur,true);
+
+/* ---------- timeline ---------- */
+const lines=[...document.querySelectorAll('#stmt .ln')];
+const fl=$('#fline'); fl.innerHTML=fl.innerHTML.replace(/(<em>.*?<\/em>)|([^\s<]+)/g,(m,em,w)=>em?`<span class="w">${em}</span>`:`<span class="w">${w}</span>`);
+const flw=[...fl.querySelectorAll('.w')];
+const tiles=[...document.querySelectorAll('#bar .tile')];
+let tl=null,st=null;
+function setBox(r){S.bx=r.x;S.by=r.y;S.bw=r.w;S.bh=r.h;S.br=r.r;}
+function build(){
+ G=geo(); placeStatement();
+ if(tl){tl.kill();st&&st.kill();}
+ setBox(G.full);S.f=0;S.zoom=.86;S.cardBg=0;S.glow=0;S.cap=1;S.mq=0;S.film=1;S.row.y=.73;S.row.op=0;S.row.focus=0;S.row.blur=16;
+ if(!window.gsap||!window.ScrollTrigger){fallback();return;}
+ gsap.registerPlugin(ScrollTrigger);
+ gsap.set(lines,{opacity:0,y:26,filter:'blur(12px)'});gsap.set('#stmt .ctas',{opacity:0});
+ gsap.set(flw,{opacity:0,filter:'blur(10px)'});gsap.set(tiles,{opacity:0,y:30});
+ tl=gsap.timeline({paused:true,defaults:{ease:'power2.inOut'},onUpdate:paint});
+ const c=G.card,sm=G.sm;
+ tl.to(S,{f:30,duration:1.2,ease:'none'},0)
+   .to(S,{cap:0,duration:.8},.3)
+   .to(S,{bx:c.x,by:c.y,bw:c.w,bh:c.h,br:c.r,zoom:1,duration:1.5},.9)
+   .to(S,{glow:1,duration:1.2},1.1)
+   .to(S,{f:150,duration:2.5,ease:'none'},1.2)
+   .to(S,{shine:1,duration:1.6,ease:'power1.inOut'},2.2)
+   .to(lines,{opacity:1,y:0,filter:'blur(0px)',stagger:.16,duration:.6},2.15)
+   .to(S,{mq:1,duration:.5},3.0).to('#stmt .ctas',{opacity:1,duration:.4},3.1)
+   .to(lines,{opacity:0,filter:'blur(12px)',duration:.6,stagger:.05},4.3).to('#stmt .ctas',{opacity:0,duration:.4},4.3).to(S,{mq:0,duration:.6},4.3)
+   .to(S,{bx:sm.x,by:sm.y,bw:sm.w,bh:sm.h,br:sm.r,zoom:.9,duration:1.2},4.3)
+   .to(S,{cardBg:1,duration:.8},5.3)
+   .to(S,{film:0,duration:.7},5.6)
+   .to(S.row,{op:1,blur:0,duration:1},5.4)
+   .to(flw,{opacity:1,filter:'blur(0px)',stagger:.045,duration:.5},5.8)
+   .to(S.row,{y:G.small?.62:.73,duration:1.4},5.8)
+   .to(flw,{opacity:0,filter:'blur(10px)',duration:.5,stagger:.01},7.4)
+   .to(S.row,{y:G.small?.4:.44,duration:.9},7.4)
+   .to(S.row,{focus:1,duration:1},8.0)
+   .to(tiles,{opacity:1,y:0,stagger:.08,duration:.5,ease:'power3.out'},8.8)
+   .to({},{duration:.4},9.6);
+ st=ScrollTrigger.create({trigger:'#track',start:'top top',end:'bottom bottom',scrub:RM?true:.7,animation:tl});
+ paint();
+}
+function fallback(){
+ document.documentElement.classList.add('nogsap');
+ $('#track').style.height='auto';const sg=$('#stage');sg.style.position='relative';sg.style.height='auto';sg.style.minHeight='100vh';
+ S.film=0;S.glow=1;S.cap=0;S.row.op=1;S.row.blur=0;S.row.focus=1;S.row.y=.45;
+ lines.forEach(l=>l.style.opacity=1);tiles.forEach(t=>{t.style.opacity=1;t.style.transform='none'});
+ $('#stmt').style.display='none';paint();
+}
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const p=st?st.progress:0;build();if(st){ScrollTrigger.refresh();}},200);});
+addEventListener('load',()=>{window.ScrollTrigger&&ScrollTrigger.refresh();});
+build();
+
+/* nav jumps into timeline */
+document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{
+ const v=+a.dataset.go,tr=$('#track');e.preventDefault();
+ if(v===0){scrollTo({top:0,behavior:RM?'auto':'smooth'});return;}
+ const y=tr.offsetTop+(tr.offsetHeight-stageH())*(v/10);
+ scrollTo({top:y,behavior:RM?'auto':'smooth'});
+}));
+
+/* ---------- services tunnel ---------- */
+const SV=[
+ ['Nettoyage automobile','Intérieur et extérieur, pour les particuliers et les professionnels.','<path d="M5 16l1.5-5A2 2 0 0 1 8.4 9.5h7.2a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="15" width="18" height="4" rx="1.5"/><circle cx="7" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/>'],
+ ['Toiture','Nettoyage, démoussage et traitement.','<path d="M3 12l9-7 9 7"/><path d="M5 10.5V20h14v-9.5"/>'],
+ ['Façade','Redonner une seconde vie à vos murs.','<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M10 21v-5h4v5"/>'],
+ ['Panneaux solaires','Un nettoyage pour un rendement optimal.','<path d="M4 7h16l-2 10H6z"/><path d="M9.5 7l-1 10M14.5 7l1 10M5 12h14"/>'],
+ ['Terrasse','Nettoyage et entretien de vos extérieurs.','<path d="M3 18h18M5 18V9M19 18V9M3 9h18M8 9v9M12 9v9M16 9v9"/>'],
+ ['Fin de chantier','Évacuation des résidus et remise en état.','<path d="M4 20h16"/><path d="M6 20l6-12 6 12"/><path d="M9 14h6"/>'],
+ ['Locaux de bureau','Des espaces propres pour un meilleur confort.','<rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V5h8v3M3 13h18"/>'],
+ ['Vitres','Des vitres impeccables, à l’intérieur comme à l’extérieur.','<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/><path d="M15 6l2 2"/>'],
+ ['Moquette & textile','Moquettes, sièges et tissus détachés en profondeur.','<path d="M4 18c2-1 4-1 6 0s4 1 6 0 4-1 4-1"/><path d="M6 14V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8"/>']
+];
+const tw=$('#tw'),SP=720;
+const arches=SV.map((s,i)=>{const a=document.createElement('article');a.className='arch';a.innerHTML=`<span class="brush l"></span><span class="brush r"></span><div><div class="num">${String(i+1).padStart(2,'0')} / ${String(SV.length).padStart(2,'0')}</div><h3>${s[0]}</h3><p>${s[1]}</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24">${s[2]}</svg></div>`;tw.appendChild(a);return a;});
+function tunnel(){
+ const sec=$('#services'),r=sec.getBoundingClientRect(),H=innerHeight;
+ const p=clamp(-r.top/(sec.offsetHeight-H),0,1);
+ const z0=p*(SV.length-1)*SP+SP*.2;
+ arches.forEach((a,i)=>{const z=-i*SP+z0;const vis=z>-SP*3.2&&z<520;a.style.visibility=vis?'visible':'hidden';if(!vis)return;
+  const op=z>0?clamp(1-z/480,0,1):clamp(1+(z+SP*2.6)/(SP*.6),0,1)*clamp(1+z/(SP*3),.25,1);
+  a.style.transform=`translate3d(0,0,${z}px) rotateZ(${(i%2?1:-1)*Math.max(0,-z)/SP*3}deg)`;a.style.opacity=op.toFixed(3);});
+ $('#tprog').style.width=(p*100)+'%';
+}
+addEventListener('scroll',tunnel,{passive:true});addEventListener('resize',tunnel);tunnel();
+
+/* ---------- booking ---------- */
+const form=$('#form'),ticket=$('#ticket');
+const catImg={'Citadine / compacte':'golf-gti','Berline':'audi-rs-etron-gt','SUV':'mercedes-glc','Sportive':'mclaren','Utilitaire / van':'bmw-x4'};
+function preset(c){const r=form.querySelector(`input[name=veh][value="${c.c}"]`);if(r){r.checked=true;}$('#tImg').src='img/'+c.k+'.jpg';$('#tImg').alt=c.n;form.dataset.car=c.n;upd();}
+function upd(){
+ const fd=new FormData(form),veh=fd.get('veh'),pre=fd.get('pre'),v=(fd.get('ville')||'').trim(),d=fd.get('date');
+ $('#tVeh').textContent=form.dataset.car?form.dataset.car+(veh?' ('+veh+')':''):(veh||'—');
+ $('#tPre').textContent=pre||'—';$('#tVil').textContent=v||'—';
+ $('#tDat').textContent=d?new Date(d+'T12:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'})+' · '+fd.get('moment'):'—';
+ const n=[veh,pre,v,d,(fd.get('nom')||'').trim(),$('#ok').checked].filter(Boolean).length,pc=Math.round(n/6*100);
+ $('#water').style.height=pc+'%';$('#gtxt').textContent=pc+' % rempli';
+}
+form.addEventListener('input',e=>{if(e.target.name==='veh'&&!form.dataset.lock){delete form.dataset.car;const k=catImg[e.target.value];if(k)$('#tImg').src='img/'+k+'.jpg';}upd();});
+form.addEventListener('change',upd);
+const dt=form.querySelector('input[type=date]');dt.min=new Date().toISOString().slice(0,10);
+form.addEventListener('submit',e=>{
+ e.preventDefault();const via=e.submitter&&e.submitter.dataset.via||'wa',fd=new FormData(form),err=$('#err');
+ const miss=[];if(!fd.get('veh'))miss.push('le véhicule');if(!fd.get('pre'))miss.push('la prestation');if(!(fd.get('ville')||'').trim())miss.push('la ville');if(!fd.get('date'))miss.push('la date');if(!(fd.get('nom')||'').trim())miss.push('votre prénom');
+ if(miss.length){err.textContent='Il manque : '+miss.join(', ')+'.';return;}
+ if(!$('#ok').checked){err.textContent='Cochez la case de consentement pour envoyer la demande.';$('#ok').focus();return;}
+ err.textContent='';
+ const msg=`Bonjour Shining Cars, je suis ${fd.get('nom').trim()}.\nDemande de nettoyage :\n- Véhicule : ${form.dataset.car?form.dataset.car+' / ':''}${fd.get('veh')}\n- Prestation : ${fd.get('pre')}\n- Lieu : ${fd.get('ville').trim()}\n- Date souhaitée : ${$('#tDat').textContent}\n${(fd.get('msg')||'').trim()?'- Précisions : '+fd.get('msg').trim()+'\n':''}Pouvez-vous me donner un prix et confirmer l'heure ? Merci !`;
+ const u=via==='sms'?'sms:+33665345684?&body='+encodeURIComponent(msg):'https://wa.me/33665345684?text='+encodeURIComponent(msg);
+ window.open(u,via==='sms'?'_self':'_blank','noopener');
+});
+ticket.parentElement.addEventListener('pointermove',e=>{if(RM)return;const r=ticket.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;ticket.style.transform=`rotateY(${(x-.5)*16}deg) rotateX(${(.5-y)*12}deg)`;ticket.style.setProperty('--gx',x*100+'%');ticket.style.setProperty('--gy',y*100+'%');});
+ticket.parentElement.addEventListener('pointerleave',()=>ticket.style.transform='');
+upd();
+
+/* ---------- map (after consent) + tilt ---------- */
+const mapw=$('#mapw');
+new IntersectionObserver(es=>es.forEach(en=>mapw.classList.toggle('flat',en.intersectionRatio>.6)),{threshold:[0,.6,1]}).observe(mapw);
+function loadMap(){if(mapw.querySelector('iframe'))return;const f=document.createElement('iframe');f.title='Carte : Brignoles, Var';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q=Brignoles%2083170&z=10&output=embed';mapw.insertBefore(f,mapw.firstChild);$('#mapfake').style.display='none';$('#mapload').style.display='none';}
+$('#mapload').onclick=()=>{setCk('yes');};
+
+/* ---------- cookies ---------- */
+const ck=$('#ck');let pref=null;try{pref=localStorage.getItem('sc-ck')}catch(e){}
+function setCk(v){try{localStorage.setItem('sc-ck',v)}catch(e){}ck.classList.remove('show');if(v==='yes')loadMap();else{const f=mapw.querySelector('iframe');if(f){f.remove();$('#mapfake').style.display='';$('#mapload').style.display='';}}}
+if(pref==='yes')loadMap();else if(!pref)setTimeout(()=>ck.classList.add('show'),1500);
+$('#ckYes').onclick=()=>setCk('yes');$('#ckNo').onclick=()=>setCk('no');$('#ckReopen').onclick=()=>ck.classList.add('show');
+
+/* ---------- legal ---------- */
+const L={
+ ml:['Mentions légales',`<h4>Éditeur du site</h4><p>Shining Cars — détailing et nettoyage à domicile, Brignoles (83). Responsable : [nom du gérant à compléter]. SIRET : [à compléter]. Adresse : [à compléter]. Téléphone : 06 65 34 56 84.</p><h4>Hébergement</h4><p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Conception</h4><p>Site réalisé par ZAHR (zahr.fr).</p><h4>Photos et médias</h4><p>Les photos des voitures proviennent du compte Instagram @shiningcarss et sont utilisées avec l'accord de Shining Cars ; les plaques d'immatriculation visibles ont été floutées. Les vidéos d'ambiance et la séquence de la berline noire sont des visuels d'illustration fournis par des banques d'images tierces. Les noms de marques automobiles cités désignent uniquement des véhicules nettoyés et appartiennent à leurs propriétaires respectifs.</p><h4>Polices</h4><p>Archivo, sous licence SIL Open Font License, servie par Bunny Fonts.</p>`],
+ conf:['Politique de confidentialité',`<p>Ce site ne crée aucun compte et n'enregistre aucune donnée. Le formulaire de réservation prépare simplement un message que vous envoyez vous-même par WhatsApp ou SMS à Shining Cars.</p><h4>Données traitées</h4><p>Prénom, ville, date souhaitée, type de véhicule et de prestation, précisions éventuelles : uniquement ce qui est nécessaire pour vous répondre et organiser l'intervention.</p><h4>Base légale et durée</h4><p>Votre consentement (case à cocher) et les mesures précontractuelles à votre demande. Les messages sont conservés par Shining Cars le temps de traiter la demande puis au maximum 3 ans après le dernier contact.</p><h4>Services tiers</h4><p>WhatsApp (Meta) si vous choisissez cet envoi ; Google Maps uniquement si vous l'acceptez ; Bunny Fonts (polices), cdnjs/Cloudflare (scripts), Cloudinary et SceneAI (images et vidéos d'illustration), GitHub Pages (hébergement), qui reçoivent votre adresse IP technique pour afficher le site.</p><h4>Vos droits</h4><p>Accès, rectification, suppression, opposition : écrivez ou appelez au 06 65 34 56 84 pour demander la suppression de vos messages. Vous pouvez aussi saisir la CNIL (cnil.fr). Le service n'est pas destiné aux mineurs sans l'accord d'un parent.</p>`],
+ cgv:['Conditions générales',`<h4>Objet</h4><p>Les présentes conditions encadrent les prestations de nettoyage et de détailing réalisées par Shining Cars au domicile ou sur le lieu indiqué par le client, dans le Var.</p><h4>Devis et prix</h4><p>Chaque prestation fait l'objet d'un prix communiqué avant l'intervention (par message ou téléphone), selon le véhicule, son état et la prestation choisie. Aucun frais n'est ajouté sans accord préalable du client. Aucun paiement n'est demandé sur ce site.</p><h4>Rendez-vous</h4><p>La demande envoyée depuis le site n'est confirmée qu'après accord de Shining Cars sur la date et l'heure. Le client garantit l'accès au véhicule et, si besoin, à un point d'eau et d'électricité, sauf indication contraire de Shining Cars.</p><h4>Réalisation</h4><p>Shining Cars s'engage à réaliser la prestation avec soin. Les défauts existants (rayures, usure, taches incrustées) ne peuvent pas toujours être supprimés ; ils sont signalés au client.</p><h4>Réclamation</h4><p>Toute réclamation est à formuler le jour même par téléphone ou message, photos à l'appui. En cas de litige, le client consommateur peut recourir gratuitement à un médiateur de la consommation [nom du médiateur à compléter].</p><h4>Utilisation du site</h4><p>Le site est fourni à titre d'information et de prise de contact ; son contenu ne peut pas être réutilisé sans autorisation.</p>`],
+ remb:['Annulation et remboursement',`<p>Vous pouvez annuler ou déplacer un rendez-vous gratuitement en prévenant au moins 24 heures à l'avance par téléphone ou message au 06 65 34 56 84.</p><p>Le paiement se fait après la prestation, aucun acompte n'est demandé via ce site. Si une prestation n'a pas pu être réalisée du fait de Shining Cars, rien n'est dû. Si un défaut de réalisation est constaté et signalé le jour même, Shining Cars repasse sur la zone concernée ou propose un geste commercial adapté.</p><p>Pour une prestation réservée à distance et commencée à votre demande avant la fin du délai de rétractation de 14 jours, ce droit ne s'applique plus une fois la prestation entièrement exécutée.</p>`],
+ cook:['Cookies',`<p>Ce site ne dépose aucun cookie de mesure d'audience ni de publicité.</p><p>Il mémorise seulement votre choix (accepter ou refuser la carte) dans votre navigateur.</p><p>Si vous acceptez, la carte Google Maps est chargée et Google peut déposer ses propres cookies. Vous pouvez changer d'avis à tout moment avec le lien « Gérer les cookies » en bas de page.</p>`]
+};
+const dlg=$('#legal');
+document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>{const [t,h]=L[b.dataset.legal];$('#lgT').textContent=t;$('#lgB').innerHTML=h;dlg.showModal();}));
+$('#lgX').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
+})();
+</script>
+</body>
+</html>
