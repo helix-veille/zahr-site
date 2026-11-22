@@ -1,0 +1,31 @@
+name: Reels ZAHR
+on:
+  push:
+    paths: ['motion/bundle/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: reels
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Outils
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg fonts-inter xz-utils
+          pip install -q playwright numpy
+          python -m playwright install --with-deps chromium
+      - name: Extraire le kit
+        run: |
+          mkdir -p motion/src
+          cat motion/bundle/part_* | tr -d '\n\r ' | base64 -d | tar xJ -C motion/src
+          ls motion/src
+      - name: Rendre les Reels
+        run: |
+          git config user.name 'zahr-reels'
+          git config user.email 'actions@users.noreply.github.com'
+          python motion/src/build.py
