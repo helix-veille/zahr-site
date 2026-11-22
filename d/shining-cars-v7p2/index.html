@@ -654,21 +654,21 @@ function renderRow(){
 /* ---------- carousel interaction ---------- */
 let cur=START;
 function setInfo(i,instant){
- const c=CARS[i],els=['#cName','#cDesc','#cCat'].map(s=>$(s));
- const apply=()=>{$('#cName').textContent=c.n;$('#cDesc').textContent=c.d;$('#cCat').textContent=c.c;$('#cLink').setAttribute('aria-label','Voir le nettoyage de la '+c.n);els.forEach(e=>e.classList.remove('out'));};
+ let c=CARS[i];const els=['#cName','#cDesc','#cCat'].map(s=>$(s));
+ const apply=()=>{c=CARS[cur];$('#cName').textContent=c.n;$('#cDesc').textContent=c.d;$('#cCat').textContent=c.c;$('#cLink').setAttribute('aria-label','Voir le nettoyage de la '+c.n);els.forEach(e=>e.classList.remove('out'));};
  if(instant||RM){apply();return;} els.forEach(e=>e.classList.add('out')); setTimeout(apply,300);
 }
 function go(dir){
- cur=(cur+dir+N)%N; setInfo(cur);
- const target=S.pos+dir;
- if(window.gsap&&!RM){gsap.to(S,{pos:target,duration:.9,ease:'power3.inOut',onUpdate:renderRow,onComplete:()=>{S.pos=((S.pos%N)+N)%N;renderRow();}});}
- else{S.pos=((target%N)+N)%N;renderRow();}
+ cur=(((cur+dir)%N)+N)%N; setInfo(cur);
+ const target=S.pos+wrapD(cur,S.pos);
+ if(window.gsap&&!RM){gsap.to(S,{pos:target,duration:.9,ease:'power3.inOut',overwrite:true,onUpdate:renderRow,onComplete:()=>{S.pos=cur;renderRow();}});}
+ else{S.pos=cur;renderRow();}
 }
 $('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
 addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||S.row.focus<.9||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);});
 let tx=null;row.parentElement.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
 row.parentElement.addEventListener('touchend',e=>{if(tx===null||S.row.focus<.9)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(dx<0?1:-1);tx=null;});
-cards.forEach((el,i)=>{const act=()=>{if(S.row.focus<.9)return;const d=Math.round(wrapD(i,S.pos));if(d)go(d>0?1:-1);else openVid(i);};el.addEventListener('click',act);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});});
+cards.forEach((el,i)=>{const act=()=>{if(S.row.focus<.9)return;const d=Math.round(wrapD(i,cur));if(d)go(d);else openVid(cur);};el.addEventListener('click',act);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});});
 const vd=$('#vid');let vCur=0;
 function vidFrame(c){const f=$('#vFrame');f.innerHTML=`<iframe title="Vidéo Instagram : ${c.n}" src="https://www.instagram.com/reel/${c.r}/embed/" allow="autoplay; encrypted-media" loading="lazy"></iframe>`;}
 function openVid(i){const c=CARS[i];vCur=i;$('#vName').textContent=c.n;$('#vProf').src='img/profil/'+c.k+'.jpg';$('#vProf').alt=c.n+' de profil (illustration)';$('#vIg').href='https://www.instagram.com/shiningcarss/reel/'+c.r+'/';
