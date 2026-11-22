@@ -746,7 +746,7 @@ var DAYS=[['Lundi','7h30–12h<br>13h30–18h'],['Mardi','7h30–12h<br>13h30–
 var drum=$('#drum'),R=Math.round(96/2/Math.tan(Math.PI/7))+4,today=(new Date().getDay()+6)%7,sel=today;
 DAYS.forEach(function(d,i){var el=document.createElement('div');el.className='tread'+(d[1]==='Fermé'?' closed':'')+(i===today?' is-today':'');
   el.innerHTML='<span class="day">'+d[0]+'</span><span class="hrs">'+d[1]+'</span>';el.style.transform='rotateX('+(-i*360/7)+'deg) translateZ('+R+'px)';drum.appendChild(el);});
-function turn(){drum.style.transform='translateZ('+(-R)+'px) rotateX('+(sel*360/7)+'deg)';$('#drumlive').textContent=DAYS[sel][0]+' : '+DAYS[sel][1].replace('<br>',' et ');}
+function turn(){drum.style.transform='translateZ('+(-R)+'px) rotateX('+(sel*360/7)+'deg)';var d=DAYS[((sel%7)+7)%7];$('#drumlive').textContent=d[0]+' : '+d[1].replace('<br>',' et ');}
 $('#dprev').onclick=function(){sel--;turn()};$('#dnext').onclick=function(){sel++;turn()};turn();
 (function(){var n=new Date(),m=n.getHours()*60+n.getMinutes(),wd=today<5,open=wd&&((m>=450&&m<720)||(m>=810&&m<1080));
   $('#todaytxt').textContent='Aujourd\'hui, '+DAYS[today][0].toLowerCase()+' : '+(open?'ouvert en ce moment':'fermé en ce moment');})();
