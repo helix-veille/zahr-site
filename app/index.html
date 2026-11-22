@@ -7,7 +7,8 @@
 <title>ZAHR Pilote</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" id="ati" href="icon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
 <meta name="theme-color" content="#0E1813">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="ZAHR Pilote">
@@ -25,12 +26,6 @@ p{color:#C9D2CC;max-width:420px}
 <a class="b" href="https://claude.ai/artifact/5pPXTu2RzM7iDaVe728eWs">Ouvrir ZAHR Pilote</a>
 </main>
 <script>
-// Icône PNG pour l'écran d'accueil de l'iPhone, dessinée à partir du logo
-const im = new Image();
-im.onload = () => { const c = document.createElement('canvas'); c.width = c.height = 180;
-  const x = c.getContext('2d'); x.drawImage(im, 0, 0, 180, 180);
-  try { document.getElementById('ati').href = c.toDataURL('image/png'); } catch (e) {} };
-im.src = 'icon.svg';
 const app = new URLSearchParams(location.search).has('app') || matchMedia('(display-mode: standalone)').matches || navigator.standalone;
 if (app) { document.getElementById('t').textContent = 'Ouverture…'; location.replace('https://claude.ai/artifact/5pPXTu2RzM7iDaVe728eWs'); }
 </script>
