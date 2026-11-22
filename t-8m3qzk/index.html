@@ -52,9 +52,10 @@ const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const mobile=t=>/^0[67]/.test((t||'').replace(/\s/g,''));
 const intl=t=>'33'+(t||'').replace(/\s/g,'').slice(1);
 function msgOf(p){return (st[p.id]&&st[p.id].msg)||p.message}
+const stOf=p=>(st[p.id]&&st[p.id].s)||(p.sent?'done':'todo');
 function render(){
- const L=data.filter(p=>(st[p.id]&&st[p.id].s||'todo')===f).sort((a,b)=>(b.added||'').localeCompare(a.added||'')||b.score-a.score);
- const todo=data.filter(p=>!(st[p.id]&&st[p.id].s)).length;
+ const L=data.filter(p=>stOf(p)===f).sort((a,b)=>(b.added||'').localeCompare(a.added||'')||b.score-a.score);
+ const todo=data.filter(p=>stOf(p)==='todo').length;
  document.getElementById('sub').textContent=`${todo} démo${todo>1?'s':''} à envoyer · ${data.length} au total`;
  document.getElementById('list').innerHTML=L.length?L.map(p=>{const m=msgOf(p),enc=encodeURIComponent(m),mob=mobile(p.phone);
   return `<article class="card ${f!=='todo'?'done':''}" data-id="${esc(p.id)}">
@@ -80,7 +81,7 @@ document.addEventListener('click',async e=>{
  if(t.dataset.f){f=t.dataset.f;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b===t));render();return}
  const c=t.closest('.card');if(!c)return;const id=c.dataset.id,p=data.find(x=>x.id===id);
  if(t.dataset.copy||t.dataset.copyonly){try{await navigator.clipboard.writeText(msgOf(p));if(t.dataset.copyonly){t.textContent='Copié ✓';setTimeout(()=>t.textContent='Copier le message',1500)}}catch(_){}}
- if(t.dataset.s){st[id]=Object.assign(st[id]||{},{s:t.dataset.s==='todo'?undefined:t.dataset.s,at:new Date().toISOString()});save();render()}
+ if(t.dataset.s){st[id]=Object.assign(st[id]||{},{s:t.dataset.s,at:new Date().toISOString()});save();render()}
 });
 render();
 })();
