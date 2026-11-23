@@ -641,16 +641,18 @@ footer .f-bottom p{color:var(--mute-d);font-size:13.5px}
 .exm .vis{position:relative;overflow:hidden;background:#E4E7E3}
 .exm-w{position:absolute;left:50%;top:6%;transform:translateX(-50%);font:900 clamp(70px,9vw,150px)/1 Archivo,Inter,var(--f);letter-spacing:-.04em;color:#111012;white-space:nowrap}
 .exm-ar{position:absolute;right:5%;top:24%;z-index:2;font:700 clamp(30px,3.4vw,54px)/1 "Aref Ruqaa",serif;color:#4E6B5B;opacity:.85}
-.exm .vis img{position:absolute;left:50%;bottom:-2%;height:100%;width:auto;transform:translateX(-50%);max-width:none}
-.exm .vis img.p{opacity:0;animation:exmc 12s infinite;-webkit-mask:linear-gradient(180deg,#000 var(--m,0%),transparent calc(var(--m,0%) + 8%));mask:linear-gradient(180deg,#000 var(--m,0%),transparent calc(var(--m,0%) + 8%))}
-@property --m{syntax:'<percentage>';inherits:false;initial-value:0%}
-@keyframes exmc{0%{opacity:1;--m:-10%}6%{--m:105%}16%{opacity:1;--m:105%}18%,100%{opacity:0;--m:105%}}
-.exm-scan{position:absolute;left:0;right:0;height:2px;background:#8FB39D;box-shadow:0 0 18px #8FB39D;top:0;animation:exms 2s linear infinite;opacity:.8}
-@keyframes exms{0%{top:-2%}36%{top:102%}100%{top:102%}}
 .exm-tag{position:absolute;left:20px;bottom:20px;background:#4E6B5B;color:#fff;font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.06em;padding:7px 9px;text-transform:uppercase}
-@media (prefers-reduced-motion:reduce){.exm .vis img.p,.exm-scan{animation:none}.exm .vis img.p:first-of-type{opacity:1}}
+.exm-st{position:absolute;left:50%;bottom:-2%;height:100%;aspect-ratio:3/2;transform:translateX(-50%)}
+.exm-st img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.exm-st img.p{opacity:0;-webkit-mask:radial-gradient(circle var(--r,90px) at var(--mx,50%) var(--my,30%),#000 55%,transparent 100%);mask:radial-gradient(circle var(--r,90px) at var(--mx,50%) var(--my,30%),#000 55%,transparent 100%);transition:opacity .35s}
+.exm-st img.p.on{opacity:1}
+.exm-ring{position:absolute;left:0;top:0;width:calc(var(--r,90px)*1.6);height:calc(var(--r,90px)*1.6);margin:calc(var(--r,90px)*-.8);border-radius:50%;border:1.5px solid rgba(143,179,157,.9);box-shadow:0 0 24px rgba(143,179,157,.55),inset 0 0 18px rgba(143,179,157,.35);transform:translate(var(--cx,50%),var(--cy,30%));pointer-events:none;z-index:3}
+.exm-cur{position:absolute;left:0;top:0;width:26px;height:26px;transform:translate(var(--cx,50%),var(--cy,30%));z-index:4;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));transition:opacity .3s}
+.exm .vis.live .exm-cur{opacity:0}.exm .vis.live{cursor:none}
+.exh-logo{position:absolute;left:22px;top:20px;z-index:3;width:104px;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5))}.exh-logo svg{width:100%!important;height:auto!important;display:block}
+.exe .vis{position:relative}.exe-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;background:#000}
 @media (prefers-reduced-motion:reduce){.exe-can,.exs-orb{animation:none}}
-@media (max-width:900px){.exm .vis img{height:112%;bottom:-6%}.exall{grid-template-columns:1fr}.exall-st{min-height:320px}}
+@media (max-width:900px){.exm-st{height:112%;bottom:-6%}.exall{grid-template-columns:1fr}.exall-st{min-height:320px}}
 /* Veille : exemple ZAHR Veille */
 .veille{background:var(--night-2);padding-block:130px 150px;position:relative;border-radius:40px 40px 0 0;margin-top:-40px}
 .auto-cta{margin-top:24px}
@@ -908,30 +910,19 @@ main:focus{outline:none}
       </article>
 
       <article class="panel case exm" aria-labelledby="h-exm">
-        <div class="vis" aria-hidden="true"><span class="exm-w">ZAHR</span><span class="exm-ar">زهر</span><img src="exemples/mode/img/zahr-hero-base.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p" src="exemples/mode/img/zahr-hero-casquette.webp" alt="" width="1536" height="1024" loading="lazy" style="animation-delay:0s"><img class="p" src="exemples/mode/img/zahr-hero-racing.webp" alt="" width="1536" height="1024" loading="lazy" style="animation-delay:2s"><img class="p" src="exemples/mode/img/zahr-hero-samourai.webp" alt="" width="1536" height="1024" loading="lazy" style="animation-delay:4s"><img class="p" src="exemples/mode/img/zahr-hero-doudoune.webp" alt="" width="1536" height="1024" loading="lazy" style="animation-delay:6s"><img class="p" src="exemples/mode/img/zahr-hero-nuit.webp" alt="" width="1536" height="1024" loading="lazy" style="animation-delay:8s"><img class="p" src="exemples/mode/img/zahr-hero-maillot.webp" alt="" width="1536" height="1024" loading="lazy" style="animation-delay:10s"><span class="exm-scan"></span><span class="exm-tag">Collection Chance 01</span></div>
+        <div class="vis" aria-hidden="true"><span class="exm-w">ZAHR</span><span class="exm-ar">زهر</span><span class="exm-st"><img class="b" src="exemples/mode/img/zahr-hero-base.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p on" src="exemples/mode/img/zahr-hero-casquette.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p" src="exemples/mode/img/zahr-hero-racing.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p" src="exemples/mode/img/zahr-hero-samourai.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p" src="exemples/mode/img/zahr-hero-doudoune.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p" src="exemples/mode/img/zahr-hero-nuit.webp" alt="" width="1536" height="1024" loading="lazy"><img class="p" src="exemples/mode/img/zahr-hero-maillot.webp" alt="" width="1536" height="1024" loading="lazy"></span><span class="exm-ring"></span><svg class="exm-cur" viewBox="0 0 24 24"><path d="M4 2l15 9-6.5 1.6L16 20l-3 1.4-3.4-7.3L4 18z" fill="#111012" stroke="#F3F4EF" stroke-width="1.4" stroke-linejoin="round"/></svg><span class="exm-tag" id="exmTag">Trucker زهر</span></div>
         <div class="info">
           <div class="tags"><span>Site internet</span><span>Mode</span><span>3D</span></div>
           <h3 id="h-exm"><span translate="no">ZAHR</span>, streetwear de luxe</h3>
-          <p>Un mannequin qui change de tenue quand on défile, des pièces qui se révèlent sous le curseur, et une vitrine 3D qui tourne.</p>
+          <p>Le curseur se balade sur le mannequin et fait apparaître les pièces de la collection. Passez la souris dessus pour essayer.</p>
           <ul class="feats"><li>Révélation au curseur</li><li>Six tenues au défilement</li><li>Vitrine 3D</li><li>Fiche produit et panier</li><li>Inscription au drop</li><li>Pages légales incluses</li></ul>
           <div class="more"><a class="btn main mag" href="exemples/mode/" target="_blank" rel="noopener">Voir le site exemple</a><span>Marque fictive créée par ZAHR.</span></div>
         </div>
       </article>
-<article class="panel case exg" aria-labelledby="h-exg">
-        <div class="vis" aria-hidden="true"><span class="exg-bg" style="background-image:url('https://res.cloudinary.com/ce2yatay/video/upload/so_0.000,w_960,q_40/keel/film.webp')"></span><span class="exg-w">Cueillir<br><em>avant de servir</em></span></div>
-        <div class="info">
-          <div class="tags"><span>Site internet</span><span>Gastronomie</span><span>Réservation</span></div>
-          <h3 id="h-exg"><span translate="no">ZAHR Table</span>, le restaurant gastronomique</h3>
-          <p>Un film qui se déroule au scroll, un menu en sept temps et la table du chef à réserver.</p>
-          <ul class="feats"><li>Film au défilement</li><li>Menu en sept temps</li><li>Accords mets et vins</li><li>Réservation de table</li><li>Plan aux couleurs du restaurant</li><li>Pages légales incluses</li></ul>
-          <div class="more"><a class="btn main mag" href="exemples/gastronomie.html" target="_blank" rel="noopener">Voir le site exemple</a><span>Marque fictive créée par ZAHR.</span></div>
-        </div>
-      </article>
-
       <article class="panel case exh" aria-labelledby="h-exh">
         <div class="vis" aria-hidden="true">
           <span class="exh-l" style="background-image:url('https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_063251_24fbd7cc-00df-49ec-8fbf-d8a0349b1e98.png&amp;w=1400&amp;q=85')"></span>
-          <span class="exh-w">Sommet</span>
+          <span class="exh-w">Sommet</span><span class="exh-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 727.03 256" aria-hidden="true" focusable="false"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/><path fill="#F3F4EF" transform="translate(288.17 178.0) scale(0.067114)" d="M57 0H1214V-195H323C378 -259 431 -324 482 -389L1206 -1309V-1490H85V-1295H941C891 -1236 842 -1177 796 -1118L57 -181Z M1572.72 0H1808.72L1944.72 -387H2545.7200000000003L2677.7200000000003 0H2918.7200000000003L2381.7200000000003 -1490H2113.7200000000003ZM2011.72 -576 2104.7200000000003 -840C2145.7200000000003 -963 2188.7200000000003 -1094 2248.7200000000003 -1287C2307.7200000000003 -1094 2349.7200000000003 -963 2390.7200000000003 -840L2480.7200000000003 -576Z M3358.44 0H3580.44V-665H4321.4400000000005V0H4543.4400000000005V-1490H4321.4400000000005V-859H3580.44V-1490H3358.44Z M5102.16 0H5324.16V-564H5654.16C5657.16 -564 5661.16 -564 5664.16 -564L5961.16 0H6211.16L5889.16 -601C6075.16 -668 6188.16 -818 6188.16 -1026C6188.16 -1311 5988.16 -1490 5669.16 -1490H5102.16ZM5324.16 -753V-1298H5659.16C5851.16 -1298 5969.16 -1194 5969.16 -1026C5969.16 -858 5852.16 -753 5660.16 -753Z"/></svg></span>
           <span class="exh-l" style="background-image:url('https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_063252_b9f2fecf-9be0-485f-842f-3aa6bbc251f2.png&amp;w=1400&amp;q=85')"></span>
           <span class="exh-l f" style="background-image:url('https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_063151_7804d758-a2eb-4499-9b56-8f493edbb206.png&amp;w=1400&amp;q=85')"></span>
         </div>
@@ -953,40 +944,20 @@ main:focus{outline:none}
           <div class="more"><a class="btn main mag" href="exemples/spa.html" target="_blank" rel="noopener">Voir le site exemple</a><span>Marque fictive créée par ZAHR.</span></div>
         </div>
       </article>
-      <article class="panel case exd" aria-labelledby="h-exd">
-        <div class="vis" aria-hidden="true"><img class="exd-car" src="https://res.cloudinary.com/ce2yatay/image/upload/avelon-drive/cars/sclass.webp" alt="" width="1400" height="560"><span class="exd-w">Location<br>Premium</span></div>
-        <div class="info">
-          <div class="tags"><span>Site internet</span><span>Location de voitures</span><span>Réservation</span></div>
-          <h3 id="h-exd"><span translate="no">ZAHR Drive</span>, la location livrée chez vous</h3>
-          <p>Un film de berline piloté au scroll qui devient la flotte, puis la voiture livrée à votre porte.</p>
-          <ul class="feats"><li>Film piloté au scroll</li><li>Flotte à faire défiler</li><li>Zone de livraison en 3D</li><li>Clé 3D qui se remplit</li><li>Demande de livraison</li><li>Pages légales incluses</li></ul>
-          <div class="more"><a class="btn main mag" href="exemples/voitures.html" target="_blank" rel="noopener">Voir le site exemple</a><span>Marque fictive créée par ZAHR.</span></div>
-        </div>
-      </article>
-      <article class="panel case exv" aria-labelledby="h-exv">
-        <div class="vis" aria-hidden="true"><span class="exg-bg" style="background-image:url('https://res.cloudinary.com/ce2yatay/video/upload/so_18.000,w_960,q_50/uvra/harvest-film.webp')"></span><span class="exv-w">Chaque vin a son <em>paysage</em></span></div>
-        <div class="info">
-          <div class="tags"><span>Site internet</span><span>Domaine viticole</span><span>Boutique</span></div>
-          <h3 id="h-exv"><span translate="no">Domaine ZAHR</span>, le vin du Var</h3>
-          <p>Du musée aux vignes puis au verre : un seul film au scroll, trois cuvées en 3D et les visites à réserver.</p>
-          <ul class="feats"><li>Film des vendanges au scroll</li><li>Bouteilles en 3D</li><li>Boutique et panier</li><li>Réservation de visite</li><li>Contrôle d’âge et loi Évin</li><li>Pages légales incluses</li></ul>
-          <div class="more"><a class="btn main mag" href="exemples/vin.html" target="_blank" rel="noopener">Voir le site exemple</a><span>Marque fictive créée par ZAHR.</span></div>
-        </div>
-      </article>
-      <article class="panel case exe" aria-labelledby="h-exe">
-        <div class="vis" aria-hidden="true"><span class="exe-can"><i style="transform:rotateY(0deg) translateZ(54px)"></i><i style="transform:rotateY(30deg) translateZ(54px)"></i><i style="transform:rotateY(60deg) translateZ(54px)"></i><i style="transform:rotateY(90deg) translateZ(54px)"></i><i style="transform:rotateY(120deg) translateZ(54px)"></i><i style="transform:rotateY(150deg) translateZ(54px)"></i><i style="transform:rotateY(180deg) translateZ(54px)"></i><i style="transform:rotateY(210deg) translateZ(54px)"></i><i style="transform:rotateY(240deg) translateZ(54px)"></i><i style="transform:rotateY(270deg) translateZ(54px)"></i><i style="transform:rotateY(300deg) translateZ(54px)"></i><i style="transform:rotateY(330deg) translateZ(54px)"></i><span class="exe-lb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span></span><span class="exe-w">ZAHR<br>Energy</span></div>
+                  <article class="panel case exe" aria-labelledby="h-exe">
+        <div class="vis" aria-hidden="true"><iframe class="exe-frame" src="exemples/zahr-energy.html?embed" title="Animation de la canette ZAHR Energy" loading="lazy" tabindex="-1"></iframe></div>
         <div class="info">
           <div class="tags"><span>Site internet</span><span>Boisson</span><span>3D</span></div>
           <h3 id="h-exe"><span translate="no">ZAHR Energy</span>, la canette</h3>
-          <p>Six saveurs du Sud, une canette qui tourne et change de couleur à chaque goût.</p>
+          <p>Six saveurs du Sud et une vraie canette en 3D, qui défile et change de couleur à chaque goût.</p>
           <ul class="feats"><li>Canette 3D</li><li>Six saveurs</li><li>Couleurs qui changent</li><li>Fiche produit animée</li><li>Pages légales incluses</li><li>Zéro faux avis</li></ul>
           <div class="more"><a class="btn main mag" href="exemples/zahr-energy.html" target="_blank" rel="noopener">Voir le site exemple</a><span>Marque fictive créée par ZAHR.</span></div>
         </div>
       </article>
       <div class="panel case exall" aria-labelledby="h-exall">
         <div class="info" style="justify-content:center">
-          <h3 id="h-exall">Et seize autres métiers.</h3>
-          <p>Pizzeria, glacier, café, bateaux, joaillerie, garage, immobilier, école de danse… Vingt-quatre sites exemples, tous signés ZAHR.</p>
+          <h3 id="h-exall">Et dix-neuf autres métiers.</h3>
+          <p>Gastronomie, vin, location de voitures, pizzeria, glacier, bateaux, joaillerie, école de danse… Vingt-quatre sites exemples, tous signés ZAHR.</p>
           <div class="more"><a class="btn main mag" href="exemples/">Voir tous les exemples</a></div>
         </div>
         <div class="vis exall-st" aria-hidden="true"><span style="--k:0;background:#26332C"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span><span style="--k:1;background:#4E6B5B"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span><span style="--k:2;background:#A9C2B0"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span><span style="--k:3;background:#8FB39D"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span><span style="--k:4;background:#3F584A"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span></div>
@@ -1825,5 +1796,14 @@ document.addEventListener('click', e => { const a = e.target.closest('[data-v2]'
 <script>(()=>{const B=[...document.querySelectorAll('.mx-cats button')],T=[...document.querySelectorAll('.mx[data-cat]')];B.forEach(b=>b.addEventListener('click',()=>{const c=b.dataset.c;B.forEach(x=>x.setAttribute('aria-pressed',x===b));T.forEach((t,i)=>{const on=c==='all'||t.dataset.cat===c;t.classList.toggle('out',!on);t.classList.remove('pop');if(on&&!matchMedia('(prefers-reduced-motion: reduce)').matches){void t.offsetWidth;t.style.animationDelay=(i%8)*35+'ms';t.classList.add('pop')}});dispatchEvent(new Event('resize'))}))})();</script>
 <script>(()=>{const C=[...document.querySelectorAll('.zv-deck .card')],N=document.getElementById('zvN');if(!C.length)return;const T=['Un restaurant recrute à Hyères','Une boulangerie ouvre à La Crau','Une mission à Toulon'];let k=0;
 setInterval(()=>{if(document.hidden)return;const a=C[k];k=(k+1)%C.length;a.classList.remove('on');a.classList.add('out');setTimeout(()=>a.classList.remove('out'),800);C[k].classList.add('on');if(N)N.textContent=T[k]},3600)})();</script>
+<script>(()=>{const v=document.querySelector('.exm .vis');if(!v)return;const st=v.querySelector('.exm-st'),P=[...v.querySelectorAll('img.p')],tag=document.getElementById('exmTag');const N=['Trucker زهر','Veste Racing','Veste Samouraï','Doudoune Trèfle','Ensemble Nuit','Maillot Noir 4'];let k=0,live=false,lx=0,ly=0,t0=performance.now(),vis=false,raf=0;const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function place(x,y){const r=v.getBoundingClientRect(),s=st.getBoundingClientRect();const R=Math.max(60,r.width*.17);v.style.setProperty('--r',R+'px');v.style.setProperty('--cx',x+'px');v.style.setProperty('--cy',y+'px');st.style.setProperty('--r',(R*s.width/s.width)+'px');st.style.setProperty('--mx',(x-(s.left-r.left))+'px');st.style.setProperty('--my',(y-(s.top-r.top))+'px')}
+function piece(n){k=(n+P.length)%P.length;P.forEach((p,i)=>p.classList.toggle('on',i===k));if(tag)tag.textContent=N[k]}
+function loop(n){raf=requestAnimationFrame(loop);if(live)return;const r=v.getBoundingClientRect(),s=st.getBoundingClientRect();const t=(n-t0)/1000;const cap=k===0;const cx=s.left-r.left+s.width*.5,cy=s.top-r.top+s.height*(cap?.13:.5);const x=cx+Math.sin(t*1.1)*s.width*(cap?.025:.07)+Math.sin(t*.37)*s.width*.02,y=cy+Math.sin(t*.8+1)*s.height*(cap?.03:.2);place(x,y);const c=Math.floor(t/3.2);if(c!==loop.c){loop.c=c;piece(c)}}
+new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis&&!raf&&!red)raf=requestAnimationFrame(loop);if(!vis&&raf){cancelAnimationFrame(raf);raf=0}}).observe(v);
+if(red){const r=v.getBoundingClientRect();place(r.width/2,r.height*.4)}
+v.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;live=true;v.classList.add('live');const r=v.getBoundingClientRect();place(e.clientX-r.left,e.clientY-r.top)});
+v.addEventListener('pointerleave',()=>{live=false;v.classList.remove('live')});
+v.addEventListener('click',()=>piece(k+1));})();</script>
 </body>
 </html>
