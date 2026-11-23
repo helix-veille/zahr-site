@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr" class="js-anim">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR — Collection Chance 01</title>
+<meta name="description" content="ZAHR, streetwear de luxe né dans le Var : la collection Chance 01. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%234E6B5B' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Sora:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Silkscreen&family=Aref+Ruqaa:wght@400;700&family=UnifrakturCook:wght@700&display=block">
+<link rel="preload" as="image" href="img/zahr-hero-base.webp">
+<style>
+:root{--bg:#E4E7E3;--mid:#4D4A4E;--ink:#111012;--acc:#4E6B5B;--leaf:#8FB39D;--panel:#1B1C1F;--cr:#F3F4EF;--silver:linear-gradient(135deg,#f4f4f4,#9a9a9a 40%,#e9e9e9 55%,#7d7d7d)}
+*{box-sizing:border-box}
+html{background:var(--bg);overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Sora,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body.lock{overflow:hidden}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.mono{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em}
+.cut{clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px))}
+/* ===== HÉROS (MONS) ===== */
+#pin{position:relative;height:calc(100svh * 6.2)}
+#stage{position:sticky;top:0;height:100svh;min-height:520px;overflow:hidden;touch-action:pan-y;cursor:crosshair;background:var(--bg)}
+#frame{position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;transform:translate(var(--fx,0px),var(--fy,0px)) scale(var(--s,1))}
+.tex{position:absolute;inset:-24px;opacity:.6;-webkit-mask:radial-gradient(ellipse 48% 58% at 50% 46%,transparent 35%,#000 80%);mask:radial-gradient(ellipse 48% 58% at 50% 46%,transparent 35%,#000 80%);background-size:100% 100%}
+.chev{position:absolute;inset:0;width:1440px;height:900px;overflow:visible}
+.chev polygon{fill:var(--acc)}
+#wm{position:absolute;left:70px;top:96px;font-family:Archivo,sans-serif;font-stretch:125%;font-weight:900;font-size:326px;line-height:1;letter-spacing:-.012em;color:var(--ink);white-space:nowrap}
+#wm .slice{position:absolute;left:0;top:0}
+.g{position:absolute;background:rgba(232,234,236,.34);backdrop-filter:blur(11px) saturate(110%);-webkit-backdrop-filter:blur(11px) saturate(110%);border:1px solid rgba(255,255,255,.75)}
+.g1{left:.07em;top:.626em;width:1.03em;height:.26em;border-right:0;-webkit-mask:linear-gradient(90deg,#000 80%,transparent);mask:linear-gradient(90deg,#000 80%,transparent)}
+.g2{left:2.975em;top:.574em;width:.859em;height:.49em;clip-path:polygon(.11em 0,100% 0,100% 100%,0 100%,0 .11em);display:grid;place-items:center}
+.g2 .ar{font-family:"Aref Ruqaa",serif;font-weight:700;font-size:.3em;color:var(--cr);text-shadow:0 2px 12px rgba(0,0,0,.25);letter-spacing:0;line-height:1}
+.g2::after{content:"";position:absolute;right:.045em;top:.04em;width:.028em;height:.42em;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.95) 0 2px,transparent 2px 6px)}
+#model{position:absolute;left:-30px;top:50px;width:1500px;height:1000px}
+#model img,#model canvas{position:absolute;inset:0;width:100%;height:100%}
+#model canvas{opacity:0;transition:opacity .4s}#model.gl canvas{opacity:1}#model.gl img{visibility:hidden}
+#deco{position:absolute;inset:0;width:1440px;height:900px;overflow:visible;pointer-events:none}
+#deco *{stroke:#4D4A4E;fill:none;vector-effect:non-scaling-stroke}
+#tags{position:absolute;inset:0;pointer-events:none;transform:translateX(var(--tagx,0px))}
+.tag{position:absolute;background:var(--acc);color:#fff;font-family:"JetBrains Mono";font-weight:700;font-size:max(11px,calc(11px / var(--s,1)));height:max(21px,calc(22px / var(--s,1)));padding:0 .64em;display:flex;align-items:center;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
+.brk{position:absolute;width:10px;height:10px;border:1px solid #4D4A4E;opacity:.7}
+.brk.tl{border-right:0;border-bottom:0}.brk.br{border-left:0;border-top:0}
+/* HUD */
+.logo{position:fixed;z-index:30;left:max(16px,calc(38px*var(--k)));top:max(14px,calc(22px*var(--k)));height:max(30px,calc(34px*var(--k)));padding:0 max(10px,calc(12px*var(--k)));background:var(--panel);display:flex;align-items:center;gap:8px;color:var(--cr);text-decoration:none;font-family:"JetBrains Mono";font-weight:700;font-size:max(11px,calc(11px*var(--k)));letter-spacing:.2em;clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px))}
+.logo svg{width:max(16px,calc(18px*var(--k)))}
+.nav{position:fixed;z-index:30;left:50%;transform:translateX(-50%);top:0;display:flex;gap:max(18px,calc(44px*var(--k)));padding:0 max(14px,calc(22px*var(--k)));height:max(30px,calc(34px*var(--k)));align-items:center;border:1px solid rgba(17,16,18,.16);border-top:0;border-radius:0 0 8px 8px;background:rgba(240,241,242,.55);backdrop-filter:blur(8px)}
+.nav a{font-family:"JetBrains Mono";font-weight:500;font-size:max(11px,calc(10px*var(--k)));letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:7px 0}
+.nav a:hover{color:var(--acc)}
+.bag{position:fixed;z-index:30;right:max(16px,calc(38px*var(--k)));top:max(14px,calc(22px*var(--k)));height:max(30px,calc(34px*var(--k)));padding:0 12px;background:var(--panel);color:var(--cr);border:0;cursor:pointer;font-family:"JetBrains Mono";font-size:max(11px,calc(10px*var(--k)));letter-spacing:.12em;clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px))}
+.bag b{color:var(--leaf)}
+.card{position:absolute;z-index:6;right:max(16px,calc(42px*var(--k)));bottom:max(16px,calc(67px*var(--k)));width:max(250px,calc(435px*var(--k)));max-width:calc(100vw - 32px);padding:max(14px,calc(31px*var(--k))) max(14px,calc(24px*var(--k))) max(16px,calc(40px*var(--k))) max(16px,calc(37px*var(--k)));background:rgba(236,238,240,.5);backdrop-filter:blur(16px) saturate(120%);border:1px solid rgba(255,255,255,.85);clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)}
+.card .eb{font-family:"JetBrains Mono";font-weight:500;font-size:max(11px,calc(10.5px*var(--k)));letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin:0 0 max(8px,calc(10px*var(--k)))}
+.card .cp{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:max(10px,calc(14px*var(--k))) 0 0;font-family:"JetBrains Mono";font-size:max(12px,calc(13px*var(--k)))}
+.card .cp button{border:0;background:var(--ink);color:var(--cr);font-family:"JetBrains Mono";font-size:max(11px,calc(11px*var(--k)));letter-spacing:.1em;text-transform:uppercase;padding:max(8px,calc(10px*var(--k))) max(12px,calc(14px*var(--k)));cursor:pointer}
+.card .cp button:hover{background:var(--acc)}
+.card .ticks{display:flex;gap:4px;margin-top:max(10px,calc(14px*var(--k)))}.card .ticks i{flex:1;height:3px;background:rgba(17,16,18,.15);transition:background .3s}.card .ticks i.on{background:var(--acc)}
+#ch1{transition:opacity .25s,transform .25s}#ch1.sw{opacity:0;transform:translateY(8px)}
+.card h1{font-weight:600;font-size:max(17px,calc(33px*var(--k)));line-height:1.09;letter-spacing:-.025em;margin:0}
+.card .ch{position:absolute;right:16px;top:14px;width:max(16px,calc(24px*var(--k)))}
+.hint{position:absolute;z-index:6;left:max(16px,calc(40px*var(--k)));bottom:max(16px,calc(55px*var(--k)));width:max-content;min-width:min(calc(100vw - 32px),calc(418px*var(--k)));background:var(--panel);color:#E9EAEC;padding:max(10px,calc(20px*var(--k))) max(14px,calc(20px*var(--k))) max(10px,calc(20px*var(--k))) max(34px,calc(56px*var(--k)));clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);font-family:"JetBrains Mono";font-weight:500;font-size:max(11px,calc(10.5px*var(--k)));line-height:1.7;letter-spacing:.1em;text-transform:uppercase}
+.hint::before{content:"";position:absolute;left:max(10px,calc(18px*var(--k)));top:8px;bottom:8px;width:max(8px,calc(12px*var(--k)));background:repeating-linear-gradient(-45deg,#E9EAEC 0 2px,transparent 2px 5px)}
+.hint span{display:block;white-space:nowrap}
+#tip{position:fixed;z-index:60;pointer-events:none;opacity:0;transition:opacity .16s;font-family:"JetBrains Mono";font-size:11px}
+#tip.on{opacity:1}#tip b{display:inline-block;background:var(--acc);color:#fff;padding:5px 8px;font-weight:700;letter-spacing:.06em}#tip span{display:block;background:var(--panel);color:#ddd;padding:5px 8px;letter-spacing:.08em}#tip span i{font-style:normal;color:var(--leaf)}
+#spec{position:fixed;z-index:61;width:260px;background:var(--panel);color:#E9EAEC;padding:16px 18px;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);opacity:0;transform:translateY(6px);transition:opacity .2s,transform .3s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+#spec.on{opacity:1;transform:none;pointer-events:auto}
+#spec h4{margin:0 0 10px;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.12em;display:flex;align-items:center;gap:8px}#spec h4::before{content:"";width:8px;height:8px;background:var(--leaf)}
+#spec p{margin:0;padding:8px 0;border-top:1px solid rgba(255,255,255,.12);font-family:"JetBrains Mono";font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+#spec .x{position:absolute;right:8px;top:8px;width:28px;height:28px;border:0;background:none;color:#fff;cursor:pointer;font-size:16px}
+#ld{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;pointer-events:none}
+#ld i{flex:1;background:#09090A}
+#ld .w{position:absolute;inset:0;display:grid;place-items:center;font-family:Silkscreen,monospace;font-size:clamp(34px,6vw,72px);color:var(--leaf);letter-spacing:.06em}
+#ld .w span{display:inline-block;opacity:0;animation:fl .2s steps(4) forwards}
+@keyframes fl{0%{opacity:0}30%{opacity:1}50%{opacity:.2}100%{opacity:1}}
+#ld .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--leaf);transform-origin:0 50%;transform:scaleX(0)}
+html.js-anim .rv{opacity:0}html.done .rv{opacity:1}
+/* ===== suite de la page ===== */
+.sec{position:relative;padding:clamp(90px,14vh,150px) clamp(16px,4vw,60px)}
+.dark{background:#0f1110;color:var(--cr)}
+.eye{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf);margin:0 0 16px}
+.big{font-family:Archivo;font-stretch:125%;font-weight:900;font-size:clamp(40px,6vw,110px);line-height:.9;letter-spacing:-.02em;margin:0;text-transform:uppercase}
+.goth{font-family:UnifrakturCook,serif;font-weight:700;text-transform:none;letter-spacing:0}
+/* vitrine 3D */
+#vit{overflow:hidden}
+.ring{position:relative;height:min(78vh,720px);perspective:2200px;margin-top:30px;touch-action:pan-y;cursor:grab}
+.ring:active{cursor:grabbing}
+.rg{position:absolute;left:50%;top:50%;transform-style:preserve-3d}
+.pc{position:absolute;width:clamp(200px,22vw,330px);left:calc(clamp(200px,22vw,330px)/-2);top:calc(clamp(200px,22vw,330px)*-0.68);border:0;padding:0;background:none;cursor:pointer;color:inherit;text-align:left;backface-visibility:hidden}
+.pc{display:block}.pc .ph{display:block;position:relative;aspect-ratio:4/5;overflow:hidden;background:#E4E7E3;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.pc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.pc:hover .ph img{transform:scale(1.06)}
+.pc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.18) 50%,transparent 60%);transform:translateX(-100%);transition:transform 1s}
+.pc:hover .ph::after{transform:translateX(100%)}
+.pc .mt{display:flex;justify-content:space-between;gap:10px;padding:12px 2px 0;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.pc .mt b{font-weight:700}
+.pc .n{position:absolute;left:10px;top:10px;background:var(--acc);color:#fff;font-family:"JetBrains Mono";font-size:10px;padding:4px 6px;z-index:2}
+.ped{position:absolute;left:50%;bottom:2%;width:70%;height:16%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(143,179,157,.35),transparent);pointer-events:none}
+.rhint{text-align:center;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888}
+/* fiche */
+#sheet{border:0;padding:0;max-width:min(980px,94vw);width:100%;background:#0f1110;color:var(--cr)}
+#sheet::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(8px)}
+#sheet .in{display:grid;grid-template-columns:1fr 1fr;max-height:90vh;overflow:auto}
+#sheet .im{position:relative;background:#E4E7E3;perspective:900px;display:grid;place-items:center;padding:20px}
+#sheet .im img{width:100%;height:auto;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .2s;box-shadow:none}
+#sheet .tx{padding:34px;display:grid;gap:14px;align-content:start}
+#sheet h3{font-family:Archivo;font-stretch:125%;font-weight:900;font-size:34px;margin:0;line-height:.95;text-transform:uppercase}
+#sheet .pr{font-size:22px}
+.szs{display:flex;gap:6px;flex-wrap:wrap}
+.szs button{min-width:46px;height:40px;border:1px solid #3a3d3b;background:none;cursor:pointer;font-family:"JetBrains Mono";font-size:12px}
+.szs button[aria-pressed=true]{background:var(--cr);color:#111}
+.addb{height:52px;border:0;background:var(--acc);color:#fff;font-family:"JetBrains Mono";font-weight:700;letter-spacing:.12em;cursor:pointer;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+#sheet .x{position:absolute;right:12px;top:12px;width:40px;height:40px;border:0;background:var(--cr);color:#111;cursor:pointer;font-size:18px;z-index:2}
+#sheet .msg{font-family:"JetBrains Mono";font-size:11px;color:var(--leaf);min-height:16px;margin:0}
+/* زهر */
+#zahr{display:grid;grid-template-columns:1.1fr 1fr;gap:5vw;align-items:center;overflow:hidden}
+.cal{font-family:"Aref Ruqaa",serif;font-weight:700;font-size:clamp(140px,22vw,360px);line-height:.9;margin:0;background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6));transform:perspective(900px) rotateY(var(--cy,-10deg)) rotateX(var(--cx,6deg));transition:transform .3s}
+.mean{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin-top:30px;font-size:16px;color:#bfc6c1}
+.mean b{font-family:"JetBrains Mono";color:var(--cr);font-size:12px;letter-spacing:.12em;padding-top:4px}
+.pend{perspective:1000px;display:grid;place-items:center}
+.pend img{width:min(460px,90%);border-radius:4px;transform:rotateY(var(--py,0deg)) rotateX(var(--px,0deg));transition:transform .25s;box-shadow:0 50px 80px -30px #000}
+/* lookbook */
+#look{overflow:hidden}.lk{position:relative;height:min(120vh,1100px);margin-top:40px;perspective:1200px}.lk figure{position:absolute;margin:0;box-shadow:0 50px 80px -30px #000;will-change:transform}.lk img{width:100%;display:block}.l1{left:4%;top:0;width:38%;transform:rotate(-3deg)}.l2{right:6%;top:12%;width:34%;transform:rotate(4deg)}.l3{left:34%;top:42%;width:30%;transform:rotate(-1deg);z-index:2}
+#look .bg{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform}
+#look .ov{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.75))}
+#look .tx{position:absolute;left:clamp(16px,4vw,60px);bottom:12vh;color:var(--cr);max-width:640px}
+#look .big{font-size:clamp(46px,7vw,130px)}
+/* drop */
+#drop .g{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.tkt{perspective:1000px}
+.tk{background:#111012;color:var(--cr);padding:26px;transform:rotateX(18deg) rotateZ(-3deg);transition:transform .9s cubic-bezier(.2,.8,.2,1);clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);display:grid;gap:8px}
+.tk.go{transform:none}
+.tk .ar{font-family:"Aref Ruqaa";font-size:64px;line-height:1;color:var(--leaf)}
+.tk b{font-family:Archivo;font-stretch:125%;font-weight:900;font-size:28px}
+.fm{display:grid;gap:10px;margin-top:26px}
+.fm input[type=email],.fm input[type=text]{height:50px;border:1px solid rgba(17,16,18,.2);background:#fff;padding:0 14px}
+.fm .cons{display:flex;gap:10px;font-size:13px;align-items:flex-start;line-height:1.45}
+.fm .cons input{margin-top:3px;accent-color:var(--acc)}
+.fm button[type=submit]{height:52px;border:0;background:var(--ink);color:#fff;font-family:"JetBrains Mono";font-weight:700;letter-spacing:.14em;cursor:pointer}
+.fm .msg{margin:0;min-height:20px;font-family:"JetBrains Mono";font-size:12px;color:var(--acc)}
+.foot{background:#0f1110;color:#9aa;padding:30px clamp(16px,4vw,60px) 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end}
+.mega{background:#0f1110;padding:40px clamp(16px,4vw,60px) 0;overflow:hidden}
+.mega .w{display:flex;align-items:flex-end;gap:3vw;color:var(--cr)}
+.mega .w svg{width:68%;height:auto}
+.mega .w span{font-family:"Aref Ruqaa";font-weight:700;font-size:16vw;line-height:.8;background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (max-width:820px){.nav{display:none}#zahr,#drop .g{grid-template-columns:1fr}#sheet .in{grid-template-columns:1fr}.card{bottom:max(16px,calc(67px*var(--k)))}}
+@media (max-width:640px){#tags,.brk{display:none}.hint span{white-space:normal}}
+@media (prefers-reduced-motion:reduce){#ld{display:none}html.js-anim .rv{opacity:1}*{transition-duration:.01s!important}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#111012;font-family:Sora,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#111012;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#111012;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:Sora,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #111012}
+.zl-ck .b button.y{background:#111012;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:Sora,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+</style>
+</head>
+<body class="lock">
+<div id="ld" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><div class="w"><span style="animation-delay:40ms">Z</span><span style="animation-delay:110ms">A</span><span style="animation-delay:180ms">H</span><span style="animation-delay:250ms">R</span></div><div class="bar" id="ldbar"></div></div>
+<a class="logo rv" href="#top" aria-label="ZAHR, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR</a>
+<nav class="nav rv" aria-label="Navigation"><a href="#vit">Collection</a><a href="#zahr">زهر</a><a href="#look">Lookbook</a><a href="#drop">Le drop</a></nav>
+<button class="bag rv" type="button" id="bag" aria-label="Panier">PANIER <b id="bagn">0</b></button>
+<div id="tip" aria-hidden="true"><b id="tipn"></b><span>Cliquer pour voir <i>[FICHE]</i></span></div>
+<div id="spec" role="dialog" aria-labelledby="spech"><button class="x" type="button" id="specx" aria-label="Fermer">×</button><h4 id="spech"></h4><div id="specb"></div></div>
+<main>
+<div id="pin"><section id="stage" aria-label="ZAHR, collection Chance 01 : le mannequin change de pièce quand vous défilez"><a id="top"></a>
+  <div id="frame">
+    <div class="tex" id="tex"></div>
+    <svg class="chev rv" id="chevTR" viewBox="0 0 1440 900" aria-hidden="true"><polygon points="560,-400 723,-400 1515,195 1352,195"/></svg>
+    <svg class="chev rv" id="chevL" viewBox="0 0 1440 900" aria-hidden="true"><polygon points="-54,462 101,462 281,642 281,660 -60,926 -60,792 134,636"/></svg>
+    <div id="wm" aria-hidden="true"><span class="band" style="visibility:hidden">ZAHR</span><span class="g g1 rv"></span><span class="g g2 rv"><span class="ar">زهر</span></span></div>
+    <div id="model"><img id="mimg" src="img/zahr-hero-base.webp" alt="Mannequin ZAHR en t-shirt et pantalon noirs ; au survol il révèle la pièce de la collection" width="1536" height="1024"><canvas id="cv"></canvas></div>
+    <svg id="deco" class="rv" viewBox="0 0 1440 900" aria-hidden="true"><g style="transform:translateX(var(--tagx,0px))"><path d="M403 411 H447 L527 448" stroke-opacity=".75"/><path d="M430 465 H462 L498 486" stroke-opacity=".75"/></g><path d="M282 626 L462 497" stroke-opacity=".55"/><g stroke-width="1.2" stroke-opacity=".8"><circle cx="265" cy="83" r="7"/><path d="M252 83h26M265 70v26"/><circle cx="980" cy="433" r="7"/><path d="M967 433h26M980 420v26"/><circle cx="1188" cy="578" r="7"/><path d="M1175 578h26M1188 565v26"/></g></svg>
+    <div id="tags"><span class="tag cut rv" id="tg1" style="left:288px;top:401px">ZHR 01 / TRUCKER</span><span class="tag cut rv" id="tg2" style="left:262px;top:455px">SURVOLEZ POUR RÉVÉLER</span><span class="brk tl rv" style="left:281px;top:393px"></span><span class="brk tl rv" style="left:255px;top:447px"></span><span class="brk br rv" style="left:396px;top:419px"></span><span class="brk br rv" style="left:423px;top:473px"></span></div>
+  </div>
+  <div class="card rv" id="card" aria-live="polite"><p class="eb" id="ceb">Collection Chance 01 · 01 / 06</p><h1 id="ch1">Trucker زهر</h1><p class="cp"><span id="cpr">65 €</span><button type="button" id="cgo">Voir la pièce →</button></p><div class="ticks" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><svg class="ch" viewBox="0 0 24 24" fill="none" stroke="#4D4A4E"><circle cx="12" cy="12" r="5"/><path d="M0 12h24M12 0v24"/></svg></div>
+  <div class="hint rv" id="hint"><span>Survolez le mannequin : il porte la pièce</span><span>Défilez ↓ pièce suivante</span></div>
+</section></div>
+
+<section class="sec dark" id="vit" aria-labelledby="h-vit">
+  <p class="eye">Collection Chance 01 · 10 pièces</p>
+  <h2 class="big" id="h-vit">La <span class="goth">vitrine</span></h2>
+  <div class="ring" id="ring"><div class="ped"></div><div class="rg" id="rg"></div></div>
+  <p class="rhint">Faites tourner · touchez une pièce pour la fiche</p>
+</section>
+
+<section class="sec dark" id="zahr" aria-labelledby="h-zahr">
+  <div><p class="eye">Le nom</p><h2 class="cal" id="h-zahr" lang="ar" aria-label="Zahr, en arabe">زهر</h2>
+    <div class="mean"><b>ZAHR</b><span>« fleur » en arabe : le trèfle à quatre pétales de notre logo.</span><b>ZHAR</b><span>« la chance » en darija : celle qu’on porte sur soi.</span><b>CHANCE 01</b><span>La première collection, brodée, délavée, pensée pour durer.</span></div></div>
+  <div class="pend" id="pend"><img src="img/zahr-m-noir-dos.jpg" alt="Dos du maillot noir ZAHR : زهر en lettres arabes et le numéro 4" loading="lazy"></div>
+</section>
+
+<section class="sec dark" id="look" aria-labelledby="h-look"><p class="eye">Lookbook</p><h2 class="big" id="h-look">La nuit <span class="goth">porte chance</span></h2>
+  <div class="lk"><figure class="l1"><img src="img/zahr-z-samourai.jpg" alt="Veste Samouraï portée, la nuit" loading="lazy"></figure><figure class="l2"><img src="img/zahr-z-nylon2.jpg" alt="Ensemble Nuit porté dans une ruelle" loading="lazy"></figure><figure class="l3"><img src="img/zahr-z-racing.jpg" alt="Veste Racing sur cintre" loading="lazy"></figure></div>
+  <p style="font-size:16px;color:#bfc6c1;max-width:44ch;margin-top:30px">Brodée, pas imprimée. Pensée pour durer plus d’une saison.</p></section>
+
+<section class="sec" id="drop" aria-labelledby="h-drop">
+  <div class="g">
+    <div><p class="eye" style="color:var(--acc)">Le drop</p><h2 class="big" id="h-drop">Accès <span class="goth">anticipé</span></h2><p style="max-width:44ch;color:#4D4A4E">Les pièces ZAHR sortent en petites séries. Inscrivez-vous pour recevoir l’heure du prochain drop, une seule fois, sans spam.</p>
+      <form class="fm" id="fm" novalidate><input type="text" id="fn" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name"><input type="email" id="fe" placeholder="Votre e-mail" aria-label="Votre e-mail" autocomplete="email">
+      <label class="cons"><input type="checkbox" id="fk"><span>J’accepte de recevoir l’annonce du drop par e-mail. Lien de désinscription dans chaque message. <button type="button" data-open="zl-conf" style="all:unset;text-decoration:underline;cursor:pointer">Confidentialité</button></span></label>
+      <button type="submit">REJOINDRE LA LISTE</button><p class="msg" id="fmm" role="status" aria-live="polite"></p></form></div>
+    <div class="tkt" aria-hidden="true"><div class="tk" id="tk"><span class="mono" style="font-size:10px;color:#8FB39D">Accès anticipé · Chance 01</span><span class="ar">زهر</span><b id="tkn">VOTRE NOM</b><span class="mono" style="font-size:10px;color:#999" id="tkb">Panier : 0 pièce</span></div></div>
+  </div>
+</section>
+<section class="sec" style="padding-top:0" aria-label="Showroom"><div class="zl-map" data-q="Toulon, France"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>Showroom ZAHR</b><span>Toulon (adresse fictive) · sur rendez-vous, les jours de drop</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Toulon, France" target="_blank" rel="noopener">Itinéraire</a></div></div></div></section>
+<div class="mega" aria-hidden="true"><div class="w"><svg class="" viewBox="0 0 727 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/><path fill="#F3F4EF" transform="translate(288.17 178) scale(0.067114)" d="M57 0H1214V-195H323C378 -259 431 -324 482 -389L1206 -1309V-1490H85V-1295H941C891 -1236 842 -1177 796 -1118L57 -181Z M1572.72 0H1808.72L1944.72 -387H2545.72L2677.72 0H2918.72L2381.72 -1490H2113.72ZM2011.72 -576 2104.72 -840C2145.72 -963 2188.72 -1094 2248.72 -1287C2307.72 -1094 2349.72 -963 2390.72 -840L2480.72 -576Z M3358.44 0H3580.44V-665H4321.44V0H4543.44V-1490H4321.44V-859H3580.44V-1490H3358.44Z M5102.16 0H5324.16V-564H5654.16C5657.16 -564 5661.16 -564 5664.16 -564L5961.16 0H6211.16L5889.16 -601C6075.16 -668 6188.16 -818 6188.16 -1026C6188.16 -1311 5988.16 -1490 5669.16 -1490H5102.16ZM5324.16 -753V-1298H5659.16C5851.16 -1298 5969.16 -1194 5969.16 -1026C5969.16 -858 5852.16 -753 5660.16 -753Z"/></svg><span>زهر</span></div></div>
+</main>
+<div class="foot"><span class="mono" style="font-size:11px">ZAHR · streetwear de luxe · Var · © 2026</span><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div>
+<dialog id="sheet" aria-labelledby="shn"><button class="x" type="button" id="shx" aria-label="Fermer">×</button><div class="in"><div class="im" id="shim"><img id="shi" alt=""><button type="button" id="shflip" class="mono" hidden style="position:absolute;left:16px;bottom:16px;background:#F3F4EF;color:#111;border:0;padding:8px 12px;cursor:pointer;font-size:11px">Voir le dos</button></div><div class="tx"><p class="eye" id="shk"></p><h3 id="shn"></h3><span class="pr" id="shp"></span><p id="shd" style="color:#bfc6c1;margin:0;line-height:1.55"></p><span class="mono" style="font-size:11px;color:#888">Taille</span><div class="szs" id="shs"></div><button class="addb" type="button" id="sha">AJOUTER AU PANIER</button><p class="msg" id="shm" role="status" aria-live="polite"></p><p class="mono" style="font-size:10px;color:#777;margin:0">Démo : aucune vente, aucun paiement. Visuels générés par IA.</p></div></div></dialog>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License). Les photos des vêtements ZAHR sont des visuels générés par intelligence artificielle pour la démonstration.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const PROD=[{"k": "z-samourai", "n": "Veste Samouraï", "pr": 590, "alt": "Veste de travail noire avec une grande broderie de samouraïs combattant dans un champ de trèfles, bannières au trèfle ZAHR", "d": "Sergé de coton noir épais, zip argent, boutons de nacre. Toute la moitié basse est brodée : samouraïs, château aux toits rouges, bannières au blason trèfle ZAHR."}, {"k": "z-racing", "n": "Veste Racing", "pr": 380, "alt": "Veste de course blanche à capuche avec panneau vert sauge ZAHR et écussons ZAHR, زهر, ZAHR RACING", "d": "Nylon technique blanc, grand panneau sauge « ZAHR » en script rétro, écussons brodés trèfle, زهر et ZAHR Racing, ZAHR en relief sur les manches."}, {"k": "z-maille", "n": "Gilet Maille", "pr": 260, "alt": "Gilet zippé en grosse maille gris perle avec badge trèfle ZAHR sur la manche", "d": "Grosse maille côtelée gris perle, col montant, double curseur argent, badge trèfle amovible sur la manche."}, {"k": "z-doudoune", "n": "Doudoune Trèfle", "pr": 520, "alt": "Doudoune à capuche en ripstop vert sauge matelassé en carrés, badge rond trèfle ZAHR sur la manche", "d": "Ripstop brillant vert sauge, matelassage en grands carrés, bordures vert encre, badge rond trèfle ZAHR sur la poche de manche."}, {"k": "z-nylon2", "n": "Ensemble Nuit", "pr": 420, "alt": "Ensemble noir ajusté, veste coupe-vent cintrée et cargo slim, badge trèfle ZAHR sur le bras", "d": "Veste coupe-vent cintrée en nylon technique noir et cargo slim assorti, badges trèfle amovibles sur le bras et la poche. Vendu en ensemble."}, {"k": "survet", "n": "Survêtement 90", "pr": 240, "alt": "Survêtement en nylon, veste blanche à empiècements noirs et pantalon noir, blason trèfle ZAHR", "d": "Veste en nylon blanc à empiècements noirs, pantalon ample noir à chevilles zippées, blason trèfle ZAHR brodé. Vendu en ensemble."}, {"k": "m-noir", "b": "m-noir-dos", "n": "Maillot Noir 4", "pr": 95, "alt": "Maillot de foot noir à col polo crème avec Zahr en grand script", "d": "Col polo crème, épaules crème, « Zahr » au pinceau devant. Au dos : زهر en lettres arabes et le numéro 4, comme les quatre pétales du trèfle."}, {"k": "m-polo2", "n": "Maillot Polo Blanc", "pr": 95, "alt": "Maillot de foot à col polo blanc, jacquard de trèfles-flammes, blason trèfle ZAHR", "d": "Jacquard ton sur ton de trèfles en flammes, col et poignets sauge et or, blason trèfle brodé."}, {"k": "z-casquette", "n": "Trucker زهر", "pr": 65, "alt": "Casquette trucker blanche et noire avec écusson gothique ZAHR et زهر, bouton trèfle argent", "d": "Devant en mousse, filet noir, écusson noir brodé argent « ZAHR » et زهر, bouton trèfle en argent massif.", "sz": ["Taille unique"]}, {"k": "l-jogging", "n": "Jogging Sauge", "pr": 140, "alt": "Pantalon de survêtement vert sauge délavé avec bande latérale de trèfles brodés", "d": "Molleton délavé vert sauge, bande latérale de trèfles brodés, zip de cheville argent."}];const IMG='img/zahr-';
+/* ---------- échelle ---------- */
+const stage=$('#stage'),frame=$('#frame');let S=1,FX=0,FY=0,K=1,tier='L';
+function scale(){const vw=stage.clientWidth,vh=stage.clientHeight,ar=vw/vh;const r=document.documentElement.style;
+ if(ar>=1.05&&vh>=560){tier='L';S=vw/1440;FX=0;FY=ar>1.6?0:vh-900*S;K=Math.min(vw/1440,vh/900)}
+ else if(ar>=1.05){tier='S';S=vh/900;FX=.64*vw-700*S;FY=0;K=S}
+ else{tier='P';K=Math.min(1,vw/900);const st=64+ (($('#card').offsetHeight||150))+10+(($('#hint').offsetHeight||60))+12;S=Math.min(vw/420,(vh-st)/780,vw/900*1.9);FX=vw/2-705*S;FY=vh-900*S}
+ r.setProperty('--k',K);frame.style.setProperty('--s',S);frame.style.setProperty('--fx',FX+'px');frame.style.setProperty('--fy',FY+'px');stage.style.setProperty('--s',S);
+ const wm=$('#wm');if(tier!=='L'){const left=tier==='S'?Math.max(0,(($('#card').getBoundingClientRect().right||0)-FX)/S):(-FX/S);const right=(vw-FX)/S;const avail=right-left-40/S;const f=326*Math.min(1,avail/1280);wm.style.fontSize=f+'px';wm.style.left=(left+20/S+(avail-f*3.93)/2-.0755*f)+'px';wm.style.top=(131-.107*f)+'px'}else{wm.style.fontSize='';wm.style.left='';wm.style.top=''}
+ if(tier==='P'){const c=$('#card'),h=$('#hint');c.style.cssText+=';top:64px;bottom:auto;right:16px;left:16px;width:auto';h.style.cssText+=';top:'+(64+c.offsetHeight+10)+'px;bottom:auto'}
+ if(glr)glr.resize()}
+/* ---------- texture courbes de niveau ---------- */
+(function(){const W=1440,H=900,G=12;function hash(x,y){const s=Math.sin(x*127.1+y*311.7)*43758.5453;return s-Math.floor(s)}function vn(x,y){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;const u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf);const a=hash(xi,yi),b=hash(xi+1,yi),c=hash(xi,yi+1),d=hash(xi+1,yi+1);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v}
+ const f=(x,y)=>vn(x/260,y/260)*.65+vn(x/120+9,y/120+3)*.25+vn(x/55+5,y/55+7)*.1;const nx=W/G+1,ny=H/G+1;const v=[];for(let j=0;j<ny;j++){v[j]=[];for(let i=0;i<nx;i++)v[j][i]=f(i*G,j*G)}
+ const groups=[[],[],[],[]];for(let L=.3;L<=.8;L+=.03){for(let j=0;j<ny-1;j++)for(let i=0;i<nx-1;i++){const a=v[j][i],b=v[j][i+1],c=v[j+1][i+1],d=v[j+1][i];const x=i*G,y=j*G;const pts=[];const e=(p,q,P,Q)=>{if((p<L)!==(q<L)){const t=(L-p)/(q-p);pts.push([P[0]+(Q[0]-P[0])*t,P[1]+(Q[1]-P[1])*t])}};e(a,b,[x,y],[x+G,y]);e(b,c,[x+G,y],[x+G,y+G]);e(c,d,[x+G,y+G],[x,y+G]);e(d,a,[x,y+G],[x,y]);if(pts.length>=2){const mx=(pts[0][0]+pts[1][0])/2,my=(pts[0][1]+pts[1][1])/2;const dx=Math.abs(mx/W-.5)*2,dy=Math.abs(my/H-.5)*2;const w=Math.max(0,Math.min(1,(Math.max(dx*1.05,dy*.6)-.35)/.5));if(w>.05)groups[Math.min(3,Math.floor(w*4))].push(`M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}L${pts[1][0].toFixed(1)} ${pts[1][1].toFixed(1)}`)}}}
+ const op=[.18,.36,.55,.75];const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">${groups.map((g,i)=>`<path d="${g.join('')}" stroke="#9AA0A6" stroke-opacity="${op[i]}" stroke-linecap="round" fill="none"/>`).join('')}</svg>`;$('#tex').style.backgroundImage=`url("data:image/svg+xml;base64,${btoa(svg)}")`})();
+/* ---------- WebGL : démasquer ---------- */
+let glr=null;const TW=360,TH=240;const trail=document.createElement('canvas');trail.width=TW;trail.height=TH;const tx=trail.getContext('2d');tx.fillStyle='#000';tx.fillRect(0,0,TW,TH);
+function loadImg(u){return new Promise((res,rej)=>{const i=new Image();if(/^https?:/.test(u))i.crossOrigin='anonymous';i.onload=()=>res(i);i.onerror=rej;i.src=u})}
+function initGL(A,Bi){const cv=$('#cv');const gl=cv.getContext('webgl',{premultipliedAlpha:true,alpha:true});if(!gl)return null;
+ const vs=`attribute vec2 p;varying vec2 uv;void main(){uv=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0,1);}`;
+ const fs=`precision mediump float;varying vec2 uv;uniform sampler2D A,B,T;uniform float t;uniform vec2 px;
+ float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float vn(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}
+ float tr(vec2 q){return texture2D(T,q).r;}
+ void main(){vec4 a=texture2D(A,uv),b=texture2D(B,uv);float nz=vn(uv*vec2(14.,9.3)+t*vec2(.35,-.2))*.55+vn(uv*vec2(34.,22.)-t*.5)*.45;float r=tr(uv)+(nz-.5)*.16;float m=smoothstep(.40,.47,r);vec4 c=mix(a,b,m);
+ float gx=tr(uv+vec2(px.x,0.))-tr(uv-vec2(px.x,0.)),gy=tr(uv+vec2(0.,px.y))-tr(uv-vec2(0.,px.y));float edge=smoothstep(.012,.07,length(vec2(gx,gy)));float glow=edge*(1.-smoothstep(0.,.2,abs(r-.43)));float line=edge*smoothstep(.405,.43,r)*(1.-smoothstep(.43,.455,r));
+ vec3 acc=vec3(.56,.70,.62);float al=c.a;vec3 rgb=al>0.?c.rgb/al:vec3(0.);rgb=mix(rgb,acc,glow*.78);rgb=mix(rgb,vec3(.95,.97,.95),line*.9);rgb+=acc*glow*glow*.25;gl_FragColor=vec4(rgb*al,al);}`;
+ const sh=(ty,src)=>{const s=gl.createShader(ty);gl.shaderSource(s,src);gl.compileShader(s);return s};const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return null;gl.useProgram(pr);
+ const bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+ gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);
+ const tex=(img,u)=>{const t=gl.createTexture();gl.activeTexture(gl.TEXTURE0+u);gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);return t};
+ tex(A,0);const tB=tex(Bi,1);const tt=tex(trail,2);gl.uniform1i(gl.getUniformLocation(pr,'A'),0);gl.uniform1i(gl.getUniformLocation(pr,'B'),1);gl.uniform1i(gl.getUniformLocation(pr,'T'),2);
+ const uT=gl.getUniformLocation(pr,'t'),uP=gl.getUniformLocation(pr,'px');gl.uniform2f(uP,1.6/TW,1.6/TH);gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+ const R={setB(img){gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,tB);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img)},resize(){const dpr=Math.min(2,devicePixelRatio||1);const w=Math.min(2048,1500*S*dpr);cv.width=w;cv.height=w*1000/1500;gl.viewport(0,0,cv.width,cv.height);R.draw(0)},draw(t){gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_2D,tt);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,trail);gl.uniform1f(uT,t);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4)}};
+ $('#model').classList.add('gl');R.resize();return R}
+/* repli si WebGL refuse l'image (ouverture locale file://) : masque CSS */
+function fallbackFX(A,Bi){const m=$('#model');const ib=document.createElement('img');ib.id='mimgB';ib.alt='';ib.src=Bi.src;ib.style.cssText='-webkit-mask-size:100% 100%;mask-size:100% 100%';m.appendChild(ib);const mc=document.createElement('canvas');mc.width=TW;mc.height=TH;const mx=mc.getContext('2d');
+ return{fb:true,setB(img){ib.src=img.src},resize(){},draw(){const d=tx.getImageData(0,0,TW,TH),o=mx.createImageData(TW,TH);for(let q=0;q<d.data.length;q+=4){o.data[q]=o.data[q+1]=o.data[q+2]=255;o.data[q+3]=d.data[q]>150?255:d.data[q]*1.7}mx.putImageData(o,0,0);const u='url('+mc.toDataURL()+')';ib.style.webkitMaskImage=u;ib.style.maskImage=u}}}
+let energy=0,running=false,lastT=performance.now(),prev=null;
+function toFrame(e){const r=stage.getBoundingClientRect();return[(e.clientX-r.left-FX)/S,(e.clientY-r.top-FY)/S]}
+function stamp(x,y){const t=[(x+30)/1500*TW,(y-50)/1000*TH];if(prev){const d=Math.hypot(t[0]-prev[0],t[1]-prev[1]);if(d>70){prev=t;return}const r=24+10*Math.min(1,d/18),st=r*.25;const n=Math.max(1,Math.ceil(d/st));tx.globalCompositeOperation='lighter';for(let k=1;k<=n;k++){const px=prev[0]+(t[0]-prev[0])*k/n,py=prev[1]+(t[1]-prev[1])*k/n;const g=tx.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,'rgba(255,255,255,.9)');g.addColorStop(.6,'rgba(255,255,255,.55)');g.addColorStop(1,'rgba(255,255,255,0)');tx.fillStyle=g;tx.beginPath();tx.arc(px,py,r,0,7);tx.fill()}tx.globalCompositeOperation='source-over'}prev=t;energy=1;if(!running){running=true;lastT=performance.now();requestAnimationFrame(tick)}}
+function tick(n){const dt=n-lastT;lastT=n;if(bl){const p=Math.max(0,Math.min(1,(n-bl.t0)/bl.d));const r=p*Math.max(TW,TH)*.9;const g=tx.createRadialGradient(bl.x,bl.y,0,bl.x,bl.y,r+1);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.85,'rgba(255,255,255,.9)');g.addColorStop(1,'rgba(255,255,255,0)');tx.fillStyle=g;tx.fillRect(0,0,TW,TH);energy=1;if(p>=1){bl.hold-=dt;if(bl.hold<=0)bl=null}}
+ if(!HOLD&&!bl){tx.fillStyle=`rgba(0,0,0,${1-Math.pow(.05,dt/850)})`;tx.fillRect(0,0,TW,TH);energy*=Math.pow(.05,dt/900)}else if(HOLD&&!bl)energy=0;if(glr)glr.draw(n/1000);if(energy>.004||bl)requestAnimationFrame(tick);else{running=false;if(!HOLD){tx.fillStyle='#000';tx.fillRect(0,0,TW,TH)}if(glr)glr.draw(n/1000)}}
+const HOLD=matchMedia('(hover: none)').matches;let bl=null;
+function bloom(hold){tx.fillStyle='#000';tx.fillRect(0,0,TW,TH);bl={x:TW/2,y:TH*.32,t0:performance.now(),d:reduce?1:720,hold:hold};if(!running){running=true;lastT=performance.now();requestAnimationFrame(tick)}}
+/* ---------- pièces : le mannequin change au défilement ---------- */
+const STEPS=[['casquette','z-casquette','ZHR 01 / TRUCKER'],['racing','z-racing','ZHR 02 / RACING'],['samourai','z-samourai','ZHR 03 / SAMOURAÏ'],['doudoune','z-doudoune','ZHR 04 / DOUDOUNE'],['nuit','z-nylon2','ZHR 05 / ENSEMBLE NUIT'],['maillot','m-noir','ZHR 06 / MAILLOT 4']].map(a=>({h:a[0],i:PROD.findIndex(p=>p.k===a[1]),tag:a[2],img:null}));
+let step=0;const amask=document.createElement('canvas');amask.width=150;amask.height=100;const amx=amask.getContext('2d',{willReadFrequently:true});
+function onMan(p){if(!glr||glr.fb){const u=(p[0]+30)/1500,v=(p[1]-50)/1000;return u>.37&&u<.63&&v>.02&&v<1}try{const u=(p[0]+30)/1500,v=(p[1]-50)/1000;if(u<0||u>1||v<0||v>1)return false;return amx.getImageData(Math.floor(u*150),Math.floor(v*100),1,1).data[3]>100}catch(e){return true}}
+const hit=p=>onMan(p)?{n:PROD[STEPS[step].i].n}:null;
+function setStep(k,first){if(k===step&&!first)return;step=k;const st=STEPS[k],p=PROD[st.i];const h=$('#ch1');h.classList.add('sw');setTimeout(()=>{h.textContent=p.n;$('#cpr').textContent=p.pr+' €';$('#ceb').textContent='Collection Chance 01 · '+String(k+1).padStart(2,'0')+' / '+STEPS.length;h.classList.remove('sw')},first?0:220);
+ $('#tg1').textContent=st.tag;if(tip.classList.contains('on'))$('#tipn').textContent=p.n;$$('.card .ticks i').forEach((t,j)=>t.classList.toggle('on',j<=k));
+ const go=()=>{if(glr&&st.img){glr.setB(st.img);bloom(HOLD?1e9:650)}};if(st.img)go();else loadImg(IMG+'hero-'+st.h+'.webp').then(im=>{st.img=im;if(step===k)go()}).catch(()=>{})}
+function onScroll(){const pin=$('#pin'),r=pin.getBoundingClientRect(),tot=pin.offsetHeight-innerHeight;const pr=Math.min(.999,Math.max(0,-r.top/Math.max(1,tot)));setStep(Math.floor(pr*STEPS.length))}
+addEventListener('scroll',onScroll,{passive:true});
+$('#cgo').addEventListener('click',e=>{e.stopPropagation();openSheet(STEPS[step].i)});const tip=$('#tip'),spec=$('#spec');
+stage.addEventListener('pointermove',e=>{const p=toFrame(e);if(e.pointerType==='mouse'||e.buttons)stamp(p[0],p[1]);tgt=[(e.clientX/innerWidth-.5)*2,(e.clientY/innerHeight-.5)*2];kick();if(e.pointerType==='mouse'){const k=hit(p);stage.style.cursor=k?'pointer':'crosshair';if(k){$('#tipn').textContent=k.n;const fl=e.clientX>innerWidth-220;tip.style.left=(e.clientX+(fl?-200:18))+'px';tip.style.top=(e.clientY+16)+'px';tip.classList.add('on')}else tip.classList.remove('on')}});
+stage.addEventListener('pointerleave',()=>{prev=null;tgt=[0,0];kick();tip.classList.remove('on')});stage.addEventListener('pointerup',()=>{prev=null});
+stage.addEventListener('click',e=>{if(e.target.closest('.card,.hint'))return;if(hit(toFrame(e)))openSheet(STEPS[step].i)});
+$('#specx').addEventListener('click',()=>spec.classList.remove('on'));addEventListener('keydown',e=>{if(e.key==='Escape')spec.classList.remove('on')});
+/* ---------- parallaxe magnétique ---------- */
+let tgt=[0,0],cur=[0,0],pl=false,plT=0;const L=[['#chevTR',24,1],['#chevL',24,1],['#tags',20,1],['#deco',18,1],['#wm',14,1],['.g1',9,1],['.g2',9,1],['#tex',8,0],['#card',7,0],['#hint',7,0]].map(a=>[$(a[0]),a[1],a[2]]);
+function kick(){if(reduce||pl)return;pl=true;plT=performance.now();requestAnimationFrame(par)}
+function par(n){const dt=n-plT;plT=n;const a=1-Math.exp(-dt/220);cur[0]+=(tgt[0]-cur[0])*a;cur[1]+=(tgt[1]-cur[1])*a;L.forEach(([el,d,fr])=>{if(!el)return;const m=fr?1:K;el.style.translate=`${(-cur[0]*d*m).toFixed(2)}px ${(-cur[1]*d*.7*m).toFixed(2)}px`});if(Math.abs(tgt[0]-cur[0])+Math.abs(tgt[1]-cur[1])>.001)requestAnimationFrame(par);else pl=false}
+/* ---------- ouverture ---------- */
+const wm=$('#wm'),band=wm.querySelector('.band');
+for(let j=0;j<6;j++){const s=document.createElement('span');s.className='slice';s.textContent='ZAHR';s.style.clipPath=`inset(${j/6*100}% 0 ${100-(j+1)/6*100}% 0)`;s.style.opacity=0;wm.insertBefore(s,wm.firstChild)}
+function done(){document.documentElement.classList.add('done');document.body.classList.remove('lock');band.style.visibility='visible';$$('.slice').forEach(s=>s.remove());const l=$('#ld');if(l)l.remove()}
+async function open(){scale();if(reduce){done();try{const [a,b]=await Promise.all([loadImg('img/zahr-hero-base.webp'),loadImg('img/zahr-hero-casquette.webp')]);try{glr=initGL(a,b)}catch(e){glr=null}if(!glr)glr=fallbackFX(a,b);amx.drawImage(a,0,0,150,100);STEPS[0].img=b;setStep(0,true)}catch(e){}return}
+ const bar=$('#ldbar');bar.animate([{transform:'scaleX(0)'},{transform:'scaleX(.8)'}],{duration:420,easing:'cubic-bezier(.3,.6,.3,1)',fill:'forwards'});
+ const fail=setTimeout(done,5000);let a=null,b=null;try{[a,b]=await Promise.all([loadImg('img/zahr-hero-base.webp'),loadImg('img/zahr-hero-casquette.webp'),document.fonts.ready,new Promise(r=>setTimeout(r,420))])}catch(e){}
+ if(a&&b){try{glr=initGL(a,b)}catch(e){glr=null}if(!glr)glr=fallbackFX(a,b);glr.draw(0);amx.drawImage(a,0,0,150,100);STEPS[0].img=b;setTimeout(()=>setStep(0,true),900)}
+ bar.animate([{transform:'scaleX(.8)'},{transform:'scaleX(1)'}],{duration:90,fill:'forwards'});await new Promise(r=>setTimeout(r,90));clearTimeout(fail);
+ const ld=$('#ld');ld.querySelector('.w').animate([{opacity:1},{opacity:0}],{duration:70,fill:'forwards'});bar.animate([{opacity:1},{opacity:0}],{duration:80,fill:'forwards'});
+ [...ld.querySelectorAll('i')].forEach((s,i)=>s.animate([{transform:'translateX(0)'},{transform:`translateX(${i%2?104:-104}%)`}],{duration:260,delay:Math.random()*170,easing:'cubic-bezier(.7,0,.3,1)',fill:'forwards'}));
+ $$('.slice').forEach((s,j)=>s.animate([{opacity:0,transform:`translateX(${(j%2?1:-1)*(40+Math.random()*90)}px)`},{opacity:1,transform:`translateX(${(j%2?-1:1)*12}px)`,offset:.6},{opacity:1,transform:'none'}],{duration:360,delay:60,easing:'steps(5)',fill:'forwards'}));
+ setTimeout(()=>{band.style.visibility='visible'},440);setTimeout(()=>$$('.slice').forEach(s=>s.remove()),520);
+ $('#model').animate([{filter:'brightness(1.9) contrast(.6)',opacity:0},{filter:'none',opacity:1}],{duration:420,delay:120,easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'});
+ $('#chevL').animate([{transform:'translateX(-420px)',opacity:0},{transform:'none',opacity:1}],{duration:520,delay:180,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'});$('#chevTR').animate([{transform:'translateX(420px)',opacity:0},{transform:'none',opacity:1}],{duration:520,delay:240,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'});
+ const seq=['.logo','.nav','.bag','#deco','.g1','.g2','#tags .tag:nth-child(1)','#tags .tag:nth-child(2)','.card','.hint'];seq.forEach((q,i)=>{const el=$(q);if(!el)return;el.style.opacity=1;el.animate(q==='.nav'?[{opacity:0},{opacity:1}]:[{opacity:0,translate:'0 '+(q==='.card'||q==='.hint'?14:8)+'px'},{opacity:1,translate:'0 0'}],{duration:900,delay:360+i*55,easing:'cubic-bezier(.16,.84,.24,1)',fill:'backwards'})});
+ $$('#tags .brk,#chevL,#chevTR').forEach(e=>e.style.opacity=1);setTimeout(done,700)}
+addEventListener('resize',scale);open();
+/* ---------- vitrine 3D ---------- */
+const rg=$('#rg');const N=PROD.length;let rot=0,rd=false,rx0=0,rr0=0,moved=false;
+const pcs=PROD.map((p,i)=>{const b=document.createElement('button');b.type='button';b.className='pc';b.innerHTML=`<span class="n">ZHR ${String(i+1).padStart(2,'0')}</span><span class="ph"><img src="${IMG}${p.k}.jpg" alt="${p.alt}" loading="lazy"></span><span class="mt"><b>${p.n}</b><span>${p.pr} €</span></span>`;b.addEventListener('click',()=>{if(!moved)openSheet(i)});rg.appendChild(b);return b});
+const RR=()=>Math.max(300,Math.min(640,innerWidth*.42));
+function ringDraw(){const R=RR();pcs.forEach((b,i)=>{const a=i*360/N+rot;b.style.transform=`rotateY(${a}deg) translateZ(${R}px)`;const c=Math.cos(a*Math.PI/180);b.style.filter=`brightness(${.45+.55*Math.max(0,c)})`;b.tabIndex=c>.7?0:-1});rg.style.transform=`translateZ(${-RR()}px) rotateX(-4deg)`}
+const ring=$('#ring');ring.addEventListener('pointerdown',e=>{rd=true;moved=false;rx0=e.clientX;rr0=rot});addEventListener('pointermove',e=>{if(!rd)return;const d=e.clientX-rx0;if(Math.abs(d)>5)moved=true;rot=rr0+d*.25});addEventListener('pointerup',()=>{rd=false;setTimeout(()=>moved=false,40)});
+ring.addEventListener('keydown',e=>{if(e.key==='ArrowRight')rot-=360/N;if(e.key==='ArrowLeft')rot+=360/N});
+(function rl(){if(!rd&&!reduce)rot+=.06;ringDraw();requestAnimationFrame(rl)})();
+/* fiche */
+const sheet=$('#sheet');let cur2=0,sz=null;const bag=[];
+function openSheet(i){cur2=i;const p=PROD[i];$('#shi').src=IMG+p.k+'.jpg';$('#shim').dataset.f=IMG+p.k+'.jpg';$('#shim').dataset.b=p.b?IMG+p.b+'.jpg':'';$('#shflip').hidden=!p.b;$('#shi').alt=p.alt;$('#shk').textContent='ZHR '+String(i+1).padStart(2,'0')+' · Chance 01';$('#shn').textContent=p.n;$('#shp').textContent=p.pr+' €';$('#shd').textContent=p.d;sz=null;$('#shs').innerHTML=(p.sz||['XS','S','M','L','XL']).map(s=>`<button type="button" aria-pressed="false">${s}</button>`).join('');$$('#shs button').forEach(b=>b.addEventListener('click',()=>{sz=b.textContent;$$('#shs button').forEach(x=>x.setAttribute('aria-pressed',x===b))}));$('#shm').textContent='';sheet.showModal()}
+$('#shx').addEventListener('click',()=>sheet.close());$('#shflip').addEventListener('click',()=>{const m=$('#shim'),im=$('#shi'),back=im.src.endsWith(m.dataset.b.split('/').pop());im.animate([{transform:'rotateY(0)'},{transform:'rotateY(90deg)'}],{duration:220}).onfinish=()=>{im.src=back?m.dataset.f:m.dataset.b;$('#shflip').textContent=back?'Voir le dos':'Voir le devant';im.animate([{transform:'rotateY(-90deg)'},{transform:'rotateY(0)'}],{duration:220})}});sheet.addEventListener('click',e=>{if(e.target===sheet)sheet.close()});
+$('#shim').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*18+'deg');e.currentTarget.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*18+'deg')});
+$('#sha').addEventListener('click',()=>{const p=PROD[cur2];if(!sz){$('#shm').textContent='Choisissez une taille.';return}bag.push(p.n+' ('+sz+')');$('#bagn').textContent=bag.length;$('#shm').textContent=p.n+' taille '+sz+' ajouté au panier.';$('#tkb').textContent='Panier : '+bag.length+' pièce'+(bag.length>1?'s':'')});
+$('#bag').addEventListener('click',()=>{$('#drop').scrollIntoView({behavior:reduce?'auto':'smooth'})});
+/* زهر et pendentif */
+const zs=$('#zahr');zs.addEventListener('pointermove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;$('#h-zahr').style.setProperty('--cy',(x*26-10)+'deg');$('#h-zahr').style.setProperty('--cx',(6-y*18)+'deg');$('#pend img').style.setProperty('--py',(x*24)+'deg');$('#pend img').style.setProperty('--px',(-y*18)+'deg')});
+/* lookbook */
+const look=$('#look'),lf=$$('.lk figure'),lr=[-3,4,-1],ls=[-.18,.12,-.3];addEventListener('scroll',()=>{if(reduce)return;const r=look.getBoundingClientRect();const p=(innerHeight-r.top)/(innerHeight+r.height)-.5;lf.forEach((f,i)=>f.style.transform=`translateY(${p*ls[i]*100}vh) rotate(${lr[i]+p*(i-1)*6}deg) rotateY(${p*(i-1)*14}deg)`)},{passive:true});
+/* drop */
+$('#fn').addEventListener('input',e=>$('#tkn').textContent=(e.target.value.trim()||'VOTRE NOM').toUpperCase());
+$('#fm').addEventListener('submit',e=>{e.preventDefault();const m=$('#fmm');if(!$('#fn').value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#fe').value.trim())){m.textContent='Indiquez votre prénom et un e-mail valide.';return}if(!$('#fk').checked){m.textContent='Cochez la case pour accepter.';return}$('#tk').classList.add('go');m.textContent='Vous êtes sur la liste. (Démo : rien n’a été envoyé.)'});
+</script>
+<script>
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+</script>
+</body>
+</html>
