@@ -620,6 +620,19 @@ footer .f-bottom p{color:var(--mute-d);font-size:13.5px}
 .exv{background:#2a1712}
 .exs-orb{position:absolute;left:50%;top:50%;width:130px;height:130px;margin:-65px;border-radius:50%;display:grid;place-items:center;background:rgba(243,244,239,.14);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 30px 60px -20px rgba(0,0,0,.5);animation:exbob 5s ease-in-out infinite}
 .exs-orb svg{width:52%}
+.exs-veil{position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 55%,rgba(38,51,44,0) 0%,rgba(38,51,44,.3) 70%,rgba(14,24,19,.55) 100%),linear-gradient(180deg,rgba(255,236,210,.10),rgba(14,24,19,.22))}
+.exs-steam{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.exs-steam i{position:absolute;bottom:-30%;width:46%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.55),rgba(255,255,255,0));filter:blur(18px);opacity:0;animation:exsSteam 9s linear infinite}
+.exs-steam i:nth-child(1){left:2%;animation-delay:0s}.exs-steam i:nth-child(2){left:30%;animation-delay:1.5s;width:56%}.exs-steam i:nth-child(3){left:58%;animation-delay:3s}.exs-steam i:nth-child(4){left:15%;animation-delay:4.5s;width:38%}.exs-steam i:nth-child(5){left:48%;animation-delay:6s;width:50%}.exs-steam i:nth-child(6){left:70%;animation-delay:7.5s;width:40%}
+@keyframes exsSteam{0%{transform:translate3d(0,0,0) scale(.7);opacity:0}15%{opacity:.75}70%{opacity:.35}100%{transform:translate3d(-6%,-140%,0) scale(1.5);opacity:0}}
+.exs-3d{position:absolute;left:50%;top:50%;width:min(46%,240px);aspect-ratio:1;transform:translate(-50%,-50%);perspective:900px}
+.exs-rig{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,16deg)) rotateY(var(--ry,-24deg)) rotateZ(-10deg);transition:transform .6s var(--ease-out);animation:exsFloat 6s ease-in-out infinite}
+.exs-rig svg{position:absolute;inset:0;width:100%;height:100%}
+.exs-shadow{position:absolute;left:12%;right:12%;bottom:-16%;height:18%;border-radius:50%;background:radial-gradient(closest-side,rgba(14,24,19,.55),rgba(14,24,19,0));filter:blur(8px);animation:exsShadow 6s ease-in-out infinite}
+@keyframes exsFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes exsShadow{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(.85);opacity:.6}}
+@media (prefers-reduced-motion:reduce){.exs-steam i,.exs-rig,.exs-shadow{animation:none}.exs-steam i{opacity:.3}}
+
 .exd{background:#fff;color:#0a0a0a}.exd .tags span{color:#0a0a0a}.exd .btn.main{background:#0a0a0a;color:#fff}
 .exd .vis{display:grid;place-items:center}
 .exd-car{position:relative;width:96%;height:auto;mix-blend-mode:multiply;z-index:1;transition:transform 1s var(--ease-out)}.exd:hover .exd-car{transform:translateX(3%)}
@@ -937,7 +950,7 @@ main:focus{outline:none}
         </div>
       </article>
       <article class="panel case exs" aria-labelledby="h-exs">
-        <div class="vis" aria-hidden="true"><span class="exg-bg" style="background-image:url('https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261104_151305_25ef1f45-0886-491c-a7a8-81e296402d5a.png&amp;w=1400&amp;q=85')"></span><span class="exs-orb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span></div>
+        <div class="vis" aria-hidden="true"><span class="exg-bg" style="background-image:url('exemples/vignettes/vignette-spa.jpg')"></span><span class="exs-veil"></span><span class="exs-steam"><i></i><i></i><i></i><i></i><i></i><i></i></span><div class="exs-3d"><div class="exs-rig" id="exsRig"></div><span class="exs-shadow"></span></div></div>
         <div class="info">
           <div class="tags"><span>Site internet</span><span>Spa & institut</span><span>Réservation</span></div>
           <h3 id="h-exs"><span translate="no">ZAHR Spa</span>, le spa et hammam</h3>
@@ -1782,6 +1795,18 @@ $("#copyOnly").addEventListener("click", async () => { toast(await copyMsg() ? "
 $("#yr").textContent = new Date().getFullYear();
 
 /* Informations légales */
+/* ZAHR Spa : fleur de marbre en 3D dans la vapeur */
+(() => { const r=document.getElementById('exsRig'); if(!r) return;
+  const P=["M128 120L103.72 82.85A29 29 0 1 1 152.28 82.85Z","M136 128L173.15 103.72A29 29 0 1 1 173.15 152.28Z","M128 136L152.28 173.15A29 29 0 1 1 103.72 173.15Z","M120 128L82.85 152.28A29 29 0 1 1 82.85 103.72Z"], ns='http://www.w3.org/2000/svg';
+  const mk=(fills,z,defs)=>{const s=document.createElementNS(ns,'svg');s.setAttribute('viewBox','34 34 188 188');s.style.transform=`translateZ(${z}px)`;s.innerHTML=(defs||'')+P.map((p,i)=>`<path fill="${fills[i]}" d="${p}"/>`).join('');return s};
+  const N=18; for(let i=N;i>0;i--){const k=i/N, c=`rgb(${Math.round(150+60*(1-k))},${Math.round(160+55*(1-k))},${Math.round(150+50*(1-k))})`; r.appendChild(mk([c,c,c,c],-i*1.4));}
+  const defs='<defs><radialGradient id="exsM" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#EDEFE8"/><stop offset="1" stop-color="#BFCBC2"/></radialGradient><radialGradient id="exsJ" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#CFE2D5"/><stop offset=".5" stop-color="#8FB39D"/><stop offset="1" stop-color="#4E6B5B"/></radialGradient></defs>';
+  r.appendChild(mk(['url(#exsJ)','url(#exsM)','url(#exsM)','url(#exsM)'],0,defs));
+  const vis=r.closest('.vis'); if(!vis || !matchMedia('(pointer:fine)').matches) return;
+  vis.addEventListener('pointermove',e=>{const b=vis.getBoundingClientRect(); const x=(e.clientX-b.left)/b.width-.5, y=(e.clientY-b.top)/b.height-.5; r.style.setProperty('--ry',(-24+x*40)+'deg'); r.style.setProperty('--rx',(16-y*30)+'deg');});
+  vis.addEventListener('pointerleave',()=>{r.style.removeProperty('--ry');r.style.removeProperty('--rx');});
+})();
+
 (() => { const dl = document.getElementById('legal'); if (!dl) return;
   const show = k => { dl.querySelectorAll('.lg-pane').forEach(p => p.classList.toggle('on', p.id === 'lg-' + k)); dl.querySelectorAll('[data-lg]').forEach(b => { b.setAttribute('aria-pressed', b.dataset.lg === k); if (b.dataset.lg === k) setTimeout(() => b.scrollIntoView({inline:'center', block:'nearest'}), 30); }); dl.querySelector('.lg-body').scrollTop = 0; };
   const open = k => { show(k); if (!dl.open) { try { dl.showModal(); } catch(e) { dl.setAttribute('open',''); } } };
