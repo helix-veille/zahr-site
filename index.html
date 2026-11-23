@@ -626,7 +626,7 @@ footer .f-bottom p{color:var(--mute-d);font-size:13.5px}
 .exs-steam i:nth-child(1){left:2%;animation-delay:0s}.exs-steam i:nth-child(2){left:30%;animation-delay:1.5s;width:56%}.exs-steam i:nth-child(3){left:58%;animation-delay:3s}.exs-steam i:nth-child(4){left:15%;animation-delay:4.5s;width:38%}.exs-steam i:nth-child(5){left:48%;animation-delay:6s;width:50%}.exs-steam i:nth-child(6){left:70%;animation-delay:7.5s;width:40%}
 @keyframes exsSteam{0%{transform:translate3d(0,0,0) scale(.7);opacity:0}15%{opacity:.75}70%{opacity:.35}100%{transform:translate3d(-6%,-140%,0) scale(1.5);opacity:0}}
 .exs-3d{position:absolute;left:50%;top:50%;width:min(46%,240px);aspect-ratio:1;transform:translate(-50%,-50%);perspective:900px}
-.exs-rig{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,16deg)) rotateY(var(--ry,-24deg)) rotateZ(-10deg);transition:transform .6s var(--ease-out);animation:exsFloat 6s ease-in-out infinite}
+.exs-rig{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(16deg) rotateY(-24deg) rotateZ(-10deg);animation:exsFloat 6s ease-in-out infinite}
 .exs-rig svg{position:absolute;inset:0;width:100%;height:100%}
 .exs-shadow{position:absolute;left:12%;right:12%;bottom:-16%;height:18%;border-radius:50%;background:radial-gradient(closest-side,rgba(14,24,19,.55),rgba(14,24,19,0));filter:blur(8px);animation:exsShadow 6s ease-in-out infinite}
 @keyframes exsFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
@@ -1802,9 +1802,12 @@ $("#yr").textContent = new Date().getFullYear();
   const N=18; for(let i=N;i>0;i--){const k=i/N, c=`rgb(${Math.round(150+60*(1-k))},${Math.round(160+55*(1-k))},${Math.round(150+50*(1-k))})`; r.appendChild(mk([c,c,c,c],-i*1.4));}
   const defs='<defs><radialGradient id="exsM" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#EDEFE8"/><stop offset="1" stop-color="#BFCBC2"/></radialGradient><radialGradient id="exsJ" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#CFE2D5"/><stop offset=".5" stop-color="#8FB39D"/><stop offset="1" stop-color="#4E6B5B"/></radialGradient></defs>';
   r.appendChild(mk(['url(#exsJ)','url(#exsM)','url(#exsM)','url(#exsM)'],0,defs));
-  const vis=r.closest('.vis'); if(!vis || !matchMedia('(pointer:fine)').matches) return;
-  vis.addEventListener('pointermove',e=>{const b=vis.getBoundingClientRect(); const x=(e.clientX-b.left)/b.width-.5, y=(e.clientY-b.top)/b.height-.5; r.style.setProperty('--ry',(-24+x*40)+'deg'); r.style.setProperty('--rx',(16-y*30)+'deg');});
-  vis.addEventListener('pointerleave',()=>{r.style.removeProperty('--ry');r.style.removeProperty('--rx');});
+  const vis=r.closest('.vis'); let mx=0,my=0,tx=0,ty=0,on=false,raf=0; const reduceS=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(vis && matchMedia('(pointer:fine)').matches){ vis.addEventListener('pointermove',e=>{const b=vis.getBoundingClientRect(); tx=(e.clientX-b.left)/b.width-.5; ty=(e.clientY-b.top)/b.height-.5;}); vis.addEventListener('pointerleave',()=>{tx=0;ty=0;}); }
+  const tick=t=>{ raf=on?requestAnimationFrame(tick):0; mx+=(tx-mx)*.06; my+=(ty-my)*.06; const s=t/1000;
+    const ry=reduceS? -24+mx*40 : Math.sin(s*.55)*38 - 10 + mx*40, rx=reduceS? 16-my*30 : 14+Math.sin(s*.8)*8 - my*30, rz=reduceS? -10 : -10+Math.sin(s*.35)*14;
+    r.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`; };
+  new IntersectionObserver(es=>{ on=es[0].isIntersecting; if(on&&!raf) raf=requestAnimationFrame(tick); }).observe(vis||r);
 })();
 
 (() => { const dl = document.getElementById('legal'); if (!dl) return;
