@@ -414,7 +414,7 @@ function three(){const T=window.THREE,el=$('#gl');if(!T){document.body.classList
  G3.tick=t=>{const dt=Math.min(.05,(t-last)/1000);last=t;if(hero.getBoundingClientRect().bottom<0)return;const s=t/1000;
   if(st.n>=0){st.t=Math.min(1,st.t+dt/(RM?.01:.9));const e=st.t<.5?4*st.t**3:1-Math.pow(-2*st.t+2,3)/2;const O=objs[st.o],N=objs[st.n];O.position.x=-st.dir*e*9;O.rotation.y=-st.dir*e*1.2;N.position.x=st.dir*(1-e)*9;N.rotation.y=st.dir*(1-e)*1.2;if(st.t>=1){O.visible=false;O.position.x=0;st.o=st.n;st.n=-1}}
   objs.forEach((o,i)=>{if(!o.visible)return;const g=o.children[0];g.position.y=(RM?0:Math.sin(s*1.2+i)*.18)+(g.userData.by||0);o.rotation.x=pmy*.25;if(st.n<0)o.rotation.y=pmx*.5+(RM?0:Math.sin(s*.5)*.18);if(g.userData.spin)g.userData.spin.forEach(r=>r.rotation.x=s*1.4);if(g.userData.flame)g.userData.flame.scale.set(1,1+Math.sin(s*14)*.12,1);if(g.userData.drip)g.userData.drip.position.y=1.5-((s*.5)%1)*1.4});
-  bits.forEach(b=>{const u=b.userData;const a=u.a+(RM?0:s*.06*u.s);b.position.set(Math.cos(a)*u.r*(mob()?.55:1)+pmx*u.z*-.4,mob()?Math.sin(a)*u.r*.33+.7:Math.sin(a)*u.r*.55+pmy*u.z*.3-.4,u.z);b.rotation.set(s*u.s,s*u.s*.7,0)});
+  bits.forEach(b=>{const u=b.userData;const a=u.a+(RM?0:s*.06*u.s);b.position.set(Math.cos(a)*u.r*(mob()?.55:1)+pmx*u.z*-.4,mob()?Math.sin(a)*u.r*.27+.15:Math.sin(a)*u.r*.55+pmy*u.z*.3-.4,u.z);b.rotation.set(s*u.s,s*u.s*.7,0)});
   rd.render(sc,cam)};
 }
 /* ---------- FAN ---------- */
