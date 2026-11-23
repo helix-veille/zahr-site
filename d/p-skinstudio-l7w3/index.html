@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>SkinStudio Origin · La Crau — Institut de beauté</title>
+<meta name="description" content="SkinStudio Origin, 2746 chemin Long à La Crau : soins du visage, cils, épilation définitive à la lumière pulsée, Body Sculpt, massages, ongles et maquillage permanent. Réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--vert:#1f2f27;--vert2:#2b3f34;--sauge:#8a9a7b;--beige:#e8dfd0;--or:#c8a464;--creme:#f5efe6;--ink:#16201b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--creme);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:999}.skip:focus{left:8px}
+.pf{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.04em}
+.kick{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--or)}
+h2.big{font-weight:400;font-size:clamp(44px,6vw,92px);line-height:.98;letter-spacing:-.06em}
+h2.big .pf{display:block}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;background:#e8702a;background:var(--or);color:var(--ink);font-weight:500;font-size:15px;white-space:nowrap;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(200,164,100,.35)}
+.btn.o{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff}
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;color:#fff;transition:background .35s,padding .35s}
+.nav.s{background:rgba(22,32,27,.94);backdrop-filter:blur(10px);padding:13px 40px}
+.logo{font:400 15px/1 Inter;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
+.logo b{font-weight:600}
+.logo i{font:italic 400 22px "Playfair Display",serif;letter-spacing:-.02em;text-transform:none;margin-left:6px;color:var(--or)}
+.nav ul{list-style:none;display:flex;gap:28px;font-size:14px}
+.nav ul a{opacity:.8}.nav ul a:hover{opacity:1}
+.nav .btn{padding:10px 20px;font-size:14px}
+/* HERO lithos */
+.hero{position:relative;height:100vh;height:100dvh;min-height:600px;overflow:hidden;background:#000;color:#fff;cursor:none}
+.l1,.l2{position:absolute;inset:0;background:center/cover no-repeat}
+.l1{z-index:1;filter:brightness(.3) saturate(.5) contrast(1.1)}
+.l2{z-index:2;filter:brightness(1.08) saturate(1.1);-webkit-mask:radial-gradient(circle var(--R,260px) at var(--x,-999px) var(--y,-999px),#000 0,#000 45%,rgba(0,0,0,.6) 70%,transparent 100%);mask:radial-gradient(circle var(--R,260px) at var(--x,-999px) var(--y,-999px),#000 0,#000 45%,rgba(0,0,0,.6) 70%,transparent 100%)}
+.ring{position:absolute;z-index:3;left:0;top:0;width:calc(var(--R,260px)*2);height:calc(var(--R,260px)*2);margin:calc(var(--R,260px)*-1) 0 0 calc(var(--R,260px)*-1);border-radius:50%;border:1px solid rgba(232,212,170,.35);pointer-events:none;transform:translate(var(--x,-999px),var(--y,-999px))}
+.ring::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:var(--or)}
+.veil{position:absolute;inset:0;z-index:4;background:linear-gradient(rgba(0,0,0,.35),transparent 30%,transparent 62%,rgba(0,0,0,.55));pointer-events:none}
+.ht{position:absolute;z-index:5;top:15%;left:0;right:0;text-align:center;padding:0 20px;pointer-events:none}
+.ht h1{font-weight:400;line-height:.95;text-shadow:0 6px 40px rgba(0,0,0,.4)}
+.ht h1 .a{display:block;font:italic 400 clamp(54px,8.4vw,128px)/1 "Playfair Display",serif;letter-spacing:-.05em}
+.ht h1 .b{display:block;font-size:clamp(54px,8.4vw,128px);letter-spacing:-.08em;margin-top:-.04em}
+.ht .sub{margin-top:16px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.8}
+.bl{position:absolute;z-index:5;left:56px;bottom:56px;max-width:270px;font-size:14px;color:rgba(255,255,255,.82)}
+.br{position:absolute;z-index:5;right:56px;bottom:90px;max-width:280px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;font-size:14px;color:rgba(255,255,255,.82)}
+.br .btn,.br a{cursor:pointer}
+.hint{position:absolute;z-index:5;left:50%;bottom:22px;transform:translateX(-50%);font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.6;pointer-events:none}
+/* RITUEL */
+#soins{position:relative;height:640vh;background:var(--vert);color:var(--beige)}
+.rstage{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:90px 56px 40px;overflow:hidden}
+#drop{position:relative;height:min(78vh,640px)}
+#drop canvas{width:100%!important;height:100%!important}
+.fbk{position:absolute;inset:0;display:none;place-items:center}
+.no3d .fbk{display:grid}
+.fbk span{width:46%;aspect-ratio:1;border-radius:50%;border:2px solid var(--or);box-shadow:0 0 60px rgba(200,164,100,.35),inset 0 0 40px rgba(200,164,100,.2)}
+.rtabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px}
+.rtabs button{padding:7px 13px;border-radius:99px;border:1px solid rgba(232,223,208,.25);font-size:12.5px;color:rgba(232,223,208,.8)}
+.rtabs button[aria-selected=true]{background:var(--or);color:var(--ink);border-color:var(--or)}
+.rcards{position:relative;min-height:470px}
+.rc{position:absolute;inset:0;opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity .6s,transform .6s,filter .6s;pointer-events:none}
+.rc.on{opacity:1;transform:none;filter:none;pointer-events:auto}
+.rc h3{font:italic 400 clamp(40px,4.2vw,62px)/1 "Playfair Display",serif;letter-spacing:-.04em;color:#fff}
+.rc .who{display:block;margin-top:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+.rc p.d{margin-top:14px;max-width:480px;color:rgba(232,223,208,.75);font-size:15px}
+.rc ul{list-style:none;margin-top:18px;max-width:520px}
+.rc li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid rgba(232,223,208,.14);font-size:15px}
+.rc li span{white-space:nowrap;color:var(--or)}
+.rc li small{display:block;font-size:12px;opacity:.6}
+.rnum{position:absolute;right:56px;bottom:34px;font:italic 400 15px "Playfair Display",serif;color:rgba(232,223,208,.6)}
+/* EQUIPE frames */
+#equipe{background:var(--creme);padding:140px 56px 130px;position:relative;overflow:hidden}
+#equipe .hd{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:70px}
+#equipe .hd p{max-width:400px;color:#4d5a52}
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;perspective:1000px}
+.fr{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fr::before{content:"";position:absolute;left:50%;top:-56px;width:1px;height:58px;background:linear-gradient(transparent,#a88a52)}
+.fr .fm{position:relative;aspect-ratio:3/4;padding:16px;background:linear-gradient(135deg,#e9cf94,#b48a45 30%,#f3dfae 52%,#9e7638 75%,#d9b874);border-radius:3px;box-shadow:0 30px 50px rgba(22,32,27,.25)}
+.fr .in{position:relative;height:100%;background:radial-gradient(circle at 50% 35%,#3a5345,#1f2f27 70%);display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3),inset 0 10px 30px rgba(0,0,0,.4)}
+.fr .mono{font:italic 400 clamp(90px,9vw,150px)/1 "Playfair Display",serif;color:var(--or);letter-spacing:-.06em;transform:translateZ(30px)}
+.fr .in::after{content:"";position:absolute;inset:-60%;background:linear-gradient(115deg,transparent 42%,rgba(255,240,210,.28) 50%,transparent 58%);transform:translateX(var(--gl,-40%))}
+.fr h3{margin-top:22px;font:italic 400 30px/1 "Playfair Display",serif;letter-spacing:-.03em}
+.fr .role{margin-top:8px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8a6a35}
+.fr p{margin-top:10px;font-size:14px;color:#4d5a52}
+/* RIDEAUX galerie */
+#lieu{position:relative;height:420vh;background:var(--vert2)}
+.gstage{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden;color:var(--beige)}
+.ghd{position:absolute;top:96px;left:56px;right:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:5}
+.ghd h2{color:#fff}
+.ghd p{max-width:340px;font-size:15px;color:rgba(232,223,208,.75)}
+.window{position:relative;width:min(56vw,900px,calc((100vh - 280px)*1.6));aspect-ratio:16/10;margin-top:150px;perspective:1600px}
+.pic{position:absolute;inset:0;background:center/cover;opacity:0;transition:opacity .6s}
+.pic.on{opacity:1}
+.cur{position:absolute;top:-4%;bottom:-2%;width:51%;z-index:3;transform-style:preserve-3d;transition:transform .2s linear;background:repeating-linear-gradient(90deg,#efe6d6 0 18px,#ddd0ba 30px,#f6eee0 44px,#d6c8b0 58px,#efe6d6 70px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.cur.l{left:-1%;transform-origin:0 50%}
+.cur.r{right:-1%;transform-origin:100% 50%}
+.rod{position:absolute;left:-4%;right:-4%;top:-7%;height:12px;border-radius:6px;background:linear-gradient(#e6c98e,#9c7a3c);z-index:4}
+.gcap{position:absolute;left:0;right:0;bottom:-54px;text-align:center;font:italic 400 22px "Playfair Display",serif;color:var(--beige)}
+/* RDV sundial */
+#rdv{background:var(--creme);padding:130px 56px;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:start}
+#rdv>*{min-width:0}
+#rdv h2{margin:12px 0 30px}
+fieldset{border:0;margin-bottom:24px}
+legend{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6b766f;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1px solid rgba(22,32,27,.18);border-radius:999px;padding:9px 15px;font-size:14px;background:#fff;transition:.2s}
+.opt small{opacity:.55;margin-left:6px}
+.opt[aria-pressed=true]{background:var(--vert);color:#fff;border-color:var(--vert)}
+.opt:disabled{opacity:.3;cursor:not-allowed}
+.ff{display:grid;gap:10px;max-width:520px}
+.ff input[type=text],.ff input[type=tel]{border:1px solid rgba(22,32,27,.18);border-radius:14px;padding:14px 16px;font:inherit;background:#fff}
+.cb{display:flex;gap:10px;font-size:14px;align-items:flex-start}
+.cb input{margin-top:4px;accent-color:var(--vert);width:18px;height:18px;flex:none}
+.cb button{text-decoration:underline}
+.ff .btn{justify-self:start;margin-top:6px}
+#msg{min-height:24px;font-size:15px}
+.dialw{position:sticky;top:110px;display:flex;flex-direction:column;align-items:center;perspective:1100px}
+.dial{position:relative;width:min(420px,86vw);aspect-ratio:1;transform:rotateX(52deg) rotateZ(-8deg);transform-style:preserve-3d;transition:transform .8s}
+.plate{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f3e6c8,#d8bf88 55%,#a8854a);box-shadow:0 40px 60px rgba(22,32,27,.35),inset 0 0 0 10px rgba(255,255,255,.25)}
+.hours span{position:absolute;left:50%;top:50%;font:italic 500 18px "Playfair Display",serif;color:#5b4520;transform-origin:0 0}
+.gno{position:absolute;left:50%;top:50%;width:6px;height:44%;margin-left:-3px;background:linear-gradient(90deg,#7a5c27,#e5c88c,#7a5c27);transform-origin:50% 100%;transform:translateY(-100%) rotateX(-90deg);border-radius:3px}
+.shadow{position:absolute;left:50%;top:50%;width:46%;height:16px;margin-top:-8px;transform-origin:0 50%;transform:rotate(var(--a,200deg));background:linear-gradient(90deg,rgba(30,22,10,.55),rgba(30,22,10,0));border-radius:0 8px 8px 0;filter:blur(2px);transition:transform 1.2s cubic-bezier(.3,1.3,.4,1)}
+.dcap{margin-top:30px;text-align:center}
+.dcap b{display:block;font:italic 400 34px/1.1 "Playfair Display",serif}
+.dcap span{font-size:13px;color:#6b766f;letter-spacing:.1em;text-transform:uppercase}
+/* INFOS */
+#infos{background:var(--vert);color:var(--beige);padding:130px 56px;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+#infos h2{color:#fff}
+#infos .ad{margin-top:20px;font-size:17px}
+#infos .ad a{color:var(--or);font-weight:500}
+.hrs{margin-top:26px}
+.hrs div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(232,223,208,.14)}
+.hrs div.td{color:var(--or);font-weight:600}
+.note{margin-top:20px;font-size:14px;color:rgba(232,223,208,.7)}
+.map{height:540px}
+.pin span{font:italic 500 28px "Playfair Display",serif;color:var(--ink)}
+footer{background:#111a15;color:#b9c0ba;padding:30px 56px 70px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:13px}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+footer ul button{text-decoration:underline;text-underline-offset:3px;font-size:13px}
+
+.demo{position:fixed;right:10px;bottom:10px;z-index:45;font:500 11px/1 system-ui,sans-serif;background:rgba(10,10,10,.78);color:#fff;padding:6px 10px;border-radius:999px;letter-spacing:.01em}
+.ck{position:fixed;left:16px;bottom:16px;z-index:70;max-width:420px;background:#f5efe6;color:#16201b;border:1px solid rgba(0,0,0,.12);border-radius:16px;padding:18px 20px;box-shadow:0 20px 50px rgba(0,0,0,.3);font:15px/1.45 system-ui,sans-serif}
+.ck p{margin:0 0 12px}.ck .a{display:flex;gap:10px}
+.ck .a button{flex:1;padding:11px 10px;border-radius:999px;border:1.5px solid #16201b;background:transparent;color:#16201b;font:600 14px system-ui,sans-serif;cursor:pointer}
+.ck .a button:hover{background:#16201b;color:#f5efe6}
+dialog.lg{margin:auto;max-width:640px;width:calc(100% - 32px);max-height:85vh;border:0;border-radius:16px;padding:28px;background:#f5efe6;color:#16201b;font:15px/1.55 system-ui,sans-serif}
+dialog.lg::backdrop{background:rgba(0,0,0,.6)}
+dialog.lg h3{font-size:24px;margin:0 0 12px}dialog.lg h4{margin:14px 0 4px}dialog.lg p{margin:0 0 8px}
+dialog.lg .x{float:right;border:1px solid currentColor;border-radius:999px;padding:6px 14px;background:none;color:inherit;cursor:pointer;font:inherit}
+.map{position:relative;border-radius:22px;overflow:hidden;background:#111;isolation:isolate}
+.map iframe{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:#3f6b52;mix-blend-mode:color;opacity:.75}
+.map::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 120px 40px rgba(0,0,0,.8)}
+.mph{position:absolute;inset:0;background:repeating-linear-gradient(28deg,transparent 0 58px,rgba(255,255,255,.07) 58px 61px),repeating-linear-gradient(-62deg,transparent 0 90px,rgba(255,255,255,.05) 90px 93px),radial-gradient(circle at 50% 45%,#2a2a2a,#0c0c0c)}
+.pin{position:absolute;z-index:2;left:50%;top:50%;width:64px;height:64px;margin:-80px 0 0 -32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#c8a464;display:grid;place-items:center;pointer-events:none;animation:pinb 2.4s ease-in-out infinite;box-shadow:0 0 0 10px rgba(255,255,255,.12)}
+.pin>*{transform:rotate(45deg)}
+@keyframes pinb{50%{box-shadow:0 0 0 18px rgba(255,255,255,.06),0 0 0 34px rgba(255,255,255,.03)}}
+.mcard{position:absolute;z-index:3;left:14px;bottom:14px;right:14px;max-width:340px;background:rgba(15,15,15,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:16px 18px;color:#fff;font:15px/1.4 system-ui,sans-serif}
+.mcard b{font-size:18px;display:block}.mcard p{opacity:.8;font-size:14px;margin:4px 0 12px}
+.mcard a{display:inline-block;background:#c8a464;color:#16201b;font-weight:700;padding:10px 18px;border-radius:999px;text-decoration:none}
+.mcon{position:absolute;z-index:3;top:14px;right:14px}
+.mcon button{background:rgba(15,15,15,.8);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 16px;font:600 14px system-ui,sans-serif;cursor:pointer}
+@media (max-width:600px){.ck{left:10px;right:10px;bottom:10px;max-width:none}.demo{font-size:10px;padding:5px 9px;right:8px;bottom:8px}}
+
+@media (max-width:991px){
+ .nav ul{display:none}
+ .rstage{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:4px;padding:72px 18px 46px;align-items:start}
+ #drop{height:27vh}
+ .rcards{min-height:0;height:calc(100svh - 27vh - 200px)}
+ .wall{grid-template-columns:1fr 1fr;gap:40px 18px}
+ #rdv,#infos{grid-template-columns:1fr;gap:40px}
+ .dialw{position:relative;top:0}
+ .window{width:88vw}
+}
+@media (max-width:600px){
+ .nav,.nav.s{padding:12px 16px}
+ .logo{font-size:12px;letter-spacing:.18em}.logo i{font-size:18px}
+ .nav .btn{padding:9px 15px;font-size:13px}
+ .hero{cursor:auto}
+ .ht{top:13%}
+ .bl{display:none}
+ .br{left:18px;right:18px;bottom:64px;max-width:none}
+ .hint{bottom:20px}
+ .rtabs{margin:8px 0 10px;gap:6px}.rtabs button{padding:5px 10px;font-size:11.5px}
+ .rc h3{font-size:34px}.rc .who{margin-top:6px;font-size:11px}
+ .rc p.d{display:none}
+ .rc ul{margin-top:10px}.rc li{padding:6px 0;font-size:13.5px}.rc li small{display:none}
+ .rc li:nth-child(n+7){display:none}
+ .rnum{right:18px;bottom:16px}
+ #equipe{padding:100px 16px 90px}
+ #equipe .hd{margin-bottom:60px}
+ .fr .fm{padding:10px}
+ .fr h3{font-size:24px;margin-top:14px}.fr .role{font-size:10.5px;letter-spacing:.12em}.fr p{font-size:13px}
+ .ghd{top:76px;left:16px;right:16px;flex-direction:column;align-items:flex-start;gap:8px}
+ .ghd p{font-size:14px}
+ .window{width:92vw;aspect-ratio:4/5;margin-top:150px}
+ .gcap{bottom:-46px;font-size:19px}
+ #rdv{padding:100px 16px}
+ #infos{padding:100px 16px}
+ .map{height:430px}
+ footer{padding:26px 16px 60px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="nav" id="nav">
+ <a class="logo" href="#top" aria-label="SkinStudio Origin, accueil"><b>Skin</b>Studio<i>Origin</i></a>
+ <ul><li><a href="#soins">Les soins</a></li><li><a href="#equipe">L'équipe</a></li><li><a href="#lieu">Le studio</a></li><li><a href="#infos">Accès</a></li></ul>
+ <a class="btn" href="#rdv">Réserver</a>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-label="Accueil">
+ <div class="l1" id="l1"></div><div class="l2" id="l2"></div><div class="ring" id="ring" aria-hidden="true"></div><div class="veil"></div>
+ <div class="ht"><h1><span class="a">La peau</span><span class="b">en pleine lumière</span></h1><p class="sub">Institut de beauté · La Crau</p></div>
+ <p class="bl">Du beige, du vert, une lumière douce : le studio du chemin Long accueille soins du visage, cils, épilation définitive et massages.</p>
+ <div class="br"><p>Promenez la lumière sur l'image : le studio se révèle là où vous passez.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#rdv">Prendre rendez-vous</a><a class="btn o" href="tel:+33489664937">04 89 66 49 37</a></div></div>
+ <p class="hint" aria-hidden="true">Bougez la lumière</p>
+</section>
+
+<section id="soins" aria-labelledby="t2">
+ <div class="rstage">
+  <div id="drop" aria-hidden="true"><div class="fbk"><span></span></div></div>
+  <div>
+   <p class="kick">Les soins</p>
+   <h2 class="sr" id="t2">Les soins du studio</h2>
+   <div class="rtabs" id="rtabs" role="tablist" aria-label="Familles de soins"></div>
+   <div class="rcards" id="rcards"></div>
+  </div>
+  <p class="rnum" id="rnum" aria-hidden="true"></p>
+ </div>
+</section>
+
+<section id="equipe" aria-labelledby="t3">
+ <div class="hd"><div><p class="kick">L'équipe</p><h2 class="big" id="t3"><span class="pf">Des mains</span>expertes</h2></div><p>Chacune son savoir-faire, sous le même toit. Les cadres réagissent à votre souris ou à l'inclinaison du téléphone.</p></div>
+ <div class="wall" id="wall"></div>
+</section>
+
+<section id="lieu" aria-labelledby="t4">
+ <div class="gstage">
+  <div class="ghd"><h2 class="big" id="t4"><span class="pf">Le studio,</span>en coulisses</h2><p>Faites défiler : les rideaux de lin s'ouvrent sur chaque espace du studio, récemment rénové.</p></div>
+  <div class="window" id="win"><div class="rod"></div><div class="cur l" id="cl"></div><div class="cur r" id="cr"></div><p class="gcap" id="gcap" aria-live="polite"></p></div>
+ </div>
+</section>
+
+<section id="rdv" aria-labelledby="t5">
+ <form id="bk" novalidate>
+  <p class="kick">Rendez-vous</p>
+  <h2 class="big" id="t5"><span class="pf">Votre heure</span>de lumière</h2>
+  <fieldset><legend>1 · Le soin</legend><div class="opts" id="oS"></div></fieldset>
+  <fieldset><legend>2 · Le jour</legend><div class="opts" id="oD"></div></fieldset>
+  <fieldset><legend>3 · L'heure</legend><div class="opts" id="oH"></div></fieldset>
+  <div class="ff">
+   <label class="sr" for="fN">Prénom</label><input id="fN" type="text" placeholder="Votre prénom" autocomplete="given-name">
+   <label class="sr" for="fT">Téléphone</label><input id="fT" type="tel" placeholder="Votre téléphone" autocomplete="tel">
+   <label class="cb"><input type="checkbox" id="fC"><span>J'accepte que SkinStudio Origin utilise ces informations uniquement pour gérer mon rendez-vous (<button type="button" data-open="conf">confidentialité</button>).</span></label>
+   <button class="btn" type="submit">Envoyer la demande</button>
+   <p id="msg" role="status"></p>
+  </div>
+ </form>
+ <div class="dialw" aria-hidden="true">
+  <div class="dial" id="dial"><div class="plate"></div><div class="hours" id="dh"></div><div class="shadow" id="sh"></div><div class="gno"></div></div>
+  <div class="dcap"><b id="dcB">Choisissez une heure</b><span id="dcS">le cadran suit votre choix</span></div>
+ </div>
+</section>
+
+<section id="infos" aria-labelledby="t6">
+ <div>
+  <p class="kick">Accès</p>
+  <h2 class="big" id="t6"><span class="pf">2746</span>chemin Long</h2>
+  <p class="ad">83260 La Crau · <a href="tel:+33489664937">04 89 66 49 37</a></p>
+  <div class="hrs" id="hrs"></div>
+  <p class="note">Maquillage permanent et consultations esthétiques : sur rendez-vous avec Margaux Chaix au <a href="tel:+33670705798" style="color:var(--or)">06 70 70 57 98</a>.</p>
+ </div>
+ <div class="map" id="map"><div class="mph" id="mph"></div><div class="pin" aria-hidden="true"><span>O</span></div>
+<div class="mcon" id="mcon"><button type="button" id="mapBtn">Afficher le plan Google</button></div>
+<div class="mcard"><b>SkinStudio Origin</b><p>2746 chemin Long, 83260 La Crau</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=SkinStudio+Origin%2C+2746+Chem.+Long%2C+83260+La+Crau" target="_blank" rel="noopener">Itinéraire</a></div></div>
+</section>
+</main>
+<footer><span>© 2026 SkinStudio Origin · La Crau</span><ul class="fl"><li><button type="button" data-open="ml">Mentions légales</button></li><li><button type="button" data-open="conf">Confidentialité</button></li><li><button type="button" data-open="cgv">CGV / CGU</button></li><li><button type="button" data-open="ann">Annulation et remboursement</button></li><li><button type="button" data-open="ck">Cookies</button></li></ul></footer>
+<a class="demo" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+<div class="ck" id="ck" role="dialog" aria-label="Cookies" hidden><p>Ce site n'utilise aucun cookie de suivi. Seul le plan Google Maps peut en déposer si vous l'affichez. Vous acceptez ?</p><div class="a"><button type="button" id="ckNo">Refuser</button><button type="button" id="ckYes">Accepter</button></div></div>
+<dialog class="lg" id="dlg" aria-labelledby="dlgT"><button class="x" type="button" id="dlgX">Fermer</button><div id="dlgC"></div></dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+addEventListener('DOMContentLoaded',()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,mob=()=>innerWidth<=600;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const G='https://lh3.googleusercontent.com/gps-cs-s/',img=(k,w)=>G+PH[k]+'=w'+w;
+const PH={rideaux:'ANWiy9Q7M4pdisifjQLOcMDJwWJMbm4ycZWvmkzeVfhfeemyxQ2OqHg2Rre7DbkDm3t36lxtqXdlRY7m-x73R_por3acLeku37NDme6Ufjirqiub4bJZ5XgcC6AaeP-zmIfHO3zMNXAV1cQ__aSk',vert:'ANWiy9TOxs5qrNZ-bhWkaha1216f4eL5u8ywydk0blANp6XNis7I1BPweTwRtP-cVKHL8IpRkZeQjaEdxWPUjLMglxFnIntPP3m8y92pzAndN_DTaXoiaL7W5hZBn_1LGBMpMg5QEXeuhgz-DXl5',led:'ANWiy9SfZrtqhIDvFN3OvOHhrxgu8lLFgzlI0_RS1SrsHAZNOrJY61inANRO_oTyY-oppEymxnBHp7npncbFl2JR8je1l_dJZsuMkvBxPPRbdXZ9jOjl1sdkLc6d-i5_ckvKrsci3cE',blanche:'ANWiy9SeMtOlrnEEqrx_ot_ja1EYSWo70ZPxYomaQ6gpRuKt8j481tlVSzNkWC4sP0ngAEQF9MLPsBOjymnV26NN6cyg14T23dbgpDn1PLshWdiKiFWIHFwW0SyigjbiQJZlMT4zwwD1',accueil:'ANWiy9SNMfTTpBTOALg3M0eRcPQ_i8wOzw1Ns8ThUTxjU7WOBS-5zsQg5futNcnI0e1LyBky-V0it0c7ZJO39Smmc6GxJmq6CPUDGYHzMAHob0TU1rI8moMpKzdwIEPGKbePyVp057XtFpKAy8kT',salon:'ANWiy9SMvzcKNPhow1A_9djCJjH6lFUtjjqwdXw1cGDhuAeBLj1ooruvqo5XjytOg2szvHqvJXz-syaRT_lh_kvGFE0EC06CAAakBEFnnn0lwjUYNfn_aTXIDvj8a3RQFKha4FrQ5wMz4YEGS5Qb',attente:'ANWiy9T2N9VxsbVBnqTrRzTFdzqZe1pQ_52-NRnRgBCT416Is1nEZ3aw5tJSluD2oqden8LWo6dzLFCvreLb-0Mqtbtd--1rw7PTWstIed_gPNpj2K86ZvQreDS4vYeV4Oo7eo8RtCimvjGp3cSt'};
+/* HERO spotlight */
+const hero=$('.hero'),l1=$('#l1'),l2=$('#l2');l1.style.backgroundImage=l2.style.backgroundImage=`url(${img('vert',1800)})`;
+let mx=-999,my=-999,sx=-999,sy=-999,active=false,lastMove=0;
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;active=true;lastMove=performance.now()});
+hero.addEventListener('pointerleave',()=>{active=false});
+function spot(t){const r=hero.getBoundingClientRect();if(r.bottom<0)return;const R=mob()?Math.min(150,innerWidth*.4):260;
+ if(!active||performance.now()-lastMove>2600){const W=r.width,H=r.height;mx=W*(.5+.32*Math.sin(t/2300));my=H*(.52+.2*Math.sin(t/1700+1))}
+ if(sx<-900){sx=mx;sy=my}sx+=(mx-sx)*.1;sy+=(my-sy)*.1;hero.style.setProperty('--x',sx+'px');hero.style.setProperty('--y',sy+'px');hero.style.setProperty('--R',R+'px')}
+/* SOINS data */
+const SO=[
+ {n:'Soins du visage',w:'Dermocosmétique SoSkin',d:'Du soin éclat au soin profond, avec l\'appareil HydroFace pour le soin HydraGlow.',l:[['Éclat','double nettoyage, gommage, masque · 45 min','30 €'],['So essentiel','soin traditionnel · 1 h 15','50 €'],['So expert Clean','aspiration, peeling, skinscrub · 1 h 30','65 €'],['Le Soin Signature','bain de pieds, modelage crânien, visage · 1 h 45','75 €'],['Le Soin HydraGlow','5 méthodes HydroFace · 1 h 45','75 €'],['Microneedling','séance avec soin du visage · 1 h','60 €']],c:0xc8a464},
+ {n:'Le regard',w:'Cils avec Audrey',d:'Extensions cil à cil, demi-pose naturelle, lash lift et brow lift.',l:[['Extensions demi-pose','45 min','45 €'],['Extensions cil à cil','1 h','65 €'],['Remplissage cil à cil, 2 semaines','1 h','35 €'],['Lash lift, réhaussement de cils','45 min','35 €'],['Lash lift + teinture','1 h','40 €'],['Brow lift + teinture + épilation','1 h','45 €']],c:0x8a9a7b},
+ {n:'Lumière pulsée',w:'Épilation définitive',d:'Séances à la lumière pulsée, pour les femmes et les hommes.',l:[['Lèvre supérieure','15 min','30 €'],['Menton','15 min','30 €'],['Aisselles','15 min','35 €'],['Avant-bras','15 min','50 €'],['Bras','30 min','80 €'],['Nuque (homme)','15 min','40 €']],c:0xe8dfd0},
+ {n:'Corps & Body Sculpt',w:'Massages et soins minceur',d:'Cavitation, radiofréquence, vacuum et massages relaxants ou toniques.',l:[['Body Sculpt Flash, 2 zones','45 min','60 €'],['Body Sculpt, 2 zones','1 h 15','90 €'],['Rituel Beauty Boost visage','45 min','60 €'],['Massage relaxant','25 min','35 €'],['Massage californien','50 min','50 €'],['Gommage corps','20 min','30 €']],c:0x9fb28e},
+ {n:'Les ongles',w:'Gel, acrygel, semi-permanent',d:'Pose complète, gainage, remplissage et vernis semi-permanent mains et pieds.',l:[['Pose complète gel ou acrygel','2 h','50 €'],['Gainage gel ou acrygel','1 h 30','45 €'],['Remplissage','1 h 30','40 €'],['Semi-permanent mains','1 h','20 €'],['Semi-permanent pieds','1 h','20 €']],c:0xd8b4a0},
+ {n:'Maquillage permanent',w:'Avec Marine et Margaux Chaix',d:'Microblading, shading, eye-liner, dermopigmentation : un rendez-vous préalable est prévu.',l:[['RDV préalable microblading','30 min','20 €'],['Création sourcils poil à poil','2 h 30','180 €'],['Retouche à 4 semaines','1 h 30','70 €'],['Sourcils microblading (M. Chaix)','sur RDV','200 à 350 €'],['Eye-liner supérieur (M. Chaix)','sur RDV','90 à 250 €']],c:0xb08a50}];
+$('#rtabs').innerHTML=SO.map((s,i)=>`<button type="button" role="tab" aria-selected="${i===0}" aria-controls="rc${i}" data-r="${i}">${s.n}</button>`).join('');
+$('#rcards').innerHTML=SO.map((s,i)=>`<article class="rc" id="rc${i}" role="tabpanel"><h3>${s.n}</h3><span class="who">${s.w}</span><p class="d">${s.d}</p><ul>${s.l.map(x=>`<li><div>${x[0]}<small>${x[1]}</small></div><span>${x[2]}</span></li>`).join('')}</ul></article>`).join('');
+const soins=$('#soins');let rAct=-1,D3=null;
+function rTick(){const r=soins.getBoundingClientRect();const p=clamp(-r.top/(r.height-innerHeight),0,1);const a=Math.min(SO.length-1,Math.floor(p*SO.length*.999));if(a!==rAct){rAct=a;$$('.rc').forEach((c,i)=>c.classList.toggle('on',i===a));$$('#rtabs button').forEach((b,i)=>b.setAttribute('aria-selected',String(i===a)));$('#rnum').textContent=String(a+1).padStart(2,'0')+' / 0'+SO.length;if(D3)D3.drop(a)}return p}
+$('#rtabs').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(!b)return;const i=+b.dataset.r;scrollTo({top:soins.offsetTop+(soins.offsetHeight-innerHeight)*((i+.5)/SO.length),behavior:RM?'auto':'smooth'})});
+/* THREE serum dropper */
+function three(){const T=window.THREE,el=$('#drop');if(!T){document.body.classList.add('no3d');return}
+ const rd=new T.WebGLRenderer({antialias:true,alpha:true});rd.setPixelRatio(Math.min(2,devicePixelRatio));el.appendChild(rd.domElement);
+ const sc=new T.Scene(),cam=new T.PerspectiveCamera(34,1,.1,100);cam.position.set(0,1.2,15);cam.lookAt(0,-.4,0);
+ sc.add(new T.HemisphereLight(0xfff4e0,0x1f2f27,.8));const k=new T.DirectionalLight(0xffffff,1.1);k.position.set(4,8,6);sc.add(k);const rim=new T.PointLight(0xc8a464,1.4,20);rim.position.set(-4,2,4);sc.add(rim);
+ const gold=new T.MeshStandardMaterial({color:0xd4b06a,metalness:.55,roughness:.28,emissive:0x2a1d08});
+ const glass=new T.MeshPhysicalMaterial({color:0xcfe3d8,metalness:0,roughness:.08,transparent:true,opacity:.42,clearcoat:1,clearcoatRoughness:.1,side:T.DoubleSide});
+ const g=new T.Group();sc.add(g);
+ const prof=[];[[0,-1.6],[1.05,-1.6],[1.18,-1.45],[1.2,.6],[1.05,1],[.55,1.25],[.5,1.55]].forEach(p=>prof.push(new T.Vector2(p[0],p[1])));
+ const bottle=new T.Mesh(new T.LatheGeometry(prof,48),glass);g.add(bottle);
+ const liq=new T.Mesh(new T.CylinderGeometry(1.08,1.08,1.6,48),new T.MeshStandardMaterial({color:0xc8a464,transparent:true,opacity:.75,roughness:.2,emissive:0x3a2a0a}));liq.position.y=-.78;g.add(liq);
+ const collar=new T.Mesh(new T.CylinderGeometry(.62,.62,.5,40),gold);collar.position.y=1.8;g.add(collar);
+ const bulb=new T.Mesh(new T.SphereGeometry(.48,32,24),new T.MeshStandardMaterial({color:0x1f2f27,roughness:.5}));bulb.scale.y=1.5;bulb.position.y=2.55;g.add(bulb);
+ const pip=new T.Mesh(new T.CylinderGeometry(.09,.05,3.1,16),glass);pip.position.y=-.1;g.add(pip);
+ g.position.set(0,2.2,0);g.scale.setScalar(.82);
+ const dish=new T.Mesh(new T.CylinderGeometry(2.6,2.2,.28,64),gold);dish.position.y=-3.1;sc.add(dish);
+ const pool=new T.Mesh(new T.CircleGeometry(2.3,64),new T.MeshStandardMaterial({color:0xc8a464,roughness:.15,metalness:.2,emissive:0x2a1d08}));pool.rotation.x=-Math.PI/2;pool.position.y=-2.95;sc.add(pool);
+ const ripples=[];for(let i=0;i<3;i++){const m=new T.Mesh(new T.RingGeometry(.2,.26,64),new T.MeshBasicMaterial({color:0xfff2d0,transparent:true,opacity:0,side:T.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.y=-2.93;sc.add(m);ripples.push({m,t:9})}
+ const drop=new T.Mesh(new T.SphereGeometry(.16,24,16),new T.MeshStandardMaterial({color:0xe6c27a,roughness:.05,metalness:.3,emissive:0x3a2a0a}));drop.scale.y=1.35;drop.visible=false;sc.add(drop);
+ const motes=[];for(let i=0;i<26;i++){const m=new T.Mesh(new T.SphereGeometry(.05,8,6),new T.MeshBasicMaterial({color:0xe8d4aa,transparent:true,opacity:.6}));m.userData={a:Math.random()*6.28,r:2+Math.random()*3.5,y:Math.random()*6-3,s:.2+Math.random()*.5};sc.add(m);motes.push(m)}
+ let dt0=null;const col=new T.Color();
+ D3={drop(i){col.setHex(SO[i].c);dt0=0;drop.visible=true;drop.position.set(0,.25,0)}};
+ const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const s=w/h<.9?.72:1;sc.scale.setScalar(1);cam.position.z=w/h<.9?19:15};size();addEventListener('resize',size);
+ let last=performance.now();
+ D3.tick=t=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const dt=Math.min(.05,(t-last)/1000);last=t;const s=t/1000;
+  g.rotation.y=s*.35;g.position.y=2.2+(RM?0:Math.sin(s*1.2)*.12);
+  if(dt0!==null){dt0+=dt;drop.position.y=.25-dt0*dt0*9;if(drop.position.y<-2.9){drop.visible=false;dt0=null;const rp=ripples.find(x=>x.t>1.4)||ripples[0];rp.t=0;pool.material.color.lerp(col,1)}}
+  ripples.forEach(rp=>{rp.t+=dt;const k=rp.t;rp.m.scale.setScalar(1+k*6);rp.m.material.opacity=Math.max(0,.6-k*.45)});
+  liq.material.color.lerp(col,.04);
+  motes.forEach(m=>{const u=m.userData;m.position.set(Math.cos(u.a+s*u.s*.3)*u.r,u.y+Math.sin(s*u.s+u.a)*.4,Math.sin(u.a+s*u.s*.3)*u.r*.4-1)});
+  rd.render(sc,cam)};
+ col.setHex(SO[0].c);
+}
+/* EQUIPE */
+const TEAM=[['A','Audrey','Fondatrice · experte cils','Extensions de cils, lash lift et formations : elle a fondé le studio.'],['M','Maëlle','Épilations · cils','Assure désormais toutes les épilations, et les cils pour ses clientes habituelles.'],['M','Marine','Microblading','Création de sourcils effet poil à poil, après un rendez-vous préalable.'],['MC','Margaux Chaix','Maquillage permanent','Sourcils, eye-liner, camouflage et dermopigmentation, sur rendez-vous.']];
+$('#wall').innerHTML=TEAM.map(t=>`<article class="fr" data-tilt><div class="fm"><div class="in"><span class="mono" aria-hidden="true">${t[0]}</span></div></div><h3>${t[1]}</h3><p class="role">${t[2]}</p><p>${t[3]}</p></article>`).join('');
+let gx=0,gy=0;
+addEventListener('pointermove',e=>{gx=e.clientX/innerWidth-.5;gy=e.clientY/innerHeight-.5},{passive:true});
+addEventListener('deviceorientation',e=>{if(e.gamma!=null){gx=clamp(e.gamma/40,-.5,.5);gy=clamp((e.beta-45)/40,-.5,.5)}});
+function frTick(){const w=$('#wall').getBoundingClientRect();if(w.bottom<0||w.top>innerHeight)return;const sp=clamp(1-(w.top+w.height/2)/innerHeight,0,1);$$('.fr').forEach((f,i)=>{if(RM)return;f.style.setProperty('--ry',(gx*18+(i%2?-3:3))+'deg');f.style.setProperty('--rx',(-gy*14)+'deg');f.querySelector('.in').style.setProperty('--gl',(-60+sp*120+gx*40)+'%')})}
+/* RIDEAUX */
+const GAL=[['rideaux','L\'entrée, voilages de lin','Entrée du studio avec voilages de lin et coiffeuse'],['vert','La cabine verte','Cabine de soin aux murs vert profond, parquet et table de massage'],['led','La cabine lumière','Cabine blanche éclairée par un bandeau lumineux bleuté'],['salon','Le salon d\'attente','Coin salon avec pampa, fauteuils et lumière chaude'],['attente','Le coin détente','Canapé beige, plantes et plateau doré avec bouteilles d\'eau'],['accueil','L\'accueil','Comptoir d\'accueil blanc devant le logo SkinStudio']];
+const win=$('#win');win.insertAdjacentHTML('afterbegin',GAL.map((g,i)=>`<div class="pic" role="img" aria-label="${g[2]}" style="background-image:url(${img(g[0],1400)})"></div>`).join(''));
+const pics=$$('.pic'),cl=$('#cl'),cr=$('#cr'),lieu=$('#lieu');let gAct=-1;
+function curTick(){const r=lieu.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const p=clamp(-r.top/(r.height-innerHeight),0,1)*GAL.length;const i=Math.min(GAL.length-1,Math.floor(p));const f=p-i;
+ const open=RM?1:Math.sin(clamp(f,0,1)*Math.PI);const o=clamp(open*1.25,0,1);
+ cl.style.transform=`translateX(${-o*88}%) rotateY(${o*28}deg) scaleX(${1-o*.35})`;cr.style.transform=`translateX(${o*88}%) rotateY(${-o*28}deg) scaleX(${1-o*.35})`;
+ if(i!==gAct){gAct=i;pics.forEach((x,k)=>x.classList.toggle('on',k===i));$('#gcap').textContent=GAL[i][1]}}
+/* RDV + sundial */
+const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Paris'})),wd=(now.getDay()+6)%7,mins=now.getHours()*60+now.getMinutes();
+const OPEN=[[540,1140],[540,1140],[540,1140],[540,1140],[540,1140],null,null];
+const days=[];for(let k=0;days.length<8;k++){const d=new Date(now);d.setDate(d.getDate()+k);const o=OPEN[(d.getDay()+6)%7];if(o&&!(k===0&&mins>o[1]-90))days.push(d)}
+const SV=[['Soin du visage',50],['Extensions de cils',45],['Lash lift',35],['Épilation lumière pulsée',30],['Body Sculpt',60],['Massage',35],['Ongles',20]];
+const sel={s:null,d:null,h:null};const fmtD=d=>d.toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}),fmtH=m=>Math.floor(m/60)+' h '+String(m%60).padStart(2,'0');
+$('#oS').innerHTML=SV.map((s,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="s" data-v="${i}">${s[0]}<small>dès ${s[1]} €</small></button>`).join('');
+$('#oD').innerHTML=days.map((d,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="d" data-v="${i}">${fmtD(d)}</button>`).join('');
+function slots(){const d=sel.d!==null?days[sel.d]:null;const o=d?OPEN[(d.getDay()+6)%7]:[540,1140];const out=[];for(let m=o[0];m<=o[1]-60;m+=30)out.push(m);const today=d&&d.toDateString()===now.toDateString();$('#oH').innerHTML=out.map(m=>`<button type="button" class="opt" aria-pressed="${sel.h===m}" data-k="h" data-v="${m}" ${today&&m<=mins+60?'disabled':''}>${fmtH(m)}</button>`).join('')}slots();
+const dh=$('#dh');const R=()=>$('#dial').clientWidth/2;
+function drawHours(){const r=R()*.8;dh.innerHTML=[9,10,11,12,13,14,15,16,17,18].map(h=>{const a=(180+(h-9)/9*180)*Math.PI/180;return `<span style="transform:translate(${Math.cos(a)*r-10}px,${Math.sin(a)*r-12}px)">${h}</span>`}).join('')}drawHours();addEventListener('resize',drawHours);
+const sh=$('#sh');
+function dial(){if(sel.h!==null){const h=sel.h/60;const a=180+(h-9)/9*180;sh.style.setProperty('--a',a+'deg');$('#dcB').textContent=fmtH(sel.h);$('#dcS').textContent=(sel.d!==null?fmtD(days[sel.d]):'')+(sel.s!==null?' · '+SV[sel.s][0]:'')}else{$('#dcB').textContent=sel.s!==null?SV[sel.s][0]:'Choisissez une heure';$('#dcS').textContent=sel.d!==null?fmtD(days[sel.d]):'le cadran suit votre choix'}}
+function pick(k,v){sel[k]=v;if(k==='d'){sel.h=null;slots()}$$(`[data-k="${k}"]`).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===v)));dial()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b&&!b.disabled)pick(b.dataset.k,+b.dataset.v)});
+$('#bk').addEventListener('submit',e=>{e.preventDefault();const m=[];if(sel.s===null)m.push('le soin');if(sel.d===null)m.push('le jour');if(sel.h===null)m.push('l\'heure');if(!$('#fN').value.trim())m.push('votre prénom');if(!/^[0-9 +.]{10,}$/.test($('#fT').value.trim()))m.push('un téléphone valide');if(!$('#fC').checked)m.push('votre accord');
+ if(!m.length){$('#dcB').textContent='À très vite';$('#dcS').textContent=fmtD(days[sel.d])+' · '+fmtH(sel.h)}$('#msg').innerHTML=m.length?'Il manque : '+m.join(', ')+'.':'Demande prête ✓ Sur la version finale, elle arrive directement au studio. En attendant : <a href="tel:+33489664937"><b>04 89 66 49 37</b></a>.'});
+/* hours */
+const HN=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'],fm=m=>Math.floor(m/60)+' h'+(m%60?' '+String(m%60).padStart(2,'0'):'');
+$('#hrs').innerHTML=HN.map((d,i)=>`<div class="${i===wd?'td':''}"><span>${d}${i===wd?' · aujourd\'hui':''}</span><span>${OPEN[i]?fm(OPEN[i][0])+' – '+fm(OPEN[i][1]):'Fermé'}</span></div>`).join('');
+/* nav + loop */
+const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>innerHeight*.7),{passive:true});
+function loop(t){spot(t);rTick();if(D3&&D3.tick)D3.tick(t);frTick();curTick();requestAnimationFrame(loop)}
+const go3=()=>{try{three();if(D3)D3.drop(0)}catch(e){document.body.classList.add('no3d')}};if(window.THREE)go3();else addEventListener('load',go3);
+requestAnimationFrame(loop);
+});
+</script>
+<script>
+(function(){const $=s=>document.querySelector(s);const K='skinstudio-ck';
+const ck=$('#ck');let consent=null;try{consent=localStorage.getItem(K)}catch(e){}
+if(consent===null)ck.hidden=false;
+function showMap(){if($('#map iframe'))return;$('#mph').insertAdjacentHTML('afterend','<iframe title="Plan : SkinStudio Origin" loading="lazy" src="https://www.google.com/maps?q=SkinStudio+Origin%2C+2746+Chem.+Long%2C+83260+La+Crau&z=16&output=embed"></iframe>');const m=$('#mcon');if(m)m.remove()}
+const setC=v=>{try{localStorage.setItem(K,v)}catch(e){}ck.hidden=true;if(v==='1')showMap()};
+$('#ckYes').onclick=()=>setC('1');$('#ckNo').onclick=()=>setC('0');$('#mapBtn').onclick=()=>setC('1');if(consent==='1')showMap();
+const L={"ml": "<h3 id=\"dlgT\">Mentions légales</h3><h4>Éditeur</h4><p>SkinStudio Origin, 2746 chemin Long, 83260 La Crau. Téléphone : 04 89 66 49 37. Forme juridique, SIRET et responsable de la publication : à compléter avec l'établissement.</p><h4>Hébergement</h4><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Réalisation</h4><p>ZAHR, création de sites web, Var.</p><h4>Propriété</h4><p>Les photos appartiennent à SkinStudio Origin. Polices Inter et Playfair Display sous licence SIL Open Font License.</p>", "conf": "<h3 id=\"dlgT\">Politique de confidentialité</h3><p>Le formulaire collecte uniquement les informations nécessaires à votre demande (prénom, téléphone, détails choisis). Elles servent seulement à y répondre (base légale : votre consentement).</p><h4>Durée de conservation</h4><p>Les demandes sont supprimées au plus tard 12 mois après le rendez-vous.</p><h4>Destinataires</h4><p>Seul l'établissement y a accès. Aucune donnée n'est vendue ni transmise à des tiers.</p><h4>Vos droits</h4><p>Accès, rectification, suppression : appelez le 04 89 66 49 37. Vous pouvez aussi saisir la CNIL (cnil.fr).</p>", "cgv": "<h3 id=\"dlgT\">Conditions générales</h3><h4>Prestations et prix</h4><p>Les prix affichés sont en euros TTC et reprennent la carte du studio. Certaines prestations (maquillage permanent, consultations) se réservent uniquement par téléphone. Le maquillage permanent comporte des contre-indications, présentées avant tout rendez-vous.</p><h4>Rendez-vous</h4><p>La demande en ligne est confirmée par le studio. Le paiement se fait sur place.</p><h4>Utilisation du site</h4><p>Merci de ne pas envoyer de fausses demandes. Les informations du site sont données à titre indicatif et peuvent évoluer.</p>", "ann": "<h3 id=\"dlgT\">Annulation et remboursement</h3><p>Pour annuler ou déplacer un rendez-vous, prévenez le studio le plus tôt possible au 04 89 66 49 37.</p><p>Aucun paiement n'étant pris en ligne, il n'y a rien à rembourser. Si une prestation ne vous convient pas, parlez-en directement au studio.</p>", "ck": "<h3 id=\"dlgT\">Cookies</h3><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Il mémorise seulement votre choix dans votre navigateur.</p><p>Le plan Google Maps n'est chargé que si vous l'acceptez ; Google peut alors déposer ses propres cookies.</p><p style=\"margin-top:14px\"><button class=\"x\" style=\"float:none\" type=\"button\" id=\"ckReset\">Modifier mon choix</button></p>"};const dlg=$('#dlg');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b){e.preventDefault();$('#dlgC').innerHTML=L[b.dataset.open];dlg.showModal()}if(e.target.id==='ckReset'){try{localStorage.removeItem(K)}catch(_){}location.reload()}});
+$('#dlgX').onclick=()=>dlg.close();})();
+</script>
+</body>
+</html>
