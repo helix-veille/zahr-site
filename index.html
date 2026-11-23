@@ -1814,7 +1814,7 @@ whenChips.forEach(b => b.addEventListener("click", () => {
   whenChips.forEach(c => c.setAttribute("aria-pressed", "false"));
   b.setAttribute("aria-pressed", on); when = on ? b.dataset.w : ""; render(true);
 }));
-const PROMOS = {BRCUT:"BrCut", SHINING:"Shining Cars", HELIX:"Helix Sécurité", FLAUTO:"FL Auto"};
+const PROMOS = Object.fromEntries([["QlJDVVQ=", "QnJDdXQ="], ["U0hJTklORw==", "U2hpbmluZyBDYXJz"], ["SEVMSVg=", "SGVsaXggU8OpY3VyaXTDqQ=="], ["RkxBVVRP", "RkwgQXV0bw=="]].map(([c,n])=>[atob(c),decodeURIComponent(escape(atob(n)))]));
 function promoCode(){ const v = ($("#promo")?.value || "").trim().toUpperCase().replace(/\s+/g,""); return PROMOS[v] ? v : ""; }
 function promoInfo(){ const el = $("#promoOk"); if (!el) return; const raw = ($("#promo").value||"").trim(); const pc = promoCode();
   el.style.color = pc || !raw ? "var(--leaf)" : "var(--mute-d)";
