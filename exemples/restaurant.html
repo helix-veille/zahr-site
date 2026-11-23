@@ -219,6 +219,8 @@ button,input{font:inherit;color:inherit}
 @media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
 
 </style>
+<style id="zahr-a11y">button[data-open],button.lk{display:inline-flex!important;align-items:center!important;min-height:24px!important;vertical-align:middle}input[type=range]{min-height:24px}.rail button{min-height:24px}.dots button{width:24px!important;height:24px!important;padding:5px!important;box-sizing:border-box!important;background-clip:content-box!important}input[type=checkbox],input[type=radio]{min-width:20px;min-height:20px}.nlc{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.4;margin-top:10px;opacity:.85}.nlc input{flex:none;margin-top:1px}</style>
+<script id="zahr-a11y-js">(()=>{const fix=()=>{for(const el of document.querySelectorAll('body *')){if(el.closest('svg,canvas,script,style'))continue;if(![...el.childNodes].some(c=>c.nodeType===3&&c.textContent.trim()))continue;const s=parseFloat(getComputedStyle(el).fontSize);if(s>=8&&s<11)el.style.fontSize='11px'}};if(document.readyState!=='loading')fix();else addEventListener('DOMContentLoaded',fix);addEventListener('load',()=>setTimeout(fix,700))})()</script>
 </head>
 <body>
 <header class="top"><a class="brand" href="#top" aria-label="ZAHR Smash, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><b>ZAHR Smash</b></a><nav class="cap" aria-label="Navigation"><a href="#burgers">Menu ▾</a><a href="#reserver">Réserver</a><a href="#adresse">L’adresse</a></nav></header>
@@ -299,7 +301,7 @@ button,input{font:inherit;color:inherit}
   <div class="nl">
     <div class="ring" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
     <h4 class="hd">Rejoignez le<br>club chance.</h4>
-    <form class="nlf" id="nlf" novalidate><input type="email" id="ne" placeholder="Votre e-mail" aria-label="Votre e-mail" autocomplete="email"><button class="pill r" type="submit">S’inscrire</button></form>
+    <form class="nlf" id="nlf" novalidate><input type="email" id="ne" placeholder="Votre e-mail" aria-label="Votre e-mail" autocomplete="email"><button class="pill r" type="submit">S’inscrire</button></form><label class="nlc"><input type="checkbox" id="nlck"> J’accepte de recevoir la lettre de ZAHR Smash. Désinscription en un clic dans chaque e-mail.</label><p id="nlmsg" role="alert" style="font-size:13px;margin:6px 0 0;min-height:1em"></p>
     <label class="nlc"><input type="checkbox" id="nc"><span>J’accepte de recevoir la lettre de ZAHR Smash, une fois par mois. Désinscription en un clic dans chaque e-mail.</span></label>
     <p class="nlm" id="nm" role="status" aria-live="polite"></p>
   </div>
@@ -394,5 +396,5 @@ document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{i
 function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
 if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
 </script>
-</body>
+<script>document.getElementById('nlf').addEventListener('submit',e=>{if(!document.getElementById('nlck').checked){e.preventDefault();e.stopImmediatePropagation();document.getElementById('nlmsg').textContent='Cochez la case pour vous inscrire.'}else document.getElementById('nlmsg').textContent=''},true)</script></body>
 </html>
