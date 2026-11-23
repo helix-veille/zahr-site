@@ -608,19 +608,19 @@ addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>innerHeight*.
 
 /* ---------- cars data ---------- */
 const CARS=[
+ {k:'mclaren',n:'McLaren 675LT',d:'Nettoyage complet',c:'Sportive',r:'DQw3XI4CH3S'},
  {k:'golf-gti',n:'Volkswagen Golf 8 GTI',d:'Nettoyage complet',c:'Citadine / compacte',r:'DcMDo9sI-Cm'},
  {k:'audi-rs-etron-gt',n:'Audi RS e-tron GT',d:'Nettoyage intérieur / extérieur',c:'Berline',r:'Dc3588KoLZH'},
- {k:'mclaren',n:'McLaren 675LT',d:'Nettoyage complet',c:'Sportive',r:'DQw3XI4CH3S'},
  {k:'porsche-panamera',n:'Porsche Panamera Turbo S',d:'Nettoyage intérieur',c:'Berline',r:'DdW52sCohUF'},
  {k:'mercedes-glc',n:'Mercedes GLC 400e',d:'Nettoyage intérieur / extérieur',c:'SUV',r:'DdMbqyjQiqW'},
  {k:'bmw-x4',n:'BMW X4 xDrive20d',d:'Nettoyage complet',c:'SUV',r:'Dc_KJXnBS7o'},
  {k:'audi-q6',n:'Audi Q6',d:'Nettoyage complet',c:'SUV',r:'Db6I09aI6ay'},
  {k:'audi-q3b',n:'Audi Q3',d:'Nettoyage intérieur / extérieur',c:'SUV',r:'Dc_J1BAoG_U'}
 ];
-const N=CARS.length, START=3;
+const N=CARS.length, START=0;
 const row=$('#row');
 const cards=CARS.map((c,i)=>{const f=document.createElement('figure');f.className='car';f.setAttribute('role','button');f.tabIndex=0;f.setAttribute('aria-label',c.n+' : voir le nettoyage');const cv=document.createElement('canvas');cv.width=700;cv.height=280;f.appendChild(cv);f.insertAdjacentHTML('beforeend',`<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span><figcaption>${c.n}</figcaption>`);
- const im=new Image();im.decoding='async';im.onload=()=>{const x=cv.getContext('2d');if(c.k==='porsche-panamera'){x.translate(700,0);x.scale(-1,1);}x.drawImage(im,0,0,700,280);try{const d=x.getImageData(0,0,700,280),p=d.data;for(let j=0;j<p.length;j+=4){const s=765-(p[j]+p[j+1]+p[j+2]);if(s<54)p[j+3]=Math.round(255*Math.max(0,(s-12)/42));}x.putImageData(d,0,0);}catch(e){}};im.src='img/profil/'+c.k+'.jpg';
+ const im=new Image();im.decoding='async';im.onload=()=>{const x=cv.getContext('2d');x.drawImage(im,0,0,700,280);try{const d=x.getImageData(0,0,700,280),p=d.data;for(let j=0;j<p.length;j+=4){const s=765-(p[j]+p[j+1]+p[j+2]);if(s<54)p[j+3]=Math.round(255*Math.max(0,(s-12)/42));}x.putImageData(d,0,0);}catch(e){}};im.src='img/profil/'+c.k+'.jpg';
  row.appendChild(f);return f;});
 
 /* ---------- film frames ---------- */
