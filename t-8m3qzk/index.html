@@ -51,7 +51,7 @@ let f='todo';
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const mobile=t=>/^0[67]/.test((t||'').replace(/\s/g,''));
 const intl=t=>'33'+(t||'').replace(/\s/g,'').slice(1);
-function msgOf(p){return (st[p.id]&&st[p.id].msg)||p.message}
+function msgOf(p){let m=(st[p.id]&&st[p.id].msg)||p.message||'';if(p.demo){m=m.replace(' : '+p.demo,' :\n'+p.demo);if(!m.includes(p.demo))m=m.replace(/\s*$/,'')+'\n\nLa démo : '+p.demo}return m}
 const stOf=p=>(st[p.id]&&st[p.id].s)||(p.sent?'done':'todo');
 function render(){
  const L=data.filter(p=>stOf(p)===f).sort((a,b)=>(b.added||'').localeCompare(a.added||'')||b.score-a.score);
@@ -60,17 +60,17 @@ function render(){
  document.getElementById('list').innerHTML=L.length?L.map(p=>{const m=msgOf(p),enc=encodeURIComponent(m),mob=mobile(p.phone);
   return `<article class="card ${f!=='todo'?'done':''}" data-id="${esc(p.id)}">
   <div class="top"><div><b>${esc(p.name)}</b><small>${esc(p.activity)} · ${esc(p.city)}${p.phone?' · '+esc(p.phone):''}</small></div><span class="score">${p.score||''}/100</span></div>
-  <a class="demo" href="${esc(p.demo)}" target="_blank" rel="noopener">Voir la démo →</a>
+  <a class="demo" href="${esc(p.demo)}" target="_blank" rel="noopener">Voir la démo →</a><span class="note">Le lien de la démo est inclus dans chaque message envoyé.</span>
   <label class="note" for="m-${esc(p.id)}">Message (modifiable)</label>
   <textarea id="m-${esc(p.id)}" data-m="${esc(p.id)}">${esc(m)}</textarea>
   <div class="acts">
-   ${mob?`<a class="main" href="https://wa.me/${intl(p.phone)}?text=${enc}" target="_blank" rel="noopener">WhatsApp</a><a href="sms:${p.phone.replace(/\s/g,'')}?&body=${enc}">SMS</a>`:''}
+   ${mob?`<a class="main" href="sms:+${intl(p.phone)}?&body=${enc}">iMessage</a><a href="https://wa.me/${intl(p.phone)}?text=${enc}" target="_blank" rel="noopener">WhatsApp</a>`:''}
    ${p.instagram?`<a class="${mob?'':'main'}" href="https://ig.me/m/${esc(p.instagram)}" target="_blank" rel="noopener" data-copy="1">Instagram (message copié)</a>`:''}
    ${p.phone?`<a href="tel:${p.phone.replace(/\s/g,'')}">Appeler</a>`:''}
    <button type="button" data-copyonly="1">Copier le message</button>
    ${f==='todo'?`<button type="button" class="ok" data-s="done">✓ Envoyé</button><button type="button" class="no" data-s="skip">Écarter</button>`:`<button type="button" data-s="todo">Remettre à envoyer</button>`}
   </div>
-  ${!mob&&!p.instagram?'<p class="note">Numéro fixe : pas de WhatsApp. Appelle, ou passe au salon avec la démo sur ton téléphone.</p>':''}
+  ${!mob&&!p.instagram?'<p class="note">Numéro fixe : pas d\'iMessage ni de WhatsApp. Appelle, ou passe au salon avec la démo sur ton téléphone.</p>':''}
   ${!mob&&p.instagram?'<p class="note">Numéro fixe : le message est copié, colle-le dans Instagram.</p>':''}
  </article>`}).join(''):'<p class="empty">Rien ici pour le moment.</p>';
 }
