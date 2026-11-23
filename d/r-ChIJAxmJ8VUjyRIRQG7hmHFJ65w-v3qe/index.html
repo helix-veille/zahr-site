@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Escale Beauty Centr'Azur — Bar à ongles & épilations à Hyères</title>
+<meta name="description" content="Bar à ongles et épilations au centre commercial Centr'Azur à Hyères : semi-permanent, gel, remplissage, regard, épilations, soins visage. Avec ou sans rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf7ef;--ink:#1f2a1c;--ink2:#4a5545;--g:#3d7a35;--g2:#2c5c26;--sun:#cfe5b4;--line:#e3dcc8;--card:#f2ecdc;--or:#c94a14;--serif:'Playfair Display',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--g);color:#fff;padding:10px 14px;border-radius:10px}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px clamp(14px,3vw,36px);transition:background .3s,box-shadow .3s}
+.hd.solid{background:rgba(251,247,239,.97);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand .mk{width:38px;height:38px;flex:none;border-radius:12px;background:var(--g);display:grid;place-items:center}
+.brand .mk svg{width:24px;height:24px}
+.brand b{display:block;font:500 15px/1 var(--serif);letter-spacing:.16em;white-space:nowrap}
+.brand small{display:block;font:600 9.5px/1 var(--sans);letter-spacing:.2em;color:var(--g);margin-top:5px;white-space:nowrap}
+.hd nav{display:flex;align-items:center;gap:6px}
+.hd nav a.l{font:500 14px/1 var(--sans);text-decoration:none;padding:10px 12px;border-radius:99px}
+.hd nav a.l:hover{background:var(--card)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:99px;border:0;background:var(--g);color:#fff;font:600 14px/1 var(--sans);letter-spacing:.02em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .2s,background .2s}
+.btn:hover{background:var(--g2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.ico{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--card);text-decoration:none}
+.ico svg{width:20px;height:20px}
+/* hero wheel */
+.home{position:relative;height:100svh;min-height:600px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.home h1{position:absolute;left:0;right:0;top:12.5%;text-align:center;font:400 min(6.6vw,8.4vh)/.92 var(--serif);text-transform:uppercase;letter-spacing:.01em;color:var(--ink);z-index:3;padding:0 16px}
+.home h1 em{font-style:italic;color:var(--g);text-transform:none}
+.home h1 .ln{display:block;overflow:hidden}
+.home h1 .ln>span{display:inline-block;transform:translateY(108%);animation:up 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.home h1 .ln:nth-child(2)>span{animation-delay:.11s}
+@keyframes up{to{transform:none}}
+.sun{position:absolute;left:50%;top:61%;width:min(84vw,118vh);aspect-ratio:1;transform:translateX(-50%);z-index:1}
+.sun svg{width:100%;height:100%;overflow:visible}
+.wheel{position:absolute;inset:0;z-index:2}
+.bt{position:absolute;left:0;top:0;border:0;background:none;padding:0;cursor:pointer;transform-origin:50% 50%;will-change:transform;-webkit-tap-highlight-color:transparent}
+.bt svg{width:100%;height:100%;display:block;filter:drop-shadow(0 18px 22px rgba(40,30,10,.22));transition:transform .25s}
+.bt:hover svg,.bt:focus-visible svg{transform:scale(1.08)}
+.now{position:absolute;left:0;right:0;top:calc(61% + min(84vw,118vh)*.17);z-index:3;text-align:center;padding:0 20px}
+.now small{display:block;font:600 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--g2)}
+.now b{display:block;font:400 clamp(22px,3.2vw,34px)/1.1 var(--serif);margin:8px 0 14px}
+.now .acts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.now .btn.ghost{background:var(--bg)}
+.now .btn.ghost:hover{background:var(--ink)}
+.hint{position:absolute;left:0;right:0;bottom:16px;text-align:center;font:500 10px/1 var(--serif);letter-spacing:.3em;z-index:3;color:var(--g2)}
+.tip{position:fixed;left:0;top:0;z-index:70;pointer-events:none;height:26px;padding:0 12px 0 10px;border-radius:99px;background:#fff;color:var(--g2);font:600 10px/26px var(--sans);letter-spacing:.12em;text-transform:uppercase;box-shadow:0 6px 18px rgba(0,0,0,.12);transform:scale(0);transition:transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tip::before{content:"";display:inline-block;width:5px;height:5px;background:var(--or);transform:rotate(45deg) translateY(-2px);margin-right:7px}
+.tip.on{transform:scale(1)}
+@media (hover:none){.tip{display:none}}
+.fly{position:fixed;z-index:65;pointer-events:none;left:0;top:0}
+.fly svg{width:100%;height:100%;filter:drop-shadow(0 20px 26px rgba(40,30,10,.25))}
+/* sections */
+.sec{position:relative;padding:clamp(70px,10vw,130px) clamp(16px,5vw,64px)}
+.kick{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--g2)}
+.kick::before{content:"";width:6px;height:6px;background:var(--or);transform:rotate(45deg)}
+.h2{font:400 clamp(40px,7.4vw,104px)/.9 var(--serif);text-transform:uppercase;margin:14px 0 0}
+.h2 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.h2 .ln>span{display:inline-block;transform:translateY(108%);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.h2 .ln:nth-child(2)>span{transition-delay:.11s}
+.in .h2 .ln>span,.h2.in .ln>span{transform:none}
+.lead{max-width:560px;color:var(--ink2);font-size:17px;margin-top:18px}
+/* carte */
+.carte{background:var(--bg)}
+.cgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,5vw,80px);align-items:start;margin-top:10px}
+.ctitle{font:400 clamp(44px,8.6vw,124px)/.88 var(--serif);text-transform:uppercase;color:var(--ink)}
+.ctitle .ln{display:block;overflow:hidden;padding-bottom:.05em}
+.ctitle .ln>span{display:inline-block}
+.ctitle .ln:nth-child(2) span{font-style:italic;text-transform:none;color:var(--g)}
+.sticks{list-style:none;margin-top:34px;display:grid;gap:10px;perspective:900px}
+.stk{display:grid;grid-template-columns:12px 1fr auto auto;align-items:center;gap:14px;min-height:62px;padding:10px 12px 10px 0;border-radius:14px;background:#fff;box-shadow:0 1px 0 var(--line),0 10px 24px rgba(60,50,20,.05);transform-origin:0 100%;transform:rotate(calc(var(--i)*-7deg - 8deg)) translateX(-6px);opacity:0;transition:transform .9s cubic-bezier(.2,.9,.2,1),opacity .5s;transition-delay:calc(var(--i)*55ms)}
+.sticks.open .stk{transform:none;opacity:1}
+.stk i{align-self:stretch;border-radius:14px 0 0 14px;background:var(--c)}
+.stk .n{font:500 15.5px/1.3 var(--sans)}
+.stk .d{font:500 12px/1 var(--sans);color:var(--ink2);white-space:nowrap}
+.stk .p{font:500 19px/1 var(--serif);white-space:nowrap;text-align:right;min-width:62px}
+.stk .p small{font:500 11px/1 var(--sans);display:block;color:var(--ink2);margin-bottom:3px}
+.stk button{grid-column:2/-1;justify-self:start;margin-top:2px;border:0;background:none;color:var(--g2);font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:8px 0;display:none}
+.stk:hover{box-shadow:0 1px 0 var(--line),0 16px 30px rgba(60,50,20,.1)}
+.stk{cursor:pointer}
+.cside{position:sticky;top:96px;display:grid;justify-items:center;gap:14px}
+.stage3{width:min(100%,360px);aspect-ratio:.72;position:relative;perspective:900px}
+.stage3 .bb{position:absolute;inset:6% 18%;transform-style:preserve-3d;animation:spin 9s linear infinite}
+@keyframes spin{0%{transform:rotateY(0) rotateZ(-6deg)}50%{transform:rotateY(180deg) rotateZ(6deg)}100%{transform:rotateY(360deg) rotateZ(-6deg)}}
+.stage3 .bb svg{position:absolute;inset:0;width:100%;height:100%;backface-visibility:visible}
+.stage3 .bb svg+svg{transform:rotateY(90deg)}
+.stage3::after{content:"";position:absolute;left:20%;right:20%;bottom:2%;height:8%;border-radius:50%;background:radial-gradient(closest-side,rgba(40,30,10,.25),transparent)}
+.cside p{font:500 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);text-align:center}
+.others{margin-top:clamp(60px,8vw,110px)}
+.others h3{font:400 clamp(30px,5vw,64px)/.95 var(--serif);text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:24px}
+.cd{position:relative;aspect-ratio:.77;border-radius:20px;background:var(--card);border:0;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:12px;transition:transform .35s cubic-bezier(.3,1.4,.5,1),background .3s;isolation:isolate}
+.cd .b{position:absolute;left:50%;top:12%;height:58%;aspect-ratio:.62;transform:translateX(-50%);transition:transform .35s;z-index:2}
+.cd .b svg{width:100%;height:100%}
+.cd b{position:relative;z-index:3;font:500 15px/1.15 var(--serif);text-align:center}
+.cd small{position:relative;z-index:3;font:500 11px/1 var(--sans);color:var(--ink2);margin-top:4px}
+.cd .m{position:absolute;width:22px;height:22px;z-index:1;left:50%;top:40%;transform:translate(-50%,-50%) scale(0);transition:transform .45s cubic-bezier(.3,1.7,.5,1)}
+.cd:hover,.cd:focus-visible,.cd[aria-pressed=true]{transform:rotate(2.5deg) scale(1.03);background:var(--t)}
+.cd:hover .b,.cd:focus-visible .b{transform:translateX(-50%) rotate(-5deg)}
+.cd:hover .m,.cd:focus-visible .m{transform:translate(var(--x),var(--y)) scale(1) rotate(var(--r))}
+.cd .m:nth-of-type(2){transition-delay:.04s}.cd .m:nth-of-type(3){transition-delay:.08s}.cd .m:nth-of-type(4){transition-delay:.12s}.cd .m:nth-of-type(5){transition-delay:.16s}
+/* poses: wall */
+.poses{background:#1e2b1b;color:#f3efe2;overflow:hidden}
+.poses .kick{color:var(--sun)}
+.poses .lead{color:#c9d3bf}
+.wall{margin-top:44px;perspective:1100px}
+.wall .w{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;transform:rotateX(var(--rx,14deg)) rotateY(var(--ry,-10deg));transform-style:preserve-3d;transition:transform .2s linear}
+.tile{position:relative;aspect-ratio:.8;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*70ms)}
+.tile.flip{transform:rotateY(180deg)}
+.tile>div{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.tile .f{background:var(--c);display:flex;align-items:flex-end;padding:10px}
+.tile .f span{font:600 9.5px/1 var(--sans);letter-spacing:.18em;color:rgba(255,255,255,.85);text-transform:uppercase;mix-blend-mode:difference}
+.tile .k{transform:rotateY(180deg);background:#2a3a26}
+.tile .k img{width:100%;height:100%;object-fit:cover}
+.poses .note{margin-top:18px;font-size:13px;color:#9fb092}
+/* team */
+.team .row{display:flex;justify-content:center;gap:clamp(10px,3vw,40px);margin-top:50px;flex-wrap:wrap}
+.tb{width:clamp(110px,13vw,170px);display:grid;justify-items:center;gap:10px;perspective:600px}
+.tb .bx{position:relative;width:100%;aspect-ratio:.62;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.tb .cap{position:absolute;left:30%;width:40%;top:0;height:42%;border-radius:8px 8px 4px 4px;background:linear-gradient(90deg,#111,#3b3b3b 40%,#141414);transition:transform 1s cubic-bezier(.3,1.3,.5,1);transform-origin:50% 100%;z-index:2}
+.tb .cap::after{content:"";position:absolute;left:18%;top:8%;width:12%;height:80%;border-radius:4px;background:rgba(255,255,255,.18)}
+.tb .bod{position:absolute;left:4%;right:4%;top:40%;bottom:0;border-radius:22% 22% 26% 26%/18% 18% 30% 30%;background:var(--c);box-shadow:inset 8px 0 18px rgba(255,255,255,.35),inset -10px -6px 20px rgba(0,0,0,.18);display:grid;place-items:center}
+.tb .lab{background:rgba(255,255,255,.92);border-radius:8px;padding:6px 8px;font:500 clamp(13px,1.4vw,17px)/1 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);transform:scale(.6);opacity:0;transition:all .6s .5s}
+.tb.open .cap{transform:translateY(-16%) rotate(-9deg)}
+.tb.open .lab{transform:none;opacity:1}
+.tb.open .bx{transform:rotateY(-12deg)}
+.tb small{font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.team .note{text-align:center;margin-top:26px;color:var(--ink2);font-size:14px}
+/* booking */
+.rdv{background:var(--card)}
+.bk{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,60px);align-items:center;margin-top:30px}
+.vial{position:relative;aspect-ratio:.8;max-height:560px;width:100%;display:grid;place-items:center}
+.vial canvas{width:100%!important;height:100%!important;display:block;touch-action:pan-y}
+.vial .fb{width:52%;height:auto}
+.vial .pct{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.form{background:#fff;border-radius:26px;padding:clamp(18px,3vw,34px);box-shadow:0 30px 60px rgba(60,50,20,.08)}
+.steps{display:flex;gap:6px;margin-bottom:20px}
+.steps span{flex:1;height:5px;border-radius:9px;background:var(--line);overflow:hidden;position:relative}
+.steps span::after{content:"";position:absolute;inset:0;background:var(--c,var(--g));transform:scaleX(0);transform-origin:0;transition:transform .5s}
+.steps span.on::after{transform:none}
+.st[hidden]{display:none}
+.st h3{font:400 26px/1.1 var(--serif);margin-bottom:6px}
+.st .sub{color:var(--ink2);font-size:14px;margin-bottom:16px}
+label.f{display:block;font:600 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin:14px 0 7px}
+select,input[type=text],input[type=tel],input[type=email],textarea{width:100%;min-height:48px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);padding:10px 14px;font:400 16px/1.3 var(--sans);color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+select:focus,input:focus,textarea:focus{border-color:var(--g);outline:none;box-shadow:0 0 0 3px rgba(61,122,53,.2)}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px}
+.sw button{aspect-ratio:1;border-radius:50%;border:3px solid #fff;background:var(--c);box-shadow:0 0 0 1.5px var(--line);cursor:pointer}
+.sw button[aria-pressed=true]{box-shadow:0 0 0 3px var(--ink)}
+.sw .none{grid-column:1/-1;aspect-ratio:auto;border-radius:99px;min-height:44px;background:var(--bg);font:500 14px/1 var(--sans);border:1.5px solid var(--line);box-shadow:none}
+.sw .none[aria-pressed=true]{border-color:var(--ink)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:thin}
+.chips button{flex:none;min-width:62px;min-height:62px;border-radius:16px;border:1.5px solid var(--line);background:var(--bg);cursor:pointer;font:500 13px/1.15 var(--sans);padding:6px 8px}
+.chips button b{display:block;font:500 20px/1 var(--serif)}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px;margin-top:8px}
+.slots button{min-height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);cursor:pointer;font:500 14px/1 var(--sans)}
+.slots button[aria-pressed=true]{background:var(--g);color:#fff;border-color:var(--g)}
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14px;color:var(--ink2)}
+.chk input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--g)}
+.err{color:#b3261e;font-size:13px;margin-top:8px;min-height:1em}
+.done{text-align:center;padding:10px 0}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;margin:0 auto 14px;font-size:30px}
+.recap{background:var(--bg);border-radius:16px;padding:14px;margin:14px 0;text-align:left;font-size:14px}
+/* infos */
+.infos .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,60px);margin-top:30px;align-items:start}
+.hours{list-style:none}
+.hours li{display:grid;grid-template-columns:88px 1fr auto;align-items:center;gap:12px;min-height:42px;border-bottom:1px solid var(--line);font-size:15px}
+.hours li.today{font-weight:600}
+.hours .bar{position:relative;height:12px;border-radius:9px;background:#efe8d6}
+.hours .bar i{position:absolute;top:0;bottom:0;left:var(--a);right:var(--b);border-radius:9px;background:var(--g);clip-path:inset(0 100% 0 0 round 9px);transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*90ms)}
+.hours.in .bar i{clip-path:inset(0 0 0 0 round 9px)}
+.hours li.today .bar i{background:var(--or)}
+.hours .t{font-size:13px;color:var(--ink2);white-space:nowrap;text-align:right}
+.status{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;padding:8px 14px;border-radius:99px;background:#fff;font:600 13px/1 var(--sans)}
+.status i{width:9px;height:9px;border-radius:50%;background:#aaa}
+.status.op i{background:#2e9b3e;box-shadow:0 0 0 4px rgba(46,155,62,.2)}
+.addr{margin-top:22px;font-size:15px;line-height:1.6}
+.addr a{font-weight:600}
+.place{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.place img{width:100%;aspect-ratio:1.1;object-fit:cover;border-radius:16px}
+/* footer */
+.ft{background:#16200f;color:#e9e4d4;padding:70px clamp(16px,5vw,64px) 90px;text-align:center;overflow:hidden}
+.ring{width:min(320px,72vw);aspect-ratio:1;margin:0 auto 26px;position:relative}
+.ring svg{width:100%;height:100%;overflow:visible}
+.ring .rt{transform-origin:0 0;animation:rot 26s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.ft .links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:22px;font-size:13px}
+.ft .links a{color:#cfd8c3;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.ft p{font-size:14px;color:#bfc8b3}
+.ft .big{font:400 clamp(26px,4vw,44px)/1.05 var(--serif);color:#fff;margin-bottom:10px}
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rev.in{opacity:1;transform:none}
+@media (max-width:860px){
+ .hd nav a.l{display:none}
+ .cgrid,.bk,.infos .grid{grid-template-columns:minmax(0,1fr)}
+ .cside{position:relative;top:0;order:-1;grid-template-columns:120px 1fr;justify-items:start;align-items:center;gap:12px}
+ .stage3{width:120px}
+ .cside p{text-align:left}
+ .wall .w{grid-template-columns:repeat(3,1fr);gap:8px}
+ .vial{max-height:300px;aspect-ratio:1.25}
+ .stk{grid-template-columns:10px 1fr auto;gap:10px}
+ .stk .d{grid-column:2;grid-row:2;margin-top:-6px}
+ .stk .p{grid-row:1/3;grid-column:3}
+}
+@media (max-width:520px){
+ .brand small{letter-spacing:.14em}
+ .brand b{font-size:13.5px;letter-spacing:.12em}
+ .hd .btn{padding:0 14px;min-height:42px;font-size:13px}
+ .ico{width:42px;height:42px}
+ .home h1{font-size:9.4vw;top:13%}
+ .sun{width:120vw;top:71%}
+ .now{top:57%}
+ .now b{font-size:24px;margin:6px 0 12px}
+ .h2{font-size:12.4vw}
+ .ctitle{font-size:13.4vw}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hours li{grid-template-columns:76px 1fr auto;gap:8px;font-size:14px}
+ .tb{width:28vw}
+ .team .row{gap:10px 4vw}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;transition-delay:0s!important}
+ html{scroll-behavior:auto}
+}
+
+.zb{position:fixed;left:12px;bottom:12px;z-index:60;font:500 11px/1 'Jost',system-ui,sans-serif;letter-spacing:.04em;padding:7px 10px;border-radius:99px;background:rgba(0,0,0,.55);color:#fff;text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:.82}
+.zb:hover,.zb:focus-visible{opacity:1}
+body.ck-open .zb{display:none}
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;max-width:560px;margin:0 auto;background:#fbf7ef;color:#1f2a1c;border-radius:18px;padding:18px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.28);font:400 14px/1.5 'Jost',system-ui,sans-serif;transform:translateY(0);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.ck[hidden]{display:none}
+.ck h2{font:600 15px/1.3 'Jost',system-ui,sans-serif;margin:0 0 6px}
+.ck p{margin:0 0 12px}
+.ck a{color:inherit}
+.ck .row{display:flex;gap:10px}
+.ck button{flex:1;min-height:44px;border-radius:99px;font:600 14px/1 'Jost',system-ui,sans-serif;cursor:pointer;border:2px solid #3d7a35}
+.ck .no{background:transparent;color:#1f2a1c}
+.ck .yes{background:#3d7a35;color:#fff}
+.lg{border:0;padding:0;border-radius:20px;max-width:720px;width:calc(100% - 24px);max-height:86vh;background:#fbf7ef;color:#1f2a1c;font:400 15px/1.6 'Jost',system-ui,sans-serif;box-shadow:0 30px 90px rgba(0,0,0,.4)}
+.lg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(3px)}
+.lg .in{padding:26px 22px 22px;overflow:auto;max-height:86vh}
+.lg h2{font:600 20px/1.25 'Jost',system-ui,sans-serif;margin:0 0 12px}
+.lg h3{font:600 15px/1.3 'Jost',system-ui,sans-serif;margin:18px 0 4px}
+.lg p{margin:0 0 8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:0;background:#3d7a35;color:#fff;font:600 20px/1 'Jost',system-ui,sans-serif;cursor:pointer}
+.lg nav{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.lg nav button{border:1px solid currentColor;background:transparent;color:inherit;border-radius:99px;padding:7px 11px;font:500 12px/1 'Jost',system-ui,sans-serif;cursor:pointer}
+.lg nav button[aria-current=true]{background:#3d7a35;color:#fff;border-color:#3d7a35}
+.map3{position:relative;border-radius:24px;overflow:hidden;min-height:420px;background:#1e2b1b;isolation:isolate}
+.map3 .mapbg{position:absolute;inset:0;background:
+ repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+ repeating-linear-gradient(-58deg,transparent 0 70px,rgba(255,255,255,.08) 70px 73px),
+ radial-gradient(120% 80% at 70% 30%,rgba(255,255,255,.08),transparent 60%),#1e2b1b}
+.map3 iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map3 .tint{position:absolute;inset:0;pointer-events:none;z-index:1}
+.map3 .tint::before{content:"";position:absolute;inset:0;background:#3d7a35;mix-blend-mode:color;opacity:.85}
+.map3 .tint::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.55) 100%)}
+.map3 .pin{position:absolute;left:50%;top:50%;z-index:2;width:64px;height:64px;margin:-74px 0 0 -32px;pointer-events:none}
+.map3 .pin .dot{position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#3d7a35;box-shadow:0 10px 30px rgba(0,0,0,.45);display:grid;place-items:center}
+.map3 .pin .dot>*{transform:rotate(45deg);width:36px;height:36px}
+.map3 .pin::after{content:"";position:absolute;left:50%;top:100%;width:80px;height:80px;margin:-30px 0 0 -40px;border-radius:50%;border:2px solid #3d7a35;animation:pinp 2.2s ease-out infinite;opacity:0}
+@keyframes pinp{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.map3 .glass{position:absolute;z-index:3;left:16px;right:16px;bottom:16px;max-width:380px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);color:#fff;font:400 14px/1.45 'Jost',system-ui,sans-serif}
+.map3 .glass b{display:block;font-weight:600;font-size:15px;margin-bottom:2px}
+.map3 .glass .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.map3 .glass a,.map3 .glass button{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:99px;background:#fff;color:#111;text-decoration:none;font:600 13px/1 'Jost',system-ui,sans-serif;border:0;cursor:pointer;white-space:nowrap}
+.map3 .ask{position:absolute;z-index:3;left:16px;right:16px;top:16px;max-width:380px;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.5);color:#fff;font:400 13px/1.45 'Jost',system-ui,sans-serif}
+.map3.on .ask{display:none}
+.tel{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.map3 .pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#carte">Aller aux prestations</a>
+<header class="hd" id="hd">
+ <a class="brand" href="#top" aria-label="Escale Beauty Centr'Azur, retour en haut"><span class="mk"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="3" width="14" height="15" rx="3" fill="#fff"/><rect x="5" y="17" width="30" height="20" rx="7" fill="#fff"/><rect x="9" y="21" width="4" height="12" rx="2" fill="#3d7a35"/></svg></span><span><b>ESCALE BEAUTY</b><small>CENTR'AZUR · HYÈRES</small></span></a>
+ <nav aria-label="Menu principal"><a class="l" href="#carte">Prestations</a><a class="l" href="#poses">Poses</a><a class="l" href="#infos">Infos</a><a class="ico" href="tel:+33610039360" aria-label="Appeler le 06 10 03 93 60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a><a class="btn" href="#rdv">Réserver</a></nav>
+</header>
+<main id="top">
+<section class="home" id="home" aria-label="Accueil">
+ <h1><span class="ln"><span>Le bar à ongles</span></span><span class="ln"><span><em>du</em> Centr'Azur</span></span></h1>
+ <div class="sun" aria-hidden="true"><svg viewBox="-110 -110 220 220"><g id="sunR"><polygon id="hep" fill="#cfe5b4" stroke="#cfe5b4" stroke-width="26" stroke-linejoin="round"/></g><g class="rtx" id="ringT"><defs><path id="rc" d="M0,-70 a70,70 0 1,1 -0.01,0"/></defs><text font-family="Playfair Display,serif" font-size="9.2" letter-spacing="2.4" fill="#2c5c26"><textPath href="#rc">VERNIS · GEL · ÉPILATIONS · REGARD · VERNIS · GEL · ÉPILATIONS · REGARD ·</textPath></text></g></svg></div>
+ <div class="wheel" id="wheel"></div>
+ <div class="now"><small>Touchez un flacon</small><b id="nowT" aria-live="polite">Semi-permanent mains</b><div class="acts"><a class="btn" href="#rdv">Prendre rendez-vous</a><a class="btn ghost tel" href="tel:+33610039360">06 10 03 93 60</a></div></div>
+ <p class="hint" aria-hidden="true">GLISSEZ POUR TOURNER</p>
+</section>
+<div class="tip" id="tip" aria-hidden="true">Voir les tarifs</div>
+
+<section class="sec carte" id="carte" aria-labelledby="ct">
+ <span class="kick">La carte · avec ou sans rendez-vous</span>
+ <div class="cgrid">
+  <div>
+   <h2 class="ctitle" id="ct"><span class="ln"><span id="ct1">Semi-permanent</span></span><span class="ln"><span id="ct2">mains</span></span></h2>
+   <ul class="sticks" id="sticks"></ul>
+  </div>
+  <div class="cside" aria-hidden="true"><div class="stage3"><div class="bb" id="bb"></div></div><p id="cnote">Tarifs Planity de l'institut</p></div>
+ </div>
+ <div class="others">
+  <h3><span>Les autres</span><br><span style="font-style:italic;text-transform:none;color:var(--g)">flacons</span></h3>
+  <div class="cards" id="cards" role="group" aria-label="Catégories de prestations"></div>
+ </div>
+</section>
+
+<section class="sec poses" id="poses" aria-labelledby="pt">
+ <span class="kick">Le mur de teintes</span>
+ <h2 class="h2" id="pt"><span class="ln"><span>Chaque teinte</span></span><span class="ln"><span><em style="text-transform:none">se retourne</em></span></span></h2>
+ <p class="lead">… sur une pose réalisée au salon : semi-permanent, French, Babyboomer, nail art.</p>
+ <div class="wall" id="wall"><div class="w" id="ww"></div></div>
+ <p class="note">Photos publiées sur la fiche Google de l'institut.</p>
+</section>
+
+<section class="sec team" id="equipe" aria-labelledby="tt">
+ <div style="text-align:center"><span class="kick">L'équipe</span>
+ <h2 class="h2" id="tt"><span class="ln"><span>Un flacon,</span></span><span class="ln"><span><em style="text-transform:none">un prénom</em></span></span></h2></div>
+ <div class="row" id="trow"></div>
+ <p class="note">Les prénoms de l'équipe tels qu'affichés sur la page de réservation de l'institut.</p>
+</section>
+
+<section class="sec rdv" id="rdv" aria-labelledby="rt">
+ <span class="kick">Réservation</span>
+ <h2 class="h2" id="rt"><span class="ln"><span>Remplissez</span></span><span class="ln"><span><em style="text-transform:none">le flacon</em></span></span></h2>
+ <p class="lead">Quatre étapes, le flacon se remplit de votre teinte. L'institut confirme ensuite votre créneau.</p>
+ <div class="bk">
+  <div class="vial" id="vial" aria-hidden="true"><p class="pct" id="pct">0 / 4</p></div>
+  <form class="form" id="form" novalidate>
+   <div class="steps" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+   <div class="st" data-s="0">
+    <h3>1. La prestation</h3><p class="sub">Les tarifs sont ceux de l'institut.</p>
+    <label class="f" for="svc">Prestation</label><select id="svc" required></select>
+    <p class="err" id="e0" role="alert"></p>
+   </div>
+   <div class="st" data-s="1" hidden>
+    <h3>2. La teinte</h3><p class="sub">Une envie de couleur ? Le choix final se fait au salon.</p>
+    <div class="sw" id="sw" role="group" aria-label="Teintes"></div>
+   </div>
+   <div class="st" data-s="2" hidden>
+    <h3>3. Le jour et l'heure</h3><p class="sub">Du lundi au samedi, 9h30 – 19h30. Créneau confirmé par l'institut.</p>
+    <div class="chips" id="days" role="group" aria-label="Jour"></div>
+    <div class="slots" id="slots" role="group" aria-label="Heure"></div>
+    <p class="err" id="e2" role="alert"></p>
+   </div>
+   <div class="st" data-s="3" hidden>
+    <h3>4. Vos coordonnées</h3>
+    <label class="f" for="nm">Prénom et nom</label><input type="text" id="nm" autocomplete="name" required>
+    <label class="f" for="ph">Téléphone</label><input type="tel" id="ph" autocomplete="tel" inputmode="tel" required>
+    <label class="f" for="em">E-mail (facultatif)</label><input type="email" id="em" autocomplete="email">
+    <label class="f" for="ms">Message (facultatif)</label><textarea id="ms"></textarea>
+    <label class="chk"><input type="checkbox" id="ok" required><span>J'accepte que mes informations soient utilisées pour traiter ma demande de rendez-vous (<a href="#" data-legal="confidentialite">confidentialité</a>).</span></label>
+    <p class="err" id="e3" role="alert"></p>
+   </div>
+   <div class="st done" data-s="4" hidden>
+    <div class="ok" aria-hidden="true">✓</div>
+    <h3>Demande prête</h3>
+    <div class="recap" id="recap"></div>
+    <p class="sub">Démo : aucune donnée n'est envoyée. Sur le vrai site, l'institut reçoit la demande et vous confirme le créneau.</p>
+    <button type="button" class="btn ghost" id="again">Nouvelle demande</button>
+   </div>
+   <div class="nav2" id="nav2"><button type="button" class="btn ghost" id="prev" hidden>Retour</button><button type="button" class="btn" id="next" style="margin-left:auto">Continuer</button></div>
+  </form>
+ </div>
+</section>
+
+<section class="sec infos" id="infos" aria-labelledby="it">
+ <span class="kick">Infos pratiques</span>
+ <h2 class="h2" id="it"><span class="ln"><span>Les horaires</span></span><span class="ln"><span><em style="text-transform:none">au pinceau</em></span></span></h2>
+ <div class="grid">
+  <div>
+   <p class="status" id="status"><i></i><span>Horaires</span></p>
+   <ul class="hours" id="hours"></ul>
+   <p class="addr"><b>Centre commercial Centr'Azur</b><br>Étage 0 · ZAC du Roubaud, Saint-Jean<br>83400 Hyères<br><a class="tel" href="tel:+33610039360">06 10 03 93 60</a> · <a href="https://www.instagram.com/escalebeauty_centrazurhyeres/" target="_blank" rel="noopener">Instagram</a></p>
+   <div class="place"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TTu2NwWToMQ5-UcmmHQhAh7rq7d2-JMJ2dkDn1eH2AphtBKaKP4tlnZAzDhH9nT4NpZ3zAr8srkCxURFAmxzON4SLnKwbB3Nnf6NaXv9KvVAJubxdvHzFXyfCeAhd6Yk7QRYDsUg09EXc=w700" alt="La vitrine Escale Beauty au centre commercial Centr'Azur" loading="lazy" width="350" height="318"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RsE2E4dLCL8jH2xYCXi-hjzUGGNkmYZE1CmCP49gcveAEXXg0Pixqg0pQwZVFjLsvtWWDXMKIbLzplOrY-EUoAeeG_ZrSIS9Uo6wYnnmbJNOquYE073AbkXNQ3ZPHroCw1bzkmlYLdW9Ch=w700" alt="Le mur de vernis de l'institut" loading="lazy" width="350" height="318"></div>
+  </div>
+  
+<div class="map3" id="map3" data-src="https://www.google.com/maps?q=Escale%20Beauty%20Centr%27Azur%2C%20Centre%20commercial%20Centr%27Azur%2C%2083400%20Hy%C3%A8res&z=16&output=embed">
+ <div class="mapbg" aria-hidden="true"></div>
+ <div class="tint" aria-hidden="true"></div>
+ <div class="pin" aria-hidden="true"><div class="dot"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="3" width="14" height="15" rx="3" fill="#fff"/><rect x="5" y="17" width="30" height="20" rx="7" fill="#fff"/><rect x="9" y="21" width="4" height="12" rx="2" fill="#3d7a35"/></svg></div></div>
+ <p class="ask">Le plan s'affiche si vous acceptez les cookies de Google Maps. <button type="button" data-ck="1" style="margin-left:4px;border:0;border-radius:99px;padding:8px 12px;font-weight:600;font-size:12px;cursor:pointer;background:#fff;color:#111">Afficher le plan</button></p>
+ <div class="glass"><b>Escale Beauty Centr&#x27;Azur</b>Centre commercial Centr&#x27;Azur, étage 0 · 83400 Hyères<div class="acts"><a href="https://www.google.com/maps/dir/?api=1&destination=Escale%20Beauty%20Centr%27Azur%2C%20Centre%20commercial%20Centr%27Azur%2C%2083400%20Hy%C3%A8res" target="_blank" rel="noopener">Itinéraire</a><a href="tel:+33610039360" class="tel">Appeler</a></div></div>
+</div>
+
+ </div>
+</section>
+</main>
+<footer class="ft">
+ <div class="ring" aria-hidden="true"><svg viewBox="-110 -110 220 220"><polygon id="hep2" fill="#3d7a35" stroke="#3d7a35" stroke-width="20" stroke-linejoin="round"/><g class="rt"><defs><path id="rc2" d="M0,-92 a92,92 0 1,1 -0.01,0"/></defs><text font-family="Playfair Display,serif" font-size="12" letter-spacing="3.2" fill="#cfe5b4"><textPath href="#rc2">ESCALE BEAUTY · CENTR'AZUR · HYÈRES · ESCALE BEAUTY · CENTR'AZUR ·</textPath></text></g><svg x="-24" y="-24" width="48" height="48" viewBox="0 0 40 40"><rect x="13" y="3" width="14" height="15" rx="3" fill="#fff"/><rect x="5" y="17" width="30" height="20" rx="7" fill="#fff"/><rect x="9" y="21" width="4" height="12" rx="2" fill="#3d7a35"/></svg></svg></div>
+ <p class="big">Avec ou sans rendez-vous.</p>
+ <p>Lundi – samedi · 9h30 – 19h30 · <a class="tel" href="tel:+33610039360" style="color:#fff">06 10 03 93 60</a></p>
+ <div class="links"><a data-legal="mentions" href="#">Mentions légales</a><a data-legal="confidentialite" href="#">Confidentialité</a><a data-legal="cgv" href="#">CGV</a><a data-legal="cgu" href="#">CGU</a><a data-legal="cookies" href="#">Cookies</a><a data-legal="remboursement" href="#">Annulation</a></div>
+ <p style="margin-top:16px;font-size:12px;color:#8e9a83">© 2026 Escale Beauty Centr'Azur · Hyères</p>
+</footer>
+
+<div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ckt" hidden>
+ <h2 id="ckt">Cookies</h2>
+ <p>Ce site n'utilise aucun cookie publicitaire. Le plan Google Maps dépose des cookies tiers : il ne s'affiche que si vous l'acceptez. <a href="#" data-legal="cookies">En savoir plus</a></p>
+ <div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div>
+</div>
+<a class="zb" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+
+
+<dialog class="lg" id="lg" aria-labelledby="lgt">
+ <div class="in">
+ <button class="x" type="button" data-lgclose aria-label="Fermer">×</button>
+ <h2 id="lgt">Informations légales</h2>
+ <nav aria-label="Rubriques">
+  <button type="button" data-tab="mentions">Mentions légales</button><button type="button" data-tab="confidentialite">Confidentialité</button><button type="button" data-tab="cgv">CGV</button><button type="button" data-tab="cgu">CGU</button><button type="button" data-tab="cookies">Cookies</button><button type="button" data-tab="remboursement">Annulation</button>
+ </nav>
+ <section data-pane="mentions"><h3>Mentions légales</h3><p><b>Escale Beauty Centr&#x27;Azur</b> — Bar à ongles, épilations et beauté du regard<br>Centre commercial Centr&#x27;Azur (étage 0), ZAC du Roubaud, Saint-Jean, 83400 Hyères<br>Téléphone : <span class="tel">06 10 03 93 60</span></p><p>Forme juridique, SIRET et responsable de la publication : à compléter lors de la mise en ligne.</p><p>Hébergement : à préciser lors de la mise en ligne.</p><p>Conception : ZAHR — zahr.fr. Ce site est une maquette de démonstration : il n'est pas encore publié par l'établissement.</p></section>
+ <section data-pane="confidentialite" hidden><h3>Politique de confidentialité</h3><p>Les informations saisies dans le formulaire (nom, téléphone, e-mail, message) servent uniquement à traiter votre demande de rendez-vous ou de réservation. Elles ne sont ni vendues ni cédées.</p><p>Durée de conservation : le temps de traiter la demande, puis 3 ans maximum pour la relation client.</p><p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en contactant l'établissement au <span class="tel">06 10 03 93 60</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p><p>Dans cette démo, aucune donnée n'est envoyée : le formulaire ne fait que simuler l'envoi.</p></section>
+ <section data-pane="cgv" hidden><h3>Conditions générales de vente</h3><p>Les prix affichés sont en euros TTC et peuvent évoluer ; le prix applicable est celui affiché au moment de la demande, confirmé par l'établissement.</p><p>Les prestations sont réglées sur place, après la prestation. Une demande de rendez-vous envoyée depuis ce site ne devient ferme qu&#x27;après confirmation de l&#x27;institut. Les suppléments (longueur, ongles rongés, nail art) sont indiqués à la carte.</p><p>Le paiement s'effectue selon les modalités indiquées par l'établissement.</p></section>
+ <section data-pane="cgu" hidden><h3>Conditions générales d'utilisation</h3><p>Ce site présente l'établissement et permet d'envoyer une demande. L'envoi d'une demande ne vaut confirmation qu'après réponse de l'établissement. Les contenus (textes, photos) appartiennent à Escale Beauty Centr&#x27;Azur ; toute reproduction est interdite sans accord.</p></section>
+ <section data-pane="cookies" hidden><h3>Cookies</h3><p>Aucun cookie de mesure d'audience ni publicitaire. Le plan Google Maps n'est chargé qu'après votre accord, car Google peut déposer ses propres cookies. Vous pouvez changer d'avis à tout moment :</p><p><button type="button" data-ckreset style="border:1px solid currentColor;background:none;color:inherit;border-radius:99px;padding:8px 14px;cursor:pointer;font:inherit">Modifier mon choix</button></p></section>
+ <section data-pane="remboursement" hidden><h3>Annulation et remboursement</h3><p>Pour annuler ou déplacer un rendez-vous, merci de prévenir l&#x27;institut le plus tôt possible par téléphone. Aucun paiement n&#x27;étant demandé en ligne, il n&#x27;y a rien à rembourser en cas d&#x27;annulation. En cas de souci sur une pose, contactez l&#x27;institut pour trouver une solution.</p></section>
+ </div>
+</dialog>
+
+<script>
+(function(){
+ var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; window.__RM=RM;
+ function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+ var ck=document.getElementById('ck');
+ function mapOn(){var m=document.getElementById('map3'); if(!m||m.classList.contains('on'))return; var f=document.createElement('iframe'); f.src=m.dataset.src; f.title='Plan Google Maps'; f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade'; m.insertBefore(f,m.firstChild.nextSibling); m.classList.add('on')}
+ function mapOff(){var m=document.getElementById('map3'); if(!m)return; var f=m.querySelector('iframe'); if(f)f.remove(); m.classList.remove('on')}
+ function setCk(v){ls('zahr-ck',v?'1':'0'); ck.hidden=true; document.body.classList.remove('ck-open'); if(v)mapOn(); else mapOff()}
+ var st=ls('zahr-ck'); if(st==='1')mapOn(); else if(st!=='0'){ck.hidden=false;document.body.classList.add('ck-open')}
+ document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-ck]'); if(b){e.preventDefault(); setCk(b.dataset.ck==='1')}
+  var r=e.target.closest('[data-ckreset]'); if(r){ck.hidden=false;document.body.classList.add('ck-open'); var d=document.getElementById('lg'); d.close&&d.close()}
+  var l=e.target.closest('[data-legal]'); if(l){e.preventDefault(); openLg(l.dataset.legal)}
+  var t=e.target.closest('[data-tab]'); if(t){tab(t.dataset.tab)}
+  if(e.target.closest('[data-lgclose]')){document.getElementById('lg').close()}
+ });
+ function tab(n){document.querySelectorAll('#lg [data-pane]').forEach(function(p){p.hidden=p.dataset.pane!==n});document.querySelectorAll('#lg [data-tab]').forEach(function(b){b.setAttribute('aria-current',b.dataset.tab===n)})}
+ function openLg(n){var d=document.getElementById('lg'); tab(n||'mentions'); if(d.showModal)d.showModal(); else d.setAttribute('open','')}
+ window.__loadThree=function(ok,ko){ if(window.THREE){ok();return} var s=document.createElement('script'); s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'; s.onload=function(){try{ok()}catch(e){console.warn(e);ko&&ko()}}; s.onerror=function(){ko&&ko()}; document.head.appendChild(s)};
+})();
+</script>
+<script>
+(function(){
+var CATS=[["spm", "Semi-permanent", "mains", "#ff5a1f", [["Couleur sans manucure", "30 min", "27 €"], ["Couleur avec manucure", "30 min", "32 €"], ["French sans manucure", "30 min", "33 €"], ["French avec manucure", "30 min", "38 €"], ["Babyboomer sans manucure", "30 min", "33 €"], ["Babyboomer avec manucure", "45 min", "38 €"], ["Dépose + couleur sans manucure", "45 min", "34 €"], ["Dépose + couleur avec manucure", "45 min", "39 €"], ["Dépose + French avec manucure", "45 min", "45 €"], ["Dépose + Babyboomer avec manucure", "45 min", "45 €"]]], ["spp", "Semi-permanent", "pieds", "#d7263d", [["Couleur sans manucure", "30 min", "27 €"], ["Couleur avec manucure", "30 min", "32 €"], ["French sans manucure", "30 min", "33 €"], ["French avec manucure", "45 min", "38 €"], ["Dépose + couleur avec manucure", "30 min", "39 €"], ["Dépose + French avec manucure", "45 min", "45 €"]]], ["ren", "Renfort", "semi-permanent", "#7a1029", [["Couleur avec manucure", "30 min", "37 €"], ["French avec manucure", "45 min", "43 €"], ["Babyboomer avec manucure", "45 min", "43 €"], ["Dépose + couleur avec manucure", "45 min", "44 €"], ["Dépose + French avec manucure", "45 min", "50 €"], ["Dépose + Babyboomer avec manucure", "45 min", "50 €"]]], ["gel", "Gel &", "acrygel", "#f29bb3", [["Pose complète chablons couleur", "1 h 30", "dès 49 €"], ["Pose complète capsules couleur", "1 h 30", "dès 49 €"], ["Pose complète French classique", "1 h 30", "56 €"], ["Pose complète Babyboomer", "1 h 30", "58 €"], ["Ongles rongés (supplément)", "5 min", "7 €"], ["Longueur (supplément)", "10 min", "7 €"]]], ["rem", "Remplissage", "& gainage", "#d9a58b", [["Remplissage couleur", "1 h 15", "dès 43 €"], ["Remplissage French classique", "1 h 15", "47 €"], ["Remplissage Babyboomer", "1 h 15", "52 €"], ["Remplissage à 3 semaines", "1 h 15", "43 €"], ["Remplissage à 4 semaines", "1 h 15", "47 €"], ["Remplissage à 5 semaines", "1 h 15", "49 €"]]], ["alc", "À la", "carte", "#f6c22d", [["Beauté express mains (manucure + vernis classique)", "45 min", "25 €"], ["Manucure sans vernis (sur appel)", "15 min", "15 €"], ["Dépose gel ou acrygel", "30 min", "22 €"], ["Dépose gel ou acrygel d'un autre salon", "30 min", "29 €"], ["Dépose gel avec manucure", "45 min", "38 €"], ["Réparation d'un ongle (sur appel)", "15 min", "7 €"], ["Nail art", "15 min", "1 à 10 €"], ["Strass / effet", "10 min", "1 à 2 €"]]], ["reg", "Beauté", "du regard", "#3b2d55", [["Teinture des cils", "30 min", "16 €"], ["Teinture des sourcils", "20 min", "12 €"], ["Rehaussement de cils + teinture + soin kératine", "1 h", "55 €"]]], ["epe", "Épilations", "elle", "#e9b9a6", [["Sourcils", "15 min", "10 €"], ["Lèvres, menton ou joues", "10 min", "8 €"], ["Aisselles", "15 min", "10 €"], ["Avant-bras", "20 min", "13 €"], ["Bras", "30 min", "16 €"], ["Maillot classique", "15 min", "12 €"], ["Maillot échancré", "15 min", "15 €"], ["Maillot brésilien", "30 min", "20 €"], ["Maillot intégral", "30 min", "25 €"], ["Demi-jambes", "30 min", "15 €"], ["Jambes entières", "45 min", "25 €"]]], ["for", "Forfaits", "épilation", "#6cc6b0", [["Sourcils + lèvres", "15 min", "15 €"], ["Demi-jambes + maillot + aisselles", "45 min", "29 €"], ["Demi-jambes + maillot intégral + aisselles", "1 h", "44 €"], ["Jambes complètes + maillot + aisselles", "1 h", "39 €"], ["Jambes complètes + maillot intégral + aisselles", "1 h 15", "49 €"]]], ["epl", "Épilations", "lui", "#2f63c9", [["Sourcils", "15 min", "12 €"], ["Nez / oreilles", "10 min", "9 €"], ["Aisselles", "15 min", "15 €"], ["Torse", "30 min", "22 €"], ["Bras", "30 min", "21 €"], ["Dos", "30 min", "22 €"], ["Jambes", "45 min", "35 €"]]], ["vis", "Soins", "visage", "#9ccf7c", [["Soin « Express »", "35 min", "30 €"], ["Soin « Coup d'éclat »", "1 h 15", "49 €"]]]], GAL=["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QQ_72BYUG64-6eA3jdlwcI-WJMT3jThsbxhF7fIoXWdeB8WbQe27iDz7FRRmEMM0izY9x0Byt8sTmTxBaM0N1otZxH5d9ArcfMeXJGr4lgL193TlwDU_JW0Fw-I-XStBzEcAJuhBc89EWa", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TWf1_VGaddmu-pkxi8h2iku6bWCX3KjOXJ5ZUP0VVDwdCtQUAsu7T66maLDd3w_f7UJU2I1tx1TpCs1rX1QUBLkZ_tx0RL955B45fa99xRH6cBX9K3o2Irfljnc5D7QGzkCB08MKsx2KQ", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SISDVzm_mSLQWrLgrbZefOLwyDAR1HXPqy_DrtUWu4g-NIToOJeizh_xuuYF78AO-xo6ibQozHZHF-Pq_m1azA94NUFdlojbnUdMex8tcGORmvmLTXHc8oDHEs9SejQ_3XRC8Rp0K5QSA", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TNDYu0W0luBMF0CVukmi-cKILRvmVFo16hlYGSybYTGZpzbRAICGzQOwC1JOpBcr0r-6wAj08foD2kn5eeCZ0RFZbI8zrVdYfcb71OHPwVWWnZal1O-DxhYwq5QpYrjnzUHYfiV8vZrPbW", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QqO_5MQAQaXcdq0swHxf_zvf6my33PBFO146UdZ_MoT1RVOjUdDyQ5tvE3jt-SMnWWrcZ-18ZiigNhaQdWuO8yvjgXj7v7-3g4B_PvHMvT_YZF5n-pBcAa-zxlX_sDcsjYxB58Ssl8k6mC", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R23On4XxAzrp04UZpFANUAaovAVwLyxSq4DOdkv4C4LeR2VwXcKodgyQhGQE8uIYssJG0RanyJmaqdqu6xkvkq68Wfj8w-wjKuu75TdR9bopnjKW-5dF3WsOE1sbEDq5WaNlBxBCEtjjTi", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Sp1bpEGmgnYIn3PJVoC_-YY88o9aKx-ijCPo5Tq24411480Jpo25g9tDmgHti42p_AYhUGP6FjQ8fnUKZnutnHVmGwsCo15KoQPh0k0AIdarlJTGGA-UScN1phJ3BySQipNX3lWAbsbsB0", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SoL_dXnQvoT-f7n2oGd5AnBhSU4jqzUJyC1czaVkLi1eybZIaAsDCCnPErR0DYEP69rZakhwACDOzJzpStT9h-Kj2RhgPmBWKJ6khK-0idSOk8YdyxU9BGJjGM6tRoAE0eiF4Or476fBY", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RToz4GGOcTET2dmTFGNeg_B183ljAZxQgJbmZVMIJX_8Oc6HWLtpZ9pcKHsvZSqQWtwl67YLgS-dNgSZqwB_iFI-OcTZ_Wg6sLduiFiGY_9xVTiSVrv88o5FmLvla3cWsxU4ztgT02PxNO", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RPWvWyZwfx330KT4jKL-_GfBYF3Jq3b6HnqTE7eg81rPURrbPaqhEHz6YXOLLzFALLIysUOh6070UsW7clfKXG_N6Vv7KQouM8mO1W3b9Kv5p1U8mS-C8QiefAZ6ShuFsfH_k3Jk29076g", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SIEyAvWG9oM6QHan1h5cqCzhsdXSPAa1KN2O680zl0l7OiI5CUF9CNINu2hxxG_7KX7Q3TNaiHZakzM9n6Ca8PQQvs_SR5QQEZuDjqL8nRjX3-GdZMeJfPySQfenIehMGro68vsn2_GJgl", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S2PWDmkNO26J_qBqCzMIcaj67BfGm0yNCx3sdKr2J4bxcTAtlNTWQV22KEgwuLsYu4rkKXxTSRXix3qfbMBgUSk2gojDNxyLB3KDWG5rQKMZqcjdipGzdNLyWb0WxchO1gmNadqMOXk_AL"], TEAM=["Jade", "Lilou", "Chloé", "Diane", "Julie"], RM=window.__RM;
+var COLORS=[["Orange vif","#ff5a1f"],["Rouge","#d7263d"],["Bordeaux","#7a1029"],["Rose","#f29bb3"],["Nude","#e0b8a2"],["Jaune","#f6c22d"],["Bleu","#2f63c9"],["Vert d'eau","#6cc6b0"],["Lilas","#a58bd6"],["Noir","#1d1d1f"],["Blanc lacté","#f3efe7"],["Pailleté or","#c9a25a"]];
+function bottle(c,id){return '<svg viewBox="0 0 62 100" aria-hidden="true"><defs><linearGradient id="gl'+id+'" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".25" stop-color="#fff" stop-opacity=".05"/><stop offset=".8" stop-color="#000" stop-opacity=".0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs><rect x="20" y="1" width="22" height="40" rx="4" fill="#1b1b1b"/><rect x="24" y="4" width="3" height="34" rx="1.5" fill="#fff" opacity=".22"/><rect x="22" y="38" width="18" height="7" rx="1.5" fill="#d9d2c3"/><rect x="4" y="43" width="54" height="55" rx="13" fill="'+c+'"/><rect x="4" y="43" width="54" height="55" rx="13" fill="url(#gl'+id+')"/><rect x="9" y="49" width="6" height="40" rx="3" fill="#fff" opacity=".42"/><rect x="4.75" y="43.75" width="52.5" height="53.5" rx="12.5" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/></svg>'}
+// sun heptagons
+function hep(id,r){var p=[];for(var i=0;i<7;i++){var a=-Math.PI/2+i*2*Math.PI/7;p.push((r*Math.cos(a)).toFixed(2)+','+(r*Math.sin(a)).toFixed(2))}document.getElementById(id).setAttribute('points',p.join(' '))}
+hep('hep',86);hep('hep2',74);
+// header
+var hd=document.getElementById('hd');function hs(){hd.classList.toggle('solid',scrollY>30)}addEventListener('scroll',hs,{passive:true});hs();
+// wheel
+var home=document.getElementById('home'),wh=document.getElementById('wheel'),tip=document.getElementById('tip'),nowT=document.getElementById('nowT');
+var N=CATS.length*2,STEP=360/N,bts=[];
+for(var i=0;i<N;i++){var ci=i%CATS.length,b=document.createElement('button');b.className='bt';b.type='button';b.dataset.c=ci;b.innerHTML=bottle(CATS[ci][3],'w'+i);if(i>=CATS.length){b.setAttribute('aria-hidden','true');b.tabIndex=-1}else b.setAttribute('aria-label',CATS[ci][1]+' '+CATS[ci][2]+' : voir les tarifs');wh.appendChild(b);bts.push(b)}
+var ang=0,tgt=0,vel=0,hov=false,W=0,H=0,R=0,bh=0,bw=0,cy=0,lastT=performance.now(),vis=true;
+function lay(){W=home.clientWidth;H=home.clientHeight;var m=W<760;bh=H*(m?.25:.31);bw=bh*.62;var sp=m?.6*W:.27*W;R=sp/(2*Math.sin(STEP*Math.PI/360));cy=H*(m?.415:.46)+R}
+lay();addEventListener('resize',lay);
+new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(home);
+var sunR=document.getElementById('sunR'),ringT=document.getElementById('ringT'),cur=-1;
+function frame(t){var dt=Math.min(.05,(t-lastT)/1000);lastT=t;
+ if(vis){ if(!RM&&!hov&&!drag)tgt-=2.6*dt; var prev=ang; ang+=(tgt-ang)*Math.min(1,dt*7); vel=(ang-prev)/Math.max(dt,.001);
+ var sw=RM?0:Math.max(-18,Math.min(18,-vel*.35)),best=1e9,bi=0;
+ for(var i=0;i<N;i++){var r=((i*STEP+ang)%360+540)%360-180,ar=Math.abs(r);var b=bts[i];
+  if(ar>66){b.style.visibility='hidden';continue}b.style.visibility='visible';
+  var rad=r*Math.PI/180,x=W/2+R*Math.sin(rad),y=cy-R*Math.cos(rad),s=1-.34*Math.min(ar/45,1);
+  b.style.width=bw+'px';b.style.height=bh+'px';b.style.transform='translate('+(x-bw/2).toFixed(1)+'px,'+(y-bh/2).toFixed(1)+'px) rotate('+(r*.9+sw).toFixed(2)+'deg) scale('+s.toFixed(3)+')';
+  b.style.filter=(!RM&&Math.abs(vel)>8)?'blur('+Math.min(5,Math.abs(vel)/40).toFixed(1)+'px)':'none';
+  if(ar<best){best=ar;bi=i}}
+ var c=bi%CATS.length;if(c!==cur){cur=c;nowT.textContent=CATS[c][1]+' '+CATS[c][2]}
+ sunR.setAttribute('transform','rotate('+(ang*.5).toFixed(2)+')');ringT.setAttribute('transform','rotate('+(ang).toFixed(2)+')');}
+ requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+var drag=false,dx0=0,a0=0,moved=0;
+home.addEventListener('pointerdown',function(e){if(e.target.closest('a,.btn'))return;drag=true;dx0=e.clientX;a0=tgt;moved=0});
+addEventListener('pointermove',function(e){if(drag){var d=e.clientX-dx0;moved=Math.max(moved,Math.abs(d));tgt=a0+d/(R*Math.PI/180)}
+ if(e.pointerType==='mouse'){tip.style.transform='';tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY+14)+'px'}});
+addEventListener('pointerup',function(){setTimeout(function(){drag=false},0)});
+var lastY=scrollY;addEventListener('scroll',function(){var d=scrollY-lastY;lastY=scrollY;if(vis&&!RM)tgt-=d*.07},{passive:true});
+home.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){tgt-=STEP;e.preventDefault()}if(e.key==='ArrowLeft'){tgt+=STEP;e.preventDefault()}});
+setInterval(function(){var el=document.querySelector('.bt:hover,.cd:hover');tip.classList.toggle('on',!!el);hov=!!(el&&el.classList.contains('bt'))},180);
+wh.addEventListener('click',function(e){var b=e.target.closest('.bt');if(!b||moved>6)return;openCat(+b.dataset.c,b)});
+// carte
+var st=document.getElementById('sticks'),bb=document.getElementById('bb'),ct1=document.getElementById('ct1'),ct2=document.getElementById('ct2'),cards=document.getElementById('cards');
+function svcOpts(){var s=document.getElementById('svc'),h='<option value="">Choisir une prestation…</option>';CATS.forEach(function(c,ci){h+='<optgroup label="'+c[1]+' '+c[2]+'">';c[4].forEach(function(it,ii){h+='<option value="'+ci+'-'+ii+'">'+it[0]+' — '+it[2]+'</option>'});h+='</optgroup>'});s.innerHTML=h}
+svcOpts();
+function setCat(ci,anim){var c=CATS[ci];ct1.textContent=c[1];ct2.textContent=c[2];document.documentElement.style.setProperty('--cc',c[3]);
+ bb.innerHTML=bottle(c[3],'b1')+bottle(c[3],'b2');
+ st.classList.remove('open');st.innerHTML=c[4].map(function(it,ii){return '<li class="stk" style="--i:'+ii+';--c:'+c[3]+'" tabindex="0" role="button" data-v="'+ci+'-'+ii+'" aria-label="'+it[0]+', '+it[1]+', '+it[2]+' : réserver"><i></i><span class="n">'+it[0]+'</span><span class="d">'+it[1]+'</span><span class="p">'+it[2]+'</span></li>'}).join('');
+ if(anim&&!RM){[ct1,ct2].forEach(function(el,k){el.animate([{transform:'translateY(108%)'},{transform:'none'}],{duration:1100,delay:k*110,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'})})}
+ requestAnimationFrame(function(){requestAnimationFrame(function(){if(stIn||RM)st.classList.add('open')})});
+ [].forEach.call(cards.children,function(x,k){x.setAttribute('aria-pressed',k===ci)})}
+var stIn=false;new IntersectionObserver(function(e){if(e[0].isIntersecting){stIn=true;st.classList.add('open')}},{threshold:.15}).observe(st);
+var MOT=['M12 2l2.6 6.9L22 9.5l-5.6 4.8L18 22l-6-3.8L6 22l1.6-7.7L2 9.5l7.4-.6z','M12 3c4 0 7 3.2 7 8.6S16 21 12 21s-7-3.8-7-9.4S8 3 12 3z','M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16z'];
+cards.innerHTML=CATS.map(function(c,ci){var m='';for(var k=0;k<5;k++){var a=(-150+k*75)*Math.PI/180;m+='<svg class="m" viewBox="0 0 24 24" style="--x:calc(-50% + '+Math.round(Math.cos(a)*62)+'px);--y:calc(-50% + '+Math.round(Math.sin(a)*70)+'px);--r:'+(k*37)+'deg" aria-hidden="true"><path d="'+MOT[k%3]+'" fill="'+(k%2?'#fff':c[3])+'" stroke="'+c[3]+'" stroke-width="1.2"/></svg>'}
+ var lo=c[4].map(function(x){return parseFloat(x[2].replace(/[^0-9,]/g,'').replace(',','.'))||99}).sort(function(a,b){return a-b})[0];
+ return '<button type="button" class="cd" style="--t:'+c[3]+'33" data-c="'+ci+'">'+m+'<span class="b">'+bottle(c[3],'c'+ci)+'</span><b>'+c[1]+' '+c[2]+'</b><small>dès '+lo+' €</small></button>'}).join('');
+cards.addEventListener('click',function(e){var b=e.target.closest('.cd');if(!b)return;setCat(+b.dataset.c,true);document.getElementById('carte').scrollIntoView({behavior:RM?'auto':'smooth'})});
+setCat(0,false);
+function openCat(ci,from){setCat(ci,true);var car=document.getElementById('carte');
+ if(RM||!from.animate){car.scrollIntoView();return}
+ var r=from.getBoundingClientRect(),f=document.createElement('div');f.className='fly';f.innerHTML=bottle(CATS[ci][3],'f');f.style.width=r.width+'px';f.style.height=r.height+'px';document.body.appendChild(f);from.style.opacity=0;
+ var mid={x:innerWidth/2-r.width*.6,y:innerHeight*.3};
+ var a=f.animate([{transform:'translate('+r.left+'px,'+r.top+'px) rotate(0)'},{transform:'translate('+mid.x+'px,'+mid.y+'px) rotate(-12deg) scale(1.2)'}],{duration:700,easing:'cubic-bezier(.7,0,.2,1)',fill:'forwards'});
+ car.scrollIntoView({behavior:'smooth'});
+ setTimeout(function(){var t=bb.getBoundingClientRect();var sc=t.height/r.height;
+  f.animate([{transform:'translate('+mid.x+'px,'+mid.y+'px) rotate(-12deg) scale(1.2)'},{transform:'translate('+(t.left+t.width/2-r.width/2)+'px,'+(t.top+t.height/2-r.height/2)+'px) rotate(0) scale('+sc+')',opacity:.2}],{duration:650,easing:'cubic-bezier(.7,0,.2,1)',fill:'forwards'}).onfinish=function(){f.remove();from.style.opacity=''}},900)}
+st.addEventListener('click',function(e){var s=e.target.closest('.stk');if(s)pick(s.dataset.v)});
+st.addEventListener('keydown',function(e){var s=e.target.closest('.stk');if(s&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(s.dataset.v)}});
+function pick(v){document.getElementById('svc').value=v;go(0);fill();document.getElementById('rdv').scrollIntoView({behavior:RM?'auto':'smooth'})}
+// wall
+var ww=document.getElementById('ww');ww.innerHTML=GAL.map(function(u,i){var c=COLORS[i%COLORS.length];return '<div class="tile" style="--i:'+i+';--c:'+c[1]+'"><div class="f"><span>'+c[0]+'</span></div><div class="k"><img src="'+u+'=w500" alt="Pose d\'ongles réalisée chez Escale Beauty ('+(i+1)+')" loading="lazy" width="250" height="312"></div></div>'}).join('');
+var wall=document.getElementById('wall');
+new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){[].forEach.call(ww.children,function(t){t.classList.add('flip')})}})},{threshold:.2}).observe(wall);
+function wallTilt(){var r=wall.getBoundingClientRect(),p=(r.top+r.height/2)/innerHeight-.5;if(RM)p=0;ww.style.setProperty('--rx',(10+p*16).toFixed(2)+'deg');ww.style.setProperty('--ry',(-8-p*14).toFixed(2)+'deg')}
+addEventListener('scroll',wallTilt,{passive:true});wallTilt();
+// team
+var tr=document.getElementById('trow'),TC=['#ff5a1f','#f29bb3','#3b2d55','#6cc6b0','#f6c22d'];
+tr.innerHTML=TEAM.map(function(n,i){return '<div class="tb" style="--c:'+TC[i]+'"><div class="bx"><div class="cap"></div><div class="bod"><span class="lab">'+n+'</span></div></div></div>'}).join('');
+var tbs=tr.querySelectorAll('.tb');
+new IntersectionObserver(function(e){if(e[0].isIntersecting){tbs.forEach(function(t,i){setTimeout(function(){t.classList.add('open')},RM?0:i*220)})}},{threshold:.35}).observe(tr);
+tbs.forEach(function(t){t.addEventListener('mouseenter',function(){t.classList.remove('open');void t.offsetWidth;t.classList.add('open')})});
+// reveal titles
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.2});
+document.querySelectorAll('.h2,.rev,.hours').forEach(function(el){io.observe(el)});
+// hours
+var DAYS=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Paris'})),di=(now.getDay()+6)%7,mins=now.getHours()*60+now.getMinutes();
+var S=8*60,E=21*60;function pc(m){return ((m-S)/(E-S)*100).toFixed(1)+'%'}
+document.getElementById('hours').innerHTML=DAYS.map(function(d,i){var open=i<6;return '<li class="'+(i===di?'today':'')+'" style="--i:'+i+'"><span>'+d+'</span><span class="bar">'+(open?'<i style="--a:'+pc(570)+';--b:calc(100% - '+pc(1170)+')"></i>':'')+'</span><span class="t">'+(open?'9h30 – 19h30':'Fermé')+'</span></li>'}).join('');
+var so=document.getElementById('status'),isOpen=di<6&&mins>=570&&mins<1170;so.classList.toggle('op',isOpen);so.lastChild.textContent=isOpen?'Ouvert · ferme à 19h30':(di<6&&mins<570?'Fermé · ouvre à 9h30':'Fermé · ouvre '+(di>=5?'lundi':'demain')+' à 9h30');
+// booking
+var cs=0,form=document.getElementById('form'),steps=form.querySelectorAll('.st'),bars=form.querySelectorAll('.steps span'),prev=document.getElementById('prev'),next=document.getElementById('next'),pct=document.getElementById('pct');
+var sel={c:null,d:null,h:null};
+var sw=document.getElementById('sw');sw.innerHTML=COLORS.map(function(c,i){return '<button type="button" style="--c:'+c[1]+'" aria-pressed="false" data-i="'+i+'" aria-label="'+c[0]+'" title="'+c[0]+'"></button>'}).join('')+'<button type="button" class="none" aria-pressed="true" data-i="-1">Je choisirai sur place</button>';
+sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(sw.children,function(x){x.setAttribute('aria-pressed',x===b)});sel.c=+b.dataset.i<0?null:COLORS[+b.dataset.i];fill()});
+var days=document.getElementById('days'),slots=document.getElementById('slots'),dl=[],d0=new Date(now);d0.setHours(12);
+for(var k=0;dl.length<12;k++){var d=new Date(d0);d.setDate(d0.getDate()+k);if(d.getDay()!==0)dl.push(d)}
+var MO=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],DS=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'];
+days.innerHTML=dl.map(function(d,i){return '<button type="button" aria-pressed="false" data-i="'+i+'">'+DS[d.getDay()]+'<b>'+d.getDate()+'</b>'+MO[d.getMonth()]+'</button>'}).join('');
+days.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(days.children,function(x){x.setAttribute('aria-pressed',x===b)});sel.d=dl[+b.dataset.i];sel.h=null;renderSlots()});
+function renderSlots(){var h='',first=sel.d&&sel.d.toDateString()===now.toDateString()?mins+60:0;for(var m=570;m<=1140;m+=30){if(m<first)continue;var t=Math.floor(m/60)+'h'+(m%60?'30':'00');h+='<button type="button" aria-pressed="'+(sel.h===t)+'">'+t+'</button>'}slots.innerHTML=h||'<p class="sub">Plus de créneau aujourd\'hui, choisissez un autre jour.</p>'}
+slots.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(slots.children,function(x){x.setAttribute('aria-pressed',x===b)});sel.h=b.textContent});
+function go(n){cs=n;steps.forEach(function(s){s.hidden=+s.dataset.s!==n});bars.forEach(function(b,i){b.classList.toggle('on',i<n||(n===4))});prev.hidden=n===0||n===4;next.hidden=n===4;next.textContent=n===3?'Envoyer la demande':'Continuer';pct.textContent=Math.min(n,4)+' / 4';fill()}
+function err(i,m){document.getElementById('e'+i).textContent=m;return !m}
+next.addEventListener('click',function(){
+ if(cs===0&&!err(0,document.getElementById('svc').value?'':'Choisissez une prestation.'))return;
+ if(cs===2&&!err(2,sel.d&&sel.h?'':'Choisissez un jour et une heure.'))return;
+ if(cs===3){var nm=document.getElementById('nm').value.trim(),ph=document.getElementById('ph').value.replace(/\D/g,'');if(!err(3,!nm?'Indiquez votre nom.':ph.length<10?'Indiquez un numéro de téléphone valide.':!document.getElementById('ok').checked?'Merci de cocher la case de consentement.':''))return;
+  var v=document.getElementById('svc').value.split('-'),it=CATS[v[0]][4][v[1]];
+  document.getElementById('recap').innerHTML='<b>'+it[0]+'</b> ('+CATS[v[0]][1]+' '+CATS[v[0]][2]+') — '+it[2]+'<br>'+DS[sel.d.getDay()]+' '+sel.d.getDate()+' '+MO[sel.d.getMonth()]+' à '+sel.h+'<br>Teinte : '+(sel.c?sel.c[0]:'au salon')+'<br>'+nm.replace(/</g,'')}
+ go(cs+1)});
+prev.addEventListener('click',function(){go(Math.max(0,cs-1))});
+document.getElementById('again').addEventListener('click',function(){form.reset();sel={c:null,d:null,h:null};[].forEach.call(days.children,function(x){x.setAttribute('aria-pressed','false')});slots.innerHTML='';go(0)});
+document.getElementById('svc').addEventListener('change',function(){err(0,'');fill()});
+// vial: three.js with CSS fallback
+var vial=document.getElementById('vial'),liq=null,fillCol='#ff5a1f',level=0,fbLiq=null;
+function curCol(){if(sel.c)return sel.c[1];var v=document.getElementById('svc').value;return v?CATS[v.split('-')[0]][3]:'#ff5a1f'}
+function fill(){fillCol=curCol();level=cs/4;document.querySelectorAll('.steps span').forEach(function(s){s.style.setProperty('--c',fillCol)});if(fbLiq){fbLiq.setAttribute('fill',fillCol);fbLiq.setAttribute('y',(96-50*level).toFixed(1));fbLiq.setAttribute('height',(50*level+1).toFixed(1))}}
+function fallback(){vial.insertAdjacentHTML('afterbegin','<svg class="fb" viewBox="0 0 62 100"><rect x="20" y="1" width="22" height="40" rx="4" fill="#1b1b1b"/><rect x="22" y="38" width="18" height="7" rx="1.5" fill="#d9d2c3"/><clipPath id="vc"><rect x="4" y="43" width="54" height="55" rx="13"/></clipPath><rect x="4" y="43" width="54" height="55" rx="13" fill="#fff" stroke="#cfc6b0"/><rect id="fbl" clip-path="url(#vc)" x="0" y="96" width="62" height="1" fill="#ff5a1f" style="transition:all .8s cubic-bezier(.2,.8,.2,1)"/><rect x="9" y="49" width="6" height="40" rx="3" fill="#fff" opacity=".5"/></svg>');fbLiq=document.getElementById('fbl');fill()}
+var started=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!started){started=true;window.__loadThree(three,fallback)}},{rootMargin:'300px'}).observe(vial);
+function three(){var T=THREE,w=vial.clientWidth,h=vial.clientHeight;var rn=new T.WebGLRenderer({antialias:true,alpha:true});rn.setPixelRatio(Math.min(2,devicePixelRatio));rn.setSize(w,h);vial.insertBefore(rn.domElement,vial.firstChild);
+ var sc=new T.Scene(),cam=new T.PerspectiveCamera(32,w/h,.1,100);cam.position.set(0,1.1,9.5);cam.lookAt(0,.6,0);
+ sc.add(new T.HemisphereLight(0xffffff,0xd8cfb8,.9));var dl=new T.DirectionalLight(0xffffff,.9);dl.position.set(3,5,4);sc.add(dl);var bl=new T.PointLight(0xffe7c2,.6);bl.position.set(-4,2,-3);sc.add(bl);
+ var g=new T.Group();sc.add(g);
+ var pts=[];[[0,-1.5],[1.25,-1.5],[1.55,-1.3],[1.62,-.6],[1.62,.6],[1.5,1.1],[1.0,1.35],[.55,1.4],[.5,1.6]].forEach(function(p){pts.push(new T.Vector2(p[0],p[1]))});
+ var glass=new T.Mesh(new T.LatheGeometry(pts,64),new T.MeshPhongMaterial({color:0xffffff,transparent:true,opacity:.28,shininess:120,specular:0xffffff,side:T.DoubleSide,depthWrite:false}));g.add(glass);
+ var lg=new T.CylinderGeometry(1.42,1.42,1,64);lg.translate(0,.5,0);liq=new T.Mesh(lg,new T.MeshPhongMaterial({color:new T.Color(fillCol),shininess:90,specular:0x666666}));liq.position.y=-1.38;liq.scale.y=.02;g.add(liq);
+ var cap=new T.Mesh(new T.CylinderGeometry(.62,.66,2.2,48),new T.MeshPhongMaterial({color:0x151515,shininess:140,specular:0x888888}));cap.position.y=2.7;g.add(cap);
+ var ring=new T.Mesh(new T.CylinderGeometry(.7,.7,.25,48),new T.MeshPhongMaterial({color:0xd9c79a,shininess:100}));ring.position.y=1.62;g.add(ring);
+ var sh=new T.Mesh(new T.CircleGeometry(2,48),new T.MeshBasicMaterial({color:0x3d2e10,transparent:true,opacity:.12}));sh.rotation.x=-Math.PI/2;sh.position.y=-1.52;sc.add(sh);
+ var rot=0,dragV=0,px=null;vial.addEventListener('pointerdown',function(e){px=e.clientX});addEventListener('pointerup',function(){px=null});vial.addEventListener('pointermove',function(e){if(px!==null){dragV=(e.clientX-px)*.01;px=e.clientX}});
+ var col=new T.Color(fillCol),lv=.02;
+ function rs(){w=vial.clientWidth;h=vial.clientHeight;rn.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()}addEventListener('resize',rs);
+ var on=true;new IntersectionObserver(function(e){on=e[0].isIntersecting}).observe(vial);
+ (function loop(){requestAnimationFrame(loop);if(!on)return;rot+=(RM?0:.006)+dragV;dragV*=.92;g.rotation.y=rot;g.rotation.z=Math.sin(rot*.7)*.05;
+  var tl=Math.max(.02,level*2.55);lv+=(tl-lv)*.06;liq.scale.y=lv;col.lerp(new T.Color(fillCol),.08);liq.material.color.copy(col);rn.render(sc,cam)})()}
+go(0);
+})();
+</script>
+</body>
+</html>
