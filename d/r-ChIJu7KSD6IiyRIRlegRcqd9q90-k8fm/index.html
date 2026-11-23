@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Nuit de Saigon · La Crau — Restaurant asiatique</title>
+<meta name="description" content="Nuit de Saigon, restaurant asiatique au 2 avenue Lieutenant Jean Toucas à La Crau : nems, bo bun, wok, soupes tom yam et phô. Sur place ou à emporter, réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--nuit:#0b0a24;--indigo:#17133f;--violet:#2c1650;--rouge:#e0352b;--or:#ffb347;--jade:#2fa58a;--creme:#fbefd9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--nuit);color:var(--creme);font:400 16px/1.55 "Be Vietnam Pro",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--or);color:#000;padding:8px 14px;z-index:999}.skip:focus{left:8px}
+.it{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.01em}
+.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+h2.big{font:800 clamp(42px,6.4vw,96px)/.95 "Be Vietnam Pro",sans-serif;letter-spacing:-.045em}
+h2.big .it{font-weight:500;color:var(--or);letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--rouge);color:#fff;font-weight:600;white-space:nowrap;box-shadow:0 10px 30px rgba(224,53,43,.35);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
+.btn:hover{transform:translateY(-2px) scale(1.03)}
+.btn.g{background:transparent;border:1.5px solid rgba(251,239,217,.6);box-shadow:none}
+/* river + glow */
+#river{position:fixed;inset:0;z-index:0;pointer-events:none}
+.glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(255,179,71,.16),rgba(255,179,71,0) 65%);pointer-events:none;z-index:1;mix-blend-mode:screen;transition:opacity .4s}
+main,footer,.nav{position:relative;z-index:2}
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 40px;transition:background .35s,padding .35s}
+.nav.sc{background:rgba(11,10,36,.92);backdrop-filter:blur(10px);padding:12px 40px;box-shadow:0 1px 0 rgba(255,179,71,.15)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+.logo i{width:18px;height:24px;border-radius:50% 50% 46% 46%/56% 56% 44% 44%;background:radial-gradient(circle at 50% 40%,#ffd38a,#e0352b 60%,#8e1610);box-shadow:0 0 16px rgba(255,140,60,.7);position:relative}
+.logo i::before,.logo i::after{content:"";position:absolute;left:5px;right:5px;height:3px;background:var(--or);border-radius:2px}.logo i::before{top:-2px}.logo i::after{bottom:-2px}
+.nav ul{list-style:none;display:flex;gap:28px;font-size:14px;font-weight:500}
+.nav ul a{opacity:.85}.nav ul a:hover{opacity:1;color:var(--or)}
+.nav .btn{padding:10px 18px;font-size:14px;box-shadow:none}
+/* HERO */
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;overflow:hidden;background:radial-gradient(ellipse 70% 50% at 70% 18%,#3b2a7a 0%,rgba(59,42,122,0) 70%),linear-gradient(#0d0b2e,#1f1450 55%,#2c1650)}
+.moon{position:absolute;right:12%;top:13%;width:min(17vw,170px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 38%,#fff6dc,#f6d9a0 55%,#c99a55);box-shadow:0 0 80px 20px rgba(255,214,140,.25)}
+#stars{position:absolute;inset:0}
+#lan{position:absolute;inset:0;pointer-events:none}
+#lan canvas{width:100%!important;height:100%!important}
+.cssl{position:absolute;inset:0;display:none}
+.no3d .cssl{display:block}
+.cssl span{position:absolute;top:-6px;width:46px;height:62px;border-radius:50% 50% 46% 46%/56% 56% 44% 44%;background:radial-gradient(circle at 50% 42%,#ffd38a,#e0352b 58%,#7c120d);box-shadow:0 0 40px rgba(255,120,50,.55);transform-origin:50% -120px;animation:sw 4s ease-in-out infinite alternate}
+.cssl span::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:120px;background:rgba(255,220,170,.4)}
+@keyframes sw{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.roofs{position:absolute;left:0;right:0;bottom:0;width:100%;height:34vh;min-height:200px}
+.hc{position:absolute;left:40px;right:40px;bottom:9vh;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+.hc h1{font:800 clamp(56px,10vw,160px)/.86 "Be Vietnam Pro",sans-serif;letter-spacing:-.055em;text-shadow:0 10px 40px rgba(0,0,0,.5)}
+.hc h1 .it{display:block;color:var(--or);font-weight:600;letter-spacing:-.02em;font-size:.82em;margin-left:.06em}
+.hc h1 .l{display:inline-block;transform:translateY(110%);opacity:0;animation:rise .9s cubic-bezier(.2,.9,.3,1) forwards}
+@keyframes rise{to{transform:none;opacity:1}}
+.hc .side{max-width:340px;padding-bottom:12px}
+.hc .side p{font-size:17px;opacity:.88;margin-bottom:18px}
+.hc .row{display:flex;gap:10px;flex-wrap:wrap}
+.open{margin-top:14px;font-size:13px;letter-spacing:.06em;opacity:.8}
+.open b{color:var(--or)}
+/* bands */
+.band{display:block;width:100%;height:120px;margin-top:-1px}
+/* STEAMER (carte) */
+#carte{position:relative;height:520vh;background:#120f33}
+.sstage{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:90px 40px 30px;overflow:hidden}
+.tower{position:relative;height:min(74vh,600px);perspective:900px;display:flex;justify-content:center}
+.tw{position:relative;width:min(340px,70vw);height:100%;transform:rotateX(14deg);transform-style:preserve-3d}
+.bk{position:absolute;left:0;right:0;height:84px;will-change:transform}
+.bk .body{position:absolute;left:0;right:0;top:28px;height:56px;background:repeating-linear-gradient(90deg,#c99a5a 0 14px,#b4844a 14px 16px,#d8ad6c 16px 30px,#a8783f 30px 32px);border-radius:0 0 50% 50%/0 0 26px 26px;box-shadow:inset 0 -8px 16px rgba(0,0,0,.25)}
+.bk .top{position:absolute;left:0;right:0;top:0;height:56px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,#6b4a26 0 58%,#d8ad6c 60% 66%,#b4844a 67%);box-shadow:inset 0 3px 6px rgba(0,0,0,.4)}
+.bk .lbl{position:absolute;left:50%;top:44px;transform:translateX(-50%);background:var(--rouge);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 10px;border-radius:99px;white-space:nowrap;z-index:2}
+.bk .food{position:absolute;left:14%;right:14%;top:8px;height:40px;border-radius:50%;background:center/cover;opacity:0;transition:opacity .5s}
+.bk.on .food{opacity:1}
+.lid{position:absolute;left:-2%;right:-2%;height:110px;will-change:transform}
+.lid .dome{position:absolute;left:0;right:0;top:0;height:110px;border-radius:50% 50% 50% 50%/80% 80% 20% 20%;background:repeating-linear-gradient(90deg,#d8ad6c 0 12px,#b4844a 12px 14px);box-shadow:inset 0 -14px 24px rgba(0,0,0,.25)}
+.lid .knob{position:absolute;left:50%;top:-14px;width:44px;height:22px;margin-left:-22px;border-radius:12px;background:#a8783f}
+#steam{position:absolute;inset:0;pointer-events:none}
+.menu{position:relative;min-height:420px}
+.mcat{position:absolute;inset:0;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s;pointer-events:none}
+.mcat.on{opacity:1;transform:none;pointer-events:auto}
+.mcat h3{font:800 44px/1 "Be Vietnam Pro",sans-serif;letter-spacing:-.04em;margin:8px 0 18px}
+.mcat h3 .it{color:var(--or);font-weight:500}
+.mcat ul{list-style:none;columns:2;column-gap:28px}
+.mcat li{break-inside:avoid;display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(251,239,217,.2);font-size:15px}
+.mcat li span{white-space:nowrap;color:var(--or);font-weight:600}
+.mcat li small{display:block;font-size:12px;opacity:.65}
+.pnote{margin-top:16px;font-size:12.5px;opacity:.65}
+.sdots{display:flex;gap:8px;margin-bottom:6px}
+.sdots button{padding:7px 13px;border-radius:99px;border:1px solid rgba(251,239,217,.3);font-size:12.5px;font-weight:600}
+.sdots button[aria-selected=true]{background:var(--or);color:#1a1030;border-color:var(--or)}
+/* LANTERN gallery */
+#bols{position:relative;padding:120px 40px 160px;background:#1a1240;overflow:hidden}
+#bols .hd{max-width:620px;position:relative;z-index:3}
+#bols .hd p{opacity:.8;margin-top:16px;font-size:17px}
+.sky{position:relative;height:clamp(900px,120vw,1400px);margin-top:40px}
+.fly{position:absolute;width:clamp(150px,19vw,260px);will-change:transform}
+.fly .ring{position:relative;border-radius:50%;padding:10px;background:conic-gradient(from 0deg,#e0352b,#ff6b3d,#ffb347,#e0352b,#b01f18,#e0352b);box-shadow:0 0 60px rgba(255,120,50,.45),0 0 0 3px #ffb347}
+.fly img{width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover}
+.fly::before{content:"";position:absolute;left:50%;top:-18px;width:38%;height:14px;margin-left:-19%;background:var(--or);border-radius:6px 6px 2px 2px}
+.fly::after{content:"";position:absolute;left:50%;bottom:-48px;width:4px;height:44px;margin-left:-2px;background:linear-gradient(var(--or),#e0352b);border-radius:2px}
+.fly figcaption{position:absolute;left:50%;bottom:-86px;transform:translateX(-50%);white-space:nowrap;font:600 22px "Cormorant Garamond",serif;font-style:italic;color:var(--or)}
+/* LAKE booking */
+#rdv{position:relative;padding:120px 40px 130px;background:#0f1b3a;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+#rdv>*{min-width:0}
+#rdv h2{margin:12px 0 28px}
+fieldset{border:0;margin-bottom:22px}
+legend{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1px solid rgba(251,239,217,.28);border-radius:999px;padding:9px 15px;font-size:14px;font-weight:500;background:rgba(255,255,255,.04);transition:.2s}
+.opt[aria-pressed=true]{background:var(--or);color:#1a1030;border-color:var(--or)}
+.opt:disabled{opacity:.28;cursor:not-allowed}
+.ff{display:grid;gap:10px;max-width:520px}
+.ff input[type=text],.ff input[type=tel]{border:1px solid rgba(251,239,217,.28);border-radius:14px;padding:14px 16px;font:inherit;background:rgba(255,255,255,.06);color:var(--creme)}
+.ff input::placeholder{color:rgba(251,239,217,.55)}
+.cb{display:flex;gap:10px;font-size:14px;align-items:flex-start}
+.cb input{margin-top:4px;accent-color:var(--or);width:18px;height:18px;flex:none}
+.cb button{text-decoration:underline}
+.ff .btn{justify-self:start;margin-top:6px}
+.ff .btn em{font-style:normal;font-size:12px;opacity:.85;background:rgba(0,0,0,.25);padding:3px 8px;border-radius:99px}
+#msg{min-height:24px;font-size:15px}
+.lake{position:sticky;top:100px;height:min(70vh,560px);border-radius:24px;overflow:hidden;background:linear-gradient(#141047 0%,#241a5c 42%,#0b1a33 43%,#071226 100%);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+#lakec{position:absolute;inset:0;width:100%;height:100%}
+.lake .cap{position:absolute;left:18px;bottom:16px;right:18px;font-size:13px;opacity:.8}
+/* INFOS */
+#infos{padding:120px 40px;background:#0b0a24;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+#infos .hrs{margin-top:26px}
+#infos .hrs div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(251,239,217,.14)}
+#infos .hrs div span:last-child{text-align:right}
+#infos .hrs div.td{color:var(--or);font-weight:600}
+#infos .ad{margin-top:20px;font-size:17px;opacity:.9}
+#infos .ad a{font-weight:600;color:var(--or)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{border:1px solid rgba(251,239,217,.25);padding:7px 13px;border-radius:99px;font-size:13px}
+.map{height:540px}
+.pin i{display:block;width:22px;height:28px;border-radius:50% 50% 46% 46%/56% 56% 44% 44%;background:radial-gradient(circle at 50% 40%,#fff1c9,#e0352b 62%,#8e1610)}
+footer{background:#070617;color:#b9b3cf;padding:30px 40px 70px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:13px}
+footer .fl2{list-style:none}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+footer ul button{text-decoration:underline;text-underline-offset:3px;font-size:13px}
+
+.demo{position:fixed;right:10px;bottom:10px;z-index:45;font:500 11px/1 system-ui,sans-serif;background:rgba(10,10,10,.78);color:#fff;padding:6px 10px;border-radius:999px;letter-spacing:.01em}
+.ck{position:fixed;left:16px;bottom:16px;z-index:70;max-width:420px;background:#fbefd9;color:#1a1030;border:1px solid rgba(0,0,0,.12);border-radius:16px;padding:18px 20px;box-shadow:0 20px 50px rgba(0,0,0,.3);font:15px/1.45 system-ui,sans-serif}
+.ck p{margin:0 0 12px}.ck .a{display:flex;gap:10px}
+.ck .a button{flex:1;padding:11px 10px;border-radius:999px;border:1.5px solid #1a1030;background:transparent;color:#1a1030;font:600 14px system-ui,sans-serif;cursor:pointer}
+.ck .a button:hover{background:#1a1030;color:#fbefd9}
+dialog.lg{margin:auto;max-width:640px;width:calc(100% - 32px);max-height:85vh;border:0;border-radius:16px;padding:28px;background:#fbefd9;color:#1a1030;font:15px/1.55 system-ui,sans-serif}
+dialog.lg::backdrop{background:rgba(0,0,0,.6)}
+dialog.lg h3{font-size:24px;margin:0 0 12px}dialog.lg h4{margin:14px 0 4px}dialog.lg p{margin:0 0 8px}
+dialog.lg .x{float:right;border:1px solid currentColor;border-radius:999px;padding:6px 14px;background:none;color:inherit;cursor:pointer;font:inherit}
+.map{position:relative;border-radius:22px;overflow:hidden;background:#111;isolation:isolate}
+.map iframe{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:#7a2a8a;mix-blend-mode:color;opacity:.75}
+.map::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 120px 40px rgba(0,0,0,.8)}
+.mph{position:absolute;inset:0;background:repeating-linear-gradient(28deg,transparent 0 58px,rgba(255,255,255,.07) 58px 61px),repeating-linear-gradient(-62deg,transparent 0 90px,rgba(255,255,255,.05) 90px 93px),radial-gradient(circle at 50% 45%,#2a2a2a,#0c0c0c)}
+.pin{position:absolute;z-index:2;left:50%;top:50%;width:64px;height:64px;margin:-80px 0 0 -32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#ffb347;display:grid;place-items:center;pointer-events:none;animation:pinb 2.4s ease-in-out infinite;box-shadow:0 0 0 10px rgba(255,255,255,.12)}
+.pin>*{transform:rotate(45deg)}
+@keyframes pinb{50%{box-shadow:0 0 0 18px rgba(255,255,255,.06),0 0 0 34px rgba(255,255,255,.03)}}
+.mcard{position:absolute;z-index:3;left:14px;bottom:14px;right:14px;max-width:340px;background:rgba(15,15,15,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:16px 18px;color:#fff;font:15px/1.4 system-ui,sans-serif}
+.mcard b{font-size:18px;display:block}.mcard p{opacity:.8;font-size:14px;margin:4px 0 12px}
+.mcard a{display:inline-block;background:#ffb347;color:#1a1030;font-weight:700;padding:10px 18px;border-radius:999px;text-decoration:none}
+.mcon{position:absolute;z-index:3;top:14px;right:14px}
+.mcon button{background:rgba(15,15,15,.8);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 16px;font:600 14px system-ui,sans-serif;cursor:pointer}
+@media (max-width:600px){.ck{left:10px;right:10px;bottom:10px;max-width:none}.demo{font-size:10px;padding:5px 9px;right:8px;bottom:8px}}
+
+@media (max-width:991px){
+ .nav ul{display:none}
+ .sstage{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;padding:74px 18px 18px;align-items:start}
+ .tower{height:30vh;order:-1}
+ .tw{width:min(240px,60vw)}
+ .menu{min-height:0;height:calc(100svh - 30vh - 150px)}
+ .mcat h3{font-size:32px;margin:6px 0 10px}
+ .mcat ul{columns:1}
+ #rdv,#infos{grid-template-columns:1fr;gap:40px}
+ .lake{position:relative;top:0;height:360px}
+}
+@media (max-width:600px){
+ .nav,.nav.sc{padding:12px 16px}
+ .logo{font-size:17px}
+ .nav .btn{padding:9px 14px;font-size:13px}
+ .moon{width:90px;right:8%;top:14%}
+ .hc{left:16px;right:16px;bottom:5vh;flex-direction:column;align-items:flex-start;gap:16px}
+ .hc h1{font-size:15.5vw}
+ .hc .side p{font-size:15px;margin-bottom:14px}
+ .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;z-index:2;pointer-events:none;background:linear-gradient(to top,rgba(11,10,36,.92),rgba(11,10,36,.6) 55%,rgba(11,10,36,0))}
+ .band{height:70px}
+ .bk{height:64px}.bk .body{top:22px;height:42px}.bk .top{height:44px}.bk .lbl{top:32px;font-size:10px}
+ .lid{height:80px}.lid .dome{height:80px}
+ .mcat li{font-size:13.5px;padding:5px 0}
+ .mcat li:nth-child(n+9){display:none}
+ .sstage{padding-bottom:44px}
+ .sdots{flex-wrap:wrap;gap:6px}.sdots button{padding:6px 10px;font-size:12px}
+ .pnote{font-size:11.5px;margin-top:10px}
+ #bols{padding:90px 16px 120px}
+ .sky{height:1560px}
+ .fly{width:42vw}
+ .fly figcaption{font-size:18px;bottom:-78px}
+ #rdv{padding:90px 16px 100px}
+ #infos{padding:90px 16px}
+ .map{height:430px}
+ footer{padding:26px 16px 60px}
+ .glow{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hc h1 .l{transform:none;opacity:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<canvas id="river" aria-hidden="true"></canvas>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<header class="nav" id="nav">
+ <a class="logo" href="#top" aria-label="Nuit de Saigon, accueil"><i></i>Nuit de Saigon</a>
+ <ul><li><a href="#carte">La carte</a></li><li><a href="#bols">Les plats</a></li><li><a href="#rdv">Réserver</a></li><li><a href="#infos">Accès</a></li></ul>
+ <a class="btn" href="#rdv">Réserver</a>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-label="Accueil">
+ <canvas id="stars" aria-hidden="true"></canvas>
+ <div class="moon" aria-hidden="true"></div>
+ <div id="lan" aria-hidden="true"></div>
+ <div class="cssl" aria-hidden="true"><span style="left:12%;animation-delay:-1s"></span><span style="left:30%;top:40px"></span><span style="left:52%;animation-delay:-2s"></span><span style="left:74%;top:30px;animation-delay:-.5s"></span><span style="left:88%;animation-delay:-3s"></span></div>
+ <svg class="roofs" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true"><path fill="#120f33" d="M0 300V170l60-20 40 10 10-40h70l12 40 50-10v-60l30-30 30 30v70l40-12 30 22 70-10V80l40-20 40 20v80l60 10 20-40h60l40 30 30-60 34 60 40-10V130l70-20 70 20v40l40-6 30-40 30 40 50 6V90l26-30 26 30v80l60 10 40-30 50 30 40-14 30 30 60-26 20 30 40-12V300z"/><g fill="#ffb347" opacity=".85"><rect x="140" y="170" width="8" height="10"/><rect x="420" y="120" width="8" height="12"/><rect x="436" y="150" width="8" height="12"/><rect x="760" y="150" width="8" height="10"/><rect x="980" y="140" width="8" height="12"/><rect x="1190" y="190" width="8" height="10"/><rect x="560" y="200" width="8" height="10"/></g></svg>
+ <div class="hc">
+  <h1 id="ht" aria-label="Nuit de Saigon"></h1>
+  <div class="side">
+   <p>Nems, bo bun, wok, soupes tom yam et phô : la cuisine d'Asie du Sud-Est de l'avenue Jean Toucas, à La Crau. Sur place ou à emporter.</p>
+   <div class="row"><a class="btn" href="#rdv">Réserver une table</a><a class="btn g" href="tel:+33494661088">04 94 66 10 88</a></div>
+   <p class="open" id="open"></p>
+  </div>
+ </div>
+</section>
+
+<svg class="band" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="background:#2c1650"><path fill="#120f33" d="M0 120V40c40 0 60-30 100-30s50 30 90 30 60-34 100-34 60 34 100 34 50-28 90-28 60 28 100 28 70-36 110-36 60 36 100 36 50-30 90-30 70 30 110 30 60-24 100-24 60 24 100 24 50-30 90-30 60 30 60 30v80z"/><path d="M0 34 Q 360 70 720 30 T 1440 40" stroke="#ffb347" stroke-opacity=".35" fill="none" stroke-width="1.4"/><g fill="#e0352b"><circle cx="180" cy="49" r="6"/><circle cx="420" cy="47" r="6"/><circle cx="660" cy="36" r="6"/><circle cx="900" cy="36" r="6"/><circle cx="1140" cy="44" r="6"/></g></svg>
+
+<section id="carte" aria-labelledby="t2">
+ <div class="sstage">
+  <div class="tower" aria-hidden="true"><div class="tw" id="tw"></div><canvas id="steam"></canvas></div>
+  <div>
+   <p class="kick">La carte</p>
+   <div class="sdots" id="sdots" role="tablist" aria-label="Catégories de la carte"></div>
+   <div class="menu" id="menu"></div>
+  </div>
+ </div>
+ <h2 class="sr" id="t2">La carte de Nuit de Saigon</h2>
+</section>
+
+<svg class="band" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="background:#120f33"><path fill="#1a1240" d="M0 120V70c80-30 160-30 240 0s160 30 240 0 160-30 240 0 160 30 240 0 160-30 240 0 160 30 240 0v50z"/><path fill="none" stroke="#ffb347" stroke-opacity=".25" stroke-width="1.2" d="M0 86c80-30 160-30 240 0s160 30 240 0 160-30 240 0 160 30 240 0 160-30 240 0 160 30 240 0"/></svg>
+
+<section id="bols" aria-labelledby="t3">
+ <div class="hd"><p class="kick">Les plats</p><h2 class="big" id="t3">Des bols qui<br><span class="it">montent au ciel</span></h2><p>Pad thaï poulet-crevettes, nouilles sautées, soupes fumantes, rouleaux frais : quelques plats du restaurant, qui s'envolent comme des lanternes quand vous descendez.</p></div>
+ <div class="sky" id="sky"></div>
+</section>
+
+<svg class="band" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="background:#1a1240"><path fill="#0f1b3a" d="M0 120V60c120 18 240 18 360 0s240-18 360 0 240 18 360 0 240-18 360 0v60z"/><g fill="#2fa58a" opacity=".55"><ellipse cx="220" cy="70" rx="46" ry="10"/><ellipse cx="760" cy="64" rx="38" ry="9"/><ellipse cx="1210" cy="72" rx="50" ry="11"/></g><g fill="#f2a0b4"><path d="M220 62c-6-14 6-22 0-30 -6 8 6 16 0 30z"/><path d="M1210 64c-6-14 6-22 0-30 -6 8 6 16 0 30z"/></g></svg>
+
+<section id="rdv" aria-labelledby="t4">
+ <form id="bk" novalidate>
+  <p class="kick">Réservation</p>
+  <h2 class="big" id="t4">Une table,<br><span class="it">une lanterne</span></h2>
+  <fieldset><legend>1 · Sur place ou à emporter</legend><div class="opts" id="oM"></div></fieldset>
+  <fieldset><legend>2 · Le jour</legend><div class="opts" id="oD"></div></fieldset>
+  <fieldset><legend>3 · L'heure</legend><div class="opts" id="oH"><span style="opacity:.6;font-size:14px">Choisissez d'abord un jour.</span></div></fieldset>
+  <fieldset id="fsP"><legend>4 · Combien de personnes</legend><div class="opts" id="oP"></div></fieldset>
+  <div class="ff">
+   <label class="sr" for="fN">Nom</label><input id="fN" type="text" placeholder="Votre nom" autocomplete="name">
+   <label class="sr" for="fT">Téléphone</label><input id="fT" type="tel" placeholder="Votre téléphone" autocomplete="tel">
+   <label class="cb"><input type="checkbox" id="fC"><span>J'accepte que Nuit de Saigon utilise ces informations uniquement pour gérer ma réservation (<button type="button" data-open="conf">confidentialité</button>).</span></label>
+   <button class="btn" type="submit">Envoyer la demande <em id="cnt">0 / 6</em></button>
+   <p id="msg" role="status"></p>
+  </div>
+ </form>
+ <div class="lake" aria-hidden="true"><canvas id="lakec"></canvas><p class="cap">Chaque étape remplie dépose une lanterne sur l'eau.</p></div>
+</section>
+
+<section id="infos" aria-labelledby="t5">
+ <div>
+  <p class="kick">Accès</p>
+  <h2 class="big" id="t5">2 av. Lieutenant<br><span class="it">Jean Toucas</span></h2>
+  <p class="ad">83260 La Crau · <a href="tel:+33494661088">04 94 66 10 88</a></p>
+  <div class="chips"><span>Sur place</span><span>À emporter</span><span>Facebook : nuitdesaigonlacrau</span></div>
+  <div class="hrs" id="hrs"></div>
+ </div>
+ <div class="map" id="map"><div class="mph" id="mph"></div><div class="pin" aria-hidden="true"><i></i></div>
+<div class="mcon" id="mcon"><button type="button" id="mapBtn">Afficher le plan Google</button></div>
+<div class="mcard"><b>Nuit de Saigon</b><p>2 avenue Lieutenant Jean Toucas, 83260 La Crau</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Restaurant+Nuit+de+Saigon%2C+2+Av.+Lieutenant+Jean+Toucas%2C+83260+La+Crau" target="_blank" rel="noopener">Itinéraire</a></div></div>
+</section>
+</main>
+<footer><span>© 2026 Nuit de Saigon · La Crau</span><ul class="fl"><li><button type="button" data-open="ml">Mentions légales</button></li><li><button type="button" data-open="conf">Confidentialité</button></li><li><button type="button" data-open="cgv">CGV / CGU</button></li><li><button type="button" data-open="ann">Annulation et remboursement</button></li><li><button type="button" data-open="ck">Cookies</button></li></ul></footer>
+<a class="demo" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+<div class="ck" id="ck" role="dialog" aria-label="Cookies" hidden><p>Ce site n'utilise aucun cookie de suivi. Seul le plan Google Maps peut en déposer si vous l'affichez. Vous acceptez ?</p><div class="a"><button type="button" id="ckNo">Refuser</button><button type="button" id="ckYes">Accepter</button></div></div>
+<dialog class="lg" id="dlg" aria-labelledby="dlgT"><button class="x" type="button" id="dlgX">Fermer</button><div id="dlgC"></div></dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+addEventListener('DOMContentLoaded',()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,mob=()=>innerWidth<=600;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const G='https://lh3.googleusercontent.com/gps-cs-s/',img=(k,w)=>G+PH[k]+'=w'+w;
+const PH={facade:'ANWiy9RiSQqodHcVF72DiCzTHnWGSoLhrneEGjKuuRNgLvbqnRmLTbR4h4wV7maGRASjxVGOhIzGvDP9nizxRE21kpu8J2GhGonHdPdlepfR40u8SvJXyL_5PH1neHbN9bSxBBa-SGTv',salle:'ANWiy9TjG4sf-iOAyIx9Q7Smz9vnIRXgHPK7wp_hLleng9ek36Qd4SW_DTdvutprd8Vplx2FVx6W8P0yqeUzdMPQ3hrDj3eaItq2x1K19DLy9jifuHtP371NcQSLNyh2d5Oyc1BmMRyPMQ',soupe:'ANWiy9R-f0a5OLdiz9lEWtmQT5d3Nvz4Ej_ucArMirYiC7i0YkB1UD9feBRv6NbDgsDhb6DYgK-H-1oMNB5upuNVyHC7wqCEH9HvgM5_e-Wesup8sOVkgSfnsDqRVV558qliXykp7_l4QA',bar:'ANWiy9SbGqHXhEYk6pLZBP0mmkjzgEZfYMlNHTjO2ev4xloHZxtkxp0OAVCqi7FcCNmHCQwSU5UB_Rt5f6Gp504lXXh70__a-LfUqGqkvWfOQYB-KDX1I5UnkyRwRCwpgo5rXeHJh3JS',rouleauxp:'ANWiy9TuJkO_9B89ysDUgScqnziAJNS6xT3F3vtRtN1rmUwK-DyrhRWesXlpIYvLXQQF0mPwpgK9Km2-kW662t-dVF2RhH2zvAnFbFMzdEXXOWjTlag5ia1NezBlGnGRjbsXHdBt2qcXQw',nouilles:'ANWiy9RXfg_ow0-YBss1OMl2UVehMVQdYWMODBccnBohh2GUi7UOJp74MgzPQkWxFpxeO4H5O3fsmmmDeAQkf4jWcLGeca8vAUH-mPn54HO1MJVXvNPRoXMrg0b9An3-DoJVdEp4RJqedA',rouleaux:'ANWiy9QDNjdxIl9pEdm1wHtWlLBV1oHOsJvguaHNYXfpvRzX5wWVELdWHG1Z99Aps6vvadIDsxWGP6dNglSpKVVLUdQnH5a-4T3Usws7K3hF_MyozwZUQkx-UMD54pGXu4NlMIibdrfU',crevettes:'ANWiy9TtDDVbY1P7E-LgiKd0Lxnur4UhEPoX-Mc5YaJgFRDR8p8X6jWgc9YNbE_9yqprNbscC7ndXBFWFsWCk6Soq9BAfjKC2C7eJoGOwiaKmgLJ2G7Rq8EYlDSrCHUYn5v2RUUjyVw',fondue:'ANWiy9RTbPP9E37lZkVNOMzwhtTlAGt-YBcGsmQ583CcwRJ1TP3AfrWrIU0TnBA76axH0NoS5rQum1w8y4Q0-2GEBjJ7Rd_wu2AgjHT3T5A80B8oTCS3jWyUoDYNJJJbqKQ-gzQysR-C',bobun:'ANWiy9T5IxNmkKuYuhUuGp4innZzTWp3i6V_Oj_teNkagSBjVxuIM5ZKYxzm6kbYColmtM8SYlqKf0Pii0V-sj7A1tfGlRukzH_0g0SMk_I8u__NCiUaqaPnL2-oUeq_wK5LlxSKUktJ',soupe2:'ANWiy9Tpyvjdc4x6_2BK1QSuLhLPPTzN5jwy5YFTvkYCuhv6OvbA6S0VkH-ztTI2_O_KDcUcFMPzxlrv_iS9zRyWOQ4woYZADxgOIAVqLDwtNyhDioKLSgQ4fXONvNjtuqTRmiJRPDrZ',salade:'ANWiy9QViVqtfcLgNXDhIiKiV_uQnT8zxIsrowem6V1KnkzfpKvtU8s42DZ8xcZcCnglG6w_MuROXbrbaLy1qRzrEswjD07Od00a-mIkM4IpcvEUU0U2zMJ_hXc3YTh6gaM38Kvlvsqb',boeuf:'ANWiy9T4ra6UIMloUeqz1gs5yvCHmlWC0KQMap1Q-jw5NjCraLD8xPCrVVduMfz0nAgBIaMXgIm_fNHVi0YTcsDx1N1jnPg7xu_DRqIoLhr6Xu0jGQVxKFLLz0GB5oXA1a3zysDg4k91AA',padthai:'ANWiy9T65A2f545PAQIGlNylvhTGaVmsOVw_C6GYyBp0NC9J-ixjmN8Di5TZ34dK8vXvagWgZhZ4z_32KL2xDHrJmoXoQGVMwLgg1XkB4u44WYDpXtFt7zAFDd2_KaLynaL-8kpS9GbI'};
+/* title letters */
+const ht=$('#ht');const w1='Nuit de',w2='Saigon';let k=0;const sp=s=>[...s].map(c=>c===' '?' ':`<span class="l" aria-hidden="true" style="animation-delay:${(k++)*60+200}ms">${c}</span>`).join('');ht.innerHTML=sp(w1)+'<span class="it">'+sp(w2)+'</span>';
+/* hours */
+const OPEN=[[[1140,1290]],[[720,840],[1140,1290]],[[1140,1290]],[[720,840],[1140,1290]],[[720,840],[1140,1290]],[[720,840],[1140,1290]],[[720,840],[1125,1260]]];
+const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Paris'})),wd=(now.getDay()+6)%7,mins=now.getHours()*60+now.getMinutes();
+const fm=m=>Math.floor(m/60)+' h'+(m%60?' '+String(m%60).padStart(2,'0'):'');
+const HN=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+$('#hrs').innerHTML=HN.map((d,i)=>`<div class="${i===wd?'td':''}"><span>${d}${i===wd?' · aujourd\'hui':''}</span><span>${OPEN[i].map(o=>fm(o[0])+' – '+fm(o[1])).join(' · ')}</span></div>`).join('');
+const isOpen=OPEN[wd].some(o=>mins>=o[0]&&mins<o[1]);const nextO=OPEN[wd].find(o=>mins<o[0]);
+$('#open').innerHTML=isOpen?'<b>Ouvert</b> en ce moment':nextO?'Ouvre aujourd\'hui à <b>'+fm(nextO[0])+'</b>':'Fermé pour aujourd\'hui · à demain';
+/* stars */
+const stc=$('#stars'),sx=stc.getContext('2d');let ST=[];
+function sizeStars(){const r=stc.getBoundingClientRect();stc.width=r.width*Math.min(2,devicePixelRatio);stc.height=r.height*Math.min(2,devicePixelRatio);ST=Array.from({length:mob()?70:140},()=>({x:Math.random(),y:Math.random()*.62,r:Math.random()*1.3+.3,p:Math.random()*6}))}
+sizeStars();addEventListener('resize',sizeStars);
+function stars(t){const W=stc.width,H=stc.height,d=Math.min(2,devicePixelRatio);sx.clearRect(0,0,W,H);ST.forEach(s=>{sx.globalAlpha=RM?.7:.35+.5*Math.abs(Math.sin(t/900+s.p));sx.fillStyle='#fff6dc';sx.beginPath();sx.arc(s.x*W,s.y*H,s.r*d,0,7);sx.fill()});sx.globalAlpha=1}
+/* river */
+const rv=$('#river'),rx=rv.getContext('2d');let RP=[];
+function sizeRiver(){rv.width=innerWidth;rv.height=innerHeight;RP=Array.from({length:mob()?40:80},()=>({y:Math.random()*innerHeight,l:20+Math.random()*60,v:1.2+Math.random()*2.2,o:Math.random()*16-8,a:.15+Math.random()*.4}))}
+sizeRiver();addEventListener('resize',sizeRiver);
+function river(){const W=rv.width,H=rv.height;rx.clearRect(0,0,W,H);const base=mob()?W-14:W*.06;const amp=mob()?6:34;const xAt=y=>base+Math.sin((y+scrollY)*.004)*amp;
+ const g=rx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(255,179,71,.0)');g.addColorStop(.5,'rgba(255,179,71,.10)');g.addColorStop(1,'rgba(255,179,71,0)');rx.strokeStyle=g;rx.lineWidth=mob()?6:22;rx.beginPath();for(let y=0;y<=H;y+=20){const x=xAt(y);y?rx.lineTo(x,y):rx.moveTo(x,y)}rx.stroke();
+ RP.forEach(p=>{if(!RM){p.y+=p.v;if(p.y>H+80)p.y=-80}const x=xAt(p.y)+p.o*(mob()?.25:1);rx.strokeStyle=`rgba(255,200,120,${p.a})`;rx.lineWidth=mob()?1:1.6;rx.beginPath();rx.moveTo(x,p.y);rx.lineTo(xAt(p.y+p.l)+p.o*(mob()?.25:1),p.y+p.l);rx.stroke()})}
+/* glow follows pointer */
+const gl=$('#glow');let gx=-600,gy=-600,tx=-600,ty=-600;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});
+/* THREE lanterns */
+let L3=null;
+function three(){const T=window.THREE,el=$('#lan');if(!T){document.body.classList.add('no3d');return}
+ const rd=new T.WebGLRenderer({antialias:true,alpha:true});rd.setPixelRatio(Math.min(2,devicePixelRatio));el.appendChild(rd.domElement);
+ const sc=new T.Scene(),cam=new T.PerspectiveCamera(40,1,.1,100);cam.position.set(0,0,18);
+ sc.add(new T.AmbientLight(0x6a5aa0,.55));const mo=new T.DirectionalLight(0xffe6b0,.6);mo.position.set(6,8,6);sc.add(mo);
+ const prof=[];for(let i=0;i<=16;i++){const t=i/16;prof.push(new T.Vector2(Math.sin(t*Math.PI)*1+.18,(t-.5)*2.3))}
+ const LG=new T.LatheGeometry(prof,28);
+ const ribs=new T.LatheGeometry(prof,14);
+ const goldM=new T.MeshStandardMaterial({color:0xffb347,metalness:.8,roughness:.3});
+ const cols=[0xe0352b,0xe0352b,0xffa13d,0xe0352b,0xd42a5c,0xe0352b,0xffa13d];
+ const lans=[];
+ function lantern(c,s){const g=new T.Group();const m=new T.MeshStandardMaterial({color:c,emissive:c,emissiveIntensity:.55,roughness:.6,transparent:true,opacity:.96,side:T.DoubleSide});g.add(new T.Mesh(LG,m));
+  const r=new T.Mesh(ribs,new T.MeshBasicMaterial({color:0x5a0f0a,wireframe:true,transparent:true,opacity:.35}));r.scale.setScalar(1.01);g.add(r);
+  const core=new T.Mesh(new T.SphereGeometry(.55,16,12),new T.MeshBasicMaterial({color:0xffe1a0}));g.add(core);
+  const top=new T.Mesh(new T.CylinderGeometry(.42,.5,.28,20),goldM);top.position.y=1.28;g.add(top);
+  const bot=top.clone();bot.position.y=-1.28;g.add(bot);
+  const tas=new T.Mesh(new T.ConeGeometry(.16,1.1,10),new T.MeshStandardMaterial({color:0xc21d14,roughness:.8}));tas.position.y=-2;tas.rotation.x=Math.PI;g.add(tas);
+  const str=new T.Mesh(new T.CylinderGeometry(.015,.015,8,4),new T.MeshBasicMaterial({color:0xffdcaa,transparent:true,opacity:.4}));str.position.y=5.4;g.add(str);
+  g.scale.setScalar(s);return g}
+ const pl1=new T.PointLight(0xff9a40,1.4,14);sc.add(pl1);const pl2=new T.PointLight(0xff9a40,1.1,14);sc.add(pl2);
+ const spec=[[-.78,.62,0,1],[-.48,.78,-3,.8],[-.2,.58,1,1.1],[.1,.8,-4,.75],[.38,.64,0,1],[.62,.86,-2,.8],[.86,.6,1,.95]];
+ spec.forEach((p,i)=>{const g=lantern(cols[i],p[3]);g.userData={p,ph:i*1.3};sc.add(g);lans.push(g)});
+ const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const vh=Math.tan(20*Math.PI/180)*18,vw=vh*cam.aspect;lans.forEach((g,i)=>{const p=g.userData.p;const m=mob();g.visible=!(m&&(i===1||i===5));g.userData.bx=p[0]*vw*(m?1.05:1);g.userData.by=(m?p[1]*.9+.08:p[1])*vh;g.userData.bz=p[2];g.scale.setScalar(p[3]*(m?.75:1))});pl1.position.set(-vw*.4,vh*.5,3);pl2.position.set(vw*.4,vh*.5,3)};size();addEventListener('resize',size);
+ L3=t=>{const r=el.getBoundingClientRect();if(r.bottom<0)return;const s=t/1000;lans.forEach(g=>{const u=g.userData;const sw=RM?0:Math.sin(s*.9+u.ph)*.09;g.position.set(u.bx+Math.sin(sw)*.6+(tx/innerWidth-.5)*-.6*(1+u.bz*.1),u.by-Math.abs(sw)*.4-scrollY*.004*(2+u.bz*.2),u.bz);g.rotation.z=sw;g.rotation.y=s*.3+u.ph;g.children[2].material.color.setHSL(.1,1,.75+Math.sin(s*7+u.ph)*.04)});pl1.intensity=1.3+Math.sin(s*5)*.1;rd.render(sc,cam)};
+}
+/* STEAMER */
+const CAT=[
+ {n:'Entrées',it:'& vapeur',ph:'rouleaux',l:[['Nems porc','2 grandes pièces','9,50 €'],['Nems thaï','porc, crevettes, crabe · 5 pièces','9,90 €'],['Raviolis frits','6 pièces','9,90 €'],['Beignets de crevettes','6 pièces','10,50 €'],['Tapas','10 pièces variées','14,90 €'],['Bo bun','','14,90 €'],['Bo bun nem','','16,50 €'],['Rouleaux de printemps','2 pièces','9,90 €'],['Ha kao','bouchées crevettes · 6','9,00 €'],['Xui mai','bouchées porc · 6','9,00 €']]},
+ {n:'Wok',it:'& nouilles',ph:'nouilles',l:[['Mi xao poulet','','14,90 €'],['Mi xao bœuf','','16,50 €'],['Mi xao crevettes','','17,50 €'],['Mi xao maison','porc, crevette, poulet, calamar','18,90 €'],['Lode cha poulet','spécialité','15,90 €'],['Lode cha bœuf','spécialité','17,50 €'],['Lode cha crevettes','spécialité','18,90 €'],['Nouilles maison','porc, crevette, poulet, calamar','18,90 €']]},
+ {n:'Spécialités',it:'du chef',ph:'crevettes',l:[['Porc au caramel','','11,90 €'],['Bœuf thaï à la citronnelle','','17,90 €'],['Crevettes thaï à la citronnelle','','18,90 €'],['Crevettes kapi thaï','spécialité','19,90 €'],['Crevettes à l\'ail','spécialité','19,90 €'],['Bœuf lok lak','spécialité','19,90 €'],['Noix de Saint-Jacques thaï','','21,90 €'],['Cuisses de grenouille à l\'ail','','19,90 €']]},
+ {n:'Soupes',it:'fumantes',ph:'soupe',l:[['Tom yam poulet','','14,90 €'],['Tom yam crevettes','','16,90 €'],['Tom yam lotte','','19,90 €'],['Tom yam varié','','18,90 €'],['Soupe vermicelle','','11,90 €'],['Soupe Phnom Penh','','13,90 €'],['Soupe raviolis','','13,90 €'],['Soupe phô','','13,90 €']]}];
+const tw=$('#tw');tw.innerHTML=CAT.map((c,i)=>`<div class="bk" data-i="${i}"><div class="body"></div><div class="top"><div class="food" style="background-image:url(${img(c.ph,300)})"></div></div><span class="lbl">${c.n}</span></div>`).join('')+'<div class="lid"><div class="knob"></div><div class="dome"></div></div>';
+$('#menu').innerHTML=CAT.map((c,i)=>`<div class="mcat" id="mc${i}" role="tabpanel"><h3>${c.n} <span class="it">${c.it}</span></h3><ul>${c.l.map(x=>`<li><div>${x[0]}${x[1]?`<small>${x[1]}</small>`:''}</div><span>${x[2]}</span></li>`).join('')}</ul><p class="pnote">Extrait de la carte affichée au restaurant. Prix indicatifs, à confirmer sur place.</p></div>`).join('');
+$('#sdots').innerHTML=CAT.map((c,i)=>`<button type="button" role="tab" aria-selected="false" aria-controls="mc${i}" data-c="${i}">${c.n}</button>`).join('');
+const bks=$$('.bk'),lid=$('.lid'),carte=$('#carte');let cAct=-1;
+function steamerTick(){const r=carte.getBoundingClientRect();const p=clamp(-r.top/(r.height-innerHeight),0,1);const th=tw.clientHeight;const m=innerWidth<=991;const bh=mob()?64:84;const gap=m?bh*.75:bh*.95;const lh=mob()?80:110;
+ const act=Math.min(CAT.length-1,Math.floor(p*CAT.length*.999));
+ const base=th-bh-6;const sy=i=>base-i*bh*.62;
+ bks.forEach((b,i)=>{const y=sy(i)-(i>act?gap:0);b.style.transform=`translateY(${y}px)`;b.classList.toggle('on',i===act);b.style.zIndex=10+i});
+ const ly=sy(CAT.length-1)-(act<CAT.length-1?gap:gap*1.1)-lh*.62;lid.style.transform=`translateY(${ly}px) rotate(${RM?0:-6+Math.sin(performance.now()/600)*1.5}deg)`;lid.style.zIndex=30;
+ if(act!==cAct){cAct=act;$$('.mcat').forEach((c,i)=>c.classList.toggle('on',i===act));$$('#sdots button').forEach((b,i)=>b.setAttribute('aria-selected',String(i===act)))}
+ return {act}}
+$('#sdots').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const i=+b.dataset.c;scrollTo({top:carte.offsetTop+(carte.offsetHeight-innerHeight)*((i+.5)/CAT.length),behavior:RM?'auto':'smooth'})});
+const sc2=$('#steam'),sx2=sc2.getContext('2d');let SP=[];
+function sizeSteam(){const r=sc2.getBoundingClientRect();sc2.width=r.width;sc2.height=r.height}sizeSteam();addEventListener('resize',sizeSteam);
+function steam(info){const W=sc2.width,H=sc2.height;sx2.clearRect(0,0,W,H);if(RM)return;const b=bks[info.act];if(!b)return;const br=b.getBoundingClientRect(),cr=sc2.getBoundingClientRect();const cx=br.left+br.width/2-cr.left,cy=br.top-cr.top+10;
+ if(SP.length<46&&Math.random()<.6)SP.push({x:cx+(Math.random()-.5)*br.width*.6,y:cy,r:8+Math.random()*10,a:.0,v:.5+Math.random()*.8,l:0});
+ SP.forEach(p=>{p.l++;p.y-=p.v;p.x+=Math.sin((p.l+p.r)*.05)*.4;p.r+=.18;p.a=Math.min(.22,p.l*.01)*(1-p.l/180)});SP=SP.filter(p=>p.l<180);
+ SP.forEach(p=>{const g=sx2.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,`rgba(255,240,220,${p.a})`);g.addColorStop(1,'rgba(255,240,220,0)');sx2.fillStyle=g;sx2.beginPath();sx2.arc(p.x,p.y,p.r,0,7);sx2.fill()})}
+/* LANTERN GALLERY */
+const GAL=[['padthai','Pad thaï','Pad thaï au poulet et aux crevettes, cacahuètes et citron vert'],['soupe','Tom yam','Soupe tom yam rouge aux crevettes, basilic et piment'],['rouleaux','Rouleaux frais','Rouleaux de printemps coupés, menthe et carottes'],['nouilles','Nouilles sautées','Nouilles sautées aux crevettes et légumes'],['bobun','Bo bun','Bo bun aux nems, herbes fraîches et vermicelles'],['crevettes','Crevettes','Crevettes sautées sur lit de crudités'],['boeuf','Wok de bœuf','Nouilles sautées au bœuf et aux légumes'],['salle','La salle','Salle du restaurant décorée, lumières tamisées'],['fondue','Fondue','Fondue asiatique : bouillon, viandes et légumes à tremper']];
+const POS=[[6,2,1.25],[58,8,.85],[30,22,1.05],[74,30,1.4],[4,40,.9],[46,46,1.2],[78,58,.95],[20,66,1.3],[60,76,1.0]];
+const POSM=[[2,0,1.2],[54,8,.9],[4,19,1.05],[54,28,1.3],[2,39,.95],[54,48,1.15],[4,59,1.25],[54,68,1.0],[26,80,1.1]];
+const sky=$('#sky');sky.innerHTML=GAL.map((g,i)=>`<figure class="fly" data-i="${i}"><div class="ring"><img src="${img(g[0],520)}" alt="${g[2]}" loading="lazy"></div><figcaption>${g[1]}</figcaption></figure>`).join('');
+const fls=$$('.fly');
+function placeFl(){const P=mob()?POSM:POS;fls.forEach((f,i)=>{f.style.left=P[i][0]+'%';f.style.top=P[i][1]+'%'})}placeFl();addEventListener('resize',placeFl);
+function skyTick(t){const r=sky.getBoundingClientRect();if(r.bottom<-200||r.top>innerHeight+200)return;const P=mob()?POSM:POS;fls.forEach((f,i)=>{const sp=P[i][2];const y=RM?0:(r.top-innerHeight*.3)*(sp-1)*(mob()?.22:.55);const sw=RM?0:Math.sin(t/1400+i)*3;f.style.transform=`translateY(${y}px) rotate(${sw}deg)`})}
+/* BOOKING + LAKE */
+const days=[];for(let k=0;days.length<8;k++){const d=new Date(now);d.setDate(d.getDate()+k);const o=OPEN[(d.getDay()+6)%7];const lastEnd=Math.max(...o.map(x=>x[1]));if(!(k===0&&mins>lastEnd-45))days.push(d)}
+const sel={m:null,d:null,h:null,p:null};const fmtD=d=>d.toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}),fmtH=m=>Math.floor(m/60)+' h '+String(m%60).padStart(2,'0');
+$('#oM').innerHTML=['Sur place','À emporter'].map((m,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="m" data-v="${i}">${m}</button>`).join('');
+$('#oD').innerHTML=days.map((d,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="d" data-v="${i}">${fmtD(d)}</button>`).join('');
+$('#oP').innerHTML=[1,2,3,4,5,6,7,'8 et +'].map((p,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="p" data-v="${i}">${p}</button>`).join('');
+function slots(){const d=days[sel.d];const o=OPEN[(d.getDay()+6)%7];const out=[];o.forEach(x=>{for(let m=x[0];m<=x[1]-30;m+=15)out.push(m)});const today=d.toDateString()===now.toDateString();$('#oH').innerHTML=out.map(m=>`<button type="button" class="opt" aria-pressed="${sel.h===m}" data-k="h" data-v="${m}" ${today&&m<=mins+30?'disabled':''}>${fmtH(m)}</button>`).join('')}
+const need=()=>sel.m===1?5:6;
+function count(){return [sel.m,sel.d,sel.h].filter(v=>v!==null).length+(sel.m!==1&&sel.p!==null?1:0)+($('#fN').value.trim()?1:0)+($('#fC').checked?1:0)}
+function upd(){const n=count();$('#cnt').textContent=n+' / '+need();$('#fsP').style.display=sel.m===1?'none':'';lakeTarget=n}
+function pick(k,v){sel[k]=v;if(k==='d'){sel.h=null;slots()}$$(`[data-k="${k}"]`).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===v)));upd()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b&&!b.disabled)pick(b.dataset.k,+b.dataset.v)});
+$('#fN').addEventListener('input',upd);$('#fC').addEventListener('change',upd);
+let lakeTarget=0,big=null;
+$('#bk').addEventListener('submit',e=>{e.preventDefault();const m=[];if(sel.m===null)m.push('sur place ou à emporter');if(sel.d===null)m.push('le jour');if(sel.h===null)m.push('l\'heure');if(sel.m!==1&&sel.p===null)m.push('le nombre de personnes');if(!$('#fN').value.trim())m.push('votre nom');if(!/^[0-9 +.]{10,}$/.test($('#fT').value.trim()))m.push('un téléphone valide');if(!$('#fC').checked)m.push('votre accord');
+ if(!m.length){big={y:0,t:0};}$('#msg').innerHTML=m.length?'Il manque : '+m.join(', ')+'.':'Demande prête ✓ La grande lanterne s\'envole. Sur la version finale, elle arrive directement au restaurant. En attendant : <a href="tel:+33494661088"><b>04 94 66 10 88</b></a>.'});
+upd();
+const lk=$('#lakec'),lx=lk.getContext('2d');let LL=[];
+function sizeLake(){const r=lk.getBoundingClientRect(),d=Math.min(2,devicePixelRatio);lk.width=r.width*d;lk.height=r.height*d}sizeLake();addEventListener('resize',sizeLake);
+function drawLan(x,y,s,a,glow){lx.save();lx.translate(x,y);lx.globalAlpha=a;const g=lx.createRadialGradient(0,0,0,0,0,s*3);g.addColorStop(0,`rgba(255,170,80,${.45*glow})`);g.addColorStop(1,'rgba(255,170,80,0)');lx.fillStyle=g;lx.beginPath();lx.arc(0,0,s*3,0,7);lx.fill();
+ const b=lx.createRadialGradient(0,-s*.1,0,0,0,s);b.addColorStop(0,'#fff1c9');b.addColorStop(.55,'#ff7a3a');b.addColorStop(1,'#b71d13');lx.fillStyle=b;lx.beginPath();lx.ellipse(0,0,s*.8,s,0,0,7);lx.fill();lx.fillStyle='#ffb347';lx.fillRect(-s*.4,-s*1.05,s*.8,s*.18);lx.fillRect(-s*.4,s*.88,s*.8,s*.18);lx.restore()}
+function lake(t){const W=lk.width,H=lk.height,d=Math.min(2,devicePixelRatio);const hz=H*.43;lx.clearRect(0,0,W,H);
+ // moon reflection
+ lx.fillStyle='rgba(255,230,170,.9)';lx.beginPath();lx.arc(W*.78,H*.16,22*d,0,7);lx.fill();
+ for(let i=0;i<14;i++){lx.fillStyle=`rgba(255,220,150,${.18-i*.01})`;const yy=hz+8*d+i*10*d;lx.fillRect(W*.78-(16-i)*d*1.5+Math.sin(t/500+i)*4*d,yy,(32-i*1.2)*d*1.5,2*d)}
+ // ripples
+ lx.strokeStyle='rgba(160,190,255,.12)';lx.lineWidth=d;for(let i=0;i<9;i++){const yy=hz+((i*37+t/40)%(H-hz));lx.beginPath();lx.moveTo(0,yy);for(let x=0;x<=W;x+=30*d)lx.lineTo(x,yy+Math.sin(x/(60*d)+t/700+i)*2*d);lx.stroke()}
+ while(LL.length<lakeTarget){const i=LL.length;LL.push({x:W*(.12+((i*37)%76)/100),y:H+30*d,ty:hz+(30+((i*53)%60))*d*1.6,s:(11+(i%3)*3)*d,ph:i})}
+ while(LL.length>lakeTarget)LL.pop();
+ LL.forEach(l=>{l.y+=(l.ty-l.y)*.04;const bob=RM?0:Math.sin(t/800+l.ph)*3*d;drawLan(l.x+Math.sin(t/2000+l.ph)*6*d,l.y+bob,l.s,1,1);lx.globalAlpha=.25;drawLan(l.x+Math.sin(t/2000+l.ph)*6*d,l.y+bob+l.s*2.4,l.s*.9,.25,.6);lx.globalAlpha=1});
+ if(big){big.t++;const y=H*.86-big.t*1.6*d;drawLan(W*.5+Math.sin(big.t/30)*10*d,y,26*d,Math.max(0,1-big.t/420),1.4);if(big.t>420)big=null}}
+/* NAV + LOOP */
+const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60),{passive:true});
+function loop(t){stars(t);river();if(L3)L3(t);const info=steamerTick();steam(info);skyTick(t);const lr=lk.getBoundingClientRect();if(lr.bottom>0&&lr.top<innerHeight)lake(t);
+ gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;gl.style.transform=`translate(${gx}px,${gy}px)`;requestAnimationFrame(loop)}
+const go3=()=>{try{three()}catch(e){document.body.classList.add('no3d')}};if(window.THREE)go3();else addEventListener('load',go3);
+requestAnimationFrame(loop);
+});
+</script>
+<script>
+(function(){const $=s=>document.querySelector(s);const K='nuitsaigon-ck';
+const ck=$('#ck');let consent=null;try{consent=localStorage.getItem(K)}catch(e){}
+if(consent===null)ck.hidden=false;
+function showMap(){if($('#map iframe'))return;$('#mph').insertAdjacentHTML('afterend','<iframe title="Plan : Nuit de Saigon" loading="lazy" src="https://www.google.com/maps?q=Restaurant+Nuit+de+Saigon%2C+2+Av.+Lieutenant+Jean+Toucas%2C+83260+La+Crau&z=16&output=embed"></iframe>');const m=$('#mcon');if(m)m.remove()}
+const setC=v=>{try{localStorage.setItem(K,v)}catch(e){}ck.hidden=true;if(v==='1')showMap()};
+$('#ckYes').onclick=()=>setC('1');$('#ckNo').onclick=()=>setC('0');$('#mapBtn').onclick=()=>setC('1');if(consent==='1')showMap();
+const L={"ml": "<h3 id=\"dlgT\">Mentions légales</h3><h4>Éditeur</h4><p>Nuit de Saigon, 2 avenue Lieutenant Jean Toucas, 83260 La Crau. Téléphone : 04 94 66 10 88. Forme juridique, SIRET et responsable de la publication : à compléter avec l'établissement.</p><h4>Hébergement</h4><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Réalisation</h4><p>ZAHR, création de sites web, Var.</p><h4>Propriété</h4><p>Les photos appartiennent à Nuit de Saigon. Polices Be Vietnam Pro et Cormorant Garamond sous licence SIL Open Font License.</p>", "conf": "<h3 id=\"dlgT\">Politique de confidentialité</h3><p>Le formulaire collecte uniquement les informations nécessaires à votre demande (prénom, téléphone, détails choisis). Elles servent seulement à y répondre (base légale : votre consentement).</p><h4>Durée de conservation</h4><p>Les demandes sont supprimées au plus tard 12 mois après le rendez-vous.</p><h4>Destinataires</h4><p>Seul l'établissement y a accès. Aucune donnée n'est vendue ni transmise à des tiers.</p><h4>Vos droits</h4><p>Accès, rectification, suppression : appelez le 04 94 66 10 88. Vous pouvez aussi saisir la CNIL (cnil.fr).</p>", "cgv": "<h3 id=\"dlgT\">Conditions générales</h3><h4>Carte et prix</h4><p>Les plats et prix affichés reprennent la carte du restaurant à titre indicatif ; la carte en vigueur sur place fait foi.</p><h4>Réservation</h4><p>La demande en ligne est confirmée par le restaurant. Le paiement se fait sur place.</p><h4>Utilisation du site</h4><p>Merci de ne pas envoyer de fausses demandes. Les informations du site sont données à titre indicatif et peuvent évoluer.</p>", "ann": "<h3 id=\"dlgT\">Annulation et remboursement</h3><p>Pour annuler ou déplacer une réservation ou une commande, prévenez le restaurant le plus tôt possible au 04 94 66 10 88.</p><p>Aucun paiement n'étant pris en ligne, il n'y a rien à rembourser. En cas de souci avec un plat, parlez-en directement au restaurant.</p>", "ck": "<h3 id=\"dlgT\">Cookies</h3><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Il mémorise seulement votre choix dans votre navigateur.</p><p>Le plan Google Maps n'est chargé que si vous l'acceptez ; Google peut alors déposer ses propres cookies.</p><p style=\"margin-top:14px\"><button class=\"x\" style=\"float:none\" type=\"button\" id=\"ckReset\">Modifier mon choix</button></p>"};const dlg=$('#dlg');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b){e.preventDefault();$('#dlgC').innerHTML=L[b.dataset.open];dlg.showModal()}if(e.target.id==='ckReset'){try{localStorage.removeItem(K)}catch(_){}location.reload()}});
+$('#dlgX').onclick=()=>dlg.close();})();
+</script>
+</body>
+</html>
