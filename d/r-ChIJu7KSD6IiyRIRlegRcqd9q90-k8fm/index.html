@@ -170,9 +170,9 @@ dialog.lg .x{float:right;border:1px solid currentColor;border-radius:999px;paddi
 @media (max-width:991px){
  .nav ul{display:none}
  .sstage{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;padding:74px 18px 18px;align-items:start}
- .tower{height:30vh;order:-1}
+ .tower{height:27vh;order:-1}
  .tw{width:min(240px,60vw)}
- .menu{min-height:0;height:calc(100svh - 30vh - 150px)}
+ .menu{min-height:0;height:calc(100svh - 27vh - 150px)}
  .mcat h3{font-size:32px;margin:6px 0 10px}
  .mcat ul{columns:1}
  #rdv,#infos{grid-template-columns:1fr;gap:40px}
@@ -191,6 +191,8 @@ dialog.lg .x{float:right;border:1px solid currentColor;border-radius:999px;paddi
  .bk{height:64px}.bk .body{top:22px;height:42px}.bk .top{height:44px}.bk .lbl{top:32px;font-size:10px}
  .lid{height:80px}.lid .dome{height:80px}
  .mcat li{font-size:13.5px;padding:5px 0}
+ .mcat li small{display:none}
+ .mcat h3{font-size:28px}
  .mcat li:nth-child(n+9){display:none}
  .sstage{padding-bottom:44px}
  .sdots{flex-wrap:wrap;gap:6px}.sdots button{padding:6px 10px;font-size:12px}
@@ -348,7 +350,7 @@ function three(){const T=window.THREE,el=$('#lan');if(!T){document.body.classLis
  const pl1=new T.PointLight(0xff9a40,1.4,14);sc.add(pl1);const pl2=new T.PointLight(0xff9a40,1.1,14);sc.add(pl2);
  const spec=[[-.78,.62,0,1],[-.48,.78,-3,.8],[-.2,.58,1,1.1],[.1,.8,-4,.75],[.38,.64,0,1],[.62,.86,-2,.8],[.86,.6,1,.95]];
  spec.forEach((p,i)=>{const g=lantern(cols[i],p[3]);g.userData={p,ph:i*1.3};sc.add(g);lans.push(g)});
- const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const vh=Math.tan(20*Math.PI/180)*18,vw=vh*cam.aspect;lans.forEach((g,i)=>{const p=g.userData.p;const m=mob();g.visible=!(m&&(i===1||i===5));g.userData.bx=p[0]*vw*(m?1.05:1);g.userData.by=(m?p[1]*.9+.08:p[1])*vh;g.userData.bz=p[2];g.scale.setScalar(p[3]*(m?.75:1))});pl1.position.set(-vw*.4,vh*.5,3);pl2.position.set(vw*.4,vh*.5,3)};size();addEventListener('resize',size);
+ const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const vh=Math.tan(20*Math.PI/180)*18,vw=vh*cam.aspect;lans.forEach((g,i)=>{const p=g.userData.p;const m=mob();g.visible=!(m&&(i===1||i===5));g.userData.bx=p[0]*vw*(m?1.05:1);g.userData.by=(m?p[1]*.9+.08:p[1]*.86)*vh;g.userData.bz=p[2];g.scale.setScalar(p[3]*(m?.75:1))});pl1.position.set(-vw*.4,vh*.5,3);pl2.position.set(vw*.4,vh*.5,3)};size();addEventListener('resize',size);
  L3=t=>{const r=el.getBoundingClientRect();if(r.bottom<0)return;const s=t/1000;lans.forEach(g=>{const u=g.userData;const sw=RM?0:Math.sin(s*.9+u.ph)*.09;g.position.set(u.bx+Math.sin(sw)*.6+(tx/innerWidth-.5)*-.6*(1+u.bz*.1),u.by-Math.abs(sw)*.4-scrollY*.004*(2+u.bz*.2),u.bz);g.rotation.z=sw;g.rotation.y=s*.3+u.ph;g.children[2].material.color.setHSL(.1,1,.75+Math.sin(s*7+u.ph)*.04)});pl1.intensity=1.3+Math.sin(s*5)*.1;rd.render(sc,cam)};
 }
 /* STEAMER */
@@ -378,7 +380,7 @@ function steam(info){const W=sc2.width,H=sc2.height;sx2.clearRect(0,0,W,H);if(RM
 /* LANTERN GALLERY */
 const GAL=[['padthai','Pad thaï','Pad thaï au poulet et aux crevettes, cacahuètes et citron vert'],['soupe','Tom yam','Soupe tom yam rouge aux crevettes, basilic et piment'],['rouleaux','Rouleaux frais','Rouleaux de printemps coupés, menthe et carottes'],['nouilles','Nouilles sautées','Nouilles sautées aux crevettes et légumes'],['bobun','Bo bun','Bo bun aux nems, herbes fraîches et vermicelles'],['crevettes','Crevettes','Crevettes sautées sur lit de crudités'],['boeuf','Wok de bœuf','Nouilles sautées au bœuf et aux légumes'],['salle','La salle','Salle du restaurant décorée, lumières tamisées'],['fondue','Fondue','Fondue asiatique : bouillon, viandes et légumes à tremper']];
 const POS=[[6,2,1.25],[58,8,.85],[30,22,1.05],[74,30,1.4],[4,40,.9],[46,46,1.2],[78,58,.95],[20,66,1.3],[60,76,1.0]];
-const POSM=[[2,0,1.2],[54,8,.9],[4,19,1.05],[54,28,1.3],[2,39,.95],[54,48,1.15],[4,59,1.25],[54,68,1.0],[26,80,1.1]];
+const POSM=[[2,0,1.2],[54,8,.9],[4,19,1.05],[54,28,1.3],[2,39,.95],[54,48,1.15],[4,59,1.25],[54,65,1.0],[26,84,1.1]];
 const sky=$('#sky');sky.innerHTML=GAL.map((g,i)=>`<figure class="fly" data-i="${i}"><div class="ring"><img src="${img(g[0],520)}" alt="${g[2]}" loading="lazy"></div><figcaption>${g[1]}</figcaption></figure>`).join('');
 const fls=$$('.fly');
 function placeFl(){const P=mob()?POSM:POS;fls.forEach((f,i)=>{f.style.left=P[i][0]+'%';f.style.top=P[i][1]+'%'})}placeFl();addEventListener('resize',placeFl);
