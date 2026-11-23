@@ -786,6 +786,7 @@ main:focus{outline:none}
       <li><a href="#projets">Projets</a></li>
       <li><a href="#pilote">Gestion</a></li>
       <li><a href="#veille">Automatisations</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
     </ul>
     <div class="nav-r">
       <a class="btn main mag" href="#contact"><span class="lbl-l">Parlons de votre projet</span><span class="lbl-s">Contact</span></a>
@@ -800,6 +801,7 @@ main:focus{outline:none}
       <li><a href="pilote.html">Démo de l’outil</a></li>
       <li><a href="#veille">Automatisations</a></li>
       <li><a href="#methode">Méthode</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1152,6 +1154,119 @@ main:focus{outline:none}
   </div>
 </section>
 
+<section class="light band" id="tarifs" aria-labelledby="h-tarifs">
+<style>
+#tarifs .tf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+#tarifs .tf{position:relative;display:flex;flex-direction:column;gap:18px;border-radius:28px;padding:32px 28px;background:var(--paper);border:1px solid var(--line);min-width:0}
+#tarifs .tf h3{font-size:22px;letter-spacing:-.02em;margin:0}
+#tarifs .tf .pitch{margin:0;color:var(--mute);font-size:15.5px;line-height:1.5}
+#tarifs .tf .price{display:flex;align-items:baseline;gap:8px;font:600 clamp(44px,4.4vw,58px)/1 var(--f);letter-spacing:-.045em;color:var(--ink)}
+#tarifs .tf .price small{font-size:15px;letter-spacing:0;font-weight:500;color:var(--mute)}
+#tarifs .tf .sub{margin:-8px 0 0;font-size:14px;color:var(--mute)}
+#tarifs .tf ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.45}
+#tarifs .tf li{display:flex;gap:10px;align-items:baseline}
+#tarifs .tf li::before{content:"";width:7px;height:7px;border-radius:50% 0 50% 50%;background:var(--leaf);flex:none;transform:translateY(-2px) rotate(-45deg)}
+#tarifs .tf li.no{color:var(--field);text-decoration:line-through;text-decoration-color:rgba(125,141,132,.6)}
+#tarifs .tf li.no::before{background:transparent;border:1px solid var(--field)}
+#tarifs .tf .btn{margin-top:auto;width:100%}
+#tarifs .tf.sig{background:radial-gradient(120% 80% at 30% 0%,#22382C 0%,var(--night-2) 45%,var(--night) 100%);color:var(--cream);border-color:transparent;box-shadow:0 40px 80px -30px rgba(14,24,19,.55);transform:translateY(-14px);padding-top:28px}
+#tarifs .tf.sig .pitch{max-width:68%}
+#tarifs .tf.sig .pitch,#tarifs .tf.sig .sub,#tarifs .tf.sig .price small{color:var(--mute-d)}
+#tarifs .tf.sig .price{color:var(--cream)}
+#tarifs .tf.sig .btn.main{background:var(--leaf);color:var(--night)}
+#tarifs .badge{align-self:flex-start;background:var(--leaf);color:var(--night);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+#tarifs .plus{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:1px solid rgba(143,179,157,.45);color:var(--leaf);border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:600}
+#tarifs .val{font-size:14px;color:var(--mute-d)} #tarifs .val s{opacity:.8}
+#tarifs .fl3{position:absolute;right:14px;top:14px;width:120px;height:120px;perspective:700px;pointer-events:none}
+#tarifs .fl3 .rig{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(18deg) rotateY(-28deg) rotateZ(-12deg);animation:tfspin 9s var(--ease-io) infinite alternate}
+#tarifs .fl3 svg{position:absolute;inset:0;width:100%;height:100%}
+@keyframes tfspin{to{transform:rotateX(10deg) rotateY(28deg) rotateZ(8deg)}}
+@media (prefers-reduced-motion:reduce){#tarifs .fl3 .rig{animation:none}}
+#tarifs .tf-notes{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+#tarifs .tf-notes span{border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;color:var(--ink);background:var(--paper)}
+#tarifs .tf-notes b{font-weight:600}
+#tarifs .tf-more{margin-top:46px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#tarifs .tf-more div{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+#tarifs .tf-more b{font-size:16px} #tarifs .tf-more span{color:var(--mute);font-size:14.5px}
+#tarifs .tf-more em{font-style:normal;font-weight:600;color:var(--sage);font-size:18px}
+#tarifs .legal{margin-top:22px;font-size:13px;color:var(--mute)}
+@media (max-width:960px){#tarifs .tf-grid{grid-template-columns:minmax(0,1fr)}#tarifs .tf.sig{transform:none;order:-1}#tarifs .tf-more{grid-template-columns:minmax(0,1fr)}}
+</style>
+  <div class="w">
+    <div class="head">
+      <h2 id="h-tarifs" class="rv">Des prix clairs, payés une seule fois.</h2>
+      <p class="lead rv">Pas d’abonnement. Le devis est gratuit et vous le recevez avant que je commence quoi que ce soit. Tous les sites sont en ligne en une semaine.</p>
+    </div>
+    <div class="tf-grid">
+      <article class="tf rv">
+        <h3>Essentiel</h3>
+        <p class="pitch">Une vitrine simple et propre pour être trouvé en ligne.</p>
+        <div class="price">1 200 €</div>
+        <ul>
+          <li>Une page, quatre sections</li>
+          <li>Design sobre, pensé d’abord pour le téléphone</li>
+          <li>Bouton de contact WhatsApp</li>
+          <li>Une série de retouches</li>
+          <li>En ligne en une semaine</li>
+          <li class="no">3D et animations</li>
+          <li class="no">Réservation de créneaux</li>
+          <li class="no">Fiche Google</li>
+        </ul>
+        <a class="btn ghost" href="#contact">Demander l’Essentiel</a>
+      </article>
+      <article class="tf sig rv">
+        <div class="fl3" aria-hidden="true"><div class="rig" id="tfRig"></div></div>
+        <span class="badge">Le plus choisi</span>
+        <h3>Signature</h3>
+        <p class="pitch">Le site qui fait dire « waouh » à vos clients, en 3D.</p>
+        <div class="price">1 690 €</div>
+        <p class="sub">ou 3 × 563 € sans frais</p>
+        <span class="plus">+490 € seulement par rapport à l’Essentiel</span>
+        <ul>
+          <li>Site complet en 3D et animations</li>
+          <li>Réservation complète : prestation et créneau, reçus sur WhatsApp</li>
+          <li>Fiche Google offerte <span class="val">(valeur 150 €)</span></li>
+          <li>Un mois de suivi offert <span class="val">(valeur 300 €)</span></li>
+          <li>Deux séries de retouches</li>
+          <li>En ligne en une semaine</li>
+        </ul>
+        <p class="val">Valeur <s>2 140 €</s>, vous payez 1 690 €.</p>
+        <a class="btn main mag" href="#contact">Je veux le Signature</a>
+      </article>
+      <article class="tf rv">
+        <h3>Prestige</h3>
+        <p class="pitch">Votre produit ou votre lieu modélisé en 3D, pour une marque qui marque.</p>
+        <div class="price">2 490 €</div>
+        <ul>
+          <li>Tout le Signature</li>
+          <li>3D sur mesure : votre produit, votre objet ou votre lieu</li>
+          <li>Plusieurs pages</li>
+          <li>Rappels automatiques des rendez-vous</li>
+          <li>Fiche Google offerte et optimisée</li>
+          <li>Retouches illimitées pendant un mois</li>
+          <li>Trois mois de suivi offerts</li>
+          <li>En ligne en une semaine</li>
+        </ul>
+        <a class="btn ghost" href="#contact">Demander le Prestige</a>
+      </article>
+    </div>
+    <div class="tf-notes rv">
+      <span>Ajouter la 3D plus tard : <b>+700 €</b>. Autant la prendre dès le départ.</span>
+      <span><b>3 projets par mois</b> au maximum, pour soigner chacun.</span>
+      <span>Acompte de 30 %, solde à la mise en ligne.</span>
+    </div>
+    <div class="tf-more rv">
+      <div><b>Automatisation sur mesure</b><span>Veille, rappels, devis pré-remplis, alertes.</span><em>2 000 à 2 500 €</em></div>
+      <div><b>Identité et Instagram</b><span>Logo, couleurs et 9 visuels prêts à publier.</span><em>290 €</em></div>
+      <div><b>Outil de gestion ZAHR Pilote</b><span>Devis, factures, trésorerie, URSSAF, clients.</span><em>Sur devis</em></div>
+    </div>
+    <p class="legal">Micro-entreprise, TVA non applicable, art. 293 B du CGI.</p>
+  </div>
+<script>
+(()=>{const r=document.getElementById('tfRig');if(!r)return;const P=["M128 120L103.72 82.85A29 29 0 1 1 152.28 82.85Z","M136 128L173.15 103.72A29 29 0 1 1 173.15 152.28Z","M128 136L152.28 173.15A29 29 0 1 1 103.72 173.15Z","M120 128L82.85 152.28A29 29 0 1 1 82.85 103.72Z"];const ns='http://www.w3.org/2000/svg';const mk=(fills,z,defs)=>{const s=document.createElementNS(ns,'svg');s.setAttribute('viewBox','34 34 188 188');s.style.transform=`translateZ(${z}px)`;s.innerHTML=(defs||'')+P.map((p,i)=>`<path fill="${fills[i]}" d="${p}"/>`).join('');return s};const N=14;for(let i=N;i>0;i--){const t=i/N,c=`rgb(${Math.round(22+30*(1-t))},${Math.round(42+45*(1-t))},${Math.round(32+34*(1-t))})`;r.appendChild(mk([c,c,c,c],-i*1.2))}const defs='<defs><radialGradient id="tfg0" cx="40%" cy="25%" r="80%"><stop offset="0" stop-color="#E2F0E5"/><stop offset=".45" stop-color="#8FB39D"/><stop offset="1" stop-color="#4E6B5B"/></radialGradient><radialGradient id="tfg1" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#A9C2B0"/><stop offset=".55" stop-color="#5F8170"/><stop offset="1" stop-color="#2F4639"/></radialGradient></defs>';r.appendChild(mk(['url(#tfg0)','url(#tfg1)','url(#tfg1)','url(#tfg1)'],0,defs))})();
+</script>
+</section>
+
 <section class="light band about" id="apropos" aria-labelledby="h-about">
   <div class="w">
     <div class="about-mark rv rv-clip" aria-hidden="true"><svg viewBox="0 0 256 256" aria-hidden="true"><path fill="#F3F4EF" d="M128 120L103.72 82.85A29 29 0 1 1 152.28 82.85Z M136 128L173.15 103.72A29 29 0 1 1 173.15 152.28Z M128 136L152.28 173.15A29 29 0 1 1 103.72 173.15Z M120 128L82.85 152.28A29 29 0 1 1 82.85 103.72Z"/></svg></div>
@@ -1257,7 +1372,7 @@ main:focus{outline:none}
   <div class="w">
     <h2 id="h-faq" class="rv" style="font-size:clamp(32px,3.6vw,48px);margin-bottom:28px">Les questions qu’on me pose souvent.</h2>
     <div class="faq">
-      <details><summary>Combien coûte un site ?</summary><p>Ça dépend de ce dont vous avez besoin : une page vitrine simple et un site avec réservation n’ont pas le même prix. Le devis est gratuit et vous le recevez avant que je commence quoi que ce soit.</p></details>
+      <details><summary>Combien coûte un site ?</summary><p>À partir de 1 200 € pour une vitrine simple (Essentiel), 1 690 € pour le site Signature en 3D, le plus choisi, et 2 490 € pour le Prestige avec une 3D sur mesure. C’est un paiement unique, possible en 3 fois sans frais, et le devis est gratuit. <a href="#tarifs">Voir les tarifs</a>.</p></details>
       <details><summary>Combien de temps ça prend ?</summary><p>Comptez environ une semaine pour tout mettre en place, à partir du moment où j’ai vos textes et vos photos. Je vous donne un planning précis avec le devis.</p></details>
       <details><summary>Je n’y connais rien en informatique, c’est un problème ?</summary><p>Non. Vous parlez de votre métier, je m’occupe de la technique. À la fin, je vous explique simplement comment vous servir du site ou de l’outil.</p></details>
       <details><summary>Je peux modifier le site moi-même ensuite ?</summary><p>Oui pour les choses simples comme les textes, les photos ou les tarifs, selon ce qu’on prévoit ensemble. Pour le reste, je reste joignable.</p></details>
