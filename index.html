@@ -15,7 +15,7 @@
 <meta name="description" content="ZAHR, le studio digital de Redha Hadjazi : sites web sur mesure, automatisations et outils de gestion (devis, factures, banque, TVA) pour les commerces et les entreprises.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Inter+Tight:wght@500;600&family=Yellowtail&family=Noto+Kufi+Arabic:wght@600;700&family=Manrope:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Inter+Tight:wght@500;600&family=Yellowtail&family=Noto+Kufi+Arabic:wght@600;700&family=Manrope:wght@500;700;800&family=DM+Sans:wght@400;500;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&display=swap">
 <style>
 /* Récit au scroll : un canvas 3D fixe derrière des chapitres. Chapitres sombres transparents (la fleur se voit),
    chapitres crème opaques qui glissent par-dessus avec un bord arrondi. Monde unique assumé : nuit verte + crème. */
@@ -681,9 +681,11 @@ footer .f-bottom p{color:var(--mute-d);font-size:13.5px}
 .exall-st span svg{width:40%}
 .exall:hover .exall-st span{transform:rotate(calc((var(--k) - 2)*12deg)) translateX(calc((var(--k) - 2)*44%))}
 .exm{background:#111012;color:#F3F4EF}.exm .tags span{color:#F3F4EF}.exm .btn.main{background:#8FB39D;color:#111012}
-.exm .vis{position:relative;overflow:hidden;background:#E4E7E3}
-.exm-w{position:absolute;left:50%;top:6%;transform:translateX(-50%);font:900 clamp(70px,9vw,150px)/1 Archivo,Inter,var(--f);letter-spacing:-.04em;color:#111012;white-space:nowrap}
-.exm-ar{position:absolute;right:5%;top:24%;z-index:2;font:700 clamp(30px,3.4vw,54px)/1 "Aref Ruqaa",serif;color:#4E6B5B;opacity:.85}
+.exm .vis{position:relative;overflow:hidden;background:radial-gradient(60% 45% at 50% 42%,#6E9180 0%,#4E6B5B 38%,#2B3E33 72%,#16221B 100%)}
+.exm .vis::before{content:"";position:absolute;left:10%;right:10%;bottom:-4%;height:22%;border-radius:50%;background:radial-gradient(closest-side,rgba(8,14,11,.55),rgba(8,14,11,0));z-index:0}
+.exm-w{position:absolute;left:50%;top:7%;transform:translateX(-50%);font:500 clamp(66px,8.4vw,138px)/1 "Bodoni Moda",Didot,"Times New Roman",serif;letter-spacing:.16em;padding-left:.16em;white-space:nowrap;background:linear-gradient(180deg,#FBF8EE 0%,#E4E9DF 55%,#A9C2B0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 10px 40px rgba(10,18,14,.25)}
+.exm-w::after{content:"MAISON · STREETWEAR";display:block;margin-top:14px;font:600 11px/1 Inter,var(--f);letter-spacing:.55em;color:#DCE6DE;-webkit-text-fill-color:#DCE6DE;text-align:center}
+.exm-ar{position:absolute;right:5%;top:24%;z-index:2;font:700 clamp(30px,3.4vw,54px)/1 "Aref Ruqaa",serif;color:#DCE6DE;opacity:.9}
 .exm-tag{position:absolute;left:20px;bottom:20px;background:#4E6B5B;color:#fff;font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.06em;padding:7px 9px;text-transform:uppercase}
 .exm-st{position:absolute;left:50%;bottom:-2%;height:100%;aspect-ratio:3/2;transform:translateX(-50%)}
 .exm-st img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
