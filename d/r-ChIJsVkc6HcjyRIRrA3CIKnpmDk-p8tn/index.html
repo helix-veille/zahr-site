@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>NK Skin & Body Expert — Institut de beauté à Hyères</title>
+<meta name="description" content="Nadiia Klimontova, esthéticienne à Hyères : soins visage (microneedling, peeling PRX, radiofréquence, micro-courants), regard, massages et silhouette.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@1&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120c22;--ink:#f6f1ee;--ink2:rgba(246,241,238,.74);--ink3:rgba(246,241,238,.52);--lot:#f2a7c3;--lot2:#c25b8a;--peri:#a99bff;--line:rgba(242,167,195,.18);--glass:rgba(26,18,48,.82);--sans:'Inter Tight',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:'Fira Code',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}button{font:inherit;color:inherit}img{display:block;max-width:100%}
+em,.it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lot)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--lot2);color:#fff;padding:10px 14px;border-radius:10px}.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--lot);outline-offset:3px}
+/* scene */
+.scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.pond{position:absolute;inset:-4%;background:
+ radial-gradient(60% 45% at 70% 30%,rgba(255,170,200,.28),transparent 70%),
+ radial-gradient(70% 60% at 20% 80%,rgba(120,110,255,.25),transparent 70%),
+ linear-gradient(180deg,#2b1a4d 0%,#3d2456 34%,#1b1236 70%,#0f0a1f 100%);transition:opacity 1s}
+.pond svg{position:absolute;inset:0;width:100%;height:100%}
+.night{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 100%,rgba(194,91,138,.25),transparent 70%),linear-gradient(180deg,#0f0a1f,#07050f);opacity:0;transition:opacity 1s}
+#lotus{position:absolute;inset:0;width:100%!important;height:100%!important}
+.lotfb{position:absolute;width:180px;height:180px;left:70%;top:40%;transform:translate(-50%,-50%);opacity:.9;transition:all .8s}
+.ripple{position:absolute;border-radius:50%;border:1.5px solid rgba(255,220,235,.5);pointer-events:none;animation:rip 1.8s ease-out forwards}
+@keyframes rip{from{width:0;height:0;opacity:.9}to{width:260px;height:260px;margin:-130px 0 0 -130px;opacity:0}}
+main,footer{position:relative;z-index:1}
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px clamp(14px,3vw,36px);transition:background .3s}
+.hd.solid{background:rgba(18,12,34,.96);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand .mk{width:40px;height:40px;border-radius:50%;background:linear-gradient(140deg,var(--lot2),#7a4bd0);display:grid;place-items:center;flex:none}
+.brand .mk svg{width:24px;height:24px}
+.brand b{display:block;font:600 14px/1 var(--sans);letter-spacing:.08em;white-space:nowrap}
+.brand small{display:block;font:400 10.5px/1 var(--mono);color:var(--ink3);margin-top:5px;white-space:nowrap}
+.hd nav{display:flex;align-items:center;gap:4px}
+.hd nav a.l{font:500 14px/1 var(--sans);text-decoration:none;padding:10px 12px;border-radius:99px;color:var(--ink2)}
+.hd nav a.l:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:99px;border:0;background:var(--lot);color:#2a0f1f;font:600 14px/1 var(--sans);text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .2s,background .2s}
+.btn:hover{background:#ffc3d9;transform:translateY(-1px)}
+.btn.gh{background:rgba(255,255,255,.08);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.btn.gh:hover{background:rgba(255,255,255,.16)}
+.ico{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);text-decoration:none}
+.ico svg{width:19px;height:19px}
+/* layout */
+.sec{position:relative;padding:clamp(80px,11vw,140px) clamp(16px,5vw,72px)}
+.tag{display:inline-block;font:400 11.5px/1 var(--mono);letter-spacing:.04em;color:var(--lot);padding:7px 11px;border:1px solid var(--line);border-radius:99px;background:rgba(18,12,34,.6)}
+.h2{font:400 clamp(38px,6.2vw,88px)/1 var(--sans);letter-spacing:-.035em;margin-top:18px;max-width:14ch}
+.h2 em{letter-spacing:-.01em}
+.lead{color:var(--ink2);max-width:540px;margin-top:16px;font-size:17px;font-weight:300}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:28px;backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:120px clamp(16px,5vw,72px) clamp(40px,7vh,80px)}
+.hero h1{font:300 clamp(46px,8.6vw,132px)/.95 var(--sans);letter-spacing:-.045em;max-width:9.5ch}
+.hero h1 em{font-size:1.04em;letter-spacing:-.01em}
+.hero p{max-width:520px;color:var(--ink2);margin-top:22px;font-size:18px;font-weight:300}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:34px;font:400 12px/1.4 var(--mono);color:var(--ink3)}
+.hero .meta b{color:var(--ink);font-weight:400}
+/* mirror diagnostic */
+.diag .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,80px);align-items:center;margin-top:40px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips button{min-height:46px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:rgba(18,12,34,.7);cursor:pointer;font:500 15px/1 var(--sans);transition:all .25s}
+.chips button[aria-pressed=true]{background:var(--lot);color:#2a0f1f;border-color:var(--lot)}
+.mirror{position:relative;width:min(100%,520px);aspect-ratio:1;margin:0 auto;perspective:1000px}
+.mirror .rim{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from var(--a,0deg),#ffd9e8,#f2a7c3,#a99bff,#ffd9e8,#fff3f8,#f2a7c3,#ffd9e8);box-shadow:0 0 60px rgba(242,167,195,.35),0 0 140px rgba(169,155,255,.2);animation:rimspin 10s linear infinite;transform:rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg));transition:transform .3s}
+.mirror .rim::after{content:'';position:absolute;inset:clamp(12px,3.2%,18px);border-radius:inherit;background:#1a1230}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes rimspin{to{--a:360deg}}
+.mirror .in{position:absolute;inset:11%;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6%;gap:10px}
+.mirror .in h3{font:400 clamp(24px,3vw,34px)/1.05 var(--serif);font-style:italic;color:var(--lot)}
+.mirror .so{width:100%;display:grid;gap:8px}
+.mirror .so div{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.06);font-size:14.5px;text-align:left;animation:soin .6s cubic-bezier(.2,.9,.2,1) backwards}
+.mirror .so div:nth-child(2){animation-delay:.08s}.mirror .so div:nth-child(3){animation-delay:.16s}
+@keyframes soin{from{opacity:0;transform:translateY(14px) scale(.96)}}
+.mirror .so b{font:400 13px/1 var(--mono);color:var(--lot);white-space:nowrap}
+.mirror .so small{display:block;font:400 11px/1.2 var(--mono);color:var(--ink3);margin-top:3px}
+.mirror .note{font:400 11.5px/1.4 var(--mono);color:var(--ink3)}
+/* carte lily pads */
+.pads{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px;perspective:800px}
+.pad{position:relative;width:132px;height:132px;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.14),rgba(26,18,48,.9) 70%);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;transition:transform .5s cubic-bezier(.3,1.4,.5,1),box-shadow .3s;animation:bob 6s ease-in-out infinite;animation-delay:calc(var(--i)*-.8s)}
+@keyframes bob{50%{translate:0 -6px}}
+.pad b{font:500 15px/1.15 var(--sans)}
+.pad small{font:400 10.5px/1.2 var(--mono);color:var(--ink3);margin-top:4px}
+.pad:hover{transform:rotateX(18deg) scale(1.05)}
+.pad[aria-pressed=true]{background:radial-gradient(circle at 35% 30%,#ffd1e2,var(--lot) 45%,var(--lot2));color:#2a0f1f;border-color:transparent;box-shadow:0 0 40px rgba(242,167,195,.45)}
+.pad[aria-pressed=true] small{color:#4b1c35}
+.list{margin-top:26px;padding:clamp(16px,3vw,30px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 40px}
+.list li{list-style:none;display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:13px 0;border-bottom:1px solid var(--line);animation:soin .5s backwards;animation-delay:calc(var(--i)*40ms)}
+.list .n{font-size:15.5px}
+.list .d{grid-row:2;font:400 11.5px/1 var(--mono);color:var(--ink3)}
+.list .p{grid-row:1/3;grid-column:2;align-self:center;font:400 15px/1 var(--mono);color:var(--lot);white-space:nowrap}
+.list h3{grid-column:1/-1;font:400 26px/1.1 var(--serif);font-style:italic;color:var(--lot);margin-bottom:6px}
+/* cures */
+.cures .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center;margin-top:40px}
+.water{position:relative;aspect-ratio:1.3;perspective:700px;overflow:hidden}
+.water .plane{position:absolute;inset:0;transform:rotateX(62deg);transform-style:preserve-3d}
+.water .rg{position:absolute;left:50%;top:50%;border-radius:50%;border:2px solid var(--lot);transform:translate(-50%,-50%) scale(0);opacity:0;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),opacity .8s}
+.water .rg.on{opacity:1}
+.water .stone{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--lot) 50%,var(--lot2));box-shadow:0 20px 40px rgba(0,0,0,.4);transform:translateZ(30px);animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{transform:translateZ(44px)}}
+.seg{display:flex;padding:5px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid var(--line);width:max-content;max-width:100%}
+.seg button{min-height:42px;padding:0 18px;border-radius:99px;border:0;background:none;cursor:pointer;font:500 14px/1 var(--sans);white-space:nowrap}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.ctab{margin-top:22px;padding:8px clamp(14px,2.5vw,26px)}
+.ctab div{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.ctab div:last-child{border:0}
+.ctab b{font:400 18px/1 var(--mono);color:var(--lot);white-space:nowrap;transition:opacity .3s}
+.ctab .na{color:var(--ink3);font-size:13px}
+.cures .fine{font:400 11.5px/1.5 var(--mono);color:var(--ink3);margin-top:14px}
+/* nadiia */
+.who .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,5vw,80px);align-items:center;margin-top:30px}
+.portrait{position:relative;width:min(100%,420px);aspect-ratio:.8;margin:0 auto;perspective:900px}
+.portrait .fr{position:absolute;inset:0;border-radius:999px 999px 40px 40px;overflow:hidden;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .25s,box-shadow 1.4s;box-shadow:0 0 0 2px rgba(255,255,255,.1)}
+.portrait.lit .fr{box-shadow:0 0 0 2px #ffe3ee,0 0 50px rgba(255,210,228,.6),0 0 120px rgba(242,167,195,.35)}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.8);transition:filter 1.6s}
+.portrait.lit img{filter:none}
+.portrait .cap{position:absolute;left:12px;bottom:12px;font:400 11px/1 var(--mono);background:rgba(18,12,34,.8);padding:8px 10px;border-radius:99px}
+.team{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.team span{padding:9px 14px;border-radius:99px;border:1px solid var(--line);font:500 14px/1 var(--sans);background:rgba(18,12,34,.6)}
+.team span:first-child{background:var(--lot);color:#2a0f1f;border-color:var(--lot)}
+.who .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:22px}
+.who .duo img{width:100%;aspect-ratio:1.25;object-fit:cover;border-radius:18px}
+/* booking */
+.bk{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(20px,4vw,60px);margin-top:36px;align-items:start}
+.bk .side{position:sticky;top:110px;padding:24px}
+.bk .side ol{list-style:none;display:grid;gap:14px;margin-top:6px}
+.bk .side li{display:flex;gap:12px;align-items:center;color:var(--ink3);font-size:15px;transition:color .3s}
+.bk .side li i{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font:400 12px/1 var(--mono);font-style:normal;flex:none;transition:all .3s}
+.bk .side li.on{color:var(--ink)}
+.bk .side li.on i{background:var(--lot);color:#2a0f1f;border-color:var(--lot)}
+.bk .side li.done i{background:rgba(242,167,195,.25);color:var(--lot)}
+.bk .side .petal{display:flex;gap:4px;margin-top:20px}
+.bk .side .petal span{flex:1;height:34px;border-radius:50% 50% 50% 50%/80% 80% 20% 20%;background:rgba(255,255,255,.08);transform-origin:50% 100%;transform:rotate(calc((var(--i) - 2) * 10deg)) scaleY(.5);transition:all .6s cubic-bezier(.3,1.5,.5,1)}
+.bk .side .petal span.on{background:linear-gradient(var(--lot),var(--lot2));transform:rotate(calc((var(--i) - 2) * 10deg)) scaleY(1)}
+.form{padding:clamp(18px,3vw,34px)}
+.st[hidden]{display:none}
+.st h3{font:400 28px/1.1 var(--sans);letter-spacing:-.02em;margin-bottom:6px}
+.st .sub{color:var(--ink2);font-size:14.5px;margin-bottom:16px}
+.opts{display:grid;gap:8px}
+.opts button{display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;min-height:54px;padding:10px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font:400 15px/1.3 var(--sans)}
+.opts button b{font:400 13px/1 var(--mono);color:var(--lot);white-space:nowrap}
+.opts button small{display:block;font:400 11px/1.2 var(--mono);color:var(--ink3);margin-top:3px}
+.opts button[aria-pressed=true]{border-color:var(--lot);background:rgba(242,167,195,.14)}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
+.days button{flex:none;min-width:64px;min-height:66px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font:400 12px/1.2 var(--mono)}
+.days button b{display:block;font:400 22px/1.1 var(--sans)}
+.days button[aria-pressed=true]{background:var(--lot);color:#2a0f1f;border-color:var(--lot)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px;margin-top:10px}
+.slots button{min-height:44px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font:400 13px/1 var(--mono)}
+.slots button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+label.f{display:block;font:400 11.5px/1 var(--mono);color:var(--ink2);margin:14px 0 7px}
+input[type=text],input[type=tel],input[type=email],textarea{width:100%;min-height:50px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);padding:10px 14px;font:400 16px/1.3 var(--sans);color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--lot);box-shadow:0 0 0 3px rgba(242,167,195,.2)}
+.chk{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14px;color:var(--ink2)}
+.chk input{width:22px;height:22px;flex:none;accent-color:var(--lot);margin-top:1px}
+.err{color:#ffb4c8;font-size:13px;margin-top:8px;min-height:1em}
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.recap{background:rgba(255,255,255,.06);border-radius:16px;padding:14px;margin:14px 0;font-size:14.5px}
+/* infos */
+.infos .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,60px);margin-top:36px;align-items:start}
+.dial{position:relative;width:min(100%,300px);aspect-ratio:1;margin:0 auto 20px}
+.dial svg{width:100%;height:100%;overflow:visible}
+.dial .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.dial .ctr b{font:300 34px/1 var(--sans);letter-spacing:-.03em}
+.dial .ctr span{font:400 11.5px/1.3 var(--mono);color:var(--ink2);margin-top:6px;max-width:150px}
+.hrs{list-style:none;padding:8px 20px}
+.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hrs li:last-child{border:0}
+.hrs li.today{color:var(--lot);font-weight:500}
+.hrs li span:last-child{font:400 13px/1.5 var(--mono)}
+.infos .addr{margin-top:18px;padding:20px;font-size:15px;line-height:1.7}
+/* footer */
+.ft{padding:90px clamp(16px,5vw,72px) 100px;text-align:center}
+.ft .big{font:300 clamp(34px,6vw,80px)/1 var(--sans);letter-spacing:-.04em}
+.ft p{color:var(--ink2);margin-top:14px}
+.ft .links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:28px;font:400 12px/1.4 var(--mono)}
+.ft .links a{color:var(--ink2)}
+@media (max-width:900px){
+ .hd nav a.l{display:none}
+ .diag .wrap,.cures .wrap,.who .wrap,.bk,.infos .wrap{grid-template-columns:minmax(0,1fr)}
+ .list{grid-template-columns:minmax(0,1fr)}
+ .bk .side{position:relative;top:0}
+ .who .portrait{width:min(100%,320px)}
+}
+@media (max-width:560px){
+ .brand b{font-size:12.5px;letter-spacing:.05em}
+ .brand small{font-size:9.5px}
+ .hd .btn{padding:0 15px;min-height:42px;font-size:13px}
+ .ico{width:42px;height:42px}
+ .hero h1{font-size:13.4vw}
+ .hero p{font-size:16px}
+ .h2{font-size:10.6vw}
+ .pads{gap:10px;justify-content:center}
+ .pad{width:calc(33.3% - 7px);height:auto;aspect-ratio:1;padding:6px}
+ .pad b{font-size:13px}.pad small{display:none}
+ .mirror{aspect-ratio:.9;width:100%}
+ .mirror .rim{border-radius:999px 999px 40px 40px}
+ .mirror .in{inset:14px;border-radius:999px 999px 28px 28px;padding:26% 16px 18px;justify-content:flex-start}
+ .mirror .so div{font-size:13px;padding:8px 10px}
+ .mirror .in h3{font-size:22px}
+ .seg button{padding:0 13px;font-size:13px}
+ .lotfb{width:110px;height:110px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}html{scroll-behavior:auto}}
+
+.zb{position:fixed;left:12px;bottom:12px;z-index:60;font:500 11px/1 'Inter Tight',system-ui,sans-serif;letter-spacing:.04em;padding:7px 10px;border-radius:99px;background:rgba(0,0,0,.55);color:#fff;text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:.82}
+.zb:hover,.zb:focus-visible{opacity:1}
+body.ck-open .zb{display:none}
+.zb{transition:opacity .3s,transform .3s}
+.zb.hid{opacity:0;pointer-events:none;transform:translateY(12px)}
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;max-width:560px;margin:0 auto;background:#1a1230;color:#f6f1ee;border-radius:18px;padding:18px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.28);font:400 14px/1.5 'Inter Tight',system-ui,sans-serif;transform:translateY(0);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.ck[hidden]{display:none}
+.ck h2{font:600 15px/1.3 'Inter Tight',system-ui,sans-serif;margin:0 0 6px}
+.ck p{margin:0 0 12px}
+.ck a{color:inherit}
+.ck .row{display:flex;gap:10px}
+.ck button{flex:1;min-height:44px;border-radius:99px;font:600 14px/1 'Inter Tight',system-ui,sans-serif;cursor:pointer;border:2px solid #c25b8a}
+.ck .no{background:transparent;color:#f6f1ee}
+.ck .yes{background:#c25b8a;color:#fff}
+.lg{border:0;padding:0;border-radius:20px;max-width:720px;width:calc(100% - 24px);max-height:86vh;background:#1a1230;color:#f6f1ee;font:400 15px/1.6 'Inter Tight',system-ui,sans-serif;box-shadow:0 30px 90px rgba(0,0,0,.4)}
+.lg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(3px)}
+.lg .in{padding:26px 22px 22px;overflow:auto;max-height:86vh}
+.lg h2{font:600 20px/1.25 'Inter Tight',system-ui,sans-serif;margin:0 0 12px}
+.lg h3{font:600 15px/1.3 'Inter Tight',system-ui,sans-serif;margin:18px 0 4px}
+.lg p{margin:0 0 8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:0;background:#c25b8a;color:#fff;font:600 20px/1 'Inter Tight',system-ui,sans-serif;cursor:pointer}
+.lg nav{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.lg nav button{border:1px solid currentColor;background:transparent;color:inherit;border-radius:99px;padding:7px 11px;font:500 12px/1 'Inter Tight',system-ui,sans-serif;cursor:pointer}
+.lg nav button[aria-current=true]{background:#c25b8a;color:#fff;border-color:#c25b8a}
+.map3{position:relative;border-radius:24px;overflow:hidden;min-height:420px;background:#24163a;isolation:isolate}
+.map3 .mapbg{position:absolute;inset:0;background:
+ repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+ repeating-linear-gradient(-58deg,transparent 0 70px,rgba(255,255,255,.08) 70px 73px),
+ radial-gradient(120% 80% at 70% 30%,rgba(255,255,255,.08),transparent 60%),#24163a}
+.map3.on .mapbg{display:none}
+.map3 iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map3 .tint{position:absolute;inset:0;pointer-events:none;z-index:1}
+.map3 .tint::before{content:"";position:absolute;inset:0;background:#c25b8a;mix-blend-mode:color;opacity:.85}
+.map3 .tint::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.55) 100%)}
+.map3 .pin{position:absolute;left:50%;top:50%;z-index:2;width:64px;height:64px;margin:-74px 0 0 -32px;pointer-events:none}
+.map3 .pin .dot{position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#c25b8a;box-shadow:0 10px 30px rgba(0,0,0,.45);display:grid;place-items:center}
+.map3 .pin .dot>*{transform:rotate(45deg);width:36px;height:36px}
+.map3 .pin::after{content:"";position:absolute;left:50%;top:100%;width:80px;height:80px;margin:-30px 0 0 -40px;border-radius:50%;border:2px solid #c25b8a;animation:pinp 2.2s ease-out infinite;opacity:0}
+@keyframes pinp{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.map3 .glass{position:absolute;z-index:3;left:16px;right:16px;bottom:16px;max-width:380px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);color:#fff;font:400 14px/1.45 'Inter Tight',system-ui,sans-serif}
+.map3 .glass b{display:block;font-weight:600;font-size:15px;margin-bottom:2px}
+.map3 .glass .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.map3 .glass a,.map3 .glass button{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:99px;background:#fff;color:#111;text-decoration:none;font:600 13px/1 'Inter Tight',system-ui,sans-serif;border:0;cursor:pointer;white-space:nowrap}
+.map3 .ask{position:absolute;z-index:3;left:16px;right:16px;top:16px;max-width:380px;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.5);color:#fff;font:400 13px/1.45 'Inter Tight',system-ui,sans-serif}
+.map3.on .ask{display:none}
+.tel{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.map3 .pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#diag">Aller aux soins</a>
+<div class="scene" aria-hidden="true">
+ <div class="pond" id="pond"><svg preserveAspectRatio="none" viewBox="0 0 100 100"><defs><filter id="wv"><feTurbulence type="fractalNoise" baseFrequency=".012 .05" numOctaves="2" seed="4"><animate attributeName="baseFrequency" dur="24s" values=".012 .05;.016 .06;.012 .05" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="6"/></filter><linearGradient id="wl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#ffd6e6" stop-opacity=".16"/><stop offset="1" stop-color="#a99bff" stop-opacity=".1"/></linearGradient></defs><g filter="url(#wv)"><rect x="0" y="52" width="100" height="48" fill="url(#wl)"/><g stroke="#ffe4ef" stroke-opacity=".18" stroke-width=".25" fill="none"><path d="M0 60h100M0 66h100M0 73h100M0 81h100M0 90h100"/></g><g fill="#2b6b55" fill-opacity=".35"><ellipse cx="18" cy="78" rx="9" ry="2.6"/><ellipse cx="82" cy="70" rx="7" ry="2"/><ellipse cx="52" cy="88" rx="11" ry="3"/></g></g></svg></div>
+ <div class="night" id="night"></div>
+</div>
+<header class="hd" id="hd">
+ <a class="brand" href="#top" aria-label="NK Skin & Body Expert, retour en haut"><span class="mk"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#fff"><path d="M20 6c3 4 4.5 8 4.5 12S23 26 20 30c-3-4-4.5-8-4.5-12S17 10 20 6z"/><path d="M8 14c4.5.5 8 2.6 10 6s2.4 6.6 2 10c-4.5-.6-8-2.6-10-6S7.6 17.4 8 14z" opacity=".8"/><path d="M32 14c-4.5.5-8 2.6-10 6s-2.4 6.6-2 10c4.5-.6 8-2.6 10-6s2.4-6.6 2-10z" opacity=".8"/></g></svg></span><span><b>NK SKIN & BODY</b><small>Nadiia Klimontova · Hyères</small></span></a>
+ <nav aria-label="Menu principal"><a class="l" href="#diag">Soins</a><a class="l" href="#carte">Carte</a><a class="l" href="#nadiia">Nadiia</a><a class="l" href="#infos">Infos</a><a class="ico" href="tel:+33745714369" aria-label="Appeler le 07 45 71 43 69"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a><a class="btn" href="#rdv">Réserver</a></nav>
+</header>
+<main id="top">
+<section class="hero" id="hero" aria-labelledby="h1">
+ <span class="tag">Institut de beauté · Hyères</span>
+ <h1 id="h1" style="margin-top:18px">Votre peau, <em>en profondeur.</em></h1>
+ <p>Soins visage de dernière génération, regard, massages et silhouette, par Nadiia Klimontova, esthéticienne au 4 avenue Gambetta.</p>
+ <div class="acts"><a class="btn" href="#rdv">Prendre rendez-vous</a><a class="btn gh" href="#diag">Trouver mon soin</a></div>
+ <div class="meta"><span><b>5,0</b> sur Google</span><span>Lun – sam · 9h – 20h</span><span class="tel">07 45 71 43 69</span></div>
+</section>
+
+<section class="sec diag" id="diag" aria-labelledby="dt">
+ <span class="tag">Le miroir de peau</span>
+ <h2 class="h2" id="dt">Dites ce que vous voyez, <em>on vous montre le soin.</em></h2>
+ <div class="wrap">
+  <div>
+   <p class="lead" style="margin:0 0 22px">Pour les soins visage, une consultation de 20 minutes est incluse : Nadiia analyse votre peau et propose le protocole adapté.</p>
+   <div class="chips" id="cc" role="group" aria-label="Votre besoin"></div>
+  </div>
+  <div class="mirror" id="mirror"><div class="rim" id="rim"></div><div class="in" aria-live="polite"><h3 id="mt">Éclat</h3><div class="so" id="ms"></div><p class="note">Tarifs de l'institut</p></div></div>
+ </div>
+</section>
+
+<section class="sec carte" id="carte" aria-labelledby="ct">
+ <span class="tag">La carte</span>
+ <h2 class="h2" id="ct">Sept bassins, <em>une seule adresse.</em></h2>
+ <div class="pads" id="pads" role="group" aria-label="Catégories"></div>
+ <ul class="list glass" id="list" aria-live="polite"></ul>
+</section>
+
+<section class="sec cures" id="cures" aria-labelledby="cut">
+ <span class="tag">Séance ou cure</span>
+ <h2 class="h2" id="cut">Chaque séance <em>prolonge l'onde.</em></h2>
+ <div class="wrap">
+  <div class="water" aria-hidden="true"><div class="plane" id="plane"><div class="stone"></div></div></div>
+  <div>
+   <p class="lead" style="margin:0 0 20px">Plusieurs soins se font de préférence en cure, pour des résultats progressifs. Comparez :</p>
+   <div class="seg" id="seg" role="group" aria-label="Nombre de séances"><button type="button" aria-pressed="true" data-n="0">1 séance</button><button type="button" aria-pressed="false" data-n="1">Cure de 3</button><button type="button" aria-pressed="false" data-n="2">Cure de 5</button></div>
+   <div class="ctab glass" id="ctab"></div>
+   <p class="fine">Prix de la cure complète, d'après la carte de l'institut.</p>
+  </div>
+ </div>
+</section>
+
+<section class="sec who" id="nadiia" aria-labelledby="wt">
+ <div class="wrap">
+  <div class="portrait" id="portrait"><div class="fr"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SFoMiik5OG_PkGt9QR5bjaL1vQ9NdHtCtO5klwHjuGTV4Y1ROtblu76rvpK8wgOZWwv8ZdbaEbtU4kiDg0tD16K5DlIrhmY6t5GaPe6fPVN9WUpiLldAXeRNWtVKZmccGtYEzEovIWbKbI=w800" alt="Nadiia Klimontova dans son institut" loading="lazy" width="420" height="525"></div><span class="cap">Nadiia Klimontova</span></div>
+  <div>
+   <span class="tag">L'institut</span>
+   <h2 class="h2" id="wt">Le miroir <em>s'allume</em> pour vous.</h2>
+   <p class="lead">Un institut au premier étage, avenue Gambetta : une cabine au miroir rond, des soins sur mesure et des massages, aussi en duo ou à domicile.</p>
+   <div class="team" aria-label="L'équipe"><span>Nadiia</span><span>Stan</span><span>Anna</span><span>Mariana</span></div>
+   <div class="duo"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QdSUBBsQSaE8VOsgeDPDXsNGaEIFKCK8MBSYYpbQdCq_ujkVn-1A80DFW98VZY0s_lhWpt23AqbZ9qugv_xuTUov2LmjO9KCddWOJ2NQzeN0PLFYDxT2MDyCHgiifJKJFdNmiDTG1ZOgg=w700" alt="La cabine de soins et son miroir rond" loading="lazy" width="340" height="272"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SUAL5_eFs43S-G_iy_1v9Hf55ysXTeB4KUHZZMt4_gxnMhpR9tOYvtGKsCdJWG4W3ylWaFL0N2uhe_qszfY3yAxQKVyHzKmgYBbidreEhcLGR8RP4RheSF2c_Sh5fxTGc4RDjSZ0fYiGR4=w700" alt="Un massage en cabine" loading="lazy" width="340" height="272"></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="rdv" aria-labelledby="rt">
+ <span class="tag">Réservation</span>
+ <h2 class="h2" id="rt">Le lotus s'ouvre <em>à chaque étape.</em></h2>
+ <div class="bk">
+  <aside class="side glass" aria-hidden="true"><ol id="sl"><li><i>1</i>Votre besoin</li><li><i>2</i>Le soin</li><li><i>3</i>Le jour</li><li><i>4</i>Vos coordonnées</li></ol><div class="petal" id="pet"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span></div></aside>
+  <form class="form glass" id="form" novalidate>
+   <div class="st" data-s="0"><h3>Votre besoin</h3><p class="sub">On commence par l'essentiel.</p><div class="opts" id="o0" role="group" aria-label="Besoin"></div><p class="err" id="e0" role="alert"></p></div>
+   <div class="st" data-s="1" hidden><h3>Le soin</h3><p class="sub">Tarifs de l'institut. Les cures se réservent aussi.</p><div class="opts" id="o1" role="group" aria-label="Soin"></div><p class="err" id="e1" role="alert"></p></div>
+   <div class="st" data-s="2" hidden><h3>Le jour et l'heure</h3><p class="sub">Du lundi au samedi, 9h – 20h. Créneau confirmé par l'institut.</p><div class="days" id="days" role="group" aria-label="Jour"></div><div class="slots" id="slots" role="group" aria-label="Heure"></div><p class="err" id="e2" role="alert"></p></div>
+   <div class="st" data-s="3" hidden><h3>Vos coordonnées</h3>
+    <label class="f" for="nm">Prénom et nom</label><input type="text" id="nm" autocomplete="name">
+    <label class="f" for="ph">Téléphone</label><input type="tel" id="ph" autocomplete="tel" inputmode="tel">
+    <label class="f" for="em">E-mail (facultatif)</label><input type="email" id="em" autocomplete="email">
+    <label class="f" for="ms2">Votre peau, vos attentes (facultatif)</label><textarea id="ms2"></textarea>
+    <label class="chk"><input type="checkbox" id="ok"><span>J'accepte que mes informations soient utilisées pour traiter ma demande (<a href="#" data-legal="confidentialite">confidentialité</a>).</span></label>
+    <p class="err" id="e3" role="alert"></p></div>
+   <div class="st" data-s="4" hidden><h3>Demande prête <em>✓</em></h3><div class="recap" id="recap"></div><p class="sub">Démo : aucune donnée n'est envoyée. Sur le vrai site, l'institut reçoit la demande et confirme le rendez-vous.</p><button type="button" class="btn gh" id="again">Nouvelle demande</button></div>
+   <div class="nav2"><button type="button" class="btn gh" id="prev" hidden>Retour</button><button type="button" class="btn" id="next" style="margin-left:auto">Continuer</button></div>
+  </form>
+ </div>
+</section>
+
+<section class="sec infos" id="infos" aria-labelledby="it">
+ <span class="tag">Infos pratiques</span>
+ <h2 class="h2" id="it">Au premier étage, <em>avenue Gambetta.</em></h2>
+ <div class="wrap">
+  <div>
+   <div class="dial" id="dial"></div>
+   <ul class="hrs glass" id="hrs"></ul>
+   <p class="addr glass"><b>NK Skin & Body Expert</b><br>4 avenue Gambetta, 1er étage<br>83400 Hyères<br><a class="tel" href="tel:+33745714369">07 45 71 43 69</a> · <a href="https://www.instagram.com/soins.esthetique.hyeres83/" target="_blank" rel="noopener">Instagram</a><br>Bons cadeaux disponibles à partir de 30 €.</p>
+  </div>
+  
+<div class="map3" id="map3" data-src="https://www.google.com/maps?q=NK%20Skin%20%26%20Body%20Expert%2C%204%20Av.%20Gambetta%2C%2083400%20Hy%C3%A8res&z=16&output=embed">
+ <div class="mapbg" aria-hidden="true"></div>
+ <div class="tint" aria-hidden="true"></div>
+ <div class="pin" aria-hidden="true"><div class="dot"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#fff"><path d="M20 6c3 4 4.5 8 4.5 12S23 26 20 30c-3-4-4.5-8-4.5-12S17 10 20 6z"/><path d="M8 14c4.5.5 8 2.6 10 6s2.4 6.6 2 10c-4.5-.6-8-2.6-10-6S7.6 17.4 8 14z" opacity=".8"/><path d="M32 14c-4.5.5-8 2.6-10 6s-2.4 6.6-2 10c4.5-.6 8-2.6 10-6s2.4-6.6 2-10z" opacity=".8"/></g></svg></div></div>
+ <p class="ask">Le plan s'affiche si vous acceptez les cookies de Google Maps. <button type="button" data-ck="1" style="margin-left:4px;border:0;border-radius:99px;padding:8px 12px;font-weight:600;font-size:12px;cursor:pointer;background:#fff;color:#111">Afficher le plan</button></p>
+ <div class="glass"><b>NK Skin &amp; Body Expert</b>4 avenue Gambetta, 1er étage · 83400 Hyères<div class="acts"><a href="https://www.google.com/maps/dir/?api=1&destination=NK%20Skin%20%26%20Body%20Expert%2C%204%20Av.%20Gambetta%2C%2083400%20Hy%C3%A8res" target="_blank" rel="noopener">Itinéraire</a><a href="tel:+33745714369" class="tel">Appeler</a></div></div>
+</div>
+
+ </div>
+</section>
+</main>
+<footer class="ft" id="ft">
+ <p class="big">Une parenthèse, <em>rien que pour votre peau.</em></p>
+ <p>4 avenue Gambetta, 1er étage · Hyères · <a class="tel" href="tel:+33745714369">07 45 71 43 69</a></p>
+ <div class="links"><a data-legal="mentions" href="#">Mentions légales</a><a data-legal="confidentialite" href="#">Confidentialité</a><a data-legal="cgv" href="#">CGV</a><a data-legal="cgu" href="#">CGU</a><a data-legal="cookies" href="#">Cookies</a><a data-legal="remboursement" href="#">Annulation</a></div>
+ <p style="font:400 11px/1 var(--mono);color:var(--ink3);margin-top:20px">© 2026 NK Skin & Body Expert · Hyères</p>
+</footer>
+
+<div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ckt" hidden>
+ <h2 id="ckt">Cookies</h2>
+ <p>Ce site n'utilise aucun cookie publicitaire. Le plan Google Maps dépose des cookies tiers : il ne s'affiche que si vous l'acceptez. <a href="#" data-legal="cookies">En savoir plus</a></p>
+ <div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div>
+</div>
+<a class="zb" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+
+
+<dialog class="lg" id="lg" aria-labelledby="lgt">
+ <div class="in">
+ <button class="x" type="button" data-lgclose aria-label="Fermer">×</button>
+ <h2 id="lgt">Informations légales</h2>
+ <nav aria-label="Rubriques">
+  <button type="button" data-tab="mentions">Mentions légales</button><button type="button" data-tab="confidentialite">Confidentialité</button><button type="button" data-tab="cgv">CGV</button><button type="button" data-tab="cgu">CGU</button><button type="button" data-tab="cookies">Cookies</button><button type="button" data-tab="remboursement">Annulation</button>
+ </nav>
+ <section data-pane="mentions"><h3>Mentions légales</h3><p><b>NK Skin &amp; Body Expert — Nadiia Klimontova</b> — Institut de beauté, soins du visage et du corps<br>4 avenue Gambetta, 1er étage, 83400 Hyères<br>Téléphone : <span class="tel">07 45 71 43 69</span></p><p>Forme juridique, SIRET et responsable de la publication : à compléter lors de la mise en ligne.</p><p>Hébergement : à préciser lors de la mise en ligne.</p><p>Conception : ZAHR — zahr.fr. Ce site est une maquette de démonstration : il n'est pas encore publié par l'établissement.</p></section>
+ <section data-pane="confidentialite" hidden><h3>Politique de confidentialité</h3><p>Les informations saisies dans le formulaire (nom, téléphone, e-mail, message) servent uniquement à traiter votre demande de rendez-vous ou de réservation. Elles ne sont ni vendues ni cédées.</p><p>Durée de conservation : le temps de traiter la demande, puis 3 ans maximum pour la relation client.</p><p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en contactant l'établissement au <span class="tel">07 45 71 43 69</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p><p>Dans cette démo, aucune donnée n'est envoyée : le formulaire ne fait que simuler l'envoi.</p></section>
+ <section data-pane="cgv" hidden><h3>Conditions générales de vente</h3><p>Les prix affichés sont en euros TTC et peuvent évoluer ; le prix applicable est celui affiché au moment de la demande, confirmé par l'établissement.</p><p>Les soins sont réalisés sur rendez-vous et réglés selon les modalités de l&#x27;institut. Les cures (3, 5 ou 10 séances) sont payables selon les conditions précisées par l&#x27;institut. Une demande envoyée depuis ce site ne devient ferme qu&#x27;après confirmation.</p><p>Le paiement s'effectue selon les modalités indiquées par l'établissement.</p></section>
+ <section data-pane="cgu" hidden><h3>Conditions générales d'utilisation</h3><p>Ce site présente l'établissement et permet d'envoyer une demande. L'envoi d'une demande ne vaut confirmation qu'après réponse de l'établissement. Les contenus (textes, photos) appartiennent à NK Skin &amp; Body Expert — Nadiia Klimontova ; toute reproduction est interdite sans accord.</p></section>
+ <section data-pane="cookies" hidden><h3>Cookies</h3><p>Aucun cookie de mesure d'audience ni publicitaire. Le plan Google Maps n'est chargé qu'après votre accord, car Google peut déposer ses propres cookies. Vous pouvez changer d'avis à tout moment :</p><p><button type="button" data-ckreset style="border:1px solid currentColor;background:none;color:inherit;border-radius:99px;padding:8px 14px;cursor:pointer;font:inherit">Modifier mon choix</button></p></section>
+ <section data-pane="remboursement" hidden><h3>Annulation et remboursement</h3><p>Pour annuler ou déplacer un rendez-vous, merci de prévenir l&#x27;institut le plus tôt possible par téléphone. Aucun paiement n&#x27;étant demandé en ligne sur ce site, il n&#x27;y a rien à rembourser en cas d&#x27;annulation. Pour les cures et bons cadeaux, les conditions sont celles indiquées par l&#x27;institut.</p></section>
+ </div>
+</dialog>
+
+<script>
+(function(){
+ var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; window.__RM=RM;
+ function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+ var ck=document.getElementById('ck');
+ function mapOn(){var m=document.getElementById('map3'); if(!m||m.classList.contains('on'))return; var f=document.createElement('iframe'); f.src=m.dataset.src; f.title='Plan Google Maps'; f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade'; m.querySelector('.mapbg').after(f); m.classList.add('on')}
+ function mapOff(){var m=document.getElementById('map3'); if(!m)return; var f=m.querySelector('iframe'); if(f)f.remove(); m.classList.remove('on')}
+ function setCk(v){ls('zahr-ck',v?'1':'0'); ck.hidden=true; document.body.classList.remove('ck-open'); if(v)mapOn(); else mapOff()}
+ var st=ls('zahr-ck'); if(st==='1')mapOn(); else if(st!=='0'){ck.hidden=false;document.body.classList.add('ck-open')}
+ document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-ck]'); if(b){e.preventDefault(); setCk(b.dataset.ck==='1')}
+  var r=e.target.closest('[data-ckreset]'); if(r){ck.hidden=false;document.body.classList.add('ck-open'); var d=document.getElementById('lg'); d.close&&d.close()}
+  var l=e.target.closest('[data-legal]'); if(l){e.preventDefault(); openLg(l.dataset.legal)}
+  var t=e.target.closest('[data-tab]'); if(t){tab(t.dataset.tab)}
+  if(e.target.closest('[data-lgclose]')){document.getElementById('lg').close()}
+ });
+ function tab(n){document.querySelectorAll('#lg [data-pane]').forEach(function(p){p.hidden=p.dataset.pane!==n});document.querySelectorAll('#lg [data-tab]').forEach(function(b){b.setAttribute('aria-current',b.dataset.tab===n)})}
+ function openLg(n){var d=document.getElementById('lg'); tab(n||'mentions'); if(d.showModal)d.showModal(); else d.setAttribute('open','')}
+ var zb=document.querySelector('.zb'); function zbh(){var de=document.documentElement; zb&&zb.classList.toggle('hid',scrollY>160&&innerHeight+scrollY<de.scrollHeight-260)} addEventListener('scroll',zbh,{passive:true}); zbh();
+ window.__loadThree=function(ok,ko){ if(window.THREE){ok();return} var s=document.createElement('script'); s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'; s.onload=function(){try{ok()}catch(e){console.warn(e);ko&&ko()}}; s.onerror=function(){ko&&ko()}; document.head.appendChild(s)};
+})();
+</script>
+<script>
+(function(){
+var CONC=[["eclat", "Éclat", [["Soin oxygénant (carboxythérapie)", "1 h", "75 €"], ["Hydratant intensif + microdermabrasion", "1 h", "75 €"], ["Peeling PRX, 1 séance", "35 min", "75 €"]]], ["taches", "Taches", [["Anti-taches Melanostop, visage", "1 h", "90 €"], ["Melanostop visage + cou", "1 h 15", "115 €"], ["Peeling PRX, cure de 5 séances", "40 min", "325 €"]]], ["fermete", "Rides & fermeté", [["Anti-âge sculptant + LED", "1 h 10", "90 €"], ["Radiofréquence visage, 1 séance", "30 min", "70 €"], ["Micro-courants, 1 séance", "40 min", "60 €"]]], ["imperf", "Imperfections", [["Soin purifiant", "1 h", "70 €"], ["Nettoyage en profondeur (russe)", "1 h 20", "80 €"], ["Nettoyage + peeling acide azélaïque", "1 h 30", "90 €"]]], ["texture", "Grain de peau", [["Microneedling", "1 h", "90 €"], ["Microneedling + LED", "1 h 10", "110 €"], ["Microneedling + peeling PRX", "1 h 20", "120 €"]]], ["detente", "Détente", [["Massage sculptant du visage", "35 min", "55 €"], ["Massage russe classique du visage", "35 min", "45 €"], ["Massage crânien", "30 min", "45 €"]]]],CARTE=[["Visage", "Technologies & soins", [["Hydratant intensif + microdermabrasion", "1 h", "75 €"], ["Soin purifiant", "1 h", "70 €"], ["Anti-âge sculptant + LED", "1 h 10", "90 €"], ["Microneedling", "1 h", "90 €"], ["Microneedling + LED", "1 h 10", "110 €"], ["Nettoyage par ultrasons", "1 h", "65 €"], ["Nettoyage en profondeur (russe)", "1 h 20", "80 €"], ["Soin oxygénant", "1 h", "75 €"], ["Anti-taches Melanostop", "1 h", "90 €"], ["Peeling PRX", "35 min", "75 €"], ["Radiofréquence", "30 min", "70 €"], ["Micro-courants", "40 min", "60 €"]]], ["Regard", "Cils & sourcils", [["Lash lift coréen + teinture + kératine", "1 h", "65 €"], ["Lash lift coréen + kératine", "45 min", "55 €"], ["Rehaussement + teinture + kératine", "1 h", "55 €"], ["Browlift + teinture", "45 min", "45 €"], ["Browlift", "40 min", "35 €"], ["Restructuration des sourcils", "20 min", "20 €"], ["Extensions de cils 1D, pose complète", "2 h 30", "50 €"], ["Extensions volume russe 4D", "2 h 30", "65 €"]]], ["Massages", "Bien-être", [["Signature, sur mesure", "1 h", "90 €"], ["Signature 4 mains", "1 h 15", "120 €"], ["Californien", "1 h", "70 €"], ["Drainage lymphatique corps", "1 h", "60 €"], ["Deep tissue", "1 h", "80 €"], ["Massage en duo (selon disponibilité)", "1 h", "150 €"], ["Dos", "35 min", "40 €"], ["Pieds", "25 min", "35 €"]]], ["À domicile", "Massages chez vous", [["Signature à domicile", "1 h", "105 €"], ["Lymphatique à domicile", "1 h", "75 €"], ["Californien à domicile", "1 h", "85 €"], ["Deep tissue à domicile", "1 h", "95 €"], ["Sculptant visage à domicile", "40 min", "70 €"], ["Sculptant anticellulite à domicile", "1 h", "95 €"]]], ["Silhouette", "Corps & minceur", [["Massage sculptant anticellulite", "1 h", "80 €"], ["Enveloppement minceur + gommage", "1 h 15", "75 €"], ["Gommage du corps", "30 min", "45 €"], ["Lipocavitation, 1 zone", "30 min", "50 €"], ["Radiofréquence corps, 1 zone", "30 min", "55 €"], ["Vacuum sculpting + LED rouge", "30 min", "45 €"], ["Lipocavitation + radiofréquence + vacuum", "1 h 30", "130 €"]]], ["Épilation", "Visage & corps", [["Visage", "15 min", "20 €"], ["Lèvre", "10 min", "6 €"], ["Aisselles", "15 min", "15 €"], ["Demi-jambes", "20 min", "20 €"], ["Jambes complètes", "30 min", "32 €"], ["Maillot classique", "15 min", "18 €"], ["Maillot brésilien", "20 min", "25 €"], ["Maillot intégral", "30 min", "30 €"]]], ["Mains & pieds", "Manucure russe", [["Pose gel + couleur + manucure", "1 h 20", "50 €"], ["Remplissage gel + manucure", "1 h 30", "50 €"], ["Semi-permanent + manucure", "50 min", "40 €"], ["Extensions capsules américaines", "1 h 30", "dès 55 €"], ["Manucure homme", "25 min", "25 €"], ["Beauté des pieds + semi-permanent", "1 h", "40 €"]]]],CURES=[["Micro-courants", [60, 165, 250]], ["Radiofr\u00e9quence visage", [70, 180, 275]], ["Melanostop visage", [90, 255, 400]], ["Massage sculptant anticellulite", [80, null, 375]]],RM=window.__RM;
+var hd=document.getElementById('hd');function hs(){hd.classList.toggle('solid',scrollY>30)}addEventListener('scroll',hs,{passive:true});hs();
+// pond ripples on pointer
+var lastR=0;addEventListener('pointermove',function(e){if(RM||e.pointerType!=='mouse')return;var t=performance.now();if(t-lastR<180)return;lastR=t;var r=document.createElement('i');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.querySelector('.scene').appendChild(r);setTimeout(function(){r.remove()},1800)});
+// mirror
+var cc=document.getElementById('cc'),mt=document.getElementById('mt'),ms=document.getElementById('ms');
+cc.innerHTML=CONC.map(function(c,i){return '<button type="button" aria-pressed="'+(i===0)+'" data-i="'+i+'">'+c[1]+'</button>'}).join('');
+function showC(i){var c=CONC[i];mt.textContent=c[1];ms.innerHTML=c[2].map(function(s){return '<div><span>'+s[0]+'<small>'+s[1]+'</small></span><b>'+s[2]+'</b></div>'}).join('');[].forEach.call(cc.children,function(b,k){b.setAttribute('aria-pressed',k===i)})}
+cc.addEventListener('click',function(e){var b=e.target.closest('button');if(b)showC(+b.dataset.i)});showC(0);
+var rim=document.getElementById('rim'),mir=document.getElementById('mirror');
+mir.addEventListener('pointermove',function(e){if(RM)return;var r=mir.getBoundingClientRect();rim.style.setProperty('--ty',((e.clientX-r.left)/r.width-.5)*16+'deg');rim.style.setProperty('--tx',-((e.clientY-r.top)/r.height-.5)*16+'deg')});
+mir.addEventListener('pointerleave',function(){rim.style.setProperty('--tx','0deg');rim.style.setProperty('--ty','0deg')});
+// pads
+var pads=document.getElementById('pads'),list=document.getElementById('list');
+pads.innerHTML=CARTE.map(function(c,i){return '<button type="button" class="pad" style="--i:'+i+'" aria-pressed="'+(i===0)+'" data-i="'+i+'"><b>'+c[0]+'</b><small>'+c[1]+'</small></button>'}).join('');
+function showP(i){var c=CARTE[i];list.innerHTML='<h3>'+c[0]+' · '+c[1].toLowerCase()+'</h3>'+c[2].map(function(s,k){return '<li style="--i:'+k+'"><span class="n">'+s[0]+'</span><span class="d">'+s[1]+'</span><span class="p">'+s[2]+'</span></li>'}).join('');[].forEach.call(pads.children,function(b,k){b.setAttribute('aria-pressed',k===i)})}
+pads.addEventListener('click',function(e){var b=e.target.closest('.pad');if(b)showP(+b.dataset.i)});showP(0);
+// cures
+var plane=document.getElementById('plane'),rings=[];for(var k=0;k<5;k++){var g=document.createElement('div');g.className='rg';var s=(30+k*15)+'%';g.style.width=s;g.style.height=s;g.style.left='50%';g.style.top='50%';plane.appendChild(g);rings.push(g)}
+var ctab=document.getElementById('ctab'),seg=document.getElementById('seg');
+function cure(n){var cnt=[1,3,5][n];rings.forEach(function(r,k){r.classList.toggle('on',k<cnt);r.style.transform='translate(-50%,-50%) scale('+(k<cnt?1:0)+')';r.style.transitionDelay=(k*.12)+'s'});
+ ctab.innerHTML=CURES.map(function(c){var p=c[1][n];return '<div><span>'+c[0]+'</span>'+(p?'<b>'+p+' €</b>':'<span class="na">non proposée</span>')+'</div>'}).join('');
+ [].forEach.call(seg.children,function(b,k){b.setAttribute('aria-pressed',k===n)})}
+seg.addEventListener('click',function(e){var b=e.target.closest('button');if(b)cure(+b.dataset.n)});
+var cio=new IntersectionObserver(function(e){if(e[0].isIntersecting){cure(0);cio.disconnect()}},{threshold:.3});cio.observe(plane);ctab.innerHTML=CURES.map(function(c){return '<div><span>'+c[0]+'</span><b>'+c[1][0]+' €</b></div>'}).join('');
+// portrait
+var por=document.getElementById('portrait');new IntersectionObserver(function(e){por.classList.toggle('lit',e[0].isIntersecting)},{threshold:.45}).observe(por);
+por.addEventListener('pointermove',function(e){if(RM)return;var r=por.getBoundingClientRect(),f=por.firstChild;f.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*14+'deg');f.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*10+'deg')});
+por.addEventListener('pointerleave',function(){por.firstChild.style.setProperty('--ry','0deg');por.firstChild.style.setProperty('--rx','0deg')});
+// hours + dial
+var DAYS=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'],now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Paris'})),di=(now.getDay()+6)%7,mins=now.getHours()*60+now.getMinutes();
+document.getElementById('hrs').innerHTML=DAYS.map(function(d,i){return '<li class="'+(i===di?'today':'')+'"><span>'+d+'</span><span>'+(i<6?'9h – 20h':'Fermé')+'</span></li>'}).join('');
+var op=di<6&&mins>=540&&mins<1200;
+function arc(a0,a1,r){var p=function(a){a=(a-90)*Math.PI/180;return [100+r*Math.cos(a),100+r*Math.sin(a)]},s=p(a0),e=p(a1);return 'M'+s[0].toFixed(2)+' '+s[1].toFixed(2)+'A'+r+' '+r+' 0 '+(a1-a0>180?1:0)+' 1 '+e[0].toFixed(2)+' '+e[1].toFixed(2)}
+var ang=function(m){return m/1440*360},nowA=ang(mins);
+document.getElementById('dial').innerHTML='<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14"/><path d="'+arc(ang(540),ang(1200),86)+'" fill="none" stroke="url(#dg)" stroke-width="14" stroke-linecap="round"/><defs><linearGradient id="dg"><stop offset="0" stop-color="#a99bff"/><stop offset="1" stop-color="#f2a7c3"/></linearGradient></defs><g transform="rotate('+nowA.toFixed(1)+' 100 100)"><line x1="100" y1="100" x2="100" y2="22" stroke="#fff" stroke-width="1.5"/><circle cx="100" cy="14" r="5" fill="#fff"/></g><circle cx="100" cy="100" r="3" fill="#fff"/></svg><div class="ctr"><b>'+(op?'Ouvert':'Fermé')+'</b><span>'+(op?'jusqu\'à 20h':(di<6&&mins<540?'ouvre à 9h':'ouvre '+(di>=5?'lundi':'demain')+' à 9h'))+'</span></div>';
+// reveal
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});document.querySelectorAll('.h2,.mirror,.list,.water,.portrait,.form,.dial').forEach(function(el){el.classList.add('rv');io.observe(el)});
+// night background near footer
+var night=document.getElementById('night');new IntersectionObserver(function(e){night.style.opacity=e[0].isIntersecting?1:0},{threshold:.2}).observe(document.getElementById('infos'));
+// booking
+var form=document.getElementById('form'),steps=form.querySelectorAll('.st'),sl=document.getElementById('sl').children,pet=document.getElementById('pet').children,prev=document.getElementById('prev'),next=document.getElementById('next'),cs=0,sel={c:null,s:null,d:null,h:null};
+window.__open=0;
+var o0=document.getElementById('o0'),o1=document.getElementById('o1');
+var NEEDS=CONC.map(function(c){return [c[1],c[2]]}).concat([["Massage & bien-être",CARTE[2][2].map(function(x){return x})],["Regard",CARTE[1][2]],["Silhouette",CARTE[4][2]]]);
+o0.innerHTML=NEEDS.map(function(n,i){return '<button type="button" aria-pressed="false" data-i="'+i+'">'+n[0]+'</button>'}).join('');
+o0.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;sel.c=+b.dataset.i;sel.s=null;[].forEach.call(o0.children,function(x){x.setAttribute('aria-pressed',x===b)});o1.innerHTML=NEEDS[sel.c][1].map(function(s,i){return '<button type="button" aria-pressed="false" data-i="'+i+'"><span>'+s[0]+'<small>'+s[1]+'</small></span><b>'+s[2]+'</b></button>'}).join('');go(1)});
+o1.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;sel.s=NEEDS[sel.c][1][+b.dataset.i];[].forEach.call(o1.children,function(x){x.setAttribute('aria-pressed',x===b)})});
+var days=document.getElementById('days'),slots=document.getElementById('slots'),dl=[],d0=new Date(now);d0.setHours(12);for(var k=0;dl.length<12;k++){var d=new Date(d0);d.setDate(d0.getDate()+k);if(d.getDay()!==0)dl.push(d)}
+var MO=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],DS=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'];
+days.innerHTML=dl.map(function(d,i){return '<button type="button" aria-pressed="false" data-i="'+i+'">'+DS[d.getDay()]+'<b>'+d.getDate()+'</b>'+MO[d.getMonth()]+'</button>'}).join('');
+days.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(days.children,function(x){x.setAttribute('aria-pressed',x===b)});sel.d=dl[+b.dataset.i];sel.h=null;var h='',first=sel.d.toDateString()===now.toDateString()?mins+60:0;for(var m=540;m<=1140;m+=30){if(m<first)continue;h+='<button type="button" aria-pressed="false">'+Math.floor(m/60)+'h'+(m%60?'30':'00')+'</button>'}slots.innerHTML=h||'<p class="sub">Plus de créneau aujourd\'hui.</p>'});
+slots.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(slots.children,function(x){x.setAttribute('aria-pressed',x===b)});sel.h=b.textContent});
+function err(i,m){var el=document.getElementById('e'+i);if(el)el.textContent=m;return !m}
+function go(n){cs=n;steps.forEach(function(s){s.hidden=+s.dataset.s!==n});[].forEach.call(sl,function(l,i){l.className=i<n?'done':(i===n?'on':'')});[].forEach.call(pet,function(p,i){p.classList.toggle('on',i<=n&&n>0||n===4)});prev.hidden=n===0||n===4;next.hidden=n===4||n===0;next.textContent=n===3?'Envoyer la demande':'Continuer';window.__open=n/4}
+next.addEventListener('click',function(){
+ if(cs===1&&!err(1,sel.s?'':'Choisissez un soin.'))return;
+ if(cs===2&&!err(2,sel.d&&sel.h?'':'Choisissez un jour et une heure.'))return;
+ if(cs===3){var nm=document.getElementById('nm').value.trim(),ph=document.getElementById('ph').value.replace(/\D/g,'');if(!err(3,!nm?'Indiquez votre nom.':ph.length<10?'Indiquez un numéro valide.':!document.getElementById('ok').checked?'Merci de cocher la case de consentement.':''))return;
+  document.getElementById('recap').innerHTML='<b>'+sel.s[0]+'</b> — '+sel.s[2]+'<br>'+DS[sel.d.getDay()]+' '+sel.d.getDate()+' '+MO[sel.d.getMonth()]+' à '+sel.h+'<br>'+nm.replace(/</g,'')}
+ go(cs+1)});
+prev.addEventListener('click',function(){go(Math.max(0,cs-1))});
+document.getElementById('again').addEventListener('click',function(){form.reset();sel={c:null,s:null,d:null,h:null};[].forEach.call(o0.children,function(x){x.setAttribute('aria-pressed','false')});slots.innerHTML='';go(0)});
+go(0);
+// lotus path by scroll: [section id, x, y, scale] desktop / mobile
+var PATH=[['hero',.72,.42,1.15,.78,.3,.55],['diag',.84,.2,.55,.9,.1,0],['carte',.88,.5,.7,.9,.1,0],['cures',.25,.55,.9,.9,.1,0],['nadiia',.06,.86,.4,.9,.1,0],['rdv',.2,.76,.8,.9,.1,0],['infos',.85,.18,.5,.9,.1,0],['ft',.5,.36,1.1,.5,.3,.6]];
+var scene=document.querySelector('.scene'),fb=null;
+function target(){var mob=innerWidth<900,best=PATH[0],bd=1e9,vh=innerHeight;var out=null;
+ for(var i=0;i<PATH.length;i++){var el=document.getElementById(PATH[i][0]);if(!el)continue;var r=el.getBoundingClientRect();var c=r.top+Math.min(r.height,vh)/2-vh/2;var d=Math.abs(c);if(d<bd){bd=d;best=PATH[i]}}
+ return mob?{x:best[4],y:best[5],s:best[6]}:{x:best[1],y:best[2],s:best[3]}}
+var cur={x:.72,y:.42,s:1};
+function fallback(){scene.insertAdjacentHTML('beforeend','<svg class="lotfb" id="lotfb" viewBox="0 0 120 120"><g fill="#f2a7c3" fill-opacity=".85" stroke="#ffe0ec" stroke-width="1"><path d="M60 18c10 14 14 28 14 40s-5 24-14 32c-9-8-14-20-14-32s4-26 14-40z"/><path d="M22 44c16 2 28 10 34 20s7 22 4 26c-14-2-26-10-32-20s-8-20-6-26z" fill-opacity=".7"/><path d="M98 44c-16 2-28 10-34 20s-7 22-4 26c14-2 26-10 32-20s8-20 6-26z" fill-opacity=".7"/></g><ellipse cx="60" cy="98" rx="40" ry="6" fill="#2b6b55" fill-opacity=".5"/></svg>');fb=document.getElementById('lotfb');(function l(){var t=target();cur.x+=(t.x-cur.x)*.09;cur.y+=(t.y-cur.y)*.09;cur.s+=(t.s-cur.s)*.09;fb.style.left=(cur.x*100)+'%';fb.style.top=(cur.y*100)+'%';fb.style.transform='translate(-50%,-50%) scale('+cur.s+')';requestAnimationFrame(l)})()}
+window.__loadThree(function(){var T=THREE,cv=document.createElement('canvas');cv.id='lotus';scene.appendChild(cv);
+ var rn=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});rn.setPixelRatio(Math.min(2,devicePixelRatio));rn.setSize(innerWidth,innerHeight);
+ var sc=new T.Scene(),cam=new T.PerspectiveCamera(35,innerWidth/innerHeight,.1,100);cam.position.set(0,0,14);
+ sc.add(new T.HemisphereLight(0xffe6f0,0x2a1a50,.9));var dl=new T.DirectionalLight(0xffffff,.8);dl.position.set(3,6,5);sc.add(dl);var pl=new T.PointLight(0xa99bff,1.2,30);pl.position.set(-4,-2,4);sc.add(pl);
+ var lot=new T.Group();sc.add(lot);var petals=[];
+ var pg=new T.SphereGeometry(1,22,16);pg.scale(.42,1,.16);pg.translate(0,1,0);
+ [[8,.72,.15,.35,0xffd6e6],[9,.98,.45,.55,0xf6b3cf],[11,1.2,.8,.75,0xe58fb4]].forEach(function(L,li){for(var i=0;i<L[0];i++){var m=new T.Mesh(pg,new T.MeshPhongMaterial({color:L[4],emissive:0x2a0c22,shininess:110,specular:0xffffff,transparent:true,opacity:.86}));var piv=new T.Group();piv.rotation.y=i/L[0]*Math.PI*2+li*.3;m.scale.setScalar(L[1]);piv.add(m);lot.add(piv);petals.push({m:m,b:L[2],o:L[3]})}});
+ var core=new T.Mesh(new T.SphereGeometry(.38,24,16),new T.MeshPhongMaterial({color:0xffd58a,emissive:0x553300,shininess:60}));core.position.y=.25;lot.add(core);
+ var pad=new T.Mesh(new T.CircleGeometry(2.6,40),new T.MeshPhongMaterial({color:0x2b6b55,transparent:true,opacity:.75,side:T.DoubleSide}));pad.rotation.x=-Math.PI/2;pad.position.y=-.05;lot.add(pad);
+ lot.rotation.x=.38;
+ addEventListener('resize',function(){rn.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()});
+ var op=0,t0=performance.now();
+ (function loop(){requestAnimationFrame(loop);var t=(performance.now()-t0)/1000,tg=target();cur.x+=(tg.x-cur.x)*.05;cur.y+=(tg.y-cur.y)*.05;cur.s+=(tg.s-cur.s)*.05;
+  var h=2*Math.tan(cam.fov*Math.PI/360)*cam.position.z,w=h*cam.aspect;lot.position.set((cur.x-.5)*w,-(cur.y-.5)*h+(RM?0:Math.sin(t*.8)*.12),0);lot.scale.setScalar(cur.s);
+  lot.rotation.y=RM?0:t*.18;var tgo=.25+.75*(window.__open||0);if(document.getElementById('rdv').getBoundingClientRect().top>innerHeight*.6)tgo=.55+(RM?0:Math.sin(t*.6)*.08);op+=(tgo-op)*.04;
+  petals.forEach(function(p){p.m.rotation.x=p.b+op*p.o});rn.render(sc,cam)})()},fallback);
+})();
+</script>
+</body>
+</html>
