@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Café de la Gare · La Crau — Restaurant, terrasse sous les platanes</title>
+<meta name="description" content="Le Bar de la Gare, 38 avenue de Toulon à La Crau : cuisine provençale à l'ardoise, terrasse ombragée sous les platanes, menu bouliste les jours de concours, traiteur. Réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=DM+Sans:wght@400;500;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{--ard:#1c2320;--creme:#f6efe2;--soleil:#f2b632;--fuch:#c8216b;--plat:#3d6b35;--ink:#171310}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--creme);color:var(--ink);font:400 16px/1.55 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--fuch);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:999}.skip:focus{left:8px}
+.H{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-stretch:78%;font-variation-settings:"wdth" 78;letter-spacing:-.035em;line-height:.92}
+.sc{font-family:Yellowtail,cursive;font-weight:400;letter-spacing:0}
+.cap{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;white-space:nowrap;transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
+.pill:hover{transform:rotate(0)!important;scale:1.06}
+.pill.w{background:#fff;color:var(--ink)}.pill.f{background:var(--fuch);color:#fff}.pill.k{background:var(--ink);color:#fff}.pill.y{background:var(--soleil);color:var(--ink)}
+.tag{display:inline-block;padding:6px 12px;border-radius:10px;font:700 12px "DM Sans";letter-spacing:.12em;text-transform:uppercase;transform:rotate(var(--r,0deg))}
+.tear{position:absolute;left:0;right:0;top:-1.6vw;height:1.7vw;min-height:12px;margin-top:-1px}
+/* header */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 40px;color:#fff;transition:background .3s,color .3s}
+.nav.s{background:rgba(246,239,226,.96);color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.logo{display:flex;align-items:center;gap:10px;font:400 30px/1 Yellowtail,cursive;white-space:nowrap}
+.logo i{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#b9c0c6 40%,#5d666e 75%,#2e353b);box-shadow:inset 0 0 0 2px rgba(0,0,0,.15);position:relative}
+.logo i::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(0,0,0,.35);border-left-color:transparent;border-right-color:transparent}
+.nav ul{list-style:none;display:flex;gap:26px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.nav .pill{padding:10px 18px;font-size:14px}
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;background:var(--ard);color:#fff;overflow:hidden;padding-bottom:12vw}
+.chalk{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.06),transparent 60%),repeating-linear-gradient(110deg,rgba(255,255,255,.018) 0 2px,transparent 2px 7px)}
+#b3{position:absolute;inset:0;pointer-events:none;z-index:2}
+#b3 canvas{width:100%!important;height:100%!important}
+.hl{position:relative;z-index:3;padding:21vh 0 0 11vw;max-width:52vw}
+.hl h1{font-size:clamp(54px,6.4vw,110px);color:#fff}
+.hl h1 .sc{display:block;color:var(--soleil);font-size:.86em;line-height:1.05;transform:rotate(-5deg) translateX(-2vw);margin-top:.12em;letter-spacing:0}
+.hl p{max-width:460px;margin:26px 0 24px;font-size:18px;color:rgba(255,255,255,.85)}
+.hl .row{display:flex;gap:10px;flex-wrap:wrap}
+.plate{position:absolute;z-index:3;right:8vw;top:22vh;width:30vw;max-width:470px;aspect-ratio:1;will-change:transform}
+.plate .pi{width:100%;height:100%;border-radius:50%;background:center/cover;box-shadow:0 40px 60px rgba(0,0,0,.45),0 0 0 14px #fff,0 0 0 16px rgba(0,0,0,.1)}
+.stick{position:absolute;left:-4%;bottom:6%;background:var(--fuch);color:#fff;padding:12px 18px;border-radius:16px;font:800 18px/1.1 "Bricolage Grotesque";transform:rotate(-7deg);box-shadow:0 10px 20px rgba(0,0,0,.3)}
+.stick small{display:block;font:500 12px "DM Sans";opacity:.9}
+.seal{position:absolute;right:-6%;top:-6%;width:34%;aspect-ratio:1;animation:spin 18s linear infinite}
+.seal svg{width:100%;height:100%;overflow:visible}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:12vw;z-index:4}
+/* BOULISTES */
+#boul{position:relative;background:var(--creme);text-align:center;padding:40px 24px 90px}
+#boul h2{font-size:clamp(48px,6vw,96px);position:relative;display:inline-block}
+.tags{position:absolute;inset:-30px -120px;pointer-events:none}
+.tags .tag{position:absolute;opacity:0;transform:scale(.4) rotate(var(--r));transition:opacity .4s,transform .6s cubic-bezier(.3,1.6,.5,1)}
+.tags.on .tag{opacity:1;transform:scale(1) rotate(var(--r))}
+#boul .sl{font-size:clamp(28px,3vw,44px);color:var(--fuch);margin:18px 0 0}
+.game{position:relative;max-width:980px;margin:46px auto 0;border-radius:28px;overflow:hidden;background:#d8c39a;box-shadow:0 30px 60px rgba(23,19,16,.18)}
+#pg{display:block;width:100%;height:360px;touch-action:none;cursor:grab}
+.ghud{position:absolute;left:16px;right:16px;top:14px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;pointer-events:none;text-align:left}
+.ghud b{font:800 22px/1 "Bricolage Grotesque";display:block}
+.ghud span{font-size:13px;font-weight:500}
+.ghud .r{text-align:right}
+.ghud button{pointer-events:auto;margin-top:8px;background:var(--ink);color:#fff;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:700}
+.ghint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:rgba(23,19,16,.82);color:#fff;padding:7px 14px;border-radius:99px;font-size:13px;white-space:nowrap;pointer-events:none}
+/* WORDS */
+.words{position:relative;background:var(--ink);padding:56px 0 50px;overflow:hidden}
+.wrow{display:flex;gap:4vw;white-space:nowrap;font-size:clamp(44px,7vw,110px);will-change:transform}
+.wrow span:nth-child(4n+1){color:var(--soleil)}.wrow span:nth-child(4n+2){color:#f06aa6}.wrow span:nth-child(4n+3){color:var(--creme)}.wrow span:nth-child(4n){color:#9dd08f}
+/* MENU sheets */
+.sheet{position:relative;min-height:100vh;padding:120px 24px 90px;text-align:center;overflow:visible}
+.sheet h2{font-size:clamp(56px,8vw,130px)}
+.sheet .lead{max-width:560px;margin:14px auto 0;font-size:17px}
+.pick{display:flex;justify-content:center;align-items:center;gap:10px;margin:30px auto 0;max-width:1100px}
+.pick .ar{width:44px;height:44px;border-radius:50%;border:2px solid currentColor;font-size:22px;flex:none;display:grid;place-items:center}
+.pills{display:flex;gap:10px;justify-content:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:22px 6px 8px}
+.pills::-webkit-scrollbar{display:none}
+.pills button{display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;border-radius:999px;background:rgba(255,255,255,.55);text-align:left;flex:none;transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
+.pills button img{width:44px;height:44px;border-radius:50%;object-fit:cover;margin-top:-14px;box-shadow:0 6px 12px rgba(0,0,0,.25)}
+.pills button b{display:block;font-size:15px}.pills button small{font-size:12px;opacity:.75}
+.pills button[aria-selected=true]{background:var(--ink);color:#fff}
+.dark .pills button{background:rgba(255,255,255,.12)}.dark .pills button[aria-selected=true]{background:var(--soleil);color:var(--ink)}
+.stage{position:relative;height:50vh;min-height:320px;margin:20px auto 0;max-width:900px}
+.stage .ghost{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-7deg);font:400 clamp(120px,18vw,300px)/1 Yellowtail,cursive;color:#fff;opacity:.26;white-space:nowrap;pointer-events:none}
+.stage .shot{position:absolute;left:50%;top:50%;width:min(44vh,520px);aspect-ratio:1;margin:calc(min(44vh,520px)/-2) 0 0 calc(min(44vh,520px)/-2);border-radius:50%;background:center/cover;box-shadow:0 30px 50px rgba(0,0,0,.35),0 0 0 10px #fff;transition:transform .7s cubic-bezier(.3,1.5,.5,1),opacity .28s}
+.stage .shot.out{transform:scale(.82) rotate(-8deg);opacity:0;transition:transform .28s,opacity .28s}
+.stage .ta{position:absolute;left:12%;top:12%;background:var(--ink);color:#fff;--r:-6deg;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.stage .tb{position:absolute;right:12%;bottom:12%;background:#fff;color:var(--ink);--r:5deg;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.stage .pop{transform:scale(0) rotate(0)}
+.ing{max-width:640px;margin:22px auto 0;font-size:16px;min-height:50px}
+.sheet .pill{margin-top:18px}
+.s1{background:var(--soleil)}.s2{background:var(--fuch);color:#fff}.s3{background:var(--plat);color:#fff}.s4{background:var(--ard);color:#fff}
+.s2 .pills button,.s3 .pills button{background:rgba(255,255,255,.16)}
+.s2 .pills button[aria-selected=true],.s3 .pills button[aria-selected=true]{background:#fff;color:var(--ink)}
+.bigp{font-size:clamp(90px,14vw,220px);line-height:.85;color:var(--soleil);margin-top:6px}
+.rail{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:40;background:#fff;border-radius:99px;padding:10px 7px;display:flex;flex-direction:column;gap:9px;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;pointer-events:none;transition:opacity .3s}
+.rail.on{opacity:1;pointer-events:auto}
+.rail a{width:12px;height:12px;border-radius:50%;background:#d8d2c6}
+.rail a.on{background:var(--ink)}
+/* ABOUT */
+#terr{position:relative;background:var(--creme);padding:120px 40px 120px}
+.stamps{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+#terr h2{text-align:center;font-size:clamp(52px,6.6vw,110px);margin:26px 0 20px}
+#terr .p{max-width:680px;margin:0 auto;text-align:center;font-size:18px}
+.blobs{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:3vw;align-items:center;max-width:1200px;margin:60px auto 0}
+.blob{position:relative;border-radius:58% 42% 51% 49%/45% 56% 44% 55%;overflow:hidden;aspect-ratio:1/1.05;transition:border-radius .8s}
+.blob:hover{border-radius:50%}
+.blob img{width:100%;height:100%;object-fit:cover}
+.blob::after{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 20% 30%,rgba(255,240,190,.55) 0 6%,transparent 7%),radial-gradient(circle at 60% 20%,rgba(255,240,190,.45) 0 4%,transparent 5%),radial-gradient(circle at 75% 65%,rgba(255,240,190,.5) 0 7%,transparent 8%),radial-gradient(circle at 35% 75%,rgba(255,240,190,.4) 0 5%,transparent 6%);mix-blend-mode:soft-light;animation:dap 9s ease-in-out infinite alternate;filter:blur(6px)}
+@keyframes dap{to{transform:translate(6%,-5%) rotate(8deg)}}
+.bw1{box-shadow:none;filter:drop-shadow(14px 14px 0 var(--plat))}.bw2{filter:drop-shadow(14px 14px 0 var(--soleil))}.bw3{filter:drop-shadow(14px 14px 0 var(--fuch))}
+.blob.bw2{border-radius:46% 54% 43% 57%/57% 41% 59% 43%}
+/* RESERVATION */
+#rdv{position:relative;background:var(--ink);color:#fff;padding:120px 40px 130px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+#rdv>*{min-width:0}
+#rdv h2{font-size:clamp(50px,6vw,100px);margin:10px 0 28px}
+#rdv h2 .sc{color:var(--soleil);display:block;font-size:.8em;transform:rotate(-4deg);margin-top:.1em}
+fieldset{border:0;margin-bottom:22px}
+legend{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1.5px solid rgba(255,255,255,.25);border-radius:999px;padding:9px 15px;font-size:14px;font-weight:500;transition:.2s}
+.opt[aria-pressed=true]{background:var(--soleil);color:var(--ink);border-color:var(--soleil)}
+.opt:disabled{opacity:.28;cursor:not-allowed}
+.ff{display:grid;gap:10px;max-width:520px}
+.ff input[type=text],.ff input[type=tel]{border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 16px;font:inherit;background:rgba(255,255,255,.06);color:#fff}
+.ff input::placeholder{color:rgba(255,255,255,.55)}
+.cb{display:flex;gap:10px;font-size:14px;align-items:flex-start}
+.cb input{margin-top:4px;accent-color:var(--soleil);width:18px;height:18px;flex:none}
+.cb button{text-decoration:underline}
+.ff .pill{justify-self:start;margin-top:6px}
+#msg{min-height:24px;font-size:15px}
+.padw{position:sticky;top:100px;perspective:1200px;display:flex;justify-content:center}
+.pad{position:relative;width:min(400px,100%);transform:rotate(3deg)}
+.pad .spiral{height:26px;background:radial-gradient(circle at 50% 60%,#2b2b2b 0 5px,transparent 6px) 0 0/22px 26px repeat-x;position:relative;z-index:3}
+.sheetp{background:#fffdf6;color:#2a2a2a;border-radius:4px 4px 10px 10px;padding:26px 26px 30px;min-height:440px;box-shadow:0 30px 50px rgba(0,0,0,.45);background-image:repeating-linear-gradient(transparent 0 33px,#d8e3f0 33px 34px);background-position:0 54px;transform-origin:50% 0;transition:transform 1.1s cubic-bezier(.5,-0.2,.3,1),opacity 1.1s}
+.sheetp.torn{transform:translateY(120px) rotateX(-70deg) rotateZ(12deg);opacity:0}
+.sheetp h3{font:400 34px/1 Yellowtail,cursive;color:var(--fuch);margin-bottom:12px}
+.sheetp p{font:400 25px/34px Yellowtail,cursive;min-height:34px;color:#24324a}
+.sheetp p small{font:700 11px "DM Sans";letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a;margin-right:8px}
+.under{position:absolute;left:0;right:0;top:26px;bottom:0;background:#fffdf6;border-radius:4px 4px 10px 10px;z-index:-1;display:grid;place-items:center;text-align:center;color:var(--plat);font:400 34px/1.1 Yellowtail,cursive;padding:30px}
+/* INFOS */
+#infos{background:var(--plat);color:#fff;padding:120px 40px;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start;position:relative}
+#infos h2{font-size:clamp(48px,5.6vw,92px)}
+#infos .ad{margin-top:18px;font-size:17px}
+#infos .ad a{font-weight:700;color:var(--soleil)}
+.hrs{margin-top:26px}
+.hrs div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.hrs div.td{color:var(--soleil);font-weight:700}
+.map{height:540px}
+.pin span{font:400 30px Yellowtail,cursive;color:var(--ink)}
+footer{background:var(--ink);color:#d7d0c4;padding:40px 40px 0;overflow:hidden;font-size:13px}
+footer .fr{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+footer ul button{text-decoration:underline;text-underline-offset:3px;font-size:13px}
+.edge{white-space:nowrap;font:400 1px/1 Yellowtail,cursive;color:var(--creme);margin-top:30px;height:.62em;overflow:hidden;padding-bottom:40px}
+.edge b{font-weight:400;color:var(--soleil)}
+
+.demo{position:fixed;right:10px;bottom:10px;z-index:45;font:500 11px/1 system-ui,sans-serif;background:rgba(10,10,10,.78);color:#fff;padding:6px 10px;border-radius:999px;letter-spacing:.01em}
+.ck{position:fixed;left:16px;bottom:16px;z-index:70;max-width:420px;background:#f6efe2;color:#171310;border:1px solid rgba(0,0,0,.12);border-radius:16px;padding:18px 20px;box-shadow:0 20px 50px rgba(0,0,0,.3);font:15px/1.45 system-ui,sans-serif}
+.ck p{margin:0 0 12px}.ck .a{display:flex;gap:10px}
+.ck .a button{flex:1;padding:11px 10px;border-radius:999px;border:1.5px solid #171310;background:transparent;color:#171310;font:600 14px system-ui,sans-serif;cursor:pointer}
+.ck .a button:hover{background:#171310;color:#f6efe2}
+dialog.lg{margin:auto;max-width:640px;width:calc(100% - 32px);max-height:85vh;border:0;border-radius:16px;padding:28px;background:#f6efe2;color:#171310;font:15px/1.55 system-ui,sans-serif}
+dialog.lg::backdrop{background:rgba(0,0,0,.6)}
+dialog.lg h3{font-size:24px;margin:0 0 12px}dialog.lg h4{margin:14px 0 4px}dialog.lg p{margin:0 0 8px}
+dialog.lg .x{float:right;border:1px solid currentColor;border-radius:999px;padding:6px 14px;background:none;color:inherit;cursor:pointer;font:inherit}
+.map{position:relative;border-radius:22px;overflow:hidden;background:#111;isolation:isolate}
+.map iframe{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:#3d6b35;mix-blend-mode:color;opacity:.75}
+.map::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 120px 40px rgba(0,0,0,.8)}
+.mph{position:absolute;inset:0;background:repeating-linear-gradient(28deg,transparent 0 58px,rgba(255,255,255,.07) 58px 61px),repeating-linear-gradient(-62deg,transparent 0 90px,rgba(255,255,255,.05) 90px 93px),radial-gradient(circle at 50% 45%,#2a2a2a,#0c0c0c)}
+.pin{position:absolute;z-index:2;left:50%;top:50%;width:64px;height:64px;margin:-80px 0 0 -32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#f2b632;display:grid;place-items:center;pointer-events:none;animation:pinb 2.4s ease-in-out infinite;box-shadow:0 0 0 10px rgba(255,255,255,.12)}
+.pin>*{transform:rotate(45deg)}
+@keyframes pinb{50%{box-shadow:0 0 0 18px rgba(255,255,255,.06),0 0 0 34px rgba(255,255,255,.03)}}
+.mcard{position:absolute;z-index:3;left:14px;bottom:14px;right:14px;max-width:340px;background:rgba(15,15,15,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:16px 18px;color:#fff;font:15px/1.4 system-ui,sans-serif}
+.mcard b{font-size:18px;display:block}.mcard p{opacity:.8;font-size:14px;margin:4px 0 12px}
+.mcard a{display:inline-block;background:#f2b632;color:#171310;font-weight:700;padding:10px 18px;border-radius:999px;text-decoration:none}
+.mcon{position:absolute;z-index:3;top:14px;right:14px}
+.mcon button{background:rgba(15,15,15,.8);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 16px;font:600 14px system-ui,sans-serif;cursor:pointer}
+@media (max-width:600px){.ck{left:10px;right:10px;bottom:10px;max-width:none}.demo{font-size:10px;padding:5px 9px;right:8px;bottom:8px}}
+
+@media (max-width:991px){
+ .nav ul{display:none}
+ .hl{padding:16vh 6vw 0;max-width:none}
+ .plate{position:relative;right:auto;top:auto;width:68vw;margin:40px auto 0}
+ .blobs{grid-template-columns:1fr 1fr;gap:20px}.blobs .blob:nth-child(2){grid-column:1/-1;order:-1}
+ #rdv,#infos{grid-template-columns:1fr;gap:40px}
+ .padw{position:relative;top:0}
+ .tags{inset:-50px -10px}
+}
+@media (max-width:760px){
+ .nav{padding:12px 16px}.logo{font-size:26px}.nav .pill{padding:9px 14px;font-size:13px}
+ .hl{padding:110px 18px 0}
+ .hl h1{font-size:13vw}
+ .hl p{font-size:16px;margin:18px 0 18px}
+ .plate{width:74vw;margin-top:34px}
+ .stick{font-size:15px;padding:9px 13px}
+ .hero{padding-bottom:24vw}
+ #boul{padding:20px 16px 70px}
+ #boul h2{font-size:13vw}
+ .tags{position:relative;inset:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+ .tags .tag{position:static}
+ #pg{height:330px}
+ .ghud b{font-size:17px}.ghud span{font-size:12px}
+ .sheet{padding:100px 16px 70px;min-height:0}
+ .pick .ar{display:none}
+ .pills{justify-content:flex-start;padding:22px 2px 8px;margin:0 -16px;padding-left:16px;padding-right:16px}
+ .stage{height:66vw;min-height:0}
+ .stage .shot{width:62vw;margin:-31vw 0 0 -31vw}
+ .stage .ta{left:2%;top:4%}.stage .tb{right:2%;bottom:4%}
+ .rail{display:none}
+ #terr{padding:90px 16px}
+ #terr .p{font-size:16px}
+ #rdv{padding:90px 16px 100px}
+ .sheetp{min-height:380px;padding:22px 20px 26px}.sheetp p{font-size:22px}
+ #infos{padding:90px 16px}
+ .map{height:430px}
+ footer{padding:30px 16px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="nav" id="nav">
+ <a class="logo" href="#top" aria-label="Café de la Gare, accueil"><i></i>Café de la Gare</a>
+ <ul><li><a href="#ardoise">L'ardoise</a></li><li><a href="#terr">La terrasse</a></li><li><a href="#boul">Boulistes</a></li><li><a href="#infos">Accès</a></li></ul>
+ <a class="pill y" href="#rdv">Réserver</a>
+</header>
+<nav class="rail" id="rail" aria-label="Sections de la carte"><a href="#ardoise" aria-label="L'ardoise"></a><a href="#vendredis" aria-label="Les vendredis"></a><a href="#bouliste" aria-label="Menu bouliste"></a><a href="#groupes" aria-label="Groupes et traiteur"></a></nav>
+<main id="main">
+<section class="hero" id="top" aria-label="Accueil">
+ <div class="chalk"></div>
+ <div id="b3" aria-hidden="true"></div>
+ <div class="hl">
+  <h1 class="H">Café de la Gare,<span class="sc">à l'ombre des platanes.</span></h1>
+  <p>Cuisine provençale à l'ardoise, terrasse ombragée et menu bouliste les jours de concours. Au 38 avenue de Toulon, à La Crau.</p>
+  <div class="row"><a class="pill w" href="#ardoise" style="transform:rotate(-3deg)">Voir l'ardoise ›</a><a class="pill f" href="tel:+33494389773">04 94 38 97 73</a></div>
+ </div>
+ <div class="plate" id="plate" aria-hidden="true"><div class="pi" style="background-image:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QAOGys1BaFeQynSAeTJy5U-B0hMXu1UqoAKxJMgUDc9WwyC5odJCyp_WGqAN5oyalLutVLkq16twUQCmEqr_EUnPDJwVgxYrcadJUYFvKvDsa7OyD84J6ajxMBImufsObjRsOI=w900)"></div>
+  <div class="stick">Menu bouliste<small>plat · dessert · ¼ de vin · café</small></div>
+  <div class="seal"><svg viewBox="0 0 200 200"><defs><path id="cp" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0"/></defs><circle cx="100" cy="100" r="98" fill="#f2b632"/><text font-family="DM Sans" font-weight="700" font-size="15.5" letter-spacing="3" fill="#171310"><textPath href="#cp">TERRASSE OMBRAGÉE · PLAT DU JOUR · LA CRAU ·</textPath></text><circle cx="100" cy="100" r="34" fill="#9aa3ab"/><path d="M70 92q30 14 60 0M70 108q30-14 60 0" stroke="#3b434a" stroke-width="3" fill="none"/></svg></div>
+ </div>
+ <svg class="wave" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true"><path fill="#f6efe2" d="M0 170V120C300 150 520 40 860 60s420 40 580-40v150z"/></svg>
+</section>
+
+<section id="boul" aria-labelledby="t2">
+ <h2 class="H" id="t2">Ici, on vient<br>pour la partie,<span class="tags" id="tags"><span class="tag" style="--r:-8deg;left:-4%;top:8%;background:var(--plat);color:#fff">Les boulistes</span><span class="tag" style="--r:6deg;right:-6%;top:0;background:var(--fuch);color:#fff">Les habitués</span><span class="tag" style="--r:-4deg;left:2%;bottom:-6%;background:var(--ink);color:#fff">Les collègues</span><span class="tag" style="--r:7deg;right:0;bottom:-2%;background:var(--soleil);color:var(--ink)">Les familles</span></span></h2>
+ <p class="sc sl">et on reste pour l'assiette.</p>
+ <div class="game">
+  <canvas id="pg" aria-label="Petit jeu de pétanque : tirez la boule vers le cochonnet en la faisant glisser"></canvas>
+  <div class="ghud"><div><b id="gm">Pointez !</b><span id="gs">3 boules pour approcher le cochonnet</span></div><div class="r"><b id="gb">–</b><span>meilleure boule</span><br><button type="button" id="gr">Nouvelle mène</button></div></div>
+  <p class="ghint" id="gh">Tirez la boule vers l'arrière, puis lâchez</p>
+ </div>
+</section>
+
+<div class="words" aria-hidden="true">
+ <div class="tear" id="tw0"></div>
+ <div class="wrow H" id="w1"><span>Escalope</span><span>Tartare</span><span>Daube</span><span>Aïoli</span><span>Entrecôte</span><span>Marmite</span><span>Moules</span><span>Paella</span><span>Escalope</span><span>Tartare</span><span>Daube</span><span>Aïoli</span></div>
+ <div class="wrow H" id="w2" style="margin-top:10px"><span>Platanes</span><span>Terrasse</span><span>Boulistes</span><span>Café</span><span>Ardoise</span><span>Traiteur</span><span>Soleil</span><span>Platanes</span><span>Terrasse</span><span>Boulistes</span></div>
+</div>
+
+<section class="sheet s1" id="ardoise" aria-labelledby="h1s"><div class="tear"></div>
+ <p class="cap">La carte · 1</p><h2 class="H" id="h1s">L'ardoise</h2>
+ <p class="lead">Écrite à la craie sous le platane, elle change selon le marché. Quelques classiques de la maison :</p>
+ <div class="menuw" data-m="0"></div>
+</section>
+<section class="sheet s2" id="vendredis" aria-labelledby="h2s"><div class="tear"></div>
+ <p class="cap">La carte · 2</p><h2 class="H" id="h2s">Les vendredis</h2>
+ <p class="lead">Aïoli, marmite du pêcheur, paella : les plats du vendredi sont annoncés à l'avance sur Instagram, sur réservation.</p>
+ <div class="menuw" data-m="1"></div>
+</section>
+<section class="sheet s3" id="bouliste" aria-labelledby="h3s"><div class="tear"></div>
+ <p class="cap">La carte · 3</p><h2 class="H" id="h3s">Menu bouliste</h2>
+ <p class="bigp H">22 €</p>
+ <p class="lead">Plat, dessert, un quart de vin et le café, proposé les jours de concours au boulodrome.</p>
+ <div class="menuw" data-m="2"></div>
+</section>
+<section class="sheet s4 dark" id="groupes" aria-labelledby="h4s"><div class="tear"></div>
+ <p class="cap">La carte · 4</p><h2 class="H" id="h4s">Groupes &amp; traiteur</h2>
+ <p class="lead">Longues tablées sous les platanes, repas d'associations ou de club : le café fait aussi traiteur à La Crau.</p>
+ <div class="menuw" data-m="3"></div>
+</section>
+
+<section id="terr" aria-labelledby="t5"><div class="tear"></div>
+ <div class="stamps"><span class="tag" style="--r:-5deg;background:var(--soleil)">Terrasse ombragée</span><span class="tag" style="--r:4deg;background:var(--fuch);color:#fff">Plat du jour</span><span class="tag" style="--r:-3deg;background:var(--plat);color:#fff">Menu bouliste</span><span class="tag" style="--r:5deg;background:#cfc8bb">Traiteur</span><span class="tag" style="--r:-6deg;border:2px solid var(--ink)">La Crau</span></div>
+ <h2 class="H" id="t5">Sous les platanes,<br><span class="sc" style="color:var(--fuch)">on prend le temps</span></h2>
+ <p class="p">Ouvert du lundi au samedi de 9 h à 16 h : le café du matin, puis le déjeuner à l'ombre, nappes blanches et chemins de table. Sur place, à emporter ou en livraison.</p>
+ <div class="blobs">
+  <div class="blob bw1"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TRbhvvtIdeSNwc3jXANw_dHfatTkSiN4Jx9HIU6NiSqm6bhDah6l5DJdKgVUsL_yG3VF7RjG9KdZbs0oYZna2t0j5X3cbKbP1yXYRVbf28Xs3RyELVE-LbTpnLljEfJKmM9hx49Q=w700" alt="L'ardoise du jour accrochée sous le platane" loading="lazy"></div>
+  <div class="blob bw2"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TJPImB1SRmYF0LJ5I7j_zeS5Kdw_eiGs18zTbUOkFjSk4KDWssNcQ8Uh-nWIusqRZ4R0zWMnqLBusypRRlEAhKsxygwG9OS3x6cbzu0rMyQH2izJahUb8YePU9m6aEvZT8EJ_J=w900" alt="La terrasse sous le grand platane, chaises blanches" loading="lazy"></div>
+  <div class="blob bw3"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SEWgDcKh6zcV51aUkHB6ZfSR2PAVTlDByIVc9p3kXrIdD4OcvnTf_n5uxbqzn462hXDOz4Df0d5eKyeWJtMZ7NFlOX712zl-1sWpJn2Yi4kl7Lcbv51fioEm3bYXwid9AOpdzs=w700" alt="Tables dressées avec un bouquet de fleurs sur la terrasse" loading="lazy"></div>
+ </div>
+</section>
+
+<section id="rdv" aria-labelledby="t6"><div class="tear"></div>
+ <form id="bk" novalidate>
+  <p class="cap" style="color:var(--soleil)">Réservation</p>
+  <h2 class="H" id="t6">Une table<span class="sc">sous le platane ?</span></h2>
+  <fieldset><legend>1 · Le jour</legend><div class="opts" id="oD"></div></fieldset>
+  <fieldset><legend>2 · Le moment</legend><div class="opts" id="oH"></div></fieldset>
+  <fieldset><legend>3 · Combien</legend><div class="opts" id="oP"></div></fieldset>
+  <fieldset><legend>4 · Votre envie</legend><div class="opts" id="oE"></div></fieldset>
+  <div class="ff">
+   <label class="sr" for="fN">Nom</label><input id="fN" type="text" placeholder="Votre nom" autocomplete="name">
+   <label class="sr" for="fT">Téléphone</label><input id="fT" type="tel" placeholder="Votre téléphone" autocomplete="tel">
+   <label class="cb"><input type="checkbox" id="fC"><span>J'accepte que le Café de la Gare utilise ces informations uniquement pour gérer ma réservation (<button type="button" data-open="conf">confidentialité</button>).</span></label>
+   <button class="pill y" type="submit">Envoyer la demande ›</button>
+   <p id="msg" role="status"></p>
+  </div>
+ </form>
+ <div class="padw" aria-hidden="true"><div class="pad"><div class="spiral"></div><div class="sheetp" id="sheetp"><h3>Table n°…</h3><p><small>Jour</small><span id="nD"></span></p><p><small>Heure</small><span id="nH"></span></p><p><small>Couverts</small><span id="nP"></span></p><p><small>Envie</small><span id="nE"></span></p><p><small>Nom</small><span id="nN"></span></p></div><div class="under">C'est noté !<br>À tout à l'heure sous les platanes.</div></div></div>
+</section>
+
+<section id="infos" aria-labelledby="t7"><div class="tear"></div>
+ <div>
+  <p class="cap" style="color:var(--soleil)">Accès</p>
+  <h2 class="H" id="t7">38 avenue<br>de Toulon</h2>
+  <p class="ad">83260 La Crau · <a href="tel:+33494389773">04 94 38 97 73</a> · <a href="tel:+33668029324">06 68 02 93 24</a></p>
+  <p class="ad">Instagram : <a href="https://www.instagram.com/restaurant_dela_gare/" target="_blank" rel="noopener">@restaurant_dela_gare</a></p>
+  <div class="hrs" id="hrs"></div>
+ </div>
+ <div class="map" id="map"><div class="mph" id="mph"></div><div class="pin" aria-hidden="true"><span>G</span></div>
+<div class="mcon" id="mcon"><button type="button" id="mapBtn">Afficher le plan Google</button></div>
+<div class="mcard"><b>Café de la Gare</b><p>38 avenue de Toulon, 83260 La Crau</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Bar+de+la+Gare%2C+38+Av.+de+Toulon%2C+83260+La+Crau" target="_blank" rel="noopener">Itinéraire</a></div></div>
+</section>
+</main>
+<footer><div class="fr"><span>© 2026 Café de la Gare · La Crau</span><ul class="fl"><li><button type="button" data-open="ml">Mentions légales</button></li><li><button type="button" data-open="conf">Confidentialité</button></li><li><button type="button" data-open="cgv">CGV / CGU</button></li><li><button type="button" data-open="ann">Annulation et remboursement</button></li><li><button type="button" data-open="ck">Cookies</button></li></ul></div><p class="edge" id="edge">à l'ombre <b>des platanes.</b></p></footer>
+<a class="demo" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+<div class="ck" id="ck" role="dialog" aria-label="Cookies" hidden><p>Ce site n'utilise aucun cookie de suivi. Seul le plan Google Maps peut en déposer si vous l'affichez. Vous acceptez ?</p><div class="a"><button type="button" id="ckNo">Refuser</button><button type="button" id="ckYes">Accepter</button></div></div>
+<dialog class="lg" id="dlg" aria-labelledby="dlgT"><button class="x" type="button" id="dlgX">Fermer</button><div id="dlgC"></div></dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+addEventListener('DOMContentLoaded',()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,mob=()=>innerWidth<=760;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const G='https://lh3.googleusercontent.com/gps-cs-s/',img=(k,w)=>G+PH[k]+'=w'+w;
+const PH={escalope:'ANWiy9QAOGys1BaFeQynSAeTJy5U-B0hMXu1UqoAKxJMgUDc9WwyC5odJCyp_WGqAN5oyalLutVLkq16twUQCmEqr_EUnPDJwVgxYrcadJUYFvKvDsa7OyD84J6ajxMBImufsObjRsOI',tartare:'ANWiy9R5WQbkntFkiVXxpT-ve69rqt5sUJdJ1zgWqP-WQI04NhGsGZWKyJu_zyTcGD6CS-kRWUNnisWTCALGh8NgwMkOkjnTK78QXFb2RA58gvHAuiNRBBZNhFY8OjHBQ3Fx-1X3DbY2M2NDC5Xt',mijote:'ANWiy9TcMsZ9UZGQ3cbKEPsx2Z6j1nkAV80T574CQLIMHA4CouExPpFI9YFbe94rc0BsNT8_o5Aj-4bxc6pKa_X74k_YOIuFshk720dpg1l6twhmFPLllIQijLxYZye5fN5Ilt6czVrZxRlrb3eF',grill:'ANWiy9RD8IicDD5nDpAODPWnJ6gI6GT2rh28SFDIDJJ7hR2bfnFlK3g5VVxwgGp2j44sG4vSRy9pnOtuXinobr5FQ2Ai9YnzDDRZJR3hMwfM0-dmltsYJOnORbyuF7YBzxlAjvHcAH_80fX8d8ox',mer:'ANWiy9SJ00RsYvuNwY7sjC7OTTEGjeLvzyTBWwsUJ9K74KjuPrEEElN_hrHl63mZWoDw7cucIRSVHw8Jla_JfOjwdZPFnNWKSJbXPb2vLrwuNIZrTseoOqXaJ3404ejVkGxP6IHJQrTkp685ssU',paella:'ANWiy9RQPnEPIYPsCKX4dV09mQS0zx4s6g6-brUO2z3VlvQoEkGoLLrMbOYZo_JpOGRxSg1puBub8YsOm1ZKe1JyGS4OUJiiWAbLdeG4tAXD_3NIufX4SEWiqT-y7bhYTKexX-S2EjnsXJhXJjQu',poisson:'ANWiy9SoQwRF32FxK5eQnDvaFm8NL7uoDVVfjvTMrUcv8LTvp1A8DqS5OfAxu3vFzpo5MJJzhKBxdzxdicxAx2w5d4bCYYLg2l5CCGBVXJVThNSXfdauB9UswYHx2QH7lrWtihQDavAAbZWWKCdU',cote:'ANWiy9QQFD7E2wUlxTIyXQ4p7vuagoTI6ZddPiu2OUKY7c9WKY86Dl9ZCD8VTwO_dAtJA338deLx9vjkAldDasJUY4x2kFBB8RZwal_aUChlXEBj06yCd08tdVJLtS_n1Xu8dvE4kg7r',tablee:'ANWiy9TFdJikNpSG2hCYYtWztgfvBeUy_4KDjh-PJ070zd4RV7zK1EZ7KB-t1BOa0oroVnvNAJneWm2OtcXbxlXNI4H21A6cC8gl2AWC62r05zKWmbdXNUhmt9Z42Pp_7e66YKBUcJeD',dressee:'ANWiy9TjjnZF-8ueYTnMFYLiR2IAozBxdwBNUSTjOAq3J4AKxn4ijCjTnPUPsf18mhAm5YV7NVxEbaICjcnm74k3Lhw-dF5Ufv0FNEJFtLfCj88RJq_EumyHLot6FogxARGvb08GoG0tlw',terrasse:'ANWiy9TJPImB1SRmYF0LJ5I7j_zeS5Kdw_eiGs18zTbUOkFjSk4KDWssNcQ8Uh-nWIusqRZ4R0zWMnqLBusypRRlEAhKsxygwG9OS3x6cbzu0rMyQH2izJahUb8YePU9m6aEvZT8EJ_J',crevettes:'ANWiy9QyoG6drrM7IhzWqOlLHs_R4ml9vIVYbD4hqQ0N3NjUZfmXMI6R3lU2jPLYnSiyYk9XF6tWNnfDKsCECqIGnU04eoTWjCWvnWaLdXGZuIcQXVNm05SEHJ9ZqGnlECTKiQxexZ6dAQjBss8x'};
+/* torn edges */
+function tears(){$$('.tear').forEach((t,k)=>{const sec=t.parentElement;const prev=sec.previousElementSibling;const col=getComputedStyle(sec).backgroundColor;t.style.background=col;let pts=['0% 100%'];const a=1+k*.7,b=2.3+k*.37,c=5.1+k*.53;for(let i=0;i<=60;i++){const x=i/60;const y=50+18*Math.sin(x*Math.PI*2*a+k)+12*Math.sin(x*Math.PI*2*b+k*2)+8*Math.sin(x*Math.PI*2*c);pts.push(`${(x*100).toFixed(2)}% ${clamp(y,4,96).toFixed(1)}%`)}pts.push('100% 100%');t.style.clipPath=`polygon(${pts.join(',')})`})}
+tears();
+/* nav */
+const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>innerHeight*.6),{passive:true});
+/* hero plate */
+const plate=$('#plate');let px=0,py=0;addEventListener('pointermove',e=>{px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5},{passive:true});
+/* THREE boules */
+let B3=null;
+function three(){const T=window.THREE,el=$('#b3');if(!T)return;
+ const rd=new T.WebGLRenderer({antialias:true,alpha:true});rd.setPixelRatio(Math.min(2,devicePixelRatio));el.appendChild(rd.domElement);
+ const sc=new T.Scene(),cam=new T.PerspectiveCamera(35,1,.1,100);cam.position.set(0,0,20);
+ sc.add(new T.HemisphereLight(0xffffff,0x334433,.9));const d1=new T.DirectionalLight(0xfff2d0,1.2);d1.position.set(6,8,10);sc.add(d1);const d2=new T.DirectionalLight(0x9fd0ff,.5);d2.position.set(-8,-4,6);sc.add(d2);
+ const steel=new T.MeshStandardMaterial({color:0xc9d0d6,metalness:.75,roughness:.28});
+ const groove=new T.MeshStandardMaterial({color:0x3b434a,metalness:.6,roughness:.4});
+ const objs=[];
+ function boule(r){const g=new T.Group();g.add(new T.Mesh(new T.SphereGeometry(r,48,32),steel));[-.35,0,.35].forEach((o,i)=>{const t=new T.Mesh(new T.TorusGeometry(r*Math.cos(o),r*.025,8,64),groove);t.rotation.x=Math.PI/2;t.position.y=r*Math.sin(o);if(i!==1)g.add(t)});const t2=new T.Mesh(new T.TorusGeometry(r*1.002,r*.025,8,64),groove);g.add(t2);return g}
+ function coch(){return new T.Mesh(new T.SphereGeometry(.42,32,24),new T.MeshStandardMaterial({color:0xe0a43a,roughness:.55}))}
+ const ls=new T.Shape();ls.moveTo(0,-1.2);for(let i=0;i<=10;i++){const a=i/10*Math.PI;const r=1+.35*Math.sin(a*5);ls.lineTo(Math.cos(a-Math.PI/2)*r*.9,Math.sin(a-Math.PI/2)*r*-1+.0)}ls.lineTo(0,-1.2);
+ function leaf(c){const s=new T.Shape();s.moveTo(0,-1.3);s.quadraticCurveTo(1.2,-.6,1.1,.3);s.lineTo(.55,.2);s.lineTo(.8,1);s.lineTo(.25,.75);s.lineTo(0,1.4);s.lineTo(-.25,.75);s.lineTo(-.8,1);s.lineTo(-.55,.2);s.lineTo(-1.1,.3);s.quadraticCurveTo(-1.2,-.6,0,-1.3);return new T.Mesh(new T.ShapeGeometry(s,6),new T.MeshStandardMaterial({color:c,side:T.DoubleSide,roughness:.7}))}
+ const spec=[['b',1.15,[.32,.18,1]],['b',1.0,[.56,-.25,-1]],['b',.9,[.18,-.42,2]],['c',0,[.44,.42,3]],['l',0x6f9a3a,[.08,.3,-2]],['l',0x4e7d2c,[.7,.35,0]],['l',0x8db04a,[.62,-.5,1]],['l',0x6f9a3a,[-.05,-.15,-3]]];
+ spec.forEach((s,i)=>{const o=s[0]==='b'?boule(s[1]):s[0]==='c'?coch():leaf(s[1]);o.userData={p:s[2],ph:i*1.7,k:s[0]};sc.add(o);objs.push(o)});
+ let vw=1,vh=1;const size=()=>{const w=el.clientWidth,h=el.clientHeight;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();vh=Math.tan(17.5*Math.PI/180)*20;vw=vh*cam.aspect};size();addEventListener('resize',size);
+ B3=t=>{const r=el.getBoundingClientRect();if(r.bottom<0)return;const s=t/1000;const sp=clamp(scrollY/innerHeight,0,1.5);
+  objs.forEach(o=>{const u=o.userData,p=u.p;const m=mob();let x=p[0]*vw*2-vw*.0,y=p[1]*vh;if(m){x=(p[0]-.35)*vw*2.6;y=p[1]*vh*.9-vh*.35}
+   const dx=(x-0)*sp*.6,dy=(y-0)*sp*.6;o.position.set(x+dx-px*(1.2+p[2]*.3),y+dy+(RM?0:Math.sin(s+u.ph)*.25)+py*(1+p[2]*.2),p[2]);
+   if(u.k==='b'||u.k==='c'){o.rotation.set(s*.4+u.ph+sp*3,s*.3+sp*2,0)}else{o.rotation.set(Math.sin(s*.8+u.ph)*.6,s*.5+u.ph,Math.sin(s*.6)*.4+sp*2)}
+   o.scale.setScalar(m?.62:1)});rd.render(sc,cam)}}
+/* tags pop */
+const tg=$('#tags');new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){tg.classList.add('on');$$('#tags .tag').forEach((t,i)=>t.style.transitionDelay=i*140+'ms')}}),{threshold:.3}).observe(tg);
+/* PETANQUE */
+const cv=$('#pg'),cx=cv.getContext('2d');let W=0,Hh=0,DPR=1;const G2={b:[],ball:null,coch:{x:0,y:0},left:3,best:null,drag:null};
+const sand=document.createElement('canvas');
+function gsize(){const r=cv.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio);W=r.width;Hh=r.height;cv.width=W*DPR;cv.height=Hh*DPR;sand.width=cv.width;sand.height=cv.height;const s=sand.getContext('2d');const g=s.createLinearGradient(0,0,0,sand.height);g.addColorStop(0,'#cdb488');g.addColorStop(1,'#e2cfa6');s.fillStyle=g;s.fillRect(0,0,sand.width,sand.height);for(let i=0;i<sand.width*sand.height/90;i++){s.fillStyle=`rgba(${Math.random()<.5?'90,70,40':'255,250,235'},${Math.random()*.25})`;s.fillRect(Math.random()*sand.width,Math.random()*sand.height,DPR*1.2,DPR*1.2)}
+ s.strokeStyle='rgba(255,255,255,.55)';s.lineWidth=3*DPR;s.setLineDash([10*DPR,8*DPR]);s.beginPath();s.arc(sand.width/2,sand.height-34*DPR,26*DPR,0,7);s.stroke()}
+function newMene(){G2.b=[];G2.left=3;G2.best=null;G2.ball=null;G2.coch={x:W*(.3+Math.random()*.4),y:Hh*(.22+Math.random()*.16)};$('#gb').textContent='–';$('#gm').textContent='Pointez !';$('#gs').textContent='3 boules pour approcher le cochonnet';$('#gh').hidden=false}
+gsize();newMene();let lwg=innerWidth;addEventListener('resize',()=>{if(Math.abs(innerWidth-lwg)>40){lwg=innerWidth;gsize();newMene()}});
+const start=()=>({x:W/2,y:Hh-34});
+const cm=d=>Math.round(d/ (W/9) *100);
+function pos(e){const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+cv.addEventListener('pointerdown',e=>{if(G2.ball||!G2.left)return;cv.setPointerCapture(e.pointerId);G2.drag={o:pos(e),p:pos(e)};$('#gh').hidden=true});
+cv.addEventListener('pointermove',e=>{if(G2.drag)G2.drag.p=pos(e)});
+function launch(vx,vy){const s=start();G2.ball={x:s.x,y:s.y,vx,vy,z:0,vz:Math.hypot(vx,vy)*.35};G2.left--;G2.drag=null}
+cv.addEventListener('pointerup',e=>{if(!G2.drag)return;const d=G2.drag;const dx=d.o.x-d.p.x,dy=d.o.y-d.p.y;const L=Math.hypot(dx,dy);if(L<12){G2.drag=null;return}const k=Math.min(L,Hh*.7)/L*.085;launch(dx*k,dy*k)});
+$('#gr').onclick=()=>newMene();
+cv.addEventListener('keydown',e=>{if(e.key==='Enter'&&!G2.ball&&G2.left){const s=start();const dx=G2.coch.x-s.x+(Math.random()-.5)*60,dy=G2.coch.y-s.y+(Math.random()-.5)*40;const L=Math.hypot(dx,dy);launch(dx/L*Math.sqrt(L)*.42,dy/L*Math.sqrt(L)*.42)}});cv.tabIndex=0;
+function drawBall(x,y,r,z,c){cx.save();cx.fillStyle='rgba(60,40,20,.28)';cx.beginPath();cx.ellipse(x+z*.4,y+r*.6,r*1.05,r*.45,0,0,7);cx.fill();const g=cx.createRadialGradient(x-r*.35,y-r*.4-z,r*.1,x,y-z,r);if(c){g.addColorStop(0,'#ffe2a0');g.addColorStop(1,'#b97818')}else{g.addColorStop(0,'#ffffff');g.addColorStop(.35,'#c9d0d6');g.addColorStop(1,'#4a535b')}cx.fillStyle=g;cx.beginPath();cx.arc(x,y-z,r,0,7);cx.fill();if(!c){cx.strokeStyle='rgba(40,46,52,.6)';cx.lineWidth=1.2;cx.beginPath();cx.ellipse(x,y-z,r,r*.35,0,0,7);cx.stroke()}cx.restore()}
+function game(){if(!W)return;cx.setTransform(DPR,0,0,DPR,0,0);cx.drawImage(sand,0,0,W,Hh);const r=Math.max(11,W/50);
+ const b=G2.ball;if(b){b.x+=b.vx;b.y+=b.vy;b.vz-=.55;b.z=Math.max(0,b.z+b.vz);if(b.z===0){b.vx*=.93;b.vy*=.93;b.vz=0}else{b.vx*=.995;b.vy*=.995}
+  if(b.x<r){b.x=r;b.vx*=-.5}if(b.x>W-r){b.x=W-r;b.vx*=-.5}if(b.y<r){b.y=r;b.vy*=-.5}if(b.y>Hh-r){b.y=Hh-r;b.vy*=-.5}
+  G2.b.forEach(o=>{const dx=b.x-o.x,dy=b.y-o.y,dd=Math.hypot(dx,dy);if(b.z<2&&dd<r*2&&dd>0){const nx=dx/dd,ny=dy/dd;b.x=o.x+nx*r*2;b.y=o.y+ny*r*2;const dot=b.vx*nx+b.vy*ny;b.vx-=1.4*dot*nx;b.vy-=1.4*dot*ny}});
+  if(Math.hypot(b.vx,b.vy)<.08&&b.z===0){G2.b.push({x:b.x,y:b.y});G2.ball=null;const d=Math.hypot(b.x-G2.coch.x,b.y-G2.coch.y)-r*.6;const c=Math.max(0,cm(d));G2.best=G2.best===null?c:Math.min(G2.best,c);$('#gb').textContent=G2.best+' cm';$('#gm').textContent=c<15?'Carreau d\'artiste !':c<40?'Belle boule !':c<90?'Pas mal…':'Ça part loin !';$('#gs').textContent=G2.left?`Encore ${G2.left} boule${G2.left>1?'s':''}`:'Mène terminée : et si on passait à table ?'}}
+ drawBall(G2.coch.x,G2.coch.y,r*.45,0,true);G2.b.forEach(o=>drawBall(o.x,o.y,r,0));if(b)drawBall(b.x,b.y,r*(1+b.z/220),b.z);
+ if(!b&&G2.left){const s=start();drawBall(s.x,s.y,r,0);if(G2.drag){const d=G2.drag;const dx=d.o.x-d.p.x,dy=d.o.y-d.p.y;cx.strokeStyle='rgba(23,19,16,.6)';cx.setLineDash([6,6]);cx.lineWidth=2;cx.beginPath();cx.moveTo(s.x,s.y);cx.lineTo(s.x+dx*1.4,s.y+dy*1.4);cx.stroke();cx.setLineDash([])}}}
+/* words rows */
+const w1=$('#w1'),w2=$('#w2');let wt=0;
+function words(t){const r=w1.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const o=(innerHeight-r.top)*.35+(RM?0:t*.02);w1.style.transform=`translateX(${-(o%900)}px)`;w2.style.transform=`translateX(${-900+(o%900)}px)`}
+/* MENUS */
+const MENUS=[
+ {cta:'Réserver une table ›',items:[['escalope','Escalope milanaise','panée, frites maison','À L\'ARDOISE','BEST-SELLER','Escalope panée, frites, salade, citron'],['tartare','Tartare','préparé minute','À L\'ARDOISE','CLASSIQUE','Bœuf, frites, salade verte'],['mijote','Plat mijoté','façon grand-mère','PLAT DU JOUR','SELON LE MARCHÉ','Viande en sauce, pommes de terre vapeur, crudités'],['grill','Grillades','à la plancha','À L\'ARDOISE','GÉNÉREUX','Viandes grillées, légumes, accompagnement du jour']]},
+ {cta:'Réserver un vendredi ›',items:[['mer','Marmite de la mer','moules et fruits de mer','VENDREDI','SUR RÉSERVATION','Moules, crustacés, bouillon parfumé'],['paella','Paella','à partager','VENDREDI','EN GRANDE POÊLE','Riz, fruits de mer, poulet, poivrons'],['poisson','Poisson du jour','sauce maison','SELON LA PÊCHE','À L\'ARDOISE','Poisson, riz, sauce beurre citronnée']]},
+ {cta:'Réserver pour le concours ›',items:[['tartare','Tartare','au menu bouliste','22 € LE MENU','JOUR DE CONCOURS','Plat + dessert + ¼ de vin + café'],['mijote','Daube','les jours de national','22 € LE MENU','JOUR DE CONCOURS','Plat + dessert + ¼ de vin + café'],['cote','Grillade','selon l\'ardoise','22 € LE MENU','JOUR DE CONCOURS','Plat + dessert + ¼ de vin + café']]},
+ {cta:'Demander un devis ›',items:[['tablee','Longues tablées','sous les platanes','GROUPES','SUR DEMANDE','Repas d\'associations, de club ou de famille'],['dressee','Tables dressées','nappes et fleurs','ÉVÉNEMENTS','SUR DEMANDE','Mise en place soignée, menu à composer ensemble'],['crevettes','Traiteur','à La Crau','TRAITEUR','SUR DEVIS','Plats à emporter pour vos repas et réceptions']]}];
+const WORDS=['Ardoise','Vendredi','Bouliste','Ensemble'];
+$$('.menuw').forEach(w=>{const k=+w.dataset.m,M=MENUS[k];w.innerHTML=`<div class="pick"><button type="button" class="ar" data-d="-1" aria-label="Plat précédent">‹</button><div class="pills" role="tablist">${M.items.map((it,i)=>`<button type="button" role="tab" aria-selected="${i===0}" data-i="${i}"><img src="${img(it[0],120)}" alt=""><span><b>${it[1]}</b><small>${it[2]}</small></span></button>`).join('')}</div><button type="button" class="ar" data-d="1" aria-label="Plat suivant">›</button></div>
+ <div class="stage"><span class="ghost">${WORDS[k]}</span><div class="shot" role="img" aria-label="${M.items[0][1]}" style="background-image:url(${img(M.items[0][0],900)})"></div><span class="tag ta">${M.items[0][3]}</span><span class="tag tb">${M.items[0][4]}</span></div>
+ <p class="ing">${M.items[0][5]}</p><a class="pill ${k===3?'y':'k'}" href="${k===3?'tel:+33494389773':'#rdv'}" style="transform:rotate(-2deg)">${M.cta}</a>`;
+ let cur=0;const shot=w.querySelector('.shot'),ta=w.querySelector('.ta'),tb=w.querySelector('.tb'),ing=w.querySelector('.ing');
+ const set=i=>{if(i===cur)return;cur=(i+M.items.length)%M.items.length;const it=M.items[cur];w.querySelectorAll('[role=tab]').forEach((b,j)=>b.setAttribute('aria-selected',String(j===cur)));shot.classList.add('out');ta.classList.add('pop');tb.classList.add('pop');setTimeout(()=>{shot.style.backgroundImage=`url(${img(it[0],900)})`;shot.setAttribute('aria-label',it[1]);ta.textContent=it[3];tb.textContent=it[4];ing.textContent=it[5];shot.classList.remove('out');ta.classList.remove('pop');tb.classList.remove('pop')},RM?0:280)};
+ w.addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(b)set(+b.dataset.i);const a=e.target.closest('[data-d]');if(a)set(cur+ +a.dataset.d)})});
+/* rail */
+const rail=$('#rail'),secs=['ardoise','vendredis','bouliste','groupes'].map(id=>document.getElementById(id));
+function railTick(){let on=-1;secs.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5)on=i});rail.classList.toggle('on',on>=0);$$('#rail a').forEach((a,i)=>{a.classList.toggle('on',i===on);a.style.background=i===on?(on===3?'#f2b632':'#171310'):''})}
+/* booking */
+const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Paris'})),wd=(now.getDay()+6)%7,mins=now.getHours()*60+now.getMinutes();
+const OPEN=[[540,960],[540,960],[540,960],[540,960],[540,960],[540,960],null];
+const days=[];for(let k=0;days.length<7;k++){const d=new Date(now);d.setDate(d.getDate()+k);const o=OPEN[(d.getDay()+6)%7];if(o&&!(k===0&&mins>840))days.push(d)}
+const fmtD=d=>d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}),fmtS=d=>d.toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'});
+const HRS=['12 h 00','12 h 15','12 h 30','12 h 45','13 h 00','13 h 15','13 h 30'],HM=[720,735,750,765,780,795,810];
+const PERS=['1','2','3','4','5','6','7','8','10 et +'],ENV=['Le plat du jour','Le menu bouliste','Un vendredi à thème','Un repas de groupe'];
+const sel={d:null,h:null,p:null,e:null};
+$('#oD').innerHTML=days.map((d,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="d" data-v="${i}">${fmtS(d)}</button>`).join('');
+function hrs(){const d=sel.d!==null?days[sel.d]:null;const today=d&&d.toDateString()===now.toDateString();$('#oH').innerHTML=HRS.map((h,i)=>`<button type="button" class="opt" aria-pressed="${sel.h===i}" data-k="h" data-v="${i}" ${today&&HM[i]<=mins+20?'disabled':''}>${h}</button>`).join('')}hrs();
+$('#oP').innerHTML=PERS.map((p,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="p" data-v="${i}">${p}</button>`).join('');
+$('#oE').innerHTML=ENV.map((p,i)=>`<button type="button" class="opt" aria-pressed="false" data-k="e" data-v="${i}">${p}</button>`).join('');
+const sp=$('#sheetp');
+function note(){$('#nD').textContent=sel.d!==null?fmtD(days[sel.d]):'';$('#nH').textContent=sel.h!==null?HRS[sel.h]:'';$('#nP').textContent=sel.p!==null?PERS[sel.p]+(sel.p?' couverts':' couvert'):'';$('#nE').textContent=sel.e!==null?ENV[sel.e]:'';$('#nN').textContent=$('#fN').value.trim()}
+function pick(k,v){sel[k]=v;if(k==='d'){sel.h=null;hrs()}$$(`[data-k="${k}"]`).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===v)));sp.classList.remove('torn');note()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b&&!b.disabled)pick(b.dataset.k,+b.dataset.v)});
+$('#fN').addEventListener('input',note);
+$('#bk').addEventListener('submit',e=>{e.preventDefault();const m=[];if(sel.d===null)m.push('le jour');if(sel.h===null)m.push('l\'heure');if(sel.p===null)m.push('le nombre de couverts');if(!$('#fN').value.trim())m.push('votre nom');if(!/^[0-9 +.]{10,}$/.test($('#fT').value.trim()))m.push('un téléphone valide');if(!$('#fC').checked)m.push('votre accord');
+ sp.classList.toggle('torn',!m.length);$('#msg').innerHTML=m.length?'Il manque : '+m.join(', ')+'.':'Demande prête ✓ Sur la version finale, elle arrive directement au café. En attendant : <a href="tel:+33494389773"><b>04 94 38 97 73</b></a>.'});
+/* hours */
+const HN=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+$('#hrs').innerHTML=HN.map((d,i)=>`<div class="${i===wd?'td':''}"><span>${d}${i===wd?' · aujourd\'hui':''}</span><span>${OPEN[i]?'9 h – 16 h':'Fermé'}</span></div>`).join('');
+/* edge text */
+const edge=$('#edge');function fitEdge(){edge.style.fontSize='100px';const w=edge.scrollWidth;edge.style.fontSize=(100*edge.parentElement.clientWidth/w*.98)+'px'}fitEdge();addEventListener('resize',fitEdge);
+/* loop */
+function loop(t){if(B3)B3(t);const sp2=clamp(scrollY/innerHeight,0,1.2);plate.style.transform=mob()?`translateY(${RM?0:Math.sin(t/900)*6}px)`:`translate(${px*-18}px,${(RM?0:Math.sin(t/900)*8)+sp2*-60}px) rotate(${px*6}deg)`;game();words(t);railTick();requestAnimationFrame(loop)}
+const go3=()=>{try{three()}catch(e){}};if(window.THREE)go3();else addEventListener('load',go3);
+requestAnimationFrame(loop);
+});
+</script>
+<script>
+(function(){const $=s=>document.querySelector(s);const K='cafegare-ck';
+const ck=$('#ck');let consent=null;try{consent=localStorage.getItem(K)}catch(e){}
+if(consent===null)ck.hidden=false;
+function showMap(){if($('#map iframe'))return;$('#mph').insertAdjacentHTML('afterend','<iframe title="Plan : Café de la Gare" loading="lazy" src="https://www.google.com/maps?q=Bar+de+la+Gare%2C+38+Av.+de+Toulon%2C+83260+La+Crau&z=16&output=embed"></iframe>');const m=$('#mcon');if(m)m.remove()}
+const setC=v=>{try{localStorage.setItem(K,v)}catch(e){}ck.hidden=true;if(v==='1')showMap()};
+$('#ckYes').onclick=()=>setC('1');$('#ckNo').onclick=()=>setC('0');$('#mapBtn').onclick=()=>setC('1');if(consent==='1')showMap();
+const L={"ml": "<h3 id=\"dlgT\">Mentions légales</h3><h4>Éditeur</h4><p>Café de la Gare, 38 avenue de Toulon, 83260 La Crau. Téléphone : 04 94 38 97 73. Forme juridique, SIRET et responsable de la publication : à compléter avec l'établissement.</p><h4>Hébergement</h4><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h4>Réalisation</h4><p>ZAHR, création de sites web, Var.</p><h4>Propriété</h4><p>Les photos appartiennent à Café de la Gare. Polices Bricolage Grotesque, DM Sans et Yellowtail sous licence SIL Open Font License.</p>", "conf": "<h3 id=\"dlgT\">Politique de confidentialité</h3><p>Le formulaire collecte uniquement les informations nécessaires à votre demande (prénom, téléphone, détails choisis). Elles servent seulement à y répondre (base légale : votre consentement).</p><h4>Durée de conservation</h4><p>Les demandes sont supprimées au plus tard 12 mois après le rendez-vous.</p><h4>Destinataires</h4><p>Seul l'établissement y a accès. Aucune donnée n'est vendue ni transmise à des tiers.</p><h4>Vos droits</h4><p>Accès, rectification, suppression : appelez le 04 94 38 97 73. Vous pouvez aussi saisir la CNIL (cnil.fr).</p>", "cgv": "<h3 id=\"dlgT\">Conditions générales</h3><h4>Carte et prix</h4><p>La carte change selon l'ardoise du jour. Le menu bouliste à 22 € (plat, dessert, ¼ de vin, café) est proposé les jours de concours. La carte en vigueur sur place fait foi.</p><h4>Réservation</h4><p>La demande en ligne est confirmée par le café. Le paiement se fait sur place.</p><h4>Utilisation du site</h4><p>Merci de ne pas envoyer de fausses demandes. Les informations du site sont données à titre indicatif et peuvent évoluer.</p>", "ann": "<h3 id=\"dlgT\">Annulation et remboursement</h3><p>Pour annuler ou déplacer une réservation, prévenez le café le plus tôt possible au 04 94 38 97 73.</p><p>Aucun paiement n'étant pris en ligne, il n'y a rien à rembourser. En cas de souci avec un plat, parlez-en directement au café.</p>", "ck": "<h3 id=\"dlgT\">Cookies</h3><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Il mémorise seulement votre choix dans votre navigateur.</p><p>Le plan Google Maps n'est chargé que si vous l'acceptez ; Google peut alors déposer ses propres cookies.</p><p style=\"margin-top:14px\"><button class=\"x\" style=\"float:none\" type=\"button\" id=\"ckReset\">Modifier mon choix</button></p>"};const dlg=$('#dlg');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b){e.preventDefault();$('#dlgC').innerHTML=L[b.dataset.open];dlg.showModal()}if(e.target.id==='ckReset'){try{localStorage.removeItem(K)}catch(_){}location.reload()}});
+$('#dlgX').onclick=()=>dlg.close();})();
+</script>
+</body>
+</html>
