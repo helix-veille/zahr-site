@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Architecture — Chaque lieu a un caractère</title>
+<meta name="description" content="ZAHR Architecture, atelier d’architecture intérieure et de rénovation fictif dans le Var. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%2326332C' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Chakra+Petch:wght@600;700&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<link rel="preload" as="image" href="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/b5f79c5a-2ebd-41ef-865e-24c660ac98bd.png">
+<style>
+:root{--s:#4E6B5B;--k:#26332C;--c:#F3F4EF;--b:#A9C2B0;--t:clamp(1px,calc(100vw/1440),1.4px);--cp:"Chakra Petch",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#0b1220;overflow-x:clip}
+body{font-family:"Inter",system-ui,sans-serif;color:#fff;background:#0b1220;overflow-x:clip;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.cp{font-family:var(--cp);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+/* héros */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden}
+.bg{position:absolute;inset:0;background:url('https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/b5f79c5a-2ebd-41ef-865e-24c660ac98bd.png') center/cover}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
+.hero video.on{opacity:1}
+.sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,20,.75),rgba(6,10,20,.15) 55%,transparent),linear-gradient(0deg,rgba(6,10,20,.6),transparent 40%)}
+.fr{position:absolute;inset:22px;border:1px solid rgba(255,255,255,.28);pointer-events:none;z-index:3}
+.anim .fr{animation:fd 1.2s .2s both}
+@keyframes fd{from{opacity:0}}
+.nav{position:absolute;top:22px;left:22px;right:22px;height:64px;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid rgba(255,255,255,.28)}
+.lg{display:flex;align-items:center;gap:10px;font-family:var(--cp);font-weight:700;font-size:18px;letter-spacing:.18em}.lg svg{width:26px}
+.nl{display:flex;gap:26px;font-size:12px}.nl a{opacity:.8}.nl a:hover{opacity:1}
+.rail{position:absolute;left:46px;top:50%;transform:translateY(-50%);z-index:5;display:grid;gap:4px}
+.rail button{display:flex;align-items:center;gap:12px;font-family:var(--cp);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.5;padding:6px 0;transition:opacity .3s}
+.rail button i{display:block;width:14px;height:1px;background:#fff;transition:width .4s}
+.rail button[aria-current=true]{opacity:1}.rail button[aria-current=true] i{width:42px}
+.cop{position:absolute;left:clamp(180px,16vw,260px);bottom:clamp(110px,16vh,170px);z-index:5;max-width:660px}
+.cop h1{font-family:var(--cp);font-weight:700;text-transform:uppercase;font-size:clamp(36px,4.6vw,72px);line-height:.96;letter-spacing:-.01em}
+.cop h1 span{display:block;overflow:hidden}.cop h1 span b{display:block;font-weight:700;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.cop.sw h1 span b{transform:translateY(112%)}
+.cop p{max-width:52ch;margin-top:18px;opacity:.85;transition:opacity .5s}.cop.sw p{opacity:0}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:24px;height:48px;padding:0 22px;border:1px solid rgba(255,255,255,.6);font-family:var(--cp);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
+.cta:hover{background:#fff;color:var(--k)}
+.dock{position:absolute;left:22px;right:22px;bottom:22px;height:58px;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-top:1px solid rgba(255,255,255,.28);font-family:var(--cp);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.dock .pg{display:flex;align-items:center;gap:10px}.dock .pg i{display:block;width:120px;height:1px;background:rgba(255,255,255,.3);position:relative}.dock .pg i b{position:absolute;inset:0;background:#fff;transform-origin:0;transform:scaleX(0)}
+.anim .cop h1 span b{animation:mu 1.1s .4s cubic-bezier(.2,.8,.2,1) both}.anim .cop h1 span:nth-child(2) b{animation-delay:.52s}
+@keyframes mu{from{transform:translateY(112%)}}
+/* pièce 3D */
+.sec{padding:clamp(90px,10vw,140px) clamp(18px,4vw,60px)}
+.paper{background:var(--c);color:var(--k)}
+.h2{font-family:var(--cp);font-weight:700;text-transform:uppercase;font-size:clamp(36px,4.6vw,72px);line-height:.96}
+.room{display:grid;grid-template-columns:1.2fr .8fr;gap:4vw;align-items:center;margin-top:40px}
+.rv3{position:relative;aspect-ratio:1.2;perspective:1400px;display:grid;place-items:center}
+.box{position:relative;width:62%;aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(var(--rz,140deg));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.box .fl{position:absolute;inset:0;background:var(--floor);transition:background .6s;box-shadow:0 60px 80px -30px rgba(38,51,44,.5)}
+.box .wa{position:absolute;left:0;top:0;width:100%;height:42%;transform-origin:0 0;transform:rotateX(90deg);background:var(--wall);transition:background .6s}
+.box .wb{position:absolute;left:0;top:0;width:42%;height:100%;transform-origin:0 0;transform:rotateY(-90deg);background:var(--wall);box-shadow:inset 0 0 0 999px rgba(0,0,0,.1);transition:background .6s}
+.box .win{position:absolute;left:30%;top:20%;width:34%;height:56%;background:linear-gradient(180deg,#cfe3ff,#f7e6c8);box-shadow:inset 0 0 0 6px #fff}
+.box .light{position:absolute;inset:0;background:radial-gradient(60% 60% at 40% 30%,var(--glow),transparent 70%);opacity:.55;transition:background .6s}
+.fu{position:absolute;transform-style:preserve-3d}
+.fu.sofa{left:50%;top:58%;width:38%;height:16%}
+.fu i{position:absolute;display:block;background:var(--fab,#e7e2d8);transition:background .6s}
+.fu.sofa .s{inset:0;transform:translateZ(14px)}.fu.sofa .bk{left:0;right:0;top:0;height:26px;transform-origin:0 0;transform:translateZ(14px) rotateX(90deg);box-shadow:inset 0 0 0 99px rgba(0,0,0,.08)}
+.fu.tb{left:20%;top:30%;width:22%;height:22%}.fu.tb .s{inset:0;border-radius:50%;background:var(--wood,#b88a5a);transform:translateZ(22px)}
+.fu.pl{left:12%;top:72%;width:12%;height:12%}.fu.pl .s{inset:0;border-radius:50%;background:#4E6B5B;transform:translateZ(40px)}
+.opts h3{font-family:var(--cp);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);margin:18px 0 10px}
+.sws{display:flex;gap:8px;flex-wrap:wrap}
+.sws button{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border:1px solid rgba(38,51,44,.2);font-size:14px}
+.sws button i{width:26px;height:26px;display:block}
+.sws button[aria-pressed=true]{border-color:var(--k);background:#fff;box-shadow:0 0 0 1px var(--k)}
+/* plan qui s'élève */
+.plan{position:relative;height:300vh}
+.pst{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:.8fr 1.2fr;gap:4vw;align-items:center;padding:0 clamp(18px,4vw,60px);overflow:hidden}
+.p3{position:relative;aspect-ratio:1.3;perspective:1400px}
+.pl3{position:absolute;inset:8%;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateZ(var(--rz2,0deg))}
+.pl3 svg{position:absolute;inset:0;width:100%;height:100%}
+.wall3{position:absolute;background:linear-gradient(180deg,#f3f4ef,#cfd9d2);transform-origin:0 100%;border:1px solid rgba(38,51,44,.2)}
+.ph5{display:grid;gap:10px;margin-top:24px}
+.ph5 div{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid rgba(255,255,255,.15);opacity:.35;transition:opacity .4s}
+.ph5 div.on{opacity:1}.ph5 b{font-family:var(--cp);font-size:13px;letter-spacing:.12em}
+/* honoraires */
+.fee{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:40px;align-items:start}
+.fee input{width:100%;accent-color:var(--s)}
+.feeo{padding:26px;background:#fff;border:1px solid rgba(38,51,44,.15)}
+.feeo b{display:block;font-family:var(--cp);font-size:clamp(36px,4vw,58px);line-height:1;margin:8px 0}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 18px}.seg button{padding:10px 14px;border:1px solid rgba(38,51,44,.25);font-weight:500}.seg button[aria-pressed=true]{background:var(--k);color:#fff}
+/* chance */
+.luck{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.cl3{position:relative;aspect-ratio:1;max-width:520px;width:100%;margin:auto}.cl3 .fb{position:absolute;inset:20%}.cl3.on3d .fb{display:none}
+/* infos */
+.loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.faq{max-width:880px;margin:90px auto 0}
+.q{border-bottom:1px solid rgba(38,51,44,.2)}
+.q button{width:100%;text-align:left;padding:20px 40px 20px 0;font-size:19px;font-weight:500;position:relative}
+.q button::after{content:"+";position:absolute;right:4px;top:16px;font-size:24px;transition:transform .3s}
+.q button[aria-expanded=true]::after{transform:rotate(45deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q button[aria-expanded=true]+div{grid-template-rows:1fr}
+.q div p{overflow:hidden;opacity:.8}.q button[aria-expanded=true]+div p{padding-bottom:18px}
+.giant{font-family:var(--cp);font-weight:700;font-size:min(18vw,260px);line-height:.85;text-align:center;margin:80px 0 10px;color:var(--s)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;padding:22px clamp(18px,4vw,60px) 40px;background:var(--c);color:var(--k);border-top:1px solid rgba(38,51,44,.15)}
+footer .lg svg path{fill:var(--k)}
+.rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+[data-tilt]{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#26332C;font-family:"Inter",system-ui,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#26332C;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"Inter",system-ui,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #26332C}
+.zl-ck .b button.y{background:#26332C;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"Inter",system-ui,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+
+.zb{border:0;border-radius:26px;padding:0;width:min(560px,94vw);max-height:92vh;background:#F3F4EF;color:#26332C;font-family:"Inter",system-ui,sans-serif;box-shadow:0 50px 140px -40px rgba(0,0,0,.7)}
+.zb::backdrop{background:rgba(20,28,24,.6);backdrop-filter:blur(8px)}
+.zb form{padding:28px clamp(18px,4vw,34px) 26px;display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
+.zb h2{margin:0 40px 2px 0;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.zb .zx{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zb .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.zb select,.zb input[type=text],.zb input[type=tel],.zb input[type=email],.zb textarea{width:100%;box-sizing:border-box;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:#26332C}
+.zb textarea{min-height:84px;resize:vertical}
+.zb .ch{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.zb .ch button{flex:none;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;color:#26332C;border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;cursor:pointer;line-height:1.15;text-align:center}
+.zb .ch button[aria-pressed=true]{background:#26332C;color:#F3F4EF;border-color:#26332C}
+.zb .ch button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.zb .cons{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.zb .cons input{width:20px;height:20px;flex:none;accent-color:#4E6B5B;margin-top:1px}
+.zb .tk{display:flex;align-items:center;gap:14px;background:#26332C;color:#F3F4EF;border-radius:18px;padding:14px 16px}
+.zb .tk svg{width:34px;flex:none}
+.zb .tk b{display:block;font-size:15px}.zb .tk span{font-size:12.5px;opacity:.75}
+.zb .go{border:0;border-radius:999px;background:#4E6B5B;color:#fff;font:inherit;font-weight:700;padding:15px;cursor:pointer;font-size:15px}
+.zb .msg{margin:0;font-weight:600;min-height:20px;font-size:14px}
+.zb .sm{font-size:12px;opacity:.65;margin:0}
+
+@media (max-width:820px){.nl{display:none}.fr{inset:10px}.nav{top:10px;left:10px;right:10px;padding:0 14px}.dock{left:10px;right:10px;bottom:10px;padding:0 14px}.dock .pg i{width:50px}.dock .hide{display:none}
+ .rail{left:24px;top:96px;transform:none;grid-auto-flow:column;gap:10px;overflow-x:auto;right:24px}.rail button span{display:none}.rail button i{width:22px}.rail button[aria-current=true] i{width:42px}
+ .cop{left:24px;right:24px;bottom:90px}.cop p{font-size:15px}
+ .room,.fee,.luck,.loc{grid-template-columns:1fr}.plan{height:auto}.pst{position:relative;height:auto;grid-template-columns:1fr;padding:90px 18px}}
+</style>
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('anim');setTimeout(()=>document.documentElement.classList.remove('anim'),3200)}</script>
+</head>
+<body>
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+ <div class="bg"></div><div id="vids"></div><div class="sh"></div><div class="fr" aria-hidden="true"></div>
+ <header class="nav"><a class="lg" href="#top" aria-label="ZAHR Architecture, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#ffffff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR</a><nav class="nl cp" aria-label="Sections"><a href="#piece">La pièce</a><a href="#methode">Méthode</a><a href="#honoraires">Honoraires</a><a href="#infos">Atelier</a></nav><button class="cp" type="button" data-book="0" style="font-size:12px">Contact</button></header>
+ <nav class="rail" id="rail" aria-label="Chapitres"></nav>
+ <div class="cop" id="cop"><p class="cp" style="font-size:12px;opacity:.75;margin-bottom:14px" id="cn">01 / 06 · Architecture intérieure · Var (exemple)</p><h1 id="h1"><span><b id="ha">Chaque lieu </b></span><span><b id="hb">a un caractère</b></span></h1><p id="cpp"></p><button class="cta" type="button" data-book="0">Parler de mon projet →</button></div>
+ <div class="dock"><span class="hide">ZAHR Architecture</span><span class="pg"><span id="pn">01</span><i><b id="pb"></b></i><span>06</span></span><a href="#piece">Défiler ↓</a></div>
+</section>
+
+<section class="sec paper" id="piece" aria-labelledby="h-r">
+ <p class="cp rv" style="font-size:12px;color:var(--s)">Essayez</p><h2 class="h2 rv" id="h-r" style="margin-top:10px">Habillez<br>la pièce.</h2>
+ <div class="room"><div class="rv3" id="rv3" aria-hidden="true"><div class="box" id="box"><div class="fl"><div class="light"></div></div><div class="wa"><div class="win"></div></div><div class="wb"></div><div class="fu tb"><i class="s"></i></div><div class="fu sofa"><i class="s"></i><i class="bk"></i></div><div class="fu pl"><i class="s"></i></div></div></div>
+  <div class="opts"><p class="rv" style="max-width:46ch">Changez le sol, les murs, le tissu et la lumière : c’est le genre de choix qu’on fait ensemble, avec des échantillons en vrai.</p>
+   <h3>Sol</h3><div class="sws" id="o-floor"></div><h3>Murs</h3><div class="sws" id="o-wall"></div><h3>Tissu</h3><div class="sws" id="o-fab"></div><h3>Lumière</h3><div class="sws" id="o-glow"></div></div></div>
+</section>
+
+<section class="plan" id="methode" aria-labelledby="h-m"><div class="pst">
+ <div><p class="cp" style="font-size:12px;color:var(--b)">La méthode</p><h2 class="h2" id="h-m" style="margin-top:10px">Du trait<br>au mur.</h2><div class="ph5" id="ph5"></div></div>
+ <div class="p3" aria-hidden="true"><div class="pl3" id="pl3"><svg viewBox="0 0 600 460"><g fill="none" stroke="#A9C2B0" stroke-width="3"><path id="pp" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" d="M40 40H560V420H40Z M300 40V240 M40 240H420 M420 240V420 M180 240V420 M300 140H560"/></g></svg><div id="w3" style="position:absolute;inset:0;transform-style:preserve-3d"></div></div></div>
+</div></section>
+
+<section class="sec paper" id="honoraires" aria-labelledby="h-f">
+ <p class="cp rv" style="font-size:12px;color:var(--s)">Honoraires</p><h2 class="h2 rv" id="h-f" style="margin-top:10px">Clairs,<br>dès le départ.</h2>
+ <div class="fee"><div><span style="font-weight:600">Mission</span><div class="seg" id="fm"><button type="button" aria-pressed="true">Conseil déco</button><button type="button" aria-pressed="false">Plans + 3D</button><button type="button" aria-pressed="false">Rénovation complète</button></div>
+  <label style="font-weight:600">Surface : <span id="fsv">60 m²</span><input type="range" id="fs" min="15" max="300" value="60" style="margin-top:10px"></label>
+  <label style="font-weight:600;display:block;margin-top:16px">Budget travaux : <span id="fbv">60 000 €</span><input type="range" id="fb" min="10000" max="400000" step="5000" value="60000" style="margin-top:10px"></label></div>
+  <div class="feeo" aria-live="polite"><span style="opacity:.6">Estimation des honoraires</span><b id="ft">—</b><p id="fd" style="opacity:.75"></p><button class="cta" type="button" data-book="0" style="border-color:var(--k);color:var(--k)">Demander un devis précis</button></div></div>
+</section>
+
+<section class="sec luck" id="chance" aria-labelledby="h-l">
+ <div class="cl3 rv" id="cl3"><div class="fb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div></div>
+ <div><p class="cp rv" style="font-size:12px;color:var(--b)">Un peu de chance</p><h2 class="h2 rv" id="h-l" style="margin-top:10px">Un trèfle<br>dans le mur.</h2>
+ <p class="rv" style="opacity:.85;margin-top:16px;max-width:44ch">Zahr veut dire « fleur » et « chance ». Sur chaque chantier, on scelle un petit carreau gravé d’un trèfle dans un mur de la maison, à un endroit que vous seul connaissez. Faites tourner celui-ci.</p></div>
+</section>
+
+<section class="sec paper" id="infos" aria-labelledby="h-i">
+ <div class="loc"><div><p class="cp rv" style="font-size:12px;color:var(--s)">L’atelier</p><h2 class="h2 rv" id="h-i" style="margin-top:10px">Visite<br>sur rendez-vous.</h2>
+  <p style="margin-top:14px;opacity:.8">Toulon, haute ville (adresse fictive). Téléphone : 04 00 00 00 00 (numéro d’exemple). Inscription à l’Ordre : numéro d’exemple.</p></div>
+  <div class="zl-map" data-q="Haute+ville+Toulon"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Architecture</b><span>Toulon, haute ville · adresse fictive</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Haute+ville+Toulon" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+ <div class="faq"><h2 class="h2" style="font-size:36px;text-align:center;margin-bottom:20px">Questions</h2><div id="faq"></div></div>
+ <div class="giant" aria-hidden="true">ZAHR</div>
+</section>
+</main>
+<footer><a class="lg" href="#top" aria-label="ZAHR Architecture, haut de page"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#ffffff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR ARCHITECTURE</a><div><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Architecture</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Architecture</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Architecture</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Architecture</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<dialog class="zb" id="zb" aria-labelledby="zb-t"><form id="zbf" novalidate>
+<button class="zx" type="button" id="zbx" aria-label="Fermer">×</button>
+<h2 id="zb-t">Parlons de votre projet</h2>
+<label class="lb" for="zb-s">Mission</label><select id="zb-s"></select>
+<label class="lb" for="zb-ou">Ville du projet</label><input type="text" id="zb-ou" autocomplete="off"><label class="lb" for="zb-sf">Surface approximative (m²)</label><input type="text" id="zb-sf" autocomplete="off"><label class="lb" for="zb-dsc">Votre projet en quelques mots</label><textarea id="zb-dsc"></textarea>
+<input type="text" id="zb-n" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+<input type="tel" id="zb-p" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+<label class="cons"><input type="checkbox" id="zb-c"><span>J’accepte que ZAHR Architecture utilise ces informations uniquement pour étudier mon projet et me recontacter.</span></label>
+<div class="tk" aria-live="polite"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><div><b id="zb-k1"></b><span id="zb-k2"></span></div></div>
+<button class="go" type="submit">Envoyer ma demande</button>
+<p class="msg" id="zb-m" role="status" aria-live="polite"></p>
+<p class="sm">Démo : rien n’est envoyé ni enregistré. Vos données ne servent qu’à cette demande et sont effacées après le rendez-vous.</p>
+</form></dialog>
+<script>
+
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+
+
+(()=>{const C={"title": "Parlons de votre projet", "kind": "devis", "items": [["Conseil déco à domicile", "2 h · 180 €"], ["Plans et visite 3D", "sur devis"], ["Rénovation complète", "sur devis, au pourcentage des travaux"], ["Permis de construire", "sur devis"]], "itemLabel": "Mission", "extra": [["ou", "Ville du projet", "text", true], ["sf", "Surface approximative (m²)", "text", false], ["dsc", "Votre projet en quelques mots", "area", false]], "consent": "J’accepte que ZAHR Architecture utilise ces informations uniquement pour étudier mon projet et me recontacter.", "ok": "Merci ! Sur le vrai site, l’atelier vous rappelle sous 48 h pour un premier échange gratuit. (Démo : rien n’a été envoyé.)", "cta": "Envoyer ma demande"};const $=s=>document.querySelector(s);const dlg=$('#zb');let sd=null,sh=null;
+const S=$('#zb-s');S.innerHTML=C.items.map((it,i)=>`<option value="${i}">${it[0]}${it[1]?' — '+it[1]:''}</option>`).join('');
+const J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function tk(){const it=C.items[S.value];$('#zb-k1').textContent=it[0]+(it[1]?' · '+it[1]:'');$('#zb-k2').textContent=C.kind==='devis'?'Réponse avec un devis gratuit sous 48 h':(sd&&sh?sd+' à '+sh:'Choisissez un jour et une heure');}
+if(C.kind!=='devis'){const D=$('#zb-d'),H=$('#zb-h');const t=new Date();for(let i=1,n=0;n<10&&i<30;i++){const d=new Date(t);d.setDate(t.getDate()+i);if((C.closed||[]).includes(d.getDay()))continue;n++;const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=J[d.getDay()]+'<br><b>'+d.getDate()+'</b> '+M[d.getMonth()];b.onclick=()=>{D.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');sd=J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];
+H.innerHTML='';C.hours.forEach((h,k)=>{const e=document.createElement('button');e.type='button';e.textContent=h;e.setAttribute('aria-pressed','false');if((d.getDate()*7+k*3)%5===0){e.disabled=true;e.setAttribute('aria-label',h+', complet')}e.onclick=()=>{H.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));e.setAttribute('aria-pressed','true');sh=h;tk()};H.appendChild(e)});sh=null;tk()};D.appendChild(b)}}
+S.onchange=tk;tk();
+window.ZB={open(i){if(i!=null&&C.items[i])S.value=i;tk();$('#zb-m').textContent='';dlg.showModal()}};
+document.addEventListener('click',e=>{const o=e.target.closest('[data-book]');if(o){e.preventDefault();ZB.open(o.dataset.book===''?null:+o.dataset.book)}});
+$('#zbx').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#zbf').addEventListener('submit',e=>{e.preventDefault();const m=$('#zb-m');if(C.kind!=='devis'&&(!sd||!sh)){m.textContent='Choisissez un jour et une heure.';return}
+for(const x of (C.extra||[])){const el=$('#zb-'+x[0]);if(x[3]&&!el.value.trim()){m.textContent='Complétez : '+x[1].toLowerCase()+'.';el.focus();return}}
+if(!$('#zb-n').value.trim()||$('#zb-p').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre prénom et un numéro valide.';return}
+if(!$('#zb-c').checked){m.textContent='Cochez la case pour accepter.';return}m.textContent=C.ok;});})();
+
+
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});el.addEventListener('pointerleave',()=>{el.style.transform=''})});})();
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* chapitres */
+(()=>{const CH=[["Vision", "hf_20260928_024808_abbfad57-4496-4906-9abc-49f0d153d287.mp4", "Chaque lieu ", "a un caractère", "On commence par écouter : le terrain, la lumière, votre façon de vivre. Le projet naît de ce qui est déjà là, pas d’un catalogue."], ["Esquisse", "hf_20260928_025948_2befd859-101e-49a4-8cb0-cdbb28cb11a7.mp4", "On en fait ", "le tour", "Premiers croquis, puis une maquette 3D que vous pouvez parcourir. On tourne autour du projet avant de poser la moindre pierre."], ["Matière", "hf_20260928_071544_17524fe8-2f07-4fbc-8a55-47518532df6f.mp4", "Pierre, bois ", "et lumière", "Des matériaux du Sud, choisis pour durer et bien vieillir : pierre de Provence, chaux, chêne, terre cuite."], ["Détail", "hf_20260928_025948_9fe460cc-21c2-476c-8e61-6bf57c2d6775.mp4", "Rien de trop, ", "rien ne manque", "On enlève ce qui distrait et on soigne ce qui compte : une poignée, un seuil, la hauteur d’une fenêtre."], ["Équilibre", "hf_20260928_072855_ba37e93c-1119-4b93-a3cd-6b29ced17dc2.mp4", "Dedans, dehors, ", "même calme", "Un plan pensé pour la vie de tous les jours : où tombe le soleil le matin, où l’on pose ses clés le soir."], ["Origine", "hf_20260928_031433_64aea4c7-c53b-4e13-a1fc-bd73673b4fa5.mp4", "Ancré dans ", "la terre du Var", "Un atelier local, des artisans que l’on connaît par leur prénom, et un suivi de chantier jusqu’à la remise des clés."]];let cur=0,timer=null;const rail=$('#rail'),vids=$('#vids');
+CH.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<i></i><span>'+c[0]+'</span>';b.setAttribute('aria-label','Chapitre '+(i+1)+' : '+c[0]);b.onclick=()=>go(i,true);rail.appendChild(b);
+ const v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.preload=i?'none':'auto';v.setAttribute('aria-hidden','true');v.dataset.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/'+c[1];vids.appendChild(v)});
+const V=[...vids.children];
+function go(i,user){const c=CH[i];cur=i;$$('#rail button').forEach((b,k)=>b.setAttribute('aria-current',k===i));$('#pn').textContent='0'+(i+1);$('#cn').textContent='0'+(i+1)+' / 06 · '+c[0];
+ const cop=$('#cop');cop.classList.add('sw');setTimeout(()=>{$('#ha').textContent=c[2];$('#hb').textContent=c[3];$('#cpp').textContent=c[4];cop.classList.remove('sw')},red?0:450);
+ if(!red){V.forEach((v,k)=>{if(k===i){if(!v.src)v.src=v.dataset.src;v.currentTime=0;v.play().then(()=>v.classList.add('on')).catch(()=>{})}else{v.classList.remove('on');setTimeout(()=>{if(cur!==k)v.pause()},1200)}})}
+ if(user)restart()}
+let t0=performance.now();function restart(){t0=performance.now()}
+(function f(n){requestAnimationFrame(f);const p=Math.min(1,(n-t0)/9000);$('#pb').style.transform=`scaleX(${p})`;if(p>=1&&!red&&scrollY<innerHeight){go((cur+1)%6);t0=n}})(t0);
+go(0)})();
+/* pièce */
+const O={floor:[['Chêne clair','repeating-linear-gradient(90deg,#d9b98c 0 18px,#cfae80 18px 20px,#dcbf95 20px 44px,#c9a678 44px 46px)'],['Béton ciré','linear-gradient(135deg,#c9cbc6,#b4b8b3)'],['Terre cuite','repeating-conic-gradient(#c8714a 0 25%,#b9643f 0 50%) 0 0/40px 40px'],['Marbre','linear-gradient(120deg,#f1efea,#e3e1da 40%,#f6f4ef 60%,#dedbd3)']],
+wall:[['Chaux blanche','linear-gradient(180deg,#f6f4ee,#e7e4dc)'],['Sauge','linear-gradient(180deg,#9fb5a6,#7f9a88)'],['Encre','linear-gradient(180deg,#3a4a41,#26332C)'],['Terracotta','linear-gradient(180deg,#d39b7c,#c07e5d)']],
+fab:[['Lin','#e7e2d8'],['Velours sauge','#4E6B5B'],['Bouclette','#f3f1ea'],['Cognac','#a5683a']],glow:[['Matin','rgba(255,240,210,.9)'],['Après-midi','rgba(255,214,150,.9)'],['Soir','rgba(255,170,90,.9)']]};
+const box=$('#box');Object.entries(O).forEach(([k,L])=>{const el=$('#o-'+k);L.forEach((o,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0);b.innerHTML=`<i style="background:${o[1]}"></i>${o[0]}`;b.onclick=()=>{[...el.children].forEach((x,j)=>x.setAttribute('aria-pressed',j===i));box.style.setProperty('--'+k,o[1])};el.appendChild(b)});box.style.setProperty('--'+k,L[0][1])});
+$('#rv3').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();box.style.setProperty('--rz',(140+((e.clientX-r.left)/r.width-.5)*40)+'deg')});
+/* plan qui s'élève */
+(()=>{const PH=[['01','Relevé','On mesure tout, on photographie tout.'],['02','Esquisse','Deux ou trois pistes, à la main.'],['03','Plans & 3D','La version choisie, en plans et en visite 3D.'],['04','Chantier','Consultation des artisans, suivi chaque semaine.'],['05','Remise des clés','Réception des travaux, liste des réserves levée.']];
+$('#ph5').innerHTML=PH.map(p=>`<div><b>${p[0]}</b><span><strong>${p[1]}</strong> · ${p[2]}</span></div>`).join('');
+const W=[[40,40,520,0],[40,40,380,90],[300,40,200,90],[40,240,380,0],[420,240,180,90],[180,240,180,90],[300,140,260,0]];const w3=$('#w3');W.forEach(w=>{const d=document.createElement('i');d.className='wall3';const L=w[2]/600*100;d.style.cssText=`left:${w[0]/600*100}%;top:${w[1]/460*100}%;width:${w[3]===0?L:0.6}%;height:${w[3]===90?w[2]/460*100:0.6}%`;w3.appendChild(d)});
+const sec=$('#methode'),pp=$('#pp'),pl=$('#pl3');
+function up(){const r=sec.getBoundingClientRect();const mob=innerWidth<=820;const p=mob?Math.min(1,Math.max(0,(innerHeight-r.top)/(r.height))):Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));
+pp.style.strokeDashoffset=1-Math.min(1,p/.4);const lift=Math.min(1,Math.max(0,(p-.4)/.45));pl.style.setProperty('--rx',(lift*58)+'deg');pl.style.setProperty('--rz2',(lift*-32)+'deg');
+$$('.wall3').forEach((d,i)=>{const w=W[i];d.style.transformOrigin='0 0';d.style.transform=w[3]===0?`rotateX(90deg)`:`rotateY(-90deg)`;d.style[w[3]===0?'height':'width']=(lift*60)+'px'});
+const k=Math.min(4,Math.floor(p*5));$$('#ph5 div').forEach((d,i)=>d.classList.toggle('on',i<=k))}
+addEventListener('scroll',up,{passive:true});addEventListener('resize',up);up()})();
+/* honoraires */
+let fm=0;$$('#fm button').forEach((b,i)=>b.onclick=()=>{fm=i;$$('#fm button').forEach(x=>x.setAttribute('aria-pressed',x===b));fee()});
+function fee(){const s=+$('#fs').value,bud=+$('#fb').value;$('#fsv').textContent=s+' m²';$('#fbv').textContent=bud.toLocaleString('fr-FR')+' €';let t,d;
+if(fm===0){t=180+Math.max(0,s-60)*1.5;d='Visite de 2 h, planche de tendances et liste d’achats.'}else if(fm===1){t=Math.max(900,s*28);d='Relevé, plans, 2 esquisses et visite 3D.'}else{t=bud*.1;d='10 % du budget travaux, suivi de chantier compris.'}
+$('#ft').textContent=Math.round(t/10)*10+' € HT';$('#fd').textContent=d+' Estimation d’exemple, à confirmer par un devis.'}
+['#fs','#fb'].forEach(s=>$(s).oninput=fee);fee();
+/* faq */
+const FAQ=[['Faut-il un architecte pour mon projet ?','Au-delà de 150 m² de surface de plancher, oui, c’est obligatoire. En dessous, c’est un choix : on peut intervenir sur une seule pièce.'],['Combien de temps dure une rénovation ?','Comptez 2 à 3 mois d’études, puis la durée du chantier, que l’on fixe avec les artisans avant de commencer.'],['Travaillez-vous avec mes propres artisans ?','Oui, si vous le souhaitez. On peut aussi vous proposer ceux avec qui on travaille depuis des années.'],['Le premier rendez-vous est-il payant ?','Non, le premier échange d’une heure est gratuit.']];
+$('#faq').innerHTML=FAQ.map((q,i)=>`<div class="q"><button type="button" aria-expanded="false" aria-controls="fq${i}">${q[0]}</button><div id="fq${i}"><p>${q[1]}</p></div></div>`).join('');$$('.q button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cl3');if(!host)return;
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+host.appendChild(R.domElement);R.domElement.setAttribute('aria-hidden','true');R.domElement.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+const sc=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,9);
+sc.add(new THREE.HemisphereLight(0xffffff,0x26332c,.8));const k=new THREE.DirectionalLight('#ffd9a0',2.2);k.position.set(3,5,6);sc.add(k);const rim=new THREE.DirectionalLight(0xa9c2b0,3);rim.position.set(-5,-2,-4);sc.add(rim);
+const d=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>');
+const shapes=[];d.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
+const g=new THREE.ExtrudeGeometry(shapes,{depth:34,bevelEnabled:true,bevelThickness:7,bevelSize:6,bevelSegments:6,curveSegments:28});g.center();g.scale(1/256,-1/256,1/256);g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:'#e8e4da',roughness:.08,metalness:.05,transmission:.92,thickness:1.4,ior:1.45,clearcoat:1,clearcoatRoughness:.06,iridescence:.6,iridescenceIOR:1.3,emissive:'#4E6B5B',emissiveIntensity:.18,attenuationColor:'#4E6B5B',attenuationDistance:2.2,envMapIntensity:1.1});
+const m=new THREE.Mesh(g,mat);const rig=new THREE.Group();rig.add(m);sc.add(rig);m.scale.setScalar(3.3);
+let tx=0,ty=0,cx=0,cy=0,vis=false,last=performance.now(),t=0;
+host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});host.addEventListener('pointerleave',()=>{tx=ty=0});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+function rs(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<1?12:9;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;if(!vis)return;t+=dt;const q=1-Math.exp(-dt/.18);cx+=(tx-cx)*q;cy+=(ty-cy)*q;
+rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig.position.y=Math.sin(t*1.1)*.08;R.render(sc,cam)})(last);
+host.classList.add('on3d');})();
+</script>
+</body>
+</html>

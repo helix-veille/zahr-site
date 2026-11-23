@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Domaine ZAHR — Chaque vin a son paysage</title>
+<meta name="description" content="Domaine ZAHR, vignoble fictif du Var : vins vendangés à la main. Démo réalisée par ZAHR. L’abus d’alcool est dangereux pour la santé.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23ecd9e3' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://res.cloudinary.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=DM+Mono&display=swap">
+<style>
+:root{--n:#0b0705;--p:#f5efe8;--b:#ecd9e3;--pad:clamp(14px,2.9vw,52px)}
+*{box-sizing:border-box}
+html{background:var(--n);overflow-x:clip}
+body{margin:0;background:var(--n);color:var(--p);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:1.5px solid var(--b);outline-offset:3px}
+em{font-family:"Instrument Serif",serif;font-style:italic;color:var(--b)}
+.pill{height:26px;padding:0 12px;border-radius:999px;font-size:11.5px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none;cursor:pointer;border:0;transition:background .2s,color .2s,transform .15s}
+.pill.f{background:var(--b);color:#1b1210}.pill.o{background:rgba(11,7,5,.28);box-shadow:inset 0 0 0 1px rgba(245,239,232,.6);color:var(--p)}
+.pill:hover{background:#fff;color:#1b1210}.pill:active{transform:scale(.97)}
+.lab{font-family:"DM Mono",monospace;font-size:clamp(9px,.72vw,11.5px);text-transform:uppercase;letter-spacing:.22em;color:rgba(245,239,232,.6);display:flex;align-items:center;gap:8px}
+.lab::before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor}
+/* en-tête */
+.hdr{position:fixed;left:0;right:0;top:0;z-index:30;padding:18px var(--pad);display:grid;grid-template-columns:1fr auto 1fr;align-items:start}
+.chap{transition:opacity .4s;list-style:none;margin:0;padding:0;width:clamp(120px,11.5vw,190px);font-size:clamp(11.5px,.95vw,15px);font-weight:500}
+.chap li{border-bottom:1px solid rgba(245,239,232,.1)}.chap li:last-child{border:0}
+.chap a{display:flex;justify-content:space-between;padding:5px 0;text-decoration:none;color:rgba(245,239,232,.5);transition:color .4s}
+.chap a.on{color:var(--p)}
+.chap a span:last-child{font-family:"Instrument Serif";font-size:.9em}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:clamp(15px,1.25vw,20px)}
+.logo svg{width:22px}
+.act{justify-self:end;display:flex;gap:10px;align-items:center}
+.act .sh{font-size:12px;color:rgba(245,239,232,.6);text-decoration:none;display:flex;gap:5px;align-items:center}
+.meter{position:fixed;right:0;top:0;width:2px;height:3vh;background:var(--p);z-index:30}
+/* piste */
+.track{position:relative;height:1250vh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.veil{position:absolute;inset:0;background:linear-gradient(rgba(11,7,5,.42),transparent 22%),linear-gradient(0deg,rgba(11,7,5,.5),transparent 34%);pointer-events:none}
+.scn{position:absolute;inset:0;pointer-events:none;visibility:hidden}
+.scn a,.scn button{pointer-events:auto}
+.t{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(34px,4.5vw,84px);line-height:1;margin:0;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.l{font-weight:500;font-size:clamp(13px,1.12vw,18px);line-height:1.42;max-width:32ch;margin:0;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+.giant{position:absolute;left:var(--pad);bottom:clamp(18px,4.2vh,44px);font-family:"Instrument Serif";font-weight:400;font-size:clamp(46px,10.1vw,196px);line-height:.92;letter-spacing:-.02em;white-space:nowrap;margin:0;overflow:hidden;padding-bottom:.08em}
+.giant>span{display:block}
+#s1 .giant>span{animation:rise 1.3s cubic-bezier(.16,1,.3,1) .25s both}
+@keyframes rise{from{transform:translateY(112%)}}
+/* après le film */
+.sec{position:relative;padding:clamp(100px,15vh,160px) var(--pad)}
+.h2{font-family:"Instrument Serif";font-weight:400;font-size:clamp(44px,6vw,110px);line-height:.95;margin:0}
+.wines{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,30px);margin-top:60px}
+.wine{background:linear-gradient(180deg,#1a110d,#120b08);border:1px solid #2a1c16;border-radius:24px;padding:28px 24px;display:grid;justify-items:center;gap:12px;text-align:center}
+.btl{height:320px;width:110px;perspective:700px;display:grid;place-items:end center}
+.bt{position:relative;width:86px;height:300px;transform-style:preserve-3d;animation:spinb 12s linear infinite}
+.wine:hover .bt{animation-duration:3s}
+@keyframes spinb{to{transform:rotateY(360deg)}}
+.bt i{position:absolute;bottom:0;left:50%;width:20px;margin-left:-10px;height:300px;transform-origin:50% 50%;border-radius:2px}
+.bt .lb{position:absolute;bottom:60px;left:50%;width:20px;margin-left:-10px;height:90px}
+.wine b{font-family:"Instrument Serif";font-weight:400;font-size:32px}
+.wine p{margin:0;color:rgba(245,239,232,.6);font-size:14px;max-width:26ch}
+.qty{display:flex;align-items:center;gap:12px}
+.qty button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(245,239,232,.3);background:none;cursor:pointer}
+.qty output{min-width:2ch;font-variant-numeric:tabular-nums}
+.cart{position:sticky;bottom:16px;margin:30px auto 0;max-width:620px;background:rgba(236,217,227,.1);backdrop-filter:blur(12px);border:1px solid rgba(236,217,227,.25);border-radius:999px;padding:10px 10px 10px 22px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px}
+.visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5vw;align-items:start}
+.vf{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.vf label{display:grid;gap:6px;font-size:12px;color:rgba(245,239,232,.6)}
+.vf input,.vf select{height:46px;border-radius:12px;border:1px solid #3a2820;background:#150d0a;padding:0 12px;color:var(--p)}
+.vf .full{grid-column:1/-1}
+.vf .cons{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:rgba(245,239,232,.7)}
+.vf .cons input{height:auto;margin-top:3px;accent-color:var(--b)}
+.vf .msg{grid-column:1/-1;margin:0;min-height:20px;color:var(--b);font-size:14px}
+.cork{perspective:900px;display:grid;place-items:center;min-height:380px}
+.tix{width:min(380px,90%);background:var(--b);color:#1b1210;border-radius:18px;padding:24px;transform:rotateX(20deg) rotateZ(-4deg);box-shadow:0 40px 60px -30px rgba(0,0,0,.9);transition:transform .9s cubic-bezier(.2,.8,.2,1);display:grid;gap:6px}
+.tix.go{transform:none}
+.tix b{font-family:"Instrument Serif";font-weight:400;font-size:36px;line-height:1}
+.tix hr{border:0;border-top:1px dashed #1b1210;width:100%;margin:8px 0}
+.where{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:5vw;align-items:center}
+footer{padding:60px var(--pad) 40px;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:end;border-top:1px solid #2a1c16}
+footer .q{font-family:"Instrument Serif";font-size:clamp(20px,2.15vw,38px);max-width:24ch;margin:16px 0 10px;line-height:1.1}
+.evin{font-size:12.5px;color:rgba(245,239,232,.7);margin:0}
+/* âge */
+#age{position:fixed;inset:0;z-index:9500;background:rgba(11,7,5,.92);backdrop-filter:blur(10px);display:grid;place-items:center;text-align:center;padding:20px}
+#age[hidden]{display:none}
+#age .in{max-width:440px;display:grid;gap:18px;justify-items:center}
+#age .in svg{width:46px}
+#age h2{font-family:"Instrument Serif";font-weight:400;font-size:40px;margin:0;line-height:1}
+#age .r{display:flex;gap:10px}
+#age .r button{height:44px;padding:0 24px;border-radius:999px;font-weight:600;cursor:pointer;border:1px solid var(--p);background:none}
+#age .r button.y{background:var(--b);color:#1b1210;border-color:var(--b)}
+@media (max-width:760px){
+ .chap,.act .sh,.act .o{display:none}.hdr{grid-template-columns:auto 1fr}.logo{grid-column:1;grid-row:1}.act{grid-column:2}
+ .veil{background:linear-gradient(rgba(11,7,5,.42),transparent 22%),linear-gradient(0deg,rgba(11,7,5,.82),transparent 52%)}
+ .scn .bx{left:var(--pad)!important;right:var(--pad)!important;top:auto!important;bottom:clamp(20px,5vh,44px)!important;transform:none!important;text-align:left!important;padding:0!important;display:grid;gap:10px;justify-items:start}
+ .t{font-size:clamp(38px,12.2vw,68px)}.l{font-size:14.5px}
+ .giant{font-size:clamp(50px,17.5vw,96px);white-space:normal}
+ #s1 .bx.ld,#s8 .bx.ld{bottom:calc(clamp(18px,4.2vh,44px) + 2*clamp(50px,17.5vw,96px))!important}
+ #s1 .lab{left:var(--pad)!important;top:76px!important}#s8 .lab{display:none}
+ .wines,.visit,.where{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){#s1 .giant>span,.bt{animation:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #ecd9e3;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#f5efe8;color:#1b1210;font-family:Inter,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#1b1210;color:#f5efe8;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#f5efe8;color:#1b1210;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:Inter,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #1b1210}
+.zl-ck .b button.y{background:#1b1210;color:#f5efe8}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#ecd9e355,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#ecd9e3;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#ecd9e3;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #ecd9e3;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:Inter,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#ecd9e3;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<div id="age" role="dialog" aria-modal="true" aria-labelledby="ageh" hidden><div class="in"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#ecd9e3" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><h2 id="ageh">Avez-vous 18 ans ou plus ?</h2><p style="margin:0;color:rgba(245,239,232,.7)">La vente d’alcool est interdite aux mineurs. Ce site présente des vins.</p><div class="r"><button type="button" id="ageno">Non</button><button type="button" class="y" id="ageyes">Oui, j’ai 18 ans</button></div><p class="evin">L’abus d’alcool est dangereux pour la santé, à consommer avec modération.</p><p id="agemsg" style="margin:0;color:var(--b)"></p></div></div>
+<header class="hdr">
+  <ul class="chap" id="chap"></ul>
+  <a class="logo" href="#" data-ch="0" aria-label="Domaine ZAHR, début"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#f5efe8" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>Domaine ZAHR</a>
+  <div class="act"><a class="sh" href="#vins"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2 4h8l-.7 7H2.7z"/><path d="M4 4a2 2 0 0 1 4 0"/></svg>Boutique</a><a class="pill o" href="#visite">Réserver une visite</a><a class="pill f" href="#" data-ch="7">Le club</a></div>
+</header>
+<span class="meter" id="meter" aria-hidden="true"></span>
+<main>
+<div class="track" id="track"><div class="stage">
+  <canvas id="cv" width="1280" height="720" aria-hidden="true"></canvas>
+  <div class="veil"></div>
+  <section class="scn" id="s1" data-show="-1,-1,0.04,0.072" data-ch="Le domaine"><span class="lab" style="position:absolute;left:23.5vw;top:8.2vh">Allégorie des vendanges</span><div class="bx ld" style="position:absolute;left:var(--pad);top:62vh"><p class="l" style="max-width:30ch">Des vins de coteaux, vendangés à la main et élevés <em>le temps qu’il faut</em>.</p></div><h1 class="giant"><span>Chaque vin a son <em>paysage</em></span></h1></section>
+  <section class="scn" id="s2" data-show="0.158,0.18,0.24,0.26" data-ch="Le vignoble"><div class="bx" style="position:absolute;left:0;right:0;top:0;padding-top:11.5vh;text-align:center;display:grid;justify-items:center;gap:14px"><h2 class="t">Tout commence <em>en hauteur</em>.</h2><p class="l">Dix-huit hectares de coteaux dans l’arrière-pays varois, où les nuits fraîches gardent l’acidité du raisin.</p></div></section>
+  <section class="scn" id="s3" data-show="0.268,0.285,0.335,0.352" data-ch="Les vendanges"><div class="bx" style="position:absolute;left:var(--pad);bottom:clamp(30px,8vh,80px)"><h2 class="t">Cueilli <em>à la main</em>.</h2></div><p class="l bx" style="position:absolute;right:var(--pad);bottom:clamp(30px,8vh,80px);max-width:28ch">Grappe par grappe, dans des cagettes, aux premières heures du matin.</p></section>
+  <section class="scn" id="s4" data-show="0.402,0.42,0.465,0.482" data-ch="Le chai"><div class="bx" style="position:absolute;left:63vw;right:var(--pad);top:50%;transform:translateY(-50%);display:grid;gap:14px"><h2 class="t">Pressé <em>lentement</em>.</h2><p class="l">Le pressoir à panier tire le jus sans l’amertume des peaux.</p></div></section>
+  <section class="scn" id="s5" data-show="0.628,0.645,0.672,0.688"><div class="bx" style="position:absolute;left:var(--pad);top:50%;transform:translateY(-50%);max-width:40vw;display:grid;gap:14px"><h2 class="t">Goûté <em>fût</em><br><em>après fût</em>.</h2><p class="l" style="max-width:26ch">Il ne part en bouteille que quand le vigneron le goûte et dit qu’il est prêt.</p></div></section>
+  <section class="scn" id="s6" data-show="0.708,0.725,0.795,0.812" data-ch="Les vins"><div class="bx" style="position:absolute;left:0;right:0;bottom:clamp(30px,7vh,70px);text-align:center;display:grid;justify-items:center;gap:12px"><h2 class="t">Trois vins, <em>un coteau</em>.</h2><p class="l" style="max-width:none">Une seule récolte, en petits lots. Livraison offerte dès deux bouteilles.</p><a class="pill f" href="#vins">Voir les vins</a></div></section>
+  <section class="scn" id="s7" data-show="0.826,0.842,0.892,0.908" data-ch="Les visites"><div class="bx" style="position:absolute;left:var(--pad);bottom:clamp(30px,8vh,80px)"><h2 class="t">La table est <em>dans les vignes</em>.</h2></div><div class="bx" style="position:absolute;right:var(--pad);bottom:clamp(30px,8vh,80px);display:grid;gap:12px;justify-items:start;max-width:30ch"><p class="l">Dégustations guidées, déjeuner sous la treille et vendanges ouvertes en septembre.</p><a class="pill o" href="#visite">Réserver une visite</a></div></section>
+  <section class="scn" id="s8" data-show="0.945,0.965,2,2" data-ch="Le club"><span class="lab" style="position:absolute;left:23.5vw;top:8.2vh">Le banquet des vendanges</span><div class="bx ld" style="position:absolute;left:var(--pad);top:56vh;display:grid;gap:12px;justify-items:start"><p class="l" style="max-width:24ch">Trois bouteilles par saison, choisies par le vigneron, et une invitation aux vendanges.</p><a class="pill f" href="#visite">Rejoindre le club</a></div><h2 class="giant"><span>Prenez <em>une chaise</em></span></h2></section>
+</div></div>
+
+<section class="sec" id="vins" aria-labelledby="h-vins">
+  <span class="lab">La boutique</span><h2 class="h2" id="h-vins" style="margin-top:14px">Trois cuvées, <em>un coteau</em>.</h2>
+  <div class="wines" id="wines"></div>
+  <div class="cart" id="cart"><span id="ctx">Votre panier est vide</span><button class="pill f" type="button" id="cbuy">Commander</button></div>
+  <p class="evin" style="text-align:center;margin-top:18px">Vente réservée aux personnes majeures. L’abus d’alcool est dangereux pour la santé, à consommer avec modération.</p>
+</section>
+
+<section class="sec" id="visite" aria-labelledby="h-vis">
+  <div class="visit">
+    <div><span class="lab">Visites & club</span><h2 class="h2" id="h-vis" style="margin-top:14px">Une place <em>à la table</em>.</h2>
+      <form class="vf" id="vf" novalidate>
+        <label class="full">Formule<select id="vt"><option value="25">Dégustation guidée · 1 h · 25 € / pers.</option><option value="65">Déjeuner sous la treille · 3 h · 65 € / pers.</option><option value="0">Vendanges ouvertes (septembre) · gratuit</option><option value="-1">Adhésion au club · 3 bouteilles par saison</option></select></label>
+        <label>Date<input type="date" id="vd"></label>
+        <label>Personnes<select id="vp"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+        <label>Votre nom<input type="text" id="vn" autocomplete="name"></label>
+        <label>Votre e-mail<input type="email" id="ve" autocomplete="email"></label>
+        <label class="cons"><input type="checkbox" id="va"><span>Toutes les personnes qui dégusteront ont 18 ans ou plus.</span></label>
+        <label class="cons"><input type="checkbox" id="vk"><span>J’accepte que le Domaine ZAHR utilise mon nom et mon e-mail uniquement pour cette réservation. <button type="button" data-open="zl-conf" style="all:unset;text-decoration:underline;cursor:pointer">Confidentialité</button></span></label>
+        <button class="pill f full" type="submit" style="height:46px;justify-content:center;font-size:13px">Réserver</button>
+        <p class="msg" id="vm" role="status" aria-live="polite"></p>
+      </form></div>
+    <div class="cork" aria-hidden="true"><div class="tix" id="tix"><span class="lab" style="color:#1b1210">Domaine ZAHR · invitation</span><b id="tx1">Dégustation guidée</b><span id="tx2">2 personnes · date à choisir</span><hr><span id="tx3">Au nom de …</span><span style="font-size:12px;opacity:.7">À consommer avec modération</span></div></div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-ou"><div class="where"><div><span class="lab">Le domaine</span><h2 class="h2" id="h-ou" style="margin-top:14px">Dans l’arrière-pays <em>varois</em>.</h2><p style="color:rgba(245,239,232,.7);max-width:40ch">Domaine fictif imaginé par ZAHR pour montrer un site de domaine viticole. Le plan montre Puget-Ville, au cœur des Côtes de Provence.</p></div><div class="zl-map" data-q="Puget-Ville, France"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>Domaine ZAHR</b><span>Puget-Ville, Var (domaine fictif) · visites sur réservation</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Puget-Ville, France" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div></section>
+</main>
+<footer>
+  <div><a class="logo" href="#" data-ch="0"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#f5efe8" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>Domaine ZAHR</a><p class="q">Des vins de coteaux en petits lots, imaginés par ZAHR.</p><p class="evin">L’abus d’alcool est dangereux pour la santé, à consommer avec modération. Vente interdite aux mineurs.</p></div>
+  <div style="display:grid;gap:8px;justify-items:end;font-size:12.5px;font-weight:500"><a href="#vins">Boutique</a><a href="#visite">Visites</a><a href="#visite">Club</a><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div>
+</footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>Domaine ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>Domaine ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>Domaine ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>Domaine ZAHR</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ss=(a,b,x)=>{if(a<0&&b<0)return 1;const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};
+/* âge */
+(()=>{const g=$('#age');let ok=null;try{ok=sessionStorage.getItem('zahr-age')}catch(e){}if(ok!=='1')g.hidden=false;$('#ageyes').addEventListener('click',()=>{try{sessionStorage.setItem('zahr-age','1')}catch(e){}g.hidden=true});$('#ageno').addEventListener('click',()=>{$('#agemsg').textContent='Désolé, ce site est réservé aux personnes majeures.'})})();
+/* film */
+const N=334,W=(Math.min(innerWidth,innerHeight*16/9)*Math.min(devicePixelRatio,2)<900)?640:960;
+const FR=i=>'https://res.cloudinary.com/ce2yatay/video/upload/so_'+Math.max(0,(i-.5)/10).toFixed(3)+',w_'+W+',q_50/uvra/harvest-film.webp';
+const fr=new Array(N),cv=$('#cv'),cx=cv.getContext('2d');
+function ld(i){if(fr[i])return Promise.resolve();return new Promise(r=>{const im=new Image();im.onload=()=>{fr[i]=im;r()};im.onerror=r;im.src=FR(i)})}
+(async()=>{await ld(0);draw(0,true);await ld(N-1);const ord=[];[32,16,8,4,2,1].forEach(s=>{for(let i=0;i<N;i+=s)if(!ord.includes(i))ord.push(i)});let k=0;const w=async()=>{while(k<ord.length)await ld(ord[k++])};for(let j=0;j<8;j++)w()})();
+function near(i){for(let d=0;d<N;d++){if(fr[i-d])return fr[i-d];if(fr[i+d])return fr[i+d]}return null}
+let lastKey='';function draw(pos,force){const a=Math.floor(pos),b=Math.min(N-1,a+1),f=pos-a;const key=a+':'+(f*20|0)+':'+!!fr[a]+!!fr[b];if(key===lastKey&&!force)return;lastKey=key;if(fr[a]&&fr[b]&&f>.01){cx.globalAlpha=1;cx.drawImage(fr[a],0,0,1280,720);cx.globalAlpha=f;cx.drawImage(fr[b],0,0,1280,720);cx.globalAlpha=1}else{const im=fr[Math.round(pos)]||near(Math.round(pos));if(im){cx.globalAlpha=1;cx.drawImage(im,0,0,1280,720)}else lastKey=''}}
+/* scènes */
+const scn=$$('.scn').map(s=>({el:s,d:s.dataset.show.split(',').map(Number),ch:s.dataset.ch}));
+const chs=[];scn.forEach((s,i)=>{if(s.ch)chs.push({n:s.ch,start:i===0?0:s.d[1]+.004})});
+const ROM=['I','II','III','IV','V','VI','VII'];$('#chap').innerHTML=chs.map((c,i)=>`<li><a href="#" data-ch="${i}"><span>${c.n}</span><span>${ROM[i]}</span></a></li>`).join('');
+const track=$('#track');let shown=0,last=performance.now(),still=0;
+function goCh(i){const top=track.offsetTop+chs[i].start*.965*(track.offsetHeight-innerHeight);scrollTo({top,behavior:reduce?'auto':'smooth'})}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-ch]');if(a){e.preventDefault();goCh(+a.dataset.ch)}});
+function frame(n){const dt=Math.min(.05,(n-last)/1000);last=n;const r=track.getBoundingClientRect();const t=clamp(-r.top/(track.offsetHeight-innerHeight)/.965);const prev=shown;shown=reduce?t:shown+(t-shown)*(1-Math.exp(-dt*7));const p=shown;
+ const settled=Math.abs(t-shown)<.0004;draw(settled?Math.round(p*(N-1)):p*(N-1));
+ scn.forEach(s=>{const d=s.d;const v=ss(d[0],d[1],p)*(1-ss(d[2],d[3],p));s.el.style.visibility=v<=.001?'hidden':'visible';s.el.style.opacity=v;if(!reduce){const inn=ss(d[0],d[1],p),out=ss(d[2],d[3],p);s.el.style.filter=v<.999?`blur(${(1-v)*12}px)`:'none';s.el.style.transform=`translateY(${(1-inn)*22-out*22}px)`}});
+ let cur=0;chs.forEach((c,i)=>{if(c.start<=p+.03)cur=i});$$('#chap a').forEach((a,i)=>a.classList.toggle('on',i===cur));
+ $('#meter').style.transform=`translateY(${p*97}vh)`;const past=r.bottom<innerHeight*.9;$('#chap').style.opacity=past?0:1;$('#chap').style.pointerEvents=past?'none':'';$('#meter').style.opacity=past?0:1;requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+function fitG(){if(innerWidth<=760){$$('.giant').forEach(g=>g.style.fontSize='');return}$$('.giant').forEach(g=>{g.style.fontSize='';const max=innerWidth-2*parseFloat(getComputedStyle(g).left);const w=g.firstElementChild.scrollWidth;if(w>max){g.style.fontSize=(parseFloat(getComputedStyle(g).fontSize)*max/w*.98)+'px'}})}document.fonts.ready.then(fitG);addEventListener('resize',fitG);fitG();
+/* vins */
+const WN=[['Blanc des coteaux','Rolle et ugni blanc, frais et salin, sur les poissons grillés.',14,['#f3e7b8','#e7d48a']],['Rosé de la treille','Grenache et cinsault, pâle et sec, pour les longues tablées.',13,['#f6c9c3','#eea79e']],['Rouge de garde','Syrah et mourvèdre, élevé 18 mois, à ouvrir dans cinq ans.',22,['#4a0d12','#2b060a']]];
+const q=[0,0,0];
+$('#wines').innerHTML=WN.map((w,i)=>{let faces='';for(let k=0;k<12;k++){faces+=`<i style="transform:rotateY(${k*30}deg) translateZ(37px);background:linear-gradient(${w[3][0]},${w[3][1]})"></i>`}let lbs='';for(let k=0;k<5;k++){lbs+=`<span class="lb" style="transform:rotateY(${k*30-60}deg) translateZ(38px);background:#f5efe8"></span>`}return `<article class="wine"><div class="btl" aria-hidden="true"><div class="bt">${faces}${lbs}<span style="position:absolute;bottom:250px;left:50%;width:30px;margin-left:-15px;height:60px;background:${w[3][1]};border-radius:6px 6px 0 0;transform:translateZ(0)"></span><span style="position:absolute;bottom:84px;left:50%;width:44px;margin-left:-22px;transform:translateZ(40px)"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#7a4a3a" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span></div></div><b>${w[0]}</b><p>${w[1]}</p><span>${w[2]} € · 75 cl</span><div class="qty" role="group" aria-label="Quantité ${w[0]}"><button type="button" data-q="${i}" data-d="-1" aria-label="Une bouteille de moins">−</button><output id="q${i}" aria-live="polite">0</output><button type="button" data-q="${i}" data-d="1" aria-label="Une bouteille de plus">+</button></div></article>`}).join('');
+function cart(){const n=q.reduce((a,b)=>a+b,0),t=q.reduce((a,b,i)=>a+b*WN[i][2],0);$('#ctx').textContent=n?`${n} bouteille${n>1?'s':''} · ${t} €${n>=2?' · livraison offerte':' · livraison offerte dès 2'}`:'Votre panier est vide'}
+$('#wines').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;const i=+b.dataset.q;q[i]=Math.max(0,Math.min(24,q[i]+(+b.dataset.d)));$('#q'+i).textContent=q[i];cart()});
+$('#cbuy').addEventListener('click',()=>{$('#ctx').textContent='Démo : aucun paiement. Sur le vrai site, la commande vérifie aussi votre âge.'});
+/* visite */
+const vd=$('#vd');const tm=new Date();tm.setDate(tm.getDate()+2);vd.min=tm.toISOString().slice(0,10);
+function tx(){const o=$('#vt').selectedOptions[0];$('#tx1').textContent=o.textContent.split(' · ')[0];$('#tx2').textContent=$('#vp').value+' personne'+($('#vp').value>1?'s':'')+' · '+(vd.value?new Date(vd.value+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):'date à choisir');$('#tx3').textContent=$('#vn').value.trim()?'Au nom de '+$('#vn').value.trim():'Au nom de …'}
+['#vt','#vd','#vp','#vn'].forEach(s=>$(s).addEventListener('input',tx));tx();
+$('#vf').addEventListener('submit',e=>{e.preventDefault();const m=$('#vm');if(!vd.value){m.textContent='Choisissez une date.';return}if(!$('#vn').value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#ve').value.trim())){m.textContent='Indiquez votre nom et un e-mail valide.';return}if(!$('#va').checked){m.textContent='La dégustation est réservée aux personnes majeures : cochez la case.';return}if(!$('#vk').checked){m.textContent='Cochez la case pour accepter l’utilisation de vos coordonnées.';return}$('#tix').classList.add('go');m.textContent='C’est noté ! Sur le vrai site, le domaine vous confirme par e-mail. (Démo : rien n’a été envoyé.)'});
+</script>
+<script>
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+</script>
+</body>
+</html>

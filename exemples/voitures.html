@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Drive — La voiture vient à vous</title>
+<meta name="description" content="ZAHR Drive, location de voitures premium livrées à domicile dans le Var (marque fictive). Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%230a0a0a' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap">
+<style>
+:root{--ink:#0a0a0a;--t1:#f2f2f2;--t2:#e6e6e6;--mu:#8e8e8e;--pad:clamp(16px,2.2vw,40px)}
+*{box-sizing:border-box}
+html{background:#fff;overflow-x:clip}
+body{margin:0;background:#fff;color:var(--ink);font-family:Inter,system-ui,sans-serif;font-weight:500;font-optical-sizing:auto;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:clip}
+button,input,select{font:inherit;color:inherit;letter-spacing:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid #7a7a7a;outline-offset:3px}
+.btn{height:40px;padding:0 18px;border-radius:8px;border:0;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.k{background:var(--ink);color:#fff}.btn.g{background:var(--t1)}.btn.g2{background:var(--t2)}.btn.w{background:#fff;color:#000}
+.pill{height:30px;padding:0 12px;border-radius:999px;font-size:12px;display:inline-flex;align-items:center;gap:6px;background:var(--t2);color:var(--ink)}
+.pill svg{width:12px;height:12px}
+/* nav */
+.nav{position:fixed;left:0;right:0;top:0;height:84px;z-index:50;display:flex;align-items:center;padding:0 var(--pad);color:#fff;mix-blend-mode:difference}
+.wmk{display:flex;align-items:center;gap:9px;font-size:18px;text-decoration:none;letter-spacing:-.03em}
+.wmk svg{width:22px;transform:skewX(-10deg)}
+.links{position:absolute;left:40.6vw;display:flex;gap:28px;font-size:13px}
+.links a{text-decoration:none;transition:opacity .3s}.links a:first-child{margin-right:60px}
+.links a.dim{opacity:.45}
+.nav .btn{margin-left:auto}
+/* piste */
+.track{position:relative;height:720vh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:#fff}
+.box{position:absolute;left:0;top:0;background:#000;overflow:hidden;isolation:isolate;will-change:transform}
+.box canvas{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);mix-blend-mode:screen}
+.plate{position:absolute;inset:0;background:var(--t1);opacity:0}
+.herocopy{position:absolute;inset:0;color:#fff;pointer-events:none;z-index:20}
+.herocopy .lede{position:absolute;left:var(--pad);top:42%;display:grid;gap:14px;font-size:clamp(15px,1.25vw,19px);line-height:1.35;max-width:30ch;pointer-events:auto}
+.herocopy .pill{background:rgba(255,255,255,.14);color:#fff;backdrop-filter:blur(8px);justify-self:start}
+.herocopy .cue{position:absolute;left:var(--pad);bottom:calc(min(7.6vw,12.5vh)*2.2 + 34px);font-size:13px;color:#bbb}
+.ttl{position:absolute;left:0;right:var(--pad);bottom:24px;font-size:min(7.6vw,12.5vh);line-height:.9;letter-spacing:-.055em;display:flex;align-items:flex-end}
+.ttl .p{position:absolute;left:40.8vw;bottom:0;color:#777}
+.ttl .r{margin-left:auto;text-align:right}
+.ttl span{display:inline-block}
+.stmt{position:absolute;font-size:3.55vw;line-height:1.08;letter-spacing:-.045em;display:flex;flex-direction:column}
+.stmt .l{display:block}
+.stmt .btn{margin-top:auto;align-self:flex-start}
+.marq{position:absolute;left:0;right:0;bottom:4.5vh;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq div{display:flex;gap:56px;width:max-content;font-size:clamp(18px,1.8vw,30px);color:#b2b2b2;animation:mq 40s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.fleet{position:absolute;left:50%;top:22%;transform:translateX(-50%);width:11.4em;font-size:min(3.9vw,5.5vh);line-height:1.1;letter-spacing:-.045em;text-align:center}
+.fleet span{display:inline-block;margin-right:.22em}
+.car{position:absolute;left:0;top:0;margin:0;mix-blend-mode:multiply;will-change:transform,filter,opacity}
+.car img{display:block;width:100%;height:auto}
+.bar{position:absolute;left:var(--pad);right:var(--pad);bottom:var(--pad);display:grid;grid-template-columns:64px 1.6fr 1fr 1.1fr 64px;gap:8px;z-index:15}
+.tile{background:var(--t1);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:118px;opacity:0;transform:translateY(30px)}
+.tile.ar{align-items:center;justify-content:center;padding:0;border:0;cursor:pointer;min-height:auto}
+.tile.ar svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:1.6}
+.tile .nm{font-size:3.3vw;letter-spacing:-.055em;line-height:.95}
+.tile .ds{font-size:13px;color:var(--mu);margin:0}
+.tile .row{display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap}
+.tile .pr{font-size:clamp(24px,2.4vw,40px);letter-spacing:-.05em}
+.tile .pr small{font-size:13px;color:var(--mu);letter-spacing:0;display:block}
+.swp{transition:filter .35s,opacity .35s}.swp.out{filter:blur(8px);opacity:0}
+/* sections suivantes */
+.sec{position:relative;padding:clamp(100px,16vh,170px) var(--pad);background:#fff}
+.eye{font-size:13px;color:var(--mu);margin:0 0 18px}
+.big{font-size:clamp(40px,5.6vw,96px);letter-spacing:-.055em;line-height:.95;margin:0;font-weight:500}
+.big i{font-style:normal;color:#b2b2b2}
+/* zone de livraison */
+#zone{background:#000;color:#fff;overflow:hidden}
+#zone .g{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:5vw;align-items:center}
+.var3d{perspective:1300px}
+.var3d .pl{position:relative;aspect-ratio:1.3;transform:rotateX(52deg) rotateZ(-14deg);transform-style:preserve-3d;border-radius:28px;background:radial-gradient(70% 70% at 50% 60%,#1a1a1a,#060606);box-shadow:0 0 0 1px #222}
+.var3d svg.rd{position:absolute;inset:0;width:100%;height:100%}
+.rd .bgp{fill:none;stroke:#262626;stroke-width:14;stroke-linecap:round}
+.rd .fg{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-dasharray:var(--L);stroke-dashoffset:var(--o,var(--L))}
+.town{position:absolute;transform:translate(-50%,-100%) rotateZ(14deg) rotateX(-52deg);transform-origin:50% 100%;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;opacity:.35;transition:opacity .4s}
+.town i{width:2px;height:34px;background:#fff}
+.town.on{opacity:1}
+.carpin{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:12px;background:#fff;display:grid;place-items:center;transform:rotateZ(14deg) rotateX(-52deg) translateY(-30px);box-shadow:0 20px 30px rgba(0,0,0,.6)}
+.carpin svg{width:26px}
+.stops{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:14px}
+.stops li{display:flex;justify-content:space-between;border-top:1px solid #222;padding-top:14px;font-size:15px;color:#888;transition:color .4s}
+.stops li.on{color:#fff}
+/* réservation */
+#resa .g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:5vw;align-items:center}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:34px}
+.fm label{display:grid;gap:6px;font-size:12px;color:var(--mu)}
+.fm input,.fm select{height:48px;border-radius:10px;border:0;background:var(--t1);padding:0 14px;color:var(--ink);font-size:14px}
+.fm .full{grid-column:1/-1}
+.fm .cons{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:#555}
+.fm .cons input{height:auto;margin-top:3px;accent-color:#000}
+.fm .msg{grid-column:1/-1;margin:0;min-height:20px;font-size:14px}
+.fob{perspective:1000px;display:grid;place-items:center;min-height:440px}
+.fobw{width:150px;height:260px;position:relative;transform-style:preserve-3d;animation:fob 10s ease-in-out infinite}
+.fobw.go{animation:fob2 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes fob{0%,100%{transform:rotateY(-28deg) rotateX(12deg)}50%{transform:rotateY(28deg) rotateX(-6deg)}}
+@keyframes fob2{to{transform:rotateY(360deg) rotateX(0)}}
+.fobf{position:absolute;inset:0;border-radius:70px;background:linear-gradient(160deg,#2b2b2b,#050505 60%);box-shadow:inset 0 0 0 1px #333;display:grid;place-items:center;backface-visibility:hidden}
+.fobf.b{transform:rotateY(180deg);background:linear-gradient(160deg,#f6f6f6,#d8d8d8);color:#000;font-size:12px;text-align:center;padding:30px 18px;align-content:center;gap:8px}
+.fobf.b b{font-size:18px;letter-spacing:-.03em}
+.fobf svg{width:56px}
+.fobf .bt{position:absolute;left:50%;width:46px;height:46px;margin-left:-23px;border-radius:50%;background:#111;box-shadow:inset 0 2px 3px rgba(255,255,255,.08),0 0 0 1px #2a2a2a}
+.fobf .bt.a{top:42px}.fobf .bt.c{bottom:42px}
+.fobring{position:absolute;top:-34px;left:50%;width:40px;height:40px;margin-left:-20px;border-radius:50%;border:5px solid #9a9a9a;transform:translateZ(-2px)}
+.fobw .ed{position:absolute;left:50%;top:0;bottom:0;width:22px;margin-left:-11px;background:#111;border-radius:11px;transform:rotateY(90deg)}
+/* adresse + pied */
+#ou .g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:5vw;align-items:center}
+footer{padding:30px var(--pad) 40px;border-top:1px solid #eee;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end;color:#555}
+.mega{padding:0 var(--pad);overflow:hidden}
+.mega svg{display:block;width:100%;height:auto;margin-top:40px}
+/* repli sans animation */
+body.flat .track{height:auto}body.flat .stage{position:relative;height:auto;padding:110px var(--pad) 40px;display:grid;gap:30px}
+body.flat .stage>*{position:relative!important;inset:auto!important;transform:none!important;opacity:1!important;filter:none!important}
+@media (max-width:760px),(orientation:portrait){
+ .links{display:none}
+ .herocopy .lede{top:100px}
+ .ttl{flex-direction:column;align-items:flex-start;left:var(--pad);font-size:15.5vw}.ttl .p{position:static}.ttl .r{margin-left:0;text-align:left}
+ .herocopy .cue{bottom:calc(15.5vw*3 + 40px)}
+ .stmt{font-size:6.6vw}
+ .bar{grid-template-columns:52px 1fr 1fr 52px;grid-template-rows:auto auto}
+ .bar .t-n{grid-column:1/-1;grid-row:1}.tile{min-height:0;padding:12px 14px}.tile .nm{font-size:8vw}
+ #zone .g,#resa .g,#ou .g{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.marq div,.fobw{animation:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #0a0a0a;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#ffffff;color:#0a0a0a;font-family:Inter,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#0a0a0a;color:#ffffff;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#ffffff;color:#0a0a0a;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:Inter,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #0a0a0a}
+.zl-ck .b button.y{background:#0a0a0a;color:#ffffff}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#0a0a0a55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#0a0a0a;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#0a0a0a;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #0a0a0a;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:Inter,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#0a0a0a;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="wmk" href="#" data-go="0" aria-label="ZAHR Drive, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>zahr drive</a>
+  <nav class="links" aria-label="Navigation"><a href="#" data-go="0">Accueil</a><a href="#" data-go="7.3">La flotte</a><a href="#" data-go="3.9">L’expérience</a><a href="#resa">Contact</a></nav>
+  <a class="btn w" href="#resa">Réserver</a>
+</header>
+<main>
+<div class="track" id="track">
+ <div class="stage" id="stage">
+  <div class="box" id="box"><canvas id="cv" width="1280" height="720" aria-label="Film : un chauffeur monte dans une berline noire, puis la caméra tourne autour de la voiture" role="img"></canvas><div class="plate" id="plate"></div></div>
+  <div class="stmt" id="stmt"><span class="l">Ce n’est pas la route</span><span class="l">qui compte. C’est l’arrivée.</span><span class="l">Votre voiture vous attend</span><span class="l">devant la porte : plein fait,</span><span class="l">lavée, silencieuse.</span><a class="btn g2" href="#resa">Réserver</a></div>
+  <div class="marq" id="marq" aria-hidden="true"><div><span>Livrée chez vous</span><span>Plein fait</span><span>Lavée à la main</span><span>Assurance incluse</span><span>Sans agence</span><span>Sans paperasse</span><span>Var · Alpes-Maritimes</span><span>7 j / 7</span><span>Livrée chez vous</span><span>Plein fait</span><span>Lavée à la main</span><span>Assurance incluse</span><span>Sans agence</span><span>Sans paperasse</span><span>Var · Alpes-Maritimes</span><span>7 j / 7</span></div></div>
+  <p class="fleet" id="fleet">Une collection privée, pas un parking : du SUV au coupé, chaque voiture est lavée, assurée et devant chez vous dans l’heure, partout sur la côte varoise.</p>
+  <div id="cars"></div>
+  <div class="bar" id="bar">
+    <button class="tile ar" type="button" id="pv" aria-label="Voiture précédente"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="tile t-n"><div class="nm swp" id="bn">La berline noire</div><div class="row"><p class="ds swp" id="bd">Silence, cuir et chauffeur sur demande.</p><button class="btn g2" type="button" id="spec">Caractéristiques</button></div></div>
+    <div class="tile"><div class="row" style="justify-content:flex-start"><span class="pill"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0a4 4 0 0 0-4 4c0 3 4 8 4 8s4-5 4-8a4 4 0 0 0-4-4zm0 5.5A1.5 1.5 0 1 1 6 2.5a1.5 1.5 0 0 1 0 3z"/></svg>Toulon</span><span class="pill swp" id="bp">+3</span></div><p class="ds">Villes de livraison le jour même</p></div>
+    <div class="tile"><span class="ds">Par jour</span><div class="row"><span class="pr swp" id="bpr">290 €</span><a class="btn k" href="#resa">Réserver</a></div></div>
+    <button class="tile ar" type="button" id="nx" aria-label="Voiture suivante"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="herocopy" id="hc">
+    <div class="lede" id="lede"><span class="pill"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0a4 4 0 0 0-4 4c0 3 4 8 4 8s4-5 4-8a4 4 0 0 0-4-4zm0 5.5A1.5 1.5 0 1 1 6 2.5a1.5 1.5 0 0 1 0 3z"/></svg>Toulon · Var</span><span>La voiture que vous voulez, devant chez vous.<br>Pas d’agence, pas de paperasse : juste les clés.</span></div>
+    <span class="cue">Défilez ↓</span>
+    <h1 class="ttl" id="ttl"><span class="p">ZAHR</span><span class="r"><span>Location</span><br><span>Premium</span></span></h1>
+  </div>
+ </div>
+</div>
+
+<section class="sec" id="zone" aria-labelledby="h-zone">
+  <div class="g">
+    <div><p class="eye" style="color:#777">La livraison</p><h2 class="big" id="h-zone">On roule<br><i>jusqu’à vous.</i></h2>
+      <ul class="stops" id="stops"><li data-k="0"><span>Toulon</span><span>dans l’heure</span></li><li data-k="1"><span>Hyères</span><span>45 min</span></li><li data-k="2"><span>Saint-Tropez</span><span>1 h 30</span></li><li data-k="3"><span>Fréjus · Saint-Raphaël</span><span>1 h 45</span></li></ul>
+      <p style="color:#777;font-size:13px;margin-top:24px">Délais indicatifs d’une marque fictive, pour l’exemple.</p></div>
+    <div class="var3d" aria-hidden="true"><div class="pl" id="pl">
+      <svg class="rd" viewBox="0 0 1000 770"><path class="bgp" d="M120 560 C 220 600 300 620 400 600 S 560 520 650 470 S 820 330 880 230"/><path class="fg" id="road" d="M120 560 C 220 600 300 620 400 600 S 560 520 650 470 S 820 330 880 230"/></svg>
+      <span class="town" style="left:12%;top:72.7%" data-k="0">Toulon<i></i></span><span class="town" style="left:40%;top:78%" data-k="1">Hyères<i></i></span><span class="town" style="left:65%;top:61%" data-k="2">Saint-Tropez<i></i></span><span class="town" style="left:88%;top:29.9%" data-k="3">Fréjus<i></i></span>
+      <span class="carpin" id="cpin"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#0a0a0a" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span>
+    </div></div>
+  </div>
+</section>
+
+<section class="sec" id="resa" aria-labelledby="h-resa">
+  <div class="g">
+    <div><p class="eye">Réservation</p><h2 class="big" id="h-resa">Dites-nous où.<br><i>On s’occupe du reste.</i></h2>
+      <form class="fm" id="fm" novalidate>
+        <label class="full">Voiture<select id="fc"></select></label>
+        <label>Livraison le<input type="date" id="fd"></label>
+        <label>À<select id="fh"><option>08:00</option><option>10:00</option><option selected>12:00</option><option>14:00</option><option>16:00</option><option>18:00</option></select></label>
+        <label class="full">Adresse de livraison<input type="text" id="fa" autocomplete="street-address" placeholder="Rue, ville"></label>
+        <label>Votre nom<input type="text" id="fn" autocomplete="name"></label>
+        <label>Votre téléphone<input type="tel" id="ft" autocomplete="tel"></label>
+        <label class="cons"><input type="checkbox" id="fk"><span>J’accepte que ZAHR Drive utilise ces informations uniquement pour organiser cette livraison. <button type="button" data-open="zl-conf" style="all:unset;text-decoration:underline;cursor:pointer">Confidentialité</button></span></label>
+        <button class="btn k full" type="submit" style="height:52px">Demander la livraison</button>
+        <p class="msg" id="fmm" role="status" aria-live="polite"></p>
+      </form></div>
+    <div class="fob" aria-hidden="true"><div class="fobw" id="fobw"><span class="fobring"></span><span class="ed"></span><div class="fobf"><span class="bt a"></span><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><span class="bt c"></span></div><div class="fobf b"><b id="kc">La berline noire</b><span id="kd">Date à choisir</span><span id="ka" style="color:#666">Adresse à indiquer</span></div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="ou" aria-labelledby="h-ou" style="padding-top:40px">
+  <div class="g"><div><p class="eye">Le garage</p><h2 class="big" id="h-ou">Toulon,<br><i>port de départ.</i></h2><p style="color:#777;max-width:40ch">ZAHR Drive est une marque fictive imaginée par ZAHR pour montrer un site de location de voitures. Les modèles présentés ne sont pas affiliés à ZAHR.</p></div><div class="zl-map" data-q="Toulon, France"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Drive</b><span>Toulon (adresse fictive) · 7 j / 7, 8 h – 20 h</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Toulon, France" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+</section>
+<div class="mega" aria-hidden="true"><svg class="" viewBox="0 -1530 6260 1560" role="img" aria-label="ZAHR"><path fill="#0a0a0a" d="M57 0H1214V-195H323C378 -259 431 -324 482 -389L1206 -1309V-1490H85V-1295H941C891 -1236 842 -1177 796 -1118L57 -181Z M1572.72 0H1808.72L1944.72 -387H2545.72L2677.72 0H2918.72L2381.72 -1490H2113.72ZM2011.72 -576 2104.72 -840C2145.72 -963 2188.72 -1094 2248.72 -1287C2307.72 -1094 2349.72 -963 2390.72 -840L2480.72 -576Z M3358.44 0H3580.44V-665H4321.44V0H4543.44V-1490H4321.44V-859H3580.44V-1490H3358.44Z M5102.16 0H5324.16V-564H5654.16C5657.16 -564 5661.16 -564 5664.16 -564L5961.16 0H6211.16L5889.16 -601C6075.16 -668 6188.16 -818 6188.16 -1026C6188.16 -1311 5988.16 -1490 5669.16 -1490H5102.16ZM5324.16 -753V-1298H5659.16C5851.16 -1298 5969.16 -1194 5969.16 -1026C5969.16 -858 5852.16 -753 5660.16 -753Z"/></svg></div>
+</main>
+<footer><span>ZAHR Drive · Toulon (fictif) · 7 j / 7, 8 h – 20 h</span><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Drive</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Drive</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Drive</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Drive</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CAR='https://res.cloudinary.com/ce2yatay/image/upload/avelon-drive/cars/';
+const CARS=[['range','Le SUV graphite','Sept places, toit panoramique, coffre immense.',260,'+2'],['porsche','La sportive rouge','Deux portes, un circuit dans chaque virage.',420,'+1'],['sclass','La berline noire','Silence, cuir et chauffeur sur demande.',290,'+3'],['bmw','La berline bleu nuit','Longue distance, sièges massants.',270,'+3'],['bentley','Le coupé vert','Grand tourisme, pour les grandes occasions.',520,'+2']];
+const FR=i=>'https://res.cloudinary.com/ce2yatay/video/upload/so_'+Math.max(0,(i-.5)/15).toFixed(3)+',q_72/avelon-drive/hero-film.webp';
+/* --- images du film --- */
+const frames=new Array(151);const cv=$('#cv'),cx=cv.getContext('2d');
+function load(i){if(frames[i])return Promise.resolve();return new Promise(r=>{const im=new Image();im.decoding='async';im.onload=()=>{frames[i]=im;r()};im.onerror=r;im.src=FR(i)})}
+(async()=>{await load(0);paint(0,true);const order=[];[16,8,4,2,1].forEach(st=>{for(let i=0;i<=150;i+=st)if(!order.includes(i))order.push(i)});let k=0;const w=async()=>{while(k<order.length){const i=order[k++];await load(i)}};for(let j=0;j<6;j++)w()})();
+let lastF=-1;function paint(f,force){f=Math.round(f);if(f===lastF&&!force)return;let im=null;for(let d=0;d<151&&!im;d++){im=frames[f-d]||frames[f+d]}if(!im)return;lastF=f;cx.clearRect(0,0,1280,720);cx.drawImage(im,0,0,1280,720)}
+/* --- voitures --- */
+const carsEl=$('#cars');const figs=CARS.map(c=>{const f=document.createElement('figure');f.className='car';f.innerHTML=`<img src="${CAR}${c[0]}.webp" alt="${c[1]}, vue de profil" width="1400" height="560">`;carsEl.appendChild(f);return f});
+let sel=2,rowPos=2,rowTween=null;
+/* --- timeline maison (0 → 10) --- */
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,io=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,oc=t=>1-Math.pow(1-t,3);
+const seg=(u,a,b,e=io)=>e(clamp((u-a)/(b-a)));
+const track=$('#track'),stage=$('#stage'),box=$('#box'),plate=$('#plate'),stmtL=$$('#stmt .l'),stmtB=$('#stmt .btn'),stmt=$('#stmt'),marq=$('#marq'),fleet=$('#fleet'),hc=$('#hc'),tiles=$$('#bar .tile');
+fleet.innerHTML=fleet.textContent.split(' ').map(w=>'<span>'+w+'</span>').join(' ');const fw=$$('#fleet span');
+let W,H,mob;function dims(){W=stage.clientWidth;H=stage.clientHeight;mob=W<760||H>W}
+function rects(){const pad=Math.max(16,Math.min(40,W*.022));const cw=mob?W-2*pad:W*.46,ch=cw/1.3;const card={x:pad,y:mob?96:(H-ch)/2-H*.04,w:cw,h:ch,r:mob?16:22};
+ const carW=mob?W*.6:W*.23;const third=mob?W*.8:W/3;const low={w:third,h:third/1.3};low.x=(W-low.w)/2;low.y=H*.62-low.h/2;low.r=18;return{card,low,carW,pad}}
+let u=0,us=0;
+function target(){const r=track.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight))*10}
+function render(){const R=rects();
+ /* boîte */
+ const a=seg(us,.9,2.4),b=seg(us,4.3,5.5);let bx=lerp(0,R.card.x,a),by=lerp(0,R.card.y,a),bw=lerp(W,R.card.w,a),bh=lerp(H,R.card.h,a),br=lerp(0,R.card.r,a);
+ bx=lerp(bx,R.low.x,b);by=lerp(by,R.low.y,b);bw=lerp(bw,R.low.w,b);bh=lerp(bh,R.low.h,b);
+ box.style.width=bw+'px';box.style.height=bh+'px';box.style.transform=`translate(${bx}px,${by}px)`;box.style.borderRadius=br+'px';
+ const pf=seg(us,5.3,6.6,t=>t);box.style.background=pf>0?`rgb(${lerp(0,242,clamp(pf*2))},${lerp(0,242,clamp(pf*2))},${lerp(0,242,clamp(pf*2))})`:'#000';plate.style.opacity=0;box.style.opacity=1-clamp((pf-.55)/.45);
+ /* film : taille */
+ const zHero=(W*2/3)/.75,cover=Math.max(bw,bh*16/9),zCard=Math.min(cover,bw*1.37),zLow=(R.carW*1320/1400)/.97;let cwv=lerp(zHero,zCard,a);cwv=lerp(cwv,zLow,b);cv.style.width=cwv+'px';cv.style.height=(cwv*9/16)+'px';cv.style.opacity=1-clamp(pf*1.6);
+ /* image du film */
+ const fr=us<1.2?lerp(0,30,clamp(us/1.2)):lerp(30,150,seg(us,1.2,3.7,t=>t));paint(fr);
+ /* texte du héros */
+ const h=seg(us,.3,1.1);hc.style.opacity=1-h;hc.style.filter=`blur(${h*14}px)`;hc.style.transform=`translateY(${-h*40}px)`;hc.style.visibility=h>=1?'hidden':'visible';
+ /* déclaration */
+ const sx=mob?R.card.x:R.card.x+R.card.w+W*.04,sy=mob?R.card.y+R.card.h+24:R.card.y;stmt.style.left=sx+'px';stmt.style.top=sy+'px';stmt.style.width=(mob?W-2*R.pad:W-sx-R.pad)+'px';stmt.style.height=(mob?'auto':R.card.h+'px');
+ const out=seg(us,4.3,5.1);stmtL.forEach((l,i)=>{const t=seg(us,2.15+i*.16,2.75+i*.16,oc);l.style.opacity=t*(1-out);l.style.filter=`blur(${(1-t)*12+out*12}px)`;l.style.transform=`translateY(${(1-t)*26}px)`});
+ const tb=seg(us,3,3.4);stmtB.style.opacity=tb*(1-out);marq.style.opacity=tb*(1-out);
+ /* rangée de voitures */
+ const show=seg(us,5.6,6.6),climb=seg(us,5.8,7.3),mid=seg(us,7.4,8.3),foc=seg(us,8,9);
+ const carH=R.carW*.4;const yLow=R.low.y+R.low.h/2;let cy=lerp(yLow,H*.73,climb);cy=lerp(cy,H*(mob?.42:.44),mid);
+ const focusW=Math.min(W*(mob?.95:.7),(H*.5)/.4);const cw=lerp(R.carW,focusW,foc);const sp=lerp(R.carW*1.06,focusW*1.15,foc);
+ figs.forEach((f,i)=>{let d=i-rowPos;d=((d+2.5)%5+5)%5-2.5;const x=W/2+d*sp-cw/2;const y=cy-cw*.4*.565;f.style.width=cw+'px';f.style.transform=`translate(${x}px,${y}px)`;const ad=Math.abs(d);const bl=(1-show)*16+foc*clamp(ad)*16;f.style.filter=`blur(${bl}px)`;f.style.opacity=show*(1-foc*clamp(ad*.9))});
+ /* phrase flotte */
+ const fin=seg(us,7.4,8);fw.forEach((w,i)=>{const t=seg(us,5.8+i*.045,6.3+i*.045,oc);w.style.opacity=t*(1-fin);w.style.filter=`blur(${(1-t)*10+fin*10}px)`});
+ /* barre */
+ tiles.forEach((t,i)=>{const k=seg(us,8.8+i*.12,9.3+i*.12,oc);t.style.opacity=k;t.style.transform=`translateY(${(1-k)*30}px)`;t.style.pointerEvents=k>.5?'auto':'none'});
+ /* nav */
+ const cur=us<3.9?0:us<7.3?2:1;$$('.links a').forEach((l,i)=>l.classList.toggle('dim',i===cur));
+}
+function loop(){const t=target();us=reduce?t:us+(t-us)*.12;if(rowTween){const k=clamp((performance.now()-rowTween.t0)/900);rowPos=lerp(rowTween.a,rowTween.b,io(k));if(k>=1)rowTween=null}render();requestAnimationFrame(loop)}
+function setCar(dir){const c=CARS[(((sel+dir)%5)+5)%5];sel=(sel+dir);const swp=$$('.swp');swp.forEach(e=>e.classList.add('out'));setTimeout(()=>{$('#bn').textContent=c[1];$('#bd').textContent=c[2];$('#bpr').textContent=c[3]+' €';$('#bp').textContent=c[4];swp.forEach(e=>e.classList.remove('out'));$('#fc').value=c[1];key()},reduce?0:300);if(reduce){rowPos=sel}else rowTween={a:rowPos,b:sel,t0:performance.now()}}
+$('#pv').addEventListener('click',()=>setCar(-1));$('#nx').addEventListener('click',()=>setCar(1));
+addEventListener('keydown',e=>{if(us<8.5||us>=9.99&&track.getBoundingClientRect().bottom<innerHeight*.5)return;if(e.target.closest('input,select,textarea,dialog'))return;if(e.key==='ArrowLeft')setCar(-1);if(e.key==='ArrowRight')setCar(1)});
+$('#spec').addEventListener('click',()=>{const c=CARS[((sel%5)+5)%5];$('#bd').textContent=c[2]+' Boîte auto · GPS · sièges chauffants.'});
+$$('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const v=+a.dataset.go;const top=track.offsetTop+(track.offsetHeight-innerHeight)*v/10;scrollTo({top,behavior:reduce?'auto':'smooth'})}));
+dims();addEventListener('resize',()=>{dims();render()});
+if(!reduce&&scrollY<10){const ls=[$('#nav'),$('#lede'),...$$('#ttl span span'),$('#ttl .p')];ls.forEach((e,i)=>e.animate([{opacity:0,filter:'blur(26px)',transform:'translateY(14px)'},{opacity:1,filter:'blur(0)',transform:'none'}],{duration:1100,delay:200+i*120,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'}));box.animate([{opacity:0},{opacity:1}],{duration:900})}
+requestAnimationFrame(loop);
+/* --- zone de livraison --- */
+const road=$('#road'),L=road.getTotalLength();road.style.setProperty('--L',L);const cpin=$('#cpin'),zone=$('#zone'),towns=$$('.town'),stops=$$('#stops li');
+function zoneS(){const r=zone.getBoundingClientRect();const p=clamp((innerHeight*.85-r.top)/(r.height*.9));road.style.setProperty('--o',L*(1-p));const pt=road.getPointAtLength(L*p);cpin.style.left=(pt.x/10)+'%';cpin.style.top=(pt.y/7.7)+'%';const k=p<.05?-1:p<.42?0:p<.7?1:p<.95?2:3;const on=Math.max(0,Math.floor(p*3.99));towns.forEach(t=>t.classList.toggle('on',+t.dataset.k<=on));stops.forEach(t=>t.classList.toggle('on',+t.dataset.k<=on))}
+addEventListener('scroll',zoneS,{passive:true});zoneS();
+/* --- réservation --- */
+const fc=$('#fc');CARS.forEach(c=>fc.insertAdjacentHTML('beforeend',`<option>${c[1]}</option>`));fc.value='La berline noire';
+const fd=$('#fd');const t=new Date();t.setDate(t.getDate()+1);fd.min=t.toISOString().slice(0,10);
+function key(){$('#kc').textContent=fc.value;$('#kd').textContent=fd.value?new Date(fd.value+'T12:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})+' · '+$('#fh').value.replace(':',' h '):'Date à choisir';$('#ka').textContent=$('#fa').value.trim()||'Adresse à indiquer'}
+['#fc','#fd','#fh','#fa'].forEach(s=>$(s).addEventListener('input',key));
+$('#fm').addEventListener('submit',e=>{e.preventDefault();const m=$('#fmm');if(!fd.value||!$('#fa').value.trim()){m.textContent='Indiquez la date et l’adresse de livraison.';return}if(!$('#fn').value.trim()||$('#ft').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre nom et un numéro valide.';return}if(!$('#fk').checked){m.textContent='Cochez la case pour accepter l’utilisation de vos informations.';return}$('#fobw').classList.add('go');m.textContent='C’est noté ! Sur le vrai site, ZAHR Drive vous rappelle pour confirmer. (Démo : rien n’a été envoyé, rien n’est payé.)'});
+</script>
+<script>
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+</script>
+</body>
+</html>

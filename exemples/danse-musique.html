@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Studio — École de danse et de musique</title>
+<meta name="description" content="ZAHR Studio, école de danse et de musique fictive dans le Var : piano, guitare, chant, danse classique, hip-hop, éveil. Cours d’essai gratuit. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%2326332C' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+
+<style>
+:root{--txt:#e7e4ee;--mute:rgba(231,228,238,.56);--base:#0f0e14;--s:#4E6B5B;--k:#26332C;--c:#F3F4EF;--b:#A9C2B0;--mo:"JetBrains Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--base);overflow-x:clip}
+body{font-family:"Inter",system-ui,sans-serif;color:var(--txt);background:var(--base);overflow-x:clip;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+.mo{font-family:var(--mo);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border:1px solid rgba(231,228,238,.4);font-family:var(--mo);font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .3s,color .3s}
+.btn:hover,.btn.f{background:var(--txt);color:var(--base)}
+/* galerie courbée */
+.gal{position:relative;height:420vh}
+.gst{position:sticky;top:0;height:100svh;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fb2{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 10px;overflow:hidden}
+.fb2 div{flex:none;width:14vw;height:44vh;border-radius:6px;display:grid;place-items:center;font-family:var(--mo);font-size:12px;text-align:center;padding:8px}
+.on3d+.fb2{display:none}
+.ui{position:absolute;inset:0;pointer-events:none;z-index:3}
+.ui>*{pointer-events:auto}
+.top{position:absolute;top:22px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center}
+.lg{display:flex;align-items:center;gap:10px;font-family:var(--mo);font-weight:700;letter-spacing:.06em}.lg svg{width:24px}
+.cross{width:22px;height:22px;animation:sp 6s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.ttl{position:absolute;left:0;right:0;bottom:15vh;text-align:center;font-family:var(--mo);font-weight:500;font-size:clamp(38px,8.4vw,132px);letter-spacing:-.04em;line-height:1;white-space:nowrap;pointer-events:none}
+.sub{position:absolute;left:24px;right:24px;bottom:5vh;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;color:var(--mute)}
+.sub .r{display:flex;gap:8px}
+.idx{font-family:var(--mo);font-size:12px}
+h1.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+/* sections */
+.sec{padding:clamp(90px,10vw,140px) clamp(18px,4vw,60px)}
+.h2{font-family:var(--mo);font-weight:500;font-size:clamp(34px,4.6vw,70px);letter-spacing:-.05em;line-height:1}
+.paper{background:var(--c);color:var(--k)}.paper .btn{border-color:rgba(38,51,44,.4)}.paper .btn:hover,.paper .btn.f{background:var(--k);color:var(--c)}
+/* planning */
+.flt{display:flex;gap:6px;flex-wrap:wrap;margin-top:26px}.flt button{padding:9px 14px;border:1px solid rgba(38,51,44,.3);font-family:var(--mo);font-size:12px}.flt button[aria-pressed=true]{background:var(--k);color:var(--c)}
+.wk{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:22px}
+.day h3{font-family:var(--mo);font-size:12px;letter-spacing:.1em;padding:8px 0;border-bottom:2px solid var(--k)}
+.cr{margin-top:8px;padding:12px;background:#fff;border-left:4px solid var(--cc);transition:opacity .3s,transform .3s;cursor:pointer}
+.cr b{display:block;font-size:14px}.cr span{font-family:var(--mo);font-size:11px;opacity:.65}
+.cr.dim{opacity:.18;transform:scale(.97)}
+/* boîte à rythmes */
+.drum{display:grid;grid-template-columns:.9fr 1.1fr;gap:4vw;align-items:center;margin-top:40px}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:12px;perspective:900px}
+.pad{aspect-ratio:1;border-radius:18px;background:linear-gradient(150deg,#2a2833,#16151c);border:1px solid rgba(231,228,238,.14);display:grid;place-items:center;font-family:var(--mo);font-size:13px;transition:transform .08s,box-shadow .2s;box-shadow:0 18px 30px -18px #000,inset 0 1px 0 rgba(255,255,255,.08)}
+.pad.hit{transform:translateY(3px) rotateX(10deg);box-shadow:0 0 40px var(--pc),inset 0 0 30px var(--pc)}
+.seq{display:grid;grid-template-columns:90px repeat(8,1fr);gap:6px;align-items:center}
+.seq span{font-family:var(--mo);font-size:11px;color:var(--mute)}
+.seq button{aspect-ratio:1;border-radius:6px;background:#1c1b22;border:1px solid rgba(231,228,238,.1);transition:background .15s}
+.seq button[aria-pressed=true]{background:var(--pc)}
+.seq button.now{outline:2px solid var(--txt)}
+.ctl{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}.ctl input{accent-color:var(--b)}
+/* tarifs */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.plan{padding:24px;background:#fff;border-top:4px solid var(--s)}.plan .p{font-family:var(--mo);font-size:46px;letter-spacing:-.05em;line-height:1;margin:10px 0}
+/* chance */
+.luck{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.cl3{position:relative;aspect-ratio:1;max-width:480px;width:100%;margin:auto}.cl3 .fb{position:absolute;inset:20%}.cl3.on3d .fb{display:none}
+/* infos */
+.loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.hrs{list-style:none;margin-top:20px;border-top:2px solid var(--k)}
+.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(38,51,44,.15);font-family:var(--mo);font-size:12px}
+.hrs li.now{color:var(--s);font-weight:700}
+.faq{max-width:880px;margin:90px auto 0}
+.q{border-bottom:1px solid rgba(38,51,44,.2)}
+.q button{width:100%;text-align:left;padding:20px 40px 20px 0;font-size:18px;font-weight:500;position:relative}
+.q button::after{content:"+";position:absolute;right:4px;top:16px;font-size:24px;transition:transform .3s}
+.q button[aria-expanded=true]::after{transform:rotate(45deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q button[aria-expanded=true]+div{grid-template-rows:1fr}
+.q div p{overflow:hidden;opacity:.8}.q button[aria-expanded=true]+div p{padding-bottom:18px}
+.giant{font-family:var(--mo);font-weight:700;font-size:min(16vw,240px);letter-spacing:-.07em;line-height:.9;text-align:center;margin:80px 0 10px;color:var(--s)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;padding:22px clamp(18px,4vw,60px) 40px;background:var(--c);color:var(--k);border-top:1px solid rgba(38,51,44,.15)}
+footer .lg svg path{fill:var(--k)}
+.rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+[data-tilt]{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#26332C;font-family:"Inter",sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#26332C;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"Inter",sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #26332C}
+.zl-ck .b button.y{background:#26332C;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"Inter",sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+
+.zb{border:0;border-radius:26px;padding:0;width:min(560px,94vw);max-height:92vh;background:#F3F4EF;color:#26332C;font-family:"Inter",sans-serif;box-shadow:0 50px 140px -40px rgba(0,0,0,.7)}
+.zb::backdrop{background:rgba(20,28,24,.6);backdrop-filter:blur(8px)}
+.zb form{padding:28px clamp(18px,4vw,34px) 26px;display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
+.zb h2{margin:0 40px 2px 0;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.zb .zx{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zb .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.zb select,.zb input[type=text],.zb input[type=tel],.zb input[type=email],.zb textarea{width:100%;box-sizing:border-box;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:#26332C}
+.zb textarea{min-height:84px;resize:vertical}
+.zb .ch{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.zb .ch button{flex:none;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;color:#26332C;border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;cursor:pointer;line-height:1.15;text-align:center}
+.zb .ch button[aria-pressed=true]{background:#26332C;color:#F3F4EF;border-color:#26332C}
+.zb .ch button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.zb .cons{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.zb .cons input{width:20px;height:20px;flex:none;accent-color:#4E6B5B;margin-top:1px}
+.zb .tk{display:flex;align-items:center;gap:14px;background:#26332C;color:#F3F4EF;border-radius:18px;padding:14px 16px}
+.zb .tk svg{width:34px;flex:none}
+.zb .tk b{display:block;font-size:15px}.zb .tk span{font-size:12.5px;opacity:.75}
+.zb .go{border:0;border-radius:999px;background:#4E6B5B;color:#fff;font:inherit;font-weight:700;padding:15px;cursor:pointer;font-size:15px}
+.zb .msg{margin:0;font-weight:600;min-height:20px;font-size:14px}
+.zb .sm{font-size:12px;opacity:.65;margin:0}
+
+@media (max-width:760px){.wk{grid-template-columns:1fr 1fr}.drum,.luck,.loc{grid-template-columns:1fr}.plans{grid-template-columns:1fr}.seq{grid-template-columns:60px repeat(8,1fr);gap:4px}.ttl{font-size:11vw;bottom:24vh}.sub>div>p:last-child{display:none}}
+@media (prefers-reduced-motion:reduce){.cross{animation:none}}
+</style>
+</head>
+<body>
+<main id="top">
+<section class="gal" id="gal" aria-labelledby="h1">
+ <div class="gst">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="fb2" aria-hidden="true" id="fb2"></div>
+  <div class="ui">
+   <h1 class="sr" id="h1">ZAHR Studio, école de danse et de musique</h1>
+   <div class="top"><a class="lg" href="#top" aria-label="ZAHR Studio, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#e7e4ee" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR/STUDIO</a><svg class="cross" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0v22M0 11h22" stroke="#e7e4ee" stroke-width="1.5"/></svg><button class="btn" type="button" data-book="0">Cours d’essai</button></div>
+   <div class="ttl" id="ttl" aria-live="polite">PIANO</div>
+   <div class="sub"><div><p class="mo" id="meta">Musique · dès 6 ans</p><p style="max-width:40ch;margin-top:6px">École de danse et de musique à Toulon (adresse fictive). Faites défiler : les cours passent sous les projecteurs.</p></div><div class="r"><span class="idx" id="idx">01 / 10</span><button class="btn f" type="button" id="bk">Essayer ce cours</button></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec paper" id="planning" aria-labelledby="h-p">
+ <p class="mo rv" style="color:var(--s)">Planning</p><h2 class="h2 rv" id="h-p" style="margin-top:12px">La semaine<br>au studio.</h2>
+ <div class="flt" id="flt" role="group" aria-label="Filtrer"><button type="button" aria-pressed="true" data-f="all">Tout</button><button type="button" aria-pressed="false" data-f="Danse">Danse</button><button type="button" aria-pressed="false" data-f="Musique">Musique</button><button type="button" aria-pressed="false" data-f="enfant">Enfants</button><button type="button" aria-pressed="false" data-f="adulte">Adultes</button></div>
+ <div class="wk" id="wk"></div>
+</section>
+
+<section class="sec" id="rythme" aria-labelledby="h-r">
+ <p class="mo rv" style="color:var(--b)">Essayez</p><h2 class="h2 rv" id="h-r" style="margin-top:12px">Composez<br>un rythme.</h2>
+ <div class="drum"><div class="pads" id="pads"></div>
+  <div><div class="seq" id="seq"></div><div class="ctl"><button class="btn f" type="button" id="play">▶ Lancer</button><label class="mo" for="bpm">Tempo <span id="bv">96</span></label><input type="range" id="bpm" min="70" max="140" value="96"><button class="btn" type="button" id="clr">Effacer</button></div>
+  <p style="color:var(--mute);margin-top:14px;font-size:14px">Touchez les pads ou les touches A, Z, E, R. Le son est généré dans votre navigateur.</p></div></div>
+</section>
+
+<section class="sec paper" id="tarifs" aria-labelledby="h-t">
+ <p class="mo rv" style="color:var(--s)">Tarifs</p><h2 class="h2 rv" id="h-t" style="margin-top:12px">Le premier cours<br>est offert.</h2>
+ <div class="plans"><article class="plan rv"><span class="mo">Danse · 1 cours / semaine</span><div class="p">160 €</div><p>par trimestre, tenue libre.</p></article><article class="plan rv"><span class="mo">Instrument · 30 min individuel</span><div class="p">210 €</div><p>par trimestre, instrument prêté au début.</p></article><article class="plan rv"><span class="mo">Pass illimité adulte</span><div class="p">89 €</div><p>par mois, tous les cours de danse adulte.</p></article></div>
+ <p class="mo" style="margin-top:14px;opacity:.6;text-transform:none;letter-spacing:0">Tarifs d’exemple. Réduction de 10 % à partir du deuxième membre de la famille.</p>
+</section>
+
+<section class="sec luck" id="chance" aria-labelledby="h-l">
+ <div class="cl3 rv" id="cl3"><div class="fb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div></div>
+ <div><p class="mo rv" style="color:var(--b)">Un peu de chance</p><h2 class="h2 rv" id="h-l" style="margin-top:12px">Le gala<br>du trèfle.</h2>
+ <p class="rv" style="color:var(--mute);margin-top:16px;max-width:44ch">Zahr veut dire « fleur » et « chance ». Chaque juin, tous les élèves montent sur scène pour le gala, et chacun reçoit un petit trèfle à épingler sur son costume. Faites-le tourner.</p></div>
+</section>
+
+<section class="sec paper" id="infos" aria-labelledby="h-i">
+ <div class="loc"><div><p class="mo rv" style="color:var(--s)">Le studio</p><h2 class="h2 rv" id="h-i" style="margin-top:12px">Trois salles,<br>un parquet.</h2>
+  <p style="margin-top:14px;opacity:.8">Toulon, quartier des Arts (adresse fictive). Téléphone : 04 00 00 00 00 (numéro d’exemple). Vestiaires, salle d’attente pour les parents.</p>
+  <ul class="hrs" id="hrs"><li data-d="0"><span>Dimanche</span><span>Fermé</span></li><li data-d="1,2,4,5"><span>Lun., mar., jeu., ven.</span><span>16 h – 21 h</span></li><li data-d="3,6"><span>Mer., sam.</span><span>9 h – 19 h</span></li></ul></div>
+  <div class="zl-map" data-q="Toulon+centre"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Studio</b><span>Toulon, quartier des Arts · adresse fictive</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Toulon+centre" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+ <div class="faq"><h2 class="h2" style="font-size:36px;text-align:center;margin-bottom:20px">Questions</h2><div id="faq"></div></div>
+ <div class="giant" aria-hidden="true">ZAHR/</div>
+</section>
+</main>
+<footer><a class="lg" href="#top" aria-label="ZAHR Studio, haut de page"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#e7e4ee" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR/STUDIO</a><div><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Studio</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Studio</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Studio</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Studio</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<dialog class="zb" id="zb" aria-labelledby="zb-t"><form id="zbf" novalidate>
+<button class="zx" type="button" id="zbx" aria-label="Fermer">×</button>
+<h2 id="zb-t">Réserver un cours d’essai</h2>
+<label class="lb" for="zb-s">Cours</label><select id="zb-s"></select>
+<span class="lb">Jour</span><div class="ch" id="zb-d" role="group" aria-label="Jour"></div><span class="lb">Heure</span><div class="ch" id="zb-h" role="group" aria-label="Heure"></div><label class="lb" for="zb-age">Âge de l’élève (si c’est pour un enfant)</label><input type="text" id="zb-age" autocomplete="off">
+<input type="text" id="zb-n" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+<input type="tel" id="zb-p" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+<label class="cons"><input type="checkbox" id="zb-c"><span>J’accepte que ZAHR Studio utilise ces informations uniquement pour organiser le cours d’essai.</span></label>
+<div class="tk" aria-live="polite"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><div><b id="zb-k1"></b><span id="zb-k2"></span></div></div>
+<button class="go" type="submit">Réserver l’essai</button>
+<p class="msg" id="zb-m" role="status" aria-live="polite"></p>
+<p class="sm">Démo : rien n’est envoyé ni enregistré. Vos données ne servent qu’à cette demande et sont effacées après le rendez-vous.</p>
+</form></dialog>
+<script>
+
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+
+
+(()=>{const C={"title": "Réserver un cours d’essai", "items": [["Piano", "dès 6 ans"], ["Danse classique", "dès 4 ans"], ["Hip-hop", "dès 8 ans"], ["Guitare", "dès 7 ans"], ["Chant", "dès 10 ans"], ["Contemporain", "dès 10 ans"], ["Batterie", "dès 8 ans"], ["Salsa", "adultes"], ["Violon", "dès 6 ans"], ["Éveil", "3 – 5 ans"], ["Stage des vacances", "semaine complète"]], "itemLabel": "Cours", "closed": [0], "hours": ["10 h", "14 h", "16 h", "17 h", "18 h", "19 h", "20 h"], "extra": [["age", "Âge de l’élève (si c’est pour un enfant)", "text", false]], "consent": "J’accepte que ZAHR Studio utilise ces informations uniquement pour organiser le cours d’essai.", "ok": "Cours d’essai réservé ! Sur le vrai site, un SMS confirme la salle et l’horaire. (Démo : rien n’a été envoyé.)", "cta": "Réserver l’essai"};const $=s=>document.querySelector(s);const dlg=$('#zb');let sd=null,sh=null;
+const S=$('#zb-s');S.innerHTML=C.items.map((it,i)=>`<option value="${i}">${it[0]}${it[1]?' — '+it[1]:''}</option>`).join('');
+const J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function tk(){const it=C.items[S.value];$('#zb-k1').textContent=it[0]+(it[1]?' · '+it[1]:'');$('#zb-k2').textContent=C.kind==='devis'?'Réponse avec un devis gratuit sous 48 h':(sd&&sh?sd+' à '+sh:'Choisissez un jour et une heure');}
+if(C.kind!=='devis'){const D=$('#zb-d'),H=$('#zb-h');const t=new Date();for(let i=1,n=0;n<10&&i<30;i++){const d=new Date(t);d.setDate(t.getDate()+i);if((C.closed||[]).includes(d.getDay()))continue;n++;const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=J[d.getDay()]+'<br><b>'+d.getDate()+'</b> '+M[d.getMonth()];b.onclick=()=>{D.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');sd=J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];
+H.innerHTML='';C.hours.forEach((h,k)=>{const e=document.createElement('button');e.type='button';e.textContent=h;e.setAttribute('aria-pressed','false');if((d.getDate()*7+k*3)%5===0){e.disabled=true;e.setAttribute('aria-label',h+', complet')}e.onclick=()=>{H.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));e.setAttribute('aria-pressed','true');sh=h;tk()};H.appendChild(e)});sh=null;tk()};D.appendChild(b)}}
+S.onchange=tk;tk();
+window.ZB={open(i){if(i!=null&&C.items[i])S.value=i;tk();$('#zb-m').textContent='';dlg.showModal()}};
+document.addEventListener('click',e=>{const o=e.target.closest('[data-book]');if(o){e.preventDefault();ZB.open(o.dataset.book===''?null:+o.dataset.book)}});
+$('#zbx').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#zbf').addEventListener('submit',e=>{e.preventDefault();const m=$('#zb-m');if(C.kind!=='devis'&&(!sd||!sh)){m.textContent='Choisissez un jour et une heure.';return}
+for(const x of (C.extra||[])){const el=$('#zb-'+x[0]);if(x[3]&&!el.value.trim()){m.textContent='Complétez : '+x[1].toLowerCase()+'.';el.focus();return}}
+if(!$('#zb-n').value.trim()||$('#zb-p').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre prénom et un numéro valide.';return}
+if(!$('#zb-c').checked){m.textContent='Cochez la case pour accepter.';return}m.textContent=C.ok;});})();
+
+
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});el.addEventListener('pointerleave',()=>{el.style.transform=''})});})();
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const D=[["PIANO", "Musique", "dès 6 ans", "#4E6B5B", "#F3F4EF"], ["DANSE CLASSIQUE", "Danse", "dès 4 ans", "#A9C2B0", "#26332C"], ["HIP-HOP", "Danse", "dès 8 ans", "#26332C", "#A9C2B0"], ["GUITARE", "Musique", "dès 7 ans", "#c9a86a", "#26332C"], ["CHANT", "Musique", "dès 10 ans", "#F3F4EF", "#4E6B5B"], ["CONTEMPORAIN", "Danse", "dès 10 ans", "#4E6B5B", "#A9C2B0"], ["BATTERIE", "Musique", "dès 8 ans", "#1b241f", "#F3F4EF"], ["SALSA", "Danse", "adultes", "#b5654c", "#F3F4EF"], ["VIOLON", "Musique", "dès 6 ans", "#dfe9e2", "#26332C"], ["ÉVEIL", "Musique & danse", "3 – 5 ans", "#A9C2B0", "#4E6B5B"]];window.D=D;window.GAL={idx:0};
+$('#fb2').innerHTML=D.map(d=>`<div style="background:${d[3]};color:${d[4]}">${d[0]}</div>`).join('');
+/* titre qui brouille */
+(()=>{const CH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#*+';let cur=-1,tgt='PIANO',shown='PIANO',t=0;
+window.setTitle=(i)=>{if(i===cur)return;cur=i;tgt=D[i][0];t=0;$('#meta').textContent=D[i][1]+' · '+D[i][2];$('#idx').textContent=String(i+1).padStart(2,'0')+' / 10';$('#bk').onclick=()=>ZB.open(i)};
+(function f(){requestAnimationFrame(f);if(shown===tgt&&t>12)return;t++;const L=Math.max(tgt.length,shown.length);let o='';for(let k=0;k<L;k++){const c=tgt[k]||'';o+=(t>k*1.2+6||red)?c:(c===' '?' ':CH[Math.random()*CH.length|0])}shown=o;$('#ttl').textContent=o.trim()||tgt})();window.setTitle(0)})();
+/* planning */
+const PL=[['Lun',[['17 h','Éveil',9,'enfant'],['18 h','Hip-hop ados',2,'enfant'],['19 h','Salsa',7,'adulte']]],['Mar',[['17 h','Piano débutant',0,'enfant'],['18 h','Danse classique',1,'enfant'],['20 h','Contemporain adultes',5,'adulte']]],['Mer',[['10 h','Éveil',9,'enfant'],['14 h','Guitare',3,'enfant'],['16 h','Batterie',6,'enfant']]],['Jeu',[['18 h','Chant',4,'adulte'],['19 h','Hip-hop adultes',2,'adulte']]],['Ven',[['17 h','Violon',8,'enfant'],['19 h','Salsa',7,'adulte']]],['Sam',[['10 h','Danse classique',1,'enfant'],['11 h','Piano adultes',0,'adulte'],['14 h','Contemporain',5,'enfant']]]];
+$('#wk').innerHTML=PL.map(d=>`<div class="day"><h3>${d[0]}.</h3>${d[1].map(c=>`<div class="cr" style="--cc:${D[c[2]][3]}" data-t="${D[c[2]][1]}" data-a="${c[3]}" data-book="${c[2]}" role="button" tabindex="0"><b>${c[1]}</b><span>${c[0]} · 1 h</span></div>`).join('')}</div>`).join('');
+$$('#flt button').forEach(b=>b.onclick=()=>{$$('#flt button').forEach(x=>x.setAttribute('aria-pressed',x===b));const f=b.dataset.f;$$('.cr').forEach(c=>c.classList.toggle('dim',f!=='all'&&!c.dataset.t.includes(f)&&c.dataset.a!==f))});
+$$('.cr').forEach(c=>c.onkeydown=e=>{if(e.key==='Enter')c.click()});
+/* boîte à rythmes */
+(()=>{const P=[['Grosse caisse','#A9C2B0','a'],['Caisse claire','#e7c27a','z'],['Charleston','#cfe0d4','e'],['Clap','#d98a7a','r']];let ac=null;const A=()=>ac||(ac=new (window.AudioContext||window.webkitAudioContext)());
+function snd(i){const c=A(),t=c.currentTime;const g=c.createGain();g.connect(c.destination);
+ if(i===0){const o=c.createOscillator();o.frequency.setValueAtTime(140,t);o.frequency.exponentialRampToValueAtTime(40,t+.15);g.gain.setValueAtTime(.9,t);g.gain.exponentialRampToValueAtTime(.001,t+.3);o.connect(g);o.start(t);o.stop(t+.3)}
+ else{const n=c.createBuffer(1,c.sampleRate*.2,c.sampleRate),d=n.getChannelData(0);for(let k=0;k<d.length;k++)d[k]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=n;const f=c.createBiquadFilter();f.type=i===2?'highpass':'bandpass';f.frequency.value=i===2?7000:i===1?1800:1200;s.connect(f);f.connect(g);const L=i===2?.05:i===1?.16:.12;g.gain.setValueAtTime(i===3?.8:.5,t);g.gain.exponentialRampToValueAtTime(.001,t+L);s.start(t);s.stop(t+L+.02)}}
+const pads=$('#pads');P.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='pad';b.style.setProperty('--pc',p[1]);b.innerHTML=p[0]+'<br>['+p[2].toUpperCase()+']';const hit=()=>{snd(i);b.classList.add('hit');setTimeout(()=>b.classList.remove('hit'),110)};b.onclick=hit;b.dataset.k=p[2];pads.appendChild(b)});
+addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;const b=$$('.pad').find(x=>x.dataset.k===e.key.toLowerCase());b&&b.click()});
+const G=[[1,0,0,0,1,0,0,0],[0,0,1,0,0,0,1,0],[1,1,1,1,1,1,1,1],[0,0,0,0,0,0,0,1]];const seq=$('#seq');
+P.forEach((p,i)=>{seq.insertAdjacentHTML('beforeend',`<span>${p[0]}</span>`);for(let s=0;s<8;s++){const b=document.createElement('button');b.type='button';b.style.setProperty('--pc',p[1]);b.setAttribute('aria-pressed',!!G[i][s]);b.setAttribute('aria-label',p[0]+', temps '+(s+1));b.dataset.r=i;b.dataset.s=s;b.onclick=()=>{G[i][s]=G[i][s]?0:1;b.setAttribute('aria-pressed',!!G[i][s])};seq.appendChild(b)}});
+let on=false,st=0,tm=null;function tick(){$$('#seq button').forEach(b=>b.classList.toggle('now',+b.dataset.s===st));G.forEach((r,i)=>{if(r[st]){snd(i);const p=$$('.pad')[i];p.classList.add('hit');setTimeout(()=>p.classList.remove('hit'),110)}});st=(st+1)%8;tm=setTimeout(tick,60000/+$('#bpm').value/2)}
+$('#play').onclick=()=>{on=!on;$('#play').textContent=on?'■ Arrêter':'▶ Lancer';if(on){A().resume();st=0;tick()}else{clearTimeout(tm);$$('#seq button').forEach(b=>b.classList.remove('now'))}};
+$('#bpm').oninput=e=>$('#bv').textContent=e.target.value;$('#clr').onclick=()=>{G.forEach(r=>r.fill(0));$$('#seq button').forEach(b=>b.setAttribute('aria-pressed','false'))}})();
+/* horaires + faq */
+(()=>{const wd=new Date().getDay();$$('#hrs li').forEach(li=>{if(li.dataset.d.split(',').map(Number).includes(wd))li.classList.add('now')})})();
+const FAQ=[['Faut-il acheter un instrument tout de suite ?','Non : on prête un instrument le premier trimestre, le temps de savoir si ça plaît.'],['Mon enfant n’a jamais dansé, est-ce un problème ?','Pas du tout. Les groupes sont faits par âge et par niveau, et le premier cours est offert.'],['Peut-on commencer en cours d’année ?','Oui, tant qu’il reste des places. Le tarif est calculé au prorata.'],['Y a-t-il un spectacle de fin d’année ?','Oui, le gala de juin, sur une vraie scène, avec tous les élèves.']];
+$('#faq').innerHTML=FAQ.map((q,i)=>`<div class="q"><button type="button" aria-expanded="false" aria-controls="fq${i}">${q[0]}</button><div id="fq${i}"><p>${q[1]}</p></div></div>`).join('');$$('.q button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+</script>
+<script type="module">
+import * as THREE from 'three';
+const D=window.D;const cv=document.getElementById('gl');const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.setClearColor(0x0f0e14,1);R.outputColorSpace=THREE.SRGBColorSpace;
+let W=innerWidth,H=innerHeight;const cam=new THREE.OrthographicCamera(-W/2,W/2,H/2,-H/2,-10,10);const sc=new THREE.Scene();
+const SYM=new Path2D('M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z');
+function poster(d,i){const c=document.createElement('canvas');c.width=600;c.height=900;const x=c.getContext('2d');x.fillStyle=d[3];x.fillRect(0,0,600,900);x.fillStyle=d[4];
+ x.globalAlpha=.14;for(let k=0;k<7;k++){x.beginPath();x.arc(300,520,60+k*55,0,7);x.lineWidth=18;x.strokeStyle=d[4];x.stroke()}x.globalAlpha=1;
+ x.save();x.translate(220,420);x.scale(.62,.62);x.fill(SYM,'evenodd');x.restore();
+ x.font='700 28px JetBrains Mono, monospace';x.fillText(String(i+1).padStart(2,'0'),40,70);x.textAlign='right';x.font='500 22px JetBrains Mono, monospace';x.fillText(d[1].toUpperCase(),560,70);x.textAlign='left';
+ x.font='700 '+(d[0].length>9?58:84)+'px JetBrains Mono, monospace';x.fillText(d[0],40,820);x.font='500 22px JetBrains Mono, monospace';x.fillText('ZAHR/STUDIO · '+d[2].toUpperCase(),40,860);
+ const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t}
+const N=D.length;const cards=D.map((d,i)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshBasicMaterial({map:poster(d,i)}));sc.add(m);return m});
+const rt=new THREE.WebGLRenderTarget(1,1,{samples:4});const pq=new THREE.Scene();const pc=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+const U={t:{value:rt.texture},time:{value:0},res:{value:new THREE.Vector2(1,1)}};
+pq.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),new THREE.ShaderMaterial({uniforms:U,vertexShader:'varying vec2 v;void main(){v=uv;gl_Position=vec4(position.xy,0.,1.);}',
+fragmentShader:`precision highp float;varying vec2 v;uniform sampler2D t;uniform float time;uniform vec2 res;
+float sdb(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}
+void main(){vec2 asp=vec2(res.x/res.y,1.);vec2 p=(v-.5)*asp;float d=sdb(p,asp*.5-.035,.06);float rim=smoothstep(-.12,0.,d);
+vec2 n=normalize(p+1e-5);vec2 off=-n*rim*rim*.05/asp;float ca=rim*.012;
+vec3 col=vec3(texture2D(t,v+off*1.04+n*ca/asp).r,texture2D(t,v+off).g,texture2D(t,v+off*.96-n*ca/asp).b);vec3 li0=vec3(0.);
+vec2 L1=vec2(.5+.48*cos(time*.31),.5+.48*sin(time*.27)),L2=vec2(.5+.48*cos(time*.23+2.),.5+.48*sin(time*.19+1.)),L3=vec2(.5+.48*cos(time*.17+4.),.5+.48*sin(time*.29+3.));
+float e=smoothstep(-.18,0.,d);vec3 li=vec3(1.,.55,.55)*exp(-distance(v,L1)*5.)+vec3(.55,1.,.72)*exp(-distance(v,L2)*5.)+vec3(.6,.7,1.)*exp(-distance(v,L3)*5.);
+col+=li*e*.55;col=mix(col,vec3(.06,.055,.08),smoothstep(-.004,.004,d));col+=vec3(1.)*smoothstep(.006,0.,abs(d+.004))*.25;gl_FragColor=vec4(pow(max(col,0.),vec3(1./2.2)),1.);}`})));
+function rs(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);cam.left=-W/2;cam.right=W/2;cam.top=H/2;cam.bottom=-H/2;cam.updateProjectionMatrix();const pr=R.getPixelRatio();rt.setSize(W*pr,H*pr);U.res.value.set(W,H)}rs();addEventListener('resize',rs);
+const gal=document.getElementById('gal');let pos=0,vis=true,last=performance.now(),t=0;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(gal);
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;t+=dt;if(!vis)return;const r=gal.getBoundingClientRect();const p=Math.min(1,Math.max(0,-r.top/(r.height-H)));const tgt=p*(N-1);pos+=(tgt-pos)*(red?1:1-Math.exp(-dt*6));
+const cw=Math.min(W*.2,300),gap=cw*.12,hMax=Math.min(H*.5,cw*1.55);
+cards.forEach((m,i)=>{let x=i-pos;const ax=Math.abs(x);const h=hMax*(1-Math.min(.42,ax*.11));const w=h/1.5;m.scale.set(w,h,1);m.position.set(x*(cw+gap),H*.09+ax*ax*H*.012,0);m.visible=ax<7});
+const idx=Math.round(pos);window.setTitle&&window.setTitle(Math.min(N-1,Math.max(0,idx)));
+R.setRenderTarget(rt);R.render(sc,cam);R.setRenderTarget(null);U.time.value=t;R.render(pq,pc)})(last);
+cv.classList.add('on3d');
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cl3');if(!host)return;
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+host.appendChild(R.domElement);R.domElement.setAttribute('aria-hidden','true');R.domElement.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+const sc=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,9);
+sc.add(new THREE.HemisphereLight(0xffffff,0x26332c,.8));const k=new THREE.DirectionalLight('#ffd6e8',2.2);k.position.set(3,5,6);sc.add(k);const rim=new THREE.DirectionalLight(0xa9c2b0,3);rim.position.set(-5,-2,-4);sc.add(rim);
+const d=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>');
+const shapes=[];d.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
+const g=new THREE.ExtrudeGeometry(shapes,{depth:34,bevelEnabled:true,bevelThickness:7,bevelSize:6,bevelSegments:6,curveSegments:28});g.center();g.scale(1/256,-1/256,1/256);g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:'#e6e3f0',roughness:.08,metalness:.05,transmission:.92,thickness:1.4,ior:1.45,clearcoat:1,clearcoatRoughness:.06,iridescence:.6,iridescenceIOR:1.3,emissive:'#4E6B5B',emissiveIntensity:.18,attenuationColor:'#4E6B5B',attenuationDistance:2.2,envMapIntensity:1.1});
+const m=new THREE.Mesh(g,mat);const rig=new THREE.Group();rig.add(m);sc.add(rig);m.scale.setScalar(3.3);
+let tx=0,ty=0,cx=0,cy=0,vis=false,last=performance.now(),t=0;
+host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});host.addEventListener('pointerleave',()=>{tx=ty=0});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+function rs(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<1?12:9;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;if(!vis)return;t+=dt;const q=1-Math.exp(-dt/.18);cx+=(tx-cx)*q;cy+=(ty-cy)*q;
+rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig.position.y=Math.sin(t*1.1)*.08;R.render(sc,cam)})(last);
+host.classList.add('on3d');})();
+</script>
+</body>
+</html>

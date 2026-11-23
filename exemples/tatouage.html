@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Ink — L’encre comme un serment</title>
+<meta name="description" content="ZAHR Ink, studio de tatouage fictif à Toulon : blackwork et fine line. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23b21e1a' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=Inter+Tight:wght@400;500&display=swap">
+<link rel="preload" as="image" href="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/hero.webp"><link rel="preload" as="image" href="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/hero-cut.webp">
+<style>
+:root{--bg:#050303;--t:#f4efec;--t2:rgba(244,239,236,.62);--bl:#560e0a;--rd:#b21e1a;--pad:max(20px,4.58vw);--e:cubic-bezier(.19,.8,.2,1)}
+*{box-sizing:border-box}
+html{background:var(--bg);scrollbar-width:none;overflow-x:clip}html::-webkit-scrollbar{display:none}
+body{margin:0;background:var(--bg);color:var(--t);font-family:"Inter Tight",sans-serif;letter-spacing:-.03em;font-size:13px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+button,input,select{font:inherit;color:inherit;letter-spacing:inherit}
+a{color:inherit}
+:focus-visible{outline:1px solid #fff;outline-offset:4px}
+.lab{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.02em;color:var(--t2);display:block;margin-bottom:12px}
+.ttl{font-size:max(22px,2.02vw);font-weight:400;letter-spacing:-.05em;margin:0 0 12px;line-height:1.05}
+.lead{font-size:max(17px,1.7vw);line-height:1.36;margin:0}
+/* en-tête */
+.hdr{position:fixed;left:0;right:0;top:0;z-index:40;padding:36px var(--pad) 0;display:flex;align-items:flex-start;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0;opacity:0;transition:opacity 1s}
+.hdr.in{opacity:1}
+.hdr .lg{text-decoration:none;display:grid;gap:4px}.hdr .lg b{font-size:20px;font-weight:500;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}.hdr .lg b svg{width:18px}.hdr .lg small{font-size:11px;color:var(--t2)}
+.hnav{position:absolute;left:25.3vw;display:flex;gap:4.5vw}
+.hnav div{display:grid;gap:4px}
+.hnav a,.hdr .bk{text-decoration:none;transition:opacity .3s}.hnav a:hover,.hdr .bk:hover{opacity:.55}
+.hdr .bk{margin-left:auto;background:none;border:0;cursor:pointer;font-size:12px;font-weight:500;text-transform:uppercase;padding:0}
+/* piste */
+.track{position:relative;height:720vh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--bg)}
+.stage::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 1px,transparent 1px 7px);pointer-events:none;z-index:30}
+#emb{position:absolute;inset:0;z-index:25;mix-blend-mode:screen;pointer-events:none}
+.sc{position:absolute;inset:0;visibility:hidden}
+.pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.word{position:absolute;left:50%;font-family:"Manufacturing Consent",serif;color:var(--bl);white-space:nowrap;line-height:1;transform:translate(-50%,-50%);opacity:0;transition:opacity 1.5s;letter-spacing:0;font-weight:400;margin:0}
+.sc.is-on .word{opacity:.84}
+.copy{position:absolute;left:var(--pad);bottom:13vh;width:35vw;z-index:5}
+.r8{opacity:0;transform:translateY(8px);transition:opacity .9s var(--e),transform .9s var(--e)}
+.sc.is-on .r8{opacity:1;transform:none}
+.ln{display:block;overflow:hidden}.ln>span{display:block;transform:translateY(108%);transition:transform 1s var(--e)}
+.sc.is-on .ln>span{transform:none}
+.hw{opacity:0;transition:opacity .6s}.sc.is-on .hw{opacity:1}
+.note{position:absolute;right:var(--pad);top:44vh;width:max(150px,12.9vw);aspect-ratio:186/178;z-index:5;padding:14px}
+.note svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.note path{fill:none;stroke:#fff;stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--e) .3s}
+.sc.is-on .note path{stroke-dashoffset:0}
+.note .a{font-size:12px;text-transform:uppercase;font-weight:500;line-height:1.3}
+.note .pl{position:absolute;left:14px;bottom:10px;font-size:20px;transform:rotate(-90deg);transition:transform 1s var(--e) .6s}.sc.is-on .note .pl{transform:none}
+.note .b{position:absolute;right:14px;bottom:12px;width:52%;font-size:10.5px;color:var(--t2);text-align:right}
+/* gardiens */
+.krow{position:absolute;left:0;right:0;top:18.3vh;height:min(27.5vw,50vh)}
+.kc{position:absolute;top:0;height:100%;aspect-ratio:232/396;overflow:hidden}
+.kin{position:absolute;inset:0;transform:translateY(103%);transition:transform 1.25s var(--e)}
+.sc.is-on .kin{transform:none}
+.kin .ph{position:absolute;inset:0;clip-path:polygon(0 0,80.2% 0,100% 16.4%,100% 100%,16.8% 100%,0 90.2%);overflow:hidden}
+.kin img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:transform 2.4s var(--e)}
+.kc:hover img{transform:scale(1.07)}
+.kin svg.o{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.kin svg.o polygon{fill:none;stroke:rgba(255,255,255,.34);stroke-width:1;vector-effect:non-scaling-stroke}
+.tab{position:absolute;left:0;top:0;width:18%;height:35%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:10px 0;gap:8px}
+.tab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.tab i{font-style:normal;font-size:11px;opacity:0;transition:opacity .3s}.kc.hv .tab i{opacity:1}
+.cross{position:absolute;right:12%;bottom:10%;width:30px;height:30px}
+.cross::before,.cross::after{content:"";position:absolute;background:#fff}
+.cross::before{left:0;right:0;top:50%;height:1px;-webkit-mask:linear-gradient(90deg,#000 42%,transparent 42% 58%,#000 58%);mask:linear-gradient(90deg,#000 42%,transparent 42% 58%,#000 58%)}
+.cross::after{top:0;bottom:0;left:50%;width:1px;-webkit-mask:linear-gradient(#000 42%,transparent 42% 58%,#000 58%);mask:linear-gradient(#000 42%,transparent 42% 58%,#000 58%)}
+.kfoot{position:absolute;left:0;right:0;bottom:6.7vh;padding:0 var(--pad)}
+.kp{position:relative;height:5em;margin-top:14px}
+.kp p{position:absolute;top:0;width:22vw;margin:0;font-size:13px;color:var(--t2)}
+#crea{color:var(--rd);z-index:6}
+.sc.is-on #crea{transition-delay:1.1s}
+/* barre de progression */
+.prog{position:fixed;left:64vw;bottom:10vh;z-index:40;display:flex;align-items:center;gap:20px}
+.prog .line{width:18.4vw;height:1px;background:rgba(255,255,255,.3);position:relative;transition:opacity .5s}
+.prog .mk{position:absolute;top:-1px;left:0;width:28px;height:3px;background:#fff}
+.prog button{all:unset;cursor:pointer;font-size:12px;font-weight:500;text-transform:uppercase;display:flex;align-items:center;gap:14px;height:20px;overflow:hidden}
+.prog button span{display:block;transition:transform .6s var(--e)}
+.xr{width:26px;height:26px;position:relative;flex:none}
+.xr::before,.xr::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:#fff}.xr::after{transform:rotate(90deg)}
+#loadx{position:fixed;inset:0;z-index:60;background:#000;display:grid;place-items:center;transition:opacity .8s}
+#loadx.done{opacity:0;pointer-events:none}
+#loadx .xr{animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+/* après la piste */
+.sec{position:relative;padding:clamp(100px,15vh,160px) var(--pad);border-top:1px solid #1a0b0a}
+.big{font-family:"Manufacturing Consent",serif;font-weight:400;color:var(--rd);font-size:clamp(70px,10vw,170px);line-height:.9;margin:0;letter-spacing:0}
+.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5vw;align-items:start}
+.flash{perspective:1400px;height:520px;position:relative}
+.fl{position:absolute;left:50%;top:50%;width:230px;height:300px;margin:-150px 0 0 -115px;background:#efe6dc;border-radius:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.9);display:grid;place-items:center;transition:transform 1s var(--e);cursor:pointer;border:0;padding:20px}
+.fl svg{width:80%;height:auto}
+.fl small{position:absolute;left:14px;bottom:10px;color:#333;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.fm{display:grid;gap:14px;margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1px solid rgba(244,239,236,.25);background:none;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:13px}
+.chips button[aria-pressed=true]{background:var(--rd);border-color:var(--rd)}
+.fm input[type=text],.fm input[type=email]{background:#0f0707;border:1px solid #2a1210;border-radius:12px;padding:13px 14px;width:100%}
+.szr{display:flex;align-items:center;gap:18px}
+.szr input{flex:1;accent-color:var(--rd)}
+.dot{width:70px;height:70px;display:grid;place-items:center;flex:none}
+.dot i{display:block;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d33,var(--bl));box-shadow:0 0 30px rgba(178,30,26,.6)}
+.cons{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--t2);line-height:1.5}
+.cons input{accent-color:var(--rd);margin-top:3px}
+.go{justify-self:start;background:var(--rd);border:0;border-radius:999px;padding:14px 22px;font-size:12px;font-weight:500;text-transform:uppercase;cursor:pointer}
+.msg{margin:0;min-height:20px;color:#ff9a8f;font-size:14px}
+footer{padding:30px var(--pad) 40px;border-top:1px solid #1a0b0a;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end;color:var(--t2)}
+@media (max-width:760px){
+ .hnav{display:none}.copy{width:auto;right:var(--pad)}.lead{font-size:18px}.note{width:150px;top:13vh}
+ .prog{left:var(--pad);bottom:22px}.prog .line{width:32vw}
+ .kp p{position:static;width:auto;margin-bottom:6px}.kp{height:auto}
+ .g2{grid-template-columns:1fr}.flash{height:420px}
+ .krow{display:flex;gap:14px;padding-left:var(--pad);height:min(92vw,46vh);top:14vh;right:auto;width:max-content}.kc{position:relative;left:auto!important;flex:none}.kfoot{bottom:3vh}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important}#emb{display:none}#loadx .xr{animation:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #b21e1a;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#f4efec;color:#050303;font-family:"Inter Tight",sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#050303;color:#f4efec;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#f4efec;color:#050303;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"Inter Tight",sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #050303}
+.zl-ck .b button.y{background:#050303;color:#f4efec}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#b21e1a55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#b21e1a;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#b21e1a;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #b21e1a;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"Inter Tight",sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#b21e1a;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<div id="loadx" aria-hidden="true"><span class="xr"></span></div>
+<header class="hdr" id="hdr">
+  <a class="lg" href="#" data-to="0" aria-label="ZAHR Ink, accueil"><b><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#f4efec" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR INK</b><small>UTC+01:00 · TOULON</small></a>
+  <nav class="hnav" aria-label="Navigation"><div><a href="#" data-to=".31">Le studio</a><a href="#" data-to=".52">Projets (78)</a></div><div><a href="#" data-to=".91">Artistes (04)</a><a href="#" data-to=".31">Atelier</a></div><div><a href="#rdv">Rendez-vous</a></div></nav>
+  <a class="bk" href="#rdv">Réserver une séance ↗</a>
+</header>
+<main>
+<div class="track" id="track"><div class="stage" id="stage">
+  <section class="sc" id="s1" aria-labelledby="h1">
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/hero.webp" alt="" data-p>
+    <p class="word" id="w1" aria-hidden="true" data-w="66.7" data-wm="92" data-y="34.5">Zahr</p>
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/hero-cut.webp" alt="Statue de pierre voilée levant une dague, éclairée en rouge" data-p>
+    <div class="copy" style="bottom:15.6vh"><span class="lab r8">Encre sous une lune rouge</span><h1 class="ttl" id="h1" aria-label="L’art né du rite"><span class="hw">L’art </span><span class="hw">né </span><span class="hw">du </span><span class="hw">rite</span></h1><p class="split" style="max-width:10.5em;font-size:13px;color:var(--t2)">Bienvenue chez ZAHR Ink, où l’encre est un serment écrit sur la peau.</p></div>
+  </section>
+  <section class="sc" id="s2" aria-label="Le studio">
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/about.webp" alt="Gros plan de la statue, poing serré sur le manche de la dague" data-p data-op="58% 50%">
+    <div class="copy"><span class="lab r8">Notre studio</span><p class="lead split">Notre studio est un temple pour celles et ceux qui honorent le rituel de l’encre, la précision de l’aiguille et la profondeur d’un engagement personnel. Ici, chaque tatouage est un serment scellé dans la lumière rouge.</p></div>
+  </section>
+  <section class="sc" id="s3" aria-label="Notre héritage">
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/legacy.webp" alt="" data-p data-op="61% 50%">
+    <p class="word" aria-hidden="true" data-w="76.4" data-wm="95" data-y="37.5">Notre héritage</p>
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/legacy-cut.webp" alt="Statue levant une torche rouge, vue d’en bas" data-p data-op="61% 50%">
+    <div class="note"><svg viewBox="0 0 186 178" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 0.5H124L185.5 54V177.5H46"/></svg><div class="a">Artistes<br>Blackwork<br>& fine line</div><span class="pl" aria-hidden="true">+</span><span class="b">Motifs très contrastés aux détails minutieux</span></div>
+    <div class="copy"><span class="lab r8">Sceller votre histoire</span><p class="lead split">ZAHR Ink est plus qu’un studio de tatouage : c’est une cérémonie. Signe de renaissance, marque de courage ou dessin qui parle de vos racines, nous lui donnons vie avec précision et dévotion.</p></div>
+  </section>
+  <section class="sc" id="s4" aria-labelledby="h-art">
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/artists.webp" alt="" data-p>
+    <h2 class="word" id="h-art" data-w="76" data-wm="90" data-y="45.5" style="line-height:.96;text-align:center">Les artistes<br>derrière l’encre</h2>
+    <img class="pic" src="https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/artists-cut.webp" alt="Statue à la torche sur son piédestal, dans la brume rouge" data-p>
+  </section>
+  <section class="sc" id="s5" aria-labelledby="h-keep">
+    <div class="krow" id="krow"></div>
+    <p class="word" id="crea" aria-hidden="true" data-w="39.8" data-wm="80">Créateurs</p>
+    <div class="kfoot"><span class="lab r8">Notre art</span><h2 class="ttl r8" id="h-keep">Les gardiens de l’encre</h2>
+      <div class="kp"><p class="split" style="left:0">Chez ZAHR Ink, chaque artiste est le gardien d’un savoir-faire.</p><p class="split" style="left:calc(28.3vw - var(--pad))">Nos artistes travaillent dans plusieurs styles, mais partagent un même rituel.</p><p class="split" style="left:calc(54.5vw - var(--pad))">Plus que des tatoueurs : les gardiens de la tradition, de l’engagement et de votre histoire.</p></div></div>
+  </section>
+  <canvas id="emb" aria-hidden="true"></canvas>
+</div></div>
+
+<section class="sec" id="rdv" aria-labelledby="h-rdv">
+  <div class="g2">
+    <div><span class="lab">Votre projet</span><h2 class="big" id="h-rdv">Prenez rendez-vous</h2>
+      <form class="fm" id="fm" novalidate>
+        <span class="lab" style="margin:10px 0 0">Style</span><div class="chips" id="cs" role="group" aria-label="Style"><button type="button" aria-pressed="true">Blackwork</button><button type="button" aria-pressed="false">Fine line</button><button type="button" aria-pressed="false">Ornemental</button><button type="button" aria-pressed="false">Lettrage</button><button type="button" aria-pressed="false">Je ne sais pas encore</button></div>
+        <span class="lab" style="margin:10px 0 0">Zone</span><div class="chips" id="cz" role="group" aria-label="Zone du corps"><button type="button" aria-pressed="false">Avant-bras</button><button type="button" aria-pressed="true">Bras</button><button type="button" aria-pressed="false">Épaule</button><button type="button" aria-pressed="false">Dos</button><button type="button" aria-pressed="false">Jambe</button><button type="button" aria-pressed="false">Main</button></div>
+        <label class="lab" for="sz" style="margin:10px 0 0">Taille approximative : <b id="szv" style="color:var(--t)">8 cm</b></label>
+        <div class="szr"><input type="range" id="sz" min="2" max="30" value="8"><span class="dot" aria-hidden="true"><i id="szd"></i></span></div>
+        <input type="text" id="fn" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+        <input type="email" id="fe" placeholder="Votre e-mail" aria-label="Votre e-mail" autocomplete="email">
+        <label class="cons"><input type="checkbox" id="fa"><span>J’ai 18 ans ou plus. Pour un mineur, le tatouage demande la présence et l’accord écrit d’un parent.</span></label>
+        <label class="cons"><input type="checkbox" id="fk"><span>J’accepte que ZAHR Ink utilise mon prénom et mon e-mail uniquement pour répondre à cette demande. <button type="button" data-open="zl-conf" style="all:unset;text-decoration:underline;cursor:pointer">Confidentialité</button></span></label>
+        <button class="go" type="submit">Envoyer ma demande ↗</button>
+        <p class="msg" id="fmm" role="status" aria-live="polite"></p>
+      </form></div>
+    <div><span class="lab">Flashs disponibles · touchez pour faire tourner</span><div class="flash" id="flash"></div><p style="color:var(--t2);max-width:40ch">Les flashs sont des dessins prêts à tatouer, en un seul exemplaire. Un flash réservé est retiré de la planche.</p></div>
+  </div>
+</section>
+<section class="sec" aria-labelledby="h-ou"><div class="g2" style="align-items:center"><div><span class="lab">L’atelier</span><h2 class="big" id="h-ou" style="font-size:clamp(60px,7vw,120px)">Toulon</h2><p style="color:var(--t2);font-size:15px;max-width:38ch">Sur rendez-vous, du mardi au samedi, 11 h – 19 h. Adresse fictive : ZAHR Ink est une marque imaginée par ZAHR pour montrer un site de studio de tatouage.</p></div><div class="zl-map" data-q="Toulon, France"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Ink</b><span>Toulon (adresse fictive) · sur rendez-vous</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Toulon, France" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div></section>
+</main>
+<div class="prog" id="prog"><div class="line" id="pline"><span class="mk" id="pmk"></span></div><button type="button" id="pbtn"><span id="plbl">Continuez à défiler</span><i class="xr" id="px" aria-hidden="true"></i></button></div>
+<footer><span>ZAHR INK · TOULON · © 2026</span><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Ink</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Ink</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Ink</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Ink</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<script>
+const B='https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/';const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const fine=matchMedia('(pointer:fine)').matches;
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ss=(a,b,x)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};
+const mob=()=>innerWidth<=760;
+/* gardiens */
+const K=[['bram','Noah Roche'],['ike','Sam Leroux'],['sable','Inès Quintin'],['nia','Nina Vasseur']];const lefts=['var(--pad)','29.17vw','54.86vw','79.17vw'];
+$('#krow').innerHTML=K.map((k,i)=>`<div class="kc${i===0?' hv':''}" style="left:${lefts[i]}"><div class="kin" style="transition-delay:${i*120}ms"><div class="ph"><img src="${B}keepers/${k[0]}.webp" alt="Portrait de ${k[1]}, tatoueur·se" loading="lazy"></div><svg class="o" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 80.2,0 100,16.4 100,100 16.8,100 0,90.2"/></svg><div class="tab"><span>${k[1]}</span><i>✦</i></div><span class="cross"></span></div></div>`).join('');
+$$('.kc').forEach(c=>c.addEventListener('mouseenter',()=>$$('.kc').forEach(x=>x.classList.toggle('hv',x===c))));
+/* découpe en lignes */
+function split(){$$('.split').forEach(p=>{const txt=p.dataset.t||p.textContent.trim();p.dataset.t=txt;p.setAttribute('aria-label',txt);p.innerHTML=txt.split(' ').map(w=>`<span class="w">${w} </span>`).join('');const ws=[...p.children];let lines=[],cur=[],top=null;ws.forEach(w=>{const t=w.offsetTop;if(top!==null&&t>top+2){lines.push(cur);cur=[]}top=t;cur.push(w.textContent)});lines.push(cur);p.innerHTML=lines.map((l,i)=>`<span class="ln" aria-hidden="true"><span style="transition-delay:${i*85}ms">${l.join('')}</span></span>`).join('')})}
+/* taille des mots */
+function words(){$$('.word').forEach(w=>{w.style.fontSize='100px';const bw=w.scrollWidth;const target=(mob()?+w.dataset.wm:+w.dataset.w)/100*innerWidth;w.style.fontSize=(100*target/bw)+'px';if(w.dataset.y)w.style.top=w.dataset.y+'vh'});const kr=$('#krow').getBoundingClientRect();$('#crea').style.top=(kr.top+kr.height/2)+'px'}
+/* scènes */
+const SC=[['#s1',0,.2],['#s2',.2,.41],['#s3',.41,.64],['#s4',.64,.82],['#s5',.82,1]].map(a=>({el:$(a[0]),f:a[1],t:a[2],pics:[...$(a[0]).querySelectorAll('[data-p]')],word:$(a[0]).querySelector('.word')}));
+SC.forEach(s=>s.pics.forEach(p=>{if(p.dataset.op&&mob())p.style.objectPosition=p.dataset.op}));
+const track=$('#track');let shown=0,last=performance.now(),px=0,py=0,ppx=0,ppy=0;
+addEventListener('pointermove',e=>{px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5},{passive:true});
+function target(){const r=track.getBoundingClientRect();return clamp(-r.top/(track.offsetHeight-innerHeight))}
+function frame(n){const dt=Math.min(.05,(n-last)/1000);last=n;const t=target();shown=reduce?t:shown+(t-shown)*(1-Math.exp(-dt*6.5));const p=shown;
+ if(fine&&!reduce){ppx+=(px-ppx)*.06;ppy+=(py-ppy)*.06}
+ SC.forEach((s,i)=>{const o=(i===0?1:ss(s.f,s.f+.014,p))*(i===4?1:1-ss(s.t-.014,s.t,p));s.el.style.opacity=o;s.el.style.visibility=o<=0?'hidden':'visible';s.el.classList.toggle('is-on',o>.6&&loaded);
+  const l=clamp((p-s.f)/(s.t-s.f));let tr='';if(reduce)tr='';else if(i===0)tr=`translate(${-ppx*.55}vw,${l*1.4-ppy*.55}vw) scale(${1.04+l*.13})`;else if(i===1)tr=`translate(${1.6-l*3.2-ppx*.55}vw,${-ppy*.55}vw) scale(${1.06+l*.07})`;else if(i===2)tr=`translate(${-1.1+l*1.8-ppx*.55}vw,${-ppy*.55}vw) scale(${1.13-l*.08})`;else if(i===3)tr=`translate(${-ppx*.55}vw,${-ppy*.55}vw) scale(${1.04+l*.07})`;
+  s.pics.forEach(pc=>pc.style.transform=tr);if(s.word&&i<4)s.word.style.translate=`${ppx*.45}vw ${ppy*.45}vw`;
+  if(i===4&&mob()){const kr=$('#krow');const over=Math.max(0,kr.scrollWidth-innerWidth+20);kr.style.transform=`translateX(${-ss(.22,.86,l)*over}px)`}});
+ /* barre */
+ $('#pmk').style.left=`calc(${p*100}% - ${p*28}px)`;$('#px').style.transform=`rotate(${p*1260}deg)`;const end=p>=.82;$('#pline').style.opacity=end?0:1;const lb=$('#plbl');const want=end?'Retour à l’accueil':'Continuez à défiler';if(lb.textContent!==want){lb.style.transform='translateY(-120%)';setTimeout(()=>{lb.textContent=want;lb.style.transform='none'},300)}
+ $('#prog').style.opacity=track.getBoundingClientRect().bottom<innerHeight*.6?0:1;
+ requestAnimationFrame(frame)}
+function goP(p){scrollTo({top:track.offsetTop+(track.offsetHeight-innerHeight)*p,behavior:reduce?'auto':'smooth'})}
+$('#pbtn').addEventListener('click',()=>{const p=shown;if(p>=.82)return goP(0);const s=SC.find(s=>p<s.t-.02)||SC[4];const nx=SC[SC.indexOf(s)+1];goP(nx?(nx.f+nx.t)/2:0)});
+$$('[data-to]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();goP(+a.dataset.to)}));
+/* braises */
+const cv=$('#emb'),cx=cv.getContext('2d');let E=[];function esz(){cv.width=innerWidth;cv.height=innerHeight;E=Array.from({length:45},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:.5+Math.random()*1.2,v:.15+Math.random()*.4,f:Math.random()*6}))}
+function emb(){cx.clearRect(0,0,cv.width,cv.height);E.forEach(e=>{e.y-=e.v;e.x+=Math.sin(e.f+e.y*.01)*.2;e.f+=.05;if(e.y<-10){e.y=cv.height+10;e.x=Math.random()*cv.width}const a=.4+.4*Math.sin(e.f*3);cx.fillStyle=`rgba(255,70,50,${a*.25})`;cx.beginPath();cx.arc(e.x,e.y,e.r*4,0,7);cx.fill();cx.fillStyle=`rgba(255,120,90,${a})`;cx.beginPath();cx.arc(e.x,e.y,e.r,0,7);cx.fill()});requestAnimationFrame(emb)}
+/* ouverture */
+let loaded=false;const imgs=['https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/hero.webp','https://res.cloudinary.com/ce2yatay/image/upload/crimson-rite/hero-cut.webp'].map(u=>new Promise(r=>{const i=new Image();i.onload=i.onerror=r;i.src=u}));
+Promise.all([...imgs,document.fonts.ready,new Promise(r=>setTimeout(r,reduce?0:900))]).then(()=>{split();words();loaded=true;$('#loadx').classList.add('done');$('#hdr').classList.add('in');$$('#s1 .hw').forEach((w,i)=>w.style.transitionDelay=(.6+i*.15)+'s');$('#s1 .pic').animate([{filter:'brightness(0)'},{filter:'brightness(1)'}],{duration:reduce?1:2000,fill:'backwards'})});
+addEventListener('resize',()=>{if(loaded){split();words()};esz()});esz();if(!reduce)emb();requestAnimationFrame(frame);
+/* rendez-vous */
+$$('.chips').forEach(c=>c.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;[...c.children].forEach(x=>x.setAttribute('aria-pressed',x===b))}));
+const sz=$('#sz');function szu(){$('#szv').textContent=sz.value+' cm';const d=8+sz.value*2;$('#szd').style.width=$('#szd').style.height=Math.min(70,d)+'px'}sz.addEventListener('input',szu);szu();
+$('#fm').addEventListener('submit',e=>{e.preventDefault();const m=$('#fmm');if(!$('#fn').value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#fe').value.trim())){m.textContent='Indiquez votre prénom et un e-mail valide.';return}if(!$('#fa').checked){m.textContent='Le studio tatoue les majeurs, ou les mineurs accompagnés d’un parent avec son accord écrit : cochez la case pour continuer.';return}if(!$('#fk').checked){m.textContent='Cochez la case pour accepter l’utilisation de vos coordonnées.';return}m.textContent='Demande prête ! Sur le vrai site, l’artiste vous répond par e-mail sous 48 h. (Démo : rien n’a été envoyé.)'});
+/* flashs 3D */
+const FL=[['Rose épineuse','M50 20c10 0 18 8 18 18 0 12-10 18-18 30-8-12-18-18-18-30 0-10 8-18 18-18zM50 68v40M50 84l-12-8M50 92l12-8'],['Dague','M50 8v70M38 72h24M44 78l6 30 6-30M46 20l4-12 4 12'],['Lune','M64 20a34 34 0 1 0 0 68 26 26 0 1 1 0-68zM70 40l3 6 6 1-5 4 1 6-5-3-5 3 1-6-5-4 6-1z'],['Trèfle ZAHR','M50 46L40 30a12 12 0 1 1 20 0zM54 50l16-10a12 12 0 1 1 0 20zM50 54l10 16a12 12 0 1 1-20 0zM46 50L30 60a12 12 0 1 1 0-20z'],['Serpent','M30 90c0-20 40-10 40-30S30 40 30 25s20-15 30-5']];
+const fh=$('#flash');let rot=0;const fls=FL.map((f,i)=>{const b=document.createElement('button');b.type='button';b.className='fl';b.setAttribute('aria-label','Flash '+f[0]);b.innerHTML=`<svg viewBox="0 0 100 116" fill="none" stroke="#1a0a08" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="${f[1]}"/></svg><small>${f[0]} · flash n°${String(i+1).padStart(2,'0')}</small>`;b.addEventListener('click',()=>{rot++;place()});fh.appendChild(b);return b});
+function place(){const n=fls.length;fls.forEach((b,i)=>{const k=((i-rot)%n+n)%n;const a=(k/n)*360;b.style.transform=`rotateY(${a}deg) translateZ(${mob()?200:260}px) rotateZ(${k===0?0:(k%2?4:-4)}deg)`;b.style.zIndex=k===0?5:1;b.style.filter=k===0?'none':'brightness(.55)'})}place();
+</script>
+<script>
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+</script>
+</body>
+</html>

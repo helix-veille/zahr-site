@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Table — Cueillir avant de servir</title>
+<meta name="description" content="ZAHR Table, restaurant gastronomique fictif à Toulon : menu en sept temps, accords, table du chef. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%2326332C' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<link rel="preload" as="image" href="https://res.cloudinary.com/ce2yatay/video/upload/so_0.000,w_960,q_40/keel/film.webp">
+<style>
+:root{--s:#4E6B5B;--k:#26332C;--c:#F3F4EF;--b:#A9C2B0;--sky1:#7f9e8b;--sky2:#a9c2b0;--se:"Cormorant Garamond",Georgia,serif;--mo:"JetBrains Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--k);overflow-x:clip}
+body{background:var(--k);color:#fff;font-family:"Inter",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.mo{font-family:var(--mo);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+.se{font-family:var(--se);font-weight:400}
+.bt{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 18px;background:var(--k);color:#fff;font-family:var(--mo);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,transform .3s}
+.bt:hover{background:#000;transform:translateY(-2px)}
+.bt.l{background:#fff;color:var(--k)}
+/* chrome fixe */
+.chrome{position:fixed;inset:0;z-index:30;pointer-events:none}
+.chrome a,.chrome button{pointer-events:auto}
+.chrome .hl{transition:opacity .4s}.chrome.lt .hl{opacity:0}.chrome .nv{transition:color .4s,background .4s}.chrome.lt .nv{color:var(--k);background:rgba(243,244,239,.82);backdrop-filter:blur(12px)}.chrome.lt .nv .bt.l{background:var(--k);color:#fff}.chrome.dk .hl{opacity:0}.chrome.dk .nv{background:rgba(38,51,44,.8);backdrop-filter:blur(12px)}
+.hl{position:absolute;background:rgba(255,255,255,.55)}
+.hl.v1{left:4.2vw;top:0;bottom:0;width:1px}.hl.v2{right:4.2vw;top:0;bottom:0;width:1px}.hl.h1{left:0;right:0;top:78px;height:1px}
+.nv{position:absolute;left:4.2vw;right:4.2vw;top:0;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.lg{display:flex;align-items:center;gap:12px;font-family:var(--se);font-size:28px;letter-spacing:-.01em;line-height:1}
+.lg svg{width:30px}.chrome.lt .lg svg path{fill:#26332C}
+.nl{display:flex;gap:28px}.nl a{opacity:.85}.nl a:hover{opacity:1}
+/* film */
+.track{position:relative;height:760vh;background:linear-gradient(180deg,var(--sky1),var(--sky2))}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:linear-gradient(180deg,#5f806d,#8fb09b 60%,#b9d0c0)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.tint{position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;pointer-events:none}
+.cloud{position:absolute;left:50%;top:43%;width:30vw;transform:translate(-50%,-50%) scale(.78);opacity:0;pointer-events:none;filter:drop-shadow(0 30px 40px rgba(38,51,44,.35))}
+.blk{position:absolute;inset:0;pointer-events:none;will-change:opacity,filter,transform}
+.blk .top{position:absolute;left:8.4vw;bottom:35vh;max-width:70vw}
+.blk .low{position:absolute;left:8.4vw;top:72.4vh;display:flex;gap:2vw;align-items:flex-start;right:8vw}
+.blk .low .mo{width:11.9vw;flex:none;padding-top:4px}
+.blk .low p{max-width:33vw;font-size:15px;opacity:.92}
+.blk h1,.blk h2{font-family:var(--se);font-weight:400;font-size:clamp(44px,6.4vw,104px);line-height:.95;letter-spacing:-.02em}
+.blk .sub{font-family:var(--se);font-style:italic;font-size:clamp(22px,2.2vw,34px);line-height:1.1;margin-top:16px}
+.blk .bt{margin-top:22px;pointer-events:auto}
+.blk .low,.blk .top{text-shadow:0 2px 24px rgba(38,51,44,.35)}
+.line3{position:absolute;left:0;right:0;top:69vh;height:1px;background:rgba(255,255,255,.55)}
+.spark{position:absolute;left:calc(4.2vw - 8px);top:calc(69vh - 8px);width:17px;height:17px}
+.prog{position:absolute;right:calc(4.2vw + 18px);bottom:22px;display:flex;align-items:center;gap:10px}
+.prog i{display:block;width:120px;height:1px;background:rgba(255,255,255,.4);position:relative}.prog i b{position:absolute;inset:0;background:#fff;transform-origin:0;transform:scaleX(0)}
+/* carte */
+.work{position:relative;background:linear-gradient(180deg,#b9d0c0,#d9e5dc 30%,#F3F4EF);color:var(--k);padding:140px 0 120px;overflow:hidden}
+.ruler{position:absolute;left:61.5vw;top:0;bottom:0;width:1px;background:var(--k);opacity:.4}
+.ruler::before{content:"";position:absolute;left:0;top:0;bottom:0;width:16px;background:repeating-linear-gradient(180deg,var(--k) 0 1px,transparent 1px 100px)}
+.ruler::after{content:"";position:absolute;left:0;top:0;bottom:0;width:34px;background:repeating-linear-gradient(180deg,var(--k) 0 1px,transparent 1px 300px)}
+.pct{position:sticky;top:calc(100svh - 50px);margin-left:calc(61.5vw - 54px);width:44px;text-align:right;z-index:2}
+.wcl{position:absolute;pointer-events:none;opacity:.9;will-change:transform;z-index:0}.wh,.course,.pair{position:relative;z-index:1}
+.wh{padding:0 8.4vw;max-width:60vw}
+.wh h2{font-family:var(--se);font-weight:400;font-size:clamp(40px,5vw,80px);line-height:.98;letter-spacing:-.02em}
+.wh p{max-width:46ch;margin-top:18px;font-size:17px;opacity:.8}
+.course{display:grid;grid-template-columns:1fr 1fr;gap:6vw;padding:0 8.4vw;margin-top:80px;align-items:start}
+.cl{list-style:none;border-top:1px solid rgba(38,51,44,.25)}
+.cl li{border-bottom:1px solid rgba(38,51,44,.25)}
+.cl button{width:100%;display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:baseline;padding:20px 4px;text-align:left;transition:padding .4s,background .4s}
+.cl button:hover,.cl button[aria-pressed=true]{padding-left:16px;background:rgba(78,107,91,.08)}
+.cl .n{font-family:var(--mo);font-size:11px;opacity:.6}
+.cl h3{font-family:var(--se);font-weight:400;font-size:clamp(24px,2.3vw,34px);line-height:1.05}
+.cl small{display:block;font-size:14px;opacity:.7;margin-top:4px;font-family:"Inter"}
+.cl .t{font-family:var(--mo);font-size:11px;opacity:.6}
+.plw{position:sticky;top:18vh;perspective:1100px;height:min(64vh,560px);display:grid;place-items:center}
+.plate{position:relative;width:min(34vw,440px);aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(var(--r,0deg));transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.plate .rim{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fff 0 54%,#eef2ee 55%,#fbfcfa 64%,#dfe6e0 72%,#fff 73%);box-shadow:0 60px 60px -30px rgba(38,51,44,.45),inset 0 0 0 1px rgba(38,51,44,.08)}
+.plate .rim::after{content:"";position:absolute;inset:-1px;border-radius:50%;transform:translateZ(-14px);background:#dfe6e0;z-index:-1}
+.plate .food{position:absolute;inset:0;transform-style:preserve-3d}
+.plate .food i{position:absolute;border-radius:50%;transition:all 1s cubic-bezier(.2,.8,.2,1)}
+.plate .zs{position:absolute;left:50%;top:50%;width:13%;transform:translate(-50%,-50%) translateZ(2px);opacity:.25}
+.plcap{position:absolute;bottom:0;left:0;right:0;text-align:center}
+.plcap b{font-family:var(--se);font-weight:400;font-size:26px;display:block}
+/* entête claire/sombre selon la section */
+(()=>{const ch=$('#chrome');const f=()=>{const y=innerHeight*.06;let m='';[['carte','lt'],['comptoir','dk'],['chance','dk'],['infos','lt']].forEach(([id,c])=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<=y&&r.bottom>y)m=c});ch.classList.toggle('lt',m==='lt');ch.classList.toggle('dk',m==='dk')};addEventListener('scroll',f,{passive:true});f()})();
+/* accords */
+.pair{display:grid;grid-template-columns:auto 1fr;gap:5vw;align-items:center;padding:0 8.4vw;margin-top:140px}
+.glass{width:140px;height:260px;position:relative;perspective:600px}
+.glass .bowl{position:absolute;left:10px;right:10px;top:0;height:150px;border-radius:0 0 70px 70px;border:2px solid rgba(38,51,44,.35);border-top:0;overflow:hidden;transform:rotateX(8deg);background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,.1))}
+.glass .bowl i{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,#9a2c45,#5c1426);transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
+.glass .bowl i::before{content:"";position:absolute;left:-10%;right:-10%;top:-6px;height:12px;border-radius:50%;background:#b43a57;animation:wb 3s ease-in-out infinite}
+@keyframes wb{50%{transform:translateY(3px) rotate(2deg)}}
+.glass.on .bowl i{height:46%}
+.glass .stem{position:absolute;left:68px;top:150px;width:3px;height:90px;background:rgba(38,51,44,.35)}
+.glass .foot{position:absolute;left:30px;right:30px;bottom:0;height:12px;border-radius:50%;border:2px solid rgba(38,51,44,.35)}
+.sw{display:inline-flex;align-items:center;gap:14px;margin-top:22px;cursor:pointer;font-weight:500}
+.sw span.k{width:58px;height:32px;border-radius:999px;background:rgba(38,51,44,.2);position:relative;transition:background .3s}
+.sw span.k::after{content:"";position:absolute;left:4px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.sw[aria-checked=true] span.k{background:var(--s)}.sw[aria-checked=true] span.k::after{transform:translateX(26px)}
+.price{font-family:var(--se);font-size:clamp(48px,5vw,76px);line-height:1;margin-top:14px}
+/* comptoir */
+.ctr{background:var(--k);color:#fff;padding:140px 8.4vw;position:relative;overflow:hidden}
+.ctr h2{font-family:var(--se);font-weight:400;font-size:clamp(40px,5vw,80px);line-height:.98}
+.bar{position:relative;height:420px;margin-top:40px;perspective:1000px}
+.bar .tb{position:absolute;left:50%;top:50%;width:min(860px,90%);aspect-ratio:2.4;transform:translate(-50%,-50%) rotateX(62deg);transform-style:preserve-3d}
+.bar .wood{position:absolute;inset:0;border-radius:50% 50% 10px 10px/100% 100% 10px 10px;background:linear-gradient(90deg,#3a2a1e,#6b4b33 30%,#5a3e2a 70%,#3a2a1e);box-shadow:0 60px 80px -20px rgba(0,0,0,.7)}
+.bar .wood::after{content:"";position:absolute;inset:16% 10% 0;border-radius:50% 50% 0 0/100% 100% 0 0;background:#1d2622}
+.seat{position:absolute;width:62px;height:62px;margin:-31px;border-radius:50%;background:#F3F4EF;color:var(--k);display:grid;place-items:center;font-family:var(--mo);font-size:11px;transform:translateZ(34px) rotateX(-62deg);transition:background .3s,transform .4s,box-shadow .3s;box-shadow:0 18px 20px -8px rgba(0,0,0,.6)}
+.seat[aria-pressed=true]{background:var(--b);transform:translateZ(54px) rotateX(-62deg);box-shadow:0 0 0 4px rgba(169,194,176,.35),0 18px 20px -8px rgba(0,0,0,.6)}
+.seat:disabled{background:#59665f;color:#9aa;cursor:not-allowed}
+.chef{position:absolute;left:50%;top:62%;transform:translate(-50%,-50%) translateZ(20px) rotateX(-62deg);width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#d7e3da);display:grid;place-items:center;color:var(--k);font-family:var(--mo);font-size:10px;text-align:center;line-height:1.2}
+.seatmsg{text-align:center;margin-top:10px}
+/* chance */
+.luck{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;padding:140px 8.4vw;background:radial-gradient(70% 60% at 30% 50%,#344a3f,#26332C 70%)}
+.cl3{position:relative;aspect-ratio:1;width:100%;max-width:520px;margin:auto}
+.cl3 .fb{position:absolute;inset:20%}.cl3.on3d .fb{display:none}
+.luck h2{font-family:var(--se);font-weight:400;font-size:clamp(40px,5vw,80px);line-height:.98}
+.luck p{opacity:.8;margin-top:16px;max-width:44ch}
+/* infos */
+.info{background:var(--c);color:var(--k);padding:130px 8.4vw 60px}
+.loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.info h2{font-family:var(--se);font-weight:400;font-size:clamp(40px,5vw,76px);line-height:.98}
+.hrs{list-style:none;margin-top:24px;border-top:1px solid rgba(38,51,44,.2)}
+.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(38,51,44,.2);font-family:var(--mo);font-size:12px}
+.hrs li.now{color:var(--s);font-weight:700}
+.faq{max-width:900px;margin:110px auto 0}
+.q{border-bottom:1px solid rgba(38,51,44,.2)}
+.q button{width:100%;text-align:left;padding:20px 40px 20px 0;font-family:var(--se);font-size:26px;position:relative}
+.q button::after{content:"+";position:absolute;right:4px;top:18px;font-family:var(--mo);font-size:20px;transition:transform .3s}
+.q button[aria-expanded=true]::after{transform:rotate(45deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q button[aria-expanded=true]+div{grid-template-rows:1fr}
+.q div p{overflow:hidden;opacity:.8}.q button[aria-expanded=true]+div p{padding-bottom:18px}
+.fin{text-align:center;margin-top:110px}
+.giant{font-family:var(--se);font-size:min(21vw,300px);line-height:.8;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px var(--k);margin:40px 0 30px;user-select:none}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;padding:24px 8.4vw 40px;background:var(--c);color:var(--k);border-top:1px solid rgba(38,51,44,.15)}
+.rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+[data-tilt]{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#26332C;font-family:"Inter",system-ui,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#26332C;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"Inter",system-ui,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #26332C}
+.zl-ck .b button.y{background:#26332C;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"Inter",system-ui,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+
+.zb{border:0;border-radius:26px;padding:0;width:min(560px,94vw);max-height:92vh;background:#F3F4EF;color:#26332C;font-family:"Inter",system-ui,sans-serif;box-shadow:0 50px 140px -40px rgba(0,0,0,.7)}
+.zb::backdrop{background:rgba(20,28,24,.6);backdrop-filter:blur(8px)}
+.zb form{padding:28px clamp(18px,4vw,34px) 26px;display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
+.zb h2{margin:0 40px 2px 0;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.zb .zx{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zb .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.zb select,.zb input[type=text],.zb input[type=tel],.zb input[type=email],.zb textarea{width:100%;box-sizing:border-box;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:#26332C}
+.zb textarea{min-height:84px;resize:vertical}
+.zb .ch{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.zb .ch button{flex:none;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;color:#26332C;border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;cursor:pointer;line-height:1.15;text-align:center}
+.zb .ch button[aria-pressed=true]{background:#26332C;color:#F3F4EF;border-color:#26332C}
+.zb .ch button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.zb .cons{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.zb .cons input{width:20px;height:20px;flex:none;accent-color:#4E6B5B;margin-top:1px}
+.zb .tk{display:flex;align-items:center;gap:14px;background:#26332C;color:#F3F4EF;border-radius:18px;padding:14px 16px}
+.zb .tk svg{width:34px;flex:none}
+.zb .tk b{display:block;font-size:15px}.zb .tk span{font-size:12.5px;opacity:.75}
+.zb .go{border:0;border-radius:999px;background:#4E6B5B;color:#fff;font:inherit;font-weight:700;padding:15px;cursor:pointer;font-size:15px}
+.zb .msg{margin:0;font-weight:600;min-height:20px;font-size:14px}
+.zb .sm{font-size:12px;opacity:.65;margin:0}
+
+@media (max-width:760px){
+ .hl.v1{left:16px}.hl.v2{right:16px}.hl.h1{top:62px}.nv{left:16px;right:16px;height:62px;padding:0 12px}.nl{display:none}.lg{font-size:23px}.lg svg{width:24px}.nv .bt{height:38px;padding:0 12px;font-size:10px}
+ .blk .top{left:28px;right:24px;bottom:auto;top:24vh;max-width:none}.blk .low{left:28px;right:24px;top:74vh;flex-direction:column;gap:8px}.blk .low .mo{width:auto}.blk .low p{max-width:none;font-size:14px}
+ .line3{top:71vh}.spark{left:8px;top:calc(71vh - 8px)}.cloud{width:62vw}.prog{display:none}
+ .ruler{left:auto;right:28px}.pct{margin-left:calc(100vw - 80px)}
+ .wh{max-width:none;padding:0 28px}.course{grid-template-columns:1fr;padding:0 28px;gap:30px}.plw{position:relative;top:0;height:300px;order:-1}.plate{width:min(70vw,280px)}
+ .pair{grid-template-columns:1fr;padding:0 28px}.glass{margin:auto}
+ .ctr{padding:110px 28px}.bar{height:300px}.seat{width:44px;height:44px;margin:-22px;font-size:10px}.chef{width:60px;height:60px;font-size:9px}
+ .luck{grid-template-columns:1fr;padding:110px 28px}.info{padding:110px 28px 50px}.loc{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.plate,.seat{transition:none}}
+</style>
+</head>
+<body>
+<div class="chrome" id="chrome">
+ <i class="hl v1"></i><i class="hl v2"></i><i class="hl h1"></i>
+ <header class="nv"><a class="lg" href="#top" aria-label="ZAHR Table, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR Table</a><nav class="nl mo" aria-label="Sections"><a href="#carte">La carte</a><a href="#accords">Accords</a><a href="#comptoir">Comptoir</a><a href="#infos">Venir</a></nav><button class="bt l" type="button" data-book="0">Réserver</button></header>
+</div>
+<main id="top">
+<section class="track" id="track" aria-label="Film d’ouverture : de l’arbre à l’assiette">
+ <div class="stage" id="stage">
+  <canvas id="film" aria-hidden="true"></canvas><div class="tint" id="tint" aria-hidden="true"></div>
+  <img class="cloud" id="cloud0" src="https://res.cloudinary.com/ce2yatay/image/upload/keel/cloud.webp" alt="" aria-hidden="true">
+  <i class="line3" aria-hidden="true"></i><svg class="spark"  viewBox="0 0 17 17" aria-hidden="true"><path fill="#fff" d="M8.5 0C9 5 12 8 17 8.5 12 9 9 12 8.5 17 8 12 5 9 0 8.5 5 8 8 5 8.5 0Z"/></svg>
+  <div class="blk" data-show="-1,-1,0.065,0.105"><div class="top"><h1>ZAHR Table.</h1><p class="sub">Une cuisine qui se cueille<br>avant de se servir.</p><button class="bt" type="button" data-book="0">Réserver une table →</button></div>
+   <div class="low"><span class="mo">Toulon · gastronomie</span><p>Un menu qui change avec ce que le marché offre ce matin-là. Faites défiler : on va chercher le dessert ensemble.</p></div></div>
+  <div class="blk" data-show="0.30,0.36,0.47,0.5"><div class="top"><h2>D’abord,<br>le verger.</h2></div><div class="low"><span class="mo">Producteurs du Var</span><p>Fruits, légumes et herbes viennent de fermes à moins de quarante kilomètres. On les choisit au marché, le matin même.</p></div></div>
+  <div class="blk" data-show="0.52,0.57,0.765,0.8"><div class="top"><h2>Puis le geste,<br>avant le goût.</h2></div><div class="low"><span class="mo">En cuisine</span><p>Couper, trancher, dresser : chaque assiette est finie devant vous, au dernier moment.</p></div></div>
+  <div class="blk" data-show="0.84,0.88,1.5,1.6"><div class="top"><h2>Et la poire<br>s’ouvre.</h2><p class="sub">Le dessert signature : poire pochée, crème au néroli.</p></div></div>
+  <div class="prog mo" aria-hidden="true"><span id="pnum">00</span><i><b id="pbar"></b></i><span>Service</span></div>
+ </div>
+</section>
+
+<section class="work" id="carte" aria-labelledby="h-c">
+ <div class="ruler" aria-hidden="true"></div>
+ <img class="wcl" data-sp=".25" src="https://res.cloudinary.com/ce2yatay/image/upload/keel/cloud.webp" alt="" aria-hidden="true" style="width:22vw;left:66vw;top:6%">
+ <img class="wcl" data-sp=".45" src="https://res.cloudinary.com/ce2yatay/image/upload/keel/cloud.webp" alt="" aria-hidden="true" style="width:14vw;left:80vw;top:34%;transform:scaleX(-1)">
+ <img class="wcl" data-sp=".15" src="https://res.cloudinary.com/ce2yatay/image/upload/keel/cloud.webp" alt="" aria-hidden="true" style="width:18vw;left:-6vw;top:62%">
+ <div class="wh"><p class="mo rv">01 · La carte</p><h2 class="rv" id="h-c" style="margin-top:18px">Sept temps,<br>une seule saison.</h2><p class="rv">Le menu Saison change chaque mois. Touchez un temps : l’assiette se dresse à côté.</p></div>
+ <div class="course">
+  <ol class="cl" id="cl"></ol>
+  <div class="plw" aria-hidden="true"><div class="plate" id="plate"><div class="rim"></div><div class="food" id="food"></div><span class="zs"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#4E6B5B" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span></div><div class="plcap"><span class="mo" id="pk">Temps 1</span><b id="pn">—</b></div></div>
+ </div>
+ <div class="pair" id="accords">
+  <div class="glass" id="glass" aria-hidden="true"><div class="bowl"><i></i></div><div class="stem"></div><div class="foot"></div></div>
+  <div><p class="mo rv">02 · Les accords</p><h2 class="rv se" style="font-size:clamp(36px,4.2vw,66px);line-height:1">Un verre par temps,<br>choisi par notre sommelière.</h2>
+   <button class="sw rv" type="button" role="switch" aria-checked="false" id="sw"><span class="k"></span><span>Avec les accords mets et vins</span></button>
+   <div class="price rv" id="price">95 €</div><p class="mo rv" id="pdet" style="opacity:.7;margin-top:8px">Menu Saison · par personne</p>
+   <button class="bt rv" type="button" data-book="0" style="margin-top:22px">Réserver ce menu →</button></div>
+ </div>
+ <div class="pct mo" id="pct" aria-hidden="true">0%</div>
+</section>
+
+<section class="ctr" id="comptoir" aria-labelledby="h-t">
+ <p class="mo rv" style="opacity:.7">03 · La table du chef</p><h2 class="rv" id="h-t" style="margin-top:18px">Huit places au comptoir,<br><em class="se">face aux fourneaux.</em></h2>
+ <p class="rv" style="opacity:.75;margin-top:16px;max-width:52ch">Le chef sert lui-même, raconte chaque assiette et ajoute un temps hors carte. Choisissez vos places sur le comptoir.</p>
+ <div class="bar" id="bar"><div class="tb"><div class="wood"></div><div class="chef">LE<br>CHEF</div><div id="seats" style="position:absolute;inset:0;transform-style:preserve-3d"></div></div></div>
+ <p class="seatmsg mo" id="smsg" role="status" aria-live="polite">Touchez une place libre</p>
+ <div style="text-align:center;margin-top:18px"><button class="bt l" type="button" id="seatgo">Réserver ces places →</button></div>
+</section>
+
+<section class="luck" id="chance" aria-labelledby="h-l">
+ <div class="cl3 rv" id="cl3"><div class="fb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div></div>
+ <div><p class="mo rv" style="opacity:.7">04 · Le dernier temps</p><h2 class="rv" id="h-l" style="margin-top:18px">La mignardise<br><em class="se">porte-bonheur.</em></h2>
+ <p class="rv">Zahr veut dire « fleur » et « chance ». Le repas se termine par un trèfle au chocolat noir et à la fleur d’oranger, glissé dans une boîte à emporter. Faites-le tourner : il est en verre ici, en chocolat là-bas.</p></div>
+</section>
+
+<section class="info" id="infos" aria-labelledby="h-i">
+ <div class="loc"><div><p class="mo rv">05 · Venir</p><h2 class="rv" id="h-i" style="margin-top:18px">Sur le port,<br>au premier étage.</h2>
+  <p style="margin-top:16px;opacity:.8">Toulon, quai du port (adresse fictive). Téléphone : 04 00 00 00 00 (numéro d’exemple).</p>
+  <ul class="hrs" id="hrs"><li data-d="0,1"><span>Dim. – lun.</span><span>Fermé</span></li><li data-d="2,3,4,5"><span>Mar. – ven.</span><span>12 h – 14 h · 19 h – 22 h</span></li><li data-d="6"><span>Samedi</span><span>19 h – 23 h</span></li></ul></div>
+  <div class="zl-map" data-q="Port+de+Toulon"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Table</b><span>Toulon, sur le port · adresse fictive</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Port+de+Toulon" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+ <div class="faq"><h2 class="se" style="text-align:center;margin-bottom:24px">Avant de venir.</h2><div id="faq"></div></div>
+ <div class="fin"><h2 class="se" style="font-size:clamp(36px,4vw,60px)">La table vous attend.</h2><div style="margin-top:22px"><button class="bt" type="button" data-book="0">Réserver une table →</button></div><div class="giant" aria-hidden="true">zahr table</div></div>
+</section>
+</main>
+<footer><a class="lg" href="#top" aria-label="ZAHR Table, haut de page"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#26332C" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR Table</a><div><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Table</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Table</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Table</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Table</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<dialog class="zb" id="zb" aria-labelledby="zb-t"><form id="zbf" novalidate>
+<button class="zx" type="button" id="zbx" aria-label="Fermer">×</button>
+<h2 id="zb-t">Réserver une table</h2>
+<label class="lb" for="zb-s">Menu</label><select id="zb-s"></select>
+<span class="lb">Jour</span><div class="ch" id="zb-d" role="group" aria-label="Jour"></div><span class="lb">Heure</span><div class="ch" id="zb-h" role="group" aria-label="Heure"></div><label class="lb" for="zb-g">Nombre de couverts</label><input type="text" id="zb-g" autocomplete="off"><label class="lb" for="zb-a">Allergies ou régime (facultatif)</label><input type="text" id="zb-a" autocomplete="off">
+<input type="text" id="zb-n" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+<input type="tel" id="zb-p" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+<label class="cons"><input type="checkbox" id="zb-c"><span>J’accepte que ZAHR Table utilise mon prénom, mon numéro et, si je les indique, mes allergies, uniquement pour préparer cette réservation.</span></label>
+<div class="tk" aria-live="polite"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><div><b id="zb-k1"></b><span id="zb-k2"></span></div></div>
+<button class="go" type="submit">Réserver la table</button>
+<p class="msg" id="zb-m" role="status" aria-live="polite"></p>
+<p class="sm">Démo : rien n’est envoyé ni enregistré. Vos données ne servent qu’à cette demande et sont effacées après le rendez-vous.</p>
+</form></dialog>
+<script>
+
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+
+
+(()=>{const C={"title": "Réserver une table", "items": [["Menu Saison, sept temps", "95 € par personne"], ["Menu Découverte, cinq temps", "68 € par personne"], ["Table du chef, au comptoir", "145 € par personne"], ["Déjeuner du marché, trois temps", "42 € (mar. – ven.)"]], "itemLabel": "Menu", "closed": [0, 1], "hours": ["12 h", "13 h", "19 h", "20 h", "21 h"], "extra": [["g", "Nombre de couverts", "text", true], ["a", "Allergies ou régime (facultatif)", "text", false]], "consent": "J’accepte que ZAHR Table utilise mon prénom, mon numéro et, si je les indique, mes allergies, uniquement pour préparer cette réservation.", "ok": "Votre table est notée. Sur le vrai site, la confirmation arrive par SMS. (Démo : rien n’a été envoyé.)", "cta": "Réserver la table"};const $=s=>document.querySelector(s);const dlg=$('#zb');let sd=null,sh=null;
+const S=$('#zb-s');S.innerHTML=C.items.map((it,i)=>`<option value="${i}">${it[0]}${it[1]?' — '+it[1]:''}</option>`).join('');
+const J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function tk(){const it=C.items[S.value];$('#zb-k1').textContent=it[0]+(it[1]?' · '+it[1]:'');$('#zb-k2').textContent=C.kind==='devis'?'Réponse avec un devis gratuit sous 48 h':(sd&&sh?sd+' à '+sh:'Choisissez un jour et une heure');}
+if(C.kind!=='devis'){const D=$('#zb-d'),H=$('#zb-h');const t=new Date();for(let i=1,n=0;n<10&&i<30;i++){const d=new Date(t);d.setDate(t.getDate()+i);if((C.closed||[]).includes(d.getDay()))continue;n++;const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=J[d.getDay()]+'<br><b>'+d.getDate()+'</b> '+M[d.getMonth()];b.onclick=()=>{D.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');sd=J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];
+H.innerHTML='';C.hours.forEach((h,k)=>{const e=document.createElement('button');e.type='button';e.textContent=h;e.setAttribute('aria-pressed','false');if((d.getDate()*7+k*3)%5===0){e.disabled=true;e.setAttribute('aria-label',h+', complet')}e.onclick=()=>{H.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));e.setAttribute('aria-pressed','true');sh=h;tk()};H.appendChild(e)});sh=null;tk()};D.appendChild(b)}}
+S.onchange=tk;tk();
+window.ZB={open(i){if(i!=null&&C.items[i])S.value=i;tk();$('#zb-m').textContent='';dlg.showModal()}};
+document.addEventListener('click',e=>{const o=e.target.closest('[data-book]');if(o){e.preventDefault();ZB.open(o.dataset.book===''?null:+o.dataset.book)}});
+$('#zbx').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#zbf').addEventListener('submit',e=>{e.preventDefault();const m=$('#zb-m');if(C.kind!=='devis'&&(!sd||!sh)){m.textContent='Choisissez un jour et une heure.';return}
+for(const x of (C.extra||[])){const el=$('#zb-'+x[0]);if(x[3]&&!el.value.trim()){m.textContent='Complétez : '+x[1].toLowerCase()+'.';el.focus();return}}
+if(!$('#zb-n').value.trim()||$('#zb-p').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre prénom et un numéro valide.';return}
+if(!$('#zb-c').checked){m.textContent='Cochez la case pour accepter.';return}m.textContent=C.ok;});})();
+
+
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});el.addEventListener('pointerleave',()=>{el.style.transform=''})});})();
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ss=(a,b,v)=>{if(a===b)return v>=a?1:0;let t=Math.min(1,Math.max(0,(v-a)/(b-a)));return t*t*(3-2*t)};
+/* ===== film défilé ===== */
+(()=>{const N=181,cv=$('#film'),cx=cv.getContext('2d'),track=$('#track'),cloud=$('#cloud0'),tint=$('#tint');
+const small=innerWidth<760;const W=small?640:960;const S=(small||Math.max(innerWidth,innerHeight*16/9)*Math.min(devicePixelRatio,2)<1300)?1280:1920;
+cv.width=S;cv.height=Math.round(S*1073/1920);
+const url=(i,w,q)=>'https://res.cloudinary.com/ce2yatay/video/upload/so_'+Math.max(0,(i-.5)/12).toFixed(3)+',w_'+w+',q_'+q+'/keel/film.webp';
+const L=new Array(N),ok=new Array(N).fill(false),sharp=new Map();
+const order=[0,N-1];[32,16,8,4,2,1].forEach(st=>{for(let i=0;i<N;i+=st)if(!order.includes(i))order.push(i)});
+let qi=0,act=0;function pump(){while(act<8&&qi<order.length){const i=order[qi++];act++;const im=new Image();im.decoding='async';im.onload=()=>{ok[i]=true;act--;pump()};im.onerror=()=>{act--;pump()};im.src=url(i,W,40);L[i]=im}}pump();
+let shown=0,target=0,last=performance.now(),rest=0,restI=-1,sharpA=0;
+const cells=[];(()=>{const cw=S/150,cols=150,rows=Math.ceil(cv.height/cw);for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){const dx=(x+.5)/cols-.5,dy=((y+.5)/rows-.44)*1.9;const dd=Math.min(1,Math.hypot(dx*1.15,dy)*1.6);cells.push([x*cw,y*cw,cw,.62*dd+.38*Math.random(),Math.random()<.5,['#fff','#cfe3d6','#26332C'][Math.random()*3|0]])}})();
+function nearest(fi){for(let d=0;d<N;d++){if(ok[fi-d])return fi-d;if(ok[fi+d])return fi+d}return -1}
+function draw(f,d){cx.clearRect(0,0,cv.width,cv.height);const x=f*(N-1),a=Math.floor(x),b=Math.min(N-1,a+1),fr=x-a;
+if(d<=0){if(ok[a]&&ok[b]){cx.globalAlpha=1;cx.drawImage(L[a],0,0,cv.width,cv.height);if(fr>0){cx.globalAlpha=fr;cx.drawImage(L[b],0,0,cv.width,cv.height)}cx.globalAlpha=1}else{const n=nearest(Math.round(x));if(n>=0)cx.drawImage(L[n],0,0,cv.width,cv.height)}
+ const si=Math.round(x);if(sharp.has(si)&&sharp.get(si).ok&&Math.abs(x-si)<.01){cx.globalAlpha=sharpA;cx.drawImage(sharp.get(si).im,0,0,cv.width,cv.height);cx.globalAlpha=1}}
+else{const im=(sharp.get(N-1)&&sharp.get(N-1).ok)?sharp.get(N-1).im:(ok[N-1]?L[N-1]:null);if(im)cx.drawImage(im,0,0,cv.width,cv.height);const k=1.12*d;
+ for(const c of cells){if(k>c[3]){cx.clearRect(c[0],c[1],c[2]+.5,c[2]+.5);const age=k-c[3];if(age<.07&&c[4]){const px=(c[0]/cv.width-.5),py=(c[1]/cv.height-.44);cx.fillStyle=c[5];const s=c[2]*.55;cx.fillRect(c[0]+px*age*900,c[1]+py*age*900,s,s)}}}}}
+function getSharp(i){if(sharp.has(i))return;const im=new Image(),o={im,ok:false};im.onload=()=>{o.ok=true};im.src=url(i,S,80);sharp.set(i,o);if(sharp.size>24){sharp.delete(sharp.keys().next().value)}}
+const blks=$$('.blk').map(b=>[b,b.dataset.show.split(',').map(Number)]);
+(function loop(n){requestAnimationFrame(loop);const dt=Math.min((n-last)/1000,.05);last=n;const r=track.getBoundingClientRect();target=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));
+if(r.top>innerHeight||r.bottom<0)return;shown+=(target-shown)*(red?1:1-Math.exp(-dt*7));const p=shown,f=Math.min(1,p/.9),d=Math.max(0,(p-.9)/.1);
+if(Math.abs(target-shown)<.0003){const i=Math.round(f*(N-1));if(i!==restI){restI=i;rest=0;sharpA=0}rest+=dt;if(rest>.14){getSharp(i);if(sharp.get(i).ok)sharpA=Math.min(1,sharpA+dt/.3)}}else{restI=-1;sharpA=0}
+draw(f,d);cv.style.objectPosition=(72-22*ss(0,.3,f))+'% 50%';tint.style.opacity=.55*(1-ss(.74,.84,f));
+cloud.style.opacity=ss(.4,.85,d);cloud.style.transform=`translate(-50%,-50%) scale(${.78+.22*ss(.4,1,d)})`;
+blks.forEach(([el,s])=>{const v=(s[0]<0?1:ss(s[0],s[1],f))*(1-ss(s[2],s[3],f));el.style.opacity=v;el.style.filter=v<1?`blur(${(1-v)*10}px)`:'none';el.style.transform=`translateY(${(1-v)*20*(f>s[2]?-1:1)}px)`;el.style.visibility=v<.01?'hidden':'visible'});
+$('#pnum').textContent=String(Math.round(p*100)).padStart(2,'0');$('#pbar').style.transform=`scaleX(${p})`})(last);})();
+/* ===== carte : sept temps + assiette ===== */
+const C=[['Huître de Tamaris','granité de concombre, aneth','5 min',['#d7e4d6',30,50,50],['#7f9e8b',12,40,45]],['Tomate ancienne','eau de tomate, basilic pourpre','8 min',['#c8423a',36,50,50],['#5a8a4a',10,62,40]],['Rouget de roche','bouillabaisse réduite, rouille','12 min',['#d8743a',34,50,50],['#f2c26b',14,40,58]],['Agneau de Sisteron','pois chiches, jus au thym','14 min',['#7a3b2a',30,52,48],['#c9b48a',18,40,62]],['Fromages de la ferme','miel de lavande','6 min',['#efe2b8',24,44,46],['#b89adf',10,62,58]],['Poire pochée','crème au néroli, chrome de sucre','10 min',['#f1ead2',32,50,50],['#A9C2B0',12,38,40]],['Trèfle au chocolat','fleur d’oranger, à emporter','—',['#3b2418',22,50,50],['#4E6B5B',10,50,50]]];
+$('#cl').innerHTML=C.map((c,i)=>`<li class="rv"><button type="button" aria-pressed="${i===0}" data-i="${i}"><span class="n">0${i+1}</span><span><h3>${c[0]}</h3><small>${c[1]}</small></span><span class="t">${c[2]}</span></button></li>`).join('');
+const food=$('#food');function plate(i){const c=C[i];$('#plate').style.setProperty('--r',(i*-51)+'deg');food.innerHTML=[c[3],c[4]].map((d,k)=>`<i style="background:radial-gradient(circle at 35% 30%,#fff8,${d[0]} 40%);width:${d[1]}%;height:${d[1]}%;left:${d[2]-d[1]/2}%;top:${d[3]-d[1]/2}%;transform:translateZ(${8+k*6}px);box-shadow:0 10px 14px -6px rgba(0,0,0,.35)"></i>`).join('')+`<i style="width:64%;height:64%;left:18%;top:18%;border:2px dotted ${c[4][0]}88;transform:translateZ(3px) rotate(${i*40}deg)"></i>`;$('#pk').textContent='Temps '+(i+1);$('#pn').textContent=c[0]}
+plate(0);$$('#cl button').forEach(b=>{const go=()=>{$$('#cl button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');plate(+b.dataset.i)};b.onclick=go;b.onmouseenter=go});
+$$('#cl .rv').forEach(el=>new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){el.classList.add('in');o.disconnect()}}).observe(el));
+/* règle + nuages */
+const work=$('#carte');addEventListener('scroll',()=>{const r=work.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight-r.top)/(r.height+innerHeight)));$('#pct').textContent=Math.round(p*100)+'%';if(!red)$$('.wcl').forEach(c=>{const m=c.style.transform.includes('scaleX')?' scaleX(-1)':'';c.style.transform=`translateY(${-(innerHeight-r.top)*(+c.dataset.sp)}px)`+m})},{passive:true});
+/* entête claire/sombre selon la section */
+(()=>{const ch=$('#chrome');const f=()=>{const y=innerHeight*.06;let m='';[['carte','lt'],['comptoir','dk'],['chance','dk'],['infos','lt']].forEach(([id,c])=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<=y&&r.bottom>y)m=c});ch.classList.toggle('lt',m==='lt');ch.classList.toggle('dk',m==='dk')};addEventListener('scroll',f,{passive:true});f()})();
+/* accords */
+$('#sw').onclick=()=>{const on=$('#sw').getAttribute('aria-checked')!=='true';$('#sw').setAttribute('aria-checked',on);$('#glass').classList.toggle('on',on);$('#price').textContent=on?'150 €':'95 €';$('#pdet').textContent=on?'Menu Saison + 5 verres · par personne':'Menu Saison · par personne'};
+/* comptoir */
+const seats=$('#seats');const taken=[2,5];for(let i=0;i<8;i++){const a=Math.PI*(1.08+i*.84/7);const x=50+Math.cos(a)*46,y=86+Math.sin(a)*78;const b=document.createElement('button');b.type='button';b.className='seat';b.style.left=x+'%';b.style.top=y+'%';b.textContent=i+1;b.setAttribute('aria-pressed','false');if(taken.includes(i)){b.disabled=true;b.setAttribute('aria-label','Place '+(i+1)+', déjà réservée')}else b.setAttribute('aria-label','Place '+(i+1));
+b.onclick=()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');const n=$$('.seat[aria-pressed=true]').length;$('#smsg').textContent=n?n+' place'+(n>1?'s':'')+' choisie'+(n>1?'s':'')+' · '+(n*145)+' €':'Touchez une place libre'};seats.appendChild(b)}
+$('#seatgo').onclick=()=>{const n=$$('.seat[aria-pressed=true]').length;ZB.open(2);if(n)$('#zb-g').value=n};
+/* horaires + faq */
+(()=>{const wd=new Date().getDay();$$('#hrs li').forEach(li=>{if(li.dataset.d.split(',').map(Number).includes(wd))li.classList.add('now')})})();
+const FAQ=[['Pouvez-vous adapter le menu à une allergie ?','Oui. Indiquez-la en réservant : le chef adapte chaque temps, sans supplément.'],['Y a-t-il une tenue exigée ?','Non. Venez comme vous êtes à l’aise.'],['Les enfants sont-ils les bienvenus ?','Oui, avec un menu en trois temps pour les moins de 12 ans, à 28 €.'],['Et si je dois annuler ?','Gratuitement jusqu’à 48 h avant, depuis le SMS de confirmation.']];
+$('#faq').innerHTML=FAQ.map((q,i)=>`<div class="q"><button type="button" aria-expanded="false" aria-controls="fq${i}">${q[0]}</button><div id="fq${i}"><p>${q[1]}</p></div></div>`).join('');$$('.q button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cl3');if(!host)return;
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+host.appendChild(R.domElement);R.domElement.setAttribute('aria-hidden','true');R.domElement.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+const sc=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,9);
+sc.add(new THREE.HemisphereLight(0xffffff,0x26332c,.8));const k=new THREE.DirectionalLight('#ffe6c8',2.2);k.position.set(3,5,6);sc.add(k);const rim=new THREE.DirectionalLight(0xa9c2b0,3);rim.position.set(-5,-2,-4);sc.add(rim);
+const d=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>');
+const shapes=[];d.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
+const g=new THREE.ExtrudeGeometry(shapes,{depth:34,bevelEnabled:true,bevelThickness:7,bevelSize:6,bevelSegments:6,curveSegments:28});g.center();g.scale(1/256,-1/256,1/256);g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:'#e4efe7',roughness:.08,metalness:.05,transmission:.92,thickness:1.4,ior:1.45,clearcoat:1,clearcoatRoughness:.06,iridescence:.6,iridescenceIOR:1.3,emissive:'#4E6B5B',emissiveIntensity:.18,attenuationColor:'#4E6B5B',attenuationDistance:2.2,envMapIntensity:1.1});
+const m=new THREE.Mesh(g,mat);const rig=new THREE.Group();rig.add(m);sc.add(rig);m.scale.setScalar(3.3);
+let tx=0,ty=0,cx=0,cy=0,vis=false,last=performance.now(),t=0;
+host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});host.addEventListener('pointerleave',()=>{tx=ty=0});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+function rs(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<1?12:9;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;if(!vis)return;t+=dt;const q=1-Math.exp(-dt/.18);cx+=(tx-cx)*q;cy+=(ty-cy)*q;
+rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig.position.y=Math.sin(t*1.1)*.08;R.render(sc,cam)})(last);
+host.classList.add('on3d');})();
+</script>
+</body>
+</html>

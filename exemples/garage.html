@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Garage — Elle repart comme neuve</title>
+<meta name="description" content="ZAHR Garage, garage automobile fictif dans le Var : entretien, freins, pneus, diagnostic, devis en ligne. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%2326332C' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<link rel="preload" as="image" href="https://res.cloudinary.com/ce2yatay/video/upload/so_0.000,w_960,q_40/rastro/film.webp">
+<style>
+:root{--s:#4E6B5B;--k:#26332C;--c:#F3F4EF;--b:#A9C2B0;--a:#A9C2B0;--bg:#0b0c0b;--mo:"JetBrains Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);overflow-x:clip}
+body{font-family:"Inter",system-ui,sans-serif;color:var(--c);background:var(--bg);overflow-x:clip;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+.mo{font-family:var(--mo);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;background:var(--a);color:var(--k);font-family:var(--mo);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:transform .3s}
+.btn:hover{transform:translateY(-2px)}.btn.o{background:none;color:var(--c);box-shadow:inset 0 0 0 1px rgba(243,244,239,.4)}
+.cross{position:fixed;inset:18px;z-index:30;pointer-events:none}
+.cross i{position:absolute;width:18px;height:18px;border-color:var(--a);border-style:solid;border-width:0}
+.cross i:nth-child(1){left:0;top:0;border-left-width:1px;border-top-width:1px}.cross i:nth-child(2){right:0;top:0;border-right-width:1px;border-top-width:1px}.cross i:nth-child(3){left:0;bottom:0;border-left-width:1px;border-bottom-width:1px}.cross i:nth-child(4){right:0;bottom:0;border-right-width:1px;border-bottom-width:1px}
+.nav{position:fixed;top:30px;left:40px;right:40px;z-index:31;display:flex;justify-content:space-between;align-items:center}
+.nav{transition:background .3s,padding .3s}.nav.sc{background:rgba(11,12,11,.86);backdrop-filter:blur(10px);padding:8px 12px}
+.lg{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em}.lg svg{width:24px}
+.nl{display:flex;gap:22px}.nl a{opacity:.75}.nl a:hover{opacity:1}
+.trk{position:relative}
+.stg{position:sticky;top:0;height:100svh;overflow:hidden}
+.dots::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,rgba(0,0,0,.55) 38%,transparent 42%) 0 0/4px 4px;mix-blend-mode:multiply;z-index:2}
+/* 01 film */
+#t1{height:560vh}
+#film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.12);z-index:0}
+#film2{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.12);z-index:1;-webkit-mask:radial-gradient(60% 50% at 50% 60%,#000,transparent);mask:radial-gradient(60% 50% at 50% 60%,#000,transparent);opacity:.9;mix-blend-mode:screen}
+.op{position:absolute;inset:0;z-index:3;pointer-events:none}
+.op h1{position:absolute;left:40px;top:90px;font-size:12vw;font-weight:500;letter-spacing:-.05em;line-height:.9;color:var(--a)}
+.op .rule{position:absolute;left:40px;right:40px;top:calc(90px + 11.4vw);height:1px;background:var(--a)}
+.op .row{position:absolute;left:40px;right:40px;top:calc(100px + 11.4vw);display:flex;gap:40px}
+.op .row span:last-child{margin-left:auto}
+.op .big{position:absolute;right:-1vw;bottom:-3vw;font-size:20.5vw;font-weight:500;letter-spacing:-.06em;line-height:.8;color:var(--a)}
+.op .gps{position:absolute;left:40px;bottom:40px}
+.stamp{position:absolute;top:48%;z-index:3;font-size:2.35vw;font-weight:500;text-transform:uppercase;letter-spacing:-.02em}
+.stamp.l{left:40px}.stamp.r{right:40px}
+.hud{position:absolute;left:58%;top:62%;z-index:3;background:rgba(11,12,11,.8);border-left:2px solid var(--a);padding:8px 10px;font-family:var(--mo);font-size:11px;line-height:1.6}
+.sent{position:absolute;left:40px;top:120px;width:min(27em,90vw);z-index:3;font-size:max(20px,2.24vw);line-height:1.22;font-weight:500;letter-spacing:-.02em}
+.sent .w{opacity:.22;transition:opacity .25s,color .25s}.sent .w.on{opacity:1}.sent .w.ac{color:var(--a)}
+.note{position:absolute;left:56%;bottom:16%;z-index:3;max-width:320px;font-size:14px;opacity:0}
+.note .mo{color:var(--a);display:block;margin-bottom:8px}
+.note .btn{margin-top:14px;pointer-events:auto}
+/* 02 tachymètre */
+#t2{height:520vh}
+.gauge{position:absolute;left:50%;bottom:-2vh;width:min(92vw,164vh);transform:translateX(-50%)}
+.gauge text{font-family:var(--mo);font-size:12px;fill:rgba(243,244,239,.6)}
+.rpm{position:absolute;left:40px;bottom:40px;font-family:var(--mo);font-size:clamp(40px,6vw,90px);font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.rpm small{font-size:12px;letter-spacing:.12em;margin-left:12px;opacity:.6}
+.spec{position:absolute;max-width:30vw;opacity:0;transform:translateY(20px);transition:opacity .4s,transform .5s}
+.spec.on{opacity:1;transform:none}
+.spec img{width:min(36vw,520px);-webkit-mask:radial-gradient(closest-side,#000 60%,transparent);mask:radial-gradient(closest-side,#000 60%,transparent);opacity:.9;margin-bottom:-40px}
+.spec p{font-size:max(16px,1.4vw);line-height:1.3;font-weight:500;letter-spacing:-.01em}
+.spec .mo{color:var(--a);display:block;margin-bottom:8px}
+/* 03 trajet */
+#t3{height:340vh}
+.bgp{position:absolute;inset:0;background:url('https://res.cloudinary.com/ce2yatay/image/upload/rastro/night-2.webp') center/cover;filter:grayscale(1) brightness(.42)}
+.t3h{position:absolute;left:40px;top:110px;z-index:3;font-size:6.5vw;font-weight:500;line-height:.95;letter-spacing:-.04em;color:var(--a)}
+.road{position:absolute;left:60vw;top:9vh;height:82vh;z-index:3}
+.cnt{position:absolute;right:40px;bottom:40px;z-index:3;text-align:right;font-family:var(--mo)}
+.cnt b{font-size:clamp(40px,6vw,96px);font-weight:500;letter-spacing:-.04em}
+.t3n{position:absolute;left:40px;bottom:40px;z-index:3;max-width:360px;font-size:14px}
+.t3n .mo{color:var(--a);display:block;margin-bottom:8px}
+/* 04 étapes */
+#t4{height:440vh}
+.ph{position:absolute;inset:0;background-size:cover;background-position:center;will-change:clip-path,transform}
+.cap{position:absolute;left:40px;bottom:40px;z-index:5;max-width:420px}
+.cap .mo{color:var(--a)}.cap b{display:block;font-size:clamp(26px,3vw,46px);letter-spacing:-.03em;font-weight:500;line-height:1}.cap p{opacity:.85;margin-top:6px}
+.bars{position:absolute;right:40px;bottom:40px;z-index:5;display:flex;gap:6px;align-items:center;font-family:var(--mo);font-size:12px}
+.bars i{width:28px;height:3px;background:rgba(243,244,239,.3)}.bars i.on{background:var(--a)}
+.vig{position:absolute;inset:0;z-index:4;background:linear-gradient(0deg,rgba(0,0,0,.65),transparent 45%)}
+/* devis */
+.book{background:var(--s);color:var(--c);padding:clamp(90px,10vw,140px) 40px}
+.book h2{font-size:clamp(44px,7vw,110px);font-weight:500;letter-spacing:-.05em;line-height:.9}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:start}
+.pr{display:grid;gap:8px}
+.pr button{display:flex;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(243,244,239,.3);text-align:left;font-weight:500;transition:background .3s}
+.pr button span{font-family:var(--mo);font-size:12px}
+.pr button[aria-pressed=true]{background:var(--c);color:var(--k)}
+.ticket{background:var(--bg);color:var(--c);padding:24px;position:relative}
+.ticket::before,.ticket::after{content:"";position:absolute;left:-10px;width:20px;height:20px;border-radius:50%;background:var(--s);top:50%}.ticket::after{left:auto;right:-10px}
+.ticket .tot{font-size:clamp(40px,4.4vw,64px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:10px 0}
+.ticket ul{list-style:none;font-family:var(--mo);font-size:12px;display:grid;gap:6px;margin-top:14px;opacity:.8}
+/* chance */
+.luck{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;padding:clamp(90px,10vw,140px) 40px}
+.cl3{position:relative;aspect-ratio:1;max-width:520px;width:100%;margin:auto}.cl3 .fb{position:absolute;inset:20%}.cl3.on3d .fb{display:none}
+.h2{font-size:clamp(40px,5.4vw,84px);font-weight:500;letter-spacing:-.045em;line-height:.92}
+/* infos */
+.info{background:var(--c);color:var(--k);padding:clamp(90px,10vw,140px) 40px 50px}
+.loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.hrs{list-style:none;margin-top:20px;border-top:1px solid var(--k)}
+.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(38,51,44,.2);font-family:var(--mo);font-size:12px}
+.hrs li.now{color:var(--s);font-weight:500}
+.faq{max-width:900px;margin:90px auto 0}
+.q{border-bottom:1px solid rgba(38,51,44,.25)}
+.q button{width:100%;text-align:left;padding:20px 40px 20px 0;font-size:20px;font-weight:500;letter-spacing:-.01em;position:relative}
+.q button::after{content:"+";position:absolute;right:4px;top:16px;font-size:24px;transition:transform .3s}
+.q button[aria-expanded=true]::after{transform:rotate(45deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q button[aria-expanded=true]+div{grid-template-rows:1fr}
+.q div p{overflow:hidden;opacity:.8}.q button[aria-expanded=true]+div p{padding-bottom:18px}
+.giant{font-size:min(18vw,270px);font-weight:500;letter-spacing:-.06em;line-height:.85;text-align:center;margin:80px 0 10px;color:var(--s)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;padding:22px 40px 40px;background:var(--c);color:var(--k);border-top:1px solid rgba(38,51,44,.2)}
+footer .lg svg path{fill:var(--k)}
+.rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+[data-tilt]{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#26332C;font-family:"Inter",system-ui,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#26332C;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"Inter",system-ui,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #26332C}
+.zl-ck .b button.y{background:#26332C;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"Inter",system-ui,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+
+.zb{border:0;border-radius:26px;padding:0;width:min(560px,94vw);max-height:92vh;background:#F3F4EF;color:#26332C;font-family:"Inter",system-ui,sans-serif;box-shadow:0 50px 140px -40px rgba(0,0,0,.7)}
+.zb::backdrop{background:rgba(20,28,24,.6);backdrop-filter:blur(8px)}
+.zb form{padding:28px clamp(18px,4vw,34px) 26px;display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
+.zb h2{margin:0 40px 2px 0;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.zb .zx{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zb .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.zb select,.zb input[type=text],.zb input[type=tel],.zb input[type=email],.zb textarea{width:100%;box-sizing:border-box;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:#26332C}
+.zb textarea{min-height:84px;resize:vertical}
+.zb .ch{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.zb .ch button{flex:none;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;color:#26332C;border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;cursor:pointer;line-height:1.15;text-align:center}
+.zb .ch button[aria-pressed=true]{background:#26332C;color:#F3F4EF;border-color:#26332C}
+.zb .ch button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.zb .cons{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.zb .cons input{width:20px;height:20px;flex:none;accent-color:#4E6B5B;margin-top:1px}
+.zb .tk{display:flex;align-items:center;gap:14px;background:#26332C;color:#F3F4EF;border-radius:18px;padding:14px 16px}
+.zb .tk svg{width:34px;flex:none}
+.zb .tk b{display:block;font-size:15px}.zb .tk span{font-size:12.5px;opacity:.75}
+.zb .go{border:0;border-radius:999px;background:#4E6B5B;color:#fff;font:inherit;font-weight:700;padding:15px;cursor:pointer;font-size:15px}
+.zb .msg{margin:0;font-weight:600;min-height:20px;font-size:14px}
+.zb .sm{font-size:12px;opacity:.65;margin:0}
+
+@media (max-width:760px){.cross{inset:10px}.nav{top:20px;left:22px;right:22px}.nl{display:none}
+ .op h1{left:22px;top:80px;font-size:19vw}.op .rule{left:22px;right:22px;top:calc(80px + 18vw)}.op .row{left:22px;right:22px;top:calc(90px + 18vw);gap:14px}.op .big{font-size:34vw}.op .gps{left:22px}
+ .stamp{font-size:16px}.stamp.l{left:22px}.stamp.r{right:22px}.hud{left:50%}.sent{left:22px;top:100px}.note{left:22px;right:22px;bottom:8%;max-width:none}
+ .rpm{left:22px;bottom:auto;top:130px}.spec{max-width:80vw;left:22px!important;right:auto!important;top:auto!important;bottom:22vh!important;text-align:left!important}.spec img{width:70vw}
+ .t3h{left:22px;font-size:11vw;top:90px}.road{left:auto;right:4vw;top:34vh;height:52vh}.t3n{left:22px;bottom:22px;max-width:56vw}.cnt{right:22px;bottom:22px}.cnt b{font-size:34px}
+ .cap{left:22px;bottom:60px;right:22px}.bars{right:22px;bottom:22px}.book,.luck,.info{padding-left:22px;padding-right:22px}.calc,.luck,.loc{grid-template-columns:1fr}footer{padding:22px}}
+</style>
+</head>
+<body>
+<div class="cross" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<header class="nav"><a class="lg" href="#top" aria-label="ZAHR Garage, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR Garage</a><nav class="nl mo" aria-label="Sections"><a href="#t2">Diagnostic</a><a href="#t3">Atelier</a><a href="#devis">Devis</a><a href="#infos">Venir</a></nav><button class="btn" type="button" data-book="6">Devis</button></header>
+<main id="top">
+<section class="trk" id="t1" aria-labelledby="h1"><div class="stg dots" id="s1">
+ <canvas id="film" aria-hidden="true"></canvas>
+ <div class="op" id="op"><h1 id="h1">ZAHR.</h1><i class="rule"></i><div class="row mo"><span>Garage</span><span>Entretien · Réparation</span><span>Toulon (adresse fictive)</span></div><span class="big" aria-hidden="true">Garage</span><span class="gps mo">43°07′N 5°55′E</span></div>
+ <span class="stamp l" id="sl">Mardi 8 h</span><span class="stamp r" id="clk">8:00</span>
+ <div class="hud" id="hud" aria-hidden="true">TR/MIN <span id="hr">0</span><br>RAPPORT <span id="hg">1</span></div>
+ <p class="sent" id="sent">Vidange, freins, pneus, diagnostic : on traite chaque voiture comme celle-ci, avec un devis clair avant de toucher à quoi que ce soit. Elle repart comme neuve.</p>
+ <div class="note" id="note"><span class="mo">[ Devis / avant travaux ]</span>Déposez-la avant 8 h, récupérez-la le soir. Véhicule de prêt sur demande.<br><button class="btn" type="button" data-book="6">Demander un devis</button></div>
+</div></section>
+
+<section class="trk" id="t2" aria-labelledby="h-t2"><div class="stg">
+ <h2 class="mo" id="h-t2" style="position:absolute;left:40px;top:96px;color:var(--a)">02 · Le diagnostic en 6 points</h2>
+ <svg class="gauge" viewBox="0 0 1000 520" aria-hidden="true"><path d="M60 500A440 440 0 0 1 940 500" fill="none" stroke="rgba(243,244,239,.25)" stroke-width="1.5"/><path id="arc" d="M60 500A440 440 0 0 1 940 500" fill="none" stroke="#A9C2B0" stroke-width="3" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><g id="ticks"></g><line id="needle" x1="500" y1="500" x2="90" y2="500" stroke="#A9C2B0" stroke-width="3" stroke-linecap="round"/><circle cx="500" cy="500" r="12" fill="#A9C2B0"/></svg>
+ <div class="rpm" id="rpm">0<small>TR/MIN · 02 / 06</small></div>
+ <div id="specs"></div>
+</div></section>
+
+<section class="trk" id="t3" aria-labelledby="h-t3"><div class="stg dots">
+ <div class="bgp"></div><h2 class="t3h" id="h-t3">47 points<br>de contrôle,<br>un seul rapport.</h2>
+ <svg class="road" viewBox="0 0 300 820" aria-hidden="true"><path id="rd0" d="M150 10C260 40 270 110 160 130S30 210 140 250 280 330 170 370 20 450 130 490 290 560 170 600 30 680 140 720 260 790 150 810" fill="none" stroke="rgba(243,244,239,.25)" stroke-width="3"/><path id="rd" d="M150 10C260 40 270 110 160 130S30 210 140 250 280 330 170 370 20 450 130 490 290 560 170 600 30 680 140 720 260 790 150 810" fill="none" stroke="#A9C2B0" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><circle id="rdot" r="7" fill="#A9C2B0"/></svg>
+ <div class="t3n"><span class="mo">[ Atelier · 4 ponts ]</span>Freins, train avant, éclairage, niveaux, pneus, batterie : chaque point est noté et photographié. Vous recevez le rapport par SMS.</div>
+ <div class="cnt"><b id="cn">00</b> / 47<br><span class="mo" id="cs">Accueil</span></div>
+</div></section>
+
+<section class="trk" id="t4" aria-label="La journée de votre voiture"><div class="stg">
+ <div class="ph" style="background-image:url('https://res.cloudinary.com/ce2yatay/image/upload/rastro/night-1.webp')"></div><div class="ph" style="background-image:url('https://res.cloudinary.com/ce2yatay/image/upload/rastro/night-2.webp')"></div><div class="ph" style="background-image:url('https://res.cloudinary.com/ce2yatay/image/upload/rastro/night-3.webp')"></div><div class="ph" style="background-image:url('https://res.cloudinary.com/ce2yatay/image/upload/rastro/night-4.webp')"></div>
+ <div class="vig"></div>
+ <div class="cap" aria-live="polite"><span class="mo" id="cpn">[01]</span><b id="cpt">8 h, le dépôt</b><p id="cpl">Un café, les clés, et on note ce que vous avez remarqué.</p></div>
+ <div class="bars"><i class="on"></i><i></i><i></i><i></i><span id="cpc">01 / 04</span></div>
+</div></section>
+
+<section class="book" id="devis" aria-labelledby="h-d">
+ <p class="mo rv">Devis express</p><h2 class="rv" id="h-d" style="margin-top:12px">Le prix,<br>avant les travaux.</h2>
+ <div class="calc"><div class="pr" id="pr" role="group" aria-label="Prestations"></div>
+  <div class="ticket" aria-live="polite"><span class="mo" style="color:var(--a)">Estimation indicative</span><div class="tot" id="tt">0 €</div><span id="td" style="opacity:.75">Choisissez une ou plusieurs prestations.</span><ul id="tl"></ul><button class="btn" type="button" id="tgo" style="margin-top:18px">Recevoir le devis exact</button><p class="mo" style="margin-top:12px;opacity:.6;text-transform:none;letter-spacing:.02em">Prix TTC pièces et main-d’œuvre pour une citadine. Le devis exact dépend du modèle.</p></div></div>
+</section>
+
+<section class="luck" id="chance" aria-labelledby="h-l">
+ <div class="cl3 rv" id="cl3"><div class="fb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div></div>
+ <div><p class="mo rv" style="color:var(--a)">Un peu de chance</p><h2 class="h2 rv" id="h-l" style="margin-top:12px">Un trèfle<br>au rétroviseur.</h2>
+ <p class="rv" style="opacity:.85;margin-top:16px;max-width:44ch">Zahr veut dire « fleur » et « chance ». Chaque voiture repart lavée, avec un petit désodorisant trèfle au parfum de figuier. Faites-le tourner.</p></div>
+</section>
+
+<section class="info" id="infos" aria-labelledby="h-i">
+ <div class="loc"><div><p class="mo rv" style="color:var(--s)">Le garage</p><h2 class="h2 rv" id="h-i" style="margin-top:12px">Zone artisanale,<br>sortie d’autoroute.</h2>
+  <p style="margin-top:14px;opacity:.8">La Farlède (adresse fictive). Téléphone : 04 00 00 00 00 (numéro d’exemple). Véhicule de prêt sur réservation.</p>
+  <ul class="hrs" id="hrs"><li data-d="0"><span>Dimanche</span><span>Fermé</span></li><li data-d="1,2,3,4,5"><span>Lun. – ven.</span><span>7 h 30 – 18 h 30</span></li><li data-d="6"><span>Samedi</span><span>8 h – 12 h</span></li></ul></div>
+  <div class="zl-map" data-q="La+Farlède"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Garage</b><span>La Farlède, zone artisanale · adresse fictive</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=La+Farlède" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+ <div class="faq"><h2 class="h2" style="font-size:40px;text-align:center;margin-bottom:20px">Questions</h2><div id="faq"></div></div>
+ <div class="giant" aria-hidden="true">ZAHR</div>
+</section>
+</main>
+<footer><a class="lg" href="#top" aria-label="ZAHR Garage, haut de page"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR Garage</a><div><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Garage</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Garage</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Garage</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Garage</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<dialog class="zb" id="zb" aria-labelledby="zb-t"><form id="zbf" novalidate>
+<button class="zx" type="button" id="zbx" aria-label="Fermer">×</button>
+<h2 id="zb-t">Devis ou rendez-vous atelier</h2>
+<label class="lb" for="zb-s">Prestation</label><select id="zb-s"></select>
+<span class="lb">Jour</span><div class="ch" id="zb-d" role="group" aria-label="Jour"></div><span class="lb">Heure</span><div class="ch" id="zb-h" role="group" aria-label="Heure"></div><label class="lb" for="zb-car">Marque, modèle et année</label><input type="text" id="zb-car" autocomplete="off"><label class="lb" for="zb-km">Kilométrage approximatif</label><input type="text" id="zb-km" autocomplete="off">
+<input type="text" id="zb-n" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+<input type="tel" id="zb-p" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+<label class="cons"><input type="checkbox" id="zb-c"><span>J’accepte que ZAHR Garage utilise ces informations uniquement pour établir ce devis et organiser le rendez-vous.</span></label>
+<div class="tk" aria-live="polite"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><div><b id="zb-k1"></b><span id="zb-k2"></span></div></div>
+<button class="go" type="submit">Recevoir mon devis</button>
+<p class="msg" id="zb-m" role="status" aria-live="polite"></p>
+<p class="sm">Démo : rien n’est envoyé ni enregistré. Vos données ne servent qu’à cette demande et sont effacées après le rendez-vous.</p>
+</form></dialog>
+<script>
+
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+
+
+(()=>{const C={"title": "Devis ou rendez-vous atelier", "items": [["Vidange + filtres", "à partir de 89 €"], ["Plaquettes de frein (avant)", "à partir de 120 €"], ["Diagnostic électronique", "49 €"], ["Pneus (montage + équilibrage)", "à partir de 15 € / pneu"], ["Révision constructeur", "sur devis"], ["Climatisation (recharge)", "79 €"], ["Autre / je ne sais pas", "on regarde ensemble"]], "itemLabel": "Prestation", "closed": [0], "hours": ["8 h", "9 h", "10 h", "11 h", "14 h", "15 h", "16 h", "17 h"], "extra": [["car", "Marque, modèle et année", "text", true], ["km", "Kilométrage approximatif", "text", false]], "consent": "J’accepte que ZAHR Garage utilise ces informations uniquement pour établir ce devis et organiser le rendez-vous.", "ok": "Demande reçue ! Sur le vrai site, un devis détaillé arrive par SMS avant toute intervention. (Démo : rien n’a été envoyé.)", "cta": "Recevoir mon devis"};const $=s=>document.querySelector(s);const dlg=$('#zb');let sd=null,sh=null;
+const S=$('#zb-s');S.innerHTML=C.items.map((it,i)=>`<option value="${i}">${it[0]}${it[1]?' — '+it[1]:''}</option>`).join('');
+const J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function tk(){const it=C.items[S.value];$('#zb-k1').textContent=it[0]+(it[1]?' · '+it[1]:'');$('#zb-k2').textContent=C.kind==='devis'?'Réponse avec un devis gratuit sous 48 h':(sd&&sh?sd+' à '+sh:'Choisissez un jour et une heure');}
+if(C.kind!=='devis'){const D=$('#zb-d'),H=$('#zb-h');const t=new Date();for(let i=1,n=0;n<10&&i<30;i++){const d=new Date(t);d.setDate(t.getDate()+i);if((C.closed||[]).includes(d.getDay()))continue;n++;const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=J[d.getDay()]+'<br><b>'+d.getDate()+'</b> '+M[d.getMonth()];b.onclick=()=>{D.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');sd=J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];
+H.innerHTML='';C.hours.forEach((h,k)=>{const e=document.createElement('button');e.type='button';e.textContent=h;e.setAttribute('aria-pressed','false');if((d.getDate()*7+k*3)%5===0){e.disabled=true;e.setAttribute('aria-label',h+', complet')}e.onclick=()=>{H.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));e.setAttribute('aria-pressed','true');sh=h;tk()};H.appendChild(e)});sh=null;tk()};D.appendChild(b)}}
+S.onchange=tk;tk();
+window.ZB={open(i){if(i!=null&&C.items[i])S.value=i;tk();$('#zb-m').textContent='';dlg.showModal()}};
+document.addEventListener('click',e=>{const o=e.target.closest('[data-book]');if(o){e.preventDefault();ZB.open(o.dataset.book===''?null:+o.dataset.book)}});
+$('#zbx').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#zbf').addEventListener('submit',e=>{e.preventDefault();const m=$('#zb-m');if(C.kind!=='devis'&&(!sd||!sh)){m.textContent='Choisissez un jour et une heure.';return}
+for(const x of (C.extra||[])){const el=$('#zb-'+x[0]);if(x[3]&&!el.value.trim()){m.textContent='Complétez : '+x[1].toLowerCase()+'.';el.focus();return}}
+if(!$('#zb-n').value.trim()||$('#zb-p').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre prénom et un numéro valide.';return}
+if(!$('#zb-c').checked){m.textContent='Cochez la case pour accepter.';return}m.textContent=C.ok;});})();
+
+
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});el.addEventListener('pointerleave',()=>{el.style.transform=''})});})();
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ss=(a,b,v)=>{let t=Math.min(1,Math.max(0,(v-a)/(b-a)));return t*t*(3-2*t)};
+const prog=el=>{const r=el.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)))};
+/* ===== 01 : film défilé ===== */
+(()=>{const N=97,cv=$('#film'),cx=cv.getContext('2d'),tr=$('#t1');const small=innerWidth<760;const W=small?640:960;const S=(small||Math.max(innerWidth,innerHeight*16/9)*Math.min(devicePixelRatio,2)<1300)?1280:1920;
+cv.width=S;cv.height=Math.round(S*1080/1932);
+const url=(i,w,q)=>'https://res.cloudinary.com/ce2yatay/video/upload/so_'+Math.max(0,(i-.5)/12).toFixed(3)+',w_'+w+',q_'+q+'/rastro/film.webp';
+const L=[],ok=new Array(N).fill(false),sharp=new Map();const order=[0,N-1];[32,16,8,4,2,1].forEach(s=>{for(let i=0;i<N;i+=s)if(!order.includes(i))order.push(i)});
+let qi=0,act=0;(function pump(){while(act<8&&qi<order.length){const i=order[qi++];act++;const im=new Image();im.onload=()=>{ok[i]=true;act--;pump()};im.onerror=()=>{act--;pump()};im.src=url(i,W,40);L[i]=im}})();
+let shown=0,last=performance.now(),rest=0,restI=-1,sa=0;
+function near(i){for(let d=0;d<N;d++){if(ok[i-d])return i-d;if(ok[i+d])return i+d}return-1}
+function draw(c,f){c.clearRect(0,0,S,c.canvas.height);const x=f*(N-1),a=Math.floor(x),b=Math.min(N-1,a+1),fr=x-a;const H=c.canvas.height;if(ok[a]&&ok[b]){c.globalAlpha=1;c.drawImage(L[a],0,0,S,H);if(fr>0){c.globalAlpha=fr;c.drawImage(L[b],0,0,S,H)}c.globalAlpha=1}else{const n=near(Math.round(x));if(n>=0)c.drawImage(L[n],0,0,S,H)}const si=Math.round(x);const o=sharp.get(si);if(o&&o.ok&&Math.abs(x-si)<.01){c.globalAlpha=sa;c.drawImage(o.im,0,0,S,H);c.globalAlpha=1}}
+const words=$('#sent').textContent.trim().split(' ');$('#sent').innerHTML=words.map((w,i)=>`<span class="w${i>=words.length-4?' acx':''}">${w}</span>`).join(' ');const W8=$$('#sent .w');
+(function loop(n){requestAnimationFrame(loop);const dt=Math.min((n-last)/1000,.05);last=n;const r=tr.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const t=prog(tr);shown+=(t-shown)*(red?1:1-Math.exp(-dt*7));const p=shown,f=Math.min(1,p/.66);
+if(Math.abs(t-shown)<.0003){const i=Math.round(f*(N-1));if(i!==restI){restI=i;rest=0;sa=0}rest+=dt;if(rest>.14){if(!sharp.has(i)){const im=new Image(),o={im,ok:false};im.onload=()=>o.ok=true;im.src=url(i,S,80);sharp.set(i,o);if(sharp.size>24)sharp.delete(sharp.keys().next().value)}if(sharp.get(i).ok)sa=Math.min(1,sa+dt/.3)}}else{restI=-1;sa=0}
+draw(cx,f);const dim=1-.86*ss(.62,.7,p);cv.style.opacity=dim;const op=(68-18*ss(0,.4,f))+'% 50%';cv.style.objectPosition=op;
+$('#op').style.opacity=1-ss(.015,.07,p);const st=1-ss(.55,.62,p);$('#sl').style.opacity=$('#clk').style.opacity=$('#hud').style.opacity=st*ss(.02,.08,p);
+$('#clk').textContent='8:0'+Math.min(9,Math.floor(f*7));$('#hr').textContent=Math.round(900+f*5400+Math.sin(f*40)*400);$('#hg').textContent=1+Math.min(4,Math.floor(f*5));
+const sv=ss(.62,.68,p);$('#sent').style.opacity=sv;$('#note').style.opacity=sv;$('#note').style.pointerEvents=sv>.5?'auto':'none';const k=Math.floor(ss(.72,.96,p)*W8.length+.0001);W8.forEach((w,i)=>{w.classList.toggle('on',i<k);w.classList.toggle('ac',i<k&&w.classList.contains('acx'))})})(last);})();
+/* ===== 02 : tachymètre ===== */
+(()=>{const tr=$('#t2'),g=$('#ticks');for(let i=0;i<=9;i++){const a=Math.PI-Math.PI*i/9;const x1=500+Math.cos(a)*440,y1=500-Math.sin(a)*440,x2=500+Math.cos(a)*410,y2=500-Math.sin(a)*410,tx=500+Math.cos(a)*380,ty=500-Math.sin(a)*380;g.insertAdjacentHTML('beforeend',`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(243,244,239,.5)"/><text x="${tx}" y="${ty+4}" text-anchor="middle">${i===9?'9 000':i}</text>`)}
+const SP=[[.14,'01 · Moteur','Lecture des codes défauts et des capteurs, avant de démonter quoi que ce soit.','d-rear','left:40px;top:30%'],[.30,'02 · Freins','Épaisseur des plaquettes et des disques mesurée, pas estimée.',null,'right:40px;bottom:30%;text-align:right'],[.46,'03 · Carrosserie','Tour complet photographié à l’arrivée : rien ne repart sans que vous l’ayez vu.','d-wing','left:50%;top:16%'],[.62,'04 · Pneus et géométrie','Usure, pression, parallélisme : tout est noté.','d-wheel','right:40px;top:38%;text-align:right'],[.78,'05 · Boîte et embrayage','Essai sur route avec vous si vous le souhaitez.','d-shift','left:40px;top:40%'],[.92,'06 · Rapport','Un rapport simple par SMS, avec photos et priorités : urgent, à prévoir, tout va bien.',null,'right:40px;top:22%;text-align:right']];
+const box=$('#specs');SP.forEach(s=>{box.insertAdjacentHTML('beforeend',`<div class="spec" style="${s[4]}">${s[3]?`<img src="https://res.cloudinary.com/ce2yatay/image/upload/rastro/${s[3]}.webp" alt="" loading="lazy">`:''}<span class="mo">${s[1]}</span><p>${s[2]}</p></div>`)});const els=$$('.spec');
+function up(){const p=prog(tr);const rev=ss(.04,.96,p);const a=Math.PI-Math.PI*rev;$('#needle').setAttribute('x2',500+Math.cos(a)*410);$('#needle').setAttribute('y2',500-Math.sin(a)*410);$('#arc').style.strokeDashoffset=1-rev;const rp=Math.round(rev*900)*10;$('#rpm').firstChild.textContent=rp.toLocaleString('fr-FR');$('#rpm').style.color=rp>8000?'#A9C2B0':'';els.forEach((e,i)=>e.classList.toggle('on',Math.abs(p-SP[i][0])<.085))}
+addEventListener('scroll',up,{passive:true});up();})();
+/* ===== 03 : le trajet ===== */
+(()=>{const tr=$('#t3'),rd=$('#rd'),dot=$('#rdot');const L=rd.getTotalLength?rd.getTotalLength():1000;const ST=['Accueil','Diagnostic','Levage','Freins','Pneus','Niveaux','Essai routier','Lavage','Restitution'];
+function up(){const p=prog(tr);const d=ss(.06,.94,p);rd.style.strokeDashoffset=1-d;try{const pt=rd.getPointAtLength(L*d);dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y)}catch(e){}$('#cn').textContent=String(Math.round(d*47)).padStart(2,'0');$('#cs').textContent=ST[Math.min(ST.length-1,Math.floor(d*ST.length))]}
+addEventListener('scroll',up,{passive:true});up();})();
+/* ===== 04 : la journée ===== */
+(()=>{const tr=$('#t4'),P=$$('#t4 .ph');const C=[['[01]','8 h, le dépôt','Un café, les clés, et on note ce que vous avez remarqué.'],['[02]','10 h, l’atelier','Diagnostic, devis par SMS : on attend votre accord avant de commencer.'],['[03]','15 h, le contrôle','Essai routier et vérification finale par un second mécanicien.'],['[04]','17 h, la restitution','Lavée, facture expliquée, ancienne pièce remise si vous le voulez.']];let cur=-1;
+function up(){const p=prog(tr);P.forEach((el,i)=>{const s=i===0?1:ss((i-1)/3+.05,i/3,p);el.style.clipPath=`inset(${(1-s)*100}% 0 0 0)`;el.style.transform=`scale(${1.1-.08*s})`});const k=Math.min(3,Math.floor(p*3.999));if(k!==cur){cur=k;$('#cpn').textContent=C[k][0];$('#cpt').textContent=C[k][1];$('#cpl').textContent=C[k][2];$('#cpc').textContent='0'+(k+1)+' / 04';$$('.bars i').forEach((b,i)=>b.classList.toggle('on',i<=k))}}
+addEventListener('scroll',up,{passive:true});up();})();
+addEventListener('scroll',()=>{$('.nav').classList.toggle('sc',$('#devis').getBoundingClientRect().top<70)},{passive:true});
+/* ===== devis ===== */
+const PR=[['Vidange + filtres',89],['Plaquettes avant',120],['Disques + plaquettes avant',260],['Diagnostic électronique',49],['Recharge climatisation',79],['4 pneus montés (pose)',60],['Parallélisme',69]];const sel=new Set();
+$('#pr').innerHTML=PR.map((p,i)=>`<button type="button" aria-pressed="false" data-i="${i}">${p[0]}<span>${p[1]} €</span></button>`).join('');
+$$('#pr button').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;sel.has(i)?sel.delete(i):sel.add(i);b.setAttribute('aria-pressed',sel.has(i));tick()});
+function tick(){let t=0;const L=[];sel.forEach(i=>{t+=PR[i][1];L.push(PR[i][0]+' · '+PR[i][1]+' €')});$('#tt').textContent=t+' €';$('#td').textContent=sel.size?(sel.size>1?sel.size+' prestations':'1 prestation')+(sel.size>=3?' · 10 % de remise atelier':''):'Choisissez une ou plusieurs prestations.';if(sel.size>=3)$('#tt').textContent=Math.round(t*.9)+' €';$('#tl').innerHTML=L.map(l=>`<li>${l}</li>`).join('')}
+$('#tgo').onclick=()=>{ZB.open(6);const L=[...sel].map(i=>PR[i][0]);if(L.length)$('#zb-k1').textContent=L.join(' + ')};
+/* horaires + faq */
+(()=>{const wd=new Date().getDay();$$('#hrs li').forEach(li=>{if(li.dataset.d.split(',').map(Number).includes(wd))li.classList.add('now')})})();
+const FAQ=[['L’entretien chez vous conserve-t-il la garantie constructeur ?','Oui. Depuis 2003, vous pouvez faire entretenir votre voiture où vous voulez, tant que le carnet d’entretien est respecté avec des pièces de qualité équivalente.'],['Faites-vous des travaux sans mon accord ?','Jamais. Le devis vous est envoyé par SMS et on attend votre réponse.'],['Avez-vous un véhicule de prêt ?','Oui, deux citadines, à réserver avec votre rendez-vous.'],['Puis-je récupérer les pièces changées ?','Bien sûr : dites-le en déposant la voiture.']];
+$('#faq').innerHTML=FAQ.map((q,i)=>`<div class="q"><button type="button" aria-expanded="false" aria-controls="fq${i}">${q[0]}</button><div id="fq${i}"><p>${q[1]}</p></div></div>`).join('');$$('.q button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cl3');if(!host)return;
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+host.appendChild(R.domElement);R.domElement.setAttribute('aria-hidden','true');R.domElement.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+const sc=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,9);
+sc.add(new THREE.HemisphereLight(0xffffff,0x26332c,.8));const k=new THREE.DirectionalLight('#ffffff',2.2);k.position.set(3,5,6);sc.add(k);const rim=new THREE.DirectionalLight(0xa9c2b0,3);rim.position.set(-5,-2,-4);sc.add(rim);
+const d=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>');
+const shapes=[];d.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
+const g=new THREE.ExtrudeGeometry(shapes,{depth:34,bevelEnabled:true,bevelThickness:7,bevelSize:6,bevelSegments:6,curveSegments:28});g.center();g.scale(1/256,-1/256,1/256);g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:'#cfe0d4',roughness:.08,metalness:.05,transmission:.92,thickness:1.4,ior:1.45,clearcoat:1,clearcoatRoughness:.06,iridescence:.6,iridescenceIOR:1.3,emissive:'#4E6B5B',emissiveIntensity:.18,attenuationColor:'#4E6B5B',attenuationDistance:2.2,envMapIntensity:1.1});
+const m=new THREE.Mesh(g,mat);const rig=new THREE.Group();rig.add(m);sc.add(rig);m.scale.setScalar(3.3);
+let tx=0,ty=0,cx=0,cy=0,vis=false,last=performance.now(),t=0;
+host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});host.addEventListener('pointerleave',()=>{tx=ty=0});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+function rs(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<1?12:9;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;if(!vis)return;t+=dt;const q=1-Math.exp(-dt/.18);cx+=(tx-cx)*q;cy+=(ty-cy)*q;
+rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig.position.y=Math.sin(t*1.1)*.08;R.render(sc,cam)})(last);
+host.classList.add('on3d');})();
+</script>
+</body>
+</html>

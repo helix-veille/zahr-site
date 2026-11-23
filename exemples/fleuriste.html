@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Fleurs — Écrivez un prénom, il fleurit</title>
+<meta name="description" content="ZAHR Fleurs, fleuriste fictif dans le Var : bouquets du jour, abonnements, mariages, livraison. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%2326332C' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+
+<style>
+:root{--s:#4E6B5B;--k:#26332C;--c:#F3F4EF;--b:#A9C2B0;--mo:"DM Mono",monospace;--pf:"Playfair Display",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--k);overflow-x:clip}
+body{font-family:"DM Sans",system-ui,sans-serif;color:var(--c);background:var(--k);overflow-x:clip;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+.mo{font-family:var(--mo);font-size:12px;letter-spacing:.08em}
+.pf{font-family:var(--pf);font-weight:600;letter-spacing:-.01em}
+.h2{font-family:var(--pf);font-weight:600;font-size:clamp(38px,5vw,76px);line-height:1}
+.h2 i{font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;background:var(--c);color:var(--k);font-family:var(--mo);font-size:13px;font-weight:500;transition:transform .3s}
+.btn:hover{transform:translateY(-2px)}.btn.o{background:none;color:var(--c);box-shadow:inset 0 0 0 1px rgba(243,244,239,.5)}
+/* jardin typographique */
+.garden{position:relative;height:100svh;min-height:560px;overflow:hidden;cursor:text;background:var(--bg,#26332C);transition:background .6s}
+#gc{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:manipulation}
+.gt{position:absolute;left:clamp(16px,2.5vw,32px);right:clamp(16px,2.5vw,32px);top:18px;display:flex;justify-content:space-between;align-items:center;z-index:5;pointer-events:none}
+.gt>*{pointer-events:auto}
+.wm{display:flex;align-items:center;gap:10px;font-family:var(--mo);font-size:14px;font-weight:500;letter-spacing:.06em}.wm svg{width:26px}
+.gb{position:absolute;left:clamp(16px,2.5vw,32px);right:clamp(16px,2.5vw,32px);bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;z-index:5;flex-wrap:wrap;pointer-events:none}
+.gb>*{pointer-events:auto}
+.hint{font-family:var(--mo);font-size:12px;opacity:.75;line-height:1.7}
+.hint kbd{font-family:inherit;border:1px solid rgba(243,244,239,.35);border-radius:4px;padding:0 5px}
+.pal{display:flex;gap:8px;align-items:center}
+.pal button{width:30px;height:30px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.3);transition:transform .3s,box-shadow .3s}
+.pal button[aria-pressed=true]{transform:scale(1.15);box-shadow:0 0 0 2px var(--c)}
+#gi{position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0}
+.typebox{display:flex;gap:8px;align-items:center}
+.typebox input{width:180px;height:42px;border-radius:999px;border:1px solid rgba(243,244,239,.35);background:rgba(243,244,239,.08);color:var(--c);padding:0 16px;font-family:var(--mo);font-size:13px}
+/* sections */
+.sec{padding:clamp(90px,12vw,150px) clamp(20px,4vw,60px)}
+.paper{background:var(--c);color:var(--k)}
+.paper .btn{background:var(--k);color:var(--c)}.paper .btn.o{background:none;color:var(--k);box-shadow:inset 0 0 0 1px rgba(38,51,44,.4)}
+.bq{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center;margin-top:40px}
+.bqv{position:relative;aspect-ratio:1;max-width:560px;width:100%;margin:auto;border-radius:30px;background:radial-gradient(80% 70% at 50% 35%,#fff,#e5ece7);overflow:hidden}
+.bqv canvas{position:absolute;inset:0;width:100%;height:100%}
+.vase{position:absolute;left:50%;bottom:6%;width:30%;height:34%;transform:translateX(-50%);perspective:600px}
+.vase i{position:absolute;inset:0;border-radius:18% 18% 30% 30%/10% 10% 22% 22%;background:linear-gradient(90deg,rgba(78,107,91,.55),rgba(169,194,176,.35) 40%,rgba(255,255,255,.55) 55%,rgba(78,107,91,.5));border:1px solid rgba(78,107,91,.35);box-shadow:0 30px 40px -20px rgba(38,51,44,.5);backdrop-filter:blur(2px)}
+.vase i::after{content:"";position:absolute;left:8%;right:8%;top:38%;bottom:6%;border-radius:0 0 26% 26%/0 0 20% 20%;background:linear-gradient(180deg,rgba(169,194,176,.25),rgba(78,107,91,.35))}
+.opt h3{font-family:var(--mo);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);margin:22px 0 10px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{padding:10px 16px;border-radius:999px;border:1px solid rgba(38,51,44,.25);font-size:15px}
+.seg button[aria-pressed=true]{background:var(--k);color:var(--c);border-color:var(--k)}
+.tot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid rgba(38,51,44,.2);flex-wrap:wrap}
+.tot b{font-family:var(--pf);font-size:40px}
+/* saisons */
+.wheel{position:relative;height:460px;perspective:1200px;margin-top:30px}
+.wr{position:absolute;left:50%;top:50%;width:200px;height:260px;margin:-130px 0 0 -100px;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.mo-c{position:absolute;inset:0;border-radius:18px;background:linear-gradient(170deg,#334a3e,#1d2722);border:1px solid rgba(169,194,176,.25);padding:18px;display:flex;flex-direction:column;justify-content:space-between;backface-visibility:hidden;cursor:pointer}
+.mo-c b{font-family:var(--pf);font-size:26px;line-height:1.05}
+.mo-c .dot{width:54px;height:54px;border-radius:50%;box-shadow:inset 0 -8px 12px rgba(0,0,0,.25)}
+.mos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:10px}
+.mos button{font-family:var(--mo);font-size:12px;padding:7px 10px;border-radius:999px;border:1px solid rgba(169,194,176,.3)}
+.mos button[aria-pressed=true]{background:var(--b);color:var(--k)}
+/* livraison */
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.zone{position:relative;aspect-ratio:1.2;border-radius:30px;background:#1d2722;overflow:hidden;border:1px solid rgba(169,194,176,.2)}
+.zone svg{position:absolute;inset:0;width:100%;height:100%}
+.zone .ring{fill:none;stroke:var(--b);stroke-dasharray:4 6;opacity:.6}
+.zone text{font-family:var(--mo);font-size:11px;fill:var(--c)}
+.chk{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.chk input{flex:1;min-width:200px;height:48px;border-radius:999px;border:1px solid rgba(169,194,176,.4);background:rgba(243,244,239,.06);color:var(--c);padding:0 18px;font:inherit}
+.res{margin-top:14px;font-weight:500;min-height:1.6em}
+/* chance */
+.luck{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.cl3{position:relative;aspect-ratio:1;max-width:520px;width:100%;margin:auto}.cl3 .fb{position:absolute;inset:20%}.cl3.on3d .fb{display:none}
+/* infos */
+.loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.hrs{list-style:none;margin-top:20px;border-top:1px solid rgba(38,51,44,.2)}
+.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(38,51,44,.15);font-family:var(--mo);font-size:13px}
+.hrs li.now{color:var(--s);font-weight:500}
+.faq{max-width:880px;margin:90px auto 0}
+.q{border-bottom:1px solid rgba(38,51,44,.2)}
+.q button{width:100%;text-align:left;padding:20px 40px 20px 0;font-family:var(--pf);font-size:22px;position:relative}
+.q button::after{content:"+";position:absolute;right:4px;top:18px;font-family:var(--mo);font-size:20px;transition:transform .3s}
+.q button[aria-expanded=true]::after{transform:rotate(45deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q button[aria-expanded=true]+div{grid-template-rows:1fr}
+.q div p{overflow:hidden;opacity:.8}.q button[aria-expanded=true]+div p{padding-bottom:18px}
+.giant{font-family:var(--pf);font-style:italic;font-weight:500;font-size:min(17vw,250px);line-height:.95;text-align:center;margin:80px 0 10px;color:var(--s)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;padding:22px clamp(20px,4vw,60px) 40px;background:var(--c);color:var(--k);border-top:1px solid rgba(38,51,44,.15)}
+footer .wm svg path{fill:var(--k)}
+.rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+[data-tilt]{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#26332C;font-family:"DM Sans",sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#26332C;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"DM Sans",sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #26332C}
+.zl-ck .b button.y{background:#26332C;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"DM Sans",sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+
+.zb{border:0;border-radius:26px;padding:0;width:min(560px,94vw);max-height:92vh;background:#F3F4EF;color:#26332C;font-family:"DM Sans",sans-serif;box-shadow:0 50px 140px -40px rgba(0,0,0,.7)}
+.zb::backdrop{background:rgba(20,28,24,.6);backdrop-filter:blur(8px)}
+.zb form{padding:28px clamp(18px,4vw,34px) 26px;display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
+.zb h2{margin:0 40px 2px 0;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.zb .zx{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zb .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.zb select,.zb input[type=text],.zb input[type=tel],.zb input[type=email],.zb textarea{width:100%;box-sizing:border-box;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:#26332C}
+.zb textarea{min-height:84px;resize:vertical}
+.zb .ch{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.zb .ch button{flex:none;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;color:#26332C;border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;cursor:pointer;line-height:1.15;text-align:center}
+.zb .ch button[aria-pressed=true]{background:#26332C;color:#F3F4EF;border-color:#26332C}
+.zb .ch button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.zb .cons{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.zb .cons input{width:20px;height:20px;flex:none;accent-color:#4E6B5B;margin-top:1px}
+.zb .tk{display:flex;align-items:center;gap:14px;background:#26332C;color:#F3F4EF;border-radius:18px;padding:14px 16px}
+.zb .tk svg{width:34px;flex:none}
+.zb .tk b{display:block;font-size:15px}.zb .tk span{font-size:12.5px;opacity:.75}
+.zb .go{border:0;border-radius:999px;background:#4E6B5B;color:#fff;font:inherit;font-weight:700;padding:15px;cursor:pointer;font-size:15px}
+.zb .msg{margin:0;font-weight:600;min-height:20px;font-size:14px}
+.zb .sm{font-size:12px;opacity:.65;margin:0}
+
+@media (max-width:820px){.gt h1{clip-path:inset(50%);width:1px;height:1px;overflow:hidden}.bq,.dl,.luck,.loc{grid-template-columns:1fr}.typebox input{width:140px}.hint{display:none}.wheel{height:380px}.wr{width:160px;height:220px;margin:-110px 0 0 -80px}.gt .btn{height:40px;padding:0 14px}}
+</style>
+</head>
+<body>
+<main id="top">
+<section class="garden" id="garden" aria-labelledby="h1">
+ <canvas id="gc" role="img" aria-label="Le mot tapé, d’où poussent des coquelicots"></canvas>
+ <div class="gt"><a class="wm" href="#top" aria-label="ZAHR Fleurs, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR FLEURS</a><h1 class="mo" id="h1" style="position:absolute;left:50%;transform:translateX(-50%);opacity:.8;white-space:nowrap">Fleuriste · Toulon (adresse fictive)</h1><button class="btn" type="button" id="gbook">Commander</button></div>
+ <div class="gb">
+  <p class="hint">Tapez un prénom : des fleurs poussent de chaque lettre.<br><kbd>Espace</kbd> coupe la tige · <kbd>⌫</kbd> fane · <kbd>Entrée</kbd> efface · double-clic : plante une fleur</p>
+  <div class="typebox"><label class="mo" for="gi2" style="opacity:.7">Prénom</label><input id="gi2" type="text" maxlength="18" autocomplete="off" value="zahr" aria-describedby="h1"></div>
+  <div class="pal" id="pal" role="group" aria-label="Couleur des fleurs"></div>
+ </div>
+</section>
+
+<section class="sec paper" id="bouquet" aria-labelledby="h-b">
+ <p class="mo rv" style="color:var(--s)">Le bouquet du jour</p><h2 class="h2 rv" id="h-b" style="margin-top:12px">Choisissez une taille,<br><i>on choisit les fleurs.</i></h2>
+ <div class="bq">
+  <div class="bqv rv" aria-hidden="true"><canvas id="bc"></canvas><div class="vase"><i></i></div></div>
+  <div class="opt"><p class="rv">Chaque matin, on compose avec ce que le marché aux fleurs d’Hyères a de plus beau. Vous choisissez le style et la taille, le bouquet se dessine à côté.</p>
+   <h3>Taille</h3><div class="seg" id="sz" role="group" aria-label="Taille"></div>
+   <h3>Style</h3><div class="seg" id="sty" role="group" aria-label="Style"></div>
+   <div class="tot"><div><span class="mo" style="opacity:.6" id="bsum">—</span><br><b id="bp">55 €</b></div><button class="btn" type="button" id="bgo">Commander ce bouquet</button></div></div>
+ </div>
+</section>
+
+<section class="sec" id="saisons" aria-labelledby="h-s">
+ <p class="mo rv" style="color:var(--b);text-align:center">Fleurs de saison</p><h2 class="h2 rv" id="h-s" style="text-align:center;margin-top:12px">Douze mois,<br><i>douze vedettes.</i></h2>
+ <div class="wheel"><div class="wr" id="wr"></div></div>
+ <div class="mos" id="mos" role="group" aria-label="Choisir un mois"></div>
+</section>
+
+<section class="sec" id="livraison" aria-labelledby="h-l" style="padding-top:20px">
+ <div class="dl"><div class="zone rv" aria-hidden="true"><svg viewBox="0 0 600 500" id="zsvg"><circle class="ring" cx="300" cy="250" r="90"/><circle class="ring" cx="300" cy="250" r="170"/><circle class="ring" cx="300" cy="250" r="240"/></svg></div>
+ <div><p class="mo rv" style="color:var(--b)">Livraison</p><h2 class="h2 rv" id="h-l" style="margin-top:12px">Livré avant 18 h,<br><i>si on commande avant midi.</i></h2>
+  <label class="mo" for="city" style="display:block;margin-top:22px;opacity:.7">Votre ville</label><div class="chk"><input id="city" type="text" placeholder="Toulon, Hyères, La Seyne…" autocomplete="address-level2" list="cities"><datalist id="cities"></datalist><button class="btn" type="button" id="cgo">Vérifier</button></div>
+  <p class="res" id="cres" role="status" aria-live="polite"></p></div></div>
+</section>
+
+<section class="sec luck" id="chance" aria-labelledby="h-c">
+ <div class="cl3 rv" id="cl3"><div class="fb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#A9C2B0" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div></div>
+ <div><p class="mo rv" style="color:var(--b)">Un peu de chance</p><h2 class="h2 rv" id="h-c" style="margin-top:12px">Un trèfle,<br><i>glissé dans le papier.</i></h2>
+ <p class="rv" style="opacity:.85;margin-top:16px;max-width:44ch">Zahr veut dire « fleur » et « chance ». Chaque bouquet part avec une carte écrite à la main et un petit trèfle séché. Faites tourner celui-ci.</p></div>
+</section>
+
+<section class="sec paper" id="infos" aria-labelledby="h-i">
+ <div class="loc"><div><p class="mo rv" style="color:var(--s)">La boutique</p><h2 class="h2 rv" id="h-i" style="margin-top:12px">Entre le marché<br><i>et la mer.</i></h2>
+  <p style="margin-top:14px;opacity:.8">Toulon, cours Lafayette (adresse fictive). Téléphone : 04 00 00 00 00 (numéro d’exemple).</p>
+  <ul class="hrs" id="hrs"><li data-d="1"><span>Lundi</span><span>Fermé</span></li><li data-d="2,3,4,5,6"><span>Mar. – sam.</span><span>8 h 30 – 19 h</span></li><li data-d="0"><span>Dimanche</span><span>9 h – 13 h</span></li></ul></div>
+  <div class="zl-map" data-q="Cours+Lafayette+Toulon"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Fleurs</b><span>Toulon, cours Lafayette · adresse fictive</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Cours+Lafayette+Toulon" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+ <div class="faq"><h2 class="h2" style="font-size:40px;text-align:center;margin-bottom:20px">Questions</h2><div id="faq"></div></div>
+ <div class="giant" aria-hidden="true">zahr fleurs</div>
+</section>
+</main>
+<footer><a class="wm" href="#top" aria-label="ZAHR Fleurs, haut de page"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR FLEURS</a><div><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Fleurs</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Fleurs</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Fleurs</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Fleurs</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<dialog class="zb" id="zb" aria-labelledby="zb-t"><form id="zbf" novalidate>
+<button class="zx" type="button" id="zbx" aria-label="Fermer">×</button>
+<h2 id="zb-t">Commander un bouquet</h2>
+<label class="lb" for="zb-s">Bouquet</label><select id="zb-s"></select>
+<span class="lb">Jour</span><div class="ch" id="zb-d" role="group" aria-label="Jour"></div><span class="lb">Heure</span><div class="ch" id="zb-h" role="group" aria-label="Heure"></div><label class="lb" for="zb-to">Pour qui ? (prénom)</label><input type="text" id="zb-to" autocomplete="off"><label class="lb" for="zb-msg">Le mot sur la carte (facultatif)</label><textarea id="zb-msg"></textarea>
+<input type="text" id="zb-n" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+<input type="tel" id="zb-p" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+<label class="cons"><input type="checkbox" id="zb-c"><span>J’accepte que ZAHR Fleurs utilise ces informations uniquement pour préparer et livrer ce bouquet.</span></label>
+<div class="tk" aria-live="polite"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><div><b id="zb-k1"></b><span id="zb-k2"></span></div></div>
+<button class="go" type="submit">Commander</button>
+<p class="msg" id="zb-m" role="status" aria-live="polite"></p>
+<p class="sm">Démo : rien n’est envoyé ni enregistré. Vos données ne servent qu’à cette demande et sont effacées après le rendez-vous.</p>
+</form></dialog>
+<script>
+
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+
+
+(()=>{const C={"title": "Commander un bouquet", "items": [["Bouquet du jour, taille S", "35 €"], ["Bouquet du jour, taille M", "55 €"], ["Bouquet du jour, taille L", "85 €"], ["Abonnement, un bouquet par semaine", "45 € / semaine"], ["Fleurs de mariage", "sur devis"]], "itemLabel": "Bouquet", "closed": [1], "hours": ["9 h", "11 h", "14 h", "16 h", "18 h"], "extra": [["to", "Pour qui ? (prénom)", "text", false], ["msg", "Le mot sur la carte (facultatif)", "area", false]], "consent": "J’accepte que ZAHR Fleurs utilise ces informations uniquement pour préparer et livrer ce bouquet.", "ok": "Bouquet noté ! Sur le vrai site, vous recevez une photo du bouquet avant la livraison. (Démo : rien n’est envoyé ni payé.)", "cta": "Commander"};const $=s=>document.querySelector(s);const dlg=$('#zb');let sd=null,sh=null;
+const S=$('#zb-s');S.innerHTML=C.items.map((it,i)=>`<option value="${i}">${it[0]}${it[1]?' — '+it[1]:''}</option>`).join('');
+const J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function tk(){const it=C.items[S.value];$('#zb-k1').textContent=it[0]+(it[1]?' · '+it[1]:'');$('#zb-k2').textContent=C.kind==='devis'?'Réponse avec un devis gratuit sous 48 h':(sd&&sh?sd+' à '+sh:'Choisissez un jour et une heure');}
+if(C.kind!=='devis'){const D=$('#zb-d'),H=$('#zb-h');const t=new Date();for(let i=1,n=0;n<10&&i<30;i++){const d=new Date(t);d.setDate(t.getDate()+i);if((C.closed||[]).includes(d.getDay()))continue;n++;const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=J[d.getDay()]+'<br><b>'+d.getDate()+'</b> '+M[d.getMonth()];b.onclick=()=>{D.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');sd=J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];
+H.innerHTML='';C.hours.forEach((h,k)=>{const e=document.createElement('button');e.type='button';e.textContent=h;e.setAttribute('aria-pressed','false');if((d.getDate()*7+k*3)%5===0){e.disabled=true;e.setAttribute('aria-label',h+', complet')}e.onclick=()=>{H.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));e.setAttribute('aria-pressed','true');sh=h;tk()};H.appendChild(e)});sh=null;tk()};D.appendChild(b)}}
+S.onchange=tk;tk();
+window.ZB={open(i){if(i!=null&&C.items[i])S.value=i;tk();$('#zb-m').textContent='';dlg.showModal()}};
+document.addEventListener('click',e=>{const o=e.target.closest('[data-book]');if(o){e.preventDefault();ZB.open(o.dataset.book===''?null:+o.dataset.book)}});
+$('#zbx').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#zbf').addEventListener('submit',e=>{e.preventDefault();const m=$('#zb-m');if(C.kind!=='devis'&&(!sd||!sh)){m.textContent='Choisissez un jour et une heure.';return}
+for(const x of (C.extra||[])){const el=$('#zb-'+x[0]);if(x[3]&&!el.value.trim()){m.textContent='Complétez : '+x[1].toLowerCase()+'.';el.focus();return}}
+if(!$('#zb-n').value.trim()||$('#zb-p').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre prénom et un numéro valide.';return}
+if(!$('#zb-c').checked){m.textContent='Cochez la case pour accepter.';return}m.textContent=C.ok;});})();
+
+
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});el.addEventListener('pointerleave',()=>{el.style.transform=''})});})();
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ===== moteur de fleurs (coquelicots dessinés) ===== */
+function mulberry(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const PAL=[{n:'Coquelicot',bg:'#26332C',fl:'#e0533d',st:'#A9C2B0',ln:'#a8331f',ty:'#F3F4EF',co:'#1a1410'},{n:'Pivoine',bg:'#26332C',fl:'#f2a3b8',st:'#A9C2B0',ln:'#c96b86',ty:'#F3F4EF',co:'#3b2030'},{n:'Renoncule',bg:'#2c3d34',fl:'#f6c87a',st:'#cfe0d4',ln:'#c98f2e',ty:'#F3F4EF',co:'#3a2a12'},{n:'Blanc',bg:'#4E6B5B',fl:'#F3F4EF',st:'#26332C',ln:'#b9c9be',ty:'#F3F4EF',co:'#26332C'}];
+let P=PAL[0];
+const ease=t=>1-Math.pow(1-Math.min(1,Math.max(0,t)),3),spring=t=>t<=0?0:1-Math.exp(-8*t)*Math.cos(14*t),lspring=t=>t<=0?0:1-Math.exp(-7*t)*Math.cos(15*t);
+function vine(R,x0,y0,dir,len,curv){const pts=[[x0,y0]];const amp=(.35+R()*.45)*curv,waves=1+R()*1.6,bend=R()*1.2-.6,ph=R()*6.28;let x=x0,y=y0;const st=len/40;for(let i=1;i<=40;i++){const u=i/40;const h=dir+bend*u+amp*Math.sin(u*Math.PI*waves+ph)*Math.min(1,3*u)*.35;x+=Math.cos(h)*st;y+=Math.sin(h)*st;pts.push([x,y])}return pts}
+function mkStem(R,x0,y0,dir,len,W,delay,tip,branch){const pts=vine(R,x0,y0,dir,len,W.curv);const leaves=[];const nl=Math.floor(R()*2.8*W.leaf);for(let i=0;i<nl;i++)leaves.push({u:.25+R()*.6,side:i%2?1:-1,a:.55+R()*.5,l:(.14+R()*.2)*(branch?.8:1)});
+if(!tip){const r=R();tip=r<W.pop?'poppy':(R()<.45?'pod':(R()<.15?'leaf':'curl'))}
+const s={pts,leaves,delay,dur:Math.max(320,len*620),tip,R:(.17+R()*.16)*W.bloom*(branch?.75:1),rot:R()-.5,ph1:R()*6,ph2:R()*6,layer:R()<.5?0:1,w:branch?.82:1,kids:[]};
+if(!branch&&R()<.3){const k=Math.floor(pts.length*(.35+R()*.35));const p=pts[k];const d=Math.atan2(pts[k][1]-pts[k-1][1],pts[k][0]-pts[k-1][0])+(R()<.5?-.7:.7);s.kids.push(mkStem(R,p[0],p[1],d,len*(.35+R()*.2),W,delay+s.dur*k/40,null,true))}return s}
+function Garden(cv,opts){this.cv=cv;this.cx=cv.getContext('2d');this.L=[];this.words=0;this.wseed=Math.random()*1e9|0;this.mx=-1e4;this.my=-1e4;this.planted=[];this.opts=opts||{};}
+Garden.prototype.W=function(){const R=mulberry(this.wseed);return{pop:.24+R()*.22+(this.opts.morePop||0),leaf:.6+R()*.8,lean:R()*.6-.3,bloom:.85+R()*.45,curv:.8+R()*.6}};
+Garden.prototype.add=function(ch,now){if(ch===' '){const l=this.L.filter(x=>!x.dead).pop();if(l&&l.ch!==' '){const R=mulberry(l.seed+99);const n=1+Math.floor(R()*3);for(let i=0;i<n;i++)l.cut.push(mkStem(R,l.w*.3,-.4,-Math.PI/2+.4+(i-1)*.5,.4+R()*.45,l.W,0,i===0||R()<.5?'poppy':'pod'));l.cutAt=now}this.wseed=Math.random()*1e9|0;this.L.push({ch:' ',t:now,dead:0,stems:[],cut:[],seed:0});return}
+const W=this.W();const prev=this.L.filter(x=>!x.dead).pop();const first=!prev||prev.ch===' ';const seed=this.wseed+this.L.length*7919;const R=mulberry(seed);const l={ch,t:now,dead:0,seed,W,stems:[],cut:[],x:null,y:null,w:1,lx:0,ly:0,first};
+const n=R()<.45?2:1;for(let i=0;i<n;i++)l.stems.push(mkStem(R,(R()*.7-.35)*.5,-R()*.3,-Math.PI/2+W.lean/2+(R()*.7-.35),.6+R()*.5,W,i?170:40,first&&i===0?'poppy':null));
+if(R()<.4)l.stems.push(mkStem(R,(R()*.6-.3)*.5,-.1-R()*.35,Math.PI/2+(R()*.8-.4),.35+R()*.35,W,160));
+if(first)l.stems.push(mkStem(R,-.15,-.3,Math.PI+.3,.45+R()*.3,W,120,'curl'));
+this.L.push(l)};
+Garden.prototype.back=function(now){for(let i=this.L.length-1;i>=0;i--){if(!this.L[i].dead){this.L[i].dead=now;if(this.L[i].ch===' ')continue;break}}};
+Garden.prototype.clear=function(now){this.L.forEach(l=>{if(!l.dead)l.dead=now})};
+Garden.prototype.layout=function(S0){const cx=this.cx,W=this.cv.clientWidth,H=this.cv.clientHeight;const live=this.L.filter(l=>!l.dead||true);cx.font=`600 100px "Playfair Display",Georgia,serif`;const txt=live.map(l=>l.ch);const ws=txt.map(c=>cx.measureText(c).width/100*(c===' '?1.4:1));const tot=ws.reduce((a,b)=>a+b,0)||1;const maxW=W*(W<600?.68:.8);
+let S=Math.min(S0||H*.28,maxW/tot);this.S=S;let x=W/2-tot*S/2;live.forEach((l,i)=>{const w=ws[i]*S;l.tx=x+w/2;l.ty=H/2+.33*S;l.tw=w;if(l.x===null){l.x=l.tx;l.y=l.ty}x+=w})};
+Garden.prototype.path=function(pts,frac){const n=Math.max(1,Math.floor(frac*(pts.length-1)));return pts.slice(0,n+1)};
+Garden.prototype.draw=function(now){const cx=this.cx,cv=this.cv,dpr=Math.min(devicePixelRatio,2);const W=cv.clientWidth,H=cv.clientHeight;if(cv.width!==W*dpr||cv.height!==H*dpr){cv.width=W*dpr;cv.height=H*dpr}
+cx.setTransform(dpr,0,0,dpr,0,0);if(!this.opts.transparent){cx.fillStyle=P.bg;cx.fillRect(0,0,W,H)}else cx.clearRect(0,0,W,H);
+this.L=this.L.filter(l=>!l.dead||now-l.dead<300);this.layout(this.opts.size);const S=this.S;const fr=Math.floor(now/120);
+const layers=[[],[]];
+for(const l of this.L){l.x+=(l.tx-l.x)*.12;l.y+=(l.ty-l.y)*.12;if(l.ch===' ')continue;const dead=l.dead?1-ease((now-l.dead)/260):1;
+ const dx=this.mx-l.x,dy=this.my-(l.y-.6*S),d=Math.hypot(dx,dy),reach=Math.max(260,3.2*S);const k=d<reach?(1-d/reach)**2*(3-2*(1-d/reach))*0:0;let lx=0,ly=0;if(d<reach&&d>0){const sm=1-d/reach;const f=sm*sm*(3-2*sm);lx=dx/d*f;ly=dy/d*f}l.lx+=(lx-l.lx)*.07;l.ly+=(ly-l.ly)*.07;
+ const age=(now-l.t)/1000;const sway=age<2.5?Math.exp(-3.2*age)*Math.sin(11*age):0;const sgn=this.L.indexOf(l)%2?1:-1;
+ const tf=(px,py)=>{const h=Math.min(2.5,Math.max(0,-py));const bx=l.lx*.1*S*(.5*h*h+.5*h)+sgn*.07*S*h*sway,by=l.ly*.05*S*(.5*h*h+.5*h)+.035*S*h*sway;return[l.x+px*S*dead+bx,l.y+py*S*dead+by]};
+ const all=[...l.stems,...l.cut];all.forEach(s=>{const st=s===l.cut[0]||l.cut.includes(s)?l.cutAt:l.t;[s,...s.kids].forEach(q=>layers[q.layer].push([q,tf,st,dead,l]))})}
+const boil=(id)=>{const r=mulberry(id*131+fr*7)();return(r-.5)*2*Math.max(.8,.01*S)};
+const drawStem=([s,tf,t0,dead,l],front)=>{const t=now-t0-s.delay;if(t<0)return;const p=ease(t/s.dur);const pts=this.path(s.pts,p).map(q=>tf(q[0],q[1]));if(pts.length<2)return;const bo=boil(s.pts.length+s.delay);
+ cx.strokeStyle=P.st;cx.lineWidth=.017*S*s.w;cx.lineCap='round';cx.lineJoin='round';cx.beginPath();pts.forEach((q,i)=>i?cx.lineTo(q[0]+bo,q[1]):cx.moveTo(q[0]+bo,q[1]));cx.stroke();
+ s.leaves.forEach((lf,i)=>{if(p<lf.u)return;const k=Math.floor(lf.u*(s.pts.length-1));const a=tf(...s.pts[k]),b=tf(...s.pts[k+1]);const ang=Math.atan2(b[1]-a[1],b[0]-a[0])+lf.side*lf.a;const sp=lspring((t-s.dur*lf.u)/1000);leaf(cx,a[0]+bo,a[1],ang,lf.l*S*sp*dead)});
+ if(p>.8){const e=tf(...s.pts[s.pts.length-1]),e2=tf(...s.pts[s.pts.length-2]);const ang=Math.atan2(e[1]-e2[1],e[0]-e2[0]);const tt=(t-s.dur*.8)/1000;
+  if(s.tip==='poppy')poppy(cx,e[0]+bo,e[1],s.R*S*dead,s.rot+l.lx*.22,tt,s.ph1,s.ph2,l.lx,l.ly);else if(s.tip==='pod')pod(cx,e[0]+bo,e[1],ang,.13*S*lspring(tt)*dead);else if(s.tip==='leaf')leaf(cx,e[0],e[1],ang,.24*S*lspring(tt)*dead);else curl(cx,e[0],e[1],ang,.07*S*ease(tt*2)*dead)}};
+layers[0].forEach(x=>drawStem(x));
+cx.fillStyle=P.ty;cx.textAlign='center';cx.textBaseline='alphabetic';cx.font=`600 ${S}px "Playfair Display",Georgia,serif`;for(const l of this.L){if(l.ch===' ')continue;const dead=l.dead?1-ease((now-l.dead)/260):1;cx.globalAlpha=dead;cx.fillText(l.ch,l.x,l.y);cx.globalAlpha=1}
+layers[1].forEach(x=>drawStem(x));
+this.planted=this.planted.filter(p=>now-p.t<60000);this.planted.forEach(p=>poppy(cx,p.x,p.y,.24*S*(1-ease((now-p.t-57800)/2200)),p.r,(now-p.t)/1000,p.a,p.b,0,0));
+if(this.opts.caret!==false&&document.activeElement===$('#gi2')){const last=this.L.filter(l=>!l.dead).pop();const x=last?last.x+last.tw/2+.07*S:W/2,y=last?last.y-.33*S:H/2;if(Math.floor(now/530)%2===0){cx.fillStyle=P.ty;const h=.8*S,w=Math.max(2,.03*S);cx.fillRect(x-w/2,y-h/2,w,h)}}};
+function smooth(cx,pts){cx.beginPath();const n=pts.length;for(let i=0;i<=n;i++){const a=pts[i%n],b=pts[(i+1)%n];const m=[(a[0]+b[0])/2,(a[1]+b[1])/2];i?cx.quadraticCurveTo(a[0],a[1],m[0],m[1]):cx.moveTo(m[0],m[1])}cx.closePath()}
+function leaf(cx,x,y,ang,L){if(L<=.5)return;const pts=[];for(let s of[1,-1])for(let i=0;i<=22;i++){const u=s>0?i/22:1-i/22;const tooth=((u*5.5+(s>0?0:.09))%1);const tt=tooth<.7?tooth/.7:1-(tooth-.7)/.3;const hw=.3*L*Math.sin(Math.PI*Math.pow(u,.8))*(.28+.72*tt)*s;pts.push([u*L,hw])}
+cx.save();cx.translate(x,y);cx.rotate(ang);cx.fillStyle=P.st;smooth(cx,pts);cx.fill();cx.strokeStyle=P.bg;cx.lineWidth=Math.max(.7,.022*L);cx.beginPath();cx.moveTo(.05*L,0);cx.lineTo(.85*L,0);cx.stroke();cx.restore()}
+function pod(cx,x,y,ang,L){if(L<=.5)return;cx.save();cx.translate(x,y);cx.rotate(ang);cx.fillStyle=P.st;cx.beginPath();cx.ellipse(.55*L,0,.55*L,.44*L,0,0,7);cx.fill();cx.beginPath();cx.ellipse(1.12*L,0,.1*L,.36*L,0,0,7);cx.fill();cx.strokeStyle=P.bg;cx.lineWidth=Math.max(.7,.045*L);[-.2,0,.2].forEach(o=>{cx.beginPath();cx.moveTo(.15*L,o*L);cx.quadraticCurveTo(.55*L,o*L*1.6,1*L,o*L*.6);cx.stroke()});cx.restore()}
+function curl(cx,x,y,ang,r){if(r<=.3)return;cx.save();cx.translate(x,y);cx.rotate(ang);cx.strokeStyle=P.st;cx.lineWidth=Math.max(1,r*.25);cx.beginPath();for(let i=0;i<=14;i++){const a=i/14*Math.PI*3.2,rr=r*(1-i/28);const px=Math.sin(a)*rr+i/14*r,py=(1-Math.cos(a))*rr;i?cx.lineTo(px,py):cx.moveTo(px,py)}cx.stroke();cx.restore()}
+function poppy(cx,x,y,R,rot,t,p1,p2,fx,fy){if(R<=.5||t<0)return;cx.save();cx.translate(x,y);cx.rotate(rot);const PET=[[-.42,-.24,.6,.56,-.4,0],[.44,-.22,.6,.56,.4,0],[-.38,.24,.6,.5,.3,.12],[.4,.26,.6,.5,-.3,.12]];
+PET.forEach((q,i)=>{const s=spring(t-.085*i);if(s<=0)return;cx.save();cx.translate(0,.45*R);cx.scale(s,s);cx.rotate((1-Math.min(1,s))*.5*(q[0]<0?-1:1));cx.translate(0,-.45*R);const pts=[];for(let k=0;k<34;k++){const th=k/34*6.283;const cr=1+.045*Math.sin(5*th+p1+i)+.03*Math.sin(9*th+p2)+.012*Math.sin(15*th+2*i);pts.push([q[0]*R+fx*q[5]*R+Math.cos(th)*q[2]*R*cr*Math.cos(q[4])-Math.sin(th)*q[3]*R*cr*Math.sin(q[4]),q[1]*R+fy*q[5]*R+Math.cos(th)*q[2]*R*cr*Math.sin(q[4])+Math.sin(th)*q[3]*R*cr*Math.cos(q[4])])}
+cx.fillStyle=P.fl;smooth(cx,pts);cx.fill();if(R>=10&&s>.4){cx.strokeStyle=P.ln;cx.lineWidth=.032*R*.85;const dr=Math.min(1,(s-.4)/.5);[-.32,.05,.36].forEach(o=>{const a=Math.atan2(q[1],q[0])+o,re=Math.hypot(q[0],q[1])*R+.6*q[2]*R;cx.beginPath();cx.moveTo(Math.cos(a)*re*.32,Math.sin(a)*re*.32);cx.lineTo(Math.cos(a)*re*(.32+.68*dr),Math.sin(a)*re*(.32+.68*dr));cx.stroke()})}cx.restore()});
+const cp=ease((t-.42)/.52);if(cp>0){cx.fillStyle=P.co;cx.beginPath();cx.ellipse(fx*.3*R,-.02*R+fy*.3*R,.24*R*cp,.24*R*.86*cp,0,0,7);cx.fill();if(R>=9)for(let i=0;i<11;i++){if(cp<i/11)continue;const a=i/11*6.283;cx.beginPath();cx.arc(fx*.3*R+Math.cos(a)*.33*R,-.02*R+fy*.3*R+Math.sin(a)*.33*R,.045*R,0,7);cx.fill()}cx.fillStyle=P.st;cx.beginPath();cx.ellipse(fx*.36*R,-.02*R+fy*.36*R,.085*R*cp,.075*R*cp,0,0,7);cx.fill()}cx.restore()}
+/* jardin du héros */
+const G=new Garden($('#gc'));window.G=G;const gi=$('#gi2');let lastVal='';
+function sync(v,now){v=v.slice(0,18);let i=0;while(i<lastVal.length&&i<v.length&&lastVal[i]===v[i])i++;for(let k=lastVal.length;k>i;k--)G.back(now);for(const ch of v.slice(i))G.add(ch,now);lastVal=v}
+gi.addEventListener('input',()=>sync(gi.value,performance.now()));gi.addEventListener('keydown',e=>{if(e.key==='Enter'){G.clear(performance.now());gi.value='';lastVal=''}});
+setTimeout(()=>{const v=gi.value;gi.value='';let i=0;const tick=()=>{if(i>v.length)return;gi.value=v.slice(0,i);sync(gi.value,performance.now());i++;setTimeout(tick,red?0:260)};tick()},300);
+const gard=$('#garden');gard.addEventListener('pointerdown',e=>{if(e.target.closest('button,input,a'))return;if(matchMedia('(hover:hover)').matches)setTimeout(()=>gi.focus({preventScroll:true}),0)});
+let lastTap=0;gard.addEventListener('pointerup',e=>{if(e.target.closest('button,input,a'))return;const now=performance.now();if(now-lastTap<340){if(G.planted.length<14)G.planted.push({x:e.clientX-gard.getBoundingClientRect().left,y:e.clientY-gard.getBoundingClientRect().top,t:now,r:Math.random()-.5,a:Math.random()*6,b:Math.random()*6})}lastTap=now});
+gard.addEventListener('pointermove',e=>{const r=gard.getBoundingClientRect();G.mx=e.clientX-r.left;G.my=e.clientY-r.top});gard.addEventListener('pointerleave',()=>{G.mx=G.my=-1e4});
+const pal=$('#pal');PAL.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.style.background=p.fl;b.setAttribute('aria-label',p.n);b.setAttribute('aria-pressed',i===0);b.onclick=()=>{P=p;gard.style.setProperty('--bg',p.bg);$$('#pal button').forEach((x,k)=>x.setAttribute('aria-pressed',k===i))};pal.appendChild(b)});
+$('#gbook').onclick=()=>{ZB.open(1);$('#zb-to').value=gi.value.trim()};
+let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(gard);
+(function loop(n){requestAnimationFrame(loop);if(vis)G.draw(n)})(performance.now());
+document.fonts&&document.fonts.load('600 100px "Playfair Display"').then(()=>{});
+/* bouquet */
+const B=new Garden($('#bc'),{transparent:true,caret:false,size:1,morePop:.5});
+const SZ=[['S',35,5],['M',55,8],['L',85,12]],STY=[['Champêtre',0],['Romantique',1],['Solaire',2],['Tout blanc',3]];const bs={z:1,s:0};
+function seg(id,L,key){const el=$('#'+id);L.forEach((o,i)=>{const b=document.createElement('button');b.type='button';b.textContent=o[0];b.setAttribute('aria-pressed',i===bs[key]);b.onclick=()=>{bs[key]=i;[...el.children].forEach((x,k)=>x.setAttribute('aria-pressed',k===i));build()};el.appendChild(b)})}
+seg('sz',SZ,'z');seg('sty',STY,'s');
+function build(){const n=SZ[bs.z][2],now=performance.now();B.L=[];const W=B.cv.clientWidth||400,H=B.cv.clientHeight||400;B.layout=function(){this.S=Math.min(W,H)*.5;this.L.forEach(l=>{l.tx=W/2;l.ty=H*.72;if(l.x===null){l.x=l.tx;l.y=l.ty}})};
+for(let i=0;i<n;i++){B.wseed=1000+i*37+bs.s*5;const R=mulberry(B.wseed);const l={ch:' ',t:now+i*90,dead:0,seed:i,W:B.W(),stems:[],cut:[],x:null,y:null,tw:0,lx:0,ly:0};l.ch='';const ang=-Math.PI/2+(i/(n-1||1)-.5)*1.3;l.stems.push(mkStem(R,0,0,ang,.75+R()*.35,l.W,0,R()<.75?'poppy':'pod'));B.L.push(l)}
+$('#bp').textContent=SZ[bs.z][1]+' €';$('#bsum').textContent='Taille '+SZ[bs.z][0]+' · '+STY[bs.s][0]+' · '+n+' tiges'}
+const oldDraw=B.draw.bind(B);B.draw=function(now){const keep=P;P=Object.assign({},PAL[STY[bs.s][1]],{bg:'#e5ece7',st:'#4E6B5B',ty:'transparent'});oldDraw(now);P=keep};
+build();let bv=false;new IntersectionObserver(e=>{bv=e[0].isIntersecting;if(bv)build()}).observe($('#bc'));(function bl(n){requestAnimationFrame(bl);if(bv)B.draw(n)})(performance.now());
+$('#bgo').onclick=()=>{ZB.open(bs.z);$('#zb-k1').textContent='Bouquet '+STY[bs.s][0]+', taille '+SZ[bs.z][0]+' · '+SZ[bs.z][1]+' €'};
+/* saisons */
+const MO=[['Janvier','Anémone','#c8344a'],['Février','Mimosa','#f4d03f'],['Mars','Tulipe','#e8657a'],['Avril','Renoncule','#f6c87a'],['Mai','Pivoine','#f2a3b8'],['Juin','Rose de jardin','#e7889a'],['Juillet','Lavande','#9b8ad1'],['Août','Tournesol','#f2b33d'],['Septembre','Dahlia','#c2415d'],['Octobre','Chrysanthème','#e8a04a'],['Novembre','Eucalyptus','#8fb3a0'],['Décembre','Amaryllis','#b8263f']];
+const wr=$('#wr'),Rr=innerWidth<820?300:420;MO.forEach((m,i)=>{const d=document.createElement('div');d.className='mo-c';d.style.transform=`rotateY(${i*30}deg) translateZ(${Rr}px)`;d.innerHTML=`<span class="mo">${m[0]}</span><div class="dot" style="background:radial-gradient(circle at 35% 30%,#fff8,${m[2]} 45%)"></div><b>${m[1]}</b>`;d.onclick=()=>setM(i);wr.appendChild(d);const b=document.createElement('button');b.type='button';b.textContent=m[0].slice(0,3)+'.';b.setAttribute('aria-label',m[0]+' : '+m[1]);b.onclick=()=>setM(i);$('#mos').appendChild(b)});
+function setM(i){wr.style.transform=`translateZ(${-Rr}px) rotateY(${-i*30}deg)`;$$('#mos button').forEach((b,k)=>b.setAttribute('aria-pressed',k===i))}setM(new Date().getMonth());
+/* livraison */
+const Z=[['Toulon',0,0,'Offerte'],['La Seyne-sur-Mer',-60,30,'5 €'],['La Valette-du-Var',50,-20,'5 €'],['La Garde',80,20,'5 €'],['Six-Fours-les-Plages',-120,50,'8 €'],['Hyères',190,60,'8 €'],['Sanary-sur-Mer',-180,40,'8 €'],['Le Pradet',100,70,'5 €'],['Ollioules',-90,-30,'5 €'],['Solliès-Pont',140,-110,'8 €'],['Puget-Ville',210,-170,'12 €']];
+const sv=$('#zsvg');Z.forEach(z=>{sv.insertAdjacentHTML('beforeend',`<g data-c="${z[0]}"><circle cx="${300+z[1]}" cy="${250+z[2]}" r="5" fill="#A9C2B0"/><text x="${308+z[1]}" y="${246+z[2]}">${z[0]}</text></g>`);$('#cities').insertAdjacentHTML('beforeend',`<option value="${z[0]}">`)});
+sv.insertAdjacentHTML('beforeend',`<g transform="translate(286 228) scale(.11)"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></g>`);
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z]/g,'');
+$('#cgo').onclick=()=>{const v=norm($('#city').value);const z=Z.find(z=>norm(z[0]).startsWith(v)&&v.length>2);$$('#zsvg g[data-c] circle').forEach(c=>c.setAttribute('r',5));if(!z){$('#cres').textContent=v?'Hors de notre zone pour l’instant : appelez-nous, on trouve toujours une solution.':'Indiquez une ville.';return}
+document.querySelector(`#zsvg g[data-c="${z[0]}"] circle`).setAttribute('r',12);$('#cres').textContent=z[0]+' : livraison '+z[3].toLowerCase()+', avant 18 h pour une commande passée avant midi.'};
+$('#city').addEventListener('keydown',e=>{if(e.key==='Enter')$('#cgo').click()});
+/* horaires + faq */
+(()=>{const wd=new Date().getDay();$$('#hrs li').forEach(li=>{if(li.dataset.d.split(',').map(Number).includes(wd))li.classList.add('now')})})();
+const FAQ=[['Puis-je voir le bouquet avant la livraison ?','Oui : on vous envoie une photo avant de partir livrer.'],['Combien de temps tiennent vos fleurs ?','Une semaine en moyenne. Changez l’eau tous les deux jours et recoupez les tiges en biais.'],['Faites-vous les fleurs de mariage ?','Oui, sur devis, après un rendez-vous pour parler de vos envies et de votre budget.'],['Peut-on écrire un long message ?','Oui, la carte est écrite à la main, jusqu’à 300 caractères.']];
+$('#faq').innerHTML=FAQ.map((q,i)=>`<div class="q"><button type="button" aria-expanded="false" aria-controls="fq${i}">${q[0]}</button><div id="fq${i}"><p>${q[1]}</p></div></div>`).join('');$$('.q button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cl3');if(!host)return;
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+host.appendChild(R.domElement);R.domElement.setAttribute('aria-hidden','true');R.domElement.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+const sc=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,9);
+sc.add(new THREE.HemisphereLight(0xffffff,0x26332c,.8));const k=new THREE.DirectionalLight('#ffe0d8',2.2);k.position.set(3,5,6);sc.add(k);const rim=new THREE.DirectionalLight(0xa9c2b0,3);rim.position.set(-5,-2,-4);sc.add(rim);
+const d=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>');
+const shapes=[];d.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
+const g=new THREE.ExtrudeGeometry(shapes,{depth:34,bevelEnabled:true,bevelThickness:7,bevelSize:6,bevelSegments:6,curveSegments:28});g.center();g.scale(1/256,-1/256,1/256);g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:'#e3eee6',roughness:.08,metalness:.05,transmission:.92,thickness:1.4,ior:1.45,clearcoat:1,clearcoatRoughness:.06,iridescence:.6,iridescenceIOR:1.3,emissive:'#4E6B5B',emissiveIntensity:.18,attenuationColor:'#4E6B5B',attenuationDistance:2.2,envMapIntensity:1.1});
+const m=new THREE.Mesh(g,mat);const rig=new THREE.Group();rig.add(m);sc.add(rig);m.scale.setScalar(3.3);
+let tx=0,ty=0,cx=0,cy=0,vis=false,last=performance.now(),t=0;
+host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});host.addEventListener('pointerleave',()=>{tx=ty=0});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+function rs(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<1?12:9;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;if(!vis)return;t+=dt;const q=1-Math.exp(-dt/.18);cx+=(tx-cx)*q;cy+=(ty-cy)*q;
+rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig.position.y=Math.sin(t*1.1)*.08;R.render(sc,cam)})(last);
+host.classList.add('on3d');})();
+</script>
+</body>
+</html>

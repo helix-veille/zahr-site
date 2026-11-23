@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Smash — Ma ZAHR, ma chance.</title>
+<meta name="description" content="ZAHR Smash, burger joint fictif à Toulon : smash burgers cuits à la minute. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23f9b21c' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&family=DM+Sans:wght@400;500;700&family=Yellowtail&display=swap">
+<style>
+:root{--k:#171310;--c:#f6efe2;--y:#f9b21c;--r:#de3a26;--g:#3c8a42;--spr:cubic-bezier(.3,1.5,.5,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--k);color:var(--c);font-family:"DM Sans",sans-serif;font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+.hd{font-family:"Bricolage Grotesque",sans-serif;font-stretch:78%;font-weight:800;letter-spacing:-.035em;line-height:.9;text-transform:none;margin:0}
+.sc{font-family:Yellowtail,cursive;font-weight:400}
+.cap{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;border:0;cursor:pointer;text-decoration:none;transition:transform .45s var(--spr)}
+.pill::after{content:"›";font-size:20px;line-height:0}
+.pill:hover{transform:rotate(0deg) scale(1.06)!important}
+.pill.w{background:#fff;color:var(--k)}.pill.r{background:var(--r);color:#fff}.pill.k{background:var(--k);color:var(--c)}.pill.y{background:var(--y);color:var(--k)}
+.sheet{position:relative}
+.sheet>.torn{position:absolute;left:0;right:0;top:-1.55vw;height:1.6vw;background:inherit;pointer-events:none;z-index:2}
+/* header */
+.top{position:absolute;left:0;right:0;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,4vw,56px)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand svg{width:40px}
+.brand b{font-family:"Bricolage Grotesque";font-stretch:78%;font-weight:800;font-size:26px;letter-spacing:-.03em}
+.top nav{display:flex;gap:26px}
+.top nav a{color:#fff;text-decoration:none}
+/* hero */
+.hero{min-height:100svh;position:relative;overflow:hidden;background:var(--k)}
+.hero h1{position:absolute;left:13vw;top:19vh;font-size:5.1vw;color:#fff;z-index:5}
+.hero h1 .sc{display:block;color:var(--y);font-size:1.2em;transform:translateX(-1.2vw) rotate(-5deg);margin-top:.1em;letter-spacing:0}
+.hero .pill{position:absolute;left:13vw;top:calc(19vh + 15vw);transform:rotate(-3deg);z-index:5}
+.hero .lead{position:absolute;left:13vw;top:calc(19vh + 19.4vw);max-width:30ch;font-size:15px;color:#cfc6b5;z-index:5}
+.bstage{position:absolute;left:59vw;top:20vh;width:30vw;aspect-ratio:1200/1121;z-index:4}
+.burg{position:absolute;inset:0;transition:transform .5s ease-out}
+.burg img{width:100%;filter:drop-shadow(0 40px 40px rgba(0,0,0,.55));animation:bob 4.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-1.5deg)}}
+.bit{position:absolute;width:var(--w);left:var(--x);top:var(--y);will-change:transform;z-index:3}
+.bit img{width:100%;filter:drop-shadow(0 18px 20px rgba(0,0,0,.5))}
+.bit.blur img{filter:blur(4px) drop-shadow(0 18px 20px rgba(0,0,0,.5))}
+.stk{position:absolute;left:-4%;bottom:12%;z-index:6;background:var(--r);color:#fff;border-radius:16px;padding:10px 18px;font-weight:700;transform:rotate(-7deg);text-decoration:none;transition:transform .45s var(--spr)}
+.stk:hover{transform:rotate(0) scale(1.06)}
+.seal{position:absolute;right:-4%;top:-6%;width:8.6vw;min-width:96px;aspect-ratio:1;z-index:6;border-radius:50%;background:var(--k);display:grid;place-items:center}
+.seal svg.t{position:absolute;inset:0;animation:spin 18s linear infinite}
+.seal svg.t text{font:700 10.4px "DM Sans";letter-spacing:.14em;fill:#fff}
+.seal .s{width:36%}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:16vw;z-index:7;display:block}
+/* intro (pièce porte-bonheur) */
+.intro{background:var(--c);color:var(--k);text-align:center;padding:4vw 6vw 10vw;overflow:hidden}
+.intro h2{font-size:clamp(54px,7.4vw,130px);position:relative;display:inline-block}
+.tg{position:absolute;font:700 13px/1 "DM Sans";letter-spacing:.12em;padding:9px 13px;border-radius:10px;transform:scale(0) rotate(var(--rt));transition:transform .55s var(--spr)}
+.intro.on .tg{transform:scale(1) rotate(var(--rt))}
+.intro .sc{font-size:clamp(28px,3vw,46px);line-height:1.15;margin:26px 0 30px;color:var(--r)}
+.coinlane{position:relative;height:16vw;min-height:170px;margin-top:4vw;perspective:900px}
+.coin{position:absolute;left:0;top:50%;width:13vw;min-width:130px;aspect-ratio:1;margin-top:calc(max(13vw,130px)/-2);transform-style:preserve-3d}
+.coin i{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;backface-visibility:hidden;background:radial-gradient(circle at 35% 30%,#ffd36b,var(--y) 45%,#c98300);box-shadow:inset 0 0 0 7px #e09a00,inset 0 0 0 10px #ffd36b}
+.coin i svg{width:56%}
+.coin i.b{transform:rotateY(180deg);font-family:Yellowtail;font-size:3vw;color:var(--k);font-style:normal}
+.coin .ed{position:absolute;inset:0;border-radius:50%;background:#b77600;transform:translateZ(-6px)}
+.coin .ed2{position:absolute;inset:0;border-radius:50%;background:#b77600;transform:translateZ(-3px)}
+.road{position:absolute;left:0;right:0;bottom:8%;height:4px;background:repeating-linear-gradient(90deg,var(--k) 0 26px,transparent 26px 44px);opacity:.25}
+/* mots */
+.words{background:var(--k);padding:7vw 0;overflow:hidden}
+.words .row{display:flex;gap:3vw;white-space:nowrap;font-size:clamp(56px,8vw,140px);will-change:transform}
+.words .row span:nth-child(4n+1){color:var(--y)}.words .row span:nth-child(4n+2){color:var(--r)}.words .row span:nth-child(4n+3){color:var(--c)}.words .row span:nth-child(4n){color:#9fd49a}
+/* menu */
+.menu{min-height:100svh;padding:8vw 5vw 7vw;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2.2vw;overflow:hidden}
+.m-y{background:var(--y);color:var(--k)}.m-r{background:var(--r);color:#fff}.m-g{background:var(--g);color:#fff}.m-k{background:var(--k);color:#fff}
+.menu h2{font-size:clamp(70px,10vw,180px)}
+.pick{display:flex;align-items:center;gap:14px;max-width:100%}
+.pick .ar{width:46px;height:46px;border-radius:50%;border:2px solid currentColor;background:none;cursor:pointer;font-size:24px;line-height:1;flex:none;transition:transform .4s var(--spr)}
+.pick .ar:hover{transform:scale(1.1)}
+.pills{display:flex;gap:12px;padding:16px 6px 6px;overflow-x:auto;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.ip{position:relative;flex:none;display:flex;align-items:center;gap:10px;padding:9px 20px 9px 58px;border-radius:999px;border:2px solid currentColor;background:transparent;cursor:pointer;text-align:left;line-height:1.15;transition:transform .45s var(--spr),background .2s,color .2s}
+.ip:hover{transform:scale(1.05) rotate(-1deg)}
+.ip img{position:absolute;left:-6px;top:50%;width:58px;transform:translateY(-58%) rotate(-8deg);filter:drop-shadow(0 6px 6px rgba(0,0,0,.3))}
+.ip b{display:block;font-size:15px}.ip small{font-size:12.5px;opacity:.8}
+.ip[aria-selected=true]{background:var(--k);color:#fff;border-color:var(--k)}
+.m-k .ip[aria-selected=true]{background:var(--y);color:var(--k);border-color:var(--y)}
+.mstage{position:relative;width:min(1100px,100%);height:50vh;min-height:320px;display:grid;place-items:center}
+.mstage .bgw{position:absolute;font-family:Yellowtail;font-size:clamp(140px,22vw,380px);color:#fff;opacity:.26;transform:rotate(-7deg);white-space:nowrap;pointer-events:none;line-height:1}
+.mstage .pic{position:relative;height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 30px 30px rgba(0,0,0,.35));transition:transform .7s var(--spr),opacity .5s}
+.mstage .pic.out{transform:scale(.82) rotate(-6deg);opacity:0;transition:transform .28s ease-in,opacity .28s}
+.mstage .ta{position:absolute;left:8%;top:8%;background:var(--k);color:#fff;padding:9px 14px;border-radius:10px;font:700 13px/1 "DM Sans";letter-spacing:.1em;transform:rotate(-6deg);transition:transform .5s var(--spr)}
+.mstage .tb{position:absolute;right:8%;bottom:10%;background:#fff;color:var(--k);padding:9px 14px;border-radius:10px;font:700 13px/1 "DM Sans";letter-spacing:.1em;transform:rotate(5deg);transition:transform .5s var(--spr)}
+.mstage.swap .ta,.mstage.swap .tb{transform:scale(0)}
+.m-k .mstage .ta{background:var(--y);color:var(--k)}
+.ingr{max-width:62ch;font-size:16px;opacity:.92;margin:0}
+.price{font-family:"Bricolage Grotesque";font-stretch:78%;font-weight:800;font-size:34px}
+.rail{position:fixed;left:14px;top:50%;transform:translateY(-50%) translateX(-80px);z-index:30;background:#fff;border-radius:999px;padding:10px 8px;display:grid;gap:10px;transition:transform .5s var(--spr)}
+.rail.on{transform:translateY(-50%)}
+.rail a{width:12px;height:12px;border-radius:50%;background:#d8d0c2;display:block}
+.rail a.on{background:var(--k)}.rail.dark a.on{background:var(--y)}
+/* réservation */
+.book{background:var(--c);color:var(--k);padding:9vw 6vw}
+.book .g{display:grid;grid-template-columns:1fr 1.05fr;gap:5vw;align-items:center;max-width:1240px;margin:0 auto}
+.book h2{font-size:clamp(56px,7vw,120px)}
+.book h2 .sc{color:var(--r);display:block;transform:rotate(-4deg) translateX(1vw);font-size:.75em;margin-top:.1em}
+.bkf{background:#fff;border-radius:28px;padding:clamp(20px,3vw,36px);box-shadow:10px 10px 0 var(--k);display:grid;gap:16px;transform:rotate(1deg)}
+.bkf label.l{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cnt{display:flex;align-items:center;gap:16px}
+.cnt button{width:46px;height:46px;border-radius:50%;border:2px solid var(--k);background:var(--y);font-size:22px;font-weight:700;cursor:pointer;transition:transform .4s var(--spr)}
+.cnt button:active{transform:scale(.88)}
+.cnt output{font-family:"Bricolage Grotesque";font-stretch:78%;font-weight:800;font-size:48px;min-width:1.4ch;text-align:center}
+.chs{display:flex;gap:8px;flex-wrap:wrap}
+.ch{border:2px solid var(--k);background:#fff;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;transition:transform .4s var(--spr)}
+.ch:hover{transform:rotate(-3deg) scale(1.05)}
+.ch[aria-pressed=true]{background:var(--k);color:var(--c)}
+.bkf input[type=text],.bkf input[type=tel]{width:100%;border:2px solid var(--k);border-radius:14px;padding:12px 14px;background:var(--c)}
+.bkf .cons{display:flex;gap:10px;font-size:13px;line-height:1.45;align-items:flex-start}
+.bkf .cons input{margin-top:3px;accent-color:var(--r);width:18px;height:18px}
+.bkf .msg{margin:0;font-weight:700;min-height:22px}
+.tick{position:relative;perspective:1000px;height:100%;display:grid;place-items:center}
+.tc{width:min(360px,100%);background:var(--y);border-radius:22px;padding:26px 24px;transform:rotateY(-18deg) rotateX(8deg) rotate(-4deg);box-shadow:-14px 24px 0 var(--k);transition:transform .8s var(--spr);position:relative}
+.tc.go{transform:rotateY(0) rotateX(0) rotate(2deg) scale(1.04)}
+.tc .h{display:flex;justify-content:space-between;align-items:center}
+.tc .h svg{width:38px}
+.tc b.n{display:block;font-family:"Bricolage Grotesque";font-stretch:78%;font-weight:800;font-size:64px;line-height:1;margin:18px 0 4px}
+.tc .sc{font-size:30px;color:var(--r)}
+.tc hr{border:0;border-top:3px dashed var(--k);margin:16px 0}
+.tc .stamp{position:absolute;right:16px;bottom:18px;border:3px solid var(--r);color:var(--r);border-radius:10px;padding:6px 10px;font-weight:700;font-size:13px;letter-spacing:.1em;transform:rotate(-12deg) scale(0);transition:transform .5s var(--spr)}
+.tc.go .stamp{transform:rotate(-12deg) scale(1)}
+/* à propos */
+.about{background:var(--c);color:var(--k);padding:6vw 6vw 9vw;border-top:3px dashed rgba(23,19,16,.15)}
+.stamps{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:4vw}
+.stamps span{font-weight:700;font-size:13px;letter-spacing:.1em;padding:10px 14px;border-radius:12px;transform:rotate(var(--rt))}
+.about .g{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;max-width:1240px;margin:0 auto}
+.about h2{font-size:clamp(50px,6vw,104px)}
+.blobs{display:grid;grid-template-columns:1fr 1.3fr;gap:2.4vw;align-items:center}
+.blob{border-radius:62% 38% 46% 54%/49% 59% 41% 51%;overflow:hidden;transition:border-radius .8s var(--spr)}
+.blob:hover{border-radius:50%}
+.blob img{width:100%;aspect-ratio:900/678;object-fit:cover}
+.b1{box-shadow:12px 12px 0 var(--g)}.b2{box-shadow:12px 12px 0 var(--y);border-radius:41% 59% 61% 39%/55% 44% 56% 45%}
+/* club */
+.club{background:var(--k);padding:9vw 4vw 0;text-align:center;overflow:hidden}
+.fan{position:relative;height:calc(10.4vw/.62 + 8vw);min-height:300px}
+.fc{position:absolute;left:50%;top:2vw;width:10.4vw;min-width:120px;aspect-ratio:.62;margin-left:calc(max(10.4vw,120px)/-2);border-radius:12px;overflow:hidden;padding:14px 12px;text-align:left;transform-origin:50% 120%;transition:transform .8s var(--spr);box-shadow:0 20px 30px -10px rgba(0,0,0,.5)}
+.fc b{font-family:"Bricolage Grotesque";font-stretch:78%;font-weight:800;font-size:clamp(20px,1.9vw,30px);line-height:.95;letter-spacing:-.03em;display:block;position:relative;z-index:1}
+.fc img{position:absolute;left:-10%;right:-10%;bottom:-14%;width:120%}
+.fc small{position:absolute;left:12px;bottom:8px;font-size:10px;z-index:1;font-weight:700}
+.club h3{font-size:clamp(40px,4.8vw,80px);color:var(--y);margin-top:3vw}
+.club .mv{display:inline-block;background:var(--y);color:var(--k);border-radius:8px;padding:6px 10px;transform:rotate(4deg);margin-top:16px}
+.nl{display:grid;grid-template-columns:auto 1fr auto;gap:3vw;align-items:center;max-width:1100px;margin:8vw auto 0;text-align:left}
+.ring{width:110px;height:110px;border-radius:50%;border:3px solid #fff;display:grid;place-items:center}
+.ring svg{width:52px}
+.nl h4{font-size:clamp(40px,4vw,68px);margin:0}
+.nlf{display:flex;gap:10px;flex-wrap:wrap}
+.nlf input{flex:1;min-width:220px;border:0;border-radius:999px;padding:15px 20px;background:var(--c);color:var(--k)}
+.nlc{grid-column:1/-1;font-size:13px;color:#cfc6b5;display:flex;gap:10px;align-items:flex-start}
+.nlc input{accent-color:var(--y);margin-top:3px}
+.nlm{grid-column:1/-1;margin:0;color:var(--y);font-weight:700;min-height:24px}
+.where{max-width:1100px;margin:7vw auto 0}
+.fline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#cfc6b5;font-size:14px;margin:4vw auto 0;max-width:1100px;padding-top:22px;border-top:1px solid rgba(246,239,226,.15);text-align:left}
+.giant{white-space:nowrap;font-family:"Bricolage Grotesque";font-stretch:78%;font-weight:800;letter-spacing:-.04em;line-height:.8;margin-top:4vw;height:.62em;overflow:hidden;color:var(--c)}
+.giant .sc{color:var(--y);letter-spacing:0;font-size:1.05em}
+@media (max-width:760px){
+ .top nav{display:none}
+ .hero h1{left:7vw;top:96px;font-size:13vw}
+ .hero .pill{left:7vw;top:calc(96px + 36vw)}
+ .hero .lead{left:7vw;top:calc(96px + 50vw);font-size:14px}
+ .bstage{left:19vw;top:auto;bottom:18vw;width:62vw}
+ .hero{min-height:max(100svh,760px)}
+ .pick .ar{display:none}.pills{padding-left:8px}
+ .mstage{height:62vw;min-height:0;width:110vw}
+ .rail{display:none}
+ .book .g,.about .g,.nl{grid-template-columns:1fr}
+ .blobs{grid-template-columns:1fr}
+ .fc{width:30vw;margin-left:-15vw}
+ .fan{height:calc(30vw/.62 + 18vw)}
+}
+@media (prefers-reduced-motion:reduce){.burg img,.seal svg.t{animation:none}html{scroll-behavior:auto}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #de3a26;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#f6efe2;color:#171310;font-family:"DM Sans",sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#171310;color:#f6efe2;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#f6efe2;color:#171310;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"DM Sans",sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #171310}
+.zl-ck .b button.y{background:#171310;color:#f6efe2}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#de3a2655,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#de3a26;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#de3a26;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #de3a26;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"DM Sans",sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#de3a26;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="#top" aria-label="ZAHR Smash, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><b>ZAHR Smash</b></a><nav class="cap" aria-label="Navigation"><a href="#burgers">Menu ▾</a><a href="#reserver">Réserver</a><a href="#adresse">L’adresse</a></nav></header>
+<main>
+<section class="hero" id="top" aria-labelledby="h1">
+  <h1 class="hd" id="h1">Ma ZAHR,<span class="sc">ma chance.</span></h1>
+  <a class="pill w" href="#burgers">Voir le menu</a>
+  <p class="lead">Smash burgers cuits à la minute, frites coupées main. Zahr, c’est la fleur… et la chance. Ici, on ne se presse pas.</p>
+  <div class="bstage" id="bstage">
+    <div class="bit" data-d="1.4" style="--w:24%;--x:6%;--y:-18%"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/bit-tomato.webp" alt=""></div>
+    <div class="bit" data-d="1.1" style="--w:30%;--x:44%;--y:-24%"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/bit-lettuce.webp" alt=""></div>
+    <div class="bit" data-d="1.7" style="--w:24%;--x:-22%;--y:20%"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/bit-cheese.webp" alt=""></div>
+    <div class="bit" data-d="1.25" style="--w:20%;--x:-14%;--y:56%"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/bit-onion.webp" alt=""></div>
+    <div class="bit blur" data-d="2.3" style="--w:15%;--x:96%;--y:62%"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/bit-pickles.webp" alt=""></div>
+    <div class="bit blur" data-d="2.6" style="--w:12%;--x:-34%;--y:-8%"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/bit-pickles.webp" alt=""></div>
+    <div class="burg" id="burg"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/hero-burger.webp" alt="Le Classique, double smash burger au cheddar" width="1200" height="1121"></div>
+    <a class="stk" href="#burgers">Le Classique ›</a>
+    <div class="seal" aria-hidden="true"><svg class="t" viewBox="0 0 100 100"><defs><path id="cp" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text><textPath href="#cp">CUIT À LA MINUTE · ZÉRO STRESS · UN PEU DE CHANCE ·</textPath></text></svg><span class="s"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></span></div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 230" preserveAspectRatio="none" aria-hidden="true"><path fill="#f6efe2" d="M0 230V170C240 210 470 205 720 150S1180 30 1440 0V230Z"/></svg>
+</section>
+
+<section class="intro" id="intro" aria-labelledby="h-intro">
+  <h2 class="hd" id="h-intro">Appelez-le<br>comme vous voulez,
+    <span class="tg" style="left:-6%;top:-12%;--rt:-9deg;background:var(--g);color:#fff;transition-delay:.05s">LE SMASH</span>
+    <span class="tg" style="right:-4%;top:-4%;--rt:7deg;background:var(--r);color:#fff;transition-delay:.2s">ZAHR</span>
+    <span class="tg" style="left:4%;bottom:-16%;--rt:5deg;background:var(--k);color:#fff;transition-delay:.35s">LE GROS</span>
+    <span class="tg" style="right:6%;bottom:-20%;--rt:-6deg;background:var(--y);color:var(--k);transition-delay:.5s">LE PETIT</span></h2>
+  <p class="sc">il a toujours eu le don de mettre<br>la faim de bonne humeur.</p>
+  <a class="pill r" href="#burgers">Voir les burgers</a>
+  <div class="coinlane" aria-hidden="true"><div class="road"></div><div class="coin" id="coin"><span class="ed"></span><span class="ed2"></span><i><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#171310" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></i><i class="b">chance</i></div></div>
+</section>
+
+<section class="words sheet" aria-hidden="true">
+  <div class="row hd" data-dir="1"><span>Juteux</span><span>Grillé</span><span>Fondant</span><span>Croustillant</span><span>Fumé</span><span>Généreux</span><span>Sans stress</span><span>Juteux</span><span>Grillé</span><span>Fondant</span></div>
+  <div class="row hd" data-dir="-1"><span>Brûlant</span><span>Maison</span><span>Frais</span><span>Doré</span><span>Crémeux</span><span>Épicé</span><span>Tranquille</span><span>Brûlant</span><span>Maison</span><span>Frais</span></div>
+</section>
+
+<div id="menus"></div>
+<nav class="rail" id="rail" aria-label="Rubriques du menu"></nav>
+
+<section class="book sheet" id="reserver" aria-labelledby="h-book">
+  <div class="g">
+    <div>
+      <p class="cap" style="color:var(--r)">Réservation</p>
+      <h2 class="hd" id="h-book">Gardez-vous<br>une table.<span class="sc">on vous attend.</span></h2>
+      <form class="bkf" id="bkf" novalidate>
+        <label class="l" id="lc">Combien de couverts ?</label>
+        <div class="cnt" role="group" aria-labelledby="lc"><button type="button" id="cm" aria-label="Un couvert de moins">−</button><output id="co" aria-live="polite">2</output><button type="button" id="cp2" aria-label="Un couvert de plus">+</button></div>
+        <label class="l">Quel soir ?</label><div class="chs" id="bd" role="group" aria-label="Soir"></div>
+        <label class="l">À quelle heure ?</label><div class="chs" id="bh" role="group" aria-label="Heure"></div>
+        <input type="text" id="bn" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+        <input type="tel" id="bp" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+        <label class="cons"><input type="checkbox" id="bc"><span>J’accepte que ZAHR Smash utilise mon prénom et mon numéro seulement pour cette réservation. <button type="button" data-open="zl-conf" style="all:unset;text-decoration:underline;cursor:pointer">Confidentialité</button></span></label>
+        <button class="pill r" type="submit" style="justify-self:start">Réserver ma table</button>
+        <p class="msg" id="bm" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="tick" aria-hidden="true"><div class="tc" id="tc"><div class="h"><span class="cap">Table · ZAHR Smash</span><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#171310" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div><b class="n" id="tn">2 couverts</b><span class="sc" id="td">choisissez un soir</span><hr><div id="tw" style="font-weight:700">Au nom de …</div><span class="stamp">RÉSERVÉ</span></div></div>
+  </div>
+</section>
+
+<section class="about" id="apropos" aria-labelledby="h-about">
+  <div class="stamps"><span style="--rt:-5deg;background:var(--y)">PAINS CUITS CHAQUE MATIN</span><span style="--rt:4deg;background:var(--r);color:#fff">BŒUF FRAIS</span><span style="--rt:-3deg;background:var(--g);color:#fff">CUIT À LA MINUTE</span><span style="--rt:6deg;background:#bdb4a6">PIGNONS GRILLÉS</span><span style="--rt:-4deg;border:2px solid var(--k)">ZÉRO STRESS</span></div>
+  <div class="g">
+    <div><h2 class="hd" id="h-about">Laissez parler<br>la plancha.</h2><p style="max-width:46ch;margin-top:24px">ZAHR Smash, c’est une idée simple : des pains qui sortent du four chaque matin, une viande hachée du jour et une plancha bien chaude. Chaque burger est monté à la commande, comme vous l’aimez. Et si vous trouvez le trèfle caché sur votre boîte, le dessert est pour nous.</p><p style="font-size:13px;opacity:.7">Marque fictive imaginée par ZAHR pour montrer un site de restaurant.</p></div>
+    <div class="blobs"><div class="blob b1"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/about-buns.webp" alt="Pains briochés badigeonnés de beurre avant cuisson" width="900" height="678" loading="lazy"></div><div class="blob b2"><img src="https://res.cloudinary.com/ce2yatay/image/upload/capia/about-griddle.webp" alt="Steaks hachés qui grillent sur la plancha" width="900" height="678" loading="lazy"></div></div>
+  </div>
+</section>
+
+<section class="club sheet" id="adresse" aria-labelledby="h-club">
+  <div class="fan" id="fan" aria-hidden="true"></div>
+  <h3 class="hd" id="h-club">Des moments tranquilles<br>sur @zahr.smash</h3>
+  <span class="mv cap">Bougez la souris</span>
+  <div class="where"><div class="zl-map" data-q="Toulon, France"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Smash</b><span>Toulon (adresse fictive) · du mardi au dimanche, 18 h – 23 h</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Toulon, France" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+  <div class="nl">
+    <div class="ring" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+    <h4 class="hd">Rejoignez le<br>club chance.</h4>
+    <form class="nlf" id="nlf" novalidate><input type="email" id="ne" placeholder="Votre e-mail" aria-label="Votre e-mail" autocomplete="email"><button class="pill r" type="submit">S’inscrire</button></form>
+    <label class="nlc"><input type="checkbox" id="nc"><span>J’accepte de recevoir la lettre de ZAHR Smash, une fois par mois. Désinscription en un clic dans chaque e-mail.</span></label>
+    <p class="nlm" id="nm" role="status" aria-live="polite"></p>
+  </div>
+  <div class="fline"><span>ZAHR Smash · Toulon (fictif) · Mar–Dim · 18 h–23 h</span><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div>
+  <div class="giant" id="giant" aria-hidden="true">ma ZAHR. <span class="sc">ma chance.</span></div>
+</section>
+</main>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Smash</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Smash</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Smash</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Smash</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<script>
+const B='https://res.cloudinary.com/ce2yatay/image/upload/capia/';const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MENU=[
+ {id:'burgers',t:'Burgers',cls:'m-y',btn:'k',cta:'Commander un burger',items:[
+  ['classic','Le Classique','double smash','2 × 90 G DE BŒUF','LE PLUS DEMANDÉ','pain brioché · deux steaks smashés · cheddar · pickles · oignon · sauce maison','11,50 €'],
+  ['bacon','Le Bacon','bacon croustillant','150 G DE BŒUF','FUMÉ','pain brioché · steak maison · cheddar · bacon · oignons confits · mayo fumée','13,00 €'],
+  ['pinon','Le Pignon','cheddar blanc','RECETTE MAISON','SEULEMENT L’HIVER','pain brioché · steak maison · cheddar blanc affiné · crumble de pignons · roquette · mayo à l’ail rôti','14,50 €'],
+  ['chicken','Poulet croustillant','extra croquant','MARINÉ AU LAIT RIBOT','MIEL PIMENTÉ','pain brioché · haut de cuisse frit · coleslaw · pickles · miel pimenté','12,50 €']]},
+ {id:'sides',t:'À côté',cls:'m-r',btn:'w',cta:'Ajouter des frites',items:[
+  ['fries','Frites maison','coupées main','300 G','À PARTAGER','pommes de terre avec la peau · sel aux herbes · romarin · sauce frites','4,50 €'],
+  ['rings','Onion rings','panés minute','8 RINGS','EXTRA CROUSTI','oignon · pâte croustillante · paprika · mayo aux herbes','5,00 €'],
+  ['polenta','Frites de polenta','croustillantes','SANS GLUTEN','AU PARMESAN','polenta · parmesan · persil · sauce tomate','5,50 €']]},
+ {id:'boissons',t:'Boissons',cls:'m-g',btn:'w',cta:'Choisir une boisson',items:[
+  ['shake','Milkshake fraise','glace maison','45 CL','MIXÉ MINUTE','glace vanille · fraises fraîches · chantilly','5,50 €'],
+  ['tea','Thé glacé citron','infusé ici','50 CL','NON SUCRÉ','thé noir · citron · menthe · beaucoup de glaçons','3,50 €']]},
+ {id:'desserts',t:'Desserts',cls:'m-k',btn:'y',cta:'Finir en douceur',items:[
+  ['brownie','Brownie sundae','cœur chaud','SERVI CHAUD','À PARTAGER','brownie · glace vanille · sauce chocolat','6,00 €'],
+  ['flan','Flan caramel','comme chez mamie','FAIT CHAQUE JOUR','SOYEUX','œufs · lait · vanille · caramel brun','4,50 €']]}];
+const host=$('#menus');
+MENU.forEach((m,mi)=>{const s=document.createElement('section');s.className='menu sheet '+m.cls;s.id=m.id;s.setAttribute('aria-labelledby','h-'+m.id);
+ s.innerHTML=`<h2 class="hd" id="h-${m.id}">${m.t}</h2><div class="pick"><button class="ar" type="button" aria-label="Précédent">‹</button><div class="pills" role="tablist" aria-label="${m.t}">${m.items.map((it,i)=>`<button class="ip" role="tab" type="button" aria-selected="${i===0}" aria-controls="st-${m.id}" tabindex="${i?-1:0}"><img src="${B}thumb-${it[0]}.webp" alt=""><span><b>${it[1]}</b><small>${it[2]}</small></span></button>`).join('')}</div><button class="ar" type="button" aria-label="Suivant">›</button></div>
+ <div class="mstage" id="st-${m.id}" role="tabpanel"><span class="bgw" aria-hidden="true">ZAHR</span><img class="pic" alt="" width="1300" height="900"><span class="ta"></span><span class="tb"></span></div><span class="price"></span><p class="ingr"></p><a class="pill ${m.btn}" href="#reserver">${m.cta}</a>`;
+ host.appendChild(s);let cur=0;const pics=s.querySelector('.pic'),st=s.querySelector('.mstage'),tabs=[...s.querySelectorAll('.ip')];
+ function show(i,first){cur=(i+m.items.length)%m.items.length;const it=m.items[cur];tabs.forEach((t,k)=>{t.setAttribute('aria-selected',k===cur);t.tabIndex=k===cur?0:-1});tabs[cur].scrollIntoView({block:'nearest',inline:'center',behavior:first||reduce?'auto':'smooth'});
+  const apply=()=>{pics.src=B+'item-'+it[0]+'.webp';pics.alt=it[1]+' : '+it[5];s.querySelector('.ta').textContent=it[3];s.querySelector('.tb').textContent=it[4];s.querySelector('.ingr').textContent=it[5];s.querySelector('.price').textContent=it[6];pics.classList.remove('out');st.classList.remove('swap')};
+  if(first)return apply();pics.classList.add('out');st.classList.add('swap');setTimeout(apply,280)}
+ tabs.forEach((t,k)=>{t.addEventListener('click',()=>show(k));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){show(cur+1);tabs[cur].focus()}if(e.key==='ArrowLeft'){show(cur-1);tabs[cur].focus()}})});
+ const ars=s.querySelectorAll('.ar');ars[0].addEventListener('click',()=>show(cur-1));ars[1].addEventListener('click',()=>show(cur+1));show(0,true);
+ const a=document.createElement('a');a.href='#'+m.id;a.setAttribute('aria-label',m.t);$('#rail').appendChild(a);});
+/* bords déchirés */
+$$('.sheet').forEach((s,i)=>{const t=document.createElement('div');t.className='torn';const pts=[];const ph=[Math.random()*6,Math.random()*6,Math.random()*6];for(let x=0;x<=100;x+=1.25){const y=50+18*Math.sin(x*.21+ph[0])+12*Math.sin(x*.57+ph[1])+9*Math.sin(x*1.37+ph[2])+(Math.random()*10-5);pts.push(x+'% '+Math.max(0,Math.min(100,y)).toFixed(1)+'%')}t.style.clipPath='polygon(0% 100%,'+pts.join(',')+',100% 100%)';s.prepend(t)});
+/* héro : parallaxe + pointeur */
+const bits=$$('.bit'),burg=$('#burg');let px=0,py=0,sy=0;
+addEventListener('pointermove',e=>{px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5},{passive:true});
+function hero(){sy=scrollY;const k=Math.min(1,sy/innerHeight);bits.forEach((b,i)=>{const d=+b.dataset.d,dir=(parseFloat(b.style.getPropertyValue('--x'))<40?-1:1);b.style.transform=`translate(${(dir*k*160*d)-px*30*d}px,${(-k*90*d)-py*24*d}px) rotate(${k*120*d*dir}deg)`});burg.style.transform=`translate(${px*18}px,${py*12}px) rotate(${px*6}deg)`}
+/* pièce qui roule */
+const coin=$('#coin'),intro=$('#intro');
+function coinMove(){const r=intro.getBoundingClientRect();const p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight+r.height)));const lane=coin.parentElement.clientWidth-coin.offsetWidth;coin.style.transform=`translateX(${p*lane}px) rotateY(${p*720}deg) rotateZ(${Math.sin(p*20)*4}deg)`}
+new IntersectionObserver(e=>{if(e[0].isIntersecting)intro.classList.add('on')},{threshold:.3}).observe(intro);
+/* mots */
+const rows=$$('.words .row');let auto=0;
+/* rail */
+const rail=$('#rail'),secs=MENU.map(m=>document.getElementById(m.id)),dots=$$('#rail a');
+function railUp(){let on=-1;secs.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5)on=i});rail.classList.toggle('on',on>=0);rail.classList.toggle('dark',on===3);dots.forEach((d,i)=>d.classList.toggle('on',i===on))}
+function loop(){auto+=reduce?0:.35;rows.forEach(r=>{const d=+r.dataset.dir;const rr=r.parentElement.getBoundingClientRect();const p=(innerHeight-rr.top);r.style.transform=`translateX(${d>0?-(p*.45+auto)%(r.scrollWidth/2):-(r.scrollWidth/2)+((p*.45+auto)%(r.scrollWidth/2))}px)`});hero();coinMove();railUp();requestAnimationFrame(loop)}
+if(!reduce)requestAnimationFrame(loop);else{railUp();addEventListener('scroll',railUp)}
+/* éventail */
+const FAN=[['Ce soir, on smashe.','var(--y)','var(--k)','classic'],['Des frites à partager.','var(--r)','#fff','fries'],['Coucher de soleil, burger, trèfle.','var(--g)','#fff','bacon'],['tranquille.','var(--k)','var(--y)','shake'],['Jamais pressés.','var(--c)','var(--k)','rings'],['Cuit à la minute.','var(--y)','var(--k)','chicken'],['Un peu de chance.','var(--r)','#fff','brownie']];
+const fan=$('#fan');const fcs=FAN.map((f,i)=>{const d=document.createElement('div');d.className='fc';d.style.background=f[1];d.style.color=f[2];d.style.border=f[1]==='var(--k)'?'1px solid #3a332d':'0';d.innerHTML=`<b>${f[0]}</b><img src="${B}item-${f[3]}.webp" alt="" loading="lazy"><small>@zahr.smash</small>`;fan.appendChild(d);return d});
+let spread=.08;function fanDraw(){fcs.forEach((c,i)=>{const o=i-3;c.style.transform=`translateX(${o*spread*13}vw) rotate(${o*(4+spread*6)}deg) translateY(${Math.abs(o)*spread*2}vw)`;c.style.zIndex=10-Math.abs(o)})}
+$('.club').addEventListener('pointermove',e=>{spread=Math.min(1,Math.abs(e.clientX/innerWidth-.5)*2.2+.08);fanDraw()});fanDraw();
+if(matchMedia('(hover:none)').matches){spread=.55;fanDraw()}
+/* résa */
+let n=2;const co=$('#co');const tc=$('#tc');function upd(){co.textContent=n;$('#tn').textContent=n+' couvert'+(n>1?'s':'');const nm=$('#bn').value.trim();$('#tw').textContent=nm?'Au nom de '+nm:'Au nom de …';$('#td').textContent=(sd?sd:'choisissez un soir')+(sh?' · '+sh:'')}
+$('#cm').addEventListener('click',()=>{n=Math.max(1,n-1);upd()});$('#cp2').addEventListener('click',()=>{n=Math.min(12,n+1);upd()});$('#bn').addEventListener('input',upd);
+const JN=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];let sd=null,sh=null;let added=0;
+for(let k=0;added<5&&k<10;k++){const d=new Date();d.setDate(d.getDate()+k);if(d.getDay()===1)continue;added++;const b=document.createElement('button');b.type='button';b.className='ch';b.setAttribute('aria-pressed','false');const lab=k===0?'Ce soir':k===1?'Demain':JN[d.getDay()]+' '+d.getDate();b.textContent=lab;b.addEventListener('click',()=>{sd=lab.toLowerCase();$$('#bd .ch').forEach(x=>x.setAttribute('aria-pressed',x===b));upd()});$('#bd').appendChild(b)}
+['19:00','19:30','20:00','20:30','21:00','21:30'].forEach(h=>{const b=document.createElement('button');b.type='button';b.className='ch';b.setAttribute('aria-pressed','false');b.textContent=h.replace(':',' h ');b.addEventListener('click',()=>{sh=b.textContent;$$('#bh .ch').forEach(x=>x.setAttribute('aria-pressed',x===b));upd()});$('#bh').appendChild(b)});
+$('#bkf').addEventListener('submit',e=>{e.preventDefault();const m=$('#bm');if(!sd||!sh){m.textContent='Choisissez un soir et une heure.';return}if(!$('#bn').value.trim()||$('#bp').value.replace(/\D/g,'').length<9){m.textContent='Il nous faut votre prénom et un numéro valide.';return}if(!$('#bc').checked){m.textContent='Cochez la case pour accepter l’utilisation de vos coordonnées.';return}tc.classList.add('go');m.textContent='C’est noté ! Sur le vrai site, le restaurant reçoit votre demande sur WhatsApp. (Démo : rien n’a été envoyé.)'});
+/* newsletter */
+$('#nlf').addEventListener('submit',e=>{e.preventDefault();const v=$('#ne').value.trim(),m=$('#nm');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){m.textContent='Cette adresse e-mail ne semble pas valide.';return}if(!$('#nc').checked){m.textContent='Cochez la case pour accepter la lettre.';return}m.textContent='Vous êtes dans le club. Restez tranquille. (Démo : rien n’a été envoyé.)'});
+/* géant ajusté */
+function fitGiant(){const g=$('#giant');g.style.fontSize='100px';const w=g.scrollWidth;g.style.fontSize=(100*(g.parentElement.clientWidth-8)/w)+'px'}document.fonts.ready.then(fitGiant);addEventListener('resize',fitGiant);fitGiant();
+</script>
+<script>
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+</script>
+</body>
+</html>

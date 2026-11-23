@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ZAHR Glacier — Glaces, sorbets et smoothies glacés</title>
+<meta name="description" content="ZAHR Glacier, glacier artisanal fictif à Toulon : smoothies glacés, cornets à composer, bacs à emporter. Démo réalisée par ZAHR.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%2326332C' fill-rule='evenodd' d='M80%2022H176A58%2058%200%200%201%20234%2080V176A58%2058%200%200%201%20176%20234H80A58%2058%200%200%201%2022%20176V80A58%2058%200%200%201%2080%2022Z%20M128.0%20120.0L103.73%2082.87A29%2029%200%201%201%20152.27%2082.87Z%20M136.0%20128.0L173.13%20103.73A29%2029%200%201%201%20173.13%20152.27Z%20M128.0%20136.0L152.27%20173.13A29%2029%200%201%201%20103.73%20173.13Z%20M120.0%20128.0L82.87%20152.27A29%2029%200%201%201%2082.87%20103.73Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@800&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+
+<style>
+:root{--s:#4E6B5B;--k:#26332C;--c:#F3F4EF;--b:#A9C2B0;--u:1px;--n:1px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--c);overflow-x:clip}
+body{font-family:"Poppins",system-ui,sans-serif;color:var(--k);background:var(--c);overflow-x:clip;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--k);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 24px;border-radius:999px;background:var(--k);color:var(--c);font-weight:600;transition:transform .3s}.btn:hover{transform:translateY(-2px)}
+/* ---------- héros slider ---------- */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;touch-action:pan-y;user-select:none;background:#C2B0DC}
+.sl{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.sl.on{visibility:visible;z-index:2}.sl.nx{visibility:visible;z-index:1}
+.fr{position:absolute;width:calc(1440*var(--u));height:calc(900*var(--u));left:calc(50% - 720*var(--u));top:calc(50% - 450*var(--u) + var(--fy,0px))}
+.ly{position:absolute;inset:0;will-change:transform}
+.wd{position:absolute;left:0;right:0;text-align:center;font-weight:700;line-height:1;white-space:nowrap;color:#fff}
+.sw{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(60,40,80,.22),transparent);filter:blur(calc(4*var(--u)))}
+.pc{position:absolute}.pc i{display:block;width:100%;height:100%;background-repeat:no-repeat;transform:rotate(var(--r));animation:bob var(--d) ease-in-out var(--dl) infinite alternate}
+.cn .pc{filter:blur(calc(9*var(--u)))}
+@keyframes bob{from{transform:translateY(calc(-7*var(--u))) rotate(calc(var(--r) - 3deg))}to{transform:translateY(calc(7*var(--u))) rotate(calc(var(--r) + 3deg))}}
+.ui{position:absolute;inset:0;z-index:10;pointer-events:none;color:var(--k)}
+.ui a,.ui button{pointer-events:auto}
+.hd{position:absolute;left:calc(50*var(--n));right:calc(50*var(--n));top:calc(26*var(--n));height:calc(50*var(--n));display:flex;align-items:center}
+.lgo{display:flex;align-items:center;gap:calc(10*var(--n));font-family:"Baloo 2",sans-serif;font-weight:800;font-size:calc(40*var(--n));letter-spacing:-.02em;line-height:1}.lgo svg{width:calc(36*var(--n))}
+.tabs{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:calc(70*var(--n));font-weight:500;font-size:calc(20*var(--n))}
+.tabs button{padding:calc(6*var(--n)) 0}
+.ul{position:absolute;left:0;bottom:calc(-2*var(--n));height:2px;border-radius:2px;background:var(--k);transition:transform .6s cubic-bezier(.65,0,.35,1),width .6s cubic-bezier(.65,0,.35,1)}
+.acc{margin-left:auto;display:flex;gap:calc(22*var(--n));font-weight:500;font-size:calc(20*var(--n))}
+.shop{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(36*var(--n));font-weight:600;font-size:calc(19*var(--n));letter-spacing:.2em;padding:calc(10*var(--n)) calc(16*var(--n));white-space:nowrap}
+.ar{position:absolute;bottom:calc(30*var(--n));width:calc(52*var(--n));height:calc(52*var(--n));display:grid;place-items:center}.ar svg{width:calc(28*var(--n));height:calc(28*var(--n))}
+.ar.p{left:calc(36*var(--n))}.ar.n{right:calc(36*var(--n))}
+.rise{opacity:0;translate:0 14px}.rise.in{opacity:1;translate:0 0;transition:opacity 1s cubic-bezier(.22,.8,.3,1),translate 1s cubic-bezier(.22,.8,.3,1)}
+.hint{position:absolute;left:0;right:0;bottom:calc(98*var(--n));text-align:center;font-size:calc(15*var(--n));opacity:.75}
+/* ---------- sections ---------- */
+.sec{padding:clamp(90px,10vw,140px) clamp(18px,4vw,60px)}
+.ey{font-weight:600;color:var(--s)}
+.h2{font-weight:700;font-size:clamp(38px,5vw,76px);letter-spacing:-.045em;line-height:1}
+/* composeur 3D */
+.cmp{display:grid;grid-template-columns:1.1fr .9fr;gap:4vw;align-items:center;margin-top:40px}
+.stage{position:relative;aspect-ratio:1;max-height:76vh;width:100%;border-radius:32px;background:radial-gradient(120% 90% at 50% 20%,#fff,#e3ebe5);overflow:hidden;touch-action:pan-y}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+.stage .tip{position:absolute;left:16px;bottom:14px;font-size:13px;opacity:.6}
+.fb2{position:absolute;inset:0;display:flex;flex-direction:column-reverse;align-items:center;justify-content:center;padding-bottom:6%}
+.stage.on3d .fb2{display:none}
+.fb2 .co{width:0;height:0;border-left:70px solid transparent;border-right:70px solid transparent;border-top:180px solid #d9a46a}
+.fb2 .bo{width:150px;height:120px;border-radius:50%;margin-bottom:-50px;box-shadow:inset -12px -14px 0 rgba(0,0,0,.08)}
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
+.pick button{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:999px;background:#fff;font-size:14px;font-weight:500;transition:transform .2s}
+.pick button:hover{transform:translateY(-2px)}.pick i{width:22px;height:22px;border-radius:50%;box-shadow:inset -3px -3px 0 rgba(0,0,0,.1)}
+.seg{display:inline-flex;background:#fff;border-radius:999px;padding:4px}.seg button{padding:9px 18px;border-radius:999px;font-weight:500}.seg button[aria-pressed=true]{background:var(--k);color:var(--c)}
+.tops{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.tops button{padding:9px 14px;border-radius:999px;border:1.5px solid rgba(38,51,44,.25);font-size:14px;font-weight:500}.tops button[aria-pressed=true]{background:var(--s);border-color:var(--s);color:#fff}
+.tot{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-top:24px;padding-top:18px;border-top:2px solid var(--k)}
+.tot b{font-size:48px;letter-spacing:-.04em;line-height:1}
+.sc{font-size:14px;opacity:.75;margin-top:8px;min-height:21px}
+/* vitrine */
+.vit{background:var(--k);color:var(--c)}
+.ring{position:relative;height:440px;margin-top:30px;perspective:1300px;overflow:clip;cursor:grab;touch-action:pan-y}
+.rot{position:absolute;left:50%;top:46%;transform-style:preserve-3d}
+.tub{position:absolute;left:-80px;top:-60px;width:160px;height:120px;transform-style:preserve-3d;text-align:center}
+.tub .fr2{position:absolute;inset:0;border-radius:6px 6px 14px 14px;background:linear-gradient(180deg,#e9eeeb,#b9c4bf);box-shadow:inset 0 -10px 20px rgba(0,0,0,.12);display:flex;align-items:end;justify-content:center;padding:0 8px 12px;font-size:12.5px;font-weight:600;color:var(--k);line-height:1.2}
+.tub .tp{position:absolute;left:0;top:0;width:160px;height:120px;transform-origin:top;transform:rotateX(90deg);border-radius:6px}
+.tub .mo{position:absolute;left:8px;right:8px;top:-38px;height:70px;border-radius:50% 50% 10px 10px/70% 70% 10px 10px;box-shadow:inset -14px -10px 0 rgba(0,0,0,.08),inset 10px 8px 0 rgba(255,255,255,.18)}
+.tub[aria-pressed=true] .fr2{background:linear-gradient(180deg,#fff,#cfe0d5);outline:3px solid var(--b)}
+.det{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:10px;align-items:start}
+.alg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.alg span{padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;background:rgba(243,244,239,.12)}
+.alg span.on{background:#f3c9ad;color:var(--k)}
+/* fonte */
+.melt{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center;margin-top:30px}
+.mc{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:auto;border-radius:50%;background:radial-gradient(circle,#fff6e6,#f3e6da 70%)}
+.mc canvas{position:absolute;inset:0;width:100%;height:100%}
+.th{font-size:clamp(70px,9vw,130px);font-weight:700;letter-spacing:-.06em;line-height:1}
+/* chance */
+.luck{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.cl3{position:relative;aspect-ratio:1;max-width:500px;width:100%;margin:auto}.cl3 .fb{position:absolute;inset:20%}.cl3.on3d .fb{display:none}
+.loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.hrs{list-style:none;margin-top:20px;border-top:2px solid var(--k)}.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(38,51,44,.15)}
+.faq{max-width:880px;margin:90px auto 0}
+.q{border-bottom:1px solid rgba(38,51,44,.2)}
+.q button{width:100%;text-align:left;padding:20px 40px 20px 0;font-size:18px;font-weight:600;position:relative}
+.q button::after{content:"+";position:absolute;right:4px;top:16px;font-size:24px;transition:transform .3s}.q button[aria-expanded=true]::after{transform:rotate(45deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q button[aria-expanded=true]+div{grid-template-rows:1fr}
+.q div p{overflow:hidden;opacity:.8}.q button[aria-expanded=true]+div p{padding-bottom:18px}
+.giant{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:min(22vw,300px);letter-spacing:-.04em;line-height:.85;text-align:center;margin:80px 0 10px;color:var(--b)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;padding:22px clamp(18px,4vw,60px) 40px;border-top:1px solid rgba(38,51,44,.15)}
+footer .lgo{font-size:24px}footer .lgo svg{width:24px}
+.rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+[data-tilt]{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* ---- ZAHR : légal + cookies + plan ---- */
+.zl-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;opacity:.8}
+.zl-foot button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.zl-foot button:focus-visible,.zl-ck button:focus-visible,.zl-dlg button:focus-visible,.zl-map button:focus-visible{outline:2px solid #4E6B5B;outline-offset:3px}
+.zl-demo{font-size:11.5px;opacity:.7}
+.zl-dlg{border:0;border-radius:22px;padding:0;max-width:min(680px,92vw);max-height:84vh;background:#F3F4EF;color:#26332C;font-family:"Poppins",system-ui,sans-serif;box-shadow:0 40px 120px -30px rgba(0,0,0,.6)}
+.zl-dlg::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.zl-dlg .in{padding:30px clamp(20px,4vw,40px) 26px;overflow:auto;max-height:84vh;box-sizing:border-box}
+.zl-dlg h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
+.zl-dlg h3{font-size:15px;margin:18px 0 6px}
+.zl-dlg p,.zl-dlg li{font-size:14px;line-height:1.6;margin:0 0 8px}
+.zl-dlg .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zl-ck{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(560px,calc(100vw - 24px));background:#F3F4EF;color:#26332C;border-radius:18px;padding:16px 18px;box-shadow:0 24px 70px -20px rgba(0,0,0,.6);font-family:"Poppins",system-ui,sans-serif;font-size:13.5px;line-height:1.5;display:grid;gap:12px}
+.zl-ck[hidden]{display:none}
+.zl-ck .b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zl-ck .b button{all:unset;text-align:center;cursor:pointer;padding:11px 10px;border-radius:999px;font-weight:700;font-size:13.5px;border:2px solid #26332C}
+.zl-ck .b button.y{background:#26332C;color:#F3F4EF}
+.zl-ck .lk{all:unset;cursor:pointer;text-decoration:underline}
+.zl-map{position:relative;border-radius:28px;overflow:hidden;min-height:380px;isolation:isolate;background:#14161a}
+.zl-map .bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 80px,rgba(255,255,255,.05) 80px 83px),
+  radial-gradient(60% 70% at 30% 70%,#4E6B5B55,transparent 70%),#15171b}
+.zl-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.zl-map.on::before{content:"";position:absolute;inset:0;background:#4E6B5B;mix-blend-mode:color;z-index:1;pointer-events:none;opacity:.85}
+.zl-map::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px 30px rgba(0,0,0,.65);z-index:2;pointer-events:none}
+.zl-pin{position:absolute;left:50%;top:46%;z-index:3;transform:translate(-50%,-100%);width:64px;height:64px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#4E6B5B;display:grid;place-items:center;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);animation:zlp 2.6s ease-in-out infinite}
+.zl-pin svg{width:34px;rotate:45deg}
+.zl-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid #4E6B5B;animation:zlr 2.6s ease-out infinite}
+@keyframes zlp{50%{translate:0 -8px}}
+@keyframes zlr{from{opacity:.9;scale:.6}to{opacity:0;scale:1.6}}
+.zl-card{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(20,20,24,.55);backdrop-filter:blur(14px) saturate(1.3);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;max-width:300px;font-family:"Poppins",system-ui,sans-serif;font-size:13.5px;display:grid;gap:8px}
+.zl-card b{font-size:15px}
+.zl-card .r{display:flex;gap:8px;flex-wrap:wrap}
+.zl-card button,.zl-card a{all:unset;cursor:pointer;background:#fff;color:#111;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px}
+.zl-card a.g{background:#4E6B5B;color:#fff}
+@media (prefers-reduced-motion:reduce){.zl-pin,.zl-pin::after{animation:none}}
+
+
+.zb{border:0;border-radius:26px;padding:0;width:min(560px,94vw);max-height:92vh;background:#F3F4EF;color:#26332C;font-family:"Poppins",system-ui,sans-serif;box-shadow:0 50px 140px -40px rgba(0,0,0,.7)}
+.zb::backdrop{background:rgba(20,28,24,.6);backdrop-filter:blur(8px)}
+.zb form{padding:28px clamp(18px,4vw,34px) 26px;display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
+.zb h2{margin:0 40px 2px 0;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.zb .zx{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:#26332C;color:#F3F4EF;font-size:20px;cursor:pointer}
+.zb .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.zb select,.zb input[type=text],.zb input[type=tel],.zb input[type=email],.zb textarea{width:100%;box-sizing:border-box;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:#26332C}
+.zb textarea{min-height:84px;resize:vertical}
+.zb .ch{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.zb .ch button{flex:none;border:1.5px solid color-mix(in srgb,#26332C 22%,transparent);background:#fff;color:#26332C;border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;cursor:pointer;line-height:1.15;text-align:center}
+.zb .ch button[aria-pressed=true]{background:#26332C;color:#F3F4EF;border-color:#26332C}
+.zb .ch button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.zb .cons{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.zb .cons input{width:20px;height:20px;flex:none;accent-color:#4E6B5B;margin-top:1px}
+.zb .tk{display:flex;align-items:center;gap:14px;background:#26332C;color:#F3F4EF;border-radius:18px;padding:14px 16px}
+.zb .tk svg{width:34px;flex:none}
+.zb .tk b{display:block;font-size:15px}.zb .tk span{font-size:12.5px;opacity:.75}
+.zb .go{border:0;border-radius:999px;background:#4E6B5B;color:#fff;font:inherit;font-weight:700;padding:15px;cursor:pointer;font-size:15px}
+.zb .msg{margin:0;font-weight:600;min-height:20px;font-size:14px}
+.zb .sm{font-size:12px;opacity:.65;margin:0}
+
+@media (max-width:820px),(orientation:portrait){
+ .hd{left:20px;right:20px;top:16px;height:40px}.lgo{font-size:28px}.lgo svg{width:26px}
+ .acc{font-size:15px;gap:10px}.tabs{top:52px;left:50%;gap:22px;font-size:15px;position:absolute}
+ .shop{font-size:14px;bottom:22px}.ar{width:48px;height:48px;bottom:12px}.ar svg{width:24px;height:24px}.ar.p{left:8px}.ar.n{right:8px}.hint{bottom:78px;font-size:13px}}
+@media (max-width:820px){.cmp,.det,.melt,.luck,.loc{grid-template-columns:1fr}.ring{height:330px}}
+@media (prefers-reduced-motion:reduce){.pc i{animation:none}}
+</style>
+</head>
+<body>
+<main id="top">
+<section class="hero" id="hero" aria-roledescription="carrousel" aria-label="Nos smoothies glacés">
+ <h1 class="sr">ZAHR Glacier : glaces, sorbets et smoothies glacés à Toulon</h1>
+ <div id="slides"></div>
+ <div class="ui">
+  <div class="hd"><a class="lgo rise" href="#top" aria-label="ZAHR Glacier, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#26332C" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR</a>
+   <div class="tabs rise" id="tabs" role="group" aria-label="Choisir un smoothie glacé"><span class="ul" id="ul"></span></div>
+   <div class="acc rise"><a href="#composer">Composer</a><span aria-hidden="true" style="opacity:.6">|</span><button type="button" data-book="0">Commander</button></div></div>
+  <p class="hint rise" id="hint" aria-live="polite">Smoothie glacé Myrtille · 4,50 € · 100 % fruits mixés à la glace</p>
+  <button class="ar p rise" type="button" id="prv" aria-label="Parfum précédent"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 14H4M12 6l-8 8 8 8"/></svg></button>
+  <a class="shop rise" href="#composer">COMPOSER MA GLACE</a>
+  <button class="ar n rise" type="button" id="nxt" aria-label="Parfum suivant"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h20M16 6l8 8-8 8"/></svg></button>
+ </div>
+</section>
+
+<section class="sec" id="composer" aria-labelledby="h-c">
+ <p class="ey rv">Le composeur</p><h2 class="h2 rv" id="h-c" style="margin-top:8px">Montez votre glace,<br>boule par boule.</h2>
+ <div class="cmp">
+  <div class="stage rv" id="cone3"><div class="fb2" id="fb2" aria-hidden="true"><div class="co" id="fbco"></div></div><span class="tip">Glissez pour tourner la glace</span></div>
+  <div>
+   <div class="seg" id="kind" role="group" aria-label="Contenant"><button type="button" aria-pressed="true">Cornet</button><button type="button" aria-pressed="false">Pot</button></div>
+   <p style="margin-top:18px;font-weight:600">Ajoutez jusqu’à 3 boules</p>
+   <div class="pick" id="pick" role="group" aria-label="Parfums"></div>
+   <p style="font-weight:600">Garnitures (+0,60 € chacune)</p>
+   <div class="tops" id="tops" role="group" aria-label="Garnitures"><button type="button" aria-pressed="false" data-t="coulis">Coulis framboise</button><button type="button" aria-pressed="false" data-t="pist">Éclats de pistache</button><button type="button" aria-pressed="true" data-t="clover">Trèfle en biscuit (offert)</button></div>
+   <p class="sc" id="sc" aria-live="polite"></p>
+   <div class="tot"><div><span style="opacity:.7">Total</span><br><b id="tot">0,00 €</b></div><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:end"><button class="btn" type="button" id="undo" style="background:#fff;color:var(--k)">Retirer</button><button class="btn" type="button" id="order">Commander</button></div></div>
+   <p style="font-size:13px;opacity:.65;margin-top:10px">Prix TTC affichés, pas de supplément au comptoir. Cornets : contiennent du gluten. Pots : sans gluten.</p>
+  </div></div>
+</section>
+
+<section class="sec vit" id="vitrine" aria-labelledby="h-v">
+ <p class="ey rv" style="color:var(--b)">La vitrine</p><h2 class="h2 rv" id="h-v" style="margin-top:8px">Dix bacs, faits ici<br>chaque matin.</h2>
+ <div class="ring" id="ring"><div class="rot" id="rot"></div></div>
+ <div class="det" aria-live="polite"><div><h3 id="dn" style="font-size:32px;letter-spacing:-.03em"></h3><p id="dt" style="opacity:.7"></p></div><div><p id="di" style="opacity:.85"></p><div class="alg" id="da"></div></div></div>
+ <p style="margin-top:20px;font-size:13px;opacity:.6">Faites tourner la vitrine en glissant, cliquez un bac pour voir ses ingrédients et les 14 allergènes réglementaires. Fabriqué dans un atelier qui utilise des fruits à coque.</p>
+</section>
+
+<section class="sec" id="fonte" aria-labelledby="h-m">
+ <p class="ey rv">Le test de la fonte</p><h2 class="h2 rv" id="h-m" style="margin-top:8px">Cornet ou pot ?<br>Demandez au soleil.</h2>
+ <div class="melt"><div class="mc" aria-hidden="true"><canvas id="mcv"></canvas></div>
+  <div><div class="th" id="tv">24 °C</div><label for="temp" style="font-weight:600;display:block;margin-top:10px">Il fait combien dehors ?</label><input type="range" id="temp" min="10" max="40" value="24" style="width:100%;accent-color:var(--s);margin-top:10px">
+  <p id="tadv" style="margin-top:14px;font-size:18px;font-weight:500"></p><p style="margin-top:8px;font-size:13px;opacity:.6">Simple repère pour s’amuser, pas une mesure scientifique.</p></div></div>
+</section>
+
+<section class="sec luck" id="chance" aria-labelledby="h-l" style="padding-top:20px">
+ <div class="cl3 rv" id="cl3"><div class="fb"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#4E6B5B" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div></div>
+ <div><p class="ey rv">Un peu de chance</p><h2 class="h2 rv" id="h-l" style="margin-top:8px">Un trèfle<br>sur chaque cornet.</h2>
+ <p class="rv" style="opacity:.8;margin-top:14px;max-width:44ch">Zahr veut dire « fleur » et « chance ». Chaque cornet reçoit son petit trèfle en biscuit, offert, piqué dans la boule du haut. Passez la souris sur le trèfle de verre.</p></div>
+</section>
+
+<section class="sec" id="infos" aria-labelledby="h-i">
+ <div class="loc"><div><p class="ey rv">Le comptoir</p><h2 class="h2 rv" id="h-i" style="margin-top:8px">Sur le port,<br>à Toulon.</h2>
+  <p style="margin-top:14px;opacity:.8">Quai fictif, 83000 Toulon. Téléphone : 04 00 00 00 00 (numéro d’exemple).</p>
+  <ul class="hrs"><li><span>Mardi – dimanche</span><span>14 h – 22 h</span></li><li><span>Juillet – août</span><span>12 h – minuit</span></li><li><span>Lundi</span><span>Fermé</span></li></ul></div>
+  <div class="zl-map" data-q="Port+de+Toulon"><div class="bg" aria-hidden="true"></div>
+<div class="zl-pin" aria-hidden="true"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg></div>
+<div class="zl-card"><b>ZAHR Glacier</b><span>Sur le port de Toulon · adresse fictive</span><div class="r"><button type="button" data-showmap>Afficher le plan</button><a class="g" href="https://www.google.com/maps/search/?api=1&query=Port+de+Toulon" target="_blank" rel="noopener">Itinéraire</a></div></div></div></div>
+ <div class="faq"><h2 class="h2" style="font-size:40px;text-align:center;margin-bottom:20px">Questions</h2><div id="faq"></div></div>
+ <div class="giant" aria-hidden="true">zahr</div>
+</section>
+</main>
+<footer><a class="lgo" href="#top" aria-label="ZAHR Glacier, haut de page"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#26332C" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR Glacier</a><div><nav class="zl-foot" aria-label="Informations légales"><button type="button" data-open="zl-ment">Mentions légales</button><button type="button" data-open="zl-conf">Confidentialité</button><button type="button" data-open="zl-cgv">CGV</button><button type="button" data-open="zl-remb">Remboursement</button><button type="button" data-open="zl-cook">Cookies</button></nav><p class="zl-demo">Marque fictive · Démo réalisée par ZAHR</p></div></footer>
+
+<div class="zl-ck" id="zlck" role="region" aria-label="Cookies" hidden>
+  <div><b>Un petit choix.</b> Le plan Google Maps dépose des cookies. On ne l’affiche que si vous êtes d’accord. <button class="lk" type="button" data-open="zl-cook">En savoir plus</button></div>
+  <div class="b"><button type="button" data-ck="0">Refuser</button><button type="button" class="y" data-ck="1">Accepter</button></div>
+</div>
+<dialog class="zl-dlg" id="zl-ment" aria-labelledby="zl-ment-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-ment-t">Mentions légales</h2><p><b>ZAHR Glacier</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><h3>Éditeur</h3><p>ZAHR, entreprise individuelle de Redha HADJAZI, Puget-Ville (Var). SIRET en cours d’attribution. Contact : contact.zahrdigital@gmail.com</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Textes, logo ZAHR et mise en page : Redha HADJAZI. Images de démonstration fournies avec la bibliothèque de modèles utilisée pour concevoir la page. Polices sous licence libre (SIL Open Font License).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-conf" aria-labelledby="zl-conf-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-conf-t">Politique de confidentialité</h2><p><b>ZAHR Glacier</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Cette page de démonstration ne crée aucun compte et n’enregistre aucune donnée sur un serveur. Les formulaires restent dans votre navigateur : rien n’est envoyé.</p><h3>Services tiers</h3><ul><li>Google Fonts (polices) et un service d’images en ligne : votre adresse IP leur est transmise pour afficher la page.</li><li>Google Maps : chargé seulement si vous l’acceptez.</li></ul><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : écrivez à contact.zahrdigital@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cgv" aria-labelledby="zl-cgv-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cgv-t">Conditions générales de vente</h2><p><b>ZAHR Glacier</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site, cette page présente les conditions de vente : prix TTC, moyens de paiement, livraison, garanties légales de conformité et contre les vices cachés, médiation de la consommation.</p><p>Ici, la marque est fictive : aucune vente n’est conclue.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-remb" aria-labelledby="zl-remb-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-remb-t">Politique de remboursement</h2><p><b>ZAHR Glacier</b> est une marque fictive créée par <b>ZAHR</b> pour montrer un exemple de site. Aucun produit n’est réellement vendu sur cette page et aucune commande n’est enregistrée.</p><p>Sur un vrai site : droit de rétractation de 14 jours à compter de la réception (articles L221-18 et suivants du Code de la consommation), remboursement sous 14 jours par le même moyen de paiement, frais de retour indiqués avant l’achat.</p><p>Ici, la marque est fictive : rien n’est encaissé, donc rien à rembourser.</p></div></dialog>
+<dialog class="zl-dlg" id="zl-cook" aria-labelledby="zl-cook-t"><div class="in"><button class="x" type="button" data-close aria-label="Fermer">×</button><h2 id="zl-cook-t">Politique cookies</h2><p>Aucun cookie publicitaire ni de mesure d’audience. Un seul choix est mémorisé dans votre navigateur : votre accord ou votre refus pour Google Maps.</p><p><button class="zl-reset" type="button">Changer mon choix</button></p></div></dialog>
+
+<dialog class="zb" id="zb" aria-labelledby="zb-t"><form id="zbf" novalidate>
+<button class="zx" type="button" id="zbx" aria-label="Fermer">×</button>
+<h2 id="zb-t">Commander à emporter</h2>
+<label class="lb" for="zb-s">Commande</label><select id="zb-s"></select>
+<span class="lb">Jour</span><div class="ch" id="zb-d" role="group" aria-label="Jour"></div><span class="lb">Heure</span><div class="ch" id="zb-h" role="group" aria-label="Heure"></div><label class="lb" for="zb-cmp">Détail de la commande (parfums, garnitures)</label><input type="text" id="zb-cmp" autocomplete="off">
+<input type="text" id="zb-n" placeholder="Votre prénom" aria-label="Votre prénom" autocomplete="given-name">
+<input type="tel" id="zb-p" placeholder="Votre téléphone" aria-label="Votre téléphone" autocomplete="tel">
+<label class="cons"><input type="checkbox" id="zb-c"><span>J’accepte que ZAHR Glacier utilise ces informations uniquement pour préparer cette commande.</span></label>
+<div class="tk" aria-live="polite"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#F3F4EF" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg><div><b id="zb-k1"></b><span id="zb-k2"></span></div></div>
+<button class="go" type="submit">Commander</button>
+<p class="msg" id="zb-m" role="status" aria-live="polite"></p>
+<p class="sm">Démo : rien n’est envoyé ni enregistré. Vos données ne servent qu’à cette demande et sont effacées après le rendez-vous.</p>
+</form></dialog>
+<script>
+
+(()=>{const K='zahr-maps';const get=()=>{try{return localStorage.getItem(K)}catch(e){return null}};const set=v=>{try{localStorage.setItem(K,v)}catch(e){}};
+const ck=document.getElementById('zlck');if(get()===null)ck.hidden=false;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){const d=document.getElementById(o.dataset.open);d&&d.showModal();}
+const c=e.target.closest('[data-close]');if(c)c.closest('dialog').close();
+const k=e.target.closest('[data-ck]');if(k){set(k.dataset.ck);ck.hidden=true;if(k.dataset.ck==='1')document.querySelectorAll('.zl-map').forEach(loadMap);}
+if(e.target.closest('.zl-reset')){try{localStorage.removeItem(K)}catch(e){};ck.hidden=false;e.target.closest('dialog').close();}
+const m=e.target.closest('[data-showmap]');if(m){set('1');ck.hidden=true;document.querySelectorAll('.zl-map').forEach(loadMap);}});
+document.querySelectorAll('.zl-dlg').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+function loadMap(m){if(m.classList.contains('on'))return;const f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(m.dataset.q)+'&z=14&output=embed';m.prepend(f);m.classList.add('on');const b=m.querySelector('[data-showmap]');b&&b.remove();}
+if(get()==='1')document.querySelectorAll('.zl-map').forEach(loadMap);})();
+
+
+(()=>{const C={"title": "Commander à emporter", "itemLabel": "Commande", "closed": [1], "items": [["Cornet ou pot composé", "prix affiché dans le composeur"], ["Bac 500 ml", "9,50 €"], ["Bac 1 litre", "16 €"], ["Gâteau glacé 6 parts", "28 € · commande 48 h avant"]], "hours": ["14 h", "15 h", "16 h", "17 h", "18 h", "19 h", "20 h"], "extra": [["cmp", "Détail de la commande (parfums, garnitures)", "text", false]], "consent": "J’accepte que ZAHR Glacier utilise ces informations uniquement pour préparer cette commande.", "ok": "Commande notée ! Sur le vrai site, vous recevez un SMS quand elle est prête. Paiement au comptoir. (Démo : rien n’est envoyé.)", "cta": "Commander"};const $=s=>document.querySelector(s);const dlg=$('#zb');let sd=null,sh=null;
+const S=$('#zb-s');S.innerHTML=C.items.map((it,i)=>`<option value="${i}">${it[0]}${it[1]?' — '+it[1]:''}</option>`).join('');
+const J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function tk(){const it=C.items[S.value];$('#zb-k1').textContent=it[0]+(it[1]?' · '+it[1]:'');$('#zb-k2').textContent=C.kind==='devis'?'Réponse avec un devis gratuit sous 48 h':(sd&&sh?sd+' à '+sh:'Choisissez un jour et une heure');}
+if(C.kind!=='devis'){const D=$('#zb-d'),H=$('#zb-h');const t=new Date();for(let i=1,n=0;n<10&&i<30;i++){const d=new Date(t);d.setDate(t.getDate()+i);if((C.closed||[]).includes(d.getDay()))continue;n++;const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=J[d.getDay()]+'<br><b>'+d.getDate()+'</b> '+M[d.getMonth()];b.onclick=()=>{D.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');sd=J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];
+H.innerHTML='';C.hours.forEach((h,k)=>{const e=document.createElement('button');e.type='button';e.textContent=h;e.setAttribute('aria-pressed','false');if((d.getDate()*7+k*3)%5===0){e.disabled=true;e.setAttribute('aria-label',h+', complet')}e.onclick=()=>{H.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));e.setAttribute('aria-pressed','true');sh=h;tk()};H.appendChild(e)});sh=null;tk()};D.appendChild(b)}}
+S.onchange=tk;tk();
+window.ZB={open(i){if(i!=null&&C.items[i])S.value=i;tk();$('#zb-m').textContent='';dlg.showModal()}};
+document.addEventListener('click',e=>{const o=e.target.closest('[data-book]');if(o){e.preventDefault();ZB.open(o.dataset.book===''?null:+o.dataset.book)}});
+$('#zbx').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#zbf').addEventListener('submit',e=>{e.preventDefault();const m=$('#zb-m');if(C.kind!=='devis'&&(!sd||!sh)){m.textContent='Choisissez un jour et une heure.';return}
+for(const x of (C.extra||[])){const el=$('#zb-'+x[0]);if(x[3]&&!el.value.trim()){m.textContent='Complétez : '+x[1].toLowerCase()+'.';el.focus();return}}
+if(!$('#zb-n').value.trim()||$('#zb-p').value.replace(/\D/g,'').length<9){m.textContent='Indiquez votre prénom et un numéro valide.';return}
+if(!$('#zb-c').checked){m.textContent='Cochez la case pour accepter.';return}m.textContent=C.ok;});})();
+
+
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});el.addEventListener('pointerleave',()=>{el.style.transform=''})});})();
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---------- héros : slider de smoothies ---------- */
+const FL=[{"n": "Myrtille", "c": "#C2B0DC", "it": [[233, 60, 598, 917], [1209, 272, 569, 573], [265, 1230, 579, 572], [1192, 1192, 626, 641]], "b": [518, 138, 372], "p": [[2, 383, 178, 104, 0, 0, "f"], [3, 960, 232, 118, 0, 0, "f"], [1, 295, 478, 129, -8, 0, "f"], [1, 1247, 455, 123, 15, 0, "f"], [2, 968, 590, 110, 30, 0, "f"], [1, -15, 590, 255, 0, 0, "c"], [3, 1282, 40, 200, 0, 0, "c"]], "s": "https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png"}, {"n": "Kiwi", "c": "#B5CFA0", "it": [[217, 90, 610, 874], [1204, 257, 619, 601], [250, 1197, 619, 522], [1200, 1186, 633, 650]], "b": [504, 135, 403], "p": [[2, 376, 170, 144, -150, 1, "f"], [3, 960, 228, 152, 0, 0, "f"], [1, 303, 460, 168, 0, 0, "f"], [2, 1187, 462, 148, -25, 0, "f"], [2, 946, 606, 150, 10, 1, "f"], [1, -10, 575, 260, 0, 0, "c"], [3, 1285, 30, 200, 0, 0, "c"]], "s": "https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png"}, {"n": "Banane", "c": "#F3DA8A", "it": [[194, 76, 579, 873], [1205, 228, 596, 597], [230, 1181, 624, 648], [1193, 1182, 646, 659]], "b": [512, 135, 383], "p": [[1, 387, 147, 123, 0, 0, "f"], [2, 970, 223, 136, -10, 1, "f"], [3, 298, 483, 132, 15, 0, "f"], [2, 1245, 462, 150, 20, 0, "f"], [3, 950, 582, 130, -12, 0, "f"], [3, 0, 585, 235, 0, 0, "c"], [1, 1280, 30, 190, 0, 0, "c"]], "s": "https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png"}, {"n": "Fraise", "c": "#F2AFC0", "it": [[226, 88, 594, 887], [1190, 216, 561, 653], [257, 1168, 604, 662], [1240, 1169, 632, 686]], "b": [512, 135, 386], "p": [[1, 372, 142, 128, 0, 0, "f"], [2, 955, 225, 117, 20, 0, "f"], [3, 290, 455, 140, -10, 0, "f"], [3, 1250, 432, 135, 15, 0, "f"], [2, 962, 558, 146, -15, 0, "f"], [1, -10, 555, 245, 0, 0, "c"], [1, 1285, 35, 200, 20, 0, "c"]], "s": "https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png"}];const hero=$('#hero'),root=document.documentElement;let U=1,FW=1440,cur=0,busy=false,lastUser=-1e9;
+const L=['wd','sh','bo','f','c'],FAC={wd:.4,sh:.3,bo:.15,f:.55,c:.75};
+const cu=n=>`calc(${n}*var(--u))`;
+function crop(el,f,item,W,rot,mir){const [bx,by,bw,bh]=f.it[item],s=W/bw;el.style.width=cu(W);el.style.height=cu(bh*s);el.style.backgroundImage=`url('${f.s}')`;el.style.backgroundSize=`${cu(2048*s)} ${cu(2048*s)}`;el.style.backgroundPosition=`${cu(-bx*s)} ${cu(-by*s)}`;el.style.backgroundRepeat='no-repeat'}
+FL.forEach((f,i)=>{const s=document.createElement('section');s.className='sl'+(i?'':' on');s.style.background=f.c;s.setAttribute('aria-hidden',i?'true':'false');s.setAttribute('aria-label','Smoothie glacé '+f.n);
+ s.innerHTML=`<div class="fr"><div class="ly wd-l"><div class="wd" aria-hidden="true">${f.n}</div></div><div class="ly sh-l"></div><div class="ly bo-l"></div><div class="ly f-l"></div><div class="ly c-l cn"></div></div>`;
+ [[345,650,170,24],[720,708,320,30],[1318,638,160,22],[1045,760,150,22]].forEach(([x,y,w,h])=>{const e=document.createElement('i');e.className='sw';e.style.cssText=`left:${cu(x-w/2)};top:${cu(y-h/2)};width:${cu(w)};height:${cu(h)}`;s.querySelector('.sh-l').appendChild(e)});
+ const b=document.createElement('div');b.className='pc';b.style.left=cu(f.b[0]);b.style.top=cu(f.b[1]);b.setAttribute('role','img');b.setAttribute('aria-label','Bouteille de smoothie glacé '+f.n);const bi=document.createElement('i');bi.style.animation='none';bi.style.setProperty('--r','0deg');b.appendChild(bi);crop(b,f,0,f.b[2]);crop(bi,f,0,f.b[2]);b.style.backgroundImage='none';s.querySelector('.bo-l').appendChild(b);
+ f.p.forEach(p=>{const o=document.createElement('div');o.className='pc';o.style.left=cu(p[1]);o.style.top=cu(p[2]);if(p[5])o.style.transform='scaleX(-1)';const n=document.createElement('i');n.style.setProperty('--r',p[4]+'deg');n.style.setProperty('--d',(3.2+Math.random()*1.8).toFixed(2)+'s');n.style.setProperty('--dl',(-Math.random()*4).toFixed(2)+'s');crop(n,f,p[0],p[3]);o.style.width=n.style.width;o.style.height=n.style.height;o.appendChild(n);s.querySelector(p[6]==='c'?'.c-l':'.f-l').appendChild(o)});
+ $('#slides').appendChild(s)});
+const SL=$$('.sl');const tabs=$('#tabs');FL.forEach((f,i)=>{const b=document.createElement('button');b.type='button';b.textContent=f.n;b.onclick=()=>{user();go(i,i>cur?1:-1)};tabs.insertBefore(b,$('#ul'))});const TB=$$('#tabs button');
+const PRICE=['4,50','4,50','4,50','4,50'],DESC=['myrtilles et banane mixées à la glace','kiwi, pomme et menthe mixés à la glace','banane, lait d’avoine et vanille mixés à la glace','fraises et citron mixés à la glace'];
+function ulPos(){const t=TB[cur];$('#ul').style.width=t.offsetWidth+'px';$('#ul').style.transform=`translateX(${t.offsetLeft}px)`;TB.forEach((b,i)=>b.setAttribute('aria-current',i===cur));$('#hint').textContent=`Smoothie glacé ${FL[cur].n} · ${PRICE[cur]} € · ${DESC[cur]}`}
+let mob=false;
+function lay(){const W=hero.clientWidth,H=hero.clientHeight;mob=W<=820||H>W;U=mob?Math.min(W/640,(H-200)/620):Math.min(W/1440,H/900);root.style.setProperty('--u',U+'px');hero.style.setProperty('--fy',mob?'8px':'0px');
+ root.style.setProperty('--n',mob?'1px':Math.max(.5,Math.min(1.3,Math.min(W/1440,H/900)))+'px');FW=1440*U;
+ const cv=document.createElement('canvas').getContext('2d');cv.font='700 100px Poppins, Arial, sans-serif';
+ $$('.wd').forEach(w=>{const m=cv.measureText(w.textContent),ink=(m.actualBoundingBoxLeft+m.actualBoundingBoxRight)/100;const vis=mob?Math.min(1440,W/U)*.92:1330;let F=445,ls=.005;if(ink*445>vis){ls=-.035;F=Math.min(445,(mob?vis:1400)/(ink-.035*(w.textContent.length-1)))}const base=403.5+.698*F/2;w.style.fontSize=cu(F);w.style.letterSpacing=ls+'em';w.style.top=cu(base-.85*F)});ulPos()}
+const CT=[[0,0],[.031,.006],[.134,.012],[.206,.023],[.278,.047],[.34,.07],[.412,.105],[.485,.158],[.546,.246],[.583,.55],[.62,.825],[.69,.9],[.79,.94],[.85,.956],[.93,.975],[1,1]];
+function cover(t){for(let i=1;i<CT.length;i++)if(t<=CT[i][0]){const [a,b]=[CT[i-1],CT[i]],k=(t-a[0])/(b[0]-a[0]);return a[1]+(b[1]-a[1])*(3*k*k-2*k*k*k)}return 1}
+const lys=s=>L.map(l=>[l,s.querySelector('.'+l+'-l')]);
+function go(to,dir){if(busy||to===cur)return;const A=SL[cur],B=SL[to];cur=to;ulPos();
+ if(red){A.className='sl';B.className='sl on';A.setAttribute('aria-hidden','true');B.setAttribute('aria-hidden','false');return}
+ busy=true;B.className='sl nx';const la=lys(A),lb=lys(B),t0=performance.now();
+ (function f(n){const t=(n-t0)/970;const c=cover(Math.min(1,t));A.style.clipPath=dir>0?`inset(0 ${c*100}% 0 0)`:`inset(0 0 0 ${c*100}%)`;la.forEach(([l,e])=>e.style.transform=`translateX(${-dir*c*.14*FW}px)`);
+  const k0=Math.min(1,Math.max(0,(t-.5)/.42)),k=1-(1-k0)*(1-k0);lb.forEach(([l,e])=>e.style.transform=`translateX(${dir*(1-k)*FAC[l]*FW}px)`);
+  if(k0<1||t<1)requestAnimationFrame(f);else{A.style.clipPath='';la.concat(lb).forEach(([l,e])=>e.style.transform='');A.className='sl';B.className='sl on';A.setAttribute('aria-hidden','true');B.setAttribute('aria-hidden','false');busy=false}})(t0)}
+const nx=()=>go((cur+1)%4,1),pv=()=>go((cur+3)%4,-1);const user=()=>lastUser=performance.now();
+$('#nxt').onclick=()=>{user();nx()};$('#prv').onclick=()=>{user();pv()};
+hero.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){user();nx()}if(e.key==='ArrowLeft'){user();pv()}});
+let px0=null,py0=0;hero.addEventListener('pointerdown',e=>{px0=e.clientX;py0=e.clientY});addEventListener('pointerup',e=>{if(px0===null)return;const dx=e.clientX-px0,dy=e.clientY-py0;px0=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){user();dx<0?nx():pv()}});
+let hv=true;new IntersectionObserver(e=>hv=e[0].isIntersecting).observe(hero);
+setInterval(()=>{if(hv&&!document.hidden&&performance.now()-lastUser>6000)nx()},2600);
+lay();addEventListener('resize',lay);
+function intro(){lay();const rs=$$('.rise');if(red){rs.forEach(r=>r.classList.add('in'));return}
+ lys(SL[0]).forEach(([l,e])=>e.animate([{transform:`translateX(${FAC[l]*FW}px)`},{transform:'none'}],{duration:900,easing:'cubic-bezier(.22,.8,.3,1)'}));
+ rs.forEach((r,i)=>setTimeout(()=>r.classList.add('in'),250+i*80))}
+document.fonts.ready.then(intro);setTimeout(()=>$$('.rise').forEach(r=>r.classList.add('in')),3000);
+/* ---------- composeur ---------- */
+const PF=[["Vanille de Madagascar", "#f1e2b8", "Crème glacée", "lait entier, crème, sucre, jaunes d’œufs, gousses de vanille", ["Lait", "Œufs"], 0], ["Chocolat noir 70 %", "#5b3a2b", "Crème glacée", "lait, cacao, chocolat noir 70 %, sucre, crème", ["Lait", "Soja"], 0], ["Pistache de Sicile", "#b9c78a", "Crème glacée", "lait, crème, pâte de pistache pure, sucre", ["Lait", "Fruits à coque (pistache)"], 0], ["Fraise de Carpentras", "#e2677d", "Sorbet", "fraises (60 %), eau, sucre, citron", [], 1], ["Citron de Menton", "#f0de78", "Sorbet", "jus et zestes de citron, eau, sucre", [], 1], ["Menthe – basilic ZAHR", "#a9c2b0", "Crème glacée", "lait, crème, menthe fraîche, basilic, sucre", ["Lait"], 0], ["Caramel beurre salé", "#c88a4a", "Crème glacée", "lait, crème, caramel maison, beurre demi-sel, sucre", ["Lait"], 0], ["Mangue – passion", "#f2ae47", "Sorbet", "mangue, fruit de la passion, eau, sucre", [], 1], ["Myrtille sauvage", "#6d5a9e", "Sorbet", "myrtilles, eau, sucre, citron", [], 1], ["Noisette du Piémont", "#b28860", "Crème glacée", "lait, crème, pâte de noisette, sucre", ["Lait", "Fruits à coque (noisette)"], 0]];const ST={kind:0,sc:[],tops:{coulis:0,pist:0,clover:1}};window.CST=ST;
+$('#pick').innerHTML=PF.map((p,i)=>`<button type="button" data-i="${i}"><i style="background:${p[1]}"></i>${p[0]}</button>`).join('');
+const fmt=v=>v.toFixed(2).replace('.',',')+' €';
+function upd(){const n=ST.sc.length;const base=[0,3.5,5.8,7.5][n];const tp=(ST.tops.coulis+ST.tops.pist)*.6;$('#tot').textContent=fmt(n?base+tp:0);
+ $('#sc').textContent=n?`${['Cornet','Pot'][ST.kind]} ${n} boule${n>1?'s':''} : ${ST.sc.map(i=>PF[i][0]).join(', ')}`:'Choisissez un premier parfum.';
+ const fb=$('#fb2');fb.querySelectorAll('.bo').forEach(e=>e.remove());ST.sc.forEach(i=>{const d=document.createElement('div');d.className='bo';d.style.background=PF[i][1];fb.appendChild(d)});$('#fbco').style.borderTopColor=ST.kind?'#e9e4d8':'#d9a46a';
+ window.CONE&&window.CONE.set(ST)}
+$$('#pick button').forEach(b=>b.onclick=()=>{if(ST.sc.length>=3){$('#sc').textContent='Trois boules maximum : retirez-en une d’abord.';return}ST.sc.push(+b.dataset.i);upd()});
+$('#undo').onclick=()=>{ST.sc.pop();upd()};
+$$('#kind button').forEach((b,i)=>b.onclick=()=>{ST.kind=i;$$('#kind button').forEach(x=>x.setAttribute('aria-pressed',x===b));upd()});
+$$('#tops button').forEach(b=>b.onclick=()=>{const t=b.dataset.t;ST.tops[t]^=1;b.setAttribute('aria-pressed',!!ST.tops[t]);upd()});
+$('#order').onclick=()=>{ZB.open(0);$('#zb-cmp').value=ST.sc.length?$('#sc').textContent+' · '+$('#tot').textContent:''};
+ST.sc=[0,3];upd();
+/* ---------- vitrine 3D ---------- */
+(()=>{const rot=$('#rot'),ring=$('#ring'),N=PF.length;let R=Math.max(260,Math.min(430,innerWidth*.34)),ang=0,vel=.12,drag=null,sel=0;
+ rot.innerHTML=PF.map((p,i)=>`<button type="button" class="tub" data-i="${i}" aria-pressed="${i===0}" aria-label="${p[0]}"><span class="tp" style="background:radial-gradient(circle at 35% 40%,rgba(255,255,255,.35),transparent 30%),repeating-radial-gradient(circle at 50% 50%,${p[1]} 0 14px,color-mix(in srgb,${p[1]} 80%,#000) 14px 16px)"></span><span class="mo" style="background:${p[1]}"></span><span class="fr2">${p[0]}</span></button>`).join('');
+ const T=$$('.tub');const ALG=['Gluten','Crustacés','Œufs','Poissons','Arachides','Soja','Lait','Fruits à coque','Céleri','Moutarde','Sésame','Sulfites','Lupin','Mollusques'];
+ function show(i){sel=i;T.forEach((t,k)=>t.setAttribute('aria-pressed',k===i));const p=PF[i];$('#dn').textContent=p[0];$('#dt').textContent=p[2]+(p[5]?' · végan':'')+' · 2,90 € la boule en pot ou cornet seul';$('#di').textContent='Ingrédients : '+p[3]+'.';
+  $('#da').innerHTML=ALG.map(a=>`<span class="${p[4].some(x=>x.startsWith(a))?'on':''}">${a}</span>`).join('')+(p[4].length?'':'<span class="on" style="background:var(--b)">Aucun des 14 allergènes</span>')}
+ T.forEach(t=>t.onclick=()=>{if(moved)return;show(+t.dataset.i)});show(0);
+ let moved=false,vis=false;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(ring);
+ ring.addEventListener('pointerdown',e=>{drag={x:e.clientX,a:ang};moved=false});addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>6)moved=true;const na=drag.a+dx*.25;vel=na-ang;ang=na});addEventListener('pointerup',()=>{drag=null;setTimeout(()=>moved=false,0)});
+ addEventListener('resize',()=>R=Math.max(innerWidth<820?190:260,Math.min(430,innerWidth*.34)));
+ (function f(){requestAnimationFrame(f);if(!vis)return;if(!drag){vel+=(.12-vel)*.03;if(!red)ang+=vel}rot.style.transform=`rotateX(-10deg) rotateY(${ang}deg)`;
+  T.forEach((t,i)=>{const a=i*360/N;t.style.transform=`rotateY(${a}deg) translateZ(${R}px) scale(${innerWidth<820?.78:1})`;const fa=((a+ang)%360+360)%360;t.style.opacity=fa>90&&fa<270?.45:1})})()})();
+/* ---------- fonte ---------- */
+(()=>{const cv=$('#mcv'),cx=cv.getContext('2d');let W,H,t=0,vis=false;function rs(){const k=Math.min(devicePixelRatio,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*k;cv.height=H*k;cx.setTransform(k,0,0,k,0,0)}rs();addEventListener('resize',rs);new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+ const D=[...Array(9)].map((_,i)=>({x:-.8+i*.2+(Math.random()-.5)*.06,s:.5+Math.random()*.7,w:.05+Math.random()*.04}));
+ function adv(){const T=+$('#temp').value;$('#tv').textContent=T+' °C';$('#tadv').textContent=T<20?'Cornet sans hésiter : vous avez tout votre temps.':T<28?'Cornet, mais on mange en marchant vers le port.':T<34?'On conseille le pot, ou un cornet avec une serviette en plus.':'Pot obligatoire, et à l’ombre !'}$('#temp').oninput=adv;adv();
+ (function f(){requestAnimationFrame(f);if(!vis)return;t+=.016;const T=+$('#temp').value,m=Math.max(0,(T-12)/28);cx.clearRect(0,0,W,H);const cxm=W/2,r=W*.2,cy=H*.38;
+  cx.fillStyle='#d9a46a';cx.beginPath();cx.moveTo(cxm-r*.95,cy+r*.35);cx.lineTo(cxm+r*.95,cy+r*.35);cx.lineTo(cxm,H*.92);cx.closePath();cx.fill();
+  cx.strokeStyle='rgba(150,95,45,.45)';cx.lineWidth=2;for(let i=-4;i<5;i++){cx.beginPath();cx.moveTo(cxm+i*r*.3-r*.6,cy+r*.35);cx.lineTo(cxm+i*r*.3+r*.6,H*.92);cx.stroke()}
+  cx.fillStyle='#a9c2b0';cx.beginPath();cx.ellipse(cxm,cy,r*(1+m*.12),r*(1-m*.18),0,0,Math.PI*2);cx.fill();
+  D.forEach(d=>{const len=r*m*d.s*(1.2+Math.sin(t*1.3+d.x*9)*.15)*1.6,x=cxm+d.x*r*1.05,w=r*d.w*2;if(len<2)return;const y0=cy+r*.25;cx.beginPath();cx.moveTo(x-w,y0);cx.lineTo(x-w*.8,y0+len);cx.arc(x,y0+len,w*.9,Math.PI,0,true);cx.lineTo(x+w,y0);cx.closePath();cx.fill()});
+  cx.fillStyle='rgba(255,255,255,.35)';cx.beginPath();cx.ellipse(cxm-r*.35,cy-r*.35,r*.25,r*.14,-.5,0,Math.PI*2);cx.fill()})()})();
+/* faq */
+const FAQ=[['Où trouver les allergènes ?','Dans la vitrine ci-dessus : cliquez un parfum pour voir ses ingrédients et les 14 allergènes réglementaires. La même fiche est affichée au comptoir.'],['Avez-vous des glaces véganes ?','Oui, tous nos sorbets sont végans : fraise, citron, mangue – passion et myrtille.'],['Les cornets contiennent-ils du gluten ?','Oui. Les pots sont sans gluten, mais nos glaces sont faites dans un atelier où l’on manipule du gluten.'],['Puis-je annuler une commande ?','Oui, sans frais jusqu’à 1 h avant le retrait (48 h pour les gâteaux glacés). Rien n’est payé en ligne : vous réglez au comptoir.']];
+$('#faq').innerHTML=FAQ.map((q,i)=>`<div class="q"><button type="button" aria-expanded="false" aria-controls="fq${i}">${q[0]}</button><div id="fq${i}"><p>${q[1]}</p></div></div>`).join('');$$('.q button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cone3');let R;try{R=new THREE.WebGLRenderer({antialias:true,alpha:true})}catch(e){return}
+R.setPixelRatio(Math.min(devicePixelRatio,2));R.outputColorSpace=THREE.SRGBColorSpace;R.toneMapping=THREE.ACESFilmicToneMapping;R.shadowMap.enabled=true;host.prepend(R.domElement);R.domElement.setAttribute('aria-hidden','true');
+const sc=new THREE.Scene();sc.environment=new THREE.PMREMGenerator(R).fromScene(new RoomEnvironment(),.04).texture;
+const cam=new THREE.PerspectiveCamera(32,1,.1,100);cam.position.set(0,2.2,10.5);const ctl=new OrbitControls(cam,R.domElement);ctl.target.set(0,.9,0);ctl.enableZoom=false;ctl.enablePan=false;ctl.enableDamping=true;ctl.autoRotate=!matchMedia('(prefers-reduced-motion: reduce)').matches;ctl.autoRotateSpeed=1.4;ctl.minPolarAngle=.7;ctl.maxPolarAngle=1.75;
+const sun=new THREE.DirectionalLight(0xfff1e0,2.4);sun.position.set(3,8,5);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sc.add(sun,new THREE.HemisphereLight(0xffffff,0xa9c2b0,.7));
+const floor=new THREE.Mesh(new THREE.CircleGeometry(4,48),new THREE.ShadowMaterial({opacity:.12}));floor.rotation.x=-Math.PI/2;floor.position.y=-2.7;floor.receiveShadow=true;sc.add(floor);
+// cornet gaufré
+const wc=document.createElement('canvas');wc.width=wc.height=256;const w=wc.getContext('2d');w.fillStyle='#d9a46a';w.fillRect(0,0,256,256);w.strokeStyle='#a8703a';w.lineWidth=9;for(let i=-256;i<512;i+=42){w.beginPath();w.moveTo(i,0);w.lineTo(i+256,256);w.stroke();w.beginPath();w.moveTo(i,256);w.lineTo(i+256,0);w.stroke()}
+const wt=new THREE.CanvasTexture(wc);wt.colorSpace=THREE.SRGBColorSpace;wt.wrapS=wt.wrapT=THREE.RepeatWrapping;wt.repeat.set(4,2);
+const coneG=new THREE.Group();const cg=new THREE.ConeGeometry(.9,2.6,64,1,true);cg.rotateX(Math.PI);cg.translate(0,-1.3,0);const cone=new THREE.Mesh(cg,new THREE.MeshStandardMaterial({map:wt,roughness:.85,side:THREE.DoubleSide}));cone.castShadow=true;
+const rim=new THREE.Mesh(new THREE.TorusGeometry(.9,.09,16,64),new THREE.MeshStandardMaterial({color:'#c98f52',roughness:.8}));rim.rotation.x=Math.PI/2;coneG.add(cone,rim);
+const potG=new THREE.Group();const pg=new THREE.CylinderGeometry(1.05,.78,1.5,64,1,true);pg.translate(0,-.6,0);
+const pc=document.createElement('canvas');pc.width=512;pc.height=128;const p2=pc.getContext('2d');p2.fillStyle='#f3f4ef';p2.fillRect(0,0,512,128);p2.fillStyle='#4e6b5b';p2.fillRect(0,46,512,36);p2.fillStyle='#f3f4ef';p2.font='800 26px Poppins, Arial';for(let i=0;i<3;i++)p2.fillText('ZAHR ✿ GLACIER',i*170+6,73);
+const ptx=new THREE.CanvasTexture(pc);ptx.colorSpace=THREE.SRGBColorSpace;const pot=new THREE.Mesh(pg,new THREE.MeshStandardMaterial({map:ptx,roughness:.5,side:THREE.DoubleSide}));pot.castShadow=true;const pb=new THREE.Mesh(new THREE.CircleGeometry(.78,48),new THREE.MeshStandardMaterial({color:'#e9eae3'}));pb.rotation.x=-Math.PI/2;pb.position.y=-1.35;potG.add(pot,pb);
+sc.add(coneG,potG);
+// boule
+function scoopGeo(){const g=new THREE.SphereGeometry(.82,72,48),p=g.attributes.position,v=new THREE.Vector3();for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);const a=Math.atan2(v.z,v.x);if(v.y<-.22){const k=(-.22-v.y)/.6,r=Math.hypot(v.x,v.z),nr=r*(1+.16*k+.07*Math.sin(a*11)*k);v.x=Math.cos(a)*nr;v.z=Math.sin(a)*nr;v.y=Math.max(v.y,-.46+.05*Math.sin(a*11))}v.multiplyScalar(1+.02*Math.sin(v.x*11)*Math.sin(v.y*9)*Math.sin(v.z*10));p.setXYZ(i,v.x,v.y,v.z)}g.computeVertexNormals();return g}
+const SG=scoopGeo();const scoops=[];const PF=[["Vanille de Madagascar", "#f1e2b8", "Crème glacée", "lait entier, crème, sucre, jaunes d’œufs, gousses de vanille", ["Lait", "Œufs"], 0], ["Chocolat noir 70 %", "#5b3a2b", "Crème glacée", "lait, cacao, chocolat noir 70 %, sucre, crème", ["Lait", "Soja"], 0], ["Pistache de Sicile", "#b9c78a", "Crème glacée", "lait, crème, pâte de pistache pure, sucre", ["Lait", "Fruits à coque (pistache)"], 0], ["Fraise de Carpentras", "#e2677d", "Sorbet", "fraises (60 %), eau, sucre, citron", [], 1], ["Citron de Menton", "#f0de78", "Sorbet", "jus et zestes de citron, eau, sucre", [], 1], ["Menthe – basilic ZAHR", "#a9c2b0", "Crème glacée", "lait, crème, menthe fraîche, basilic, sucre", ["Lait"], 0], ["Caramel beurre salé", "#c88a4a", "Crème glacée", "lait, crème, caramel maison, beurre demi-sel, sucre", ["Lait"], 0], ["Mangue – passion", "#f2ae47", "Sorbet", "mangue, fruit de la passion, eau, sucre", [], 1], ["Myrtille sauvage", "#6d5a9e", "Sorbet", "myrtilles, eau, sucre, citron", [], 1], ["Noisette du Piémont", "#b28860", "Crème glacée", "lait, crème, pâte de noisette, sucre", ["Lait", "Fruits à coque (noisette)"], 0]];
+const tops=new THREE.Group();sc.add(tops);
+const coulis=new THREE.Mesh(new THREE.SphereGeometry(.86,64,24,0,Math.PI*2,0,1.05),new THREE.MeshPhysicalMaterial({color:'#b3263e',roughness:.15,clearcoat:1,transmission:.15,thickness:.5}));
+const pist=new THREE.Group();const pm=new THREE.MeshStandardMaterial({color:'#8fae4a',roughness:.6});for(let i=0;i<46;i++){const m=new THREE.Mesh(new THREE.BoxGeometry(.08,.04,.06),pm);const th=Math.random()*Math.PI*2,ph=Math.random()*1.1;m.position.setFromSphericalCoords(.85,ph,th);m.lookAt(0,0,0);m.rotation.z=Math.random()*3;pist.add(m)}
+const clover=new THREE.Group();const cm=new THREE.MeshStandardMaterial({color:'#c98a4b',roughness:.75});[[0,.22],[.22,0],[0,-.22],[-.22,0]].forEach(([x,y])=>{const d=new THREE.Mesh(new THREE.CylinderGeometry(.24,.24,.07,40),cm);d.rotation.x=Math.PI/2;d.position.set(x,y,0);clover.add(d)});const stem=new THREE.Mesh(new THREE.BoxGeometry(.07,.42,.07),cm);stem.position.set(.14,-.48,0);stem.rotation.z=.5;clover.add(stem);clover.children.forEach(c=>c.castShadow=true);
+let state={kind:0,sc:[],tops:{}};const yOf=i=>.28+i*.92;
+function set(s){state=s;coneG.visible=!s.kind;potG.visible=!!s.kind;
+ while(scoops.length>s.sc.length){const o=scoops.pop();sc.remove(o.m)}
+ s.sc.forEach((f,i)=>{if(!scoops[i]){const m=new THREE.Mesh(SG,new THREE.MeshPhysicalMaterial({roughness:.62,sheen:1,sheenColor:new THREE.Color('#ffffff'),sheenRoughness:.6,clearcoat:.12}));m.castShadow=true;m.rotation.y=Math.random()*6;sc.add(m);scoops[i]={m,y:yOf(i)+5,v:0,sq:1,f:-1}}const o=scoops[i];if(o.f!==f){o.f=f;o.m.material.color.set(PF[f][1])}o.m.scale.setScalar(1-i*.06)});
+ tops.clear();const top=scoops[scoops.length-1];if(top){if(s.tops.coulis)tops.add(coulis);if(s.tops.pist)tops.add(pist);if(s.tops.clover&&!s.kind){clover.position.set(.2,.85,.25);clover.rotation.set(-.15,.2,-.3);tops.add(clover)}}}
+window.CONE={set};set(window.CST);
+let vis=false;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(host);
+function rs(){const W=host.clientWidth,H=host.clientHeight;R.setSize(W,H,false);cam.aspect=W/H;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+let last=performance.now();(function f(n){requestAnimationFrame(f);const dt=Math.min(.033,(n-last)/1000);last=n;if(!vis)return;
+ scoops.forEach((o,i)=>{const tgt=yOf(i);o.v-=22*dt;o.y+=o.v*dt;if(o.y<tgt){o.y=tgt;if(o.v<-1.5){o.sq=1-Math.min(.28,-o.v*.03)}o.v=-o.v*.32;if(Math.abs(o.v)<.4)o.v=0}o.sq+=(1-o.sq)*Math.min(1,dt*12);const s=1-i*.06;o.m.position.y=o.y;o.m.scale.set(s*(2-o.sq),s*o.sq,s*(2-o.sq))});
+ const top=scoops[scoops.length-1];if(top){tops.position.copy(top.m.position);tops.scale.copy(top.m.scale)}
+ ctl.update();R.render(sc,cam)})(last);host.classList.add('on3d')})();
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+(()=>{const host=document.querySelector('#cl3');if(!host)return;
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+host.appendChild(R.domElement);R.domElement.setAttribute('aria-hidden','true');R.domElement.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+const sc=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,9);
+sc.add(new THREE.HemisphereLight(0xffffff,0x26332c,.8));const k=new THREE.DirectionalLight('#ffe6f0',2.2);k.position.set(3,5,6);sc.add(k);const rim=new THREE.DirectionalLight(0xa9c2b0,3);rim.position.set(-5,-2,-4);sc.add(rim);
+const d=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>');
+const shapes=[];d.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
+const g=new THREE.ExtrudeGeometry(shapes,{depth:34,bevelEnabled:true,bevelThickness:7,bevelSize:6,bevelSegments:6,curveSegments:28});g.center();g.scale(1/256,-1/256,1/256);g.computeVertexNormals();
+const mat=new THREE.MeshPhysicalMaterial({color:'#f6e3ea',roughness:.08,metalness:.05,transmission:.92,thickness:1.4,ior:1.45,clearcoat:1,clearcoatRoughness:.06,iridescence:.6,iridescenceIOR:1.3,emissive:'#4E6B5B',emissiveIntensity:.18,attenuationColor:'#4E6B5B',attenuationDistance:2.2,envMapIntensity:1.1});
+const m=new THREE.Mesh(g,mat);const rig=new THREE.Group();rig.add(m);sc.add(rig);m.scale.setScalar(3.3);
+let tx=0,ty=0,cx=0,cy=0,vis=false,last=performance.now(),t=0;
+host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});host.addEventListener('pointerleave',()=>{tx=ty=0});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+function rs(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<1?12:9;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(n){requestAnimationFrame(f);const dt=Math.min((n-last)/1000,.05);last=n;if(!vis)return;t+=dt;const q=1-Math.exp(-dt/.18);cx+=(tx-cx)*q;cy+=(ty-cy)*q;
+rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig.position.y=Math.sin(t*1.1)*.08;R.render(sc,cam)})(last);
+host.classList.add('on3d');})();
+</script>
+</body>
+</html>
