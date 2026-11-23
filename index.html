@@ -1253,6 +1253,7 @@ main:focus{outline:none}
     <div class="tf-notes rv">
       <span>Ajouter la 3D plus tard : <b>+700 €</b>. Autant la prendre dès le départ.</span>
       <span><b>3 projets par mois</b> au maximum, pour soigner chacun.</span>
+      <span>Recommandé par un client ZAHR ? Avec son <b>code partenaire : −10 %</b>.</span>
       <span>Acompte de 30 %, solde à la mise en ligne.</span>
     </div>
     <div class="tf-more rv">
@@ -1319,6 +1320,7 @@ main:focus{outline:none}
             <button type="button" class="chip" data-w="dès que possible" aria-pressed="false">Dès que possible</button><button type="button" class="chip" data-w="dans le mois" aria-pressed="false">Dans le mois</button><button type="button" class="chip" data-w="dans les prochains mois" aria-pressed="false">Dans quelques mois</button><button type="button" class="chip" data-w="je me renseigne pour l'instant" aria-pressed="false">Je me renseigne</button>
           </div>
           <div style="margin-top:28px"><label for="msg" style="display:block;font-size:13px;font-weight:600;color:var(--mist);margin-bottom:6px">Un mot de plus (facultatif)</label><textarea id="msg" name="message" maxlength="800" placeholder="Je veux que mes clients puissent réserver en ligne…"></textarea></div>
+          <div style="margin-top:22px"><label for="promo" style="display:block;font-size:13px;font-weight:600;color:var(--mist);margin-bottom:6px">Code partenaire (facultatif)</label><input type="text" id="promo" name="code" maxlength="24" placeholder="Ex. : SHINING" autocomplete="off" style="text-transform:uppercase"><p id="promoOk" aria-live="polite" style="margin:8px 0 0;font-size:13.5px;color:var(--leaf);min-height:1.2em"></p></div>
         </div>
       </div>
 
@@ -1731,6 +1733,11 @@ whenChips.forEach(b => b.addEventListener("click", () => {
   whenChips.forEach(c => c.setAttribute("aria-pressed", "false"));
   b.setAttribute("aria-pressed", on); when = on ? b.dataset.w : ""; render(true);
 }));
+const PROMOS = {BRCUT:"BrCut", SHINING:"Shining Cars", HELIX:"Helix Sécurité"};
+function promoCode(){ const v = ($("#promo")?.value || "").trim().toUpperCase().replace(/\s+/g,""); return PROMOS[v] ? v : ""; }
+function promoInfo(){ const el = $("#promoOk"); if (!el) return; const raw = ($("#promo").value||"").trim(); const pc = promoCode();
+  el.style.color = pc || !raw ? "var(--leaf)" : "var(--mute-d)";
+  el.textContent = pc ? `Code ${pc} reconnu : −10 % sur votre projet, de la part de ${PROMOS[pc]}.` : raw ? "Code inconnu. Vérifiez l’orthographe auprès de la personne qui vous l’a donné." : ""; }
 function message(){
   const act = $("#act").value.trim(), city = $("#city").value.trim(), msg = $("#msg").value.trim();
   let m = "Bonjour Redha,";
@@ -1738,6 +1745,7 @@ function message(){
   if (sel.size) m += `\nJe suis intéressé(e) par : ${[...sel].join(", ")}.`;
   if (when) m += `\nPour quand : ${when}.`;
   if (msg) m += `\n${msg}`;
+  const pc = promoCode(); if (pc) m += `\nCode partenaire : ${pc} (−10 %).`;
   m += "\nOn peut en parler ?";
   return m;
 }
@@ -1750,6 +1758,8 @@ function render(pop){
   ready.innerHTML = done === 4 ? "<b>Votre projet est en fleur.</b> Il ne reste qu'à l'envoyer." : `Encore ${4 - done} pétale${4 - done > 1 ? "s" : ""} pour un message complet.`;
   if (pop && !reduce){ outB.classList.remove("pop"); void outB.offsetWidth; outB.classList.add("pop"); }
 }
+(() => { try { const q = new URLSearchParams(location.search).get("code"); if (q && $("#promo")) { $("#promo").value = q.toUpperCase(); promoInfo(); } } catch(e){} })();
+$("#promo") && $("#promo").addEventListener("input", () => { promoInfo(); render(false); });
 ["act","city","msg"].forEach(id => $("#"+id).addEventListener("input", () => {
   if (id === "act") actChips.forEach(c => c.setAttribute("aria-pressed", c.textContent === $("#act").value ? "true" : "false"));
   render(false);
