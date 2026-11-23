@@ -277,7 +277,7 @@ const SYM=new Path2D('M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A5
 function label(f){const c=document.createElement('canvas');c.width=2048;c.height=1024;const x=c.getContext('2d');const g=x.createLinearGradient(0,0,0,1024);g.addColorStop(0,f[3]);g.addColorStop(.18,f[2]);g.addColorStop(.85,f[2]);g.addColorStop(1,f[3]);x.fillStyle=g;x.fillRect(0,0,2048,1024);
  x.globalAlpha=.12;x.fillStyle='#fff';for(let i=0;i<14;i++){x.save();x.translate(i*160-40,820-(i%3)*60);x.scale(.5,.5);x.fill(SYM,'evenodd');x.restore()}x.globalAlpha=1;
  x.save();x.translate(1024,560);x.rotate(-Math.PI/2);x.fillStyle='#fff';const s=.095;x.scale(s,s);x.translate(-3130,750);x.fill(WORD);x.restore();
- x.save();x.translate(1024-210,120);x.scale(1.2,1.2);x.fillStyle=f[3];x.fill(SYM,'evenodd');x.restore();
+ x.save();x.translate(1210,130);x.scale(1.05,1.05);x.fillStyle=f[3];x.fill(SYM,'evenodd');x.restore();x.save();x.fillStyle='#fff';x.globalAlpha=.92;x.textAlign='center';x.direction='rtl';x.font='700 120px "Aref Ruqaa", "Noto Naskh Arabic", "Segoe UI", Tahoma, serif';x.fillText('زهر',1344,560);x.restore();
  x.fillStyle='#fff';x.font='700 54px Anton, Impact, sans-serif';x.textAlign='center';x.fillText(f[1],1024+300,880);x.font='500 30px JetBrains Mono, monospace';x.fillText('ENERGY · 250 ML',1024+300,930);
  x.save();x.translate(1024-330,560);x.rotate(-Math.PI/2);x.font='500 26px JetBrains Mono, monospace';x.fillStyle='rgba(255,255,255,.8)';x.fillText('BOISSON ÉNERGISANTE · MARQUE FICTIVE',0,0);x.restore();
  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t}
