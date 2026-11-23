@@ -620,12 +620,12 @@ const CARS=[
 const N=CARS.length, START=3;
 const row=$('#row');
 const cards=CARS.map((c,i)=>{const f=document.createElement('figure');f.className='car';f.setAttribute('role','button');f.tabIndex=0;f.setAttribute('aria-label',c.n+' : voir le nettoyage');const cv=document.createElement('canvas');cv.width=700;cv.height=280;f.appendChild(cv);f.insertAdjacentHTML('beforeend',`<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span><figcaption>${c.n}</figcaption>`);
- const im=new Image();im.decoding='async';im.onload=()=>{const x=cv.getContext('2d');x.drawImage(im,0,0,700,280);try{const d=x.getImageData(0,0,700,280),p=d.data;for(let j=0;j<p.length;j+=4){const s=765-(p[j]+p[j+1]+p[j+2]);if(s<54)p[j+3]=Math.round(255*Math.max(0,(s-12)/42));}x.putImageData(d,0,0);}catch(e){}};im.src='img/profil/'+c.k+'.jpg';
+ const im=new Image();im.decoding='async';im.onload=()=>{const x=cv.getContext('2d');if(c.k==='porsche-panamera'){x.translate(700,0);x.scale(-1,1);}x.drawImage(im,0,0,700,280);try{const d=x.getImageData(0,0,700,280),p=d.data;for(let j=0;j<p.length;j+=4){const s=765-(p[j]+p[j+1]+p[j+2]);if(s<54)p[j+3]=Math.round(255*Math.max(0,(s-12)/42));}x.putImageData(d,0,0);}catch(e){}};im.src='img/profil/'+c.k+'.jpg';
  row.appendChild(f);return f;});
 
 /* ---------- film frames ---------- */
 const FR=151, frames=new Array(FR), cv=$('#film'), cx=cv.getContext('2d');
-const furl=i=>`film-porsche/f${String(i).padStart(3,'0')}.webp`;
+const furl=i=>`film-porsche2/f${String(i).padStart(3,'0')}.webp`;
 (function loadFrames(){
  const order=[0];[16,8,4,2,1].forEach(st=>{for(let i=0;i<FR;i+=st)if(!order.includes(i))order.push(i);});
  let k=0,active=0;
