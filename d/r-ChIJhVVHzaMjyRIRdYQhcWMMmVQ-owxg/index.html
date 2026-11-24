@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0705">
+<title>La Pastachuca — Restaurant italien, rue Massillon, Hyères</title>
+<meta name="description" content="Pâtes fraîches artisanales, burrata et tiramisu au 36 rue Massillon, dans la vieille ville de Hyères.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>:root{--night:#0b0705;--paint:#24160f;--cream:#f3e9dc;--blush:#e8a9a0;--gold:#c9a45c;--basil:#5f7d3c;--tomato:#c2412d;
+ --ink:#0b0705;--paper:#f3e9dc;--brand:#c2412d;--brand-hi:#e8a9a0;--map-bg:#24160f;--focus:#e8a9a0;--ck-bg:#1a110c;--ck-fg:#f3e9dc;--lg-bg:#f7efe4;--lg-fg:#1a110c}
+body{background:var(--night);color:var(--cream);font-family:"Inter",system-ui,sans-serif;line-height:1.55}
+.serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
+em.bl,.bl{font-style:italic;color:var(--blush);font-weight:300}
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 clamp(14px,3vw,36px);transition:background .35s}
+.nav.solid{background:rgba(11,7,5,.95);box-shadow:0 1px 0 rgba(243,233,220,.1)}
+.logo{font-family:"Fraunces";font-size:22px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+.logo i{font-style:italic;color:var(--blush);font-weight:300}
+.nav ul{display:flex;gap:clamp(18px,3vw,40px);list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-size:13px;letter-spacing:.06em;opacity:.85}
+.nav ul a:hover{opacity:1;color:var(--blush)}
+.tcall{display:inline-flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;padding:10px 16px;border:1px solid rgba(243,233,220,.5);border-radius:999px;font-size:13.5px;font-weight:600}
+.tcall svg{width:15px;height:15px}
+@media (max-width:820px){.nav ul{display:none}.tcall .t{display:none}.tcall{padding:11px}}
+/* FILM */
+#film{position:relative;height:900vh}
+.st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#3a2417,#1a0f0a 60%,#0b0705)}
+.world{position:absolute;inset:0;perspective:900px;perspective-origin:50% 48%}
+.cam{position:absolute;left:50%;top:48%;transform-style:preserve-3d;will-change:transform}
+.pl{position:absolute;transform-style:preserve-3d}
+.frame{position:absolute;padding:var(--fp,18px);background:linear-gradient(135deg,#7a5a24,#e4c27a 22%,#8c6a2c 45%,#f1d69a 62%,#6d4c1c 85%);box-shadow:inset 0 0 0 3px #4a3210,inset 0 0 0 8px rgba(0,0,0,.15),0 40px 80px rgba(0,0,0,.6)}
+.frame::before{content:"";position:absolute;inset:calc(var(--fp,18px) - 6px);border:2px solid rgba(74,50,16,.7);pointer-events:none}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;background:#2a1a11}
+.wallp{position:absolute;left:-2400px;top:-1500px;width:4800px;height:3000px;background:radial-gradient(ellipse at 50% 50%,#3e2718,#22140d 55%,#140b07);}
+.wallp::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.015) 0 3px,transparent 3px 9px)}
+.heads{position:absolute;left:0;right:0;bottom:-2vh;height:22vh;pointer-events:none;z-index:2;opacity:var(--hd,1);background:
+ radial-gradient(ellipse 9vw 12vh at 12% 100%,#070403 70%,transparent 72%),radial-gradient(ellipse 8vw 11vh at 30% 104%,#070403 70%,transparent 72%),
+ radial-gradient(ellipse 10vw 13vh at 66% 102%,#070403 70%,transparent 72%),radial-gradient(ellipse 8vw 10vh at 86% 104%,#070403 70%,transparent 72%);filter:blur(6px)}
+.cap{position:absolute;left:0;right:0;bottom:clamp(40px,10vh,110px);z-index:3;text-align:center;padding:0 20px;pointer-events:none}
+.cap p{margin:0 auto;max-width:860px;font-family:"Fraunces";font-weight:300;font-size:clamp(26px,3.6vw,54px);line-height:1.1;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.6);opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;position:absolute;left:20px;right:20px;bottom:0}
+.cap p.on{opacity:1;transform:none}
+.cap small{display:block;font-family:"Inter";font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:600}
+.intro{position:absolute;left:0;right:0;top:calc(66px + 4vh);z-index:3;text-align:center;padding:0 18px;pointer-events:none;opacity:var(--io,1)}
+.intro h1{margin:0;font-family:"Fraunces";font-weight:400;font-size:clamp(44px,7vw,108px);line-height:.95;letter-spacing:-.02em}
+.intro p{margin:12px auto 0;max-width:560px;font-size:clamp(15px,1.4vw,18px);opacity:.88}
+.prog{position:absolute;right:clamp(14px,3vw,36px);top:50%;transform:translateY(-50%);z-index:3;display:grid;gap:8px}
+.prog i{width:6px;height:6px;border-radius:50%;background:rgba(243,233,220,.3);transition:background .3s,transform .3s}
+.prog i.on{background:var(--blush);transform:scale(1.5)}
+.shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(rgba(11,7,5,.55),transparent 22%,transparent 55%,rgba(11,7,5,.85))}
+.hint{position:absolute;left:50%;bottom:18px;z-index:3;transform:translateX(-50%);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:calc(var(--io,1)*.8);white-space:nowrap}
+@media (max-width:760px){.cap{bottom:56px}.cap p{font-size:clamp(24px,7vw,34px)}.intro h1{font-size:clamp(44px,13vw,64px)}.prog{right:10px}}
+/* SECTIONS */
+.sec{position:relative;padding:clamp(80px,10vw,150px) clamp(16px,5vw,80px)}
+.k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 14px}
+.h2{margin:0;font-family:"Fraunces";font-weight:400;font-size:clamp(40px,6vw,92px);line-height:1;letter-spacing:-.02em}
+.lead{max-width:560px;margin:18px 0 0;font-size:16.5px;opacity:.88}
+/* TURNTABLE */
+#carte{background:linear-gradient(#0b0705,#1a100b)}
+.tt{position:relative;height:min(78vw,600px);margin:30px auto 0;max-width:1100px;perspective:1100px}
+.table{position:absolute;left:50%;top:44%;width:min(86vw,640px);aspect-ratio:1;transform:translate(-50%,-50%) rotateX(62deg);transform-style:preserve-3d;border-radius:50%;
+ background:repeating-linear-gradient(0deg,rgba(194,65,45,.85) 0 22px,transparent 22px 44px),repeating-linear-gradient(90deg,rgba(194,65,45,.85) 0 22px,rgba(243,233,220,.95) 22px 44px);box-shadow:0 0 0 10px #5a3a22,0 60px 80px rgba(0,0,0,.6)}
+.disc{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateZ(var(--rot,0deg));transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.dish{position:absolute;left:50%;top:50%;width:28%;aspect-ratio:1;margin:-14% 0 0 -14%;transform-style:preserve-3d}
+.dish .pl8{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,#ece5da 59% 70%,#c9a45c 71% 73%,#f7f2ea 74%);box-shadow:0 10px 18px rgba(0,0,0,.35)}
+.dish .food{position:absolute;inset:22%;border-radius:50%;background:var(--food)}
+.dish .tag{position:absolute;left:50%;bottom:62%;width:150px;margin-left:-75px;text-align:center;transform:rotateX(-62deg);transform-origin:50% 100%;font-family:"Fraunces";font-size:15px;line-height:1.1;color:var(--cream);text-shadow:0 2px 10px #000;pointer-events:none;backface-visibility:hidden}
+.focus{position:absolute;left:0;right:0;bottom:0;text-align:center;padding:0 16px}
+.focus h3{margin:0;font-family:"Fraunces";font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.05}
+.focus p{margin:8px auto 0;max-width:520px;opacity:.85}
+.focus .pr{display:inline-block;margin-top:10px;font-family:"Fraunces";font-style:italic;color:var(--blush);font-size:26px}
+.ttnav{display:flex;justify-content:center;gap:10px;margin-top:22px}
+.ttnav button{width:52px;height:52px;border-radius:50%;border:1px solid rgba(243,233,220,.45);background:none;color:var(--cream);font-size:20px;cursor:pointer}
+.artisan{max-width:760px;margin:40px auto 0;text-align:center;font-family:"Fraunces";font-size:clamp(20px,2.2vw,28px);font-weight:300;line-height:1.3}
+@media (max-width:760px){.tt{height:118vw}.table{top:36%}.dish .tag{font-size:12px;width:110px;margin-left:-55px}}
+/* MACHINE + FORM */
+#reserver{background:#140c08}
+.mach{position:relative;height:200px;max-width:720px;margin:30px auto 0}
+.mach canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.mcss{position:absolute;left:50%;top:40px;width:min(90%,560px);height:120px;transform:translateX(-50%);display:none}
+.mach.fallback .mcss{display:block}
+.mcss i{position:absolute;left:0;right:0;height:46px;border-radius:23px;background:linear-gradient(#f5f5f5,#9a9a9a 50%,#e8e8e8);animation:rollr 1s linear infinite}
+.mcss i:first-child{top:0}.mcss i:last-child{top:52px}
+@keyframes rollr{to{background-position:0 46px}}
+.sheet{position:relative;max-width:640px;margin:-46px auto 0;background:linear-gradient(#f6d98a,#efc96a);color:#2a1a0e;border-radius:6px 6px 14px 14px;padding:34px clamp(16px,4vw,34px) 26px;box-shadow:0 30px 60px rgba(0,0,0,.5);clip-path:inset(0 0 calc((1 - var(--out,0))*100%) 0);transform:translateY(calc((1 - var(--out,0))*-40px))}
+.sheet::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle,rgba(160,110,30,.16) 1px,transparent 2px) 0 0/9px 9px;pointer-events:none}
+.sheet label,.sheet .lb{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px;color:#6b4316}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fi{margin-bottom:14px;position:relative}
+.fi input,.fi select,.fi textarea{width:100%;min-height:48px;border:0;border-bottom:2px solid rgba(107,67,22,.45);background:rgba(255,255,255,.35);border-radius:8px 8px 0 0;padding:10px 12px;color:#2a1a0e;font-size:16px}
+.fi input:focus,.fi select:focus,.fi textarea:focus{outline:none;border-color:#2a1a0e;background:rgba(255,255,255,.6)}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative;margin:0;letter-spacing:0;text-transform:none;font-size:15px;color:#2a1a0e;font-weight:600}
+.seg input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.seg span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(42,26,14,.45);white-space:nowrap}
+.seg input:checked+span{background:#2a1a0e;color:#f6d98a;border-color:#2a1a0e}
+.seg input:focus-visible+span{outline:2px solid #2a1a0e;outline-offset:2px}
+.sheet .consent{color:#2a1a0e}
+.sheet .err{color:#8f1d10;font-weight:600}
+.go{width:100%;min-height:52px;border:0;border-radius:999px;background:#2a1a0e;color:#f6d98a;font-weight:700;font-size:16px;cursor:pointer;margin-top:6px}
+.strips{display:none;max-width:640px;margin:-46px auto 0;gap:6px;height:280px}
+.strips.on{display:flex}
+.strips i{flex:1;background:linear-gradient(#f6d98a,#e8bf5c);border-radius:0 0 8px 8px;transform-origin:top;animation:fall 1.2s cubic-bezier(.3,1.4,.5,1) both;animation-delay:calc(var(--i)*40ms)}
+@keyframes fall{from{transform:scaleY(.2)}to{transform:scaleY(1) rotate(calc(var(--r)*1deg))}}
+.okm{display:none;max-width:640px;margin:20px auto 0;text-align:center}
+.okm.on{display:block}
+.okm h3{font-family:"Fraunces";font-weight:400;font-size:34px;margin:0}
+@media (max-width:600px){.row2{grid-template-columns:1fr}.mach{height:150px}}
+/* INFOS DIAL */
+#infos{background:var(--night)}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px);margin-top:36px;align-items:start}
+.dialw{display:grid;justify-items:center;gap:14px}
+.dial{width:min(80vw,360px);height:auto}
+.days{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.days button{min-width:46px;min-height:44px;border-radius:999px;border:1px solid rgba(243,233,220,.35);background:none;color:var(--cream);cursor:pointer;font-weight:600;font-size:13px}
+.days button[aria-pressed=true]{background:var(--blush);color:#1a110c;border-color:var(--blush)}
+.days button.td{box-shadow:0 0 0 2px var(--gold)}
+.dtxt{font-family:"Fraunces";font-size:22px;text-align:center;margin:0}
+.facts{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.facts small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:860px){.ig{grid-template-columns:1fr}}
+footer{background:#070403;padding:60px clamp(16px,5vw,80px) 28px;overflow:hidden}
+.fbig{font-family:"Fraunces";font-weight:300;font-style:italic;font-size:min(17vw,230px);line-height:.9;margin:0 0 26px;color:rgba(232,169,160,.14);white-space:nowrap}
+.frow{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--focus,#fff);outline-offset:3px}
+.nowrap{white-space:nowrap}
+/* ---------- MAP ---------- */
+.map{position:relative;border-radius:var(--map-r,22px);overflow:hidden;min-height:380px;background:var(--map-bg,#1a1410);isolation:isolate}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map::before{content:"";position:absolute;inset:0;background:var(--brand);mix-blend-mode:color;pointer-events:none;z-index:1;opacity:.9}
+.map::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(0,0,0,.55) 100%)}
+.map-ph{position:absolute;inset:0;z-index:0;background:
+ repeating-linear-gradient(28deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px),
+ repeating-linear-gradient(-62deg,transparent 0 70px,rgba(255,255,255,.05) 70px 73px),
+ radial-gradient(circle at 30% 70%,rgba(255,255,255,.08),transparent 40%),var(--map-bg,#1a1410)}
+.map-ph p{position:absolute;left:50%;top:22px;transform:translateX(-50%);margin:0;width:min(88%,360px);text-align:center;font-size:13px;line-height:1.4;color:rgba(255,255,255,.85);z-index:4}
+.map-ph button{pointer-events:auto}
+.pin{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-100%);pointer-events:none}
+.pin .ring{position:absolute;left:50%;bottom:-6px;width:70px;height:22px;margin-left:-35px;border-radius:50%;border:2px solid var(--brand-hi);animation:ping 2.2s ease-out infinite;opacity:0}
+.pin .head{width:58px;height:58px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--brand-hi);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:bob 2.6s ease-in-out infinite}
+.pin .head svg{transform:rotate(45deg);width:34px;height:34px}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.glass{position:absolute;left:14px;right:14px;bottom:14px;z-index:5;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 16px;border-radius:16px;background:rgba(20,16,14,.55);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border:1px solid rgba(255,255,255,.18);color:#fff}
+.glass b{display:block;font-size:15px}
+.glass span{font-size:13px;opacity:.85}
+.glass a{flex:none;text-decoration:none;background:#fff;color:#111;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;white-space:nowrap}
+/* ---------- COOKIES ---------- */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;max-width:560px;margin:0 auto;padding:16px 18px;border-radius:16px;background:var(--ck-bg,#141110);color:var(--ck-fg,#fff);box-shadow:0 20px 60px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);font-size:14px;line-height:1.45;transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ck.on{transform:none}
+.ck p{margin:0 0 12px}
+.ck .row{display:flex;gap:10px}
+.ck .row button{flex:1;min-height:44px;border-radius:10px;border:1.5px solid currentColor;background:transparent;font-weight:700;cursor:pointer}
+.ck .row button+button{}
+.ck a{text-decoration:underline;cursor:pointer}
+/* ---------- LEGAL ---------- */
+.lg{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.6)}
+.lg.on{display:flex}
+.lg .box{width:min(680px,100%);max-height:86vh;overflow:auto;background:var(--lg-bg,#fff);color:var(--lg-fg,#151515);border-radius:18px;padding:26px 22px 22px;position:relative;font-size:15px;line-height:1.55}
+.lg h2{margin:0 40px 10px 0;font-size:22px;line-height:1.2}
+.lg h3{font-size:16px;margin:18px 0 4px}
+.lg .x{position:absolute;right:12px;top:12px;width:42px;height:42px;border-radius:50%;border:0;background:rgba(0,0,0,.08);cursor:pointer;font-size:22px;line-height:1}
+.legal-links{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;padding:0;margin:0}
+.legal-links button{background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:13px;opacity:.85}
+.zahr{font-size:12px;opacity:.7}
+.zahr a{text-decoration:underline}
+/* ---------- FORM COMMON ---------- */
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4}
+.consent input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--brand-hi)}
+.err{color:var(--err,#ff8a7a);font-size:13px;min-height:1em;margin:6px 0 0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="nav" id="nav">
+ <a class="logo" href="#film" aria-label="La Pastachuca, accueil"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="#c9a45c" stroke-width="1.4"/><path d="M8 13c3-3 11-3 14 0M8 16c3-3 11-3 14 0M8 19c3-3 11-3 14 0" fill="none" stroke="#e8a9a0" stroke-width="1.6" stroke-linecap="round"/></svg><span>La <i>Pastachuca</i></span></a>
+ <nav aria-label="Menu principal"><ul><li><a href="#carte">La carte</a></li><li><a href="#reserver">Réserver</a></li><li><a href="#infos">Infos</a></li></ul></nav>
+ <a class="tcall" href="tel:+33494276703" aria-label="Appeler le 04 94 27 67 03"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="t nowrap">04 94 27 67 03</span></a>
+</header>
+<main id="main">
+<section id="film" aria-label="Le film de la maison">
+ <div class="st" id="st">
+  <div class="world" aria-hidden="true"><div class="cam" id="cam"></div></div>
+  <div class="heads" aria-hidden="true"></div>
+  <div class="shade"></div>
+  <div class="intro" id="intro"><h1>La <em class="bl">Pastachuca</em></h1><p>Votre rendez-vous avec l’Italie, en plein cœur de la Provence. 36 rue Massillon, Hyères.</p></div>
+  <div class="cap" id="cap" aria-live="polite"></div>
+  <div class="prog" id="prog" aria-hidden="true"></div>
+  <p class="hint">Faites défiler : entrez dans le tableau</p>
+ </div>
+</section>
+
+<section class="sec" id="carte" aria-labelledby="carteT">
+ <p class="k reveal">Pâtes fraîches</p>
+ <h2 class="h2 reveal" id="carteT">Faites tourner<br>la <em class="bl">table</em>.</h2>
+ <p class="lead reveal">Glissez ou utilisez les flèches : l’assiette qui vous fait face se présente. Un extrait de la carte, prix relevés sur place à titre indicatif.</p>
+ <div class="tt" id="tt" aria-roledescription="plateau tournant"><div class="table"><div class="disc" id="disc"></div></div>
+  <div class="focus" aria-live="polite"><h3 id="fN"></h3><p id="fD"></p><span class="pr" id="fP"></span></div></div>
+ <div class="ttnav"><button type="button" id="tPrev" aria-label="Assiette précédente">←</button><button type="button" id="tNext" aria-label="Assiette suivante">→</button></div>
+ <p class="artisan reveal">Tagliatelles, gnocchis et raviolis <em class="bl">sont fabriqués par un artisan</em>.</p>
+</section>
+
+<section class="sec" id="reserver" aria-labelledby="rsT">
+ <p class="k reveal" style="text-align:center">Réservation</p>
+ <h2 class="h2 reveal" id="rsT" style="text-align:center">La demande sort<br>du <em class="bl">laminoir</em>.</h2>
+ <div class="mach" id="mach" aria-hidden="true"><div class="mcss"><i></i><i></i></div></div>
+ <form class="sheet" id="sheet" novalidate>
+  <div class="fi"><span class="lb" id="mL">Pour</span><div class="seg" role="radiogroup" aria-labelledby="mL"><label><input type="radio" name="m" value="Une table" checked><span>Une table</span></label><label><input type="radio" name="m" value="Un groupe"><span>Un groupe</span></label></div></div>
+  <div class="row2">
+   <div class="fi"><label for="d">Date</label><input type="date" id="d" required></div>
+   <div class="fi"><label for="h">Heure</label><select id="h" required><option value="">Choisir une date</option></select></div>
+  </div>
+  <div class="row2">
+   <div class="fi"><label for="n">Personnes</label><select id="n"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option></select></div>
+   <div class="fi"><label for="nm">Nom</label><input id="nm" autocomplete="name" required></div>
+  </div>
+  <div class="fi"><label for="tl">Téléphone</label><input id="tl" type="tel" inputmode="tel" autocomplete="tel" required></div>
+  <div class="fi"><label for="ms">Un mot pour la cuisine (allergies, occasion…)</label><textarea id="ms" rows="2"></textarea></div>
+  <label class="consent"><input type="checkbox" id="ok"><span>J’accepte que ces informations servent uniquement à traiter ma demande (<a data-legal="confidentialite" tabindex="0" role="button" style="text-decoration:underline;cursor:pointer">confidentialité</a>).</span></label>
+  <p class="err" id="er" role="alert"></p>
+  <button class="go" type="submit">Passer au laminoir</button>
+ </form>
+ <div class="strips" id="strips" aria-hidden="true"></div>
+ <div class="okm" id="okm" tabindex="-1"><h3>Tagliatelles prêtes !</h3><p id="okT"></p><p style="font-size:13px;opacity:.7">Démo : aucune donnée n’a été envoyée. Sur le vrai site, le restaurant reçoit votre demande et la confirme.</p></div>
+</section>
+
+<section class="sec" id="infos" aria-labelledby="infT">
+ <p class="k reveal">Infos</p>
+ <h2 class="h2 reveal" id="infT">L’heure <em class="bl">italienne</em>.</h2>
+ <div class="ig">
+  <div class="dialw">
+   <svg class="dial" id="dial" viewBox="0 0 360 360" role="img" aria-labelledby="dT"><title id="dT">Horaires du jour sélectionné</title></svg>
+   <p class="dtxt" id="dtxt"></p>
+   <div class="days" id="days" role="group" aria-label="Choisir un jour"></div>
+  </div>
+  <div>
+   <ul class="facts">
+    <li><small>Adresse</small>36 rue Massillon, 83400 Hyères · vieille ville</li>
+    <li><small>Téléphone</small><a class="nowrap" href="tel:+33494276703">04 94 27 67 03</a></li>
+    <li><small>Services</small>Sur place · livraison</li>
+    <li><small>Instagram</small><a href="https://www.instagram.com/la_pastachuca/" target="_blank" rel="noopener">@la_pastachuca</a></li>
+   </ul>
+   <div style="margin-top:24px"><div class="map" id="map" data-q="La Pastachuca, 36 Rue Massillon, 83400 Hyères">
+ <div class="map-ph"><p>Plan Google masqué tant que vous n’avez pas accepté ses cookies.<br><button type="button" class="map-load" style="margin-top:10px;padding:9px 14px;border-radius:999px;border:0;background:#fff;color:#111;font-weight:700;cursor:pointer">Afficher le plan</button></p></div>
+ <div class="pin" aria-hidden="true"><span class="ring"></span><span class="head"><svg viewBox="0 0 30 30"><path d="M7 12c3-3 13-3 16 0M7 16c3-3 13-3 16 0M7 20c3-3 13-3 16 0" fill="none" stroke="#1a110c" stroke-width="2.4" stroke-linecap="round"/></svg></span></div>
+ <div class="glass"><div><b>La Pastachuca</b><span>36 rue Massillon, Hyères</span></div><a href="https://www.google.com/maps/dir/?api=1&destination=La%20Pastachuca%2C%2036%20Rue%20Massillon%2C%2083400%20Hy%C3%A8res" target="_blank" rel="noopener">Itinéraire</a></div>
+</div></div>
+  </div>
+ </div>
+</section>
+</main>
+<footer>
+ <p class="fbig" aria-hidden="true">Pastachuca</p>
+ <div class="frow"><div><p style="margin:0;font-weight:600">La Pastachuca · Restaurant italien</p><p style="margin:4px 0 0;font-size:14px;opacity:.8">36 rue Massillon, 83400 Hyères · <a class="nowrap" href="tel:+33494276703">04 94 27 67 03</a></p></div><ul class="legal-links"><li><button type="button" data-legal="mentions">Mentions légales</button></li><li><button type="button" data-legal="confidentialite">Confidentialité</button></li><li><button type="button" data-legal="cgv">CGV / CGU</button></li><li><button type="button" data-legal="cookies">Cookies</button></li><li><button type="button" data-legal="remboursement">Remboursement</button></li></ul></div>
+ <p class="zahr" style="margin-top:22px">Démo réalisée par <a href="https://zahr.fr" target="_blank" rel="noopener">ZAHR</a> · site de démonstration non officiel</p>
+</footer>
+
+<div class="ck" id="ck" role="region" aria-label="Cookies">
+ <p>Ce site n’utilise aucun cookie publicitaire. Le plan Google (qui dépose ses propres cookies) ne se charge que si vous l’acceptez. <a data-legal="cookies" tabindex="0" role="button">En savoir plus</a></p>
+ <div class="row"><button type="button" id="ckNo">Refuser</button><button type="button" id="ckYes">Accepter</button></div>
+</div>
+<div class="lg" id="lg" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="box" tabindex="-1"><button class="x" type="button" aria-label="Fermer">×</button><div id="lgC"></div></div></div>
+<template id="t-mentions"><h2 id="lgT">Mentions légales</h2><p><strong>La Pastachuca</strong><br>36 rue Massillon, 83400 Hyères<br>Téléphone : <span class="nowrap">04 94 27 67 03</span></p><h3>Statut de ce site</h3><p>Ce site est une maquette de démonstration réalisée par ZAHR (Redha Hadjazi, création de sites web dans le Var) pour présenter une proposition à La Pastachuca. Il n’est pas indexé par les moteurs de recherche. Les informations légales définitives (forme sociale, SIRET, directeur de la publication) seront ajoutées à la mise en ligne.</p><h3>Hébergement</h3><p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété</h3><p>Les photos proviennent de la fiche publique de l’établissement. Les textes et le design sont la propriété de leurs auteurs respectifs.</p></template>
+<template id="t-confidentialite"><h2 id="lgT">Politique de confidentialité</h2><p>Dans cette démonstration, le formulaire ne transmet aucune donnée : rien n’est enregistré ni envoyé.</p><h3>Sur le site définitif</h3><p>Les informations saisies (nom, téléphone, e-mail, date, nombre de personnes, message) serviront uniquement à traiter votre demande. Responsable du traitement : La Pastachuca. Base légale : votre consentement et l’exécution de votre demande. Durée de conservation : le temps nécessaire au traitement, puis 12 mois au plus.</p><h3>Vos droits</h3><p>Vous pouvez demander l’accès, la rectification, l’effacement ou la limitation de vos données en contactant l’établissement au <span class="nowrap">04 94 27 67 03</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></template>
+<template id="t-cgv"><h2 id="lgT">CGV / CGU</h2><h3>Utilisation du site</h3><p>Le site présente l’établissement, sa carte et ses horaires. Les prix affichés sont indicatifs, relevés sur la carte, et peuvent évoluer : seuls les prix affichés sur place font foi.</p><h3>Réservations et commandes</h3><p>Une demande envoyée par le site n’est confirmée qu’après le retour de l’établissement. Aucun paiement n’est demandé en ligne. Les commandes à emporter se règlent sur place.</p><h3>Allergènes</h3><p>La liste des allergènes est disponible sur demande auprès de l’équipe.</p></template>
+<template id="t-cookies"><h2 id="lgT">Cookies</h2><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d’audience. Votre choix (accepter ou refuser) est mémorisé dans votre navigateur pour ne pas vous le redemander.</p><h3>Plan Google Maps</h3><p>Le plan est fourni par Google, qui peut déposer ses propres cookies. Il ne se charge que si vous cliquez sur « Accepter » ou sur « Afficher le plan ». Vous pouvez changer d’avis à tout moment :</p><p><button type="button" class="ck-reset" style="padding:10px 14px;border-radius:10px;border:1.5px solid currentColor;background:none;cursor:pointer;font-weight:700">Modifier mon choix</button></p></template>
+<template id="t-remboursement"><h2 id="lgT">Politique de remboursement</h2><p>Aucun paiement n’est encaissé en ligne : il n’y a donc rien à rembourser via le site. Pour une commande à emporter réglée sur place, toute réclamation se fait directement auprès de l’établissement, au <span class="nowrap">04 94 27 67 03</span>, conformément au droit de la consommation.</p></template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>window.__IM={"inside": "https://lh3.googleusercontent.com/grass-cs/AABkmLdW0aDVR2XtHRpacJWkYrC2m9tKq_-gH4i1oBkIpsV5T0VIe4pm3XOD1xms0WLAr4DOYMRWmIYpAbXabpgdtrZlgVX1CTNOvkN7R-T6z19W-u2xRam0qSls7APbonXNfLLNHacZokpMLT-r", "jambon": "https://lh3.googleusercontent.com/grass-cs/AABkmLfFsST98tM8PNzBwdVO9GfgRrsCQCsCjyGZKFlj0-Kqrahlm9oJQmOQT-fcE5TL7iTLHgI5d4slCdZmeXMcEmLA0Uu_chjYAUuomXtH3iQaWGQ_aHaUNv8KZIljO-jczWvWyVGO4w", "tartare": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RnAV22luNHCKzRTSG9vcs_0UfQBnKJs_lrcVmq0WARYaajAFwh5Krex8joejsaK9ST2o0qcWyvuL6fuEYHoxuM6NdgNq2D8BDW32vfVh9fjAgtg-7fdeonqwiJ-CBsyrqhtw1Y9Q", "terrace": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Ri9CjiwMlTC0hiuEJmWLU9R7j1qT7_h26i9se0u1m_6u_cosSa-lUC0jmpYB4m99AqKll0M_Ih1jq4FsL2-DO9dT1y2Lsuvl4wBK487YCAk5XGc0mbHvjmjcKjRbiE_6NksVnD", "burrata2": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T6q9O-5vxZpkWXDLudi2cW-E3EEgfYc_QRg7wP3s2jHu-T5DDesewDtUtNAi6v6iZe1hhEht3KXUyjLsDHG8utLbBT3wgHC_iEFXqNIzrEWeTbU0-1myDgYeKNSbYMcweBJsYU", "tiramisu": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q49pKx9xct_NGU49s-wSwVF0KaoIYyu0Yj03UKUb9nJEVJaWAXQflO5yZ2dx4cqOQYa7TyOam47_I0VNal4jjhYY1rHR8ntrVKKgx88yWPiuh2Wf6JXjATcY_jo5_YoMI1CnI3", "entrecote": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RCjXGHYnVYp1faZQXWg5Ewzg2T7nCHYHWmHR4dMqIadnUqFoe0uFzKTZedbFxH0kam1BIJyIEzHEcRLR0yIw2eKRLh8o0ICfpRxbuJdBV07V_lYMkVuSrJ4tsehpkN696uX2I8rJ4Kxnqu", "burrata": "https://lh3.googleusercontent.com/grass-cs/AABkmLezPHvDwMtyraFGqktMMwV5pdyhLYyvjqhSXcf2MVBZ1zrT9ibFdY9IOQQog5eJP-UAcRTI2QJg5BsrkPWeQcNfUevIcVzDWt3lO2z6BnT463HJUbnjW4bFJlnc2SynogefpNTvOCoN9aX0", "pasta": "https://lh3.googleusercontent.com/grass-cs/AABkmLd_hC9PJC3glTlStqnAiDVsH3VXdCzqvUONO0UK-v5XTwmHKge5RyB7sQgyEh6ifh3ZnjN4nwImb6MQ7K8PUjJf9BXaJQE_m9fegISA8ZliBaNzIPrQ12OkSmsrht35F7nXQPr8DSwxObM", "tiramisu2": "https://lh3.googleusercontent.com/grass-cs/AABkmLeYu4a0IVwA4GXgymoTDdHhzHCf2BUa6U0Yi4TH5fjHjQpU8DWpTZrbWr9N7rSXOMA7iPi7aLb5HgZ42LaaVxnnzDQqVqDNBdCAtnVAeIQH8Bj4WTTV9ZdLK30plTqiEM8oFr-bvJq-lVns", "dessert": "https://lh3.googleusercontent.com/grass-cs/AABkmLevURQ18OiQXqhLnsU3sdweiAh-xdoASr2ntLLvq_rdCnqjHdbQFmrjgvEO5d6f9yfUlXPmX1EZGQf0c1k-S60Milgx2jgpr5Ak0wj1RfsVqkDnH5YWMNfBl50CgSD-1Y-pfUYZMqi0EjX5", "room": "https://lh3.googleusercontent.com/grass-cs/AABkmLegUbO0oKJTs3mVLcPFm-LWkjhyBuB3l9r5cYaBCmJB6AhQ5h1qEyQ__yZgx9YeX7gz8Mk3NsfWAuXnD3Pbhv_W4-gXSeaSunRrDWGctCODyFttvxWoIkBhJrBiqRKEn4gqvbBuO8M966w", "mural": "https://lh3.googleusercontent.com/grass-cs/AABkmLcBIgXNW6EFt63Q8MdL5_c-5PIBzBrnTJfIvuUTyNL49c_Wxntq5Qfp_17U_3ahCzqgbEUPStj3gL0DUy2c_dflj6sxkiLVAxcR637NBeNuN82ZXThpv1dlq95SEjEDYYh1ERbho2lI9t5p", "pasta2": "https://lh3.googleusercontent.com/grass-cs/AABkmLds5uH25ohzQxbLuyYJ4aMqK7uY-wxiHNUeXBwucwiTRepCgRRlSgoalyFesY6ATVfJRxsWfdqDJVkXBpLZRYjd8osENahinxM27mJeVBCoPnGBrMncKDSQcqK1XDLhFxL6VHni4eCSjBwP", "front": "https://lh3.googleusercontent.com/grass-cs/AABkmLfKYlRk-1X0bpP9-7aeDJH4cQwL8GtKIgyx-aMP3md7-_FwLtSyExRAc9Urlourfv5kpkSZK9S99DFMW6G4N6tJdjbIBanNCZ0T77e4cu__6tuEerh57SWAykeXaj9muLOwzinh"};</script>
+<script>
+(function(){
+ var E=window.__E||[];
+ function $(s,c){return (c||document).querySelector(s)}
+ function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+ var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+ // legal modal
+ var lg=$('#lg'),lgC=$('#lgC'),last=null;
+ function openLegal(id){var t=$('#t-'+id);if(!t)return;last=document.activeElement;lgC.innerHTML='';lgC.appendChild(t.content.cloneNode(true));lg.classList.add('on');$('.box',lg).focus();var r=$('.ck-reset',lgC);if(r)r.onclick=function(){store.set('zck','');closeLegal();showCk()}}
+ function closeLegal(){lg.classList.remove('on');if(last&&last.focus)last.focus()}
+ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-legal]');if(b){e.preventDefault();openLegal(b.getAttribute('data-legal'))}});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lg.classList.contains('on'))closeLegal();var b=e.target.closest&&e.target.closest('[data-legal]');if(b&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openLegal(b.getAttribute('data-legal'))}});
+ $('.x',lg).onclick=closeLegal;lg.addEventListener('click',function(e){if(e.target===lg)closeLegal()});
+ // map
+ var map=$('#map');
+ function loadMap(){if(!map||$('iframe',map))return;var f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q='+encodeURIComponent(map.getAttribute('data-q'))+'&z=16&output=embed';map.insertBefore(f,map.firstChild);var ph=$('.map-ph',map);if(ph)ph.style.display='none'}
+ // cookies
+ var ck=$('#ck');
+ function showCk(){ck.classList.add('on')}
+ function choose(v){store.set('zck',v);ck.classList.remove('on');if(v==='yes')loadMap()}
+ $('#ckYes').onclick=function(){choose('yes')};$('#ckNo').onclick=function(){choose('no')};
+ var c=store.get('zck');if(c==='yes')loadMap();else if(c!=='no')setTimeout(showCk,900);
+ $$('.map-load').forEach(function(b){b.onclick=function(){store.set('zck','yes');ck.classList.remove('on');loadMap()}});
+ window.__zahr={loadMap:loadMap,openLegal:openLegal};
+})();
+</script>
+<script>(function(){
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s){return document.querySelector(s)}function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function cl(x,a,b){return Math.max(a,Math.min(b,x))}
+function ss(a,b,x){x=cl((x-a)/(b-a),0,1);return x*x*(3-2*x)}
+var IM=window.__IM,nav=$('#nav');
+/* ---------- FILM ---------- */
+var CH=[
+ {img:'inside',k:'',t:''},
+ {img:'terrace',k:'Rue Massillon',t:'Une table dans la vieille ville, <em class="bl">quand la rue s’allume</em>.'},
+ {img:'pasta',k:'Pâtes fraîches',t:'Tagliatelles, gnocchis et raviolis <em class="bl">fabriqués par un artisan</em>.'},
+ {img:'burrata',k:'Burrata',t:'Burrata crémeuse, <em class="bl">jambon cru, roquette</em>.'},
+ {img:'entrecote',k:'Côté viande',t:'Et pour les amateurs, <em class="bl">l’entrecôte</em>.'},
+ {img:'tiramisu',k:'Dolce',t:'Le tiramisu <em class="bl">pour finir</em>.'},
+ {img:'wall',k:'36 rue Massillon · Hyères',t:'La Pastachuca, <em class="bl">l’Italie en Provence</em>.'}
+];
+var cam=$('#cam'),st=$('#st'),film=$('#film'),cap=$('#cap'),prog=$('#prog'),intro=$('#intro');
+var GAP=1400,W,H,layers=[];
+function frameHTML(src,w,h,alt,fp){return '<div class="frame" style="--fp:'+(fp||18)+'px;left:'+(-w/2)+'px;top:'+(-h/2)+'px;width:'+w+'px;height:'+h+'px"><img src="'+src+'" alt="'+(alt||'')+'" loading="lazy" draggable="false"></div>'}
+function build(){W=innerWidth;H=st.clientHeight;cam.innerHTML='';layers=[];var mob=W<760;
+ CH.forEach(function(c,i){var el=document.createElement('div');el.className='pl';var z=-GAP*i;el.style.transform='translateZ('+z+'px)';
+  if(i===0){var fw=mob?W*.78:Math.min(W*.4,560),fh=fw*(mob?1.15:.78);el.innerHTML='<div class="wallp"></div>'+frameHTML(IM.inside+'=w900',fw,fh,'La salle de La Pastachuca',mob?12:18)}
+  else if(c.img==='wall'){var k=1/0.45;var fw=(mob?W*.4:W*.17)*k;var spots=mob?[[-.24,-.27,'terrace'],[.24,-.27,'pasta'],[-.24,-.03,'burrata'],[.24,-.03,'mural'],[0,.2,'front']]:[[-.34,-.12,'terrace'],[-.12,-.2,'pasta'],[.12,-.12,'burrata'],[.34,-.2,'mural'],[0,.13,'front']];
+   el.innerHTML='<div class="wallp" style="transform:scale(2.4)"></div>'+spots.map(function(p){var w=fw*(p[2]==='front'?1.15:1),h=w*.8;return '<div style="position:absolute;left:'+(p[0]*W*k)+'px;top:'+(p[1]*H*k)+'px">'+frameHTML(IM[p[2]]+'=w600',w,h,'',Math.round(10*k))+'</div>'}).join('')}
+  else{var w=mob?W*1.0:Math.min(W*.62,H*1.05),h=mob?W*1.12:w*.62;el.innerHTML=frameHTML(IM[c.img]+'=w1200',w,h,c.k,mob?12:22)}
+  cam.appendChild(el);layers.push({el:el,z:z})});
+ prog.innerHTML=CH.map(function(){return '<i></i>'}).join('');cap.innerHTML=CH.map(function(c){return c.t?'<p><small>'+c.k+'</small>'+c.t+'</p>':'<p></p>'}).join('')}
+build();var rT;addEventListener('resize',function(){clearTimeout(rT);rT=setTimeout(build,200)});
+var stops=CH.map(function(c,i){return i===0?-300:i===CH.length-1?GAP*i-1100:GAP*i-200});
+var sp=0;
+function filmLoop(){var r=film.getBoundingClientRect(),tot=film.offsetHeight-innerHeight;var p=cl(-r.top/tot,0,1);sp+=(p-sp)*(RM?1:.12);
+ var n=stops.length-1,f=sp*n,i=Math.min(n-1,Math.floor(f)),s=f-i;var e=RM?Math.round(s):ss(.22,.82,s);var z=stops[i]+(stops[i+1]-stops[i])*e;
+ cam.style.transform='translateZ('+z.toFixed(1)+'px)';
+ layers.forEach(function(L){var D=900+(-L.z)-z;var o=D<300?0:D<700?(D-300)/400:D>9000?0:1;L.el.style.opacity=o.toFixed(3);L.el.style.visibility=o<=0?'hidden':'visible'});
+ var near=Math.round(f),hold=Math.abs(f-near)<.2;$$('#cap p').forEach(function(pp,j){pp.classList.toggle('on',hold&&j===near)});$$('#prog i').forEach(function(d,j){d.classList.toggle('on',j===near)});
+ st.style.setProperty('--io',cl(1-f*3,0,1).toFixed(3));st.style.setProperty('--hd',(near===0||near===n)?1:0);
+ nav.classList.toggle('solid',scrollY>film.offsetHeight-innerHeight-10);
+ requestAnimationFrame(filmLoop)}
+requestAnimationFrame(filmLoop);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});$$('.reveal').forEach(function(e){io.observe(e)});
+/* ---------- TURNTABLE ---------- */
+var D=[['Tagliatelles au basilic frais','Basilic frais, pignons grillés, copeaux de grana, roquette','17 €','radial-gradient(circle,#f0d78a 0 40%,#4f7a2e 41% 55%,#e9c870 56%)'],
+ ['Tagliatelles burrata','Burrata, jambon cru, sauce tomate, copeaux de grana, roquette','21,50 €','radial-gradient(circle,#fbf7ee 0 32%,#c2412d 33% 50%,#d9876e 51% 62%,#e9c870 63%)'],
+ ['Tagliatelles aux cèpes','Sauce aux cèpes et cèpes grillés','23 €','radial-gradient(circle,#8a5a30 0 30%,#d8b27a 31%)'],
+ ['Tagliatelles à la truffe','Crème de truffe et parmesan, éclats de truffe · noix de Saint-Jacques snackées en supplément (8 €)','24 €','radial-gradient(circle,#2b2420 0 18%,#efe0b8 19%)'],
+ ['Gnocchis pistache','Pesto de pistache, mortadelle, burrata crémeuse, parmesan, zestes de citron, éclats de pistache','21,50 €','radial-gradient(circle,#fbf7ee 0 26%,#9bb35a 27% 45%,#e7b9b0 46% 58%,#f1e2b8 59%)'],
+ ['Raviolis à la brousse','Farcis à la brousse, sauce tomate et basilic frais','18 €','radial-gradient(circle,#4f7a2e 0 12%,#c2412d 13% 40%,#f0d78a 41%)'],
+ ['Lasagnes pur bœuf','Servies avec une salade verte','17 €','repeating-linear-gradient(0deg,#c2412d 0 6px,#f0d78a 6px 12px)']];
+var disc=$('#disc'),n=D.length,cur=0,rot=0;
+D.forEach(function(d,i){var a=(i/n)*Math.PI*2+Math.PI/2;var el=document.createElement('div');el.className='dish';el.style.left=(50+Math.cos(a)*34)+'%';el.style.top=(50+Math.sin(a)*34)+'%';el.style.margin='-14% 0 0 -14%';
+ el.innerHTML='<div class="pl8"></div><div class="food" style="--food:'+d[3]+'"></div><div class="tag">'+d[0]+'</div>';disc.appendChild(el)});
+function go(k){cur=(k%n+n)%n;rot=-(cur/n)*360;var dr=Math.round((rot-(+disc.dataset.r||0))/360)*360;disc.dataset.r=rot;disc.style.setProperty('--rot',rot+'deg');$$('.dish').forEach(function(e){e.style.transform='rotateZ('+(-rot)+'deg)';e.style.transition='transform .9s cubic-bezier(.2,.8,.2,1)'});
+ $('#fN').textContent=D[cur][0];$('#fD').textContent=D[cur][1];$('#fP').textContent=D[cur][2]}
+go(0);var cnt=0;$('#tPrev').onclick=function(){cnt--;goC()};$('#tNext').onclick=function(){cnt++;goC()};
+function goC(){cur=((cnt%n)+n)%n;rot=-(cnt/n)*360;disc.style.setProperty('--rot',rot+'deg');$$('.dish').forEach(function(e){e.style.transform='rotateZ('+(-rot)+'deg)'});$('#fN').textContent=D[cur][0];$('#fD').textContent=D[cur][1];$('#fP').textContent=D[cur][2]}
+var tt=$('#tt'),sx=null;tt.addEventListener('pointerdown',function(e){sx=e.clientX});tt.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>24){cnt+=dx<0?1:-1;goC()}});
+tt.tabIndex=0;tt.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){cnt++;goC()}if(e.key==='ArrowLeft'){cnt--;goC()}});
+/* ---------- MACHINE ---------- */
+var sheet=$('#sheet'),mach=$('#mach'),spin=0;
+(function sl(){requestAnimationFrame(sl);var r=mach.getBoundingClientRect();var o=cl((innerHeight*.9-r.top)/(innerHeight*.6),0,1);if(RM)o=1;sheet.style.setProperty('--out',o.toFixed(3));spin=o})();
+function machine3D(){if(!window.THREE){mach.classList.add('fallback');return}
+ try{var T=THREE,W=mach.clientWidth,H=mach.clientHeight;var r=new T.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(W,H);mach.appendChild(r.domElement);
+ var sc=new T.Scene(),cm=new T.PerspectiveCamera(30,W/H,.1,100);cm.position.set(0,1.6,9);cm.lookAt(0,0,0);
+ sc.add(new T.HemisphereLight(0xffffff,0x442211,.8));var dl=new T.DirectionalLight(0xffffff,1);dl.position.set(3,5,6);sc.add(dl);
+ var chrome=new T.MeshStandardMaterial({color:0xd9d9d9,metalness:.85,roughness:.22}),dark=new T.MeshStandardMaterial({color:0x8d8d8d,metalness:.7,roughness:.35});
+ var rl=[];[.42,-.42].forEach(function(y,i){var c=new T.Mesh(new T.CylinderGeometry(.4,.4,4.6,40),chrome);c.rotation.z=Math.PI/2;c.position.set(0,y,0);sc.add(c);rl.push(c)});
+ [-2.5,2.5].forEach(function(x){var p=new T.Mesh(new T.BoxGeometry(.3,2.2,1.4),dark);p.position.x=x;sc.add(p)});
+ var crank=new T.Group();var arm=new T.Mesh(new T.BoxGeometry(.14,1.3,.14),dark);arm.position.y=.6;crank.add(arm);var knob=new T.Mesh(new T.CylinderGeometry(.12,.12,.6,16),new T.MeshStandardMaterial({color:0x5a3a22,roughness:.6}));knob.rotation.z=Math.PI/2;knob.position.set(.3,1.2,0);crank.add(knob);crank.position.set(2.75,.42,0);crank.rotation.order='YXZ';crank.rotation.y=Math.PI/2;sc.add(crank);
+ var dough=new T.Mesh(new T.PlaneGeometry(3.8,1),new T.MeshStandardMaterial({color:0xf1d27c,roughness:.8,side:T.DoubleSide}));dough.position.set(0,1.1,-.1);dough.rotation.x=-.3;sc.add(dough);
+ var vis=false;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(mach);var a=0,last=spin;
+ (function lp(){requestAnimationFrame(lp);if(!vis)return;var d=Math.abs(spin-last)*40+(RM?0:.01);last=spin;a+=d;rl[0].rotation.x=a;rl[1].rotation.x=-a;crank.rotation.x=a;r.render(sc,cm)})();
+ addEventListener('resize',function(){W=mach.clientWidth;H=mach.clientHeight;r.setSize(W,H);cm.aspect=W/H;cm.updateProjectionMatrix()});
+ }catch(err){(window.__E=window.__E||[]).push(String(err));mach.classList.add('fallback')}}
+if(document.readyState==='complete')machine3D();else addEventListener('load',machine3D);
+/* ---------- FORM ---------- */
+var HRS={1:[[600,840],[1080,1290]],2:[[600,840],[1080,1290]],3:[[600,870],[1080,1290]],4:[],5:[[600,840],[1080,1320]],6:[[600,840],[1080,1320]],0:[[600,840],[1080,1290]]};
+function hm(m){return Math.floor(m/60)+':'+String(m%60).padStart(2,'0')}
+var td=new Date();td.setHours(0,0,0,0);$('#d').min=td.getFullYear()+'-'+String(td.getMonth()+1).padStart(2,'0')+'-'+String(td.getDate()).padStart(2,'0');
+$('#d').addEventListener('change',function(){var h=$('#h');if(!this.value){h.innerHTML='<option value="">Choisir une date</option>';return}var dy=new Date(this.value+'T12:00:00').getDay();var L=HRS[dy];
+ if(!L.length){h.innerHTML='<option value="">Fermé le jeudi</option>';return}var o='<option value="">Choisir</option>';L.forEach(function(x){var s=x[0]<900?720:1140;for(var m=s;m<=x[1]-30;m+=30)o+='<option>'+hm(m)+'</option>'});h.innerHTML=o});
+sheet.addEventListener('submit',function(e){e.preventDefault();var err='';var dv=$('#d').value;if(!dv)err='Choisissez une date.';else if(new Date(dv+'T12:00:00').getDay()===4)err='Le restaurant est fermé le jeudi.';else if(!$('#h').value)err='Choisissez une heure.';else if($('#nm').value.trim().length<2)err='Indiquez votre nom.';else if($('#tl').value.replace(/\D/g,'').length<10)err='Indiquez un numéro de téléphone valide.';else if(!$('#ok').checked)err='Cochez la case de consentement pour continuer.';
+ $('#er').textContent=err;if(err)return;var ds=new Date(dv+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+ $('#okT').textContent=sheet.m.value+' · '+ds+' à '+$('#h').value+' · '+$('#n').value+' pers. · au nom de '+$('#nm').value.trim()+'.';
+ var s=$('#strips');s.innerHTML=Array.from({length:18},function(_,i){return '<i style="--i:'+i+';--r:'+((Math.random()-.5)*8).toFixed(1)+'"></i>'}).join('');sheet.style.display='none';s.classList.add('on');var ok=$('#okm');ok.classList.add('on');ok.focus()});
+/* ---------- DIAL ---------- */
+var FULL=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],DN=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];var now=new Date(),dow=now.getDay(),tnow=now.getHours()*60+now.getMinutes();
+var dial=$('#dial'),NS='http://www.w3.org/2000/svg';
+function pt(m,r){var a=(m/1440)*Math.PI*2-Math.PI/2;return [180+Math.cos(a)*r,180+Math.sin(a)*r]}
+function arc(a,b,r){var p=pt(a,r),q=pt(b,r);return 'M'+p[0]+' '+p[1]+'A'+r+' '+r+' 0 '+((b-a)>720?1:0)+' 1 '+q[0]+' '+q[1]}
+function drawDial(d){var h=HRS[d],s='<title id="dT">Horaires du '+FULL[d]+'</title><circle cx="180" cy="180" r="150" fill="none" stroke="rgba(243,233,220,.15)" stroke-width="22"/>';
+ for(var i=0;i<24;i++){var a=pt(i*60,128),b=pt(i*60,i%6?134:140);s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="rgba(243,233,220,.5)" stroke-width="'+(i%6?1:2)+'"/>';if(i%6===0){var l=pt(i*60,112);s+='<text x="'+l[0]+'" y="'+(l[1]+5)+'" fill="#f3e9dc" font-size="14" text-anchor="middle" font-family="Inter">'+i+'h</text>'}}
+ h.forEach(function(x){s+='<path d="'+arc(x[0],x[1],150)+'" fill="none" stroke="#e8a9a0" stroke-width="22" stroke-linecap="butt"/>'});
+ if(d===dow){var q=pt(tnow,150);s+='<line x1="180" y1="180" x2="'+q[0]+'" y2="'+q[1]+'" stroke="#c9a45c" stroke-width="3" stroke-linecap="round"/><circle cx="180" cy="180" r="7" fill="#c9a45c"/>'}
+ s+='<text x="180" y="186" fill="#f3e9dc" font-size="26" text-anchor="middle" font-family="Fraunces" font-style="italic">'+DN[d]+'</text>';dial.innerHTML=s;
+ $('#dtxt').textContent=FULL[d].charAt(0).toUpperCase()+FULL[d].slice(1)+' : '+(h.length?h.map(function(x){return hm(x[0])+'–'+hm(x[1])}).join(' · '):'fermé')}
+var days=$('#days');[1,2,3,4,5,6,0].forEach(function(d){var b=document.createElement('button');b.type='button';b.textContent=DN[d];b.className=d===dow?'td':'';b.setAttribute('aria-pressed',d===dow);b.setAttribute('aria-label',FULL[d]+(d===dow?" (aujourd’hui)":''));b.onclick=function(){$$('#days button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});drawDial(d)};days.appendChild(b)});
+drawDial(dow);
+})();
+</script>
+</body>
+</html>
