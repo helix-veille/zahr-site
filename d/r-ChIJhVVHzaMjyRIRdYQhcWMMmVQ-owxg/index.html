@@ -66,7 +66,7 @@ em.bl,.bl{font-style:italic;color:var(--blush);font-weight:300}
 .dish{position:absolute;left:50%;top:50%;width:28%;aspect-ratio:1;margin:-14% 0 0 -14%;transform-style:preserve-3d}
 .dish .pl8{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,#ece5da 59% 70%,#c9a45c 71% 73%,#f7f2ea 74%);box-shadow:0 10px 18px rgba(0,0,0,.35)}
 .dish .food{position:absolute;inset:22%;border-radius:50%;background:var(--food)}
-.dish .tag{position:absolute;left:50%;bottom:62%;width:150px;margin-left:-75px;text-align:center;transform:rotateX(-62deg);transform-origin:50% 100%;font-family:"Fraunces";font-size:15px;line-height:1.1;color:var(--cream);text-shadow:0 2px 10px #000;pointer-events:none;backface-visibility:hidden}
+.dish .tag{opacity:0;transition:opacity .4s;position:absolute;left:50%;bottom:62%;width:150px;margin-left:-75px;text-align:center;transform:rotateX(-62deg);transform-origin:50% 100%;font-family:"Fraunces";font-size:15px;line-height:1.1;color:var(--cream);text-shadow:0 2px 10px #000;pointer-events:none;backface-visibility:hidden}
 .focus{position:absolute;left:0;right:0;bottom:0;text-align:center;padding:0 16px}
 .focus h3{margin:0;font-family:"Fraunces";font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.05}
 .focus p{margin:8px auto 0;max-width:520px;opacity:.85}
@@ -113,11 +113,12 @@ em.bl,.bl{font-style:italic;color:var(--blush);font-weight:300}
 .ig{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px);margin-top:36px;align-items:start}
 .dialw{display:grid;justify-items:center;gap:14px}
 .dial{width:min(80vw,360px);height:auto}
-.days{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-.days button{min-width:46px;min-height:44px;border-radius:999px;border:1px solid rgba(243,233,220,.35);background:none;color:var(--cream);cursor:pointer;font-weight:600;font-size:13px}
+.days{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.dish.on .tag{opacity:1}
+.days button{min-width:42px;min-height:44px;border-radius:999px;border:1px solid rgba(243,233,220,.35);background:none;color:var(--cream);cursor:pointer;font-weight:600;font-size:13px}
 .days button[aria-pressed=true]{background:var(--blush);color:#1a110c;border-color:var(--blush)}
 .days button.td{box-shadow:0 0 0 2px var(--gold)}
-.dtxt{font-family:"Fraunces";font-size:22px;text-align:center;margin:0}
+.dtxt{font-family:"Fraunces";font-size:19px;text-align:center;margin:0}
 .facts{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
 .facts small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 @media (max-width:860px){.ig{grid-template-columns:1fr}}
@@ -316,7 +317,7 @@ var IM=window.__IM,nav=$('#nav');
 /* ---------- FILM ---------- */
 var CH=[
  {img:'inside',k:'',t:''},
- {img:'terrace',k:'Rue Massillon',t:'Une table dans la vieille ville, <em class="bl">quand la rue s’allume</em>.'},
+ {img:'room',k:'Rue Massillon',t:'Une salle aux couleurs de la Provence, <em class="bl">au cœur de la vieille ville</em>.'},
  {img:'pasta',k:'Pâtes fraîches',t:'Tagliatelles, gnocchis et raviolis <em class="bl">fabriqués par un artisan</em>.'},
  {img:'burrata',k:'Burrata',t:'Burrata crémeuse, <em class="bl">jambon cru, roquette</em>.'},
  {img:'entrecote',k:'Côté viande',t:'Et pour les amateurs, <em class="bl">l’entrecôte</em>.'},
@@ -329,7 +330,7 @@ function frameHTML(src,w,h,alt,fp){return '<div class="frame" style="--fp:'+(fp|
 function build(){W=innerWidth;H=st.clientHeight;cam.innerHTML='';layers=[];var mob=W<760;
  CH.forEach(function(c,i){var el=document.createElement('div');el.className='pl';var z=-GAP*i;el.style.transform='translateZ('+z+'px)';
   if(i===0){var fw=mob?W*.78:Math.min(W*.4,560),fh=fw*(mob?1.15:.78);el.innerHTML='<div class="wallp"></div>'+frameHTML(IM.inside+'=w900',fw,fh,'La salle de La Pastachuca',mob?12:18)}
-  else if(c.img==='wall'){var k=1/0.45;var fw=(mob?W*.4:W*.17)*k;var spots=mob?[[-.24,-.27,'terrace'],[.24,-.27,'pasta'],[-.24,-.03,'burrata'],[.24,-.03,'mural'],[0,.2,'front']]:[[-.34,-.12,'terrace'],[-.12,-.2,'pasta'],[.12,-.12,'burrata'],[.34,-.2,'mural'],[0,.13,'front']];
+  else if(c.img==='wall'){var k=1/0.45;var fw=(mob?W*.4:W*.17)*k;var spots=mob?[[-.24,-.27,'tiramisu2'],[.24,-.27,'pasta'],[-.24,-.03,'burrata'],[.24,-.03,'mural'],[0,.2,'front']]:[[-.34,-.12,'tiramisu2'],[-.12,-.2,'pasta'],[.12,-.12,'burrata'],[.34,-.2,'mural'],[0,.13,'front']];
    el.innerHTML='<div class="wallp" style="transform:scale(2.4)"></div>'+spots.map(function(p){var w=fw*(p[2]==='front'?1.15:1),h=w*.8;return '<div style="position:absolute;left:'+(p[0]*W*k)+'px;top:'+(p[1]*H*k)+'px">'+frameHTML(IM[p[2]]+'=w600',w,h,'',Math.round(10*k))+'</div>'}).join('')}
   else{var w=mob?W*1.0:Math.min(W*.62,H*1.05),h=mob?W*1.12:w*.62;el.innerHTML=frameHTML(IM[c.img]+'=w1200',w,h,c.k,mob?12:22)}
   cam.appendChild(el);layers.push({el:el,z:z})});
@@ -340,7 +341,7 @@ var sp=0;
 function filmLoop(){var r=film.getBoundingClientRect(),tot=film.offsetHeight-innerHeight;var p=cl(-r.top/tot,0,1);sp+=(p-sp)*(RM?1:.12);
  var n=stops.length-1,f=sp*n,i=Math.min(n-1,Math.floor(f)),s=f-i;var e=RM?Math.round(s):ss(.22,.82,s);var z=stops[i]+(stops[i+1]-stops[i])*e;
  cam.style.transform='translateZ('+z.toFixed(1)+'px)';
- layers.forEach(function(L){var D=900+(-L.z)-z;var o=D<300?0:D<700?(D-300)/400:D>9000?0:1;L.el.style.opacity=o.toFixed(3);L.el.style.visibility=o<=0?'hidden':'visible'});
+ layers.forEach(function(L){var D=900+(-L.z)-z;var o=D<650?0:D<1000?(D-650)/350:D>9000?0:1;L.el.style.opacity=o.toFixed(3);L.el.style.visibility=o<=0?'hidden':'visible'});
  var near=Math.round(f),hold=Math.abs(f-near)<.2;$$('#cap p').forEach(function(pp,j){pp.classList.toggle('on',hold&&j===near)});$$('#prog i').forEach(function(d,j){d.classList.toggle('on',j===near)});
  st.style.setProperty('--io',cl(1-f*3,0,1).toFixed(3));st.style.setProperty('--hd',(near===0||near===n)?1:0);
  nav.classList.toggle('solid',scrollY>film.offsetHeight-innerHeight-10);
@@ -361,7 +362,8 @@ D.forEach(function(d,i){var a=(i/n)*Math.PI*2+Math.PI/2;var el=document.createEl
 function go(k){cur=(k%n+n)%n;rot=-(cur/n)*360;var dr=Math.round((rot-(+disc.dataset.r||0))/360)*360;disc.dataset.r=rot;disc.style.setProperty('--rot',rot+'deg');$$('.dish').forEach(function(e){e.style.transform='rotateZ('+(-rot)+'deg)';e.style.transition='transform .9s cubic-bezier(.2,.8,.2,1)'});
  $('#fN').textContent=D[cur][0];$('#fD').textContent=D[cur][1];$('#fP').textContent=D[cur][2]}
 go(0);var cnt=0;$('#tPrev').onclick=function(){cnt--;goC()};$('#tNext').onclick=function(){cnt++;goC()};
-function goC(){cur=((cnt%n)+n)%n;rot=-(cnt/n)*360;disc.style.setProperty('--rot',rot+'deg');$$('.dish').forEach(function(e){e.style.transform='rotateZ('+(-rot)+'deg)'});$('#fN').textContent=D[cur][0];$('#fD').textContent=D[cur][1];$('#fP').textContent=D[cur][2]}
+function goC(){cur=((cnt%n)+n)%n;rot=-(cnt/n)*360;disc.style.setProperty('--rot',rot+'deg');$$('.dish').forEach(function(e){e.style.transform='rotateZ('+(-rot)+'deg)'});$('#fN').textContent=D[cur][0];$('#fD').textContent=D[cur][1];$('#fP').textContent=D[cur][2];$$('.dish').forEach(function(e,j){e.classList.toggle('on',j===cur)})}
+goC();
 var tt=$('#tt'),sx=null;tt.addEventListener('pointerdown',function(e){sx=e.clientX});tt.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>24){cnt+=dx<0?1:-1;goC()}});
 tt.tabIndex=0;tt.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){cnt++;goC()}if(e.key==='ArrowLeft'){cnt--;goC()}});
 /* ---------- MACHINE ---------- */
@@ -369,9 +371,9 @@ var sheet=$('#sheet'),mach=$('#mach'),spin=0;
 (function sl(){requestAnimationFrame(sl);var r=mach.getBoundingClientRect();var o=cl((innerHeight*.9-r.top)/(innerHeight*.6),0,1);if(RM)o=1;sheet.style.setProperty('--out',o.toFixed(3));spin=o})();
 function machine3D(){if(!window.THREE){mach.classList.add('fallback');return}
  try{var T=THREE,W=mach.clientWidth,H=mach.clientHeight;var r=new T.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(W,H);mach.appendChild(r.domElement);
- var sc=new T.Scene(),cm=new T.PerspectiveCamera(30,W/H,.1,100);cm.position.set(0,1.6,9);cm.lookAt(0,0,0);
+ var sc=new T.Scene(),cm=new T.PerspectiveCamera(30,W/H,.1,100);cm.position.set(0,1.6,W<600?7.4:9);cm.lookAt(0,0,0);
  sc.add(new T.HemisphereLight(0xffffff,0x442211,.8));var dl=new T.DirectionalLight(0xffffff,1);dl.position.set(3,5,6);sc.add(dl);
- var chrome=new T.MeshStandardMaterial({color:0xd9d9d9,metalness:.85,roughness:.22}),dark=new T.MeshStandardMaterial({color:0x8d8d8d,metalness:.7,roughness:.35});
+ var chrome=new T.MeshStandardMaterial({color:0xe6e6e6,metalness:.35,roughness:.25}),dark=new T.MeshStandardMaterial({color:0x8d8d8d,metalness:.7,roughness:.35});
  var rl=[];[.42,-.42].forEach(function(y,i){var c=new T.Mesh(new T.CylinderGeometry(.4,.4,4.6,40),chrome);c.rotation.z=Math.PI/2;c.position.set(0,y,0);sc.add(c);rl.push(c)});
  [-2.5,2.5].forEach(function(x){var p=new T.Mesh(new T.BoxGeometry(.3,2.2,1.4),dark);p.position.x=x;sc.add(p)});
  var crank=new T.Group();var arm=new T.Mesh(new T.BoxGeometry(.14,1.3,.14),dark);arm.position.y=.6;crank.add(arm);var knob=new T.Mesh(new T.CylinderGeometry(.12,.12,.6,16),new T.MeshStandardMaterial({color:0x5a3a22,roughness:.6}));knob.rotation.z=Math.PI/2;knob.position.set(.3,1.2,0);crank.add(knob);crank.position.set(2.75,.42,0);crank.rotation.order='YXZ';crank.rotation.y=Math.PI/2;sc.add(crank);
@@ -400,7 +402,7 @@ function drawDial(d){var h=HRS[d],s='<title id="dT">Horaires du '+FULL[d]+'</tit
  for(var i=0;i<24;i++){var a=pt(i*60,128),b=pt(i*60,i%6?134:140);s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="rgba(243,233,220,.5)" stroke-width="'+(i%6?1:2)+'"/>';if(i%6===0){var l=pt(i*60,112);s+='<text x="'+l[0]+'" y="'+(l[1]+5)+'" fill="#f3e9dc" font-size="14" text-anchor="middle" font-family="Inter">'+i+'h</text>'}}
  h.forEach(function(x){s+='<path d="'+arc(x[0],x[1],150)+'" fill="none" stroke="#e8a9a0" stroke-width="22" stroke-linecap="butt"/>'});
  if(d===dow){var q=pt(tnow,150);s+='<line x1="180" y1="180" x2="'+q[0]+'" y2="'+q[1]+'" stroke="#c9a45c" stroke-width="3" stroke-linecap="round"/><circle cx="180" cy="180" r="7" fill="#c9a45c"/>'}
- s+='<text x="180" y="186" fill="#f3e9dc" font-size="26" text-anchor="middle" font-family="Fraunces" font-style="italic">'+DN[d]+'</text>';dial.innerHTML=s;
+ s+='<text x="180" y="236" fill="#f3e9dc" font-size="26" text-anchor="middle" font-family="Fraunces" font-style="italic">'+DN[d]+'</text>';dial.innerHTML=s;
  $('#dtxt').textContent=FULL[d].charAt(0).toUpperCase()+FULL[d].slice(1)+' : '+(h.length?h.map(function(x){return hm(x[0])+'–'+hm(x[1])}).join(' · '):'fermé')}
 var days=$('#days');[1,2,3,4,5,6,0].forEach(function(d){var b=document.createElement('button');b.type='button';b.textContent=DN[d];b.className=d===dow?'td':'';b.setAttribute('aria-pressed',d===dow);b.setAttribute('aria-label',FULL[d]+(d===dow?" (aujourd’hui)":''));b.onclick=function(){$$('#days button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});drawDial(d)};days.appendChild(b)});
 drawDial(dow);
