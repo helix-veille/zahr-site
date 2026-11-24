@@ -71,11 +71,12 @@ body.dark-nav .pill:not(.ghost){background:#fff;color:var(--ink)}
 .skyw{position:absolute;z-index:5;font:500 var(--sfs)/1.05 Inter,sans-serif;letter-spacing:-.03em;color:var(--ink);max-width:min(560px,86vw)}
 .skyw .w{display:inline-block;opacity:0;transform:translateY(.4em);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
 .skyw.on .w{opacity:1;transform:none}
+.skyw.br.on{opacity:1}
 .skyw .g{color:#7d7884}
 .skyw.tl{left:calc(40px*var(--n));top:calc(104px*var(--n))}
 .skyw.br{right:calc(40px*var(--n));bottom:calc(46px*var(--n));text-align:right}
 .skyw small{display:block;font:500 calc(var(--sfs)*.3)/1.4 Inter,sans-serif;letter-spacing:0;color:#2a2d3a;margin-top:.6em}
-.skyw.br{background:rgba(241,236,234,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:14px 16px;border-radius:18px}
+.skyw.br{opacity:0;transition:opacity .5s;background:rgba(241,236,234,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:14px 16px;border-radius:18px}
 .black{position:absolute;inset:0;z-index:8;background:var(--dark);opacity:0;pointer-events:none}
 @media (max-width:819px){.skyw.tl{left:16px;top:84px}.skyw.br{right:12px;left:12px;bottom:56px;max-width:none}}
 /* MANIFESTO */
@@ -536,7 +537,7 @@ function initPot(){var host=document.getElementById('pot');if(!window.THREE){doc
   g.rotation.y=t*.25+p*6;g.position.y=Math.sin(t*1.4)*.12+(1-ease(a))*-2.5;g.rotation.x=.12+Math.sin(t*.9)*.03;
   lid.position.set(0,1.0+g.position.y+ease(open)*1.15,0+ease(open)*-.6);lid.rotation.x=-ease(open)*.5;lid.rotation.z=Math.sin(t)*.05;lid.material.opacity=1-dive;lid.material.transparent=true;lid.visible=dive<.6;
   steam.forEach(function(s,k){var u=((t*.4+s.userData.o)%3)/3;s.position.set(s.userData.x*(1-u*.4),.7+g.position.y+u*3.4,s.userData.z*(1-u*.4));s.scale.setScalar(.6+u*1.6);s.material.opacity=.22*Math.sin(u*Math.PI)*open*(1-dive)});
-  var d=ease(dive);cam.position.set(0,3.8-d*1.9,8.4-d*7.8);cam.lookAt(0,.2+g.position.y*d,0);host.style.transform='translate(-50%,-50%) scale('+(1+d*1.6)+')';
+  var d=ease(dive);f1.visible=d<.15;bits.visible=d<.55;cam.position.set(0,3.8-d*1.9,8.4-d*7.8);cam.lookAt(0,.2+g.position.y*d,0);host.style.transform='translate(-50%,-50%) scale('+(1+d*1.6)+')';
   r.render(sc,cam)};
  }catch(e){document.body.classList.add('no3d');window.__potErr=e.message}}
 layout();addEventListener('resize',function(){layout()});buildHero();requestAnimationFrame(frame);
