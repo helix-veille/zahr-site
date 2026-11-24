@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>La Bouillabaisse — Restaurant de poissons face à la baie, Giens · Hyères</title>
+<meta name="description" content="La Bouillabaisse, restaurant de poissons et fruits de mer route de la Madrague à Giens (Hyères) : bouillabaisse traditionnelle sur réservation, ardoise du jour, terrasse face à la baie.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1ECEA;--ink:#1B2638;--muted:#8E8A93;--dark:#0F131B;--harbour:#3F6E9A;--sky1:#C0C9D9;--sky2:#EFCEBE;--saffron:#D9822B;--peach:#DDAD95;--lav:#B0AEC6;--ice:#BAD9E6;--sand:#EBC9AE;--chalk:#F3F1E6;--slate:#26302d;
+--n:1;--hfs:100px;--pfs:46px;--sfs:56px;--mfs:72px;--cw:200}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(76px*var(--n));padding:0 calc(32px*var(--n));display:flex;align-items:center;justify-content:space-between;pointer-events:none;transition:background .3s,color .3s}
+.nav>*{pointer-events:auto}
+.nav.solid{background:rgba(241,236,234,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(27,38,56,.08)}
+body.dark-nav .nav{color:#fff}
+body.dark-nav .nav.solid{background:rgba(15,19,27,.92)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 18px/1 Fraunces,serif;letter-spacing:-.01em;white-space:nowrap}
+.logo svg{width:40px;height:40px;flex:none}
+.links{display:flex;gap:26px;font-size:15px;font-weight:500}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:currentColor}
+body.dark-nav .links a{color:#9ba0ad}
+.navcta{display:flex;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;background:var(--ink);color:var(--bg);text-decoration:none;font:600 15px Inter,sans-serif;border:0;cursor:pointer;white-space:nowrap}
+.pill:hover{background:#2E3546}
+.pill.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+body.dark-nav .pill:not(.ghost){background:#fff;color:var(--ink)}
+.pill svg{width:16px;height:16px}
+@media (max-width:819px){.lbl-call{display:none}.pill.ghost{padding:0 11px}.links{display:none}.logo span{font-size:16px}.pill{height:40px;padding:0 13px;font-size:14px}.logo svg{width:34px;height:34px}}
+/* STORY */
+#story{position:relative;height:900vh}
+.hero{position:absolute;top:0;left:0;width:100%;height:100vh;height:100svh;z-index:9;pointer-events:none}
+.hl{position:absolute;left:0;right:0;top:36%;height:0}
+.hrow{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);display:flex;align-items:center;white-space:nowrap;font:600 var(--hfs)/1 Inter,sans-serif;letter-spacing:-.035em;color:var(--ink)}
+.hrow .ch{display:inline-block;clip-path:inset(0 100% 0 0);transition:clip-path .2s cubic-bezier(.25,.75,.2,1)}
+.hrow .ch.on{clip-path:inset(-10% -10% -20% 0)}
+.hrow .ch.sp{width:.26em}
+.hrow .ic{display:inline-block;width:calc(var(--hfs)*.62);height:calc(var(--hfs)*.62);margin:0 calc(var(--hfs)*.04);transform:scale(0);transition:transform .32s cubic-bezier(.34,1.56,.64,1),opacity .2s,filter .2s}
+.hrow .ic.on{transform:scale(1)}
+.hrow .ic.eat{transform:scaleY(.16) scaleX(1.25) rotate(-28deg);filter:brightness(0);opacity:0;transition:transform .2s,opacity .2s .1s,filter .15s}
+.hrow .ic svg{width:100%;height:100%;shape-rendering:crispEdges}
+.hsub{position:absolute;left:50%;top:calc(36% + var(--hfs)*.72 + 16px);transform:translateX(-50%);width:min(92%,640px);text-align:center;font-size:clamp(15px,1.4vw,19px);color:#4d4f5c;opacity:0;transition:opacity .8s .2s}
+.hsub.on{opacity:1}
+.hsub b{color:var(--ink);font-weight:600}
+.gull{position:absolute;left:0;top:0;width:56px;height:56px;z-index:10;opacity:0;will-change:transform}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
+.proc{position:absolute;left:0;right:0;top:19%;z-index:4;text-align:center;padding:0 16px;font:500 var(--pfs)/1.12 Inter,sans-serif;letter-spacing:-.03em;pointer-events:none}
+.proc .w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.proc.on .w{opacity:1;transform:none}
+.proc .g{color:var(--muted)}
+.chip{display:inline-block;width:1.05em;height:.92em;border-radius:.16em;vertical-align:-.12em;margin:0 .14em;background-size:cover;background-position:center;box-shadow:0 .06em .18em rgba(31,36,48,.18)}
+.proc p{font:400 calc(var(--pfs)*.34)/1.4 Inter,sans-serif;letter-spacing:0;color:#5B5A62;margin:calc(var(--pfs)*.4) auto 0;max-width:30em}
+.proc .pill{pointer-events:auto;margin-top:calc(var(--pfs)*.36)}
+.cards{position:absolute;inset:0;z-index:2}
+.card{position:absolute;left:0;top:0;width:calc(var(--cw)*1px);height:calc(var(--cw)*1.32px);margin:calc(var(--cw)*-.66px) 0 0 calc(var(--cw)*-.5px);border-radius:calc(var(--cw)*.075px);background-size:cover;background-position:center;box-shadow:0 calc(var(--cw)*.03px) calc(var(--cw)*.09px) rgba(31,36,48,.18),inset 0 0 0 1px rgba(255,255,255,.35);will-change:transform,opacity;opacity:0}
+.sky{position:absolute;inset:0;z-index:6;clip-path:inset(50% 50% 50% 50% round 30px);background:linear-gradient(180deg,var(--sky1) 0%,#d9cdd2 45%,var(--sky2) 100%);overflow:hidden}
+.sky .cloud{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.75),rgba(255,255,255,0));filter:blur(6px);animation:drift 28s linear infinite}
+@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
+.sky .sea{position:absolute;left:-5%;right:-5%;bottom:0;height:28%;background:linear-gradient(180deg,#9fb3c7,#6f8fae 60%,#4f7396);clip-path:polygon(0 18%,100% 8%,100% 100%,0 100%)}
+#pot{position:absolute;left:50%;top:50%;width:min(80vw,560px);height:min(80vw,560px);transform:translate(-50%,-50%);z-index:3}
+#pot canvas{width:100%!important;height:100%!important}
+.potfb{position:absolute;left:50%;top:52%;width:min(52vw,300px);aspect-ratio:1.25;transform:translate(-50%,-50%);display:none;z-index:3}
+.no3d .potfb{display:block}
+.skyw{position:absolute;z-index:5;font:500 var(--sfs)/1.05 Inter,sans-serif;letter-spacing:-.03em;color:var(--ink);max-width:min(560px,86vw)}
+.skyw .w{display:inline-block;opacity:0;transform:translateY(.4em);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.skyw.on .w{opacity:1;transform:none}
+.skyw .g{color:#7d7884}
+.skyw.tl{left:calc(40px*var(--n));top:calc(104px*var(--n))}
+.skyw.br{right:calc(40px*var(--n));bottom:calc(46px*var(--n));text-align:right}
+.skyw small{display:block;font:400 calc(var(--sfs)*.3)/1.4 Inter,sans-serif;letter-spacing:0;color:#4f4c58;margin-top:.6em}
+.black{position:absolute;inset:0;z-index:8;background:var(--dark);opacity:0;pointer-events:none}
+@media (max-width:819px){.skyw.tl{left:16px;top:84px}.skyw.br{right:16px;bottom:28px}}
+/* MANIFESTO */
+#manif{position:relative;height:420vh;background:var(--dark);color:#fff}
+#manif .st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.track{position:absolute;left:0;top:50%;display:flex;align-items:center;gap:calc(var(--mfs)*.32);white-space:nowrap;font:500 var(--mfs)/1 Inter,sans-serif;letter-spacing:-.03em;transform:translateY(-50%);will-change:transform}
+.track .g{color:#6E7180}
+.track .s{color:var(--saffron)}
+.stk{display:inline-block;width:calc(var(--mfs)*1.05);height:calc(var(--mfs)*1.05);flex:none;transform:scale(0) rotate(-20deg);transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.stk.on{transform:scale(1) rotate(var(--r,0deg))}
+.mhint{position:absolute;left:16px;right:16px;bottom:28px;text-align:center;color:#8c90a0;font-size:14px}
+/* ARDOISE */
+.sec{position:relative;padding:clamp(80px,12vw,150px) 16px}
+.wrap{max-width:1180px;margin:0 auto}
+.kick{font:600 13px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--harbour)}
+.h2{font:500 clamp(34px,5.4vw,72px)/1.02 Fraunces,serif;letter-spacing:-.025em;margin:14px 0 18px}
+.lead{font-size:clamp(16px,1.5vw,19px);color:#4d4f5c;max-width:36em}
+#carte{background:linear-gradient(180deg,var(--dark) 0,#1a2130 30%,var(--bg) 30.1%)}
+#carte .kick,#carte .h2{color:#fff}
+#carte .h2 em{font-style:normal;color:var(--saffron)}
+#carte .lead{color:#c3c6d0}
+.easel{position:relative;margin:40px auto 0;width:min(100%,620px);perspective:1400px;padding-top:10px}
+.legs{position:absolute;left:50%;top:-6%;width:72%;height:112%;transform:translateX(-50%);z-index:0}
+.legs i{position:absolute;top:0;bottom:0;width:16px;border-radius:8px;background:linear-gradient(90deg,#a4683a,#c98d55 50%,#8e5a31)}
+.legs i:nth-child(1){left:6%;transform:rotate(8deg)}.legs i:nth-child(2){right:6%;transform:rotate(-8deg)}.legs i:nth-child(3){left:50%;margin-left:-8px;transform:translateZ(-60px) rotate(0)}
+.slate{position:relative;z-index:2;transform-style:preserve-3d;aspect-ratio:3/3.6;transform-origin:50% 0;transition:transform 1.1s cubic-bezier(.3,1.4,.4,1)}
+.face{position:absolute;inset:0;border-radius:22px;padding:7% 8%;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:radial-gradient(ellipse at 30% 20%,#3a4642,#1f2826 70%);box-shadow:inset 0 0 0 14px #b07a47,inset 0 0 0 16px #6e4626,inset 0 0 40px 18px rgba(0,0,0,.45),0 30px 60px rgba(0,0,0,.35);color:var(--chalk);font-family:Caveat,cursive;overflow:hidden}
+.face::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 70% 30%,rgba(255,255,255,.025) 0 2px,transparent 2px 5px);pointer-events:none}
+.face h3{font:700 clamp(34px,6vw,54px)/1 Caveat,cursive;margin:0 0 4%;text-align:center;color:#cfe9b3}
+.face ul{list-style:none;margin:0;padding:0}
+.face li{font:500 clamp(21px,3.4vw,31px)/1.18 Caveat,cursive;padding:2.2% 0;border-bottom:1px dashed rgba(243,241,230,.18);clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.6,.1,.3,1)}
+.face.write li{clip-path:inset(0 -2% 0 0)}
+.face li small{display:block;font-size:.72em;color:#b9c7b4}
+.face .foot{position:absolute;left:8%;right:8%;bottom:6%;font:500 clamp(17px,2.6vw,22px)/1.2 Caveat,cursive;color:#e9c79b;text-align:center}
+.f1{transform:rotateX(0)}.f2{transform:rotateX(-120deg) translateZ(0)}.f3{transform:rotateX(-240deg)}
+.slate .face{transform-origin:50% 50%}
+.tabs{display:flex;justify-content:center;gap:8px;margin-top:34px;flex-wrap:wrap}
+.tabs button{min-height:46px;padding:0 20px;border-radius:99px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.note{font-size:14px;color:#6b6874;text-align:center;margin-top:16px}
+/* RESA */
+#resa{background:linear-gradient(180deg,var(--bg),#e9e1dd)}
+.rgrid>*{min-width:0}
+.rgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;margin-top:30px}
+.tablebox{position:sticky;top:90px;height:min(70vh,560px);perspective:900px;display:grid;place-items:center}
+.table3d{position:relative;width:min(78vw,420px);aspect-ratio:1;transform:rotateX(56deg) rotateZ(var(--tz,0deg));transform-style:preserve-3d;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.tabletop{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fdfbf6,#efe6d9 60%,#e0d2bf);box-shadow:0 0 0 10px #f7f2ea,0 40px 60px rgba(27,38,56,.35);}
+.tabletop::before{content:"";position:absolute;inset:12%;border-radius:50%;border:2px dashed rgba(63,110,154,.25)}
+.seat{position:absolute;left:50%;top:50%;width:22%;aspect-ratio:1;margin:-11% 0 0 -11%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.34,1.4,.64,1),opacity .4s;opacity:0}
+.seat.on{opacity:1}
+.plate{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#fff 52%,#e9eef4 53%,#fff 64%,#dfe5ec 100%);box-shadow:0 6px 10px rgba(0,0,0,.18)}
+.plate::before,.plate::after{content:"";position:absolute;top:10%;bottom:10%;width:6%;border-radius:4px;background:linear-gradient(#cfd5dc,#9aa3ad)}
+.plate::before{left:-14%}.plate::after{right:-14%}
+.potc{position:absolute;left:50%;top:50%;width:30%;aspect-ratio:1;margin:-15% 0 0 -15%;border-radius:50%;background:radial-gradient(circle at 45% 40%,#f2a54a,#d9822b 45%,#9b4b18 70%,#2b2f36 72%,#4b515b 86%,#22262c 100%);transform:translateZ(30px) scale(0);transition:transform .7s cubic-bezier(.34,1.56,.64,1);box-shadow:0 10px 20px rgba(0,0,0,.35)}
+.potc.on{transform:translateZ(8px) scale(1)}
+.tcount{position:absolute;bottom:4%;left:0;right:0;text-align:center;font:500 15px Inter,sans-serif;color:#5b5a62}
+form.rf{background:#fff;border-radius:24px;padding:26px 22px;box-shadow:0 30px 60px rgba(27,38,56,.12)}
+.fld{margin-bottom:18px}
+.fld>label,.fld>.lbl{display:block;font:600 14px Inter,sans-serif;margin-bottom:8px}
+.tide{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.tide button{flex:none;scroll-snap-align:start;width:64px;min-height:78px;border-radius:16px;border:1.5px solid #d9d3d6;background:#faf8f7;color:var(--ink);font:500 13px/1.2 Inter,sans-serif;cursor:pointer;position:relative;overflow:hidden}
+.tide button b{display:block;font-size:22px;margin:2px 0}
+.tide button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--h,30%);background:linear-gradient(180deg,rgba(63,110,154,.18),rgba(63,110,154,.32));transition:height .5s;z-index:0}
+.tide button>*{position:relative;z-index:1}
+.tide button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.tide button:disabled{opacity:.45;cursor:not-allowed;text-decoration:line-through}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{min-height:44px;padding:0 16px;border-radius:99px;border:1.5px solid #d9d3d6;background:#faf8f7;font:600 14px Inter,sans-serif;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ink);background:none;font:600 22px/1 Inter;color:var(--ink);cursor:pointer}
+.stepper output{font:600 26px Inter;min-width:2ch;text-align:center}
+input[type=text],input[type=tel],input[type=email],textarea{width:100%;min-height:48px;border-radius:12px;border:1.5px solid #d9d3d6;background:#faf8f7;padding:10px 14px;font:500 16px Inter,sans-serif;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:#4d4f5c}
+.chk input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ok{display:none;margin-top:16px;padding:16px;border-radius:16px;background:#eef4ea;color:#23411f;font-size:15px}
+.ok.on{display:block}
+.call{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+@media (max-width:899px){.rgrid{grid-template-columns:1fr;gap:10px}.tablebox{position:relative;top:0;height:300px}.table3d{width:min(64vw,300px)}}
+@media (max-width:400px){.two{grid-template-columns:1fr}}
+/* HORAIRES — phare */
+#infos{background:#1a2333;color:#fff;overflow:hidden}
+#infos .kick{color:#9cc0e2}#infos .lead{color:#c3c9d6}
+.bay{position:relative;margin-top:40px;height:420px;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#0d1422,#1c2a44 55%,#2d466b)}
+.lh{position:absolute;left:4%;bottom:26%;width:70px;height:190px;z-index:3}
+.beam{position:absolute;left:calc(4% + 35px);bottom:calc(26% + 164px);width:120vw;max-width:1500px;height:160px;margin-top:-80px;transform-origin:0 50%;background:linear-gradient(90deg,rgba(255,236,170,.55),rgba(255,236,170,0) 70%);clip-path:polygon(0 47%,100% 0,100% 100%,0 53%);z-index:2;animation:sweep 9s ease-in-out infinite;transform:translateY(-50%) rotate(-8deg);mix-blend-mode:screen}
+@keyframes sweep{0%,100%{transform:translateY(-50%) rotate(-12deg)}50%{transform:translateY(-50%) rotate(10deg)}}
+.waves{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:4}
+.waves svg{position:absolute;left:0;bottom:0;width:200%;height:100%;animation:wv 12s linear infinite}
+.waves svg:nth-child(2){animation-duration:18s;opacity:.7;bottom:-8px}
+@keyframes wv{to{transform:translateX(-50%)}}
+.buoys{position:absolute;left:12%;right:2%;bottom:16%;display:flex;justify-content:space-around;z-index:5}
+.buoy{position:relative;width:12%;max-width:92px;display:flex;flex-direction:column;align-items:center;animation:bob 3.2s ease-in-out infinite;animation-delay:calc(var(--i)*-.45s)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.buoy .bd{width:40px;height:52px;border-radius:20px 20px 8px 8px;background:linear-gradient(90deg,#fff,#dfe7f1);position:relative;box-shadow:0 0 0 0 rgba(255,214,120,0);transition:box-shadow .4s}
+.buoy .bd::before{content:"";position:absolute;left:0;right:0;top:40%;height:22%;background:var(--harbour)}
+.buoy.today .bd{box-shadow:0 0 0 6px rgba(255,214,120,.45),0 0 40px 10px rgba(255,214,120,.5)}
+.buoy.closed{animation:none}.buoy.closed .bd{transform:rotate(22deg) translateY(10px)}
+.buoy.closed .bd{background:linear-gradient(90deg,#e2665a,#b8473d)}
+.buoy.closed .bd::before{background:#fff}
+.buoy .lab{position:absolute;bottom:68px;text-align:center;font:600 13px/1.25 Inter,sans-serif;white-space:nowrap;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.buoy .lab small{display:block;font-weight:500;color:#cfd9e8}
+.hlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px}
+.hcard{padding:18px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:15px}
+.hcard b{display:block;font-size:17px;margin-bottom:4px}
+@media (max-width:640px){.bay{height:360px}.buoy .lab{font-size:11px;bottom:62px}.buoy .lab small{display:none}.buoy .bd{width:26px;height:40px}.lh{width:46px;height:130px}.beam{left:calc(4% + 23px);bottom:calc(26% + 110px)}.buoys{left:16%}}
+/* MAP + FOOTER */
+#plan{background:#1a2333;padding-top:0}
+footer{position:relative;background:#0F131B;color:#cfd3dd;padding:90px 16px 70px;overflow:hidden;text-align:center}
+.fsea{position:absolute;left:0;right:0;top:0;height:110px}
+.boat{position:absolute;top:22px;left:50%;width:120px;margin-left:-60px;animation:bob 4s ease-in-out infinite;z-index:2}
+footer .big{font:500 clamp(40px,8vw,110px)/1 Fraunces,serif;color:#fff;letter-spacing:-.03em;margin:30px 0 10px}
+footer .row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0}
+footer .pill{background:#fff;color:var(--ink)}
+footer .pill.ghost{background:none;color:#fff}
+footer small{display:block;margin-top:24px;color:#7d8292;font-size:13px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.skip{position:absolute;left:-999px;top:8px;z-index:200;background:#1B2638;color:#F1ECEA;padding:10px 14px;border-radius:10px}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid #3F6E9A;outline-offset:3px}
+.zbadge{position:fixed;left:10px;bottom:10px;z-index:60;font:500 11px/1 system-ui,sans-serif;letter-spacing:.02em;color:#fff;background:rgba(10,12,18,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:7px 10px;border-radius:99px;text-decoration:none;white-space:nowrap;opacity:.8}
+.zbadge:hover{opacity:1}
+body.cookie-open .zbadge{display:none}
+/* cookies */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;max-width:560px;margin:0 auto;background:#F1ECEA;color:#1B2638;border-radius:18px;padding:18px 18px 16px;box-shadow:0 18px 60px rgba(0,0,0,.28);font:15px/1.45 system-ui,sans-serif;display:none}
+.ck.show{display:block}
+.ck p{margin:0 0 12px}
+.ck .row{display:flex;gap:10px}
+.ck button{flex:1;min-height:46px;border-radius:12px;font:600 15px system-ui,sans-serif;cursor:pointer;border:2px solid #1B2638}
+.ck .no{background:#F1ECEA;color:#1B2638}
+.ck .yes{background:#1B2638;color:#F1ECEA}
+.ck a{color:inherit}
+/* légal */
+dialog.lg{max-width:680px;width:calc(100% - 24px);max-height:84vh;border:0;border-radius:20px;padding:0;background:#F1ECEA;color:#1B2638;box-shadow:0 30px 90px rgba(0,0,0,.4)}
+dialog.lg::backdrop{background:rgba(8,10,16,.6)}
+dialog.lg .in{padding:26px 22px 22px;font:15px/1.6 system-ui,sans-serif;overflow-wrap:anywhere}
+dialog.lg h2{font:700 22px/1.2 system-ui,sans-serif;margin:0 40px 12px 0}
+dialog.lg h3{font:700 16px system-ui,sans-serif;margin:18px 0 6px}
+dialog.lg .x{position:sticky;top:0;float:right;margin:12px 12px 0 0;width:40px;height:40px;border-radius:50%;border:0;background:#1B2638;color:#F1ECEA;font:22px/1 system-ui;cursor:pointer}
+.legal-links{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center}
+.legal-links button{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 0;opacity:.85}
+/* plan à la marque */
+.mapwrap{position:relative;border-radius:26px;overflow:hidden;min-height:420px;background:#1c2638;isolation:isolate}
+.mapwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapwrap::before{content:"";position:absolute;inset:0;background:#3F6E9A;mix-blend-mode:color;z-index:2;pointer-events:none}
+.mapwrap::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 40%,rgba(0,0,0,.55) 100%)}
+.mapfake{position:absolute;inset:0;z-index:1;background:
+ linear-gradient(115deg,transparent 46%,rgba(255,255,255,.08) 46.5%,rgba(255,255,255,.08) 48%,transparent 48.5%),
+ linear-gradient(25deg,transparent 60%,rgba(255,255,255,.06) 60.5%,rgba(255,255,255,.06) 61.6%,transparent 62%),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 38px),
+ repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 38px),#1c2638}
+.mapfake .ask{position:absolute;left:50%;top:20px;transform:translateX(-50%);width:min(88%,360px);text-align:center;color:#fff;font:14px/1.45 system-ui,sans-serif;background:rgba(0,0,0,.35);padding:10px 12px;border-radius:12px;z-index:6}
+.mapfake .ask button{margin-top:8px;min-height:40px;padding:0 16px;border-radius:99px;border:0;background:#fff;color:#111;font:600 14px system-ui;cursor:pointer}
+.pin{position:absolute;left:50%;top:46%;z-index:5;transform:translate(-50%,-100%);width:64px;height:64px;pointer-events:none}
+.pin .dot{position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#3F6E9A;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:pinb 2.4s ease-in-out infinite}
+.pin .lg{position:absolute;inset:9px;border-radius:50%;background:#F1ECEA;display:grid;place-items:center;overflow:hidden}
+.pin .lg svg{width:80%;height:80%}
+.pin::after{content:"";position:absolute;left:50%;bottom:-10px;width:18px;height:18px;margin-left:-9px;border-radius:50%;border:2px solid #3F6E9A;animation:pinr 2.4s ease-out infinite}
+@keyframes pinb{0%,100%{transform:rotate(-45deg) translate(0,0)}50%{transform:rotate(-45deg) translate(4px,-4px)}}
+@keyframes pinr{0%{transform:scale(.4);opacity:1}100%{transform:scale(3.4);opacity:0}}
+.mapcard{position:absolute;z-index:6;left:16px;right:16px;bottom:16px;max-width:380px;padding:16px 18px;border-radius:18px;color:#fff;background:rgba(255,255,255,.12);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.22);font:15px/1.45 system-ui,sans-serif}
+.mapcard b{display:block;font-size:17px;margin-bottom:4px}
+.mapcard a{display:inline-flex;align-items:center;gap:8px;margin-top:10px;min-height:42px;padding:0 16px;border-radius:99px;background:#fff;color:#111;text-decoration:none;font-weight:600;white-space:nowrap}
+.tel{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.pin .dot,.pin::after{animation:none}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#carte">Aller au contenu</a>
+<header class="nav" id="nav">
+ <a class="logo" href="#top" aria-label="La Bouillabaisse, accueil"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M17 9c-2 3 2 4 0 7M24 7c-2 3 2 4 0 7M31 9c-2 3 2 4 0 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M6 21h36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M9 21c0 11 6 17 15 17s15-6 15-17" fill="#D9822B" stroke="currentColor" stroke-width="2.6"/><path d="M12 28c4-2.6 8-2.6 12 0s8 2.6 12 0" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M3 24h4M41 24h4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>La Bouillabaisse</span></a>
+ <nav class="links" aria-label="Navigation principale"><a href="#carte">L'ardoise</a><a href="#resa">Réserver</a><a href="#infos">Horaires</a><a href="#plan">Accès</a></nav>
+ <div class="navcta"><a class="pill ghost" href="tel:+33494582215" aria-label="Appeler le 04 94 58 22 15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="lbl-call">Appeler</span></a><a class="pill" href="#resa">Réserver<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+</header>
+<main id="top">
+<section id="story" aria-label="Présentation">
+ <div class="hero">
+  <div class="hl"><h1 class="hrow" id="hrow" aria-label="La Bouillabaisse"></h1></div>
+  <p class="hsub" id="hsub">Poissons, coquillages et <b>bouillabaisse traditionnelle</b>, sur la terrasse face à la baie de la Madrague — <b>Giens, Hyères</b>.</p>
+  <svg class="gull" id="gull" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 30c10-10 20-10 28 2 8-12 18-12 28-2-10-4-18-2-28 10C24 28 14 26 4 30z" fill="#1B2638"/></svg>
+ </div>
+ <div class="stage" id="stage">
+  <div class="proc" id="proc">
+   <div><span class="w g">Du</span> <span class="w">port</span> <span class="w chip" style="background-image:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Sf7qlh8rb_eiGTOeYLCvdx4iI-nrIzZIiZyOk2gXjdnpibjldJ8OG15ToFRA9Wn8OxMVZeBaweIuPTNqhR5IrJp9OOgIJVdwPAe9AwEy-U4vTuY44y7EPIFMZHB2LVP6xytHI=w200-h200-k-no)" role="img" aria-label="Le port de la Madrague"></span> <span class="w g">à</span> <span class="w">l'assiette</span></div>
+   <div><span class="w">cuisiné</span> <span class="w g">maison,</span> <span class="w">du pain</span> <span class="w g">au</span> <span class="w">dessert</span></div>
+   <p class="w">Moules, huîtres, poisson du jour selon l'arrivage et vins français, servis sous la terrasse ombragée.</p>
+   <a class="pill w" href="#carte">Voir l'ardoise<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  </div>
+  <div class="cards" id="cards" aria-hidden="true"></div>
+  <div class="sky" id="sky">
+   <div class="cloud" style="width:50vw;height:16vh;top:12%;animation-delay:-4s"></div><div class="cloud" style="width:36vw;height:12vh;top:30%;animation-delay:-16s;animation-duration:36s"></div><div class="cloud" style="width:60vw;height:20vh;top:52%;animation-delay:-9s;animation-duration:44s"></div>
+   <div class="sea"></div>
+   <div id="pot" aria-hidden="true"></div>
+   <svg class="potfb" viewBox="0 0 250 200" aria-hidden="true"><ellipse cx="125" cy="70" rx="100" ry="26" fill="#2b2f36"/><path d="M25 70q0 110 100 110t100-110" fill="#3b414b"/><ellipse cx="125" cy="70" rx="88" ry="20" fill="#d9822b"/><circle cx="100" cy="66" r="8" fill="#f4d9a8"/><circle cx="150" cy="72" r="7" fill="#f4d9a8"/><path d="M10 80h20M220 80h20" stroke="#2b2f36" stroke-width="10" stroke-linecap="round"/></svg>
+   <h2 class="skyw tl" id="sw1"><span class="w g">Pas</span> <span class="w g">seulement</span> <span class="w">une soupe</span></h2>
+   <div class="skyw br" id="sw2"><span class="w">La</span> <span class="w">bouillabaisse</span> <span class="w g">traditionnelle,</span> <span class="w">sur réservation</span><small class="w">À commander à l'avance, comme le veut la tradition : on vous la sert en deux temps, le bouillon puis les poissons.</small></div>
+  </div>
+  <div class="black" id="black"></div>
+ </div>
+</section>
+<section id="manif" aria-label="Au menu">
+ <div class="st">
+  <div class="track" id="track">
+   <span>Moules</span><span class="stk" data-k="shell" style="--r:-12deg"></span><span class="g">huîtres</span><span class="stk" data-k="pearl"></span><span>poisson du jour</span><span class="g">selon l'arrivage</span><span class="stk" data-k="fish" style="--r:10deg"></span><span>soupe de poissons</span><span class="g">maison</span><span class="stk" data-k="lemon" style="--r:-8deg"></span><span>aïoli</span><span class="g">provençal</span><span class="stk" data-k="shell" style="--r:14deg"></span><span class="s">bouillabaisse</span><span class="g">sur réservation</span><span class="stk" data-k="boat" style="--r:-6deg"></span><span>face</span><span class="g">à la</span><span>baie</span>
+  </div>
+  <p class="mhint">Ouvert toute la journée, de 9 h à 23 h, sauf le mercredi.</p>
+ </div>
+</section>
+<section class="sec" id="carte">
+ <div class="wrap" style="text-align:center">
+  <p class="kick">L'ardoise</p>
+  <h2 class="h2">Elle change avec <em>la pêche</em></h2>
+  <p class="lead" style="margin:0 auto">Ici, la carte s'écrit à la craie. Voici une ardoise relevée sur place : touchez les onglets, elle bascule.</p>
+  <div class="easel">
+   <div class="legs" aria-hidden="true"><i></i><i></i><i></i></div>
+   <div class="slate" id="slate">
+    <div class="face f1 write" id="f1" role="tabpanel" aria-labelledby="t1"><h3>Entrées</h3><ul><li>Soupe de poissons « maison »</li><li>Œuf poché sur crème de petits pois</li><li>Foie gras poêlé, velouté d'artichauts</li><li>Gambas rôties, rémoulade de céleri</li></ul><p class="foot">ou le menu de l'ardoise</p></div>
+    <div class="face f2" id="f2" role="tabpanel" aria-labelledby="t2"><h3>Plats</h3><ul><li>Poisson du jour<small>selon arrivage</small></li><li>Poêlée de petites seiches en persillade</li><li>Duo filet de loup et gambas</li><li>Bavette<small>pommes de terre rôties, sauce</small></li></ul><p class="foot">bouillabaisse traditionnelle : sur réservation</p></div>
+    <div class="face f3" id="f3" role="tabpanel" aria-labelledby="t3"><h3>Desserts</h3><ul><li>Moelleux au chocolat</li><li>Tarte aux citrons revisitée</li><li>Assiette de fromages</li><li>Poêlée de pommes rôties, crumble</li></ul><p class="foot">fait maison, du pain au dessert</p></div>
+   </div>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Rubriques de l'ardoise"><button role="tab" id="t1" aria-selected="true" aria-controls="f1" data-i="0">Entrées</button><button role="tab" id="t2" aria-selected="false" aria-controls="f2" data-i="1">Plats</button><button role="tab" id="t3" aria-selected="false" aria-controls="f3" data-i="2">Desserts</button></div>
+  <p class="note">Exemple d'ardoise : les plats et les prix changent selon la saison et les arrivages. Le midi, un menu du marché est proposé (sauf le dimanche).</p>
+ </div>
+</section>
+<section class="sec" id="resa">
+ <div class="wrap">
+  <p class="kick">Réserver une table</p>
+  <h2 class="h2">On dresse votre table</h2>
+  <p class="lead">Choisissez le jour, le service et le nombre de couverts : la table se met en place sous vos yeux. Pour la bouillabaisse, cochez la case, le restaurant vous rappelle pour la confirmer.</p>
+  <div class="rgrid">
+   <div class="tablebox" aria-hidden="true"><div class="table3d" id="t3d"><div class="tabletop"></div><div class="potc" id="potc"></div></div><p class="tcount" id="tcount">2 couverts</p></div>
+   <form class="rf" id="rf" novalidate>
+    <div class="fld"><span class="lbl" id="dl">Jour</span><div class="tide" id="tide" role="group" aria-labelledby="dl"></div></div>
+    <div class="fld"><span class="lbl" id="sl">Service</span><div class="seg" id="svc" role="group" aria-labelledby="sl"><button type="button" aria-pressed="true" data-v="Midi">Midi</button><button type="button" aria-pressed="false" data-v="Soir">Soir</button></div></div>
+    <div class="fld"><span class="lbl" id="hl">Heure</span><div class="seg" id="hrs" role="group" aria-labelledby="hl"></div></div>
+    <div class="fld"><span class="lbl" id="pl">Couverts</span><div class="stepper"><button type="button" id="minus" aria-label="Retirer un couvert">−</button><output id="pc" aria-labelledby="pl" aria-live="polite">2</output><button type="button" id="plus" aria-label="Ajouter un couvert">+</button></div></div>
+    <div class="fld"><label class="chk"><input type="checkbox" id="bouil"> <span>Je souhaite la <b>bouillabaisse traditionnelle</b> (sur réservation, à confirmer par le restaurant)</span></label></div>
+    <div class="two"><div class="fld"><label for="nm">Nom</label><input type="text" id="nm" autocomplete="name" required></div><div class="fld"><label for="ph">Téléphone</label><input type="tel" id="ph" autocomplete="tel" required></div></div>
+    <div class="fld"><label for="em">E-mail (facultatif)</label><input type="email" id="em" autocomplete="email"></div>
+    <div class="fld"><label for="ms">Message (facultatif)</label><textarea id="ms" placeholder="Allergies, chaise bébé, occasion…"></textarea></div>
+    <div class="fld"><label class="chk"><input type="checkbox" id="rgpd" required> <span>J'accepte que mes informations soient utilisées pour traiter ma demande. <button type="button" data-open="lg-confid" style="background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer">Confidentialité</button></span></label></div>
+    <button class="pill" type="submit" style="width:100%;justify-content:center;height:52px">Envoyer ma demande</button>
+    <p class="ok" id="ok" role="status"></p>
+    <div class="call"><a class="pill ghost" href="tel:+33494582215">Ou appelez le <span class="tel">04 94 58 22 15</span></a></div>
+   </form>
+  </div>
+ </div>
+</section>
+<section class="sec" id="infos">
+ <div class="wrap">
+  <p class="kick">Horaires</p>
+  <h2 class="h2" style="color:#fff">Le phare veille, de 9 h à 23 h</h2>
+  <p class="lead">Ouvert tous les jours sauf le mercredi. En hiver, pensez à appeler avant de venir.</p>
+  <div class="bay" role="img" aria-label="Horaires : lundi, mardi, jeudi, vendredi, samedi et dimanche de 9 h à 23 h ; fermé le mercredi">
+   <svg class="lh" viewBox="0 0 70 190" aria-hidden="true"><path d="M22 40h26l8 150H14z" fill="#eef1f5"/><path d="M19 80h32l2 22H17zM16 130h38l2 22H14z" fill="#c9473c"/><rect x="20" y="18" width="30" height="24" rx="3" fill="#ffe9a8"/><path d="M16 18h38L35 2z" fill="#c9473c"/><rect x="14" y="40" width="42" height="5" fill="#333a48"/></svg>
+   <div class="beam" aria-hidden="true"></div>
+   <div class="buoys" id="buoys" aria-hidden="true"></div>
+   <div class="waves" aria-hidden="true"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 40q75-30 150 0t150 0 150 0 150 0 150 0 150 0 150 0 150 0V120H0z" fill="#3f6e9a"/></svg><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60q75-26 150 0t150 0 150 0 150 0 150 0 150 0 150 0 150 0V120H0z" fill="#22406a"/></svg></div>
+  </div>
+  <div class="hlist">
+   <div class="hcard"><b>Adresse</b>3305 route de la Madrague<br>83400 Hyères (presqu'île de Giens)</div>
+   <div class="hcard"><b>Téléphone</b><a class="tel" href="tel:+33494582215">04 94 58 22 15</a></div>
+   <div class="hcard"><b>Sur place</b>Terrasse ombragée face à la baie, repas sur place.</div>
+  </div>
+ </div>
+</section>
+<section class="sec" id="plan">
+ <div class="wrap"><div class="mapwrap" id="mapwrap" data-q="La Bouillabaisse, 3305 Rte de la Madrague, 83400 Hyères">
+<div class="mapfake" id="mapfake"><div class="ask" id="mapask">Le plan Google Maps n'est chargé qu'avec votre accord.<br><button type="button" id="mapyes">Afficher le plan</button></div></div>
+<div class="pin" aria-hidden="true"><div class="dot"></div><div class="lg"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M17 9c-2 3 2 4 0 7M24 7c-2 3 2 4 0 7M31 9c-2 3 2 4 0 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M6 21h36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M9 21c0 11 6 17 15 17s15-6 15-17" fill="#D9822B" stroke="currentColor" stroke-width="2.6"/><path d="M12 28c4-2.6 8-2.6 12 0s8 2.6 12 0" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M3 24h4M41 24h4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></div>
+<div class="mapcard"><b>La Bouillabaisse</b>3305 route de la Madrague, 83400 Hyères<br><a href="https://www.google.com/maps/dir/?api=1&amp;destination=La Bouillabaisse, 3305 Rte de la Madrague, 83400 Hyères" target="_blank" rel="noopener">Itinéraire →</a></div>
+</div></div>
+</section>
+</main>
+<footer>
+ <div class="fsea" aria-hidden="true"><svg viewBox="0 0 1200 110" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><path d="M0 0h1200v60q-75 30-150 0t-150 0-150 0-150 0-150 0-150 0-150 0-150 0z" fill="#1a2333"/></svg>
+  <svg class="boat" viewBox="0 0 120 70"><path d="M60 4v44M60 8l30 34H60z" stroke="#fff" stroke-width="3" fill="#f3f1e6"/><path d="M10 48h100l-14 18H24z" fill="#e48aa9"/></svg></div>
+ <p class="big">La Bouillabaisse</p>
+ <p>3305 route de la Madrague · Giens, Hyères</p>
+ <div class="row"><a class="pill" href="#resa">Réserver une table</a><a class="pill ghost" href="tel:+33494582215">Appeler</a><a class="pill ghost" href="https://www.instagram.com/labouillabaissegiens/" target="_blank" rel="noopener">Instagram</a></div>
+ <nav class="legal-links" aria-label="Informations légales"><button type="button" data-open="lg-mentions">Mentions légales</button><button type="button" data-open="lg-confid">Confidentialité</button><button type="button" data-open="lg-cgv">CGV / CGU</button><button type="button" data-open="lg-cookies">Cookies</button><button type="button" data-open="lg-rembours">Remboursement</button></nav>
+ <small>© La Bouillabaisse · Photos : fiche Google de l'établissement</small>
+</footer>
+<dialog class="lg" id="lg-mentions" aria-labelledby="lg-mentions-t"><button class="x" data-close aria-label="Fermer">×</button><div class="in"><h2 id="lg-mentions-t">Mentions légales</h2><p><b>Démo non officielle</b> réalisée par ZAHR pour présenter un projet de site à La Bouillabaisse. Ce site n'est pas en ligne au nom de l'établissement.</p>
+<h3>Éditeur</h3><p>La Bouillabaisse — Restaurant de poissons et fruits de mer<br>3305 route de la Madrague, 83400 Hyères<br>Tél. <span class="tel">04 94 58 22 15</span><br>Forme juridique, SIRET, capital et directeur de la publication : à compléter avec l'établissement.</p>
+<h3>Hébergement</h3><p>GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis).</p>
+<h3>Conception</h3><p>ZAHR — création de sites web dans le Var — zahr.fr</p>
+<h3>Propriété intellectuelle</h3><p>Les photos proviennent de la fiche Google de l'établissement et restent la propriété de leurs auteurs. Elles ne sont utilisées que pour cette démonstration.</p></div></dialog>
+<dialog class="lg" id="lg-confid" aria-labelledby="lg-confid-t"><button class="x" data-close aria-label="Fermer">×</button><div class="in"><h2 id="lg-confid-t">Politique de confidentialité</h2><p>Responsable du traitement : La Bouillabaisse, 3305 route de la Madrague, 83400 Hyères.</p>
+<h3>Données collectées</h3><p>Uniquement celles que vous saisissez dans le formulaire (nom, téléphone, e-mail facultatif, date, nombre de personnes, message), pour traiter votre demande.</p>
+<h3>Base légale et durée</h3><p>Votre consentement et l'exécution de votre demande. Conservation : 12 mois maximum après le dernier échange.</p>
+<h3>Vos droits</h3><p>Accès, rectification, effacement, opposition, limitation et portabilité : écrivez à l'établissement ou appelez le <span class="tel">04 94 58 22 15</span>. Vous pouvez saisir la CNIL (cnil.fr).</p>
+<h3>Dans cette démo</h3><p>Aucune donnée n'est envoyée : le formulaire est une simulation.</p></div></dialog>
+<dialog class="lg" id="lg-cgv" aria-labelledby="lg-cgv-t"><button class="x" data-close aria-label="Fermer">×</button><div class="in"><h2 id="lg-cgv-t">CGV / CGU</h2><h3>Utilisation du site</h3><p>Le site présente La Bouillabaisse et permet d'envoyer une demande de réservation. L'utilisateur s'engage à fournir des informations exactes.</p>
+<h3>Réservations</h3><p>Une demande n'est confirmée qu'après réponse de l'établissement. Les prix affichés sur place font foi ; la carte peut évoluer selon les arrivages et la saison.</p>
+<h3>Responsabilité</h3><p>L'établissement s'efforce de tenir les informations à jour (horaires, carte) mais elles peuvent changer sans préavis.</p>
+<h3>Litiges</h3><p>Droit français. Médiation de la consommation : coordonnées du médiateur à compléter.</p></div></dialog>
+<dialog class="lg" id="lg-cookies" aria-labelledby="lg-cookies-t"><button class="x" data-close aria-label="Fermer">×</button><div class="in"><h2 id="lg-cookies-t">Cookies</h2><p>Ce site n'utilise aucun cookie publicitaire. Le seul contenu tiers est le plan Google Maps, chargé uniquement si vous l'acceptez (Google peut alors déposer ses propres cookies).</p>
+<p>Votre choix est mémorisé dans votre navigateur. Vous pouvez le modifier à tout moment :</p><p><button type="button" class="ckreset" style="min-height:42px;padding:0 16px;border-radius:99px;border:2px solid currentColor;background:none;color:inherit;font:600 14px system-ui;cursor:pointer">Modifier mon choix</button></p></div></dialog>
+<dialog class="lg" id="lg-rembours" aria-labelledby="lg-rembours-t"><button class="x" data-close aria-label="Fermer">×</button><div class="in"><h2 id="lg-rembours-t">Annulation et remboursement</h2><p>La réservation de table est gratuite : aucun paiement n'est demandé en ligne, donc aucun remboursement n'est à prévoir.</p>
+<p>Pour annuler ou modifier une réservation, prévenez l'établissement le plus tôt possible au <span class="tel">04 94 58 22 15</span>.</p>
+<p>Si un acompte était un jour demandé (groupes, plats sur commande), ses conditions d'annulation seraient indiquées avant tout paiement.</p></div></dialog>
+<div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Cookies"><p>Nous utilisons uniquement le plan Google Maps (contenu tiers). Acceptez-vous de le charger ? <button type="button" data-open="lg-cookies" style="background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer">En savoir plus</button></p><div class="row"><button type="button" class="no" id="ck-no">Refuser</button><button type="button" class="yes" id="ck-yes">Accepter</button></div></div>
+<a class="zbadge" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+<script>
+var PH=["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TfKF8LjKsuI8C510DnoC_W4Op390iU-gktYqmLUXrYly9Yzw9fmshaJrrvlyufl41ZOr30JvjQt3XE2h8hlfz07vvVENGAd9n_AtIgw5p2iCL6dItBzXPcqa6YfDXJfEbLIXF-=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S9rnBJnerJYxp4DaU8ZuwRcOLJZVK1d3X9AI3jKQ1J5Nq9yXEpek0UK9ofkuUGF2tcvu9Qzg176bYb1mW8mWQF7EOw24uk4Hn94zXaXwJ-4ZDnx5Hq8FRr0WCbnbqtbRFxUlHH3BJJZ4yX=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S0qCVDFCDZ72n3m-CRzo_1AOkA-_hw4rGq-DuEvBVWRI4E8oewXBB4rMtf6usj5aoI8Ha6XsOHvKm-ZKx7ObkfO_AexyZmj0H9ajxdRPVXlElOloV89OhFCgM74PsKfawksApD=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T4oo-KsKmnLYBCRm7tiX-e5WD6OcUuylU8IsINKjvFSAygnbipl80oOs6I8z6C5yBEEtKaIxOia2rUS7M8cD86hv8eqjwP9WWfwEGKENJ1njlZObMMU37pY1P84PD8su8ox0WT=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QPc1C3u09bMFmia7uL4ip2N6uD6Aoj5rh6dlCdC-2riu1Yz1Fm4YadlgBfhzl1GFMWGc_B3mi_HNrW-1qX4O--PFJXjYgcnaS9GHs3Vth1bGDSbALi1TrUq5BZLMrBvQx7gQiw_A=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SzvcXn_rNJUM7BzDXS3X3RSnk8g1sVk1uN9SnDdnQbiiGKknGOhx3YcVOuDYE-psz4pzrCxMo656U0OCQ1nJTKPEuV1bKQCqtMuzHxEKkwOZiG13xGS-q6vSCJYo05ZSkhF8IGrQ=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Sf7qlh8rb_eiGTOeYLCvdx4iI-nrIzZIiZyOk2gXjdnpibjldJ8OG15ToFRA9Wn8OxMVZeBaweIuPTNqhR5IrJp9OOgIJVdwPAe9AwEy-U4vTuY44y7EPIFMZHB2LVP6xytHI=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tyu3r_Wk8TnbwYgHGUu380O9dme2NJFxd2U5XQBrMTEYg-V0-ItE-SjlAnQ-ykk3crZVG7LRZQVBISEZ0Tp3Kv21zXgj-eTnrGtZohTTdJAhbka5rhbTgpSYZgZVx7gdF3kxw5=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TaNoWnayS31gUg3Tm5yJjpqWrlMiOfo9kxF70QVK-oAoLdQ-ZX_scKAttepzAUNjuiQGC8o-diJbDy0byShVlT33fBzRNUBNUAtORpIe1C_CUNdC4DlIu24oYg4fXTAGl2MgY_=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Rm44ORuC4CPqGH7MpAAD-CX2mkxUoRQ7Gkh79F4ItZ22VjOvxbMlnYQQTaQR7dtdUMsmoWdcQ8LC3LbKHmjTx_X-_VinvIjD3GlOpiNx4ooPgksiXyXmW12iXvMBkx1w4gm1U=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T_zb5i5xLrhW30Cdr1SzJlSsjnNys37cYAoSCtZtiptLyYggbHa-XpuMP1cRXCEC4cgeYA6o2x6C9tI9VpEyOeWPrxHn7lP7SWkeLKtimfPnDnlpHC_RlV6BchtWmu_eDup-jo-R7CIyQ=w600-h800-k-no", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TFjBVJDWeyCLtrW3TiZzMMgJAmInwR7L-3Dxy6Nsq4vckqOSWKOBPeqxhBrzqN6jag0bKG9Nf6UGs5KvJSqtK6PtWns0CW0j3ObM4bop3u-sJ4F2E0dK2ShIOz-T3bfcBqVxgt=w600-h800-k-no"];
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var W,H,MOB;
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function seg(p,a,b){return clamp((p-a)/(b-a),0,1)}
+function ease(t){return 1-Math.pow(1-t,3)}
+/* ---------- pixel icons ---------- */
+var PAL={k:'#1B2638',b:'#3F6E9A',w:'#ffffff',p:'#DDAD95',s:'#D9822B'};
+var ICONS={
+fish:['.........','...kkk..k','..kbbbkkk','.kbwbbbbk','kbbbbbkkk','.kbbbbk.k','..kkkk...','.........','.........'],
+shell:['...kkk...','..kpwpk..','.kpwpwpk.','kpwpwpwpk','kwpwpwpwk','.kpwpwpk.','..kpppk..','...kkk...','.........'],
+boat:['....k....','....kb...','....kbb..','...wkbbb.','..wwkbbb.','....k....','kkkkkkkkk','.kpppppk.','..kkkkk..'],
+lighthouse:['...kkk...','..kssk...','...kwk...','...kbk...','...kwk...','...kbk...','..kwwwk..','..kbbbk..','.kkkkkkk.'],
+wave:['.........','...kkk...','..kbbbk..','.kbwwbbk.','kbw..kbbk','kk....kbk','.......kk','kkkkkkkkk','.........'],
+sun:['....s....','.s..s..s.','..sssss..','.sspppss.','ssppwpps.','.sspppss.','..sssss..','.s..s..s.','....s....'],
+pot:['.........','.kkkkkkk.','kssssssskk','kspsssps.k','.kssssk..','.kkkkkk..','..k..k...','.........','.........']};
+function pix(rows){var s='<svg viewBox="0 0 9 9" aria-hidden="true">';rows.forEach(function(r,y){for(var x=0;x<9;x++){var c=r[x];if(c&&c!=='.'&&PAL[c])s+='<rect x="'+x+'" y="'+y+'" width="1.02" height="1.02" fill="'+PAL[c]+'"/>'}});return s+'</svg>'}
+var ORDER=['fish','shell','boat','lighthouse','wave','sun','pot'];
+var WORD='La Bouillabaisse';
+var hrow=document.getElementById('hrow');
+function fitHero(){
+ var t=document.createElement('span');t.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;font:600 100px Inter,sans-serif;letter-spacing:-.035em';t.textContent=WORD;document.body.appendChild(t);var w=t.offsetWidth;t.remove();
+ var want=MOB?Math.min(W*.12,H*.09):Math.min(W*.074,H*.135);
+ var fit=(W-(MOB?36:120))/w*100;
+ document.documentElement.style.setProperty('--hfs',Math.min(want,fit)+'px');
+}
+function buildHero(){
+ hrow.innerHTML='';
+ var letters=[];for(var i=0;i<WORD.length;i++){var c=document.createElement('span');c.className='ch'+(WORD[i]===' '?' sp':'');c.textContent=WORD[i]===' '?' ':WORD[i];c.setAttribute('aria-hidden','true');letters.push(c)}
+ var icons=ORDER.map(function(k){var e=document.createElement('span');e.className='ic';e.innerHTML=pix(ICONS[k]);return e});
+ icons.forEach(function(e){hrow.appendChild(e)});
+ if(RM){hrow.innerHTML='';letters.forEach(function(l){l.classList.add('on');hrow.appendChild(l)});document.getElementById('hsub').classList.add('on');return}
+ var gull=document.getElementById('gull');
+ var path=[[0,-.05,.72],[.12,.06,.66],[.28,.18,.52],[.42,.30,.40],[.52,.36,.44],[.62,.30,.48],[.72,.26,.42],[.86,.30,.36],[.94,.36,.36]];
+ var T0=performance.now(),DUR=950;
+ gull.style.opacity=1;
+ function fly(now){var t=clamp((now-T0-330)/DUR,0,1);var i=0;while(i<path.length-2&&path[i+1][0]<t)i++;var a=path[i],b=path[i+1];var k=(t-a[0])/(b[0]-a[0]||1);var x=(a[1]+(b[1]-a[1])*k)*W,y=(a[2]+(b[2]-a[2])*k)*H;var r=Math.atan2((b[2]-a[2])*H,(b[1]-a[1])*W)*57.3*.5;gull.style.transform='translate('+(x-28)+'px,'+(y-28)+'px) rotate('+r+'deg)';if(t<1)requestAnimationFrame(fly);else{gull.style.transition='opacity .3s,transform .3s';var r0=icons[0].getBoundingClientRect();gull.style.transform='translate('+(r0.left)+'px,'+(r0.top)+'px) scale(.6)';gull.style.opacity=0;pop()}}
+ requestAnimationFrame(fly);
+ function pop(){icons.forEach(function(e,j){setTimeout(function(){e.classList.add('on')},30+j*70)});setTimeout(morph,620)}
+ function morph(){var n=0,total=WORD.length;var iv=setInterval(function(){
+   var l=letters[n];var left=total-n-1;var keep=Math.ceil(7*left/total);
+   var alive=icons.filter(function(e){return e.parentNode&&!e.classList.contains('eat')});
+   while(alive.length>keep){var e=alive.shift();e.classList.add('eat');(function(e){setTimeout(function(){e.remove()},260)})(e)}
+   var firstIcon=hrow.querySelector('.ic:not(.eat)');hrow.insertBefore(l,firstIcon);requestAnimationFrame(function(){l.classList.add('on')});
+   n++;if(n>=total){clearInterval(iv);document.getElementById('hsub').classList.add('on')}
+ },170)}
+}
+/* ---------- cards ---------- */
+var cardsEl=document.getElementById('cards');var CARDS=[];
+PH.forEach(function(u,i){var d=document.createElement('div');d.className='card';d.style.backgroundImage='url('+u+')';cardsEl.appendChild(d);CARDS.push({el:d,cur:null})});
+var CW=200,loadT=performance.now();
+function step(R){return 2*Math.asin(Math.min(1,1.05*CW/(2*R)))}
+function poseFan(i){var R=MOB?W*1.35:1250*W/1440;var th=(i-2.5)*step(R);var cx=MOB?W*.5:W*.55,cy=H*.86+R;return[cx+R*Math.sin(th)-(MOB?0:W*.02),cy-R*Math.cos(th)+(MOB?CW*.2:0),th*57.3,1,1]}
+var SC_D=[[.08,.50,-20],[.20,.88,-12],[.80,.86,14],[.38,1.04,-8],[.92,.46,16],[.62,1.04,9]];
+var SC_M=[[.06,.64,-20],[.45,.70,12],[.94,.64,16],[.22,.95,-14],[.72,.98,9],[.5,1.3,0]];
+function poseScatter(i){if(i>5)return[W*.5,H*1.4,0,1,0];var s=(MOB?SC_M:SC_D)[i];return[s[0]*W,s[1]*H,s[2],1,1]}
+function posePile(i){return[W*.5+((i%3)-1)*CW*.08,H*(MOB?.66:.64)+(((i*7)%5)-2)*CW*.04,(i%2?1:-1)*(4+i*1.3),1,1]}
+function poseWheel(i,rot){var R=MOB?W*1.2:900*W/1440;var sl=((((i+rot)%12)+12)%12)-5.5;var a=sl*step(R);var cx=W*.5,cy=(MOB?H*.80:H*.84)+R;var deg=a*57.3;return[cx+R*Math.sin(a),cy-R*Math.cos(a),deg,1,Math.abs(deg)<62?1:0]}
+function mix(a,b,t){return a.map(function(v,k){return v+(b[k]-v)*t})}
+/* ---------- layout ---------- */
+function layout(){W=innerWidth;H=innerHeight;MOB=W<820&&W<H*1.1;var r=document.documentElement.style;
+ r.setProperty('--n',MOB?Math.min(1,W/560):clamp(W/1440,.62,1.25));
+ r.setProperty('--pfs',(MOB?Math.min(W*.075,34):Math.min(W*.0335,H*.062))+'px');
+ r.setProperty('--sfs',(MOB?Math.min(W*.085,40):Math.min(W*.042,H*.078))+'px');
+ r.setProperty('--mfs',(MOB?Math.min(W*.13,H*.08):Math.min(W*.06,H*.11))+'px');
+ CW=MOB?Math.min(W*.30,H*.2):Math.min(W/1440,H/780)*218;cardsEl.style.setProperty('--cw',CW);
+ fitHero();
+}
+/* ---------- scroll ---------- */
+var story=document.getElementById('story'),proc=document.getElementById('proc'),sky=document.getElementById('sky'),black=document.getElementById('black'),sw1=document.getElementById('sw1'),sw2=document.getElementById('sw2'),nav=document.getElementById('nav');
+var manif=document.getElementById('manif'),track=document.getElementById('track'),stks=[].slice.call(document.querySelectorAll('.stk'));
+var SP=0,last=performance.now(),POT=null;
+function storyP(){var r=story.getBoundingClientRect();return clamp(-r.top/(r.height-H),0,1)}
+function frame(now){var dt=Math.min(64,now-last);last=now;var p=storyP();SP=p;
+ nav.classList.toggle('solid',scrollY>40);
+ var loaded=now-loadT;
+ CARDS.forEach(function(c,i){var tgt;
+  if(p<.015){ if(i<6){var order=[5,2,0,1,3,4].indexOf(i);var st=[.53,.60,.63,.70,.80,.86][order]*1000;var k=clamp((loaded-st)/700,0,1);if(RM)k=1;var f=poseFan(i);var back=1+2.15*Math.pow(k-1,3)+1.15*Math.pow(k-1,2);var start=[f[0],H+CW*1.2,f[2]+8,1,1];tgt=k>=1?f:mix(start,f,back);tgt[4]=k>0?1:0}else tgt=poseScatter(i)}
+  else if(p<.10){tgt=mix(poseFan(i),poseScatter(i),ease(seg(p,.015,.08)));if(i>5)tgt=poseScatter(i)}
+  else if(p<.2){var t=ease(seg(p,.10,.18));tgt=mix(poseScatter(i),posePile(i),t);if(i>5){tgt=mix([W*.5,H*1.2,0,1,0],posePile(i),t)}}
+  else {var wp=seg(p,.22,.50);var t2=ease(seg(p,.2,.27));var wl=poseWheel(i,-3*wp*4);tgt=mix(posePile(i),wl,t2);var fade=1-seg(p,.50,.56);tgt[4]*=fade}
+  if(!c.cur||p<.015||RM)c.cur=tgt.slice();else{var w=.055+(i%4)*.008;var k2=1-Math.pow(1-w,dt/16.67);c.cur=mix(c.cur,tgt,k2)}
+  var q=c.cur;c.el.style.transform='translate3d('+q[0].toFixed(1)+'px,'+q[1].toFixed(1)+'px,0) rotate('+q[2].toFixed(2)+'deg) scale('+q[3]+')';c.el.style.opacity=q[4].toFixed(3)});
+ proc.classList.toggle('on',p>.14&&p<.53);
+ var g=seg(p,.52,.62);var ins=50*(1-ease(g));sky.style.clipPath='inset('+ins+'% '+ins+'% '+ins+'% '+ins+'% round '+(30*(1-g))+'px)';sky.style.visibility=g>0?'visible':'hidden';
+ sw1.classList.toggle('on',p>.62&&p<.86);sw2.classList.toggle('on',p>.68&&p<.86);
+ black.style.opacity=seg(p,.93,.99);
+ document.body.classList.toggle('dark-nav',p>.985&&manif.getBoundingClientRect().bottom>60);
+ if(POT)POT(p,now);
+ // manifesto
+ var mr=manif.getBoundingClientRect();var mp=clamp(-mr.top/(mr.height-H),0,1);var tw=track.scrollWidth;track.style.transform='translate3d('+(W*.3-(tw-W*.4)*mp)+'px,-50%,0)';
+ stks.forEach(function(s){var r=s.getBoundingClientRect();if(r.left<W*.92)s.classList.add('on')});
+ requestAnimationFrame(frame)}
+/* ---------- stickers (CSS 3D-ish) ---------- */
+var STK={shell:'<svg viewBox="0 0 100 100"><defs><radialGradient id="gs" cx=".4" cy=".3"><stop offset="0" stop-color="#fff3ea"/><stop offset="1" stop-color="#DDAD95"/></radialGradient></defs><path d="M50 92 10 40Q50 0 90 40z" fill="url(#gs)"/><g stroke="#b97f66" stroke-width="2.4" fill="none"><path d="M50 92 26 26M50 92 40 14M50 92 60 14M50 92 74 26"/></g><rect x="40" y="86" width="20" height="10" rx="3" fill="#c98e75"/></svg>',
+pearl:'<svg viewBox="0 0 100 100"><defs><radialGradient id="gp" cx=".35" cy=".3"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#e9e3f3"/><stop offset="1" stop-color="#9f9ab8"/></radialGradient></defs><circle cx="50" cy="52" r="36" fill="url(#gp)"/></svg>',
+fish:'<svg viewBox="0 0 100 100"><defs><linearGradient id="gf" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8fb6d6"/><stop offset="1" stop-color="#3F6E9A"/></linearGradient></defs><path d="M8 50Q40 14 76 44L94 28V72L76 56Q40 86 8 50z" fill="url(#gf)"/><circle cx="26" cy="46" r="4" fill="#0F131B"/></svg>',
+lemon:'<svg viewBox="0 0 100 100"><defs><radialGradient id="gl" cx=".4" cy=".35"><stop offset="0" stop-color="#fff6b0"/><stop offset="1" stop-color="#e8b923"/></radialGradient></defs><ellipse cx="50" cy="52" rx="38" ry="28" fill="url(#gl)" transform="rotate(-20 50 52)"/></svg>',
+boat:'<svg viewBox="0 0 100 100"><path d="M50 10v56M50 14l28 44H50z" fill="#f3f1e6" stroke="#fff" stroke-width="2"/><path d="M8 66h84L80 86H20z" fill="#e48aa9"/></svg>'};
+stks.forEach(function(s){s.innerHTML=STK[s.dataset.k]||''});
+/* ---------- buoys ---------- */
+(function(){var days=[['Lun',1],['Mar',1],['Mer',0],['Jeu',1],['Ven',1],['Sam',1],['Dim',1]];var today=(new Date().getDay()+6)%7;var b=document.getElementById('buoys');
+ days.forEach(function(d,i){var e=document.createElement('div');e.className='buoy'+(d[1]?'':' closed')+(i===today?' today':'');e.style.setProperty('--i',i);e.innerHTML='<div class="lab">'+d[0]+'<small>'+(d[1]?'9h–23h':'fermé')+'</small></div><div class="bd"></div>';b.appendChild(e)})})();
+/* ---------- ardoise ---------- */
+(function(){var slate=document.getElementById('slate'),tabs=[].slice.call(document.querySelectorAll('.tabs button')),faces=[1,2,3].map(function(i){return document.getElementById('f'+i)});var cur=0;
+ function go(i){cur=i;slate.style.transform='rotateX('+(i*120)+'deg)';tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i)});faces.forEach(function(f,j){f.classList.remove('write');f.setAttribute('aria-hidden',j!==i)});setTimeout(function(){faces[i].classList.add('write')},RM?0:550)}
+ tabs.forEach(function(t,j){t.onclick=function(){go(j)};t.onkeydown=function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=(j+(e.key==='ArrowRight'?1:2))%3;tabs[n].focus();go(n)}}});
+ faces[0].classList.remove('write');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){faces[cur].classList.add('write');io.disconnect()}})},{threshold:.4});io.observe(slate);go(0);faces[0].classList.remove('write');
+})();
+/* ---------- réservation ---------- */
+(function(){var tide=document.getElementById('tide'),hrs=document.getElementById('hrs'),svc=document.getElementById('svc'),t3d=document.getElementById('t3d'),pcO=document.getElementById('pc'),tc=document.getElementById('tcount'),potc=document.getElementById('potc');
+ var J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];var sel=null,service='Midi',hour=null,n=2,seats=[];
+ for(var i=0;i<14;i++){var d=new Date();d.setDate(d.getDate()+i);var b=document.createElement('button');b.type='button';var closed=d.getDay()===3;b.disabled=closed;b.setAttribute('aria-pressed','false');b.style.setProperty('--h',(20+Math.round(30*(1+Math.sin(i*.9)))/1)+'%');b.innerHTML='<span>'+(i===0?'auj.':J[d.getDay()])+'</span><b>'+d.getDate()+'</b><span>'+(closed?'fermé':M[d.getMonth()])+'</span>';b.setAttribute('aria-label',(closed?'Fermé, ':'')+J[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()]);(function(b,d){b.onclick=function(){[].forEach.call(tide.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');sel=d}})(b,d);tide.appendChild(b);if(!sel&&!closed){b.setAttribute('aria-pressed','true');sel=d}}
+ function hours(){hrs.innerHTML='';var list=service==='Midi'?['12:00','12:30','13:00','13:30']:['19:00','19:30','20:00','20:30','21:00'];hour=list[1];list.forEach(function(h){var b=document.createElement('button');b.type='button';b.textContent=h.replace(':','h');b.setAttribute('aria-pressed',h===hour);b.onclick=function(){hour=h;[].forEach.call(hrs.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true')};hrs.appendChild(b)})}
+ [].forEach.call(svc.children,function(b){b.onclick=function(){service=b.dataset.v;[].forEach.call(svc.children,function(x){x.setAttribute('aria-pressed',x===b)});hours();t3d.style.setProperty('--tz',service==='Soir'?'-40deg':'0deg')}});hours();
+ for(var s=0;s<10;s++){var e=document.createElement('div');e.className='seat';e.innerHTML='<div class="plate"></div>';t3d.appendChild(e);seats.push(e)}
+ function draw(){pcO.textContent=n;tc.textContent=n+' couvert'+(n>1?'s':'');seats.forEach(function(e,i){var on=i<n;var a=(i/Math.max(n,1))*Math.PI*2-Math.PI/2;var r=on?168:280;e.style.transform='translate('+(Math.cos(a)*r).toFixed(1)+'%,'+(Math.sin(a)*r).toFixed(1)+'%) rotate('+(a*57.3+90).toFixed(1)+'deg)';e.classList.toggle('on',on)})}
+ document.getElementById('plus').onclick=function(){if(n<10){n++;draw()}};document.getElementById('minus').onclick=function(){if(n>1){n--;draw()}};draw();
+ document.getElementById('bouil').onchange=function(){potc.classList.toggle('on',this.checked)};
+ document.getElementById('rf').onsubmit=function(e){e.preventDefault();var ok=document.getElementById('ok');var nm=document.getElementById('nm'),ph=document.getElementById('ph'),rg=document.getElementById('rgpd');
+  if(!nm.value.trim()||!ph.value.trim()||!rg.checked){ok.className='ok on';ok.style.background='#fbecea';ok.style.color='#7a2018';ok.textContent='Merci d\'indiquer votre nom, votre téléphone et d\'accepter le traitement de vos informations.';return}
+  ok.className='ok on';ok.style.background='';ok.style.color='';ok.textContent='Démo : votre demande pour '+n+' personne'+(n>1?'s':'')+', le '+J[sel.getDay()]+' '+sel.getDate()+' '+M[sel.getMonth()]+' à '+hour.replace(':','h')+(document.getElementById('bouil').checked?', avec bouillabaisse,':'')+' serait envoyée au restaurant, qui vous rappelle pour confirmer. (Rien n\'est envoyé dans cette démo.)'}
+})();
+/* ---------- Three.js pot ---------- */
+function initPot(){var host=document.getElementById('pot');if(!window.THREE){document.body.classList.add('no3d');return}
+ try{var T=THREE;var r=new T.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(2,devicePixelRatio||1));host.appendChild(r.domElement);
+ var sc=new T.Scene();var cam=new T.PerspectiveCamera(36,1,.1,100);cam.position.set(0,3.4,7.2);cam.lookAt(0,.2,0);
+ sc.add(new T.HemisphereLight(0xfff1e6,0x5b6f8c,1.0));var dl=new T.DirectionalLight(0xffffff,1.1);dl.position.set(3,6,4);sc.add(dl);var rl=new T.PointLight(0xffb070,1.2,12);rl.position.set(-3,1,3);sc.add(rl);
+ var g=new T.Group();sc.add(g);
+ var pts=[];[[0,0],[1.25,0],[1.6,.15],[1.85,.6],[1.95,1.3],[1.92,1.75],[2.02,1.82],[2.0,1.9],[1.84,1.9]].forEach(function(p){pts.push(new T.Vector2(p[0],p[1]))});
+ var pot=new T.Mesh(new T.LatheGeometry(pts,64),new T.MeshStandardMaterial({color:0x2f343c,metalness:.6,roughness:.42,side:T.DoubleSide}));pot.position.y=-1;g.add(pot);
+ var broth=new T.Mesh(new T.CircleGeometry(1.86,64),new T.MeshStandardMaterial({color:0xd9822b,roughness:.35,metalness:.05,emissive:0x6a2a05,emissiveIntensity:.35}));broth.rotation.x=-Math.PI/2;broth.position.y=.62;g.add(broth);
+ var hmat=new T.MeshStandardMaterial({color:0x2f343c,metalness:.7,roughness:.35});[-1,1].forEach(function(s){var h=new T.Mesh(new T.TorusGeometry(.34,.08,12,28,Math.PI),hmat);h.position.set(s*2.0,.7,0);h.rotation.set(Math.PI/2,0,s>0?-Math.PI/2:Math.PI/2);g.add(h)});
+ var bits=new T.Group();g.add(bits);
+ var crout=new T.MeshStandardMaterial({color:0xf2d39a,roughness:.8});var rou=new T.MeshStandardMaterial({color:0xe06a2a,roughness:.6});var mus=new T.MeshStandardMaterial({color:0x1c2233,metalness:.3,roughness:.3});var fishm=new T.MeshStandardMaterial({color:0xf4efe6,roughness:.5});
+ for(var i=0;i<7;i++){var a=i/7*Math.PI*2,rr=1.1+(i%2)*.35;var c=new T.Mesh(new T.CylinderGeometry(.26,.26,.08,20),crout);c.position.set(Math.cos(a)*rr,.66,Math.sin(a)*rr);bits.add(c);var dab=new T.Mesh(new T.SphereGeometry(.12,12,8),rou);dab.scale.y=.4;dab.position.set(c.position.x,.72,c.position.z);bits.add(dab)}
+ for(var j=0;j<6;j++){var b=j/6*Math.PI*2+.3;var m=new T.Mesh(new T.SphereGeometry(.2,14,10),mus);m.scale.set(1.6,.45,.8);m.position.set(Math.cos(b)*.6,.66,Math.sin(b)*.6);m.rotation.y=-b;bits.add(m)}
+ var f1=new T.Mesh(new T.SphereGeometry(.4,20,12),fishm);f1.scale.set(1.6,.35,.7);f1.position.set(0,.68,0);bits.add(f1);
+ var lid=new T.Mesh(new T.SphereGeometry(2.05,48,12,0,Math.PI*2,0,Math.PI/2.6),new T.MeshStandardMaterial({color:0x353b45,metalness:.65,roughness:.38,side:T.DoubleSide}));lid.scale.y=.42;var knob=new T.Mesh(new T.SphereGeometry(.22,16,12),hmat);knob.position.y=.92;lid.add(knob);sc.add(lid);
+ var steam=[];var sm=new T.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.18,depthWrite:false});for(var k=0;k<18;k++){var s=new T.Mesh(new T.SphereGeometry(.3,10,8),sm.clone());s.userData={o:Math.random()*3,x:(Math.random()-.5)*2,z:(Math.random()-.5)*2};sc.add(s);steam.push(s)}
+ function size(){var w=host.clientWidth,h=host.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}size();addEventListener('resize',size);
+ var vis=false;
+ POT=function(p,now){var on=p>.5&&p<.995;if(!on){if(vis){host.style.visibility='hidden';vis=false}return}if(!vis){host.style.visibility='visible';vis=true}
+  var t=now/1000;var a=seg(p,.55,.66),open=seg(p,.66,.78),dive=seg(p,.82,.97);
+  g.rotation.y=t*.25+p*6;g.position.y=Math.sin(t*1.4)*.12+(1-ease(a))*-2.5;g.rotation.x=.12+Math.sin(t*.9)*.03;
+  lid.position.set(0,1.0+g.position.y+ease(open)*1.8,0+ease(open)*-.4);lid.rotation.x=-ease(open)*.5;lid.rotation.z=Math.sin(t)*.05;lid.material.opacity=1-dive;lid.material.transparent=true;lid.visible=dive<.6;
+  steam.forEach(function(s,k){var u=((t*.4+s.userData.o)%3)/3;s.position.set(s.userData.x*(1-u*.4),.7+g.position.y+u*3.4,s.userData.z*(1-u*.4));s.scale.setScalar(.6+u*1.6);s.material.opacity=.22*Math.sin(u*Math.PI)*open*(1-dive)});
+  var d=ease(dive);cam.position.set(0,3.4-d*1.5,7.2-d*6.6);cam.lookAt(0,.2+g.position.y*d,0);host.style.transform='translate(-50%,-50%) scale('+(1+d*1.6)+')';
+  r.render(sc,cam)};
+ }catch(e){document.body.classList.add('no3d');window.__potErr=e.message}}
+layout();addEventListener('resize',function(){layout()});buildHero();requestAnimationFrame(frame);
+(function(){var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=initPot;s.onerror=function(){document.body.classList.add('no3d')};document.head.appendChild(s)})();
+
+(function(){
+ var KEY='zahr-ck-'+location.pathname;
+ function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+ function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+ var ck=document.getElementById('ck');
+ function loadMap(){var w=document.getElementById('mapwrap');if(!w||w.querySelector('iframe'))return;var f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://maps.google.com/maps?q='+encodeURIComponent(w.dataset.q)+'&z=15&output=embed&hl=fr';w.insertBefore(f,w.firstChild);var a=document.getElementById('mapask');if(a)a.style.display='none'}
+ function showCk(){ck.classList.add('show');document.body.classList.add('cookie-open')}
+ function hideCk(){ck.classList.remove('show');document.body.classList.remove('cookie-open')}
+ var v=get(); if(v==='yes')loadMap(); else if(v!=='no')showCk();
+ document.getElementById('ck-yes').onclick=function(){set('yes');hideCk();loadMap()};
+ document.getElementById('ck-no').onclick=function(){set('no');hideCk()};
+ var my=document.getElementById('mapyes'); if(my)my.onclick=function(){set('yes');hideCk();loadMap()};
+ document.addEventListener('click',function(e){var o=e.target.closest('[data-open]');if(o){var d=document.getElementById(o.dataset.open);if(d&&d.showModal){d.showModal()}}var c=e.target.closest('[data-close]');if(c){c.closest('dialog').close()}if(e.target.classList.contains('ckreset')){set('');var w=document.getElementById('mapwrap');var f=w&&w.querySelector('iframe');if(f){f.remove();var a=document.getElementById('mapask');if(a)a.style.display=''}e.target.closest('dialog').close();showCk()}if(e.target.tagName==='DIALOG')e.target.close()});
+})();
+
+</script>
+</body>
+</html>
