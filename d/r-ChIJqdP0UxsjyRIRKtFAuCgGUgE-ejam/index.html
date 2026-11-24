@@ -55,7 +55,7 @@ body{background:var(--red);color:var(--cream);font-family:"Geist",system-ui,sans
  .hcta{top:calc(92px + clamp(42px,12.5vw,64px)*2 + 18px)}
  .close{font-size:clamp(38px,11vw,56px);bottom:calc(var(--pad) + 70px)}
  .lede{font-size:13px;bottom:var(--pad)}
- .s1{left:auto;right:18px;top:calc(92px + 30vw + 70px)}.s2{display:none}.s3{left:18px;top:auto;bottom:calc(var(--pad) + 190px)}
+ .s1{left:auto;right:18px;top:100px}.s2{display:none}.s3{display:none}
 }
 /* SECTIONS */
 .sec{position:relative;padding:clamp(80px,10vw,150px) var(--pad)}
@@ -109,12 +109,12 @@ body{background:var(--red);color:var(--cream);font-family:"Geist",system-ui,sans
 .machine{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:900px;margin:40px 0 0}
 .reel{position:relative;border:1px solid rgba(239,230,213,.35);background:#140906;height:190px;perspective:600px;overflow:hidden}
 .reel h3{position:absolute;left:10px;top:8px;margin:0;font-family:"Geist Mono";font-size:10px;font-weight:400;text-transform:uppercase;color:var(--muted);z-index:2}
-.drum{position:absolute;left:0;right:0;top:50%;height:44px;margin-top:-22px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.drum{position:absolute;left:0;right:0;top:42%;height:44px;margin-top:-22px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .drum div{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(17px,2vw,26px);font-weight:500;letter-spacing:-.02em;backface-visibility:hidden;white-space:nowrap;padding:0 8px}
 .reel::before,.reel::after{content:"";position:absolute;left:0;right:0;height:62px;z-index:1;pointer-events:none}
 .reel::before{top:0;background:linear-gradient(#140906,rgba(20,9,6,0))}.reel::after{bottom:0;background:linear-gradient(rgba(20,9,6,0),#140906)}
-.reel .win{position:absolute;left:6px;right:6px;top:50%;height:46px;margin-top:-23px;border-top:1px solid var(--amber);border-bottom:1px solid var(--amber);z-index:2;pointer-events:none}
-.reel .ctl{position:absolute;right:6px;bottom:6px;z-index:3;display:flex;gap:4px}
+.reel .win{position:absolute;left:6px;right:6px;top:42%;height:46px;margin-top:-23px;border-top:1px solid var(--amber);border-bottom:1px solid var(--amber);z-index:2;pointer-events:none}
+.reel .ctl{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;gap:4px;justify-content:flex-end;padding:4px 6px;background:#140906;border-top:1px solid rgba(239,230,213,.18)}
 .reel .ctl button{width:40px;height:40px;border:1px solid rgba(239,230,213,.45);background:#140906;color:var(--cream);cursor:pointer;font-size:16px}
 .reel:focus-within{outline:2px solid var(--amber)}
 .rfields{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px;margin-top:12px}
@@ -127,7 +127,7 @@ body{background:var(--red);color:var(--cream);font-family:"Geist",system-ui,sans
 .ok{display:none;max-width:900px;margin-top:30px;padding:26px;border:1px solid var(--amber);background:#140906}
 .ok.on{display:block}
 .ok h3{margin:0 0 6px;font-size:28px;font-weight:400;letter-spacing:-.03em}
-@media (max-width:760px){.machine{grid-template-columns:1fr 1fr}.machine .reel:first-child{grid-column:1/-1}.rfields{grid-template-columns:1fr}.reel{height:170px}}
+@media (max-width:760px){.machine{grid-template-columns:1fr 1fr}.machine .reel:first-child{grid-column:1/-1}.rfields{grid-template-columns:1fr}.reel{height:190px}.ard-tabs button{font-size:19px;padding:0 10px}}
 /* INFOS */
 #infos{background:var(--red)}
 .ruler{margin-top:36px;max-width:900px}
@@ -382,7 +382,7 @@ function dither(){var cv=$('#dither');if(!window.THREE){hero.classList.add('nogl
  var quad=new T.Mesh(new T.PlaneGeometry(2,2),quadMat);qs.add(quad);
  function size(){W=cv.clientWidth;H=cv.clientHeight;r.setSize(W,H,false);px=cl(Math.round(W/580*2)/2,2,4.5)*dpr;var tw=Math.ceil(W*dpr/px),th=Math.ceil(H*dpr/px);
   if(rt)rt.dispose();rt=new T.WebGLRenderTarget(tw,th,{minFilter:T.NearestFilter,magFilter:T.NearestFilter});quadMat.uniforms.t.value=rt.texture;quadMat.uniforms.uRes.value.set(W*dpr,H*dpr);quadMat.uniforms.uPx.value=px;
-  cam.aspect=W/H;var mob=W<760;cam.fov=mob?44:30;cam.position.set(0,mob?6.2:5.4,mob?8.6:8.2);cam.lookAt(0,mob?-.3:-.1,0);
+  cam.aspect=W/H;var mob=W<760;cam.fov=mob?44:30;cam.position.set(0,mob?8.4:5.4,mob?11.6:8.2);cam.lookAt(0,mob?-.3:-.1,0);
   if(mob){cam.setViewOffset(W,H,0,-H*.02,W,H)}else cam.clearViewOffset();cam.updateProjectionMatrix()}
  size();addEventListener('resize',size);
  var vel=.0035,last=null,rev=0,vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(hero);
