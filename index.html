@@ -198,9 +198,18 @@ main,footer{position:relative;z-index:2}
 @media(max-width:900px){
   .svc{height:380svh}
   .svc-pin .w{grid-template-columns:minmax(0,1fr);align-items:end;padding-bottom:48px}
-  .svc-text{padding-top:38svh}
-  .svc-count{margin-top:20px}
-  .svc-panes{min-height:250px;margin-top:20px}
+  .svc-pin .w{padding-bottom:max(28px,calc(env(safe-area-inset-bottom) + 20px))}
+  .svc-text{padding-top:0}
+  .svc-count{margin-top:16px}
+  /* les 4 panneaux s'empilent dans la même case : la hauteur suit le plus grand, le bouton reste toujours à l'écran */
+  .svc-panes{display:grid;min-height:0;margin-top:16px}
+  .svc .pane{position:relative;inset:auto;grid-area:1/1}
+  .pane-go{margin-top:18px}
+}
+@media(max-width:900px) and (max-height:760px){
+  .svc-text h2{font-size:clamp(30px,8.4vw,40px)}
+  .svc .ticks{display:none}
+  .pane > p{font-size:15px}
 }
 
 /* Chapitres clairs qui glissent par-dessus */
@@ -744,7 +753,18 @@ footer .f-bottom p{color:var(--mute-d);font-size:13.5px}
 .exm-cur{position:absolute;left:0;top:0;width:26px;height:26px;transform:translate(var(--cx,50%),var(--cy,30%));z-index:4;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));transition:opacity .3s}
 .exm .vis.live .exm-cur{opacity:0}.exm .vis.live{cursor:none}
 .exh-logo{position:absolute;left:22px;top:20px;z-index:3;width:104px;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5))}.exh-logo svg{width:100%!important;height:auto!important;display:block}
-.exe .vis{position:relative}.exe-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;background:#000}
+.exe .vis{position:relative}.exe-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;background:transparent;opacity:0;transition:opacity .8s ease}
+.exe .vis.ready .exe-frame{opacity:1}
+.exe-ph{position:absolute;inset:0;display:grid;place-items:center;color:#26332C;transition:opacity .8s ease}.exe-ph .zcan{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:72%;max-height:360px;width:auto;aspect-ratio:120/270}
+.exe .vis.ready .exe-ph{opacity:0}
+.zcan{height:100%;width:auto;overflow:visible;filter:drop-shadow(0 24px 40px rgba(0,0,0,.45));animation:zcanF 4.5s ease-in-out infinite}
+.zcan-lb{transition:fill .8s}
+.zcan-gl{animation:zcanG 3.2s cubic-bezier(.6,0,.4,1) infinite}
+.zcan-sh{transform-origin:60px 262px;animation:zcanS 4.5s ease-in-out infinite}
+@keyframes zcanF{0%,100%{transform:translateY(-6px) rotate(-4deg)}50%{transform:translateY(6px) rotate(3deg)}}
+@keyframes zcanS{0%,100%{transform:scale(.85);opacity:.25}50%{transform:scale(1);opacity:.4}}
+@keyframes zcanG{0%{transform:translateX(0) skewX(-12deg)}70%,100%{transform:translateX(200px) skewX(-12deg)}}
+@media (prefers-reduced-motion:reduce){.zcan,.zcan-gl,.zcan-sh{animation:none}}
 @media (prefers-reduced-motion:reduce){.exe-can,.exs-orb{animation:none}}
 @media (max-width:900px){.exm-st{height:112%;bottom:-6%}.exall{grid-template-columns:1fr}.exall-st{min-height:320px}}
 /* Veille : exemple ZAHR Veille */
@@ -957,7 +977,7 @@ main:focus{outline:none}
         <div class="svc-panes" id="panes">
           <article class="pane on" data-petal="0"><h3>Sites internet</h3><p>Un site sur mesure, pensé d’abord pour le téléphone, qui montre votre travail et laisse vos clients réserver ou demander un devis.</p><ul class="ticks"><li>Design unique, sans thème acheté</li><li>Réservation et demandes de rendez-vous</li><li>Visible sur Google et Google Maps</li></ul><a class="pane-go" href="#projets"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Voir les sites exemples</a></article>
           <article class="pane" data-petal="1"><h3>Outil de gestion</h3><p>Votre tableau de bord sur mesure : devis, factures, relances, banque, compta, TVA et clients, au même endroit.</p><ul class="ticks"><li>Devis et factures en un clic</li><li>Banque triée, compta et TVA calculées</li><li>Clients et prospects suivis</li></ul><a class="pane-go" href="#pilote"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Essayer la démo</a></article>
-          <article class="pane" data-petal="2"><h3>Veille et alertes</h3><p>Un robot qui surveille pour vous les annonces, les nouveaux commerces ou les offres d’emploi de votre secteur, les trie et vous prévient sur le téléphone.</p><ul class="ticks"><li>Appels d’offres publics et privés</li><li>Annonces et offres d’emploi</li><li>Alerte sur le téléphone, réponse préparée</li></ul><a class="pane-go" href="#veille"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Voir un exemple de veille</a></article>
+          <article class="pane" data-petal="2"><h3>Veille et alertes</h3><p>Un robot qui surveille pour vous les annonces, les nouveaux commerces ou les offres d’emploi de votre secteur, les trie et vous prévient sur le téléphone.</p><ul class="ticks"><li>Nouveaux commerces de votre secteur</li><li>Annonces et offres d’emploi</li><li>Alerte sur le téléphone, réponse préparée</li></ul><a class="pane-go" href="#veille"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Voir un exemple de veille</a></article>
           <article class="pane" data-petal="3"><h3>Identité et réseaux</h3><p>Logo, couleurs, kit Instagram et cartes de visite, pour que tout se reconnaisse au premier coup d’œil.</p><ul class="ticks"><li>Logo et charte simple</li><li>Avatar et visuels Instagram</li><li>Cartes de visite avec QR code</li></ul><a class="pane-go" href="#contact"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Demander un devis</a></article>
         </div>
       </div>
@@ -1036,7 +1056,19 @@ main:focus{outline:none}
         </div>
       </article>
                   <article class="panel case exe" aria-labelledby="h-exe">
-        <div class="vis" aria-hidden="true"><iframe class="exe-frame" src="exemples/zahr-energy.html?embed" title="Animation de la canette ZAHR Energy" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="vis" aria-hidden="true"><span class="exe-ph"><svg class="zcan" viewBox="0 0 120 270" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="zim" x1="0" x2="1"><stop offset="0" stop-color="#5b5f5d"/><stop offset=".22" stop-color="#eef1ef"/><stop offset=".45" stop-color="#9a9e9c"/><stop offset=".7" stop-color="#f7f9f8"/><stop offset="1" stop-color="#555957"/></linearGradient>
+<linearGradient id="zis" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".18" stop-color="#fff" stop-opacity=".18"/><stop offset=".32" stop-color="#fff" stop-opacity=".02"/><stop offset=".7" stop-color="#000" stop-opacity=".08"/><stop offset=".86" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>
+<linearGradient id="zig" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="zic"><path d="M18 18H102L110 34V232L102 248H18L10 232V34Z"/></clipPath></defs>
+<ellipse class="zcan-sh" cx="60" cy="262" rx="46" ry="6" fill="#000" opacity=".35"/>
+<rect x="17" y="6" width="86" height="14" rx="6" fill="url(#zim)"/>
+<path d="M18 18H102L110 34V232L102 248H18L10 232V34Z" fill="url(#zim)"/>
+<g clip-path="url(#zic)"><rect class="zcan-lb" x="10" y="40" width="100" height="186" fill="currentColor"/>
+<path transform="translate(44 54) scale(.125)" fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/>
+<path transform="translate(73.5 216) rotate(-90) scale(.0185)" fill="#fff" d="M57 0H1214V-195H323C378 -259 431 -324 482 -389L1206 -1309V-1490H85V-1295H941C891 -1236 842 -1177 796 -1118L57 -181Z M1572.72 0H1808.72L1944.72 -387H2545.72L2677.72 0H2918.72L2381.72 -1490H2113.72ZM2011.72 -576 2104.72 -840C2145.72 -963 2188.72 -1094 2248.72 -1287C2307.72 -1094 2349.72 -963 2390.72 -840L2480.72 -576Z M3358.44 0H3580.44V-665H4321.44V0H4543.44V-1490H4321.44V-859H3580.44V-1490H3358.44Z M5102.16 0H5324.16V-564H5654.16C5657.16 -564 5661.16 -564 5664.16 -564L5961.16 0H6211.16L5889.16 -601C6075.16 -668 6188.16 -818 6188.16 -1026C6188.16 -1311 5988.16 -1490 5669.16 -1490H5102.16ZM5324.16 -753V-1298H5659.16C5851.16 -1298 5969.16 -1194 5969.16 -1026C5969.16 -858 5852.16 -753 5660.16 -753Z"/>
+<rect x="10" y="18" width="100" height="230" fill="url(#zis)"/>
+<rect class="zcan-gl" x="-60" y="0" width="46" height="270" fill="url(#zig)" transform="skewX(-12)"/></g></svg></span><iframe class="exe-frame" src="exemples/zahr-energy.html?embed" title="Animation de la canette ZAHR Energy" loading="lazy" tabindex="-1"></iframe></div>
         <div class="info">
           <div class="tags"><span>Site internet</span><span>Boisson</span><span>3D</span></div>
           <h3 id="h-exe"><span translate="no">ZAHR Energy</span>, la canette</h3>
@@ -2088,5 +2120,6 @@ if(red){const r=v.getBoundingClientRect();place(r.width/2,r.height*.4)}
 v.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;live=true;v.classList.add('live');const r=v.getBoundingClientRect();place(e.clientX-r.left,e.clientY-r.top)});
 v.addEventListener('pointerleave',()=>{live=false;v.classList.remove('live')});
 v.addEventListener('click',()=>piece(k+1));})();</script>
+<script>addEventListener('message',e=>{if(e.data&&e.data.zahr==='energy-ready'){const f=document.querySelector('.exe-frame');if(f&&e.source===f.contentWindow)f.parentNode.classList.add('ready')}});</script>
 </body>
 </html>
