@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /d/
-Disallow: /t-8m3qzk/
-Disallow: /p-102087a04243/
 
 Sitemap: https://zahr.fr/sitemap.xml
