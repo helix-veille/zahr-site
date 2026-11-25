@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0c0609">
+<title>Melesthetic — Extensions de cils, sourire &amp; cheveux · Toulon · Paris</title>
+<meta name="description" content="Melesthetic, studio beauté à Toulon : extensions de cils, sourire extra white, extensions de cheveux, ongles et formations. Réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Inter:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0609; --ink2:#160b11; --pink:#ff3fa4; --hot:#ff1f8e; --blush:#ffd3e8; --milk:#fff6fa; --chrome:#e9e3ea;
+  --muted:#c9a9b9; --line:rgba(255,63,164,.28); --glass:rgba(22,11,17,.72);
+  --serif:"Bodoni Moda",Didot,"Times New Roman",serif; --neon:"Yellowtail","Brush Script MT",cursive; --sans:Inter,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:hidden}
+body{background:var(--ink);color:var(--milk);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.eyebrow{font:600 11.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--pink)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.02}
+h2{font-size:clamp(38px,9vw,78px)}
+h2 em,h1 em{font-style:italic;color:var(--pink)}
+.lead{color:var(--muted);font-size:16px;max-width:52ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 22px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .3s var(--ease),box-shadow .3s}
+.btn.p{background:var(--pink);color:#1a0610;box-shadow:0 10px 40px -8px rgba(255,63,164,.7),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.g{background:rgba(255,255,255,.06);border:1px solid rgba(255,211,232,.3);color:var(--milk);backdrop-filter:blur(10px)}
+.btn:active{transform:scale(.97)}
+.neon{font-family:var(--neon);color:#fff;text-shadow:0 0 6px #fff,0 0 14px var(--pink),0 0 30px var(--pink),0 0 60px var(--hot)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:12px 0;transition:background .4s,backdrop-filter .4s}
+header.solid{background:rgba(12,6,9,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font:400 30px/1 var(--neon);text-decoration:none;white-space:nowrap}
+header nav{display:flex;gap:8px;align-items:center}
+header .btn{padding:10px 16px;font-size:14px}
+.callb{width:42px;height:42px;padding:0}
+.callb svg{width:18px;height:18px}
+
+/* HERO */
+#hero{position:relative;height:100svh;min-height:640px;overflow:hidden;isolation:isolate}
+#hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(60% 45% at 50% 38%,rgba(255,63,164,.38),transparent 70%),
+  radial-gradient(40% 30% at 85% 90%,rgba(255,31,142,.25),transparent 70%),
+  linear-gradient(180deg,#14070e,#0c0609 70%)}
+#eye{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.eyeFallback{position:absolute;left:50%;top:36%;width:min(78vw,520px);transform:translate(-50%,-50%);z-index:-1;display:none}
+.noThree .eyeFallback{display:block}
+.hero-c{position:absolute;left:0;right:0;bottom:0;padding:0 0 max(28px,env(safe-area-inset-bottom))}
+.hero-c .wrap{display:grid;gap:16px}
+.hero-c h1{font-size:clamp(46px,12.4vw,116px)}
+.hero-c h1 .l2{display:block;font-style:italic;color:var(--pink);padding-left:.6em}
+.hero-c .row{display:flex;gap:10px;flex-wrap:wrap}
+.tagline{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.tagline b{color:var(--milk);font-weight:600}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--pink)}
+.scrollcue{position:absolute;right:20px;bottom:30px;writing-mode:vertical-rl;font:600 10px var(--sans);letter-spacing:.3em;color:var(--muted)}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;background:#10070c}
+.marq div{display:flex;gap:40px;width:max-content;animation:mq 26s linear infinite;font:500 italic 30px var(--serif);white-space:nowrap}
+.marq span:nth-child(even){font:400 34px var(--neon);color:var(--pink);text-shadow:0 0 18px rgba(255,63,164,.7)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.pad{padding:110px 0}
+
+/* LASH LAB */
+#lab{background:radial-gradient(70% 50% at 50% 0%,rgba(255,63,164,.16),transparent 70%),var(--ink)}
+.lab-g{display:grid;gap:26px;margin-top:30px}
+.lab-stage{position:relative;aspect-ratio:1/0.78;border-radius:28px;overflow:hidden;background:
+ radial-gradient(70% 70% at 50% 45%,#2a0f1d,#0e060a 75%);border:1px solid var(--line);box-shadow:inset 0 0 80px rgba(255,63,164,.15)}
+#eye2{width:100%;height:100%;display:block}
+.lab-stage .mirror{position:absolute;inset:12px;border-radius:20px;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+.lab-stage .lbl{position:absolute;left:16px;top:14px;font:600 10.5px var(--sans);letter-spacing:.25em;color:var(--muted)}
+.lab-stage .count{position:absolute;right:16px;top:12px;font:500 italic 22px var(--serif);color:var(--blush)}
+.vols{display:grid;gap:10px}
+.vol{display:grid;grid-template-columns:1fr auto;gap:2px 12px;text-align:left;padding:16px 18px;border-radius:18px;border:1px solid rgba(255,211,232,.16);background:rgba(255,255,255,.03);cursor:pointer;transition:all .35s var(--ease)}
+.vol b{font:500 22px var(--serif)}
+.vol small{color:var(--muted);font-size:13px}
+.vol .pr{grid-row:1/3;grid-column:2;align-self:center;font:500 italic 28px var(--serif);color:var(--blush)}
+.vol[aria-pressed="true"]{border-color:var(--pink);background:linear-gradient(120deg,rgba(255,63,164,.22),rgba(255,63,164,.04));box-shadow:0 12px 40px -18px var(--pink)}
+.vol[aria-pressed="true"] .pr{color:#fff;text-shadow:0 0 18px var(--pink)}
+.lab-note{font-size:13px;color:var(--muted)}
+
+/* CARTE : mirrors */
+#carte{background:#0f070b;overflow:hidden}
+.cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 8px;margin-top:26px}
+.cats::-webkit-scrollbar{display:none}
+.cats button{flex:none;border:1px solid rgba(255,211,232,.22);background:none;border-radius:999px;padding:9px 16px;font-size:14px;cursor:pointer;color:var(--blush)}
+.cats button[aria-selected="true"]{background:var(--milk);color:var(--ink);border-color:var(--milk)}
+.ring{position:relative;height:560px;perspective:1300px;margin-top:20px;touch-action:pan-y}
+.ring-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1s var(--ease)}
+.mir{position:absolute;left:50%;top:10px;width:min(320px,80vw);height:520px;margin-left:calc(min(320px,80vw)/-2);transform-style:preserve-3d;backface-visibility:hidden}
+.mir .frame{position:absolute;inset:0;border-radius:26px;background:linear-gradient(145deg,#f7eef3,#bfb1ba 40%,#fdf7fa 60%,#a998a3);padding:16px;box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.mir .glass{position:relative;height:100%;border-radius:16px;background:
+  linear-gradient(115deg,rgba(255,255,255,.14) 0 18%,transparent 18% 40%,rgba(255,255,255,.07) 40% 47%,transparent 47%),
+  radial-gradient(90% 70% at 50% 0%,#3a1528,#13080e 80%);padding:22px 18px;overflow:hidden;color:var(--milk)}
+.bulb{position:absolute;width:16px;height:16px;border-radius:50%;background:#5a4a52;box-shadow:inset 0 -2px 3px rgba(0,0,0,.4);transition:background .4s,box-shadow .4s}
+.mir.lit .bulb{background:#fffaf0;box-shadow:0 0 10px #fff,0 0 26px #ffd9a8,0 0 50px rgba(255,190,120,.6)}
+.mir h3{font-size:34px}
+.mir h3 em{color:var(--pink)}
+.mir .sub{font-size:12.5px;color:var(--muted);margin:6px 0 14px}
+.svc{display:grid;grid-template-columns:1fr auto;gap:0 10px;padding:11px 0;border-top:1px dashed rgba(255,211,232,.2)}
+.svc b{font-weight:500;font-size:15px}
+.svc small{color:var(--muted);font-size:12.5px}
+.svc i{font:500 italic 21px var(--serif);font-style:italic;color:var(--blush);align-self:center;grid-row:1/3;grid-column:2;white-space:nowrap}
+.ring-nav{display:flex;justify-content:center;gap:14px;align-items:center;margin-top:12px}
+.ring-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;color:var(--milk);font-size:20px}
+.ring-nav span{font:500 italic 18px var(--serif);color:var(--muted);min-width:110px;text-align:center}
+
+/* SOURIRE */
+#sourire{background:linear-gradient(180deg,#0f070b,#1b0a13 45%,#0c0609)}
+.smile-g{display:grid;gap:28px;margin-top:28px;align-items:center}
+.tooth-stage{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:auto;border-radius:50%;
+  background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.18),rgba(255,63,164,.16) 40%,transparent 68%);cursor:crosshair;touch-action:manipulation}
+.tooth-stage svg{position:absolute;inset:8%;width:84%;height:84%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.tooth-stage .shine{position:absolute;inset:8%;border-radius:40%;overflow:hidden;pointer-events:none;mix-blend-mode:screen}
+.tooth-stage .shine::after{content:"";position:absolute;top:-20%;bottom:-20%;width:30%;left:-40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-18deg);animation:sh 3.6s var(--ease) infinite}
+@keyframes sh{0%,40%{left:-40%}70%,100%{left:120%}}
+.strass{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;pointer-events:none;animation:pop .5s var(--ease) both}
+.strass::before{content:"";position:absolute;inset:3px;transform:rotate(45deg);background:conic-gradient(from 0deg,#fff,#ffd3ec,#b6e9ff,#fff,#ffc4e4,#fff);border-radius:3px;box-shadow:0 0 12px #fff,0 0 22px var(--pink)}
+@keyframes pop{from{transform:scale(0) rotate(-90deg)}to{transform:scale(1) rotate(0)}}
+.tooth-hint{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);font-size:12px;color:var(--muted);white-space:nowrap;background:rgba(12,6,9,.7);padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+.smile-list{display:grid;gap:12px}
+.chip{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,211,232,.14)}
+.chip b{font:500 20px var(--serif)}
+.chip small{display:block;color:var(--muted);font-size:13px}
+.chip i{font:500 italic 24px var(--serif);color:var(--blush);white-space:nowrap}
+.combo{background:linear-gradient(120deg,rgba(255,63,164,.3),rgba(255,63,164,.06));border-color:var(--pink)}
+
+/* GALERIE polaroids */
+#galerie{background:
+ repeating-linear-gradient(115deg,#ffd3e8 0 22px,#0c0609 22px 50px,#ffd3e8 50px 62px,#0c0609 62px 104px);overflow:hidden}
+#galerie::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 50%,rgba(12,6,9,.55),rgba(12,6,9,.94))}
+#galerie .wrap{position:relative}
+.deck{position:relative;height:470px;margin-top:30px;perspective:1200px;touch-action:pan-y}
+.pola{position:absolute;left:50%;top:10px;width:min(280px,72vw);margin-left:calc(min(280px,72vw)/-2);background:#fffaf7;padding:12px 12px 52px;border-radius:4px;box-shadow:0 30px 60px -20px rgba(0,0,0,.85);transition:transform .7s var(--ease),opacity .5s;cursor:grab;user-select:none}
+.pola .ph{aspect-ratio:4/5;overflow:hidden;background:#2a1520}
+.pola .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;filter:saturate(1.08)}
+.pola p{position:absolute;left:0;right:0;bottom:14px;text-align:center;font:400 24px var(--neon);color:#2a0f1d}
+.deck-hint{text-align:center;font-size:13px;color:var(--muted);margin-top:16px}
+
+/* FORMATIONS */
+#formations{background:#0c0609}
+.cert-wrap{perspective:1400px;margin-top:30px}
+.cert{position:relative;max-width:560px;margin:auto;aspect-ratio:1.42;transform-style:preserve-3d;transition:transform 1.1s var(--ease);cursor:pointer}
+.cert.flip{transform:rotateY(180deg)}
+.cert .f,.cert .b{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:22px;overflow:hidden}
+.cert .f{background:linear-gradient(135deg,#fff7fb,#ffe0ef 50%,#fff3f8);color:#2a0f1d;border:1px solid #f3c2da;
+  box-shadow:0 40px 80px -30px rgba(255,63,164,.55),inset 0 0 0 8px #fff,inset 0 0 0 9px #e9a9c8}
+.cert .f::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.8) 45%,transparent 60%);transform:translateX(-100%);animation:foil 4.5s ease-in-out infinite}
+@keyframes foil{50%,100%{transform:translateX(100%)}}
+.cert .f .t1{font:600 10px var(--sans);letter-spacing:.35em;text-align:center;color:#b0567f;margin-top:6px}
+.cert .f h3{text-align:center;font-size:clamp(26px,7vw,44px);margin-top:8px}
+.cert .f h3 em{color:var(--hot)}
+.cert .f .who{text-align:center;font:400 clamp(30px,8vw,46px)/1 var(--neon);color:var(--hot);margin-top:8px}
+.cert .f .bot{position:absolute;left:22px;right:22px;bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;font-size:11px;color:#8a4968}
+.seal{width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffd1e8,#ff3fa4 60%,#b0145f);display:grid;place-items:center;color:#fff;font:400 22px var(--neon);box-shadow:0 6px 16px rgba(176,20,95,.5)}
+.cert .b{transform:rotateY(180deg);background:linear-gradient(135deg,#1d0b14,#2c0f1f);border:1px solid var(--pink);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.cert .b li{list-style:none;padding:9px 0;border-bottom:1px solid rgba(255,211,232,.15);display:flex;gap:10px;font-size:15px}
+.cert .b li::before{content:"✦";color:var(--pink)}
+.cert .b ul{padding:0}
+.flip-hint{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+
+/* RESERVATION : compact */
+#rdv{background:radial-gradient(60% 50% at 50% 20%,rgba(255,63,164,.2),transparent 70%),#0c0609}
+.compact{position:relative;max-width:520px;margin:34px auto 0;perspective:1600px}
+.lid{position:relative;height:190px;transform-origin:50% 100%;transform-style:preserve-3d;transition:transform 1.4s var(--ease);z-index:2}
+.compact.open .lid{transform:rotateX(-112deg)}
+.lid .out,.lid .in{position:absolute;inset:0;border-radius:200px 200px 24px 24px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.lid .out{background:radial-gradient(circle at 50% 30%,#ffe3f0,#ff8fc6 45%,#d62a83);display:grid;place-items:center;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 20px 40px -10px rgba(255,63,164,.6)}
+.lid .out span{font:400 46px var(--neon);color:#fff;text-shadow:0 2px 0 #b0145f}
+.lid .in{transform:rotateX(180deg);background:linear-gradient(160deg,#eae6ec,#9e97a1 50%,#f5f2f6);box-shadow:inset 0 0 0 8px #d9a3bf}
+.base{position:relative;margin-top:-6px;border-radius:24px;background:linear-gradient(180deg,#2b1020,#170a11);border:1px solid var(--line);padding:24px 18px 20px;box-shadow:0 50px 90px -40px rgba(255,63,164,.6)}
+.steps{display:flex;gap:6px;margin-bottom:16px}
+.steps i{flex:1;height:4px;border-radius:4px;background:rgba(255,211,232,.15)}
+.steps i.on{background:var(--pink);box-shadow:0 0 10px var(--pink)}
+.stp{display:none}.stp.on{display:block;animation:fi .5s var(--ease)}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}}
+.stp h3{font-size:26px;margin-bottom:12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px 14px;border-radius:14px;border:1px solid rgba(255,211,232,.18);background:rgba(255,255,255,.03);cursor:pointer;text-align:left}
+.opt[aria-pressed="true"]{border-color:var(--pink);background:rgba(255,63,164,.16)}
+.opt small{display:block;color:var(--muted);font-size:12px}
+.opt i{font:500 italic 19px var(--serif);color:var(--blush);white-space:nowrap}
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.days::-webkit-scrollbar{display:none}
+.day{flex:none;width:64px;padding:10px 0;border-radius:14px;border:1px solid rgba(255,211,232,.18);background:none;cursor:pointer;text-align:center;line-height:1.2}
+.day small{display:block;font-size:11px;color:var(--muted);text-transform:capitalize}
+.day b{font:500 22px var(--serif)}
+.day[aria-pressed="true"]{background:var(--pink);color:#1a0610;border-color:var(--pink)}
+.day[aria-pressed="true"] small{color:#1a0610}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.slot{padding:10px 0;border-radius:12px;border:1px solid rgba(255,211,232,.18);background:none;cursor:pointer;font-size:14px}
+.slot[aria-pressed="true"]{background:var(--milk);color:var(--ink)}
+.slot:disabled{opacity:.3;text-decoration:line-through;cursor:default}
+.fld{display:block;margin-top:10px}
+.fld span{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.fld input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid rgba(255,211,232,.22);background:rgba(255,255,255,.04)}
+.cons{display:flex;gap:10px;font-size:12.5px;color:var(--muted);margin-top:12px;align-items:flex-start}
+.cons input{margin-top:3px;accent-color:var(--pink)}
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.ticket{text-align:center;padding:10px 0}
+.ticket .neon{font-size:44px;display:block;margin:6px 0 10px}
+.ticket p{color:var(--muted);font-size:14px}
+.ticket .recap{margin:16px auto 0;max-width:320px;text-align:left;border:1px dashed rgba(255,211,232,.35);border-radius:14px;padding:12px 14px;font-size:14px}
+.ticket .recap div{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.ticket .recap span{color:var(--muted)}
+
+/* INFOS */
+#infos{background:#0f070b}
+.sign{font:400 clamp(54px,16vw,140px)/1 var(--neon);text-align:center;margin:10px 0 6px;animation:flick 6s infinite}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:.45}}
+.info-g{display:grid;gap:14px;margin-top:26px}
+.icard{padding:20px;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid rgba(255,211,232,.14)}
+.icard h3{font-size:22px;margin-bottom:8px}
+.icard p{color:var(--muted);font-size:14.5px}
+.icard a{white-space:nowrap}
+#map{position:relative;height:340px;border-radius:24px;overflow:hidden;border:1px solid var(--line);margin-top:14px;background:#1a0a12}
+#map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+#map::before{content:"";position:absolute;inset:0;background:#ff3fa4;mix-blend-mode:color;opacity:.55;pointer-events:none;z-index:1}
+#map::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,transparent 40%,rgba(12,6,9,.85));pointer-events:none;z-index:1}
+#map>iframe~svg{display:none}
+#map svg.ph{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:50%;top:46%;z-index:2;transform:translate(-50%,-100%);display:grid;place-items:center;pointer-events:none}
+.pin b{width:58px;height:58px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pink);display:grid;place-items:center;box-shadow:0 0 30px var(--pink)}
+.pin b span{transform:rotate(45deg);font:400 26px var(--neon);color:#fff}
+.pin::after{content:"";position:absolute;bottom:-14px;width:40px;height:40px;border-radius:50%;border:2px solid var(--pink);animation:rip 2s infinite}
+@keyframes rip{from{transform:scale(.3);opacity:1}to{transform:scale(2.2);opacity:0}}
+.mapcard{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:rgba(12,6,9,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);font-size:13.5px}
+.mapcard .btn{padding:10px 14px;font-size:13px}
+.maplo{position:absolute;inset:0;z-index:2;display:grid;place-items:center}
+
+footer{padding:50px 0 calc(90px + env(safe-area-inset-bottom));background:#080407;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .logo{font-size:40px;display:block;margin-bottom:10px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0}
+footer nav button{background:none;border:0;padding:0;text-decoration:underline;color:var(--muted);cursor:pointer;font-size:13px}
+.zahr{font-size:11.5px;opacity:.75}
+
+/* sticky book */
+.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;display:flex;gap:8px;transform:translateY(140%);transition:transform .5s var(--ease)}
+.sticky.on{transform:none}
+.sticky .btn{flex:1;padding:14px 10px}
+
+/* cookies + dialogs */
+#cookie{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;max-width:520px;margin:auto;background:#1b0b14;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.6);font-size:13.5px}
+#cookie p{color:var(--muted);margin-bottom:12px}
+#cookie .row{display:flex;gap:8px}
+#cookie .btn{flex:1;padding:12px}
+dialog{border:1px solid var(--line);border-radius:20px;background:#1b0b14;color:var(--milk);max-width:min(560px,92vw);padding:22px}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h3{font-size:26px;margin-bottom:10px}
+dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+@media (min-width:860px){
+  .lab-g{grid-template-columns:1.15fr .85fr;align-items:center}
+  .smile-g{grid-template-columns:1fr 1fr}
+  .info-g{grid-template-columns:repeat(3,1fr)}
+  .pad{padding:150px 0}
+  .ring{height:600px}
+}
+@media (max-width:420px){
+  .logo{font-size:26px}
+  header .btn.p{padding:10px 13px}
+  .hero-c h1{font-size:clamp(44px,13.4vw,60px)}
+  .btn{padding:13px 18px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap">
+  <a class="logo neon" href="#hero" aria-label="Melesthetic, accueil">Melesthetic</a>
+  <nav><a class="btn g callb" href="#infos" aria-label="Infos et accès"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a>
+  <a class="btn p" href="#rdv">Réserver</a></nav>
+</div></header>
+
+<main>
+<section id="hero" aria-label="Accueil">
+  <canvas id="eye" aria-hidden="true"></canvas>
+  <svg class="eyeFallback" viewBox="0 0 400 200" aria-hidden="true"><path d="M20 110 Q200 -10 380 110 Q200 200 20 110Z" fill="none" stroke="#fff" stroke-width="5"/><circle cx="200" cy="108" r="52" fill="#ff3fa4"/><circle cx="200" cy="108" r="22" fill="#0c0609"/><g stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M60 80 L40 40"/><path d="M100 55 L88 12"/><path d="M150 40 L146 0"/><path d="M200 35 L204 -4"/><path d="M250 40 L260 0"/><path d="M300 55 L318 14"/><path d="M340 80 L364 42"/></g></svg>
+  <div class="hero-c"><div class="wrap">
+    <p class="eyebrow">Studio beauté · Toulon — Paris</p>
+    <h1>Le regard,<span class="l2">haute couture.</span></h1>
+    <p class="tagline"><b>Extensions de cils</b><i class="dot"></i>Sourire extra white<i class="dot"></i>Extensions de cheveux<i class="dot"></i>Formations</p>
+    <div class="row"><a class="btn p" href="#rdv">Réserver ma pose</a><a class="btn g" href="#lab">Essayer un volume</a></div>
+  </div></div>
+  <span class="scrollcue" aria-hidden="true">DÉFILER</span>
+</section>
+
+<div class="marq" aria-hidden="true"><div>
+  <span>Pose légère 2D/3D</span><span>Melesthetic</span><span>Volume russe</span><span>sourire white</span><span>Mega · Whispy</span><span>Brow lift</span><span>Extensions cheveux indiens</span><span>Formations</span>
+  <span>Pose légère 2D/3D</span><span>Melesthetic</span><span>Volume russe</span><span>sourire white</span><span>Mega · Whispy</span><span>Brow lift</span><span>Extensions cheveux indiens</span><span>Formations</span>
+</div></div>
+
+<section id="lab" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">Le lash lab</p>
+    <h2 class="reveal">Choisis ton <em>volume.</em></h2>
+    <p class="lead reveal" style="margin-top:12px">Touche un effet : les cils se posent un à un, comme au studio. Du naturel léger au mega whispy.</p>
+    <div class="lab-g">
+      <div class="lab-stage reveal"><canvas id="eye2" aria-label="Aperçu des cils selon le volume choisi" role="img"></canvas><div class="mirror"></div><span class="lbl">APERÇU</span><span class="count" id="lashCount">—</span></div>
+      <div class="vols" role="group" aria-label="Volume">
+        <button class="vol reveal" data-v="0" aria-pressed="true"><b>Pose légère 2D/3D</b><small>Technique 2D/3D · 1 h</small><span class="pr">60 €</span></button>
+        <button class="vol reveal" data-v="1" aria-pressed="false"><b>Volume russe</b><small>Bouquets fins · 1 h 30</small><span class="pr">60 €</span></button>
+        <button class="vol reveal" data-v="2" aria-pressed="false"><b>Intense · mega · whispy</b><small>Effet spectaculaire · 1 h 30</small><span class="pr">70 €</span></button>
+        <p class="lab-note reveal">Remplissage pose légère 45 € · remplissage volume russe 50 € (toutes les 2 à 3 semaines).</p>
+        <a class="btn p reveal" href="#rdv" id="labBook">Réserver ce volume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="carte" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">La carte</p>
+    <h2 class="reveal">Le miroir <em>des envies.</em></h2>
+    <div class="cats" role="tablist" aria-label="Catégories"></div>
+    <div class="ring" id="ring"><div class="ring-in" id="ringIn"></div></div>
+    <div class="ring-nav"><button id="rPrev" aria-label="Miroir précédent">‹</button><span id="rName"></span><button id="rNext" aria-label="Miroir suivant">›</button></div>
+  </div>
+</section>
+
+<section id="sourire" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">Sourire</p>
+    <h2 class="reveal">Un sourire <em>qui brille.</em></h2>
+    <div class="smile-g">
+      <div class="tooth-stage reveal" id="tooth" role="button" tabindex="0" aria-label="Touche la dent pour poser un strass">
+        <svg viewBox="0 0 200 220" aria-hidden="true"><defs>
+          <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#f6f1f4"/><stop offset="1" stop-color="#d9cdd5"/></linearGradient>
+          <radialGradient id="tg2" cx=".35" cy=".25" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+          <path d="M100 18c-18-10-58-14-72 12-12 22-4 52 6 78 9 24 10 58 18 82 6 18 20 18 24 0 5-22 8-44 24-44s19 22 24 44c4 18 18 18 24 0 8-24 9-58 18-82 10-26 18-56 6-78-14-26-54-22-72-12z" fill="url(#tg)" stroke="#cbbcc6" stroke-width="2"/>
+          <ellipse cx="72" cy="58" rx="26" ry="34" fill="url(#tg2)"/></svg>
+        <div class="shine"></div>
+        <span class="tooth-hint">Touche la dent : pose un strass ✦</span>
+      </div>
+      <div class="smile-list">
+        <div class="chip reveal"><div><b>Sourire extra white</b><small>Sourire entier · 1 h</small></div><i>70 €</i></div>
+        <div class="chip reveal"><div><b>1ʳᵉ retouche extra white</b><small>Effet facette · 1 h</small></div><i>60 €</i></div>
+        <div class="chip reveal"><div><b>Pose strass dentaire</b><small>15 min</small></div><i>dès 15 €</i></div>
+        <div class="chip combo reveal"><div><b>Offre cils + sourire white</b><small>2 h 50 · le duo signature</small></div><i>120 €</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galerie" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">Résultats</p>
+    <h2 class="reveal">Le book <em>Melesthetic.</em></h2>
+    <div class="deck" id="deck" aria-label="Photos du studio, faire glisser pour passer à la suivante"></div>
+    <p class="deck-hint">Fais glisser la photo ←→</p>
+  </div>
+</section>
+
+<section id="formations" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">Formations</p>
+    <h2 class="reveal">Apprendre <em>le geste.</em></h2>
+    <p class="lead reveal" style="margin-top:12px">Formations extensions de cils, extensions de cheveux et blanchiment, à Toulon et à Paris.</p>
+    <div class="cert-wrap reveal">
+      <div class="cert" id="cert" role="button" tabindex="0" aria-label="Retourner le certificat">
+        <div class="f">
+          <p class="t1">CERTIFICAT DE FORMATION</p>
+          <h3>Extensions <em>de cils</em></h3>
+          <p class="who">Melesthetic Academy</p>
+          <div class="bot"><span>Toulon · Paris</span><div class="seal" aria-hidden="true">M</div><span>Votre nom ici</span></div>
+        </div>
+        <div class="b">
+          <ul>
+            <li>Extensions de cils</li>
+            <li>Extensions de cheveux</li>
+            <li>Blanchiment du sourire</li>
+          </ul>
+          <a class="btn p" href="#rdv" onclick="event.stopPropagation()">Demander le programme</a>
+        </div>
+      </div>
+      <p class="flip-hint">Touche le certificat pour le retourner</p>
+    </div>
+  </div>
+</section>
+
+<section id="rdv" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="text-align:center">Réservation</p>
+    <h2 class="reveal" style="text-align:center">Ton moment <em>beauté.</em></h2>
+    <div class="compact" id="compact">
+      <div class="lid" aria-hidden="true"><div class="out"><span>M</span></div><div class="in"></div></div>
+      <div class="base">
+        <div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="stp on" data-s="0"><h3>Ta prestation</h3><div class="opts" id="optsSvc"></div></div>
+        <div class="stp" data-s="1"><h3>Ton jour</h3><div class="days" id="days"></div><div class="slots" id="slots"></div></div>
+        <div class="stp" data-s="2"><h3>Tes coordonnées</h3>
+          <label class="fld"><span>Prénom</span><input id="fName" autocomplete="given-name"></label>
+          <label class="fld"><span>Téléphone</span><input id="fTel" type="tel" autocomplete="tel" inputmode="tel"></label>
+          <label class="cons"><input type="checkbox" id="fOk"><span>J'accepte que mes informations servent uniquement à traiter ma demande de rendez-vous (<button type="button" class="lk" data-legal="conf" style="background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer">confidentialité</button>).</span></label>
+        </div>
+        <div class="stp" data-s="3"><div class="ticket"><p>Demande envoyée</p><span class="neon">Merci !</span><p>Melesthetic te confirme le rendez-vous très vite.</p><div class="recap" id="recap"></div></div></div>
+        <div class="nav2"><button class="btn g" id="bBack" hidden>Retour</button><button class="btn p" id="bNext" style="margin-left:auto">Continuer</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="infos" class="pad">
+  <div class="wrap">
+    <p class="sign neon" aria-hidden="true">Melesthetic</p>
+    <div class="info-g">
+      <div class="icard reveal"><h3>Le studio</h3><p>437 av. Colonel Picot<br>83100 Toulon</p></div>
+      <div class="icard reveal"><h3>Sur rendez-vous</h3><p>Réservation en ligne 24 h/24. Rendez-vous aussi possibles à Paris.</p></div>
+      <div class="icard reveal"><h3>Instagram</h3><p><a href="https://www.instagram.com/melesthetic._/" target="_blank" rel="noopener">@melesthetic._</a><br>Les dernières poses en story.</p></div>
+    </div>
+    <div id="map" class="reveal">
+      <svg class="ph" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="340" fill="#1a0a12"/><g stroke="#3a1828" stroke-width="10" fill="none"><path d="M-10 230 Q120 200 200 170 T420 120"/><path d="M60 -10 L150 350"/><path d="M300 -10 Q260 150 330 350"/></g><g stroke="#2a1120" stroke-width="4" fill="none"><path d="M0 80 L400 110"/><path d="M0 300 L400 260"/><path d="M220 0 L230 340"/></g></svg>
+      <div class="maplo" id="maplo"><button class="btn g" id="mapLoad">Afficher le plan Google</button></div>
+      <div class="pin" aria-hidden="true"><b><span>M</span></b></div>
+      <div class="mapcard"><div>437 av. Colonel Picot<br><span style="color:var(--muted)">83100 Toulon</span></div><a class="btn p" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=437%20Avenue%20Colonel%20Picot%2083100%20Toulon">Itinéraire</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <span class="logo neon">Melesthetic</span>
+  <p>Extensions de cils · Sourire extra white · Extensions de cheveux · Ongles · Formations<br>437 av. Colonel Picot, 83100 Toulon</p>
+  <nav aria-label="Informations légales"><button data-legal="ml">Mentions légales</button><button data-legal="conf">Confidentialité</button><button data-legal="cgv">CGV / CGU</button><button data-legal="ck">Cookies</button><button data-legal="rb">Remboursement</button></nav>
+  <p class="zahr">Site de démonstration : contenus à valider par l'établissement. Démo réalisée par <a href="https://zahr.fr" target="_blank" rel="noopener">ZAHR</a>.</p>
+</div></footer>
+
+<div class="sticky" id="sticky"><a class="btn g" href="#lab">Volumes</a><a class="btn p" href="#rdv">Réserver</a></div>
+
+<div id="cookie" role="dialog" aria-label="Cookies" hidden>
+  <p>Ce site utilise un seul cookie optionnel : le plan Google, chargé seulement si tu l'acceptes.</p>
+  <div class="row"><button class="btn g" id="ckNo">Refuser</button><button class="btn g" id="ckYes">Accepter</button></div>
+</div>
+<dialog id="legal"><h3 id="lgT"></h3><div id="lgB"></div><form method="dialog"><button class="btn p" style="margin-top:10px">Fermer</button></form></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+(()=>{
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IMG = id => `https://mms.cdn.global.prodsharedsvc.planityapp.com/planity/image/upload/q_auto,w_900,f_auto/${id}`;
+
+/* header + sticky */
+const hd=$('#hd'), st=$('#sticky');
+const onS=()=>{ const y=scrollY; hd.classList.toggle('solid', y>40); const r=$('#rdv').getBoundingClientRect(); st.classList.toggle('on', y>innerHeight*.8 && !(r.top<innerHeight && r.bottom>0)); };
+addEventListener('scroll',onS,{passive:true}); onS();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.15});
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* ===================== 3D EYE ===================== */
+function makeEye(canvas, opts){
+  const T=window.THREE; if(!T) return null;
+  const R=new T.WebGLRenderer({canvas,antialias:true,alpha:true});
+  R.setPixelRatio(Math.min(devicePixelRatio,2));
+  const S=new T.Scene(), C=new T.PerspectiveCamera(32,1,.1,100); C.position.set(0,0,opts.z||9);
+  S.add(new T.AmbientLight(0xffe6f2,.55));
+  const key=new T.PointLight(0xffffff,1.25,40); key.position.set(3,4,6); S.add(key);
+  const rim=new T.PointLight(0xff3fa4,2.2,30); rim.position.set(-4,-2,3); S.add(rim);
+  const rim2=new T.PointLight(0xff8ccc,1.4,30); rim2.position.set(5,-3,-2); S.add(rim2);
+  const G=new T.Group(); S.add(G);
+  const W=opts.w||3.2, Hh=opts.h||1.25;
+  // lid curves (upper / lower) as functions x->y
+  const up=x=>Hh*(1-(x/W)**2)**1.05, lo=x=>-Hh*.62*(1-(x/W)**2)**1.2;
+  const curve=(f,n=60)=>{ const p=[]; for(let i=0;i<=n;i++){ const x=-W+2*W*i/n; p.push(new T.Vector3(x,f(x),Math.cos(x/W*1.4)*.35)); } return new T.CatmullRomCurve3(p); };
+  const lineMat=new T.MeshPhysicalMaterial({color:0x0b0508,roughness:.25,metalness:.2,clearcoat:1,clearcoatRoughness:.15});
+  const upC=curve(up), loC=curve(lo);
+  G.add(new T.Mesh(new T.TubeGeometry(upC,120,.07,10,false),lineMat));
+  G.add(new T.Mesh(new T.TubeGeometry(loC,120,.035,8,false),lineMat));
+  // sclera: thin almond-shaped glossy plate
+  const sh=new T.Shape(); const n=50;
+  for(let i=0;i<=n;i++){ const x=-W+2*W*i/n; if(i===0) sh.moveTo(x,up(x)); else sh.lineTo(x,up(x)); }
+  for(let i=n;i>=0;i--){ const x=-W+2*W*i/n; sh.lineTo(x,lo(x)); }
+  // sclera + iris painted in one texture (no mask needed)
+  const CW=1024, CH=Math.round(1024*Hh/W);
+  const cv=document.createElement('canvas'); cv.width=CW; cv.height=CH; const x=cv.getContext('2d');
+  const sg=x.createRadialGradient(CW/2,CH*.55,20,CW/2,CH/2,CW*.55); sg.addColorStop(0,'#fffafd'); sg.addColorStop(.55,'#ffe6f2'); sg.addColorStop(1,'#e9b9cf');
+  x.fillStyle=sg; x.fillRect(0,0,CW,CH);
+  const ir=0.98/(2*W)*CW, cx0=CW/2, cy0=CH/2;
+  const gr=x.createRadialGradient(cx0,cy0,ir*.15,cx0,cy0,ir); gr.addColorStop(0,'#2a0a18'); gr.addColorStop(.25,'#5b1838'); gr.addColorStop(.55,'#c2336f'); gr.addColorStop(.85,'#ff79b8'); gr.addColorStop(.96,'#3a0d22'); gr.addColorStop(1,'#14040b');
+  x.fillStyle=gr; x.beginPath(); x.arc(cx0,cy0,ir,0,7); x.fill();
+  for(let i=0;i<420;i++){ const a=Math.random()*Math.PI*2, r1=ir*(.36+Math.random()*.1), r2=ir*(.6+Math.random()*.36); x.strokeStyle=`rgba(255,${150+Math.random()*90|0},${200+Math.random()*55|0},${.08+Math.random()*.22})`; x.lineWidth=1+Math.random()*1.4; x.beginPath(); x.moveTo(cx0+Math.cos(a)*r1,cy0+Math.sin(a)*r1); x.lineTo(cx0+Math.cos(a)*r2,cy0+Math.sin(a)*r2); x.stroke(); }
+  x.fillStyle='#070205'; x.beginPath(); x.arc(cx0,cy0,ir*.38,0,7); x.fill();
+  x.fillStyle='#fff'; x.beginPath(); x.arc(cx0+ir*.33,cy0-ir*.35,ir*.13,0,7); x.fill(); x.beginPath(); x.arc(cx0-ir*.28,cy0+ir*.3,ir*.05,0,7); x.fill();
+  const lid=x.createLinearGradient(0,0,0,CH*.45); lid.addColorStop(0,'rgba(90,20,50,.55)'); lid.addColorStop(1,'rgba(90,20,50,0)'); x.fillStyle=lid; x.fillRect(0,0,CW,CH);
+  const tex=new T.CanvasTexture(cv); tex.wrapS=tex.wrapT=T.ClampToEdgeWrapping;
+  const sgeo=new T.ShapeGeometry(sh,40); const pos=sgeo.attributes.position, uv=sgeo.attributes.uv;
+  for(let i=0;i<pos.count;i++){ uv.setXY(i,(pos.getX(i)+W)/(2*W),(pos.getY(i)+Hh)/(2*Hh)); } uv.needsUpdate=true;
+  const scl=new T.Mesh(sgeo,new T.MeshPhysicalMaterial({map:tex,roughness:.3,clearcoat:1,clearcoatRoughness:.08,emissive:0x2a0614,emissiveIntensity:.25}));
+  scl.position.z=-.2; G.add(scl);
+  // lashes
+  const lashMat=new T.MeshPhysicalMaterial({color:0x1c0812,emissive:0x5a1236,emissiveIntensity:.55,roughness:.3,clearcoat:1,clearcoatRoughness:.2,sheen:new T.Color(0x5a1636)});
+  const lashes=[]; const LG=new T.Group(); G.add(LG);
+  function lashGeo(len,curl,thick){
+    const pts=[]; for(let i=0;i<=8;i++){ const t=i/8; pts.push(new T.Vector3(0,len*t,curl*t*t)); }
+    return new T.TubeGeometry(new T.CatmullRomCurve3(pts),12,thick,5,false);
+  }
+  function setVolume(v, animate){
+    lashes.forEach(m=>{ LG.remove(m); m.geometry.dispose(); }); lashes.length=0;
+    const cfg=[{n:70,len:.75,spread:.0,fan:1,th:.016},{n:150,len:.9,spread:.16,fan:3,th:.011},{n:230,len:1.18,spread:.26,fan:4,th:.010}][v];
+    for(let i=0;i<cfg.n;i++){
+      const t=(i+Math.random()*.6)/cfg.n; const xx=-W*.92+2*W*.92*t; const y=up(xx);
+      const edge=Math.abs(xx/W); const L=cfg.len*(1-.45*edge**2)*(v===2&&i%5===0?1.25:1)*(0.85+Math.random()*.3);
+      const fanAng=(Math.random()-.5)*cfg.spread;
+      const m=new T.Mesh(lashGeo(L,.35+L*.3,cfg.th*(1-edge*.4)),lashMat);
+      const tilt=-xx/W*.85+fanAng; // radiate outward
+      m.position.set(xx,y,Math.cos(xx/W*1.4)*.35);
+      m.rotation.set(-.35,0,tilt);
+      m.userData={t:i/cfg.n, s:0, delay:animate?i*(1.6/cfg.n):0};
+      m.scale.setScalar(animate?0.001:1); LG.add(m); lashes.push(m);
+    }
+    // lower lashes
+    for(let i=0;i<Math.round(cfg.n*.25);i++){
+      const t=(i+.5)/Math.round(cfg.n*.25); const xx=-W*.7+1.4*W*t; const y=lo(xx);
+      const m=new T.Mesh(lashGeo(.22+.1*Math.random(),-.05,.007),lashMat);
+      m.position.set(xx,y,Math.cos(xx/W*1.4)*.35); m.rotation.set(.2,0,Math.PI-xx/W*.6);
+      m.userData={t:.5,s:0,delay:animate?1.6+i*.01:0}; m.scale.setScalar(animate?0.001:1); LG.add(m); lashes.push(m);
+    }
+    born=performance.now();
+    return cfg.n;
+  }
+  let born=performance.now();
+  // sparkles
+  const SP=new T.Group(); S.add(SP);
+  if(opts.sparkles){ const g=new T.OctahedronGeometry(.06,0); const mt=new T.MeshBasicMaterial({color:0xffd3e8});
+    for(let i=0;i<60;i++){ const m=new T.Mesh(g,mt); m.position.set((Math.random()-.5)*12,(Math.random()-.5)*9,-2-Math.random()*5); m.userData={sp:.2+Math.random()*.6,ph:Math.random()*6}; SP.add(m);} }
+  let mx=0,my=0, blinkT=2.5, blink=0, open=opts.openStart?0:1, t0=performance.now();
+  addEventListener('pointermove',e=>{ mx=e.clientX/innerWidth-.5; my=e.clientY/innerHeight-.5; },{passive:true});
+  function size(){ const w=canvas.clientWidth,h=canvas.clientHeight; if(!w||!h) return; R.setSize(w,h,false); C.aspect=w/h;
+    const fit = Math.max(1, (W*2.5)/(2*Math.tan(C.fov*Math.PI/360)*C.aspect*(opts.z||9))); C.position.z=(opts.z||9)*fit; C.updateProjectionMatrix(); }
+  size(); addEventListener('resize',size);
+  let vis=true; new IntersectionObserver(es=>{vis=es[0].isIntersecting},{threshold:0}).observe(canvas);
+  function frame(now){
+    requestAnimationFrame(frame); if(!vis) return;
+    const t=(now-t0)/1000, el=(now-born)/1000;
+    lashes.forEach(m=>{ const k=Math.min(1,Math.max(0,(el-m.userData.delay)/.35)); const e=k<1?1-Math.pow(1-k,3):1; m.scale.setScalar(Math.max(.001,e)); });
+    // blink
+    blinkT-=1/60; if(blinkT<0 && !RM){ blink=1; blinkT=3+Math.random()*3; }
+    if(blink>0){ blink=Math.max(0,blink-0.08); }
+    const bl = blink>0 ? Math.sin(blink*Math.PI) : 0;
+    if(opts.openStart){ open=Math.min(1,open+0.012); }
+    const ey = (1-bl*.92)*(opts.openStart? (1-(1-open)**3):1);
+    G.scale.y = ey;
+    LG.scale.y = 1;
+    const sc=opts.scrollFx? Math.min(1,scrollY/innerHeight):0;
+    G.rotation.y = mx*.35 + Math.sin(t*.4)*.06; G.rotation.x = my*.2 + Math.sin(t*.3)*.04 - sc*.5;
+    G.position.y = (opts.y||0) + sc*1.2; G.position.z = sc*3;
+    tex.offset.set(-mx*.09, my*.05);
+    SP.children.forEach(m=>{ m.rotation.x+=.02; m.rotation.y+=.03; m.position.y+= .004*m.userData.sp; if(m.position.y>5) m.position.y=-5; m.scale.setScalar(.6+.4*Math.sin(t*3+m.userData.ph)); });
+    R.render(S,C);
+  }
+  requestAnimationFrame(frame);
+  return {setVolume};
+}
+
+let eyeA=null, eyeB=null;
+function boot3D(){
+  if(!window.THREE){ document.documentElement.classList.add('noThree'); return; }
+  try{
+    eyeA=makeEye($('#eye'),{z:9,y:.9,sparkles:true,scrollFx:true,openStart:true,bg:0x14070e,mask:true,w:3.2,h:1.25});
+    eyeA && eyeA.setVolume(2,true);
+    eyeB=makeEye($('#eye2'),{z:8,y:-.15,bg:0x1d0a14,w:3.0,h:1.2});
+    if(eyeB){ $('#lashCount').textContent = eyeB.setVolume(0,true)+' cils'; }
+  }catch(e){ console.error(e); document.documentElement.classList.add('noThree'); }
+}
+if(document.readyState==='complete') boot3D(); else addEventListener('load',boot3D);
+
+/* volumes */
+const VOL=['Pose légère 2D/3D','Volume russe','Volume intense / mega / whispy'];
+let curVol=0;
+$$('.vol').forEach(b=>b.addEventListener('click',()=>{ curVol=+b.dataset.v; $$('.vol').forEach(x=>x.setAttribute('aria-pressed',x===b)); if(eyeB) $('#lashCount').textContent=eyeB.setVolume(curVol,true)+' cils'; }));
+$('#labBook').addEventListener('click',()=>{ pickSvc('c'+curVol); });
+
+/* ===================== CARTE ===================== */
+const CARTE=[
+ {k:'regard',name:'Regard',title:'Le <em>regard</em>',sub:'Extensions de cils · rehaussement',items:[
+  ['Pose légère 2D/3D','1 h','60 €'],['Volume russe','1 h 30','60 €'],['Volume intense / mega / whispy','1 h 30','70 €'],['Remplissage pose légère','1 h · 2 à 3 semaines','45 €'],['Remplissage volume russe','1 h 30','50 €'],['Brow lift','Sur rendez-vous','Sur demande']]},
+ {k:'sourire',name:'Sourire',title:'Le <em>sourire</em>',sub:'Effet white, effet facette',items:[
+  ['Sourire extra white','Sourire entier · 1 h','70 €'],['1ʳᵉ retouche extra white','1 h','60 €'],['Pose strass dentaire','15 min','dès 15 €'],['Offre cils + sourire','2 h 50','120 €']]},
+ {k:'cheveux',name:'Cheveux',title:'Les <em>cheveux</em>',sub:'Cheveux humains indiens raw hair',items:[
+  ['Extensions de cheveux','Méthode à froid / micro-anneaux · 2 h','Sur devis'],['Dépose + repose extensions','2 h','80 €'],['Brushing hollywoodien','Au sèche-cheveux · 1 h','30 €'],['Lissage ou boucles','Plaque ou fer · 30 min','25 €']]},
+ {k:'ongles',name:'Ongles',title:'Les <em>ongles</em>',sub:'Gel, french, babyboomer',items:[
+  ['Pose complète mains','1 h 30','40 €'],['Pose complète + french','1 h 30','40 €'],['Pose complète babyboomer','1 h 30','40 €'],['Gainage + french','Sur ongle naturel · 1 h 30','40 €'],['Gainage + couleur','Sur ongle naturel · 1 h 30','40 €']]}
+];
+const ringIn=$('#ringIn'), cats=$('.cats');
+const N=CARTE.length, ANG=360/N; let ri=0;
+const radius=()=>Math.min(340, innerWidth*.62);
+CARTE.forEach((c,i)=>{
+  const m=document.createElement('article'); m.className='mir'; m.dataset.i=i;
+  let bulbs=''; const bp=[]; for(let k=0;k<5;k++){ bp.push([-8,40+k*100]); bp.push(['r',40+k*100]); }
+  bulbs=bp.map(([x,y])=>`<i class="bulb" style="${x==='r'?'right:-8px':'left:-8px'};top:${y}px"></i>`).join('');
+  m.innerHTML=`<div class="frame">${bulbs}<div class="glass"><h3>${c.title}</h3><p class="sub">${c.sub}</p>${c.items.map(([a,b,p])=>`<div class="svc"><b>${a}</b><i>${p}</i><small>${b}</small></div>`).join('')}</div></div>`;
+  ringIn.appendChild(m);
+  const b=document.createElement('button'); b.role='tab'; b.textContent=c.name; b.onclick=()=>goRing(i); cats.appendChild(b);
+});
+function layRing(){ const r=radius(); $$('.mir',ringIn).forEach((m,i)=>{ m.style.transform=`rotateY(${i*ANG}deg) translateZ(${r}px)`; }); }
+function goRing(i){ ri=(i+N)%N; ringIn.style.transform=`translateZ(${-radius()}px) rotateY(${-ri*ANG}deg)`; $$('.cats button').forEach((b,k)=>b.setAttribute('aria-selected',k===ri)); $('#rName').textContent=CARTE[ri].name;
+  $$('.mir').forEach((m,k)=>{ m.classList.remove('lit'); m.setAttribute('aria-hidden',k!==ri); }); const m=$$('.mir')[ri]; setTimeout(()=>m.classList.add('lit'),250); }
+layRing(); goRing(0); addEventListener('resize',()=>{layRing();goRing(ri);});
+$('#rPrev').onclick=()=>goRing(ri-1); $('#rNext').onclick=()=>goRing(ri+1);
+(()=>{ let sx=null; const el=$('#ring'); el.addEventListener('pointerdown',e=>{sx=e.clientX}); el.addEventListener('pointerup',e=>{ if(sx==null) return; const d=e.clientX-sx; if(Math.abs(d)>40) goRing(ri+(d<0?1:-1)); sx=null; }); })();
+// auto-turn once when visible
+new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); if(!RM){ setTimeout(()=>goRing(1),1500); setTimeout(()=>goRing(2),3200); setTimeout(()=>goRing(0),4900);} } },{threshold:.5}).observe($('#ring'));
+
+/* ===================== SOURIRE ===================== */
+const tooth=$('#tooth');
+function addStrass(px,py){ const s=document.createElement('i'); s.className='strass'; s.style.left=px+'%'; s.style.top=py+'%'; tooth.appendChild(s); const h=$('.tooth-hint',tooth); if(h) h.textContent='Un strass dentaire : dès 15 € ✦'; }
+tooth.addEventListener('click',e=>{ const r=tooth.getBoundingClientRect(); addStrass((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100); });
+tooth.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); addStrass(35+Math.random()*30,30+Math.random()*20);} });
+new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); setTimeout(()=>addStrass(40,32),700); setTimeout(()=>addStrass(58,36),1100); } },{threshold:.5}).observe(tooth);
+
+/* ===================== GALERIE ===================== */
+const PH=[['vvawkhcduysrxxof6u7o','Brow lift','50% 45%'],['fyoboftbut9jrcxrd76i','Regard de biche','50% 30%'],['i3hz23gi3eukdapprrfz','Le studio','50% 50%'],['ae8q6cyjwxsszeraxcoq','Volume russe','50% 32%'],['qypl5ujm6tssfruuebrs','Mega volume','50% 30%'],['ovy1vax8e9cyxbvani4c','Effet whispy','50% 30%'],['hhywuoubizfhi2ybjuvd','Sourire white','50% 40%']];
+const deck=$('#deck'); let order=PH.map((_,i)=>i);
+PH.forEach(([id,cap,pos],i)=>{ const d=document.createElement('figure'); d.className='pola'; d.dataset.i=i;
+  d.innerHTML=`<div class="ph"><img src="${IMG(id)}" alt="${cap} — Melesthetic Toulon" loading="lazy" style="object-position:${pos}"></div><p>${cap}</p>`; deck.appendChild(d); });
+function layDeck(){ order.forEach((idx,k)=>{ const el=deck.children[idx]; const r=[-7,5,-3,8,-5,3,-8][idx%7]; el.style.zIndex=PH.length-k;
+  el.style.transform=k===0?`rotate(${r*.3}deg)`:`translate(${(k%2?1:-1)*k*9}px,${k*6}px) rotate(${r}deg) scale(${1-k*.03})`; el.style.opacity=k>4?0:1; }); }
+function nextCard(dir){ const top=deck.children[order[0]]; top.style.transform=`translate(${dir*120}vw,-40px) rotate(${dir*30}deg)`; setTimeout(()=>{ order.push(order.shift()); layDeck(); },380); }
+layDeck();
+(()=>{ let sx=null; deck.addEventListener('pointerdown',e=>{sx=e.clientX}); deck.addEventListener('pointerup',e=>{ if(sx==null) return; const d=e.clientX-sx; if(Math.abs(d)>30) nextCard(d>0?1:-1); else nextCard(1); sx=null; }); })();
+new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); if(!RM){ setTimeout(()=>nextCard(1),1200); setTimeout(()=>nextCard(-1),2400);} } },{threshold:.5}).observe(deck);
+
+/* ===================== FORMATIONS ===================== */
+const cert=$('#cert'); const flip=()=>cert.classList.toggle('flip');
+cert.addEventListener('click',flip); cert.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); }});
+new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); if(!RM){ setTimeout(()=>cert.classList.add('flip'),1600); setTimeout(()=>cert.classList.remove('flip'),3600);} } },{threshold:.6}).observe(cert);
+
+/* ===================== RÉSERVATION ===================== */
+const SVC=[['c0','Pose légère 2D/3D','1 h','60 €'],['c1','Volume russe','1 h 30','60 €'],['c2','Volume intense / mega / whispy','1 h 30','70 €'],['r0','Remplissage pose légère','1 h','45 €'],['s0','Sourire extra white','1 h','70 €'],['o0','Offre cils + sourire white','2 h 50','120 €'],['h0','Extensions de cheveux','2 h','Sur devis'],['n0','Ongles gel, pose complète','1 h 30','40 €']];
+const B={svc:null,day:null,slot:null};
+$('#optsSvc').innerHTML=SVC.map(([k,a,b,p])=>`<button class="opt" data-k="${k}" aria-pressed="false"><span><b style="font-weight:600">${a}</b><small>${b}</small></span><i>${p}</i></button>`).join('');
+function pickSvc(k){ B.svc=k; $$('.opt').forEach(o=>o.setAttribute('aria-pressed',o.dataset.k===k)); }
+$$('.opt').forEach(o=>o.onclick=()=>pickSvc(o.dataset.k));
+const days=[]; { const d=new Date(); for(let i=1;days.length<12;i++){ const x=new Date(d); x.setDate(d.getDate()+i); if(x.getDay()!==0) days.push(x);} }
+$('#days').innerHTML=days.map((d,i)=>`<button class="day" data-i="${i}" aria-pressed="false"><small>${d.toLocaleDateString('fr-FR',{weekday:'short'})}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString('fr-FR',{month:'short'})}</small></button>`).join('');
+const SL=['9:30','10:30','11:30','13:30','14:30','15:30','16:30','17:30'];
+$$('.day').forEach(b=>b.onclick=()=>{ B.day=+b.dataset.i; B.slot=null; $$('.day').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  $('#slots').innerHTML=SL.map((s,i)=>`<button class="slot" data-s="${s}" aria-pressed="false" ${((B.day*3+i)%5===0)?'disabled':''}>${s}</button>`).join('');
+  $$('.slot').forEach(x=>x.onclick=()=>{ B.slot=x.dataset.s; $$('.slot').forEach(y=>y.setAttribute('aria-pressed',y===x)); }); });
+let stp=0;
+function show(i){ stp=i; $$('.stp').forEach(s=>s.classList.toggle('on',+s.dataset.s===i)); $$('.steps i').forEach((s,k)=>s.classList.toggle('on',k<=i)); $('#bBack').hidden=(i===0||i===3); $('#bNext').hidden=(i===3); $('#bNext').textContent=i===2?'Envoyer ma demande':'Continuer'; }
+$('#bBack').onclick=()=>show(stp-1);
+$('#bNext').onclick=()=>{
+  if(stp===0 && !B.svc) return nudge('Choisis une prestation');
+  if(stp===1 && (B.day==null||!B.slot)) return nudge('Choisis un jour et une heure');
+  if(stp===2){ if(!$('#fName').value.trim()||!$('#fTel').value.trim()) return nudge('Ton prénom et ton téléphone'); if(!$('#fOk').checked) return nudge('Coche la case de consentement');
+    const s=SVC.find(x=>x[0]===B.svc); $('#recap').innerHTML=`<div><span>Prestation</span><b>${s[1]}</b></div><div><span>Le</span><b>${days[B.day].toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</b></div><div><span>À</span><b>${B.slot}</b></div><div><span>Tarif</span><b>${s[3]}</b></div>`; }
+  show(stp+1);
+};
+function nudge(t){ const b=$('#bNext'); const o=b.textContent; b.textContent=t; b.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300}); setTimeout(()=>{ if(b.textContent===t) b.textContent=o; },1600); }
+new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); $('#compact').classList.add('open'); } },{threshold:.35}).observe($('#compact'));
+
+/* ===================== COOKIES + PLAN ===================== */
+const ck=$('#cookie'); let consent=null; try{ consent=localStorage.getItem('mel-ck'); }catch(e){}
+if(!consent) ck.hidden=false;
+const loadMap=()=>{ if($('#map iframe')) return; const f=document.createElement('iframe'); f.title='Plan Google : Melesthetic, 437 avenue Colonel Picot, Toulon'; f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
+  f.src='https://www.google.com/maps?q=437%20Avenue%20Colonel%20Picot%2083100%20Toulon&output=embed'; $('#map').prepend(f); $('#maplo').remove(); };
+$('#ckYes').onclick=()=>{ try{localStorage.setItem('mel-ck','yes')}catch(e){} ck.hidden=true; loadMap(); };
+$('#ckNo').onclick=()=>{ try{localStorage.setItem('mel-ck','no')}catch(e){} ck.hidden=true; };
+if(consent==='yes') loadMap();
+$('#mapLoad').onclick=()=>{ try{localStorage.setItem('mel-ck','yes')}catch(e){} ck.hidden=true; loadMap(); };
+
+/* ===================== LÉGAL ===================== */
+const LEG={ml:['Mentions légales','<p>Site de démonstration réalisé par ZAHR pour Melesthetic, 437 avenue Colonel Picot, 83100 Toulon. Les informations légales (raison sociale, SIRET, responsable de publication, hébergeur) seront complétées par l\'établissement avant toute mise en ligne.</p>'],
+ conf:['Confidentialité','<p>Les informations du formulaire (prénom, téléphone, prestation, date) servent uniquement à traiter la demande de rendez-vous. Elles ne sont ni revendues ni utilisées à d\'autres fins. Tu peux demander leur suppression à tout moment.</p>'],
+ cgv:['CGV / CGU','<p>Les tarifs affichés sont indicatifs et seront confirmés par l\'établissement. Toute réservation est confirmée par Melesthetic. Conditions détaillées à valider par l\'établissement.</p>'],
+ ck:['Cookies','<p>Seul le plan Google dépose des cookies, et uniquement si tu l\'acceptes. Ton choix est mémorisé sur ton appareil.</p>'],
+ rb:['Remboursement','<p>Politique d\'annulation et de remboursement à définir par l\'établissement (par exemple : annulation gratuite jusqu\'à 24 h avant le rendez-vous).</p>']};
+$$('[data-legal]').forEach(b=>b.addEventListener('click',e=>{ e.preventDefault(); const [t,h]=LEG[b.dataset.legal]; $('#lgT').textContent=t; $('#lgB').innerHTML=h; $('#legal').showModal(); }));
+})();
+</script>
+</body>
+</html>
