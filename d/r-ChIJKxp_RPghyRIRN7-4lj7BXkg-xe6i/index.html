@@ -54,7 +54,7 @@
 .mapw .glass strong{display:block;font-size:15px}
 .mapw .glass a,.mapw .consent button{font:700 14px/1 var(--f-ui);background:var(--c-acc);color:var(--c-acc-fg);padding:12px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
 .mapw .consent{position:absolute;z-index:5;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(15,15,18,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 8px 8px 14px;border-radius:999px;color:#fff;font:500 12.5px/1.3 var(--f-ui);width:max-content;max-width:calc(100% - 28px)}
-.mapw.live .consent{display:none}
+.mapw.live .consent,.mapw.live .ph{display:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 .lk{background:none;border:0;padding:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
 .zb{display:inline-block;font:500 11.5px/1.4 var(--f-ui);opacity:.62;margin-top:6px}
@@ -96,6 +96,7 @@ h1,h2,h3{font-family:var(--f-disp);font-weight:500;line-height:1.05;letter-spaci
 .bub i{position:absolute;bottom:-40px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.6),rgba(255,255,255,.05) 45%,transparent 60%);animation:up linear infinite}
 @keyframes up{to{transform:translate(var(--dx),-115vh)}}
 .hero .in{position:relative;z-index:2;margin:auto auto 0;padding:120px 0 34px}
+.hero .eyb{color:#f6d2b4;text-shadow:0 1px 12px rgba(0,0,0,.8)}
 .hero h1{font-size:clamp(44px,8.4vw,112px);max-width:12ch;text-shadow:0 4px 40px rgba(0,0,0,.35)}
 .hero h1 em{font-style:italic;color:var(--rose)}
 .hero .lead{max-width:520px;margin:22px 0 28px;font-size:clamp(16px,1.6vw,18px);color:rgba(241,239,233,.86)}
@@ -135,6 +136,7 @@ section{position:relative}
 @keyframes sp{to{transform:rotate(360deg)}}
 .no3d .stage .fb{display:block}
 .stage .hint{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft);white-space:nowrap}
+@media(max-width:700px){.shot{--w:78vw!important}}
 @media(max-width:860px){.pl{grid-template-columns:1fr}.stage{order:-1;width:min(100%,460px);margin:0 auto}}
 /* descente */
 #galerie{height:420vh;background:linear-gradient(180deg,#071d22,#04181c 40%,#030c0e)}
@@ -358,7 +360,7 @@ setInterval(function(){if(auto&&!document.hidden)sel((cur+1)%4)},6500);
 var bb=document.getElementById('bub');for(var i=0;i<(RM?0:22);i++){var e=document.createElement('i'),s=4+Math.random()*16;e.style.cssText='left:'+(Math.random()*100)+'%;width:'+s+'px;height:'+s+'px;--dx:'+(Math.random()*60-30)+'px;animation-duration:'+(8+Math.random()*12)+'s;animation-delay:-'+(Math.random()*16)+'s';bb.appendChild(e)}
 /* gauge + descente */
 var gm=document.getElementById('gm'),gt=document.getElementById('gt'),gal=document.getElementById('galerie'),world=document.getElementById('world'),shots=[].slice.call(world.children),dt=document.getElementById('dt');
-var pos=shots.map(function(s,i){var a=i*2.4;return{x:Math.sin(a)*(i%2?26:18),y:Math.cos(a*1.3)*10,z:-i*620}});
+var mob=innerWidth<700,pos=shots.map(function(s,i){var a=i*2.4;return{x:Math.sin(a)*(i%2?26:18)*(mob?.35:1),y:Math.cos(a*1.3)*(mob?7:10),z:-i*620}});
 function tick(){var sh=document.documentElement.scrollHeight-innerHeight,f=Math.max(0,Math.min(1,scrollY/sh)),m=Math.round(f*40);gm.textContent=m+' m';gt.style.setProperty('--d',f);
  var r=gal.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));var cam=p*((shots.length-1)*620+60);dt.textContent='− '+Math.round(8+p*24)+' m';
  shots.forEach(function(s,i){var z=pos[i].z+cam;var o=z>260?Math.max(0,1-(z-260)/240):z<-3200?0:Math.min(1,1+(z+1800)/1400);s.style.opacity=o.toFixed(3);s.style.transform='translate3d('+pos[i].x+'vw,'+pos[i].y+'vh,'+z+'px)';s.style.visibility=o<.02?'hidden':'visible'});
