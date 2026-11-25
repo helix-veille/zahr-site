@@ -121,7 +121,7 @@ section{position:relative;padding:clamp(80px,11vw,140px) 0}
 .post header img{width:32px;height:32px;border-radius:50%}
 .post header small{display:block;font-weight:400;color:var(--muted);font-size:.74rem}
 .post>img{aspect-ratio:4/5;object-fit:cover;width:100%}
-.post p{padding:12px 14px 16px;font-size:.92rem}
+.post{display:block;color:inherit;text-decoration:none}.post header{position:relative}.post .igi{width:20px;height:20px;margin-left:auto;color:var(--sun)}.post p{padding:11px 14px 14px;font:600 .78rem var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--sun)}
 .post p b{font-weight:700}
 .railnav{display:flex;gap:10px}
 .railnav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:none;font-size:1.1rem}
@@ -167,7 +167,7 @@ section{position:relative;padding:clamp(80px,11vw,140px) 0}
 .dcard div{position:absolute;inset:auto 0 0;padding:60px 22px 22px;background:linear-gradient(transparent,rgba(5,25,35,.85))}
 .dcard h3{font:300 1.9rem var(--serif)}
 .dcard p{font-size:.9rem;color:#d4e6ec}
-@media(max-width:760px){.dgrid{grid-template-columns:1fr 1fr}.dgrid .dcard:last-child{display:none}}
+@media(max-width:760px){.dgrid{grid-template-columns:1fr 1fr}}
 
 /* KARAOKE */
 .karaoke{background:#12081c;color:#fff;overflow:hidden}
@@ -175,12 +175,12 @@ section{position:relative;padding:clamp(80px,11vw,140px) 0}
 .kgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;position:relative}
 .neon{font:700 clamp(3.6rem,10vw,8.4rem)/.9 var(--cond);text-transform:uppercase;color:#fff6e8;text-shadow:0 0 6px #fff,0 0 20px var(--sun2),0 0 50px var(--sun),0 0 90px #ff3c8c;animation:flick 6s infinite}
 @keyframes flick{0%,19%,23%,60%,63%,100%{opacity:1}21%,62%{opacity:.5}}
-#ball{width:100%;aspect-ratio:1;max-width:520px;margin:auto;display:block}
+#kstage{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}.karaoke{position:relative;min-height:100vh;display:flex;align-items:center}.karaoke .wrap{position:relative;z-index:2;width:100%}.kspace{min-height:420px}
 .fridays{list-style:none;display:grid;gap:10px;margin-top:26px}
 .fridays li{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border:1px solid rgba(255,157,46,.35);border-radius:14px;background:rgba(255,255,255,.04)}
 .fridays b{font:500 1.15rem var(--serif);text-transform:capitalize}
 .fridays span{font:500 .8rem var(--cond);letter-spacing:.2em;color:var(--sun2);text-transform:uppercase}
-@media(max-width:860px){.kgrid{grid-template-columns:1fr}#ball{max-width:320px}}
+@media(max-width:860px){.kgrid{grid-template-columns:1fr}.kspace{min-height:340px;order:-1}}
 
 /* AVIS : messages flottants sur la terrasse 3D */
 .avis{position:relative;overflow:hidden;color:#fff;background:#0c2a36 url(img/scene-terrasse.jpg) center/cover;padding-block:clamp(90px,12vw,160px)}
@@ -265,19 +265,32 @@ dialog h2{font:300 2.2rem var(--serif);margin-bottom:10px}dialog h3{font:700 1re
 @media (hover:none),(pointer:coarse){#sunc{display:none}}
 /* interlude cinéma */
 .interlude{position:relative;height:130vh;overflow:hidden;background:#0c2a36;color:#fff}
-.interlude .bg{position:absolute;inset:-10% 0;background:url(img/scene-ponton.jpg) center/cover;will-change:transform}
+.interlude .bg{position:absolute;inset:-10% 0;background:url(img/scene-table.jpg) center/cover;will-change:transform}
 .interlude::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(12,42,54,0) 0%,rgba(12,42,54,.55) 75%),linear-gradient(180deg,var(--sand) 0%,rgba(251,244,231,0) 14%,rgba(0,0,0,0) 80%,var(--sand2) 100%)}
 .interlude .q{position:sticky;top:0;height:100vh;display:grid;place-items:center;text-align:center;z-index:2;padding:0 20px}
 .interlude blockquote{font:300 clamp(2.6rem,7.5vw,7.4rem)/.98 var(--serif);letter-spacing:-.02em;text-shadow:0 10px 50px rgba(0,0,0,.45);will-change:transform,opacity}
 .interlude blockquote em{display:block;color:var(--sun2)}
 .interlude small{display:block;margin-top:26px;font:500 .78rem var(--cond);letter-spacing:.45em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.7)}
 /* éventail de cocktails */
-@media(min-width:761px){.dgrid .dcard:nth-child(1){rotate:-5deg;translate:18px 34px}.dgrid .dcard:nth-child(3){rotate:5deg;translate:-18px 34px}.dgrid .dcard{transition:transform .25s,rotate .5s,translate .5s,box-shadow .5s;box-shadow:0 30px 60px rgba(0,0,0,.35)}.dgrid:hover .dcard{rotate:0deg;translate:0 0}}
+@media(min-width:761px){.dgrid{grid-template-columns:repeat(4,1fr)!important}.dgrid .dcard:nth-child(odd){rotate:-2.5deg}.dgrid .dcard:nth-child(even){rotate:2.5deg;translate:0 26px}.dgrid .dcard{transition:transform .25s,rotate .5s,translate .5s,box-shadow .5s;box-shadow:0 30px 60px rgba(0,0,0,.35);cursor:pointer}.dgrid .dcard:hover{rotate:0deg;z-index:2}}
 .dcard::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.35),transparent 45%);opacity:0;transition:opacity .3s}
 .dcard:hover::after{opacity:1}
 /* pied de page : le titre découpé dans la terrasse 3D */
 footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:saturate(1.25) brightness(1.25)}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){footer .big{color:var(--sun)}}
+
+/* carte : médaillon 3D + vignettes */
+.porthole.is3d{background:none;box-shadow:none;padding:0}
+.porthole.is3d .glass{opacity:0}
+#plate3d{position:absolute;inset:-6%;width:112%;height:112%;display:block}.porthole.is3d figcaption{z-index:3;bottom:-26px}.porthole.is3d .bolt{display:none}
+.sheet .item{cursor:pointer;position:relative;padding-left:64px;min-height:58px}
+.sheet .item .thumb{position:absolute;left:0;top:50%;width:50px;height:50px;margin-top:-25px;border-radius:50%;background:center/cover;box-shadow:0 0 0 2px #fff,0 4px 12px rgba(60,30,10,.2);transition:transform .35s}
+.sheet .item:hover .thumb,.sheet .item:focus .thumb{transform:scale(1.18) rotate(-6deg)}
+.menubox.item{display:block;padding-left:22px;cursor:pointer}
+.menubox.kids{border:2px dashed var(--sun);background:linear-gradient(160deg,#fffaf0,#fff1dc)}
+.kbadge{display:flex;align-items:center;gap:10px;margin:0 0 6px;font:600 .74rem var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--sun)}
+.kbadge svg{width:76px;height:44px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px) rotate(-3deg)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.h2 .w>i{transform:none}#sunc{display:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -327,13 +340,13 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
 </section>
 
 <section class="interlude" aria-label="Le port de Hyères, servi à table">
-  <div class="bg" id="ibg" role="img" aria-label="Le ponton du Mango Bay au coucher du soleil, illustration 3D"></div>
+  <div class="bg" id="ibg" role="img" aria-label="La terrasse du Mango Bay au coucher du soleil, parasols et guirlande lumineuse, illustration 3D"></div>
   <div class="q"><div><blockquote id="iq">Le port de Hyères,<em>servi à table.</em></blockquote><small>Du petit-déjeuner au coucher du soleil</small></div></div>
 </section>
 
 <section class="feed" id="feed" aria-labelledby="feed-t">
   <div class="wrap feedhead reveal">
-    <div><div class="eyebrow">Sur notre Instagram</div><h2 class="h2" id="feed-t">Un jour, <em>une assiette.</em></h2><p class="lead">Ce qui sort de la cuisine, comme on vous le montre chaque jour sur @lemangobay.</p></div>
+    <div><div class="eyebrow">Sur notre Instagram</div><h2 class="h2" id="feed-t">Un jour, <em>une assiette.</em></h2><p class="lead">Ce qui sort de la cuisine, comme on vous le montre sur @lemangobay : 128 publications, touchez-en une pour l'ouvrir sur Instagram.</p></div>
     <div class="railnav"><button id="rp" aria-label="Publications précédentes">←</button><button id="rn" aria-label="Publications suivantes">→</button></div>
   </div>
   <div class="rail" id="rail"></div>
@@ -341,7 +354,7 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
 
 <section class="carte" id="carte" aria-labelledby="carte-t">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">La carte</div><h2 class="h2" id="carte-t">La carte du <em>Mango.</em></h2><p class="lead">Survolez un plat pour le voir apparaître dans le hublot. Les plats marqués d'une cocotte sont faits maison, à partir de produits bruts.</p></div>
+    <div class="reveal"><div class="eyebrow">La carte</div><h2 class="h2" id="carte-t">La carte du <em>Mango.</em></h2><p class="lead">Survolez un plat : le hublot pivote pour vous le montrer. Cliquez pour l’ouvrir en grand. Les plats marqués d'une cocotte sont faits maison, à partir de produits bruts.</p></div>
     <div class="tabs" role="tablist" id="tabs"></div>
     <div class="menu">
       <figure class="porthole" aria-hidden="true"><div class="glass" id="glass"></div><figcaption id="pcap">Moules</figcaption></figure>
@@ -353,16 +366,22 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
 
 <section class="drinks" id="drinks" aria-labelledby="d-t">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">Le bar</div><h2 class="h2" id="d-t">Les cocktails, <em>vue sur les mâts.</em></h2><p class="lead">Les meilleurs cocktails du bar, à siroter en terrasse quand le soleil passe derrière les voiliers.</p></div>
+    <div class="reveal"><div class="eyebrow">Le bar</div><h2 class="h2" id="d-t">Les cocktails, <em>vue sur les mâts.</em></h2><p class="lead">Les cocktails que le bar met en avant, à siroter en terrasse quand le soleil passe derrière les voiliers. Prix et carte complète des boissons : sur place, au bar.</p></div>
     <div class="dgrid" id="dgrid">
-      <article class="dcard reveal"><img src="img/trinquer.jpg" alt="Deux verres qui trinquent : un mojito fraise et un Blue Lagoon" loading="lazy"><div><h3>Mojito &amp; Blue Lagoon</h3><p>Le duo star de la terrasse.</p></div></article>
-      <article class="dcard reveal"><img src="img/cocktail-soleil.jpg" alt="Un client sirote un cocktail orangé au soleil en terrasse" loading="lazy"><div><h3>Le coucher de soleil</h3><p>Agrumes, couleur orange Mango.</p></div></article>
-      <article class="dcard reveal"><img src="img/cocktails.jpg" alt="Un mojito fraise et un cocktail bleu posés sur une table" loading="lazy"><div><h3>À la fraîche</h3><p>Menthe, citron vert, glace pilée.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="mojito"><img src="img/m-mojito.jpg" alt="Mojito classique, menthe et citron vert, illustration" loading="lazy"><div><h3>Mojito</h3><p>Menthe fraîche, citron vert, glace pilée.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="mojitofraise"><img src="img/m-mojitofraise.jpg" alt="Un mojito fraise et un Blue Lagoon qui trinquent" loading="lazy"><div><h3>Mojito fraise</h3><p>La star de la terrasse.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="blue"><img src="img/m-blue.jpg" alt="Un cocktail bleu et un mojito fraise sur une table" loading="lazy"><div><h3>Blue Lagoon</h3><p>Bleu comme le port.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="pinacolada"><img src="img/m-pinacolada.jpg" alt="Piña colada blanche avec une tranche d’ananas, illustration" loading="lazy"><div><h3>Piña colada</h3><p>Ananas, coco, coucher de soleil.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="c-spritz"><img src="img/m-c-spritz.jpg" alt="Le barman du Mango Bay présente un spritz au comptoir" loading="lazy"><div><h3>Spritz</h3><p>Préparé au comptoir.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="c-duo"><img src="img/m-c-duo.jpg" alt="Deux cocktails, un vert et un orange, levés au-dessus du port" loading="lazy"><div><h3>Les créations du bar</h3><p>Couleurs du jour, idées de l’équipe.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="c-smoothies"><img src="img/m-c-smoothies.jpg" alt="Deux smoothies, vert et rouge, sur un plateau face aux bateaux" loading="lazy"><div><h3>Smoothies & jus frais</h3><p>Sans alcool, pour tout le monde.</p></div></article>
+      <article class="dcard reveal" tabindex="0" data-img="irish"><img src="img/m-irish.jpg" alt="Irish coffee avec sa crème fouettée, illustration" loading="lazy"><div><h3>Irish coffee</h3><p>Pour finir la soirée.</p></div></article>
     </div>
   </div>
 </section>
 
 <section class="karaoke" id="karaoke" aria-labelledby="k-t">
+  <canvas id="kstage" aria-label="Animation 3D : une boule à facettes descend du plafond et projette des éclats de lumière"></canvas>
   <div class="wrap kgrid">
     <div class="reveal">
       <div class="eyebrow" style="color:#ff9d2e">Les vendredis du Mango</div>
@@ -371,7 +390,7 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
       <p class="lead" style="color:#cdbfd8">Chaque vendredi, le port s'illumine et le micro passe de table en table. Chanter, danser, partager : réservez tôt, la terrasse se remplit vite.</p>
       <ul class="fridays" id="fridays"></ul>
     </div>
-    <canvas id="ball" aria-label="Boule à facettes en 3D qui tourne"></canvas>
+    <div class="kspace" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -459,7 +478,7 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
   </div>
 </footer>
 
-<dialog id="d-ml"><h2>Mentions légales</h2><h3>Éditeur</h3><p>Mango Bay, 4 avenue du Docteur Robin, Port La Gavine, 83400 Hyères · 04 94 35 46 73. Raison sociale, forme juridique, SIRET, RCS et directeur de la publication : à compléter avec l'exploitant avant la mise en ligne.</p><h3>Conception</h3><p>ZAHR, création de sites web, Var · zahr.fr</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété intellectuelle</h3><p>Photos, logo et carte : © Mango Bay. Polices Fraunces, Antonio et Manrope sous licence SIL Open Font License. Bibliothèque 3D three.js sous licence MIT. Animation 3D du port réalisée par ZAHR sous Blender (textures Poly Haven, licence CC0) : il s’agit d’une illustration, pas d\u2019une vue réelle du port.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
+<dialog id="d-ml"><h2>Mentions légales</h2><h3>Éditeur</h3><p>Mango Bay, 4 avenue du Docteur Robin, Port La Gavine, 83400 Hyères · 04 94 35 46 73. Raison sociale, forme juridique, SIRET, RCS et directeur de la publication : à compléter avec l'exploitant avant la mise en ligne.</p><h3>Conception</h3><p>ZAHR, création de sites web, Var · zahr.fr</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété intellectuelle</h3><p>Photos, logo et carte : © Mango Bay. Polices Fraunces, Antonio et Manrope sous licence SIL Open Font License. Bibliothèque 3D three.js sous licence MIT. Animation 3D du port réalisée par ZAHR sous Blender (textures Poly Haven, licence CC0) : il s’agit d’une illustration, pas d’une vue réelle du port. Certains visuels de plats et de cocktails (salade César, linguines carbonara, pizzas napolitaine, provençale, quatre fromages, norvégienne, savoyarde et Seguin, menu enfant, mojito, piña colada, irish coffee) sont des illustrations générées par intelligence artificielle ; la présentation réelle peut différer. Les autres photos proviennent du compte Instagram @lemangobay.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
 <dialog id="d-conf"><h2>Confidentialité</h2><p>Responsable du traitement : l'exploitant du Mango Bay (voir mentions légales).</p><h3>Ce que nous collectons</h3><p>Uniquement ce qui sert à votre réservation : nombre de personnes, jour, heure, nom, téléphone et votre précision éventuelle. Aucune donnée bancaire, aucun profilage, aucune revente.</p><h3>Base légale et durée</h3><p>Votre consentement et la gestion de votre réservation. Données supprimées au plus tard 3 mois après la date réservée.</p><h3>Outils tiers</h3><p>Polices chargées depuis Google Fonts (votre adresse IP est transmise à Google) et bibliothèque 3D depuis cdnjs (Cloudflare). Le bouton Itinéraire n'ouvre Google Maps que si vous cliquez. Aucun outil de mesure d'audience ni publicité.</p><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : par téléphone au 04 94 35 46 73 ou sur place, réponse sous un mois. Réclamation possible auprès de la CNIL (cnil.fr). Les réservations de mineurs se font par un parent ou un adulte responsable.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
 <dialog id="d-cgu"><h2>Conditions de réservation</h2><p>La réservation en ligne est gratuite, sans paiement ni empreinte bancaire. Elle devient ferme après confirmation du restaurant par SMS ou téléphone. La table est gardée 15 minutes après l'heure prévue. Prix affichés en euros TTC, service compris ; photos non contractuelles. Groupes de plus de 10 personnes : appelez-nous.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
 <dialog id="d-annul"><h2>Annulation &amp; remboursement</h2><p>Aucun acompte n'est demandé pour une réservation classique : annulez gratuitement par téléphone, idéalement 2 heures avant. Pour un groupe ou une privatisation avec acompte, les conditions d'annulation et de remboursement vous sont remises par écrit avant tout paiement. Une remarque sur une addition se règle sur place ou par téléphone.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
@@ -492,8 +511,8 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$('.reveal').forEach(el=>io.observe(el));
 
 /* ---------- INSTA RAIL ---------- */
-const posts=[['moules','Les moules en cocotte, versées à table. Frites maison à côté, évidemment.'],['pizza','Pizza à la truffe : champignons, jambon speck, roquette, mozzarella, parmesan.'],['bowl','Le bowl du port, plein de couleurs et de fraîcheur.'],['pates','Linguines à la truffe d’été. On enroule, on savoure.'],['crevettes','Crevettes poêlées, riz et petits légumes, un filet de citron.'],['burger','Le burger du Mango, cheddar fondant et frites croustillantes.'],['fondant','Moelleux au chocolat et sa boule de glace vanille.'],['gaufre','Gaufre gourmande, chocolat et amandes, à l’heure du goûter.'],['dejeuner','Assiette de légumes grillés au soleil, la terrasse en fond.']];
-$('#rail').innerHTML=posts.map(([f,t])=>`<article class="post"><header><img src="img/logo.jpg" alt=""><div>lemangobay<small>Port de Hyères</small></div></header><img src="img/${f}.jpg" alt="${t}" loading="lazy"><p><b>lemangobay</b> ${t}</p></article>`).join('');
+const posts=[["DDMRNacMBim", ""], ["DC9uphQomVZ", ""], ["DC1w-G-IxZT", ""], ["DCtgSwgImy0", ""], ["DCpBrNnKzzv", ""], ["DCgqCN4RvcG", ""], ["DCZmhxNtmaL", ""], ["DCRNRXZIRY6", ""], ["DCJ6UAMOEbI", ""], ["DCEK_eEOQg7", ""], ["DB_gTObxVAp", ""], ["DB1KCqkIzAK", ""], ["DBt1A4XOk5O", ""], ["DBlbtkDMLRI", ""], ["DBZGMLAoPXN", ""], ["DBZGLpEoP0H", ""], ["DBJYsmioDeg", ""], ["DBB5Mbuq1DN", ""], ["DA76b33sZXz", ""], ["DA3CAEwsJKu", ""], ["DAltDXytNuz", ""], ["DAbBz8YIgEP", ""], ["DAWA0P1oQxg", ""], ["DAQuohCKz6P", ""], ["DALqMYwoiRG", ""], ["DAF-RVrAwH8", ""], ["C_-3X_os_vI", ""], ["C_230Rqs1n9", ""], ["C_vTvskO8DM", ""], ["C_nGdK1sSNz", ""], ["C_ig6t_oGcj", ""], ["C_Z_CCoxPoQ", ""], ["C_P-0olRorq", ""], ["C_K8BmPK0FZ", ""], ["C_AlcmPuT3j", ""], ["C-7YYFLNfeo", ""], ["C-3ZtHuou7R", "19 août 2024"], ["C-2VE1Zx3ZZ", ""], ["C-xNxqIx5W0", ""], ["C-r7oNXIIuq", ""], ["C-mwTB2sOqv", ""], ["C-c8CCqI6VL", ""], ["C-So1jMxZ0d", ""], ["C-NP0EFOC2C", ""], ["C-ISPGVIhDi", ""], ["C-DAC6LsQN-", ""], ["C95Bd_po_SA", ""], ["C9z0ohGKitF", ""], ["C9u4mzEoShD", ""], ["C9poZAooJH4", ""], ["C9klc4hIWyN", ""], ["C9faIPCxPd-", ""], ["C9SUbYqu28G", ""], ["C9MoivAMEYQ", ""], ["C839BFeqboT", ""], ["C8upTU_scsY", ""], ["C8l-3MlI7vZ", ""], ["C8fD9k5o87s", ""], ["C8WewRwIrcr", ""], ["C8Kb3dlgIv2", ""], ["C8FJuHcq5pf", ""], ["C764PETOlNH", ""], ["C71wkv6Itwm", ""], ["C7wqP0-obeL", ""], ["C7o4kqmI1kQ", ""], ["C7jwiILIo0L", ""], ["C7ekoVDIWqm", ""], ["C7ZdVGYI1jE", ""], ["C7UPKW4Os0w", ""], ["C7OfSy3oEVz", ""], ["C7EFRMnoLMj", ""], ["C6_F9gkO7ss", ""], ["C66GoBuIlb3", ""], ["C6034AfO69O", ""], ["C6tOEeiOxgP", ""], ["C6n1tttMqll", ""], ["C6i9K_OsPcR", ""], ["C6dst2OrsYK", ""], ["C6Yaof1MO8m", ""], ["C6OJGZgMVPF", ""], ["C6I8FgpK7ba", ""], ["C6HJHiSu82E", ""], ["C6EUzLwoZUj", ""], ["C56FEBCLO9x", ""], ["C50VvluNtHv", ""], ["C5p2gcnsfcg", ""], ["C5k-FuiNj8R", ""], ["C5fyzJNNUqg", ""], ["C5Yofm_NviI", ""], ["C5SqK97Ij_L", "3 avril 2024"], ["C5Q6GSmKUWW", ""], ["C5LweJ6q5JL", ""], ["C5EJBYjtUZl", ""], ["C48eHrnN6VF", ""], ["C40t6gvIzJh", ""], ["C4s_jfZK6NH", ""], ["C4n19ZPIcum", ""], ["C4gF1KyL37x", ""], ["C4X1KUqoOgH", ""], ["C4Vw6wBt-rs", ""], ["C4OGAvKqmwQ", ""], ["C33FJUEuHEj", ""], ["C3r7DjstHa0", ""], ["C3kLFRcORVm", ""], ["C3Zw4ylt-R8", ""], ["C3UsdZ_IpBq", ""], ["C3SCeNfRtIH", ""], ["C3HywIVoqxc", ""], ["C3ClwzGNmEo", ""], ["C263UWDoPio", ""], ["C20AGZrs7wV", ""], ["C2sRl9zuT53", ""], ["C2cIQ1Ao5SZ", ""], ["C2UgkYTIr_g", ""], ["C2KQ1j9oh5K", ""], ["C1_zXhSAYdi", ""], ["C141C4GrKFG", ""], ["C1r9E8RrNTX", ""], ["C1jKB14qKAk", ""], ["C1g51S7Kphh", ""], ["C1bug_0qyNa", ""], ["C1RId2ftkcp", ""], ["C1MTeGqN0bX", ""], ["C1G1TFWtojC", ""], ["C06R9seNNF2", ""], ["C0v-y-wobji", ""], ["C0q1L1oNSjg", ""], ["C0j9qFGo24c", ""]];
+$('#rail').innerHTML=posts.map(([c,d])=>`<a class="post" href="https://www.instagram.com/p/${c}/" target="_blank" rel="noopener" aria-label="Ouvrir la publication Instagram du Mango Bay${d?' du '+d:''} (nouvel onglet)"><header><img src="img/logo.jpg" alt=""><div>lemangobay<small>${d||'Port de Hyères'}</small></div><svg class="igi" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></header><img src="img/ig/${c}.jpg" alt="Photo publiée par le Mango Bay sur Instagram${d?' le '+d:''}" loading="lazy" decoding="async"><p>Voir sur Instagram <span aria-hidden="true">↗</span></p></a>`).join('');
 const rail=$('#rail');$('#rn').onclick=()=>rail.scrollBy({left:320,behavior:'smooth'});$('#rp').onclick=()=>rail.scrollBy({left:-320,behavior:'smooth'});
 rail.tabIndex=0;rail.setAttribute('aria-label','Publications Instagram du Mango Bay');rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight')rail.scrollBy({left:320,behavior:'smooth'});if(e.key==='ArrowLeft')rail.scrollBy({left:-320,behavior:'smooth'})});
 
@@ -504,26 +523,57 @@ rail.addEventListener('scroll',()=>requestAnimationFrame(flow),{passive:true});a
 /* ---------- LA CARTE (relevée sur la carte publiée par le Mango Bay) ---------- */
 const FM='<span class="fm" title="Fait maison" aria-label="Fait maison"><svg width="18" height="16" viewBox="0 0 18 16" aria-hidden="true"><path d="M3 6h12v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zM1 7h2M15 7h2M5 3h8M9 1v2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></span>';
 const C=[
- {k:'Menus',img:'facade',cap:'Le menu Mango',html:`<div class="menubox"><span class="rib">29,90</span><h4>Menu Mango</h4><p class="sub" style="text-align:center">Servi le midi jusqu’à 13h30, le soir jusqu’à 21h30</p><p>Salade César <span class="or">ou</span> saumon mariné</p><p class="or">✺</p><p>Daurade rôtie, parfum de fenouil (300 / 400 g)<br><span class="or">ou</span><br>Buchette d’onglet de bœuf (210 g) à l’échalote</p><p class="or">✺</p><p>Nougat glacé <span class="or">ou</span> crème brûlée</p><p class="sub" style="text-align:center">Changement de dessert : supplément de 2,00 €</p></div><div class="menubox"><span class="rib">11,90</span><h4>Menu enfant</h4><p>Steak haché (120 g), mini moules marinières ou nuggets, avec frites, pâtes ou légumes</p><p class="or">✺</p><p>Glace petit pot ou compote de pomme</p><p class="or">✺</p><p>Sirop à l’eau</p></div>`},
- {k:'Entrées',img:'moules',cap:'Mini moules',fm:1,items:[['Mini moules, sauce au choix','Poulette, roquefort, poivre vert ou lardons','9,90','moules'],['Moules gratinées','Par 14','13,70','moules']]},
- {k:'Salades',img:'bowl',cap:'Salades',fm:1,items:[['Salade César','Salades mêlées, blanc de poulet, parmesan, croûtons, sauce César','15,80','bowl'],['Salade de crottins de chèvre','Salades mêlées, pain de campagne, légumes grillés, tranches de lard, crottins de chèvre','16,90','dejeuner'],['Assiette italienne','Salades mêlées, tomates, jambon cru, burrata, tomates séchées','16,80','bowl'],['Saumon mariné','Salades mêlées, toasts, saumon, crème ciboulette','17,40','dejeuner']]},
- {k:'Pâtes',img:'pates',cap:'Pâtes',fm:1,items:[['Ravioles à la truffe d’été','','20,50','pates'],['Linguines au roquefort','','15,80','pates'],['Linguines à la carbonara','','15,90','pates'],['Linguines à la truffe d’été et jambon speck','','20,50','pates']]},
- {k:'Pizzas',img:'pizza',cap:'Pizzas · 32 cm',fm:1,sub:'Pâte fine, pétrie et cuite sur place. Diamètre : 32 cm.',items:[['Napolitaine','Tomates, anchois, olives, câpres','11,90'],['Parmesane','Sauce tomate, jambon cru, emmental, parmesan, olives','16,80'],['Provençale','Sauce tomate, tomate fraîche, mozzarella, origan, olives','16,80'],['Corsica','Sauce tomate, emmental, figatelli, mozzarella, origan, olives','16,90'],['Royale','Sauce tomate, jambon, champignons, emmental, origan, olives','15,50'],['Quatre fromages','Sauce tomate, emmental, roquefort, chèvre, mozzarella, origan, olives','16,90'],['Norvégienne','Crème fraîche, saumon mariné, emmental, aneth, olives','15,80'],['Savoyarde','Crème fraîche, lardons, oignons, pomme de terre, reblochon, origan, olives','16,80'],['Seguin','Crème fraîche, lardons, oignon rouge, emmental, chèvre miel, olives','15,90'],['Pizza à la truffe','Crème de champignons à la truffe, champignons, jambon speck, roquette, mozzarella, olives, parmesan','17,80']].map(i=>[...i,'pizza'])},
- {k:'Desserts',img:'fondant',cap:'Côté dessert',items:[['Moelleux au chocolat','Et sa boule de glace vanille','9,90','fondant',1],['Tiramisu au café','','9,90','fondant',1],['Gaufre liégeoise gourmande','Chocolat chaud, crème fouettée et sa boule de glace vanille','9,90','gaufre'],['Baba au rhum','','10,90','fondant'],['Brioche façon pain perdu','Et sa boule de glace caramel beurre salé','9,90','gaufre',1],['Crème brûlée','','7,50','fondant'],['Café, décaféiné ou thé gourmand','','10,50','fondant',1]]}
+ {k:'Menus',img:'menu-mango',cap:'Le menu Mango',html:`<div class="menubox item" tabindex="0" data-img="menu-mango" data-n="Menu Mango : daurade rôtie"><span class="rib">29,90</span><h4>Menu Mango</h4><p class="sub" style="text-align:center">Servi le midi jusqu’à 13h30, le soir jusqu’à 21h30</p><p>Salade César <span class="or">ou</span> saumon mariné</p><p class="or">✺</p><p>Daurade rôtie, parfum de fenouil (300 / 400 g)<br><span class="or">ou</span><br>Buchette d’onglet de bœuf (210 g) à l’échalote</p><p class="or">✺</p><p>Nougat glacé <span class="or">ou</span> crème brûlée</p><p class="sub" style="text-align:center">Changement de dessert : supplément de 2,00 €</p></div><div class="menubox kids item" tabindex="0" data-img="enfant" data-n="Le menu des moussaillons"><span class="rib">11,90</span><div class="kbadge" aria-hidden="true"><svg viewBox="0 0 120 70"><path d="M8 40h104l-14 20H22z" fill="#f07a00"/><path d="M58 6v34M58 8l30 30H58z" fill="#fff" stroke="#3a2114" stroke-width="2.5" stroke-linejoin="round"/><path d="M56 12L32 38h24z" fill="#ffd27a" stroke="#3a2114" stroke-width="2.5" stroke-linejoin="round"/><path d="M4 66q10-6 20 0t20 0 20 0 20 0 20 0 20 0" stroke="#2ec5ff" stroke-width="3" fill="none"/><circle cx="96" cy="14" r="7" fill="#ffd27a"/></svg><span>Pour les moussaillons</span></div><h4>Menu enfant</h4><p>Steak haché (120 g), mini moules marinières ou nuggets, avec frites, pâtes ou légumes</p><p class="or">✺</p><p>Glace petit pot ou compote de pomme</p><p class="or">✺</p><p>Sirop à l’eau</p></div>`},
+ {k:'Entrées',img:'moules',cap:'Mini moules',fm:1,items:[['Mini moules, sauce au choix','Poulette, roquefort, poivre vert ou lardons','9,90','moules'],['Moules gratinées','Par 14','13,70','gratinees']]},
+ {k:'Salades',img:'cesar',cap:'Salade César',fm:1,items:[['Salade César','Salades mêlées, blanc de poulet, parmesan, croûtons, sauce César','15,80','cesar'],['Salade de crottins de chèvre','Salades mêlées, pain de campagne, légumes grillés, tranches de lard, crottins de chèvre','16,90','chevre'],['Assiette italienne','Salades mêlées, tomates, jambon cru, burrata, tomates séchées','16,80','italienne'],['Saumon mariné','Salades mêlées, toasts, saumon, crème ciboulette','17,40','saumon']]},
+ {k:'Pâtes',img:'ravioles',cap:'Ravioles à la truffe',fm:1,items:[['Ravioles à la truffe d’été','','20,50','ravioles'],['Linguines au roquefort','','15,80','roquefort'],['Linguines à la carbonara','','15,90','carbonara'],['Linguines à la truffe d’été et jambon speck','','20,50','truffe-speck']]},
+ {k:'Pizzas',img:'p-truffe',cap:'Pizza à la truffe',fm:1,sub:'Pâte fine, pétrie et cuite sur place. Diamètre : 32 cm.',items:[['Napolitaine','Tomates, anchois, olives, câpres','11,90','napolitaine'],['Parmesane','Sauce tomate, jambon cru, emmental, parmesan, olives','16,80','p-parmesane'],['Provençale','Sauce tomate, tomate fraîche, mozzarella, origan, olives','16,80','provencale'],['Corsica','Sauce tomate, emmental, figatelli, mozzarella, origan, olives','16,90','p-corsica'],['Royale','Sauce tomate, jambon, champignons, emmental, origan, olives','15,50','p-royale'],['Quatre fromages','Sauce tomate, emmental, roquefort, chèvre, mozzarella, origan, olives','16,90','4fromages'],['Norvégienne','Crème fraîche, saumon mariné, emmental, aneth, olives','15,80','norvegienne'],['Savoyarde','Crème fraîche, lardons, oignons, pomme de terre, reblochon, origan, olives','16,80','savoyarde'],['Seguin','Crème fraîche, lardons, oignon rouge, emmental, chèvre miel, olives','15,90','seguin'],['Pizza à la truffe','Crème de champignons à la truffe, champignons, jambon speck, roquette, mozzarella, olives, parmesan','17,80','p-truffe']]},
+ {k:'Desserts',img:'fondant',cap:'Moelleux au chocolat',items:[['Moelleux au chocolat','Et sa boule de glace vanille','9,90','fondant',1],['Tiramisu au café','','9,90','tiramisu',1],['Gaufre liégeoise gourmande','Chocolat chaud, crème fouettée et sa boule de glace vanille','9,90','gaufre'],['Baba au rhum','','10,90','baba'],['Brioche façon pain perdu','Et sa boule de glace caramel beurre salé','9,90','painperdu',1],['Crème brûlée','','7,50','brulee'],['Café, décaféiné ou thé gourmand','','10,50','gourmand',1]]},
+ {k:'Cocktails',img:'mojito',cap:'Mojito',sub:'Les cocktails que le bar met en avant sur Instagram. Prix et carte complète des boissons : sur place, au bar.',items:[['Mojito','Rhum, menthe fraîche, citron vert, glace pilée','','mojito'],['Mojito fraise','La version fraise du classique, star de la terrasse','','mojitofraise'],['Blue Lagoon','Bleu comme le port, frais et acidulé','','blue'],['Piña colada','Ananas, coco, douceur des îles','','pinacolada'],['Spritz','Servi au comptoir, bulles et orange','','c-spritz'],['Les créations du bar','Cocktails colorés imaginés par l’équipe','','c-duo'],['Smoothies & jus frais','Sans alcool, pour toute la famille','','c-smoothies'],['Irish coffee','Café, whiskey et crème fouettée, pour finir','','irish']]}
 ];
-const glass=$('#glass'),pics=[...new Set(['facade','moules','bowl','dejeuner','pates','pizza','fondant','gaufre'])];
-glass.innerHTML=pics.map(p=>`<img src="img/${p}.jpg" alt="" data-p="${p}" loading="lazy">`).join('');
-const por=$('.porthole');for(let i=0;i<12;i++){const a=i/12*Math.PI*2,b=document.createElement('i');b.className='bolt';b.style.left=`calc(50% + ${Math.cos(a)*47}% - 6px)`;b.style.top=`calc(50% + ${Math.sin(a)*47}% - 6px)`;por.appendChild(b)}
-const showPic=(p,cap)=>{glass.querySelectorAll('img').forEach(i=>i.classList.toggle('on',i.dataset.p===p));if(cap)$('#pcap').textContent=cap};
+const glass=$('#glass'),IMG=k=>`img/m-${k}.jpg`;
+const por=$('.porthole');
+glass.innerHTML=`<img id="pfallback" src="${IMG('cesar')}" alt="" class="on">`;
+let show3d=null;
+const showPic=(p,cap)=>{if(show3d)show3d(p);else $('#pfallback').src=IMG(p);if(cap)$('#pcap').textContent=cap};
+/* le hublot devient un médaillon 3D qui pivote à chaque plat */
+try{
+  if(!window.THREE)throw 0;
+  const cv=document.createElement('canvas');cv.id='plate3d';cv.setAttribute('aria-hidden','true');por.appendChild(cv);por.classList.add('is3d');
+  const R3=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});R3.setPixelRatio(Math.min(devicePixelRatio,2));R3.outputEncoding=THREE.sRGBEncoding;
+  const S3=new THREE.Scene(),C3=new THREE.PerspectiveCamera(30,1,.1,50);C3.position.set(0,0,9.2);
+  S3.add(new THREE.HemisphereLight(0xfff4e0,0x3a2114,.9));const kl=new THREE.DirectionalLight(0xffffff,1.1);kl.position.set(3,4,6);S3.add(kl);
+  const envS=new THREE.Scene();envS.background=new THREE.Color(0xf4e6cf);[[0xffffff,0,6,4],[0xf07a00,-6,0,2],[0x0c3a4c,5,-4,1]].forEach(([c,x,y,z])=>{const m=new THREE.Mesh(new THREE.SphereGeometry(2.5,12,8),new THREE.MeshBasicMaterial({color:c}));m.position.set(x,y,z);envS.add(m)});
+  const env=new THREE.PMREMGenerator(R3).fromScene(envS,.04).texture;
+  const G=new THREE.Group();S3.add(G);
+  const brass=new THREE.MeshStandardMaterial({color:0xd9c9ad,metalness:.85,roughness:.28,envMap:env});
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(2.05,.26,24,96),brass);G.add(ring);
+  const rim=new THREE.Mesh(new THREE.CylinderGeometry(2.08,2.08,.22,96,1,true),brass);rim.rotation.x=Math.PI/2;G.add(rim);
+  for(let i=0;i<12;i++){const a=i/12*Math.PI*2,b=new THREE.Mesh(new THREE.SphereGeometry(.09,12,8),brass);b.position.set(Math.cos(a)*2.05,Math.sin(a)*2.05,.24);G.add(b);const b2=b.clone();b2.position.z=-.24;G.add(b2)}
+  const TL=new THREE.TextureLoader(),cache={};const tex=k=>cache[k]||(cache[k]=TL.load(IMG(k),t=>{t.encoding=THREE.sRGBEncoding;t.anisotropy=4}));
+  const mk=z=>{const m=new THREE.Mesh(new THREE.CircleGeometry(1.86,96),new THREE.MeshBasicMaterial({map:tex('cesar')}));m.position.z=z;G.add(m);return m};
+  const front=mk(.05),back=mk(-.05);back.rotation.y=Math.PI;
+  const glassM=new THREE.Mesh(new THREE.CircleGeometry(1.86,96),new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:.05,transparent:true,opacity:.12,envMap:env,clearcoat:1}));glassM.position.z=.1;G.add(glassM);
+  let face=0,target=0,cur='cesar';
+  show3d=k=>{if(k===cur)return;cur=k;const m=face===0?back:front;m.material.map=tex(k);m.material.needsUpdate=true;face=1-face;target+=Math.PI};
+  let mx=0,my=0;por.addEventListener('pointermove',e=>{const r=por.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});por.addEventListener('pointerleave',()=>{mx=0;my=0});
+  const sz=()=>{const w=cv.clientWidth;R3.setSize(w,w,false)};sz();new ResizeObserver(sz).observe(cv);
+  let vis=false;new IntersectionObserver(([e])=>vis=e.isIntersecting).observe(por);
+  let ry=0;const lp=n=>{requestAnimationFrame(lp);if(!vis)return;const t=n/1000;ry+=(target-ry)*(reduce?1:.09);
+    G.rotation.y=ry+(reduce?0:mx*.5+Math.sin(t*.7)*.06);G.rotation.x=reduce?0:my*.4+Math.cos(t*.6)*.05;G.position.y=reduce?0:Math.sin(t*1.1)*.06;R3.render(S3,C3)};requestAnimationFrame(lp);
+}catch(e){show3d=null}
 const tabs=$('#tabs'),sheet=$('#sheet');
-tabs.innerHTML=C.map((c,i)=>`<button role="tab" id="tab${i}" aria-controls="sheet" aria-selected="${i===1}">${c.k}</button>`).join('');
+tabs.innerHTML=C.map((c,i)=>`<button role="tab" id="tab${i}" aria-controls="sheet" aria-selected="${i===2}">${c.k}</button>`).join('');
 const renderTab=i=>{const c=C[i];$$('#tabs button').forEach((b,j)=>b.setAttribute('aria-selected',j===i));sheet.setAttribute('aria-labelledby','tab'+i);
-  sheet.innerHTML=`<h3>${c.k}${c.fm?FM:''}</h3>${c.sub?`<p class="sub">${c.sub}</p>`:''}`+(c.html||c.items.map(([n,d,p,img,fm])=>`<div class="item" tabindex="0" data-img="${img}" data-n="${n}"><b>${n}${fm?FM:''}</b><span class="p">${p} €</span>${d?`<small>${d}</small>`:''}</div>`).join(''));
+  sheet.innerHTML=`<h3>${c.k}${c.fm?FM:''}</h3>${c.sub?`<p class="sub">${c.sub}</p>`:''}`+(c.html||c.items.map(([n,d,p,img,fm])=>`<div class="item" tabindex="0" role="button" data-img="${img}" data-n="${n}" aria-label="${n}${p?', '+p+' euros':''} : voir la photo"><span class="thumb" style="background-image:url(${IMG(img)})" aria-hidden="true"></span><b>${n}${fm?FM:''}</b>${p?`<span class="p">${p} €</span>`:''}${d?`<small>${d}</small>`:''}</div>`).join(''));
   showPic(c.img,c.cap);
-  sheet.querySelectorAll('.item').forEach(it=>{const f=()=>showPic(it.dataset.img,it.dataset.n);it.addEventListener('mouseenter',f);it.addEventListener('focus',f)})};
+  sheet.querySelectorAll('.item').forEach(it=>{const f=()=>showPic(it.dataset.img,it.dataset.n);it.addEventListener('mouseenter',f);it.addEventListener('focus',f);
+    const o=()=>openLB(IMG(it.dataset.img),it.dataset.n);it.addEventListener('click',e=>{f();if(!e.target.closest('a'))o()});it.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();o()}})})};
 tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderTab([...tabs.children].indexOf(b))});
 tabs.addEventListener('keydown',e=>{const i=[...tabs.children].findIndex(b=>b.getAttribute('aria-selected')==='true');if(e.key==='ArrowRight'){renderTab((i+1)%C.length);tabs.children[(i+1)%C.length].focus()}if(e.key==='ArrowLeft'){const j=(i-1+C.length)%C.length;renderTab(j);tabs.children[j].focus()}});
-renderTab(1);
+renderTab(2);
+/* précharge les visuels de la carte */
+setTimeout(()=>C.forEach(c=>(c.items||[]).forEach(it=>{const im=new Image();im.src=IMG(it[3])})),2500);
 
 /* ---------- COCKTAILS : inclinaison 3D ---------- */
 if(!reduce)$$('.dcard').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg) translateZ(20px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
@@ -587,28 +637,55 @@ try{
   setTimeout(()=>{if(ok<40)setPct(100)},7000);
 }catch(err){fail()}
 
-/* ---------- BOULE À FACETTES ---------- */
+/* ---------- KARAOKÉ : la boule à facettes tombe du plafond ---------- */
 try{
   if(!window.THREE)throw 0;
-  const c=$('#ball'),R2=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});R2.setPixelRatio(Math.min(devicePixelRatio,2));
-  const S2=new THREE.Scene(),C2=new THREE.PerspectiveCamera(35,1,.1,50);C2.position.set(0,0,7);
-  const ball=new THREE.Mesh(new THREE.IcosahedronGeometry(1.6,4),new THREE.MeshStandardMaterial({color:0xd8d8e0,metalness:.85,roughness:.12,flatShading:true}));S2.add(ball);
-  const cord=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,3,6),new THREE.MeshStandardMaterial({color:0x444444}));cord.position.y=3.1;S2.add(cord);
-  S2.add(new THREE.AmbientLight(0x331a40,.8));
-  const L=[[0xff9d2e,6],[0xff3c8c,5],[0x2ec5ff,4],[0xffffff,3]].map(([col,i])=>{const l=new THREE.PointLight(col,i,14);S2.add(l);return l});
-  const sz=()=>{const w=c.clientWidth;R2.setSize(w,w,false)};sz();new ResizeObserver(sz).observe(c);
-  let vis=false;new IntersectionObserver(([e])=>vis=e.isIntersecting).observe(c);
-  const lp=t=>{requestAnimationFrame(lp);if(!vis)return;t/=1000;ball.rotation.y=reduce?0:t*.5;ball.rotation.x=.25;
-    L.forEach((l,i)=>{const a=t*(.6+i*.25)+i*1.7;l.position.set(Math.cos(a)*4,Math.sin(a*.7)*2.5,Math.sin(a)*4+1)});R2.render(S2,C2)};
+  const sec=$('#karaoke'),c=$('#kstage'),R2=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});R2.setPixelRatio(Math.min(devicePixelRatio,mob()?1.5:2));R2.outputEncoding=THREE.sRGBEncoding;
+  const S2=new THREE.Scene(),C2=new THREE.PerspectiveCamera(38,1,.1,100);C2.position.set(0,0,12);
+  /* environnement coloré pour les reflets des miroirs */
+  const envS=new THREE.Scene(),pm=new THREE.PMREMGenerator(R2);envS.background=new THREE.Color(0x40344e);
+  [[0xff8a00,6,2,-4],[0xff2e88,-6,1,-3],[0x2ec5ff,0,-5,-4],[0xffffff,0,6,2],[0x8a3cff,5,-2,5],[0xffd27a,-5,-1,5],[0xffffff,4,4,6],[0xff8a00,-3,4,-6],[0x2ec5ff,6,-3,1]].forEach(([col,x,y,z])=>{const m=new THREE.Mesh(new THREE.SphereGeometry(2.2,16,12),new THREE.MeshBasicMaterial({color:col}));m.position.set(x,y,z);envS.add(m)});
+  const env=pm.fromScene(envS,.02).texture;
+  /* la boule : de vraies petites tuiles miroir */
+  const ball=new THREE.Group(),R=1.55,tile=new THREE.BoxGeometry(.17,.17,.03),mat=new THREE.MeshStandardMaterial({color:0xe8e8f0,metalness:1,roughness:.1,envMap:env,envMapIntensity:1.5});
+  const pos=[];const rings=22;for(let i=1;i<rings;i++){const ph=i/rings*Math.PI,rr=Math.sin(ph)*R,n=Math.max(6,Math.round(2*Math.PI*rr/.19));for(let j=0;j<n;j++){const th=j/n*Math.PI*2+(i%2)*.08;pos.push([ph,th])}}
+  const im=new THREE.InstancedMesh(tile,mat,pos.length),o=new THREE.Object3D(),N=[];
+  pos.forEach(([ph,th],k)=>{const v=new THREE.Vector3(Math.sin(ph)*Math.cos(th),Math.cos(ph),Math.sin(ph)*Math.sin(th));o.position.copy(v).multiplyScalar(R);o.lookAt(v.clone().multiplyScalar(3));o.rotateZ((k%5)*.04);o.updateMatrix();im.setMatrixAt(k,o.matrix);N.push(v)});
+  ball.add(im);ball.add(new THREE.Mesh(new THREE.SphereGeometry(R-.04,32,24),new THREE.MeshStandardMaterial({color:0x111111,roughness:.6})));
+  const cap=new THREE.Mesh(new THREE.CylinderGeometry(.16,.22,.25,16),new THREE.MeshStandardMaterial({color:0xb8b8c0,metalness:.9,roughness:.25,envMap:env}));cap.position.y=R+.08;ball.add(cap);
+  const cord=new THREE.Mesh(new THREE.CylinderGeometry(.018,.018,12,6),new THREE.MeshBasicMaterial({color:0x333333}));cord.position.y=R+6.1;ball.add(cord);
+  const rig=new THREE.Group();rig.add(ball);S2.add(rig);
+  S2.add(new THREE.AmbientLight(0x442255,.6));const key=new THREE.PointLight(0xffffff,2.2,30);key.position.set(4,3,6);S2.add(key);
+  /* éclats de lumière renvoyés sur les murs */
+  const NS=mob()?110:220,dg=new THREE.BufferGeometry(),dp=new Float32Array(NS*3),dc=new Float32Array(NS*3),pal=[[1,.6,.15],[1,.25,.6],[.3,.8,1],[1,1,1],[.7,.4,1]];
+  for(let i=0;i<NS;i++){const p=pal[i%5];dc.set(p,i*3)}
+  dg.setAttribute('position',new THREE.BufferAttribute(dp,3));dg.setAttribute('color',new THREE.BufferAttribute(dc,3));
+  const gc=document.createElement('canvas');gc.width=gc.height=64;const gx=gc.getContext('2d'),gr=gx.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.35,'rgba(255,255,255,.55)');gr.addColorStop(1,'rgba(255,255,255,0)');gx.fillStyle=gr;gx.fillRect(0,0,64,64);
+  const dots=new THREE.Points(dg,new THREE.PointsMaterial({size:.55,map:new THREE.CanvasTexture(gc),vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:0}));S2.add(dots);
+  const pick=[];for(let i=0;i<NS;i++)pick.push(N[(i*37)%N.length]);
+  /* faisceaux de scène */
+  const beams=[];[[-5,0xff8a00],[5,0xff2e88],[0,0x2ec5ff]].forEach(([x,col])=>{const g=new THREE.ConeGeometry(1.4,14,24,1,true);g.translate(0,-7,0);const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.1,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));m.position.set(x,-7,-3);S2.add(m);beams.push(m)});
+  let baseY=0;const sz=()=>{const w=c.clientWidth,h=c.clientHeight;R2.setSize(w,h,false);C2.aspect=w/h;C2.updateProjectionMatrix();rig.position.x=w>860?3.2:0;rig.scale.setScalar(w>860?1:.7);baseY=w>860?0:3.2};sz();new ResizeObserver(sz).observe(c);
+  let vis=false,t0=null;new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(vis&&t0===null)t0=performance.now()},{threshold:.25}).observe(sec);
+  const L=new THREE.Vector3(),q=new THREE.Quaternion(),tmp=new THREE.Vector3(),ref=new THREE.Vector3();
+  const lp=n=>{requestAnimationFrame(lp);if(!vis)return;const t=n/1000,k=t0===null?0:Math.min(6,(n-t0)/1000);
+    /* chute amortie puis balancement */
+    const drop=reduce?0:9*Math.exp(-3.2*k)*Math.cos(k*7.5);rig.position.y=baseY+Math.max(-1,drop)+(reduce?0:Math.sin(t*1.1)*.05);
+    rig.rotation.z=reduce?0:Math.sin(k*3.2)*.22*Math.exp(-.45*k)+Math.sin(t*.9)*.03;ball.rotation.y=reduce?0:t*.45;
+    const on=clamp((k-.6)/1.2);dots.material.opacity=on*.9;beams.forEach((b,i)=>{b.rotation.z=Math.sin(t*.6+i*2)*.35;b.material.opacity=.04+.09*on});
+    /* les éclats : reflet de la lumière principale sur chaque tuile, projeté sur le décor */
+    ball.updateMatrixWorld();q.setFromRotationMatrix(ball.matrixWorld);const bp=tmp.setFromMatrixPosition(ball.matrixWorld).clone();L.copy(key.position).sub(bp).normalize();
+    for(let i=0;i<NS;i++){const nrm=ref.copy(pick[i]).applyQuaternion(q);const d=L.clone().reflect(nrm).negate();const s=(-8-bp.z)/(d.z||-1e-3);if(d.z>-.05){dp[i*3+2]=99;continue}dp[i*3]=bp.x+d.x*s;dp[i*3+1]=bp.y+d.y*s;dp[i*3+2]=-8}
+    dg.attributes.position.needsUpdate=true;R2.render(S2,C2)};
   requestAnimationFrame(lp);
-}catch(e){$('#ball').style.display='none'}
+}catch(e){const k=$('#kstage');if(k)k.style.display='none'}
 /* ---------- finitions ---------- */
 $$('.h2').forEach(h=>{let k=0;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}const w=document.createElement('span');w.className='w';const i=document.createElement('i');i.textContent=p;i.style.setProperty('--d',(k++*0.06)+'s');w.appendChild(i);f.appendChild(w)});c.replaceWith(f)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})};walk(h);if(!h.closest('.reveal'))h.classList.add('in')});
 const sc_=$('#sunc');if(sc_&&matchMedia('(pointer:fine)').matches&&!reduce){let x=-99,y=-99,tx=-99,ty=-99;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;sc_.style.opacity=1});document.addEventListener('pointerleave',()=>sc_.style.opacity=0);
-  document.addEventListener('pointerover',e=>sc_.classList.toggle('big',!!e.target.closest('a,button,.dcard,.post,.tab,[role=tab],label,summary')));
+  document.addEventListener('pointerover',e=>sc_.classList.toggle('big',!!e.target.closest('a,button,.dcard,.post,.item,.tab,[role=tab],label,summary')));
   const cl=()=>{x+=(tx-x)*.22;y+=(ty-y)*.22;sc_.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(cl)};cl()}
-const ibg=$('#ibg'),iq=$('#iq'),inter=$('.interlude');if(inter&&!reduce){const ip=()=>{const r=inter.getBoundingClientRect(),p=clamp((innerHeight-r.top)/(r.height+innerHeight));ibg.style.transform=`translateY(${(p-.5)*-12}%) scale(${1.15-p*.12})`;const q=clamp((p-.18)/.3);iq.style.opacity=q;iq.style.transform=`translateY(${(1-q)*60}px) scale(${.92+q*.08})`};addEventListener('scroll',()=>requestAnimationFrame(ip),{passive:true});ip()}
-$$('.dcard').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');c.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')}));
+const ibg=$('#ibg'),iq=$('#iq'),inter=$('.interlude');if(inter&&!reduce){const ip=()=>{const r=inter.getBoundingClientRect(),p=clamp((innerHeight-r.top)/(r.height+innerHeight));ibg.style.transform=`translateY(${(p-.5)*-8}%) scale(${1.08-p*.06})`;const q=clamp((p-.18)/.3);iq.style.opacity=q;iq.style.transform=`translateY(${(1-q)*60}px) scale(${.92+q*.08})`};addEventListener('scroll',()=>requestAnimationFrame(ip),{passive:true});ip()}
+$$('.dcard').forEach(c=>{const o=()=>openLB('img/m-'+c.dataset.img+'.jpg',c.querySelector('h3').textContent);c.addEventListener('click',o);c.addEventListener('keydown',e=>{if(e.key==='Enter')o()})});$$('.dcard').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');c.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')}));
 }
 
 </script>
