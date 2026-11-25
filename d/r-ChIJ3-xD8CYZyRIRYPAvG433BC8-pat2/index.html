@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Le Marigny · Brasserie du village au Pradet</title>
+<meta name="description" content="Le Marigny, bar-brasserie sur la place Paul Flamencq au Pradet : café dès 7 h, cuisine généreuse, apéros et soirées. Réservez votre table.">
+<meta name="theme-color" content="#0c0a0b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;padding:10px 14px;background:var(--c-fg);color:var(--c-bg);border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--c-acc);outline-offset:3px}
+.nowrap{white-space:nowrap}
+/* cookies */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;max-width:560px;margin:0 auto;background:var(--c-panel);color:var(--c-panel-fg);border:1px solid var(--c-line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.45);transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ck.on{transform:none}
+.ck h2{font-size:16px;margin:0 0 6px;font-family:inherit;letter-spacing:0;text-transform:none}
+.ck p{font-size:13.5px;line-height:1.5;margin:0 0 14px;opacity:.85}
+.ck .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ck button{font:600 14px/1 var(--f-ui);padding:13px 10px;border-radius:12px;cursor:pointer;border:1.5px solid var(--c-panel-fg);min-height:44px}
+.ck .no{background:transparent;color:var(--c-panel-fg)}
+.ck .yes{background:var(--c-panel-fg);color:var(--c-panel)}
+.ck .lk{background:none;border:0;padding:0;min-height:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+/* legal modal */
+.lg{position:fixed;inset:0;z-index:150;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.6);padding:0}
+.lg.on{display:flex}
+.lg .box{background:var(--c-panel);color:var(--c-panel-fg);width:100%;max-width:720px;max-height:86vh;overflow:auto;border-radius:20px 20px 0 0;padding:26px 22px 30px;font:400 14.5px/1.6 var(--f-ui)}
+@media(min-width:760px){.lg{align-items:center}.lg .box{border-radius:20px}}
+.lg h2{font:700 22px/1.2 var(--f-ui);margin:0 0 12px;text-transform:none;letter-spacing:0}
+.lg h3{font:700 15px/1.3 var(--f-ui);margin:18px 0 4px;text-transform:none;letter-spacing:0}
+.lg p{margin:0 0 8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1px solid var(--c-line);background:var(--c-panel);color:var(--c-panel-fg);font-size:22px;cursor:pointer}
+/* map */
+.mapw{position:relative;border-radius:22px;overflow:hidden;min-height:340px;background:var(--c-map-bg);isolation:isolate;border:1px solid var(--c-line)}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapw::before{content:"";position:absolute;inset:0;z-index:2;background:var(--c-map-tint);mix-blend-mode:color;pointer-events:none}
+.mapw::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,0,0,.55) 100%)}
+.mapw .ph{position:absolute;inset:0;z-index:1;background:
+ repeating-linear-gradient(28deg,transparent 0 46px,rgba(255,255,255,.05) 46px 48px),
+ repeating-linear-gradient(-62deg,transparent 0 70px,rgba(255,255,255,.06) 70px 73px),
+ radial-gradient(60% 50% at 30% 70%,var(--c-map-water),transparent 70%),var(--c-map-bg)}
+.mapw .pin{position:absolute;left:50%;top:44%;z-index:4;transform:translate(-50%,-100%);pointer-events:none}
+.mapw .pin i{display:grid;place-items:center;width:58px;height:58px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--c-acc);box-shadow:0 10px 30px rgba(0,0,0,.5);animation:pinb 2.4s ease-in-out infinite}
+.mapw .pin i b{transform:rotate(45deg);font:700 20px/1 var(--f-disp);color:var(--c-acc-fg)}
+.mapw .pin::after{content:"";position:absolute;left:50%;bottom:-10px;width:70px;height:70px;margin-left:-35px;border-radius:50%;border:2px solid var(--c-acc);opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes pinb{50%{transform:rotate(-45deg) translate(3px,-3px)}}
+@keyframes ping{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.mapw .glass{position:absolute;z-index:5;left:14px;right:14px;bottom:14px;padding:16px;border-radius:16px;background:rgba(15,15,18,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16);color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mapw .glass p{margin:0;font:500 14px/1.4 var(--f-ui)}
+.mapw .glass strong{display:block;font-size:15px}
+.mapw .glass a,.mapw .consent button{font:700 14px/1 var(--f-ui);background:var(--c-acc);color:var(--c-acc-fg);padding:12px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+.mapw .consent{position:absolute;z-index:5;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(15,15,18,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 8px 8px 14px;border-radius:999px;color:#fff;font:500 12.5px/1.3 var(--f-ui);width:max-content;max-width:calc(100% - 28px)}
+.mapw.live .consent,.mapw.live .ph{display:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.lk{background:none;border:0;padding:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+.zb{display:inline-block;font:500 11.5px/1.4 var(--f-ui);opacity:.62;margin-top:6px}
+.zb a{color:inherit}
+
+:root{--c-bg:#0c0a0b;--c-fg:#f4ece2;--c-soft:rgba(244,236,226,.72);--c-acc:#d6312b;--c-acc-fg:#fff;--cream:#efe2cf;--ink:#15131b;--c-line:rgba(255,255,255,.14);--c-panel:#17130f;--c-panel-fg:#f4ece2;--c-map-bg:#1b1512;--c-map-water:#2a1d18;--c-map-tint:#d6312b;--f-disp:"Chakra Petch",system-ui,sans-serif;--f-ui:"Inter",system-ui,-apple-system,sans-serif;--f-chalk:"Caveat",cursive;--cut:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 16px/1.6 var(--f-ui);background:var(--c-bg);color:var(--c-fg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.lbl{font:700 12px/1 var(--f-disp);letter-spacing:.14em;text-transform:uppercase}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto}
+h2{font:700 clamp(34px,5.4vw,68px)/1 var(--f-ui);text-transform:uppercase;letter-spacing:.02em}
+.frame{position:fixed;inset:10px;z-index:70;pointer-events:none;border:1px solid var(--c-line);clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px)}
+/* masthead */
+.mast{position:fixed;z-index:60;top:10px;left:10px;right:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;transition:background .3s}
+.mast.solid{background:rgba(12,10,11,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand b{display:grid;place-items:center;width:34px;height:34px;background:var(--c-acc);color:#fff;font:700 16px/1 var(--f-disp);clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.brand span{font:700 15px/1 var(--f-disp);letter-spacing:.16em}
+.mast nav{display:flex;gap:18px}
+.mast nav a{font:700 11px/1 var(--f-disp);letter-spacing:.14em;text-decoration:none;color:var(--c-soft)}
+.mast nav a:hover{color:#fff}
+.mact{display:flex;gap:8px}
+.cbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;font:700 12px/1 var(--f-disp);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)))}
+.cbtn.cr{background:var(--cream);color:var(--ink)}
+.cbtn.rd{background:var(--c-acc);color:#fff}
+.cbtn.gl{background:rgba(255,250,246,.08);color:#fff;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+@media(max-width:900px){.mast nav{display:none}.mact .tl{display:none}}
+@media(min-width:901px){.mact .ti{display:none}}
+/* day stage */
+#journee{height:520vh;position:relative}
+.stg{position:sticky;top:0;height:100svh;overflow:hidden;background:#000}
+.ch{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.ch.on{opacity:1}
+.ch .ph{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.08);transition:transform 6s ease-out}
+.ch.on .ph{transform:scale(1)}
+.ch::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,rgba(0,0,0,.15),rgba(0,0,0,.65)),linear-gradient(180deg,rgba(12,10,11,.75) 0,rgba(12,10,11,.1) 30%,rgba(12,10,11,.82) 72%,#0c0a0b 100%)}
+.hero{position:absolute;z-index:3;left:0;right:0;bottom:max(8%,70px);text-align:center;padding:0 22px}
+.hero .k{display:inline-block;margin-bottom:16px;color:var(--cream)}
+.hrow{overflow:hidden}
+.hrise{display:block;font:700 clamp(32px,6.4vw,84px)/1 var(--f-ui);text-transform:uppercase;letter-spacing:.03em;transform:translateY(105%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.hero.go .hrise{transform:none}
+.hero.go .hrow:nth-child(3) .hrise{transition-delay:.08s}
+.hero p.b{max-width:520px;margin:18px auto 22px;color:rgba(244,236,226,.82);font-size:clamp(15px,1.4vw,17px);opacity:0;transition:opacity .8s .25s}
+.hero.go p.b{opacity:1}
+.hero .acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.rail{position:absolute;z-index:4;left:28px;top:50%;transform:translateY(-50%);list-style:none;display:grid;gap:18px}
+.rail button{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;font:700 11px/1 var(--f-disp);letter-spacing:.16em;color:rgba(244,236,226,.38);min-height:24px}
+.rail button i{width:7px;height:7px;background:transparent;transition:.3s}
+.rail button[aria-current=true]{color:#fff}.rail button[aria-current=true] i{background:var(--c-acc)}
+.rail button:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
+@media(max-width:900px){.rail{left:0;right:0;top:auto;bottom:18px;transform:none;display:flex;justify-content:center;gap:6px;padding:0 14px}.rail button{padding:10px 8px;font-size:10px;gap:6px}.rail button i{display:none}.hero{bottom:84px}}
+.clock{position:absolute;z-index:4;right:34px;top:92px;width:130px;height:130px;perspective:600px}
+.clock .face{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#f8efe2,#e6d6bf);box-shadow:0 0 0 6px #2b2320,0 0 0 8px rgba(214,49,43,.8),0 20px 40px rgba(0,0,0,.6);transform:rotateY(-18deg) rotateX(8deg);transform-style:preserve-3d;transition:transform .6s}
+.clock .face::before{content:"";position:absolute;inset:8px;border-radius:50%;background:repeating-conic-gradient(from -1deg,#2b2320 0 2deg,transparent 2deg 30deg);-webkit-mask:radial-gradient(circle,transparent 78%,#000 79%);mask:radial-gradient(circle,transparent 78%,#000 79%)}
+.hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;background:#15131b;border-radius:3px;transition:transform 1.2s cubic-bezier(.6,0,.2,1);transform:translateZ(6px) rotate(var(--r))}
+.hand.h{width:5px;height:30%;margin-left:-2.5px}.hand.m{width:3px;height:42%;margin-left:-1.5px;background:var(--c-acc);transform:translateZ(9px) rotate(var(--r))}
+.clock .pinx{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:#15131b;transform:translateZ(11px)}
+.clock .t{position:absolute;left:0;right:0;bottom:-28px;text-align:center;color:var(--cream)}
+@media(max-width:900px){.clock{width:84px;height:84px;right:22px;top:80px}.clock .t{bottom:-22px;font-size:10px}}
+/* sections */
+.sec{padding:120px 0;position:relative}
+.kick{color:var(--c-acc);margin-bottom:14px;display:block}
+.lead{color:var(--c-soft);max-width:560px;margin-top:16px}
+/* ardoise */
+#carte{background:#0c0a0b}
+.cg{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.cg h2,.mg h2,.bg2 h2,.ig h2{font-size:clamp(32px,4.4vw,58px)}
+.bd3{position:relative;z-index:0}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
+.cats button{min-height:44px}
+.cats button[aria-pressed=true]{background:var(--c-acc);color:#fff}
+.bd3{perspective:1300px;height:560px;display:grid;place-items:center}
+.easel{position:relative;width:min(400px,84vw);height:500px;transform-style:preserve-3d;transform:rotateX(6deg) rotateY(var(--ry,-14deg));transition:transform 1.1s cubic-bezier(.6,0,.2,1)}
+.panel{position:absolute;inset:0 0 60px;transform-style:preserve-3d}
+.panel .sd{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#1d2420;border:14px solid #6b4a2d;border-radius:6px;box-shadow:inset 0 0 60px rgba(0,0,0,.6),0 30px 60px rgba(0,0,0,.6);padding:26px 24px;color:#f3efe6;font-family:var(--f-chalk);overflow:hidden}
+.panel .sd::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 30% 20%,rgba(255,255,255,.07),transparent),radial-gradient(50% 40% at 80% 80%,rgba(255,255,255,.05),transparent);pointer-events:none}
+.panel .bk{transform:rotateY(180deg)}
+.panel .ed{position:absolute;top:0;bottom:0;width:14px;background:#4e3420}
+.panel .ed.l{left:-7px;transform:rotateY(90deg)}.panel .ed.r{right:-7px;transform:rotateY(90deg)}
+.leg{position:absolute;bottom:0;width:14px;height:96px;background:linear-gradient(#6b4a2d,#4e3420)}
+.leg.a{left:28px;transform:rotateZ(8deg) translateZ(-30px)}.leg.b{right:28px;transform:rotateZ(-8deg) translateZ(-30px)}
+.sd h3{font:700 44px/1 var(--f-chalk);text-align:center;margin-bottom:6px}
+.sd .sub{text-align:center;font-size:20px;opacity:.75;margin-bottom:14px}
+.sd ul{list-style:none;display:grid;gap:7px}
+.sd li{font-size:25px;line-height:1.15;display:flex;gap:10px}
+.sd li::before{content:"~";color:#f1b0a0}
+.sd .ft{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-size:19px;opacity:.7}
+.chalkin li{animation:ch .5s both}
+@keyframes ch{from{opacity:0;filter:blur(3px);transform:translateX(-8px)}}
+@media(max-width:900px){.cg{grid-template-columns:1fr}.bd3{height:470px;order:-1}.easel{height:440px}.sd h3{font-size:38px}.sd li{font-size:22px}}
+/* morris */
+#soirees{background:linear-gradient(180deg,#0c0a0b,#1a0d0c 60%,#0c0a0b);overflow:hidden}
+.mg{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.col3d{position:relative;height:600px;overflow:hidden}
+.col3d canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.colfb{position:absolute;inset:0;display:none;perspective:900px;place-items:center}
+.no3d .colfb{display:grid}
+.cyl{position:relative;width:180px;height:380px;transform-style:preserve-3d;animation:cy 18s linear infinite}
+@keyframes cy{to{transform:rotateY(-360deg)}}
+.cyl i{position:absolute;inset:0;width:180px;display:grid;place-items:center;text-align:center;font:700 22px/1.1 var(--f-disp);color:#fff;padding:10px;backface-visibility:hidden}
+.evs{display:grid;gap:12px;margin-top:26px}
+.ev{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:18px;border:1px solid var(--c-line);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));background:rgba(255,255,255,.02);transition:.3s}
+.ev:hover,.ev.on{background:rgba(214,49,43,.12);border-color:rgba(214,49,43,.6)}
+.ev b{display:grid;place-items:center;width:46px;height:46px;background:var(--c-acc);font:700 18px/1 var(--f-disp)}
+.ev h3{font:700 17px/1.2 var(--f-disp);letter-spacing:.06em;text-transform:uppercase}
+.ev p{color:var(--c-soft);font-size:14.5px}
+@media(max-width:900px){.mg{grid-template-columns:1fr}.col3d{height:420px}.cyl{transform:scale(.7)}.cyl{animation-name:cym}}
+@keyframes cym{from{transform:scale(.7) rotateY(0)}to{transform:scale(.7) rotateY(-360deg)}}
+/* accordion postcard */
+#place{background:var(--cream);color:var(--ink);overflow:hidden}
+#place .lead{color:rgba(21,19,27,.72)}
+#place .kick{color:var(--c-acc)}
+.acc{display:flex;justify-content:center;perspective:1600px;margin-top:50px;height:min(46vw,420px)}
+.fold{position:relative;flex:none;width:min(11vw,138px);height:100%;transform-style:preserve-3d;transform-origin:left center}
+.fold figure{position:absolute;inset:0;background:#fff;padding:8px 8px 34px;box-shadow:0 10px 30px rgba(21,19,27,.25)}
+.fold img{width:100%;height:100%;object-fit:cover}
+.fold figcaption{position:absolute;left:8px;right:8px;bottom:8px;font:700 10px/1.2 var(--f-disp);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:700px){.acc{flex-direction:column;align-items:center;height:auto;perspective:1200px}.fold{width:min(86vw,360px);height:56vw;transform-origin:center top}.fold+.fold{margin-top:-2px}}
+/* booking */
+#reserver{background:#0c0a0b}
+.bg2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.dial{position:relative;width:min(420px,86vw);aspect-ratio:1/1;margin:10px auto 0;border-radius:50%;background:radial-gradient(circle,#1c1714 0 55%,#241d19 56% 100%);box-shadow:0 0 0 1px var(--c-line),0 0 0 10px #15110f,0 0 0 11px rgba(214,49,43,.6),0 40px 80px rgba(0,0,0,.6);transform:perspective(900px) rotateX(14deg)}
+.dial .slot{position:absolute;left:50%;top:50%;width:64px;height:44px;margin:-22px -32px;border:0;background:transparent;color:var(--c-soft);font:700 13px/1 var(--f-disp);letter-spacing:.06em;cursor:pointer;border-radius:22px;transform:rotate(var(--a)) translateY(calc(min(420px,86vw) * -.39)) rotate(calc(var(--a) * -1))}
+.dial .slot[aria-pressed=true]{background:var(--c-acc);color:#fff}
+.dial .slot:disabled{opacity:.25;cursor:not-allowed}
+.dial .arm{position:absolute;left:50%;bottom:50%;width:4px;height:30%;margin-left:-2px;background:linear-gradient(var(--c-acc),#7c1a16);transform-origin:50% 100%;transform:rotate(var(--ha,0deg));transition:transform 1s cubic-bezier(.6,0,.2,1);border-radius:3px}
+.dial .hub{position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px;border-radius:50%;background:var(--cream);color:var(--ink);display:grid;place-items:center;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.dial .hub b{font:700 26px/1 var(--f-disp)}
+.dial .hub small{display:block;font:700 9px/1.3 var(--f-disp);letter-spacing:.14em;text-transform:uppercase;margin-top:4px;opacity:.7}
+form{display:grid;gap:20px}
+fieldset{border:0;display:grid;gap:10px}
+legend{margin-bottom:10px;color:var(--c-soft)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.chips button{flex:none;width:68px;min-height:64px;display:grid;gap:2px;place-content:center;text-align:center;background:rgba(255,255,255,.04);color:var(--c-fg);border:1px solid var(--c-line);cursor:pointer;font:500 12px/1.2 var(--f-ui);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.chips button b{font:700 20px/1 var(--f-disp)}
+.chips button[aria-pressed=true]{background:var(--c-acc);border-color:var(--c-acc)}
+.step{display:flex;align-items:center;gap:14px}
+.step button{width:48px;height:48px;border:1px solid var(--c-line);background:transparent;color:#fff;font-size:22px;cursor:pointer}
+.step output{font:700 30px/1 var(--f-disp);min-width:2ch;text-align:center}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.fl{display:grid;gap:6px;font-size:13.5px;color:var(--c-soft)}
+input,textarea{font:400 16px/1.4 var(--f-ui);color:var(--c-fg);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);padding:12px 14px;min-height:48px;width:100%;border-radius:0}
+textarea{min-height:84px}
+.ok{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--c-soft)}
+.ok input{width:22px;height:22px;min-height:0;flex:none;accent-color:var(--c-acc)}
+.err{color:#ffb0a8;font-size:14px;min-height:1em}
+.conf{display:none;padding:26px;border:1px solid rgba(214,49,43,.6);background:rgba(214,49,43,.1)}
+.conf.on{display:block}
+.conf h3{font:700 26px/1.1 var(--f-disp);text-transform:uppercase;margin-bottom:8px}
+.note{font-size:13.5px;color:var(--c-soft);margin-top:10px}
+@media(max-width:900px){.bg2{grid-template-columns:1fr}.f2{grid-template-columns:1fr}}
+/* infos */
+#infos{background:#120f0d}
+.ig{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.live{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 12px;border:1px solid var(--c-line)}
+.live i{width:9px;height:9px;border-radius:50%;background:#7ad07a;box-shadow:0 0 10px #7ad07a}
+.live.off i{background:#d6312b;box-shadow:0 0 10px #d6312b}
+.hours{list-style:none;margin:18px 0}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--c-line);font-size:15px}
+.hours li span:last-child{white-space:nowrap}
+.hours li.t{color:#fff;font-weight:700}
+.co{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:900px){.ig{grid-template-columns:1fr}}
+footer{background:#0c0a0b;padding:56px 0 40px;border-top:1px solid var(--c-line)}
+footer .wrap{display:grid;gap:16px}
+footer .big{font:700 clamp(40px,11vw,140px)/.9 var(--f-disp);letter-spacing:.06em;color:rgba(244,236,226,.07)}
+footer p{color:var(--c-soft);font-size:14px}
+.legal{display:flex;flex-wrap:wrap;gap:4px 18px}
+.legal button{background:none;border:0;color:var(--c-soft);font:500 13.5px/1 var(--f-ui);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="frame" aria-hidden="true"></div>
+<header class="mast" id="mast"><a class="brand" href="#top" aria-label="Le Marigny, accueil"><b>M</b><span>LE MARIGNY</span></a>
+<nav aria-label="Navigation"><a href="#journee">LA JOURNÉE</a><a href="#carte">L'ARDOISE</a><a href="#soirees">LES SOIRÉES</a><a href="#place">LA PLACE</a><a href="#infos">INFOS</a></nav>
+<div class="mact"><a class="cbtn gl ti" href="tel:+33494217234" aria-label="Appeler le 04 94 21 72 34"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a><a class="cbtn gl tl" href="tel:+33494217234"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">04 94 21 72 34</span></a><a class="cbtn cr" href="#reserver">Réserver</a></div></header>
+<main id="main">
+<section id="journee" aria-label="Une journée au Marigny"><span id="top"></span><div class="stg">
+<div class="ch on" data-i="0"><div class="ph" style="background-image:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SdjK_usZqpucYB_p-9SlCi5EXVkLIwaUGDAY1DJjOR1oJcTByIIGIK_89t_mWcCLbNw2q2dCHFrLXbyLACooXkLvUQnilyWIdvKA5KyYJ31ZYcr4IIMPiZ-y1Kx5cEKsdIpPCx=w1600)"></div></div><div class="ch" data-i="1"><div class="ph" style="background-image:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q0_Yh9jhXTU7EOyFIm3vsfnD0ciJoXj_alZ93Gv5-q_u1QbGK-PnlZ0g-8IKwfUe0Y6iGjaDQ4QH_3OITPrxJ7M_rSA7VdrmI5dtqufCj49k2ABXcUMIeInEMUw71-sgnrMFNjsA=w1600)"></div></div><div class="ch" data-i="2"><div class="ph" style="background-image:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SViDaSN60GvJQvo1M1tzHvU9tRLgXmtGvK4t60Peu310avLrvW7N2TUlr3DONOn2sg_Tavk2StkfthvEQpRHySKGbkcWULOQOXIv4JKAnfdk-B3s948-Jw_gRy5c2ZG5T7bsfJ=w1600)"></div></div><div class="ch" data-i="3"><div class="ph" style="background-image:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TtgK0bxRcFVtevggeOxBydcfh1En0kLCARcVwHDvh5osOGh3wnXFVLvwrt8Ug30F3YVakxAyFp3J4Y10bhJAsLV0JMNYJ33y5GMExU4oCRfRvx_pQcu58jN2QB2bhz9cJpydb5=w1600)"></div></div>
+<div class="clock" aria-hidden="true"><div class="face"><i class="hand h" id="hh"></i><i class="hand m" id="hm"></i><i class="pinx"></i></div><span class="t lbl" id="ct">07:00</span></div>
+<ul class="rail" aria-label="Chapitres de la journée"><li><button type="button" data-go="0" aria-current="true"><i></i>07H · LE CAFÉ</button></li><li><button type="button" data-go="1" aria-current="false"><i></i>12H · LA CUISINE</button></li><li><button type="button" data-go="2" aria-current="false"><i></i>18H · L'APÉRO</button></li><li><button type="button" data-go="3" aria-current="false"><i></i>SOIR · LES SOIRÉES</button></li></ul>
+<div class="hero go" id="hero"><span class="k lbl" id="hk">LE MARIGNY · BRASSERIE DU VILLAGE · LE PRADET</span>
+<h1 aria-live="polite"><span class="hrow"><span class="hrise" id="h1a">Le café</span></span><span class="hrow"><span class="hrise" id="h1b">de la place</span></span></h1>
+<p class="b" id="hb">Dès 7 h, premier café, croissant ou formule petit-déjeuner en terrasse, sur la place Paul Flamencq.</p>
+<div class="acts"><a class="cbtn rd" href="#reserver">Réserver une table</a><a class="cbtn gl" href="#carte">Voir l'ardoise</a></div></div>
+</div></section>
+
+<section class="sec" id="carte" aria-labelledby="cT"><div class="wrap cg">
+<div><span class="kick lbl">L'ardoise</span><h2 id="cT">Ce qu'on sert<br>sur la place</h2>
+<p class="lead">L'ardoise pivote à chaque catégorie, comme celle qu'on retourne devant la porte.</p>
+<div class="cats" id="cats"></div>
+<p class="note">Carte indicative : les plats et les prix du jour sont affichés sur place.</p></div>
+<div class="bd3"><div class="easel" id="easel"><div class="panel" id="panel"><div class="sd fr" id="sF"></div><div class="sd bk" id="sB"></div><i class="ed l"></i><i class="ed r"></i></div><i class="leg a"></i><i class="leg b"></i></div></div>
+</div></section>
+
+<section class="sec" id="soirees" aria-labelledby="sT"><div class="wrap mg">
+<div class="col3d" id="col"><div class="colfb"><div class="cyl" id="cyl"></div></div></div>
+<div><span class="kick lbl">Les soirées</span><h2 id="sT">La colonne<br>des soirées</h2>
+<p class="lead">Le Marigny ne s'arrête pas au café : la brasserie accueille des soirées tout au long de l'année.</p>
+<div class="evs" id="evs">
+<div class="ev"><b>DJ</b><div><h3>Soirées DJ</h3><p>Platines et terrasse animée.</p></div></div>
+<div class="ev"><b>♪</b><div><h3>Concerts</h3><p>Des musiciens invités sur la place.</p></div></div>
+<div class="ev"><b>B</b><div><h3>Baletis</h3><p>On danse comme à la fête du village.</p></div></div>
+<div class="ev"><b>A</b><div><h3>Apéros</h3><p>Les bons moments entre amis, en fin de journée.</p></div></div>
+</div>
+<p class="note">Les dates sont annoncées sur <a href="https://www.instagram.com/lemarigny.lepradet/" target="_blank" rel="noopener">Instagram @lemarigny.lepradet</a>.</p></div>
+</div></section>
+
+<section class="sec" id="place" aria-labelledby="pT"><div class="wrap"><span class="kick lbl">La place</span><h2 id="pT">Le Marigny en carte postale</h2>
+<p class="lead">Une carte postale en accordéon qui se déplie quand vous arrivez.</p>
+<div class="acc" id="acc"><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SdjK_usZqpucYB_p-9SlCi5EXVkLIwaUGDAY1DJjOR1oJcTByIIGIK_89t_mWcCLbNw2q2dCHFrLXbyLACooXkLvUQnilyWIdvKA5KyYJ31ZYcr4IIMPiZ-y1Kx5cEKsdIpPCx=w600" alt="La terrasse sur la place" loading="lazy"><figcaption>La terrasse sur la place</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SViDaSN60GvJQvo1M1tzHvU9tRLgXmtGvK4t60Peu310avLrvW7N2TUlr3DONOn2sg_Tavk2StkfthvEQpRHySKGbkcWULOQOXIv4JKAnfdk-B3s948-Jw_gRy5c2ZG5T7bsfJ=w600" alt="Le comptoir" loading="lazy"><figcaption>Le comptoir</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q0_Yh9jhXTU7EOyFIm3vsfnD0ciJoXj_alZ93Gv5-q_u1QbGK-PnlZ0g-8IKwfUe0Y6iGjaDQ4QH_3OITPrxJ7M_rSA7VdrmI5dtqufCj49k2ABXcUMIeInEMUw71-sgnrMFNjsA=w600" alt="Tartare" loading="lazy"><figcaption>Tartare</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TdMerlH7JmD_GzWvpPlSHonwxkUCSZ9YpwKp-uJTlVr-itRqYbpVBu0VfRBhLOUePb8xKgjLdr7inq3TlZvioQK-8u-GnlMPU3yP72UU8ug_v-XQ-hTDmL2X-E7CR2gQtiayYg=w600" alt="La salle" loading="lazy"><figcaption>La salle</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SC_iFdWEP_S6X62XbK_GCgKfbaeyJZtJA3FWNA-z-yGs-enKUuA86SWz-P4z0Ws5klGB7NEmAxftmGNyUAYwK9UES0KjC5i7Qvt130eLzugHrk7U4vqKp1UeCsmzMX5Uhj3zuC=w600" alt="Huîtres" loading="lazy"><figcaption>Huîtres</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TtgK0bxRcFVtevggeOxBydcfh1En0kLCARcVwHDvh5osOGh3wnXFVLvwrt8Ug30F3YVakxAyFp3J4Y10bhJAsLV0JMNYJ33y5GMExU4oCRfRvx_pQcu58jN2QB2bhz9cJpydb5=w600" alt="La fresque" loading="lazy"><figcaption>La fresque</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RABMhWOHLpgh89CmCiWxPrafGWsddIn8Dh9lOuPvj14GIWfUbNo7Q1kS176z2Od4KIBfkqxv6gpJjiQGDQsAEBhNibA5nRFDOE6xNITSeKIG93KbN2vsprj8jrt4v4-m9jrMcg=w600" alt="Crème brûlée" loading="lazy"><figcaption>Crème brûlée</figcaption></figure></div><div class="fold"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TfzB3OfEifMB-W-zzgRKppWgP673roaY7D59mxyeU-OB6wy9yEZE2KzvHNA_ZZcq3UqZ_3hlanPngsyaI5RLz869Z73rhEQO5C7EhTcLczMBSbUSZcDgQdD-cQ11xdwKFP2RKI=w600" alt="Côté banquettes" loading="lazy"><figcaption>Côté banquettes</figcaption></figure></div></div></div></section>
+
+<section class="sec" id="reserver" aria-labelledby="bT"><div class="wrap bg2">
+<div><span class="kick lbl">Réserver</span><h2 id="bT">Choisissez<br>votre heure</h2><p class="lead">Tournez le cadran : l'aiguille file vers l'heure choisie.</p>
+<div class="dial" id="dial"><i class="arm" id="arm"></i><div class="hub"><div><b id="hubT">--:--</b><small id="hubD">Choisissez</small></div></div></div></div>
+<div><form id="bf" novalidate>
+<fieldset><legend class="lbl">Jour</legend><div class="chips" id="days"></div></fieldset>
+<fieldset><legend class="lbl">Couverts</legend><div class="step"><button type="button" id="m1" aria-label="Retirer un couvert">−</button><output id="gn">2</output><button type="button" id="p1" aria-label="Ajouter un couvert">+</button></div></fieldset>
+<p class="sr" id="slotHelp">Les horaires se choisissent sur le cadran.</p>
+<div class="f2"><label class="fl">Nom<input name="nom" autocomplete="name" required></label><label class="fl">Téléphone<input name="tel" type="tel" inputmode="tel" autocomplete="tel" required></label></div>
+<label class="fl">Message (facultatif)<textarea name="msg" placeholder="Terrasse, groupe, anniversaire…"></textarea></label>
+<label class="ok"><input type="checkbox" name="rgpd" required><span>J'accepte que Le Marigny utilise ces informations pour traiter ma demande. <button class="lk" type="button" data-doc-open="confidentialite">Confidentialité</button></span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="cbtn rd" type="submit" style="justify-self:start;padding:0 26px">Demander ma table</button>
+</form>
+<div class="conf" id="conf" tabindex="-1"><h3>C'est noté</h3><p id="cs"></p><p class="note">Démo : rien n'est réellement envoyé. Sur le vrai site, la brasserie reçoit la demande et vous rappelle pour confirmer.</p></div></div>
+</div></section>
+
+<section class="sec" id="infos" aria-labelledby="iT"><div class="wrap ig">
+<div><span class="kick lbl">Infos</span><h2 id="iT">Sur la place<br>du village</h2>
+<p class="live lbl" id="live"><i></i><span id="liveT">…</span></p>
+<ul class="hours" id="hours"></ul>
+<div class="co"><a class="cbtn cr" href="tel:+33494217234"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">04 94 21 72 34</span></a><a class="cbtn gl" href="https://www.instagram.com/lemarigny.lepradet/" target="_blank" rel="noopener">Instagram</a></div></div>
+<div class="mapw" id="mapw" data-q="Le Marigny, 2 Pl. Paul Flamencq, 83220 Le Pradet">
+<div class="ph" aria-hidden="true"></div>
+<div class="consent"><span>Plan Google (cookies)</span><button type="button" data-ck="1">Afficher le plan</button></div>
+<div class="pin" aria-hidden="true"><i><b>M</b></i></div>
+<div class="glass"><p><strong>Le Marigny</strong>2 Pl. Paul Flamencq, 83220 Le Pradet</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Le%20Marigny%2C%202%20Place%20Paul%20Flamencq%2C%2083220%20Le%20Pradet" target="_blank" rel="noopener">Itinéraire</a></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap"><p class="big" aria-hidden="true">LE MARIGNY</p>
+<p>Le Marigny · Bar · Brasserie · Restaurant · 2 Pl. Paul Flamencq, 83220 Le Pradet · <a class="nowrap" href="tel:+33494217234">04 94 21 72 34</a></p>
+<nav class="legal" aria-label="Informations légales"><button type="button" data-doc-open="mentions">Mentions légales</button><button type="button" data-doc-open="confidentialite">Confidentialité</button><button type="button" data-doc-open="cgv">CGV / CGU</button><button type="button" data-doc-open="cookies">Cookies</button><button type="button" data-doc-open="remboursement">Remboursement</button></nav><p class="zb">Démo réalisée par ZAHR · <a href="https://zahr.fr" target="_blank" rel="noopener">zahr.fr</a></p></div></footer>
+
+<div class="lg" id="lg" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="box" tabindex="-1">
+<button class="x" type="button" data-close aria-label="Fermer">×</button>
+<div data-doc="mentions"><h2 id="lgT">Mentions légales</h2>
+<h3>Éditeur du site</h3><p>Le Marigny, 2 Pl. Paul Flamencq, 83220 Le Pradet. Téléphone : <span class="nowrap">04 94 21 72 34</span>. Raison sociale, numéro SIRET, capital et directeur de la publication : à compléter avant la mise en ligne.</p>
+<h3>Hébergement</h3><p>Hébergeur : à préciser lors de la mise en ligne (nom, adresse et téléphone de l'hébergeur).</p>
+<h3>Conception</h3><p>Site conçu par ZAHR (zahr.fr), Var.</p>
+<h3>Propriété intellectuelle</h3><p>Les textes, photos et logos de Le Marigny restent la propriété de leur titulaire. Toute reproduction sans autorisation est interdite.</p></div>
+<div data-doc="confidentialite"><h2>Politique de confidentialité</h2>
+<p>Les informations saisies dans le formulaire (nom, téléphone, e-mail facultatif, détails de la demande) servent uniquement à traiter les demandes de réservation de table. Elles sont destinées à Le Marigny et ne sont ni vendues ni cédées.</p>
+<h3>Base légale et durée</h3><p>Traitement fondé sur votre consentement (case à cocher du formulaire). Les données sont conservées 12 mois au plus après votre dernière demande.</p>
+<h3>Vos droits</h3><p>Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et retirer votre consentement à tout moment, en contactant Le Marigny au <span class="nowrap">04 94 21 72 34</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div>
+<div data-doc="cgv"><h2>Conditions générales (CGU / CGV)</h2>
+<h3>Utilisation du site</h3><p>Ce site présente Le Marigny et permet d'envoyer les demandes de réservation de table. Une demande n'est confirmée qu'après réponse de l'établissement.</p>
+<h3>Prix et disponibilités</h3><p>La carte, les prix et les horaires peuvent évoluer selon la saison et les arrivages : seuls ceux affichés sur place font foi.</p>
+<h3>Responsabilité</h3><p>Le Marigny s'efforce de tenir les informations à jour mais ne peut garantir l'absence d'erreur. En cas de litige, le droit français s'applique ; vous pouvez recourir gratuitement à un médiateur de la consommation.</p></div>
+<div data-doc="cookies"><h2>Cookies</h2>
+<p>Ce site n'utilise aucun cookie publicitaire ni de mesure d'audience. Seul le plan Google Maps peut déposer des cookies de Google : il ne se charge qu'après votre accord.</p>
+<p>Votre choix est mémorisé sur cet appareil. Vous pouvez le modifier à tout moment :</p>
+<p><button class="lk" type="button" data-ckreset>Modifier mon choix de cookies</button></p></div>
+<div data-doc="remboursement"><h2>Annulation et remboursement</h2><p>La réservation d'une table est gratuite et sans prépaiement. Aucun paiement n'est demandé en ligne : il n'y a donc rien à rembourser. Pour annuler ou modifier, appelez le 04 94 21 72 34.</p></div>
+</div></div>
+<div class="ck" id="ck" role="region" aria-label="Cookies"><h2>Cookies</h2>
+<p>Nous n'utilisons qu'un cookie : celui du plan Google Maps, chargé seulement si vous l'acceptez. <button class="lk" type="button" data-doc-open="cookies">En savoir plus</button></p>
+<div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div></div>
+
+<script>
+(function(){
+var KEY='zahr-ck';
+function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+var ck=document.getElementById('ck'),mw=document.getElementById('mapw');
+function loadMap(){if(!mw||mw.classList.contains('live'))return;var f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q='+encodeURIComponent(mw.dataset.q)+'&z=16&output=embed';mw.insertBefore(f,mw.firstChild.nextSibling);mw.classList.add('live')}
+function apply(v){if(v==='1')loadMap()}
+var v=get(); if(v===null){setTimeout(function(){ck&&ck.classList.add('on')},900)} else apply(v);
+document.addEventListener('click',function(e){
+ var b=e.target.closest('[data-ck]'); if(b){set(b.dataset.ck);ck&&ck.classList.remove('on');apply(b.dataset.ck);return}
+ var o=e.target.closest('[data-doc-open]'); if(o){openDoc(o.dataset.docOpen,o);return}
+ if(e.target.closest('[data-close]')||e.target.id==='lg'){closeDoc();return}
+ if(e.target.closest('[data-ckreset]')){try{localStorage.removeItem(KEY)}catch(_){};closeDoc();ck&&ck.classList.add('on');var f=mw&&mw.querySelector('iframe');if(f){f.remove();mw.classList.remove('live')}}
+});
+var lg=document.getElementById('lg'),last=null;
+function openDoc(id,from){last=from;lg.querySelectorAll('[data-doc]').forEach(function(d){d.hidden=d.dataset.doc!==id});lg.classList.add('on');lg.querySelector('.box').focus();document.documentElement.style.overflow='hidden'}
+function closeDoc(){lg.classList.remove('on');document.documentElement.style.overflow='';last&&last.focus()}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lg.classList.contains('on'))closeDoc()});
+})();
+window.RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.loadThree=function(cb){if(window.THREE){cb(window.THREE);return}var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=function(){try{cb(window.THREE)}catch(e){console.warn(e);document.documentElement.classList.add('no3d')}};s.onerror=function(){document.documentElement.classList.add('no3d')};document.head.appendChild(s)};
+window.frDays=function(n){var o=[],d=new Date(),J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];for(var i=0;i<n;i++){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+i);o.push({d:x,dow:x.getDay(),lab:(i===0?"Auj.":i===1?"Demain":J[x.getDay()]),num:x.getDate(),mon:M[x.getMonth()],long:J[x.getDay()]+' '+x.getDate()+' '+M[x.getMonth()]})}return o};
+
+(function(){
+var CH=[["07H", "Le café", ["Le café", "de la place"], "Dès 7 h, premier café, croissant ou formule petit-déjeuner en terrasse, sur la place Paul Flamencq.", "terrasse2", 7, 0], ["12H", "La cuisine", ["Une cuisine", "généreuse"], "Tartare, entrecôte, moules, frites maison : la brasserie du village à l'heure du déjeuner.", "tartare11", 12, 0], ["18H", "L'apéro", ["Apéros &", "bons moments"], "En fin de journée, on se retrouve au comptoir ou en terrasse pour l'apéro.", "interior0", 18, 0], ["SOIR", "Les soirées", ["Baletis, concerts", "& soirées"], "Des soirées DJ, des baletis et des concerts : le programme est annoncé sur Instagram.", "mural30", 20, 30]];
+var chs=[].slice.call(document.querySelectorAll('.ch')),rb=[].slice.call(document.querySelectorAll('.rail button')),hero=document.getElementById('hero'),J=document.getElementById('journee'),cur=0;
+var hh=document.getElementById('hh'),hm=document.getElementById('hm'),ct=document.getElementById('ct'),acc=0;
+function setClock(h,m){var tot=h*60+m;hh.style.setProperty('--r',(tot/720*360)+'deg');hm.style.setProperty('--r',(m/60*360+ Math.floor(tot/60)*360)+'deg');ct.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m}
+function show(i){if(i===cur&&hero.classList.contains('go'))return;cur=i;chs.forEach(function(c,j){c.classList.toggle('on',j===i)});rb.forEach(function(b,j){b.setAttribute('aria-current',j===i)});
+ hero.classList.remove('go');setTimeout(function(){document.getElementById('h1a').textContent=CH[i][2][0];document.getElementById('h1b').textContent=CH[i][2][1];document.getElementById('hb').textContent=CH[i][3];void hero.offsetWidth;hero.classList.add('go')},RM?0:380);setClock(CH[i][5],CH[i][6])}
+setClock(7,0);
+rb.forEach(function(b,i){b.onclick=function(){var top=J.offsetTop+(i+.5)*(J.offsetHeight-innerHeight)/CH.length;scrollTo({top:top,behavior:RM?'auto':'smooth'})}});
+var mast=document.getElementById('mast');
+function onS(){var r=J.getBoundingClientRect(),p=Math.max(0,Math.min(.999,-r.top/(r.height-innerHeight)));var i=Math.floor(p*CH.length);if(i!==cur)show(i);mast.classList.toggle('solid',r.bottom<innerHeight*.9)}
+addEventListener('scroll',onS,{passive:true});onS();
+/* ardoise */
+var CARTE=[['Petit-déj','dès 7 h',['Café, crème, cappuccino','Croissant, pain au chocolat','Formule petit-déjeuner','Jus de fruits pressés'],'Le matin, sur la place'],
+ ['Brasserie','midi',['Tartare','Entrecôte, sauce au choix','Moules','Frites maison et salade'],'Sauces roquefort, poivre, cèpes'],
+ ['Poissons','de la carte',['Tartare de saumon thaï','Bar à la plancha','Steak de thon mi-cuit','Seiches en persillade'],'Selon la saison'],
+ ['Desserts','pour finir',['Café gourmand','Crème brûlée','Île flottante','Mousse au chocolat maison'],'Et menu enfant']];
+var cats=document.getElementById('cats'),panel=document.getElementById('panel'),sF=document.getElementById('sF'),sB=document.getElementById('sB'),face=0,rot=0,ci=-1;
+function html(c){return '<h3>'+c[0]+'</h3><p class="sub">'+c[1]+'</p><ul class="chalkin">'+c[2].map(function(x,j){return '<li style="animation-delay:'+(.5+j*.12)+'s">'+x+'</li>'}).join('')+'</ul><p class="ft">'+c[3]+'</p>'}
+CARTE.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='cbtn gl';b.textContent=c[0];b.onclick=function(){pick(i,true)};cats.appendChild(b)});
+function pick(i,user){if(i===ci)return;if(user)autoC=false;[].forEach.call(cats.children,function(b,j){b.setAttribute('aria-pressed',j===i)});
+ if(ci<0){sF.innerHTML=html(CARTE[i]);ci=i;return}ci=i;face=1-face;(face?sB:sF).innerHTML=html(CARTE[i]);rot+=180;panel.style.transform='rotateY('+rot+'deg)';panel.style.transition=RM?'none':'transform 1.1s cubic-bezier(.6,0,.2,1)';(face?sF:sB).setAttribute('aria-hidden','true');(face?sB:sF).removeAttribute('aria-hidden')}
+var autoC=true;pick(0);setInterval(function(){if(autoC&&!document.hidden){var el=document.getElementById('carte').getBoundingClientRect();if(el.top<innerHeight&&el.bottom>0)pick((ci+1)%4)}},5200);
+var easel=document.getElementById('easel');document.querySelector('.bd3').addEventListener('pointermove',function(e){var r=this.getBoundingClientRect();easel.style.setProperty('--ry',(((e.clientX-r.left)/r.width-.5)*30-6)+'deg')});
+/* events highlight + morris fallback */
+var EV=[['SOIRÉE DJ','#d6312b'],['CONCERT','#efe2cf'],['BALETI','#2b5d8a'],['APÉRO','#e0a12b']],evs=[].slice.call(document.querySelectorAll('.ev'));
+var cyl=document.getElementById('cyl');for(var k=0;k<8;k++){var e=document.createElement('i'),c=EV[k%4];e.textContent=c[0];e.style.background=c[1];e.style.color=c[1]==='#efe2cf'?'#15131b':'#fff';e.style.transform='rotateY('+(k*45)+'deg) translateZ(217px)';cyl.appendChild(e)}
+var evI=0;setInterval(function(){evs.forEach(function(e,j){e.classList.toggle('on',j===evI)});evI=(evI+1)%4},2200);
+(document.fonts?document.fonts.ready:Promise.resolve()).then(function(){loadThree(function(T){
+ var host=document.getElementById('col'),R=new T.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));host.appendChild(R.domElement);
+ var S=new T.Scene(),C=new T.PerspectiveCamera(30,1,.1,100);C.position.set(0,1.2,13);C.lookAt(0,.6,0);
+ S.add(new T.AmbientLight(0xffffff,.55));var D=new T.DirectionalLight(0xfff0dd,1.1);D.position.set(5,6,6);S.add(D);var Pl=new T.PointLight(0xd6312b,1.2,20);Pl.position.set(-4,1,4);S.add(Pl);
+ function poster(t,bg,fg,sub){var c=document.createElement('canvas');c.width=512;c.height=768;var x=c.getContext('2d');x.fillStyle=bg;x.fillRect(0,0,512,768);x.strokeStyle=fg;x.lineWidth=10;x.strokeRect(24,24,464,720);x.fillStyle=fg;x.textAlign='center';x.font='700 30px "Chakra Petch",sans-serif';x.fillText('LE MARIGNY · LE PRADET',256,96);x.font='700 '+(t.length>8?88:110)+'px "Chakra Petch",sans-serif';t.split(' ').forEach(function(w,i,a){x.fillText(w,256,360+(i-(a.length-1)/2)*110)});x.font='600 34px Inter,sans-serif';x.fillText(sub,256,640);return new T.CanvasTexture(c)}
+ var col=new T.Group();S.add(col);var N=8,r=1.7,h=4.2;
+ var body=new T.Mesh(new T.CylinderGeometry(r,r,h,48,1,true),new T.MeshStandardMaterial({color:0x1f3a2c,roughness:.6}));col.add(body);
+ var cap=new T.Mesh(new T.CylinderGeometry(.4,r*1.08,1.1,48),new T.MeshStandardMaterial({color:0x1f3a2c,roughness:.5,metalness:.3}));cap.position.y=h/2+.55;col.add(cap);
+ var dome=new T.Mesh(new T.SphereGeometry(.42,24,12,0,6.283,0,Math.PI/2),new T.MeshStandardMaterial({color:0x1f3a2c,metalness:.4,roughness:.4}));dome.position.y=h/2+1.1;col.add(dome);
+ var ring=new T.Mesh(new T.TorusGeometry(r*1.02,.07,10,64),new T.MeshStandardMaterial({color:0xc9a45c,metalness:.8,roughness:.3}));ring.rotation.x=Math.PI/2;ring.position.y=h/2;col.add(ring);var ring2=ring.clone();ring2.position.y=-h/2;col.add(ring2);
+ var base=new T.Mesh(new T.CylinderGeometry(r*1.12,r*1.2,.5,48),new T.MeshStandardMaterial({color:0x1f3a2c,roughness:.6}));base.position.y=-h/2-.25;col.add(base);
+ var subs=['Platines & terrasse','Musique live','On danse','Entre amis'];
+ for(var i=0;i<N;i++){var e=EV[i%4],a=i/N*Math.PI*2,tex=poster(e[0],e[1],e[1]==='#efe2cf'?'#15131b':'#ffffff',subs[i%4]);var g=new T.CylinderGeometry(r+.02,r+.02,3.2,16,1,true,a-.33,.66);var m=new T.Mesh(g,new T.MeshStandardMaterial({map:tex,roughness:.85,side:T.FrontSide}));m.rotation.y=0;col.add(m)}
+ col.rotation.x=.05;
+ function size(){var w=host.clientWidth,hh=host.clientHeight;R.setSize(w,hh,false);C.aspect=w/hh;C.updateProjectionMatrix()}size();new ResizeObserver(size).observe(host);
+ var vis=false;new IntersectionObserver(function(en){vis=en[0].isIntersecting}).observe(host);
+ var dragV=0,last=null;R.domElement.style.touchAction='pan-y';R.domElement.addEventListener('pointerdown',function(e){last=e.clientX});addEventListener('pointerup',function(){last=null});R.domElement.addEventListener('pointermove',function(e){if(last!=null){dragV+=(e.clientX-last)*.01;last=e.clientX}});
+ (function loop(){requestAnimationFrame(loop);if(!vis)return;var sc=document.getElementById('soirees').getBoundingClientRect().top;col.rotation.y=-sc*.0025+dragV+(RM?0:performance.now()*.00008);R.render(S,C)})();
+ });
+});
+/* accordion */
+var folds=[].slice.call(document.querySelectorAll('.fold')),accEl=document.getElementById('acc');
+function accT(){var r=accEl.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight*.9)));var mob=innerWidth<=700;
+ folds.forEach(function(f,i){var ang=(1-p)*(i%2?-1:1)*(mob?70:78);f.style.transform=mob?'rotateX('+(i===0?0:ang)+'deg)':'rotateY('+(i===0?0:ang)+'deg)';f.style.filter='brightness('+(1-(1-p)*(i%2?.35:.1))+')'});requestAnimationFrame(accT)}
+if(RM)folds.forEach(function(f){f.style.transform='none'});else requestAnimationFrame(accT);
+/* booking dial */
+var DAYS=frDays(14),st={d:0,t:null,n:2},dz=document.getElementById('days'),dial=document.getElementById('dial'),arm=document.getElementById('arm');
+var SLOTS=['12:00','12:30','13:00','13:30','14:00','18:00','18:30','19:00'];
+DAYS.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.innerHTML='<span>'+d.lab+'</span><b>'+d.num+'</b><span>'+d.mon+'</span>';b.setAttribute('aria-label',d.long);b.onclick=function(){st.d=i;st.t=null;rd()};dz.appendChild(b)});
+SLOTS.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.className='slot';b.textContent=t;var a=i/SLOTS.length*360;b.style.setProperty('--a',a+'deg');b.dataset.a=a;b.setAttribute('aria-label','Réserver à '+t.replace(':',' h '));b.onclick=function(){st.t=t;st.a=a;rd()};dial.appendChild(b)});
+var arot=0;
+function rd(){[].forEach.call(dz.children,function(b,i){b.setAttribute('aria-pressed',i===st.d)});var d=DAYS[st.d],sun=d.dow===0,now=new Date();
+ [].forEach.call(dial.querySelectorAll('.slot'),function(b){var t=b.textContent,hh=+t.slice(0,2),mm=+t.slice(3),dis=(sun&&hh>=13)||(st.d===0&&hh*60+mm<=now.getHours()*60+now.getMinutes()+30);b.disabled=dis;if(dis&&st.t===t)st.t=null;b.setAttribute('aria-pressed',st.t===t)});
+ if(st.t){var target=+st.a;var diff=((target-arot)%360+540)%360-180;arot+=diff;arm.style.setProperty('--ha',arot+'deg')}
+ document.getElementById('hubT').textContent=st.t?st.t.replace(':','h'):'--:--';document.getElementById('hubD').textContent=st.t?d.long:(sun?'Dimanche : fermeture 13 h':'Choisissez')}
+rd();
+document.getElementById('m1').onclick=function(){if(st.n>1)document.getElementById('gn').textContent=--st.n};document.getElementById('p1').onclick=function(){if(st.n<20)document.getElementById('gn').textContent=++st.n};
+var f=document.getElementById('bf');f.onsubmit=function(e){e.preventDefault();var m='';if(!st.t)m="Choisissez une heure sur le cadran.";else if(!f.nom.value.trim())m='Indiquez votre nom.';else if(!/^[0-9 +().-]{9,}$/.test(f.tel.value.trim()))m='Indiquez un numéro de téléphone valide.';else if(!f.rgpd.checked)m='Cochez la case de consentement.';document.getElementById('err').textContent=m;if(m)return;
+ f.style.display='none';document.getElementById('cs').textContent=f.nom.value.trim()+', '+st.n+(st.n>1?' couverts':' couvert')+' le '+DAYS[st.d].long+' à '+st.t.replace(':',' h ')+'.';var c=document.getElementById('conf');c.classList.add('on');c.focus()};
+/* hours + live */
+var H=[[7,20],[7,20],[7,20],[7,20],[7,20],[7,20],[7,13]],N=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'],now=new Date(),td=(now.getDay()+6)%7;
+document.getElementById('hours').innerHTML=H.map(function(h,i){return '<li'+(i===td?' class="t"':'')+'><span>'+N[i]+'</span><span>'+h[0]+' h – '+h[1]+' h</span></li>'}).join('');
+var hn=now.getHours()+now.getMinutes()/60,open=hn>=H[td][0]&&hn<H[td][1];document.getElementById('liveT').textContent=open?'Ouvert jusqu\'à '+H[td][1]+' h':'Fermé · ouvre à 7 h';document.getElementById('live').classList.toggle('off',!open);
+})();
+</script>
+</body>
+</html>
