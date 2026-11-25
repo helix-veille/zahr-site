@@ -713,6 +713,10 @@ footer .f-bottom p{color:var(--mute-d);font-size:13.5px}
 .exr-logo{position:absolute;left:22px;top:20px;z-index:3;width:110px}
 .exr-logo svg{width:100%!important;height:auto!important;display:block}
 @media (prefers-reduced-motion:reduce){.exr-pick .flag{animation:none}}
+/* mobile : le pic du burger plante dans le pain, drapeau au-dessus */
+@media (max-width:760px){.exr .vis{container-type:inline-size}.exr-burg{margin-top:16cqw}.exr-pick{top:calc(50% - 45cqw)}}
+/* mobile : visuel de la canette affiché tout de suite, la 3D le remplace si elle se charge */
+@media (max-width:760px){.exe-ph{background:url('exemples/vignettes/vignette-zahr-energy.jpg') center/cover no-repeat}.exe-ph .zcan{display:none}}
 
 .exs-veil{position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 55%,rgba(38,51,44,0) 0%,rgba(38,51,44,.3) 70%,rgba(14,24,19,.55) 100%),linear-gradient(180deg,rgba(255,236,210,.10),rgba(14,24,19,.22))}
 .exs-steam{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -1072,7 +1076,7 @@ main:focus{outline:none}
 <path transform="translate(44 54) scale(.125)" fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/>
 <path transform="translate(73.5 216) rotate(-90) scale(.0185)" fill="#fff" d="M57 0H1214V-195H323C378 -259 431 -324 482 -389L1206 -1309V-1490H85V-1295H941C891 -1236 842 -1177 796 -1118L57 -181Z M1572.72 0H1808.72L1944.72 -387H2545.72L2677.72 0H2918.72L2381.72 -1490H2113.72ZM2011.72 -576 2104.72 -840C2145.72 -963 2188.72 -1094 2248.72 -1287C2307.72 -1094 2349.72 -963 2390.72 -840L2480.72 -576Z M3358.44 0H3580.44V-665H4321.44V0H4543.44V-1490H4321.44V-859H3580.44V-1490H3358.44Z M5102.16 0H5324.16V-564H5654.16C5657.16 -564 5661.16 -564 5664.16 -564L5961.16 0H6211.16L5889.16 -601C6075.16 -668 6188.16 -818 6188.16 -1026C6188.16 -1311 5988.16 -1490 5669.16 -1490H5102.16ZM5324.16 -753V-1298H5659.16C5851.16 -1298 5969.16 -1194 5969.16 -1026C5969.16 -858 5852.16 -753 5660.16 -753Z"/>
 <rect x="10" y="18" width="100" height="230" fill="url(#zis)"/>
-<rect class="zcan-gl" x="-60" y="0" width="46" height="270" fill="url(#zig)" transform="skewX(-12)"/></g></svg></span><iframe class="exe-frame" src="exemples/zahr-energy.html?embed" title="Animation de la canette ZAHR Energy" loading="lazy" tabindex="-1"></iframe></div>
+<rect class="zcan-gl" x="-60" y="0" width="46" height="270" fill="url(#zig)" transform="skewX(-12)"/></g></svg></span><iframe class="exe-frame" data-src="exemples/zahr-energy.html?embed" title="Animation de la canette ZAHR Energy" tabindex="-1"></iframe></div>
         <div class="info">
           <div class="tags"><span>Site internet</span><span>Boisson</span><span>3D</span></div>
           <h3 id="h-exe"><span translate="no">ZAHR Energy</span>, la canette</h3>
@@ -2124,6 +2128,7 @@ if(red){const r=v.getBoundingClientRect();place(r.width/2,r.height*.4)}
 v.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;live=true;v.classList.add('live');const r=v.getBoundingClientRect();place(e.clientX-r.left,e.clientY-r.top)});
 v.addEventListener('pointerleave',()=>{live=false;v.classList.remove('live')});
 v.addEventListener('click',()=>piece(k+1));})();</script>
+<script>(function(){const f=document.querySelector('.exe-frame');if(!f||!f.dataset.src)return;const go=()=>{if(!f.src)f.src=f.dataset.src};if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){go();io.disconnect()}},{rootMargin:'600px 0px'});io.observe(f)}else go()})();</script>
 <script>addEventListener('message',e=>{if(e.data&&e.data.zahr==='energy-ready'){const f=document.querySelector('.exe-frame');if(f&&e.source===f.contentWindow)f.parentNode.classList.add('ready')}});</script>
 </body>
 </html>
