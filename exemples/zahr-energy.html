@@ -155,10 +155,36 @@ footer .lg svg path{fill:var(--k)}
 <script id="zahr-a11y-js">(()=>{const fix=()=>{for(const el of document.querySelectorAll('body *')){if(el.closest('svg,canvas,script,style'))continue;if(![...el.childNodes].some(c=>c.nodeType===3&&c.textContent.trim()))continue;const s=parseFloat(getComputedStyle(el).fontSize);if(s>=8&&s<11)el.style.fontSize='11px'}};if(document.readyState!=='loading')fix();else addEventListener('DOMContentLoaded',fix);addEventListener('load',()=>setTimeout(fix,700))})()</script>
 <script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')</script>
 <style>html.embed,html.embed body{overflow:hidden!important}html.embed body>*:not(#bgc):not(#gl):not(main):not(script){display:none!important}html.embed main>*:not(#s0){display:none!important}html.embed #s0 .gt,html.embed #s0 .gb{display:none!important}</style>
+<style id="zcan-css">.zcan{height:100%;width:auto;overflow:visible;filter:drop-shadow(0 24px 40px rgba(0,0,0,.45));animation:zcanF 4.5s ease-in-out infinite}
+.zcan-lb{transition:fill .8s}
+.zcan-gl{animation:zcanG 3.2s cubic-bezier(.6,0,.4,1) infinite}
+.zcan-sh{transform-origin:60px 262px;animation:zcanS 4.5s ease-in-out infinite}
+@keyframes zcanF{0%,100%{transform:translateY(-6px) rotate(-4deg)}50%{transform:translateY(6px) rotate(3deg)}}
+@keyframes zcanS{0%,100%{transform:scale(.85);opacity:.25}50%{transform:scale(1);opacity:.4}}
+@keyframes zcanG{0%{transform:translateX(0) skewX(-12deg)}70%,100%{transform:translateX(200px) skewX(-12deg)}}
+@media (prefers-reduced-motion:reduce){.zcan,.zcan-gl,.zcan-sh{animation:none}}
+#canph{position:fixed;inset:0;z-index:1;display:grid;place-items:center;pointer-events:none;color:var(--c1);transition:opacity .7s ease,visibility .7s}
+#canph .zcan{height:min(52svh,400px)}
+#canph.off{opacity:0;visibility:hidden}
+#gl{transition:opacity .9s ease}html:not(.gl-ok) #gl{opacity:0}
+</style>
 </head>
 <body>
 <div class="bgc" id="bgc"></div>
 <canvas id="gl" aria-hidden="true"></canvas>
+<div id="canph" aria-hidden="true"><svg class="zcan" viewBox="0 0 120 270" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="zpm" x1="0" x2="1"><stop offset="0" stop-color="#5b5f5d"/><stop offset=".22" stop-color="#eef1ef"/><stop offset=".45" stop-color="#9a9e9c"/><stop offset=".7" stop-color="#f7f9f8"/><stop offset="1" stop-color="#555957"/></linearGradient>
+<linearGradient id="zps" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".18" stop-color="#fff" stop-opacity=".18"/><stop offset=".32" stop-color="#fff" stop-opacity=".02"/><stop offset=".7" stop-color="#000" stop-opacity=".08"/><stop offset=".86" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>
+<linearGradient id="zpg" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="zpc"><path d="M18 18H102L110 34V232L102 248H18L10 232V34Z"/></clipPath></defs>
+<ellipse class="zcan-sh" cx="60" cy="262" rx="46" ry="6" fill="#000" opacity=".35"/>
+<rect x="17" y="6" width="86" height="14" rx="6" fill="url(#zpm)"/>
+<path d="M18 18H102L110 34V232L102 248H18L10 232V34Z" fill="url(#zpm)"/>
+<g clip-path="url(#zpc)"><rect class="zcan-lb" x="10" y="40" width="100" height="186" fill="currentColor"/>
+<path transform="translate(44 54) scale(.125)" fill="#fff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/>
+<path transform="translate(73.5 216) rotate(-90) scale(.0185)" fill="#fff" d="M57 0H1214V-195H323C378 -259 431 -324 482 -389L1206 -1309V-1490H85V-1295H941C891 -1236 842 -1177 796 -1118L57 -181Z M1572.72 0H1808.72L1944.72 -387H2545.72L2677.72 0H2918.72L2381.72 -1490H2113.72ZM2011.72 -576 2104.72 -840C2145.72 -963 2188.72 -1094 2248.72 -1287C2307.72 -1094 2349.72 -963 2390.72 -840L2480.72 -576Z M3358.44 0H3580.44V-665H4321.44V0H4543.44V-1490H4321.44V-859H3580.44V-1490H3358.44Z M5102.16 0H5324.16V-564H5654.16C5657.16 -564 5661.16 -564 5664.16 -564L5961.16 0H6211.16L5889.16 -601C6075.16 -668 6188.16 -818 6188.16 -1026C6188.16 -1311 5988.16 -1490 5669.16 -1490H5102.16ZM5324.16 -753V-1298H5659.16C5851.16 -1298 5969.16 -1194 5969.16 -1026C5969.16 -858 5852.16 -753 5660.16 -753Z"/>
+<rect x="10" y="18" width="100" height="230" fill="url(#zps)"/>
+<rect class="zcan-gl" x="-60" y="0" width="46" height="270" fill="url(#zpg)" transform="skewX(-12)"/></g></svg></div>
 <div class="hud" aria-hidden="true"><i class="a">ZAHR ENERGY · 250 ML</i><i class="b" id="hb">01 / 06</i></div><div class="prog" aria-hidden="true"><b id="pb"></b></div>
 <header class="nav"><a class="lg" href="#top" aria-label="ZAHR Energy, accueil"><svg class="" viewBox="0 0 256 256" role="img" aria-label="ZAHR"><path fill="#ffffff" fill-rule="evenodd" d="M80 22H176A58 58 0 0 1 234 80V176A58 58 0 0 1 176 234H80A58 58 0 0 1 22 176V80A58 58 0 0 1 80 22Z M128.0 120.0L103.73 82.87A29 29 0 1 1 152.27 82.87Z M136.0 128.0L173.13 103.73A29 29 0 1 1 173.13 152.27Z M128.0 136.0L152.27 173.13A29 29 0 1 1 103.73 173.13Z M120.0 128.0L82.87 152.27A29 29 0 1 1 82.87 103.73Z"/></svg>ZAHR ENERGY</a><nav class="nl mo" aria-label="Sections"><a href="#profil">Goût</a><a href="#b1">Recette</a><a href="#gamme">Gamme</a><a href="#fin">Revendeurs</a></nav><button class="btn" type="button" data-book="0">Revendeurs</button></header>
 <main id="top">
@@ -341,5 +367,9 @@ rig.rotation.y=(red?0:t*0.35)+cx*.7;rig.rotation.x=cy*.45+Math.sin(t*.8)*.08;rig
 host.classList.add('on3d');})();
 </script>
 <script>if(document.documentElement.classList.contains('embed')){const go=()=>{let i=0;setInterval(()=>{if(document.hidden||!window.CAROUSEL)return;i=((window.STATE&&window.STATE.i)||0)+1;window.CAROUSEL.goTo(i%6)},2600)};window.CAROUSEL?go():addEventListener('carousel:ready',go,{once:true})}</script>
+<script>(()=>{const ph=document.getElementById('canph');let ok=false;
+const done=()=>{if(ok)return;ok=true;requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.add('gl-ok');ph.classList.add('off');try{if(parent!==window)parent.postMessage({zahr:'energy-ready'},'*')}catch(e){}}))};
+addEventListener('carousel:ready',done,{once:true});
+if(!document.documentElement.classList.contains('embed'))addEventListener('scroll',()=>{if(!ok)ph.classList.toggle('off',scrollY>innerHeight*.5)},{passive:true});})()</script>
 </body>
 </html>
