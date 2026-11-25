@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Abouzaki · Street-food méditerranéenne à Hyères</title>
+<meta name="description" content="Abouzaki, food truck de street-food méditerranéenne halal et fait maison, route de l&#x27;Almanarre à Hyères. Composez votre box et précommandez.">
+<meta name="theme-color" content="#1b2457">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;padding:10px 14px;background:var(--c-fg);color:var(--c-bg);border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--c-acc);outline-offset:3px}
+.nowrap{white-space:nowrap}
+/* cookies */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;max-width:560px;margin:0 auto;background:var(--c-panel);color:var(--c-panel-fg);border:1px solid var(--c-line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.45);transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ck.on{transform:none}
+.ck h2{font-size:16px;margin:0 0 6px;font-family:inherit;letter-spacing:0;text-transform:none}
+.ck p{font-size:13.5px;line-height:1.5;margin:0 0 14px;opacity:.85}
+.ck .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ck button{font:600 14px/1 var(--f-ui);padding:13px 10px;border-radius:12px;cursor:pointer;border:1.5px solid var(--c-panel-fg);min-height:44px}
+.ck .no{background:transparent;color:var(--c-panel-fg)}
+.ck .yes{background:var(--c-panel-fg);color:var(--c-panel)}
+.ck .lk{background:none;border:0;padding:0;min-height:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+/* legal modal */
+.lg{position:fixed;inset:0;z-index:150;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.6);padding:0}
+.lg.on{display:flex}
+.lg .box{background:var(--c-panel);color:var(--c-panel-fg);width:100%;max-width:720px;max-height:86vh;overflow:auto;border-radius:20px 20px 0 0;padding:26px 22px 30px;font:400 14.5px/1.6 var(--f-ui)}
+@media(min-width:760px){.lg{align-items:center}.lg .box{border-radius:20px}}
+.lg h2{font:700 22px/1.2 var(--f-ui);margin:0 0 12px;text-transform:none;letter-spacing:0}
+.lg h3{font:700 15px/1.3 var(--f-ui);margin:18px 0 4px;text-transform:none;letter-spacing:0}
+.lg p{margin:0 0 8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1px solid var(--c-line);background:var(--c-panel);color:var(--c-panel-fg);font-size:22px;cursor:pointer}
+/* map */
+.mapw{position:relative;border-radius:22px;overflow:hidden;min-height:340px;background:var(--c-map-bg);isolation:isolate;border:1px solid var(--c-line)}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapw::before{content:"";position:absolute;inset:0;z-index:2;background:var(--c-map-tint);mix-blend-mode:color;pointer-events:none}
+.mapw::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,0,0,.55) 100%)}
+.mapw .ph{position:absolute;inset:0;z-index:1;background:
+ repeating-linear-gradient(28deg,transparent 0 46px,rgba(255,255,255,.05) 46px 48px),
+ repeating-linear-gradient(-62deg,transparent 0 70px,rgba(255,255,255,.06) 70px 73px),
+ radial-gradient(60% 50% at 30% 70%,var(--c-map-water),transparent 70%),var(--c-map-bg)}
+.mapw .pin{position:absolute;left:50%;top:44%;z-index:4;transform:translate(-50%,-100%);pointer-events:none}
+.mapw .pin i{display:grid;place-items:center;width:58px;height:58px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--c-acc);box-shadow:0 10px 30px rgba(0,0,0,.5);animation:pinb 2.4s ease-in-out infinite}
+.mapw .pin i b{transform:rotate(45deg);font:700 20px/1 var(--f-disp);color:var(--c-acc-fg)}
+.mapw .pin::after{content:"";position:absolute;left:50%;bottom:-10px;width:70px;height:70px;margin-left:-35px;border-radius:50%;border:2px solid var(--c-acc);opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes pinb{50%{transform:rotate(-45deg) translate(3px,-3px)}}
+@keyframes ping{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.mapw .glass{position:absolute;z-index:5;left:14px;right:14px;bottom:14px;padding:16px;border-radius:16px;background:rgba(15,15,18,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16);color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mapw .glass p{margin:0;font:500 14px/1.4 var(--f-ui)}
+.mapw .glass strong{display:block;font-size:15px}
+.mapw .glass a,.mapw .consent button{font:700 14px/1 var(--f-ui);background:var(--c-acc);color:var(--c-acc-fg);padding:12px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+.mapw .consent{position:absolute;z-index:5;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(15,15,18,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 8px 8px 14px;border-radius:999px;color:#fff;font:500 12.5px/1.3 var(--f-ui);width:max-content;max-width:calc(100% - 28px)}
+.mapw.live .consent,.mapw.live .ph{display:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.lk{background:none;border:0;padding:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+.zb{display:inline-block;font:500 11.5px/1.4 var(--f-ui);opacity:.62;margin-top:6px}
+.zb a{color:inherit}
+
+:root{--c-bg:#fbf3e4;--c-fg:#1b2457;--navy:#1b2457;--gold:#d9b45a;--turq:#27b5c3;--c-acc:#1b2457;--c-acc-fg:#fbf3e4;--c-soft:rgba(27,36,87,.72);--c-line:rgba(27,36,87,.16);--c-panel:#1b2457;--c-panel-fg:#fbf3e4;--c-map-bg:#1b2457;--c-map-water:#27306a;--c-map-tint:#d9b45a;--f-disp:"Archivo Black",Impact,sans-serif;--f-ui:"Inter",system-ui,-apple-system,sans-serif;--fl:#e0962f}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 16px/1.6 var(--f-ui);background:var(--c-bg);color:var(--c-fg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.disp{font-family:var(--f-disp);text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto}
+.tag{display:inline-block;font:800 12px/1 var(--f-ui);letter-spacing:.16em;text-transform:uppercase}
+/* nav */
+.nav{position:fixed;z-index:60;top:12px;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 14px;border-radius:18px;background:rgba(27,36,87,.92);color:#fbf3e4;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.logo svg{width:34px;height:34px}
+.logo b{font:400 17px/1 var(--f-disp);letter-spacing:.02em}
+.logo small{display:block;font:700 9px/1.2 var(--f-ui);letter-spacing:.18em;color:var(--gold)}
+.nav ul{list-style:none;display:flex;gap:20px}
+.nav ul a{text-decoration:none;font-weight:700;font-size:14px;opacity:.85}
+.nav .cta{display:flex;gap:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:14px;font:800 14px/1 var(--f-ui);text-decoration:none;white-space:nowrap;border:0;cursor:pointer;transition:transform .2s}
+.btn:active{transform:scale(.97)}
+.btn.g{background:var(--gold);color:var(--navy)}
+.btn.n{background:var(--navy);color:#fbf3e4}
+.btn.o{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.btn.ic{width:46px;padding:0}
+@media(max-width:880px){.nav ul{display:none}.nav .tl{display:none}}
+@media(max-width:520px){.logo small{display:none}.logo b{font-size:15px}.logo svg{width:30px;height:30px}.nav .btn{min-height:44px;padding:0 14px}.nav .btn.ic{width:44px;padding:0}.nav .lg2{display:none}}
+@media(min-width:521px){.nav .sh{display:none}}
+@media(min-width:881px){.nav .ti{display:none}}
+/* travel wrapper */
+#voyage{position:relative}
+.cvw{position:sticky;top:0;height:100svh;margin-bottom:-100svh;z-index:1;pointer-events:none;overflow:hidden}
+.bgc{position:absolute;inset:0;background:var(--fl)}
+.bgc i{position:absolute;inset:0;clip-path:circle(0% at 50% 42%);animation:grow 1s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes grow{to{clip-path:circle(150% at 50% 42%)}}
+.bgc::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 42%,rgba(255,255,255,.22),transparent 70%),radial-gradient(120% 80% at 50% 120%,rgba(0,0,0,.25),transparent 60%)}
+.cvw canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.fb3{position:absolute;left:50%;top:40%;width:min(48vw,340px);aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;display:none;box-shadow:0 30px 60px rgba(0,0,0,.35),0 0 0 10px rgba(255,255,255,.25)}
+.fb3 img{width:100%;height:100%;object-fit:cover}
+.no3d .fb3{display:block}
+.hero{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 30px;color:#fff}
+.hero .row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.hero .k{opacity:.9}
+.hero h1{font-size:clamp(54px,11vw,150px);margin:8px 0 10px;text-shadow:0 6px 30px rgba(0,0,0,.18)}
+.hero .d{max-width:430px;font-size:clamp(15px,1.5vw,18px);font-weight:500}
+.ctr{display:flex;gap:8px;align-items:center;pointer-events:auto}
+.ctr button.ar{width:52px;height:52px;border-radius:50%;border:0;background:#fff;color:var(--navy);font:800 22px/1 var(--f-ui);cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.dots{display:flex;gap:6px;margin-top:16px;pointer-events:auto}
+.dots button{min-height:38px;padding:0 12px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);background:transparent;color:#fff;font:800 12px/1 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.dots button[aria-pressed=true]{background:#fff;color:var(--navy)}
+.hero .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.stars{font-weight:700;font-size:14px;margin-top:10px}
+.stars b{color:var(--gold);letter-spacing:2px}
+.hero *{pointer-events:auto}
+@media(max-width:880px){.hero{padding-bottom:22px}.dots{overflow-x:auto;padding-bottom:4px;max-width:100%}}
+/* inside steps */
+.inside{position:relative;z-index:2}
+.step{min-height:100svh;display:flex;align-items:center}
+.card{margin-left:auto;width:min(440px,100%);background:#fbf3e4;color:var(--navy);border-radius:24px;padding:26px;box-shadow:0 30px 60px rgba(27,36,87,.25)}
+.card .num{font:400 64px/1 var(--f-disp);-webkit-text-stroke:2px var(--navy);color:transparent}
+.card h2{font-size:clamp(30px,4vw,46px);margin:8px 0 10px}
+.card p{color:var(--c-soft)}
+.card img{margin-top:16px;border-radius:16px;aspect-ratio:16/10;object-fit:cover;width:100%}
+@media(max-width:880px){.step{align-items:flex-end;padding-bottom:28px}.card{margin:0 auto;padding:20px}.card .num{font-size:44px}.card img{aspect-ratio:16/8}}
+/* truck */
+.sec{padding:110px 0;position:relative;z-index:2;background:var(--c-bg)}
+.sec h2{font-size:clamp(40px,6.6vw,88px)}
+.lead{color:var(--c-soft);max-width:540px;margin-top:14px;font-size:17px}
+#truck{background:var(--navy);color:#fbf3e4;overflow:hidden}
+#truck .lead{color:rgba(251,243,228,.8)}
+.tg{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+.tg>*,.bg>*,.dk>*,.ig>*{min-width:0}
+.tscene{overflow:hidden}
+.tscene{perspective:1400px;height:460px;display:grid;place-items:center}
+.tk{position:relative;width:420px;height:230px;transform-style:preserve-3d;transform:rotateX(-12deg) rotateY(calc(-28deg + var(--tp,0) * 20deg))}
+.tk .f{position:absolute;background:#fbf3e4;border:3px solid var(--navy)}
+.tk .fr{inset:0;transform:translateZ(80px);background:linear-gradient(#fbf3e4 0 62%,var(--turq) 62% 70%,#fbf3e4 70%)}
+.tk .bk{inset:0;transform:rotateY(180deg) translateZ(80px)}
+.tk .sd{top:0;bottom:0;width:160px;left:130px;background:#f1e6d0}
+.tk .sd.l{transform:rotateY(-90deg) translateZ(210px)}.tk .sd.r{transform:rotateY(90deg) translateZ(210px)}
+.tk .tp{left:0;right:0;height:160px;top:35px;transform:rotateX(90deg) translateZ(35px);background:#e6d8bd}
+.tk .win{position:absolute;left:40px;right:120px;top:40px;height:110px;transform:translateZ(81px);background:#111 center/cover;border:4px solid var(--navy);border-radius:6px;overflow:hidden}
+.tk .win img{width:100%;height:100%;object-fit:cover;opacity:var(--tp,0);transition:opacity .2s}
+.tk .awn{position:absolute;left:30px;right:110px;top:40px;height:110px;transform-origin:top;transform:translateZ(84px) rotateX(calc(var(--tp,0) * -78deg));background:repeating-linear-gradient(90deg,var(--gold) 0 26px,#fbf3e4 26px 52px);border:3px solid var(--navy);border-radius:4px;backface-visibility:visible}
+.tk .sign{position:absolute;left:0;right:0;top:-46px;height:44px;transform:translateZ(80px);background:var(--navy);color:var(--gold);display:grid;place-items:center;font:400 18px/1 var(--f-disp);letter-spacing:.04em;border:3px solid var(--gold)}
+.tk .wh{position:absolute;bottom:-34px;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#ccc 0 22%,#222 24% 100%);transform:translateZ(82px)}
+.tk .wh.a{left:40px}.tk .wh.b{right:40px}
+.tk .cab{position:absolute;right:0;top:20px;width:90px;bottom:0;transform:translateZ(81px);background:linear-gradient(#a9dfe6 0 40%,#fbf3e4 40%);border-left:3px solid var(--navy)}
+.feat{display:grid;gap:12px;margin-top:26px}
+.feat div{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.06)}
+.feat b{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--gold);color:var(--navy);font:400 16px/1 var(--f-disp);flex:none}
+@media(max-width:880px){.tg{grid-template-columns:1fr}.tscene{height:340px;order:-1}.tk{transform:scale(.72) rotateX(-12deg) rotateY(calc(-28deg + var(--tp,0) * 20deg))}}
+/* builder */
+#box{background:#fbf3e4}
+.bg{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.kraft{position:sticky;top:110px;height:400px;perspective:1000px;display:grid;place-items:center}
+.kb{position:relative;width:240px;height:240px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-34deg)}
+.kb .w{position:absolute;background:#c79a68;border:2px solid #9c7343}
+.kb .bot{inset:0;background:#b88a58}
+.kb .w1{left:0;right:0;top:0;height:120px;transform-origin:top;transform:rotateX(-90deg)}
+.kb .w2{left:0;right:0;bottom:0;height:120px;transform-origin:bottom;transform:rotateX(90deg)}
+.kb .w3{top:0;bottom:0;left:0;width:120px;transform-origin:left;transform:rotateY(90deg)}
+.kb .w4{top:0;bottom:0;right:0;width:120px;transform-origin:right;transform:rotateY(-90deg)}
+.kb .lid{left:0;right:0;top:0;height:240px;transform-origin:top;transform:translateZ(120px) rotateX(-130deg);background:#d3a978;border:2px solid #9c7343;display:grid;place-items:center}
+.kb .lid span{transform:rotate(180deg) scaleX(-1);font:400 22px/1 var(--f-disp);color:var(--navy)}
+.lay{position:absolute;left:14px;right:14px;height:44px;border-radius:12px;transform:translateZ(calc(var(--z) * 1px));box-shadow:0 6px 0 rgba(0,0,0,.18);animation:drop .6s cubic-bezier(.3,1.5,.5,1) both;display:grid;place-items:center;font:800 12px/1 var(--f-ui);color:#fff;text-transform:uppercase;letter-spacing:.06em}
+@keyframes drop{from{transform:translateZ(260px);opacity:0}}
+.opt{display:grid;gap:18px}
+fieldset{border:0;min-width:0}
+legend{font:800 12px/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;color:var(--c-soft)}
+.ch{display:flex;flex-wrap:wrap;gap:8px}
+.ch button{min-height:46px;padding:0 16px;border-radius:14px;border:2px solid var(--navy);background:transparent;color:var(--navy);font:800 14px/1 var(--f-ui);cursor:pointer}
+.ch button[aria-pressed=true]{background:var(--navy);color:#fbf3e4}
+.ch button:disabled{opacity:.3;cursor:not-allowed}
+.sc{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.sc button{flex:none;min-height:56px;width:66px;border-radius:14px;border:2px solid var(--navy);background:transparent;color:var(--navy);font:700 12px/1.2 var(--f-ui);cursor:pointer;display:grid;place-content:center;text-align:center}
+.sc button b{font:400 18px/1 var(--f-disp)}
+.sc button[aria-pressed=true]{background:var(--navy);color:#fbf3e4}
+.sc button:disabled{opacity:.3;cursor:not-allowed}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.fl{display:grid;gap:6px;font-size:13.5px;font-weight:600;color:var(--c-soft)}
+input,textarea{font:400 16px/1.4 var(--f-ui);color:var(--navy);background:#fff;border:2px solid var(--c-line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
+.ok{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--c-soft)}
+.ok input{width:22px;height:22px;min-height:0;flex:none;accent-color:var(--navy)}
+.err{color:#b3261e;font-weight:700;min-height:1em;font-size:14px}
+.conf{display:none;padding:26px;border-radius:20px;background:var(--navy);color:#fbf3e4;scroll-margin-top:110px}
+.conf.on{display:block}
+.conf h3{font:400 28px/1 var(--f-disp);text-transform:uppercase;margin-bottom:10px;color:var(--gold)}
+.note{font-size:13.5px;opacity:.8;margin-top:10px}
+@media(max-width:880px){.bg{grid-template-columns:1fr}.kraft{position:relative;top:0;height:300px}.kb{width:180px;height:180px}.kb .w1,.kb .w2{height:90px}.kb .w3,.kb .w4{width:90px}.kb .lid{height:180px;transform:translateZ(90px) rotateX(-130deg)}.f2{grid-template-columns:1fr}}
+/* deck */
+#galerie{background:var(--gold);overflow:hidden}
+.dk{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.deck{position:relative;height:480px;perspective:1200px;touch-action:pan-y}
+.pc{position:absolute;left:50%;top:50%;width:min(300px,70vw);aspect-ratio:3/4;margin-left:calc(min(300px,70vw) / -2);margin-top:calc(min(300px,70vw) * -.6667);border-radius:20px;overflow:hidden;background:#fff;padding:10px 10px 44px;box-shadow:0 20px 40px rgba(27,36,87,.3);transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s;cursor:grab;user-select:none}
+.pc img{width:100%;height:100%;object-fit:cover;border-radius:12px;pointer-events:none}
+.pc span{position:absolute;left:14px;right:14px;bottom:13px;font:800 13px/1.2 var(--f-ui);text-transform:uppercase;letter-spacing:.06em;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dctl{display:flex;gap:10px;margin-top:24px}
+@media(max-width:880px){.dk{grid-template-columns:1fr}.deck{height:440px}}
+/* infos */
+#infos{background:#fbf3e4}
+.ig{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.hours{list-style:none;margin:20px 0}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:2px solid var(--c-line);font-weight:600}
+.hours li span:last-child{white-space:nowrap}
+.hours li.t{color:#c2410c}
+.co{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:880px){.ig{grid-template-columns:1fr}}
+footer{position:relative;z-index:2;background:var(--navy);color:#fbf3e4;padding:56px 0 36px}
+footer .wrap{display:grid;gap:14px}
+footer .big{font:400 clamp(44px,12vw,160px)/.85 var(--f-disp);color:rgba(217,180,90,.25)}
+footer p{opacity:.85;font-size:14px}
+.legal{display:flex;flex-wrap:wrap;gap:4px 18px}
+.legal button{background:none;border:0;color:inherit;opacity:.85;font:600 13.5px/1 var(--f-ui);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="nav"><a class="logo" href="#top" aria-label="Abouzaki, accueil"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#d9b45a"/><path d="M9 15l5 4 6-8 6 8 5-4-2 13H11z" fill="#1b2457"/><text x="20" y="35.5" text-anchor="middle" font-family="Archivo Black,Impact,sans-serif" font-size="7" fill="#1b2457">AB</text></svg><span><b>ABOUZAKI</b><small>STREET-FOOD MÉDITERRANÉENNE</small></span></a>
+<ul><li><a href="#inside">Dedans</a></li><li><a href="#truck">Le camion</a></li><li><a href="#box">Ta box</a></li><li><a href="#infos">Infos</a></li></ul>
+<div class="cta"><a class="btn o ic ti" href="tel:+33786903525" aria-label="Appeler le 07 86 90 35 25"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a><a class="btn o tl" href="tel:+33786903525"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">07 86 90 35 25</span></a><a class="btn g" href="#box"><span class="lg2">Précommander</span><span class="sh">Commander</span></a></div></header>
+<main id="main">
+<div id="voyage">
+<div class="cvw" id="cvw" aria-hidden="true"><div class="bgc" id="bgc"></div><div class="fb3"><img id="fbimg" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q-tniECL940z9Uzr0oRr6cpV2UrgUlHwSrOlYRzGaFH8nBIJJq58JR2WHY2TiJV-i6uhZJOhShuNebPAhWCEORRLCMo2GehDGKFKDXVKMx92JyeRVcPLPOZBhx5fFgEU6UtMeHKg=w700" alt=""></div></div>
+<section class="hero" id="top" aria-label="Les plats"><div class="wrap">
+<span class="tag k">Street-food halal · fait maison · Hyères</span>
+<h1 class="disp" id="dn" aria-live="polite">Chich-taouk</h1>
+<div class="row"><div><p class="d" id="dd"><strong>Le sandwich chich-taouk.</strong> Poulet mariné, à prendre en sandwich ou en box.</p><p class="stars"><b aria-hidden="true">★★★★★</b> 5,0 sur Google · 512 avis</p></div>
+<div class="ctr"><button class="ar" type="button" id="prv" aria-label="Plat précédent">←</button><button class="ar" type="button" id="nxt" aria-label="Plat suivant">→</button></div></div>
+<div class="dots" id="dots"><button type="button" aria-pressed="true">Chich-taouk</button><button type="button" aria-pressed="false">Falafel</button><button type="button" aria-pressed="false">Couscous</button><button type="button" aria-pressed="false">Vigne</button><button type="button" aria-pressed="false">Houmous</button></div>
+<div class="acts"><a class="btn n" href="#box">Composer ma box</a><a class="btn o" href="tel:+33786903525"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">07 86 90 35 25</span></a></div>
+</div></section>
+<section class="inside" id="inside" aria-label="Ce qu'il y a dedans"><div class="wrap">
+<div class="step"><article class="card"><span class="num">01</span><h2 class="disp">Fait maison</h2><p>La bio du camion le dit en deux mots : street-food halal, fait maison.</p><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SUHeI62-j6f1CQfmBLfv22R6-W7stCqXYEnk4IGAjyg-FVIdSGYxRqVpsev-XKAv8Ku3e6NzD_gOSpZ-g15ubkR4OXcJNZs1fdH9cx-E4Ct4om8tbtqZjE1XzMIPm740Q6n7wH5_gG09oL=w800" alt="Fait maison" loading="lazy"></article></div><div class="step"><article class="card"><span class="num">02</span><h2 class="disp">Box ou sandwich</h2><p>Tout se prend en box ou en sandwich, à emporter ou sur les tables du camion.</p><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RIgM9Ihn-MIxP8Pds9ez4uWAXgtTopJrqfr5ngzrLHc1sLA1MRT4YsgrYlmp-AFFG6Zd6UjcDqurdjed_u7uVlCKXB6FVn4-dVOudFW9_xBUTKXUy_y8zjEgLiPAQfhyOeiA7f=w800" alt="Box ou sandwich" loading="lazy"></article></div><div class="step"><article class="card"><span class="num">03</span><h2 class="disp">Des couleurs</h2><p>Grenade, herbes fraîches, pois chiches : des assiettes qui se voient de loin.</p><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R1fL2EpISxI2geDM5nj3AwbA7weF4PBPpERphJreZ2oDd4JmG5vH11n7klOoC7LNDL26Sl0HUAdbwVe_OPYlnuNj5seLOjGnavYhkbvK3vVXUpdTtgNkM64CYu1V_khFSYW_w4CiqIl-y4=w800" alt="Des couleurs" loading="lazy"></article></div><div class="step"><article class="card"><span class="num">04</span><h2 class="disp">Le midi en semaine</h2><p>Du lundi au vendredi, dès midi, route de l'Almanarre à Hyères.</p><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TrgfoJPxa5Q3rvQAjNlhKtKp0M4sAYXn6RDLnsqfl1kNGgDdbarFHQU6s9Gciv5-CA_vgeT30vgdNoqKezyx4fn2e3kMxrkw9PJafs6jMgR2ggCHjbtUYUIG5_dIBvOkVg-HE=w800" alt="Le midi en semaine" loading="lazy"></article></div>
+</div></section>
+</div>
+
+<section class="sec" id="truck" aria-labelledby="tT"><div class="wrap tg">
+<div class="tscene" id="tscene"><div class="tk" id="tk"><div class="f bk"></div><div class="f sd l"></div><div class="f sd r"></div><div class="f tp"></div><div class="f fr"></div><div class="win"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TrgfoJPxa5Q3rvQAjNlhKtKp0M4sAYXn6RDLnsqfl1kNGgDdbarFHQU6s9Gciv5-CA_vgeT30vgdNoqKezyx4fn2e3kMxrkw9PJafs6jMgR2ggCHjbtUYUIG5_dIBvOkVg-HE=w700" alt="Le food truck Abouzaki"></div><div class="awn"></div><div class="sign">ABOUZAKI</div><div class="cab"></div><i class="wh a"></i><i class="wh b"></i></div></div>
+<div><span class="tag" style="color:var(--gold)">Le camion</span><h2 class="disp" id="tT">Le camion<br>s'ouvre</h2>
+<p class="lead">Faites défiler : le store se lève et le comptoir apparaît, comme chaque midi sur la route de l'Almanarre.</p>
+<div class="feat"><div><b>H</b><span>Street-food halal</span></div><div><b>FM</b><span>Fait maison</span></div><div><b>12</b><span>Le midi, du lundi au vendredi</span></div></div></div>
+</div></section>
+
+<section class="sec" id="box" aria-labelledby="xT"><div class="wrap bg">
+<div class="kraft" aria-hidden="true"><div class="kb" id="kb"><div class="w bot"></div><div class="w w1"></div><div class="w w2"></div><div class="w w3"></div><div class="w w4"></div><div id="lays"></div><div class="w lid"><span>ABOUZAKI</span></div></div></div>
+<div><span class="tag">Précommande</span><h2 class="disp" id="xT">Compose<br>ta box</h2><p class="lead">Chaque choix tombe dans la boîte. Vous passez la récupérer au camion, et vous payez sur place.</p>
+<form id="bf" novalidate class="opt" style="margin-top:24px">
+<fieldset><legend>Format</legend><div class="ch" data-k="fmt"><button type="button" aria-pressed="true">Box</button><button type="button" aria-pressed="false">Sandwich</button></div></fieldset>
+<fieldset><legend>Le plat</legend><div class="ch" data-k="plat"><button type="button" aria-pressed="true">Chich-taouk</button><button type="button" aria-pressed="false">Falafel</button><button type="button" aria-pressed="false">Plat du jour</button></div></fieldset>
+<fieldset><legend>En plus (facultatif)</legend><div class="ch" data-k="plus" data-multi="1"><button type="button" aria-pressed="false">Houmous</button><button type="button" aria-pressed="false">Feuilles de vigne</button><button type="button" aria-pressed="false">Salade</button></div></fieldset>
+<fieldset><legend>Jour de retrait</legend><div class="sc" id="days"></div></fieldset>
+<fieldset><legend>Heure de retrait</legend><div class="ch" id="slots"></div></fieldset>
+<div class="f2"><label class="fl">Prénom<input name="nom" autocomplete="given-name" required></label><label class="fl">Téléphone<input name="tel" type="tel" inputmode="tel" autocomplete="tel" required></label></div>
+<label class="ok"><input type="checkbox" name="rgpd" required><span>J'accepte qu'Abouzaki utilise ces informations pour préparer ma commande. <button class="lk" type="button" data-doc-open="confidentialite">Confidentialité</button></span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="btn n" type="submit" style="justify-self:start">Envoyer ma précommande</button>
+</form>
+<div class="conf" id="conf" tabindex="-1"><h3>C'est noté !</h3><p id="cs"></p><p class="note">Démo : rien n'est réellement envoyé. Sur le vrai site, la précommande arrive au camion et vous payez au retrait.</p></div>
+</div></div></section>
+
+<section class="sec" id="galerie" aria-labelledby="gT"><div class="wrap dk">
+<div><span class="tag">Le comptoir</span><h2 class="disp" id="gT">Une box<br>à la fois</h2><p class="lead" style="color:var(--navy)">Glissez la photo du dessus : elle s'envole et la suivante arrive.</p>
+<div class="dctl"><button class="btn n" type="button" id="dprev">Précédente</button><button class="btn n" type="button" id="dnext">Suivante</button></div></div>
+<div class="deck" id="deck"><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TBJNhOQPvxFFyCn_elMnQHWzLA2W27S2cli8K_TGm2h-OevVFetqD8h89rsKv2WSPmIyHZirD1EZBpE-7gWRR2MKNDlyGPwvY8W8G70r4P-GM0T8-SMBe9B_QTkoCbcGSkXX8=w700" alt="Box du jour" loading="lazy"><span>Box du jour</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QjaC1bH6kEA12nMpScmNOS-ADQWPJH7NVBNlU1bu_COZq631hPVmiuqpzfWzwo5RdmrpkTMBgCnbsW7KefLqcYASK2GJfkKBi2v3bjSv7kUytqInpbqU51w7GTBSEslzvRUwXcEUqZcNRU=w700" alt="Feuilles de vigne" loading="lazy"><span>Feuilles de vigne</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QOlHUDtfAUhwewhGwIrKEougtXj6g7obX0SV449sDsccx05c6VPJIpXYAZPVhVrh6l1_FiVDczXS0ClcLr3ciUP-I2W1N9Mxj3zGROKVayjwbTlm9JqcOuJVOeavzAfwwGuGqJDQ=w700" alt="Salade" loading="lazy"><span>Salade</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TJNnDMp3b6nJFIuA18aEvM-R_0nQK-zZ1ud8Dh-1c_BLw-A2crmkcApisIHTtP2WoUtTDNUp_NY__0ToVEqgFtQQJDRxcbIWuTU1uM6oEWn3ggIGeWCHL9E-hSDQQmTd4CVlc=w700" alt="Au sésame" loading="lazy"><span>Au sésame</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QbkN0qD0HIvB3xCZaeaMOugzIoAaWU-2Uz7OJYj6_yyzE2hF1vOEkyusuK2n79gKupCmOLFt02WwAyWHPGrGXd1WzxgQfn4tYUWNCKehOTUeFX3UzEIfhUGQJ0oax7f0n3hJMe8iR1_sx7=w700" alt="Assiette à partager" loading="lazy"><span>Assiette à partager</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R6Bim94iU7317PmzboJ88FhIc26djM5HQbrGiNXc3otiaJ52VRPYTwwROpaJ72SAW1N0TvlMjZofM3VKQ1b8jFgnFyHPWgkO0d2VFLLXzJjtf9eBJaUnOC2P8af91pYjh4JhXLOw=w700" alt="Box" loading="lazy"><span>Box</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Re_DiDlV9UV0mQ2LgG5EqrdW2Tj1xxAz-6lXJBrUSdvj3EwQ4CGAktMV4Gptn6Z_2ypp9mHlVLYI7JDHEQXlap_C-L8LbNaQ9pw_AVxk4Y4Y-smE_P9jlWpRiZdedW2_3Mfu69=w700" alt="Feuilles de vigne" loading="lazy"><span>Feuilles de vigne</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TyoRzNqYXUWbgnQ6qKBv989-EkcL8qpWhnIDrO8-Yan7feu1-08UFJSfKQgqBLzc-rEo8maWOeHXKIifVmIfRzNUZOYahpO1pbxEYr5zaPimM8sPqbvpqwSkp-jXuQ3Gutmv0=w700" alt="Houmous" loading="lazy"><span>Houmous</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QTMaIoJB24cwqP4acloq8G7PzxM6J1Wi4Xnj6zhJNFUOJ5D8rjEQD_Ob2_NNP02qlz81QaVsj3ca66V83oKYv6F09y-aave8qMr55cp0UNWtbBmNtXp4W2oWoX2yNTzedu-gFNqw=w700" alt="Les box du midi" loading="lazy"><span>Les box du midi</span></figure><figure class="pc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TrgfoJPxa5Q3rvQAjNlhKtKp0M4sAYXn6RDLnsqfl1kNGgDdbarFHQU6s9Gciv5-CA_vgeT30vgdNoqKezyx4fn2e3kMxrkw9PJafs6jMgR2ggCHjbtUYUIG5_dIBvOkVg-HE=w700" alt="Le camion" loading="lazy"><span>Le camion</span></figure></div>
+</div></section>
+
+<section class="sec" id="infos" aria-labelledby="iT"><div class="wrap ig">
+<div><span class="tag">Infos</span><h2 class="disp" id="iT">Route de<br>l'Almanarre</h2>
+<ul class="hours" id="hours"></ul>
+<div class="co"><a class="btn n" href="tel:+33786903525"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">07 86 90 35 25</span></a><a class="btn g" href="https://www.instagram.com/abouzaki_food/" target="_blank" rel="noopener">Instagram</a></div></div>
+<div class="mapw" id="mapw" data-q="Abouzaki food, 88 Rte de l&#x27;Almanarre, 83400 Hyères">
+<div class="ph" aria-hidden="true"></div>
+<div class="consent"><span>Plan Google (cookies)</span><button type="button" data-ck="1">Afficher le plan</button></div>
+<div class="pin" aria-hidden="true"><i><b>AB</b></i></div>
+<div class="glass"><p><strong>Abouzaki food</strong>88 Rte de l&#x27;Almanarre, 83400 Hyères</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Abouzaki%20food%2C%2088%20Route%20de%20l%27Almanarre%2C%2083400%20Hy%C3%A8res" target="_blank" rel="noopener">Itinéraire</a></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap"><p class="big" aria-hidden="true">ABOUZAKI</p>
+<p>Abouzaki · Street-food méditerranéenne · 88 Rte de l'Almanarre, 83400 Hyères · <a class="nowrap" href="tel:+33786903525">07 86 90 35 25</a></p>
+<nav class="legal" aria-label="Informations légales"><button type="button" data-doc-open="mentions">Mentions légales</button><button type="button" data-doc-open="confidentialite">Confidentialité</button><button type="button" data-doc-open="cgv">CGV / CGU</button><button type="button" data-doc-open="cookies">Cookies</button><button type="button" data-doc-open="remboursement">Remboursement</button></nav><p class="zb">Démo réalisée par ZAHR · <a href="https://zahr.fr" target="_blank" rel="noopener">zahr.fr</a></p></div></footer>
+
+<div class="lg" id="lg" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="box" tabindex="-1">
+<button class="x" type="button" data-close aria-label="Fermer">×</button>
+<div data-doc="mentions"><h2 id="lgT">Mentions légales</h2>
+<h3>Éditeur du site</h3><p>Abouzaki, 88 Rte de l&#x27;Almanarre, 83400 Hyères. Téléphone : <span class="nowrap">07 86 90 35 25</span>. Raison sociale, numéro SIRET, capital et directeur de la publication : à compléter avant la mise en ligne.</p>
+<h3>Hébergement</h3><p>Hébergeur : à préciser lors de la mise en ligne (nom, adresse et téléphone de l'hébergeur).</p>
+<h3>Conception</h3><p>Site conçu par ZAHR (zahr.fr), Var.</p>
+<h3>Propriété intellectuelle</h3><p>Les textes, photos et logos de Abouzaki restent la propriété de leur titulaire. Toute reproduction sans autorisation est interdite.</p></div>
+<div data-doc="confidentialite"><h2>Politique de confidentialité</h2>
+<p>Les informations saisies dans le formulaire (nom, téléphone, e-mail facultatif, détails de la demande) servent uniquement à traiter les demandes de précommande à emporter. Elles sont destinées à Abouzaki et ne sont ni vendues ni cédées.</p>
+<h3>Base légale et durée</h3><p>Traitement fondé sur votre consentement (case à cocher du formulaire). Les données sont conservées 12 mois au plus après votre dernière demande.</p>
+<h3>Vos droits</h3><p>Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et retirer votre consentement à tout moment, en contactant Abouzaki au <span class="nowrap">07 86 90 35 25</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div>
+<div data-doc="cgv"><h2>Conditions générales (CGU / CGV)</h2>
+<h3>Utilisation du site</h3><p>Ce site présente Abouzaki et permet d'envoyer les demandes de précommande à emporter. Une demande n'est confirmée qu'après réponse de l'établissement.</p>
+<h3>Prix et disponibilités</h3><p>La carte, les prix et les horaires peuvent évoluer selon la saison et les arrivages : seuls ceux affichés sur place font foi.</p>
+<h3>Responsabilité</h3><p>Abouzaki s'efforce de tenir les informations à jour mais ne peut garantir l'absence d'erreur. En cas de litige, le droit français s'applique ; vous pouvez recourir gratuitement à un médiateur de la consommation.</p></div>
+<div data-doc="cookies"><h2>Cookies</h2>
+<p>Ce site n'utilise aucun cookie publicitaire ni de mesure d'audience. Seul le plan Google Maps peut déposer des cookies de Google : il ne se charge qu'après votre accord.</p>
+<p>Votre choix est mémorisé sur cet appareil. Vous pouvez le modifier à tout moment :</p>
+<p><button class="lk" type="button" data-ckreset>Modifier mon choix de cookies</button></p></div>
+<div data-doc="remboursement"><h2>Annulation et remboursement</h2><p>Les commandes à emporter se règlent sur place, au retrait. Aucun paiement n'est demandé en ligne : il n'y a donc rien à rembourser en ligne. En cas d'erreur sur votre commande, signalez-la au comptoir ou par téléphone au 07 86 90 35 25.</p></div>
+</div></div>
+<div class="ck" id="ck" role="region" aria-label="Cookies"><h2>Cookies</h2>
+<p>Nous n'utilisons qu'un cookie : celui du plan Google Maps, chargé seulement si vous l'acceptez. <button class="lk" type="button" data-doc-open="cookies">En savoir plus</button></p>
+<div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div></div>
+
+<script>
+(function(){
+var KEY='zahr-ck';
+function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+var ck=document.getElementById('ck'),mw=document.getElementById('mapw');
+function loadMap(){if(!mw||mw.classList.contains('live'))return;var f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q='+encodeURIComponent(mw.dataset.q)+'&z=16&output=embed';mw.insertBefore(f,mw.firstChild.nextSibling);mw.classList.add('live')}
+function apply(v){if(v==='1')loadMap()}
+var v=get(); if(v===null){setTimeout(function(){ck&&ck.classList.add('on')},900)} else apply(v);
+document.addEventListener('click',function(e){
+ var b=e.target.closest('[data-ck]'); if(b){set(b.dataset.ck);ck&&ck.classList.remove('on');apply(b.dataset.ck);return}
+ var o=e.target.closest('[data-doc-open]'); if(o){openDoc(o.dataset.docOpen,o);return}
+ if(e.target.closest('[data-close]')||e.target.id==='lg'){closeDoc();return}
+ if(e.target.closest('[data-ckreset]')){try{localStorage.removeItem(KEY)}catch(_){};closeDoc();ck&&ck.classList.add('on');var f=mw&&mw.querySelector('iframe');if(f){f.remove();mw.classList.remove('live')}}
+});
+var lg=document.getElementById('lg'),last=null;
+function openDoc(id,from){last=from;lg.querySelectorAll('[data-doc]').forEach(function(d){d.hidden=d.dataset.doc!==id});lg.classList.add('on');lg.querySelector('.box').focus();document.documentElement.style.overflow='hidden'}
+function closeDoc(){lg.classList.remove('on');document.documentElement.style.overflow='';last&&last.focus()}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lg.classList.contains('on'))closeDoc()});
+})();
+window.RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.loadThree=function(cb){if(window.THREE){cb(window.THREE);return}var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=function(){try{cb(window.THREE)}catch(e){console.warn(e);document.documentElement.classList.add('no3d')}};s.onerror=function(){document.documentElement.classList.add('no3d')};document.head.appendChild(s)};
+window.frDays=function(n){var o=[],d=new Date(),J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];for(var i=0;i<n;i++){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+i);o.push({d:x,dow:x.getDay(),lab:(i===0?"Auj.":i===1?"Demain":J[x.getDay()]),num:x.getDate(),mon:M[x.getMonth()],long:J[x.getDay()]+' '+x.getDate()+' '+M[x.getMonth()]})}return o};
+
+(function(){
+var D=[["Chich-taouk", "Le sandwich chich-taouk", "Poulet mariné, à prendre en sandwich ou en box.", "#b5651d", "wrap6", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q-tniECL940z9Uzr0oRr6cpV2UrgUlHwSrOlYRzGaFH8nBIJJq58JR2WHY2TiJV-i6uhZJOhShuNebPAhWCEORRLCMo2GehDGKFKDXVKMx92JyeRVcPLPOZBhx5fFgEU6UtMeHKg=w700"], ["Falafel", "Le Enjoy Falafel", "Falafels, crudités et sauce, en sandwich ou en box.", "#3f6b2a", "bowl21", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T0Ap-QSTeOl5B8wxBioObn9a0d_lZFbsI2WLF4IeH07-aL6hv4G3XZVJFhSpgMluq5vMhN_ns1ONE0XVSTK0bTsljxGfl5FPmLsxX_E1z-q254sL0dCd1u6L_2eHrn5GLJjEKq=w700"], ["Couscous", "Couscous", "Semoule, légumes et pois chiches, servi en box.", "#a8401c", "bowls34", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QTMaIoJB24cwqP4acloq8G7PzxM6J1Wi4Xnj6zhJNFUOJ5D8rjEQD_Ob2_NNP02qlz81QaVsj3ca66V83oKYv6F09y-aave8qMr55cp0UNWtbBmNtXp4W2oWoX2yNTzedu-gFNqw=w700"], ["Vigne", "Feuilles de vigne", "Feuilles de vigne farcies, pour accompagner la box.", "#2f5530", "vigne16", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qv4_6_JAZbT5sZqBOudLitrg-EvLL9nnEKt01Pl_QM-8Zg5HMzciP3U9P3J3nqCzdvljPf0CLYFLD7XWlq6FoG3-7iBPp3CsHpDH1XQ3d76zMmo283N7dgmRQinY1cbEmeKZ0xvA=w700"], ["Houmous", "Houmous", "Pois chiches et tahini, à tremper ou à partager.", "#8a6326", "houmous32", "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TyoRzNqYXUWbgnQ6qKBv989-EkcL8qpWhnIDrO8-Yan7feu1-08UFJSfKQgqBLzc-rEo8maWOeHXKIifVmIfRzNUZOYahpO1pbxEYr5zaPimM8sPqbvpqwSkp-jXuQ3Gutmv0=w700"]];
+var cur=0,bgc=document.getElementById('bgc'),dn=document.getElementById('dn'),dd=document.getElementById('dd'),dots=[].slice.call(document.querySelectorAll('#dots button')),fbimg=document.getElementById('fbimg');
+document.documentElement.style.setProperty('--fl',D[0][3]);
+function sel(i){i=(i+D.length)%D.length;if(i===cur)return;cur=i;var c=document.createElement('i');c.style.background=D[i][3];bgc.appendChild(c);setTimeout(function(){document.documentElement.style.setProperty('--fl',D[i][3]);c.remove()},1000);
+ dn.textContent=D[i][0];dd.innerHTML='<strong>'+D[i][1]+'.</strong> '+D[i][2];dots.forEach(function(b,j){b.setAttribute('aria-pressed',j===i)});fbimg.src=D[i][5];window.__bowl&&window.__bowl(i)}
+dots.forEach(function(b,i){b.onclick=function(){sel(i)}});document.getElementById('prv').onclick=function(){sel(cur-1)};document.getElementById('nxt').onclick=function(){sel(cur+1)};
+var sx=null;document.getElementById('top').addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});document.getElementById('top').addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)sel(cur+(dx<0?1:-1));sx=null});
+/* truck scroll */
+var tk=document.getElementById('tk'),ts=document.getElementById('tscene');
+/* deck */
+var cards=[].slice.call(document.querySelectorAll('.pc')),top=0;
+function lay(){cards.forEach(function(c,i){var k=(i-top+cards.length)%cards.length;c.style.zIndex=cards.length-k;c.style.opacity=k>4?0:1;c.style.transform=k===0?'rotate(-2deg)':'translate3d('+(k*14)+'px,'+(k*-10)+'px,'+(-k*60)+'px) rotate('+(k%2?4:-5)*k*.6+'deg)'})}
+function fly(dir){var c=cards[top];c.style.transform='translate3d('+(dir*120)+'vw,-10vh,200px) rotate('+(dir*40)+'deg)';c.style.opacity=0;top=(top+1)%cards.length;setTimeout(lay,260)}
+function back(){top=(top-1+cards.length)%cards.length;lay()}
+lay();document.getElementById('dnext').onclick=function(){fly(1)};document.getElementById('dprev').onclick=back;
+var deck=document.getElementById('deck'),dx0=null;deck.addEventListener('pointerdown',function(e){dx0=e.clientX});addEventListener('pointerup',function(e){if(dx0==null)return;var dx=e.clientX-dx0;dx0=null;if(Math.abs(dx)>40)fly(dx>0?1:-1)});
+/* builder */
+var st={fmt:'Box',plat:'Chich-taouk',plus:[],d:null,t:null},LC={'Box':'#c79a68','Sandwich':'#e8cf9e','Chich-taouk':'#e0962f','Falafel':'#5f8f35','Plat du jour':'#d2612f','Houmous':'#b98a3e','Feuilles de vigne':'#3f6b3a','Salade':'#7bb661'};
+var lays=document.getElementById('lays');
+function stack(){var items=[st.plat].concat(st.plus);lays.innerHTML=items.map(function(x,i){return '<div class="lay" style="--z:'+(8+i*26)+';top:'+(30+i*8)+'%;background:'+LC[x]+'">'+x+'</div>'}).join('')}
+[].forEach.call(document.querySelectorAll('.ch[data-k]'),function(g){g.onclick=function(e){var b=e.target.closest('button');if(!b)return;var k=g.dataset.k;if(g.dataset.multi){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');st[k]=[].filter.call(g.children,function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.textContent})}else{[].forEach.call(g.children,function(x){x.setAttribute('aria-pressed',x===b)});st[k]=b.textContent}stack()}});
+stack();
+var days=frDays(14).filter(function(d){return d.dow>0&&d.dow<6}).slice(0,8),dz=document.getElementById('days'),sl=document.getElementById('slots');
+days.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.innerHTML='<span>'+d.lab+'</span><b>'+d.num+'</b><span>'+d.mon+'</span>';b.setAttribute('aria-label',d.long);b.onclick=function(){st.d=i;st.t=null;rs()};dz.appendChild(b)});
+function rs(){[].forEach.call(dz.children,function(b,i){b.setAttribute('aria-pressed',st.d===i)});sl.innerHTML='';if(st.d==null){sl.innerHTML='<p class="note">Choisissez d\'abord un jour.</p>';return}var d=days[st.d],end=d.dow===5?17*60+30:14*60+15,now=new Date(),today=d.d.toDateString()===now.toDateString();
+ for(var m=12*60;m<=end;m+=d.dow===5&&m>=14*60?30:15){var t=Math.floor(m/60)+' h '+(m%60<10?'0':'')+m%60,b=document.createElement('button');b.type='button';b.textContent=t;b.disabled=today&&m<=now.getHours()*60+now.getMinutes()+20;b.setAttribute('aria-pressed',st.t===t);(function(t){b.onclick=function(){st.t=t;rs()}})(t);sl.appendChild(b)}}
+rs();
+var f=document.getElementById('bf');f.onsubmit=function(e){e.preventDefault();var m='';if(st.d==null||!st.t)m='Choisissez un jour et une heure de retrait.';else if(!f.nom.value.trim())m='Indiquez votre prénom.';else if(!/^[0-9 +().-]{9,}$/.test(f.tel.value.trim()))m='Indiquez un numéro de téléphone valide.';else if(!f.rgpd.checked)m='Cochez la case de consentement.';document.getElementById('err').textContent=m;if(m)return;
+ document.querySelector('.kb .lid').style.transition='transform .8s';document.querySelector('.kb .lid').style.transform='translateZ(0) rotateX(0)';f.style.display='none';
+ document.getElementById('cs').textContent=f.nom.value.trim()+' : '+st.fmt.toLowerCase()+' '+st.plat.toLowerCase()+(st.plus.length?' + '+st.plus.join(', ').toLowerCase():'')+', à récupérer le '+days[st.d].long+' à '+st.t+'.';var c=document.getElementById('conf');c.classList.add('on');c.focus()};
+/* hours */
+var H=[['Lundi','12 h – 14 h 30'],['Mardi','12 h – 14 h 30'],['Mercredi','12 h – 14 h 30'],['Jeudi','12 h – 14 h 30'],['Vendredi','12 h – 18 h'],['Samedi','Fermé'],['Dimanche','Fermé']],td=(new Date().getDay()+6)%7;
+document.getElementById('hours').innerHTML=H.map(function(h,i){return '<li'+(i===td?' class="t"':'')+'><span>'+h[0]+'</span><span>'+h[1]+'</span></li>'}).join('');
+/* scroll driven */
+var voy=document.getElementById('voyage'),cvw=document.getElementById('cvw');window.__p=0;
+function sc(){var r=voy.getBoundingClientRect(),vh=innerHeight;window.__p=Math.max(0,Math.min(1,-r.top/(r.height-vh)));var tr=ts.getBoundingClientRect(),tp=Math.max(0,Math.min(1,(vh-tr.top)/(vh*.8)));tk.style.setProperty('--tp',tp.toFixed(3))}
+addEventListener('scroll',sc,{passive:true});sc();
+/* 3D */
+loadThree(function(T){
+ var R=new T.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));cvw.appendChild(R.domElement);
+ var S=new T.Scene(),C=new T.PerspectiveCamera(34,1,.1,100);C.position.set(0,1.4,10);C.lookAt(0,.4,0);
+ S.add(new T.HemisphereLight(0xffffff,0x553311,.85));var Dl=new T.DirectionalLight(0xffffff,1);Dl.position.set(3,7,6);S.add(Dl);
+ function foodTex(col,k){var c=document.createElement('canvas');c.width=c.height=512;var x=c.getContext('2d');x.fillStyle=col;x.fillRect(0,0,512,512);
+  var pal=[['#f2d49b','#e7b96a'],['#6aa84f','#3d7a2c'],['#c0392b','#e74c3c'],['#fff7e6','#ffffff'],['#2e5a2a','#4c7f3b']];
+  for(var i=0;i<380;i++){var p=pal[(i+k)%pal.length],a=Math.random()*6.283,r=Math.sqrt(Math.random())*250;x.fillStyle=p[i%2];x.beginPath();x.ellipse(256+Math.cos(a)*r,256+Math.sin(a)*r,6+Math.random()*12,5+Math.random()*9,Math.random()*3,0,6.283);x.fill()}
+  return new T.CanvasTexture(c)}
+ function bowl(i){var g=new T.Group(),kr=new T.MeshStandardMaterial({color:0xc9a27a,roughness:.85,side:T.DoubleSide});var b=new T.Mesh(new T.CylinderGeometry(1,0.72,0.95,48,1,true),kr);g.add(b);var bt=new T.Mesh(new T.CircleGeometry(.72,40),kr);bt.rotation.x=Math.PI/2;bt.position.y=-.475;g.add(bt);
+  var rim=new T.Mesh(new T.TorusGeometry(1,.035,8,48),new T.MeshStandardMaterial({color:0xb48a5f,roughness:.7}));rim.rotation.x=Math.PI/2;rim.position.y=.475;g.add(rim);
+  var band=new T.Mesh(new T.CylinderGeometry(.93,.84,.26,48,1,true),new T.MeshStandardMaterial({color:0x1b2457,roughness:.6}));band.position.y=-.02;g.add(band);
+  var food=new T.Mesh(new T.SphereGeometry(.97,48,18,0,6.283,0,Math.PI/2),new T.MeshStandardMaterial({map:foodTex(D[i][3],i),roughness:.65}));food.scale.y=.38;food.position.y=.42;g.add(food);g.userData.food=food;return g}
+ var B=D.map(function(d,i){var g=bowl(i);S.add(g);return g});
+ var storm=new T.Group();S.add(storm);var sc2=[0xf2d49b,0xc0392b,0x6aa84f,0xfff7e6];for(var i=0;i<90;i++){var m=new T.Mesh(i%3?new T.SphereGeometry(.07+Math.random()*.06,10,8):new T.PlaneGeometry(.22,.12),new T.MeshStandardMaterial({color:sc2[i%4],roughness:.5,side:T.DoubleSide}));var a=Math.random()*6.283,r=1.8+Math.random()*2.2;m.userData={a:a,r:r,y:Math.random()*3-1.5,s:.3+Math.random()*.8};storm.add(m)}
+ var sel3=0;window.__bowl=function(i){sel3=i};
+ function size(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}size();addEventListener('resize',size);
+ var t=0;(function loop(){requestAnimationFrame(loop);var p=window.__p;if(p>=1){return}t+=.016;var mob=innerWidth<880,sp=mob?1.9:2.7,hy=mob?1.35:.75;
+  var sp1=Math.min(1,p/.18),steps=4,ip=Math.max(0,(p-.18)/.82);
+  B.forEach(function(g,i){var k=((i-sel3+D.length+2)%D.length)-2,isS=k===0;var tx=k*sp,tz=-Math.abs(k)*1.6,ty=hy-Math.abs(k)*.25,ts=isS?(mob?1.15:1.35):.78;
+   if(!isS){ts*=1-sp1;}else{tx=tx+(mob?0:-2.6)*sp1;ty=ty+(mob?.9:.1)*sp1;ts=ts*(1-.25*sp1)}
+   g.position.x+=(tx-g.position.x)*.09;g.position.y+=(ty-g.position.y)*.09;g.position.z+=(tz-g.position.z)*.09;var cs=g.scale.x+(Math.max(.001,ts)-g.scale.x)*.09;g.scale.set(cs,cs,cs);g.visible=cs>.01;
+   var flip=isS?Math.floor(ip*steps+.0001)*Math.PI:0;g.userData.fx=(g.userData.fx||0)+((.45+flip)-(g.userData.fx||0))*.08;g.rotation.x=g.userData.fx;g.rotation.y+=RM?0:(isS?.012:.006)});
+  var sb=B[sel3];storm.position.copy(sb.position);var sv=Math.max(0,Math.min(1,(ip-.55)/.25))*(1-Math.max(0,(ip-.92)/.08));storm.children.forEach(function(m){var u=m.userData;u.a+=RM?0:.01*u.s;m.position.set(Math.cos(u.a)*u.r,u.y,Math.sin(u.a)*u.r);m.rotation.x+=.02;m.rotation.y+=.03;m.scale.setScalar(Math.max(.001,sv))});
+  R.render(S,C)})();
+});
+})();
+</script>
+</body>
+</html>
