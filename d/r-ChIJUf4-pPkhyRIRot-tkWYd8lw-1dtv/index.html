@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Le Clapotis · Carqueiranne</title>
+<meta name="description" content="Le Clapotis, restaurant, brasserie et glacier face au port de Carqueiranne : cuisine méditerranéenne, produits frais, moules frites maison, glaces italiennes. Réservation par téléphone au 04 94 58 53 34.">
+<meta name="theme-color" content="#f6f4ee">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Pacifico&display=swap">
+<style>
+/* Langage : écran-titre de livre d'images — papier écume, encre marine, vagues dessinées vivantes, cadres épais arrondis, boutons pilule « jeu ». */
+:root{
+  --paper:#f6f4ee;--white:#fffdf8;--ink:#13306b;--sea:#1f5fa8;--mid:#6aa0d8;--sky:#9cc3e6;--rose:#f2b8a0;--lemon:#f4d35e;
+  --serif:'Fraunces',Gelasio,Georgia,'Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --script:'Pacifico','Yellowtail','Brush Script MT','Segoe Script',cursive;
+  --hh:64px;--sb:var(--paper);color-scheme:light
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:var(--hh)}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:3px dashed var(--ink);outline-offset:3px}
+.dk :focus-visible{outline-color:var(--lemon)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:99;background:var(--lemon);border:3px solid var(--ink);border-radius:99px;padding:.5em 1em;font-weight:700}
+.skip:focus{top:10px}
+.nw{white-space:nowrap}
+.wrap{width:min(1180px,100%);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* boutons pilule « jeu » */
+.btn{--bg:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.55em 1.3em;border:3px solid var(--ink);border-radius:999px;background:var(--bg);color:var(--ink);font:700 1rem/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;box-shadow:0 7px 0 -1px var(--sb),0 7px 0 2px var(--ink);transition:transform .14s,box-shadow .14s;margin-bottom:8px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 9px 0 -1px var(--sb),0 9px 0 2px var(--ink)}
+.btn:active{transform:translateY(5px);box-shadow:0 2px 0 -1px var(--sb),0 2px 0 2px var(--ink)}
+.btn.y{--bg:var(--lemon)}.btn.r{--bg:var(--rose)}.btn.s{--bg:var(--sky)}
+.btn.sm{min-height:44px;padding:.4em 1em;font-size:.95rem}
+.btn.ic{width:44px;padding:0}
+.btn svg{width:1.1em;height:1.1em;flex:none}
+.lnk{background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-weight:500;padding:.3em 0}
+
+/* titres */
+.kick{display:flex;align-items:center;gap:.6em;font:700 .8rem/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--sea)}
+.kick::before{content:"";width:34px;height:10px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 10'%3E%3Cpath d='M2 6q4-5 7.5 0t7.5 0 7.5 0 7.5 0' fill='none' stroke='%231f5fa8' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat}
+.h2{font:900 clamp(2.3rem,9.6vw,5.4rem)/.92 var(--serif);text-transform:uppercase;letter-spacing:-.045em;text-wrap:balance;margin:.25em 0 .3em}
+.lead{max-width:34em;font-size:1.08rem}
+.sec{position:relative;padding-block:clamp(72px,11vw,140px)}
+
+/* en-tête */
+.hd{position:fixed;inset:0 0 auto;z-index:50;height:var(--hh);display:flex;align-items:center;gap:10px;padding:0 max(14px,env(safe-area-inset-right,0px)) 0 max(14px,env(safe-area-inset-left,0px));background:var(--paper);transition:box-shadow .2s}
+.hd.on{box-shadow:0 3px 0 var(--ink)}
+.logo{font:400 1.65rem/1.2 var(--script);color:var(--ink);text-decoration:none;white-space:nowrap;margin-right:auto}
+.nav{display:none;gap:26px;margin-right:18px}
+.nav a{text-decoration:none;font-weight:700;font-size:.95rem}
+.nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.hd .btn{margin-bottom:6px}
+.hd .num{display:none}
+@media(min-width:980px){.nav{display:flex}.hd .num{display:inline}.hd .btn.ic{width:auto;padding:.4em 1em}}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:240vh}
+.hstage{position:sticky;top:0;height:100vh}
+@supports(height:100svh){.hstage{height:100svh}}
+.hframe{position:absolute;inset:calc(var(--hh) + 2px) 14px 14px;border:6px solid var(--ink);border-radius:34px;overflow:hidden;background:var(--paper);isolation:isolate}
+.sky,.t1,.hsea,.leaf,.card2{position:absolute}
+.sky{inset:0;z-index:0}
+.sun{position:absolute;right:8%;top:7%;width:clamp(62px,10vw,124px);aspect-ratio:1;border-radius:50%;background:var(--lemon);border:3.2px solid var(--ink)}
+.sun::after{content:"";position:absolute;inset:18% 18% auto auto;width:22%;height:22%;border-radius:50%;border-top:3px solid var(--ink);transform:rotate(30deg)}
+.cloud{position:absolute;left:0;top:47%;width:clamp(110px,15vw,190px)}
+.cloud.c2{top:54%;width:clamp(80px,9vw,120px)}
+.t1{z-index:1;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(22px,6vh,70px) 14px 0}
+.t1 .kick{color:var(--ink)}
+.t1 h1{font:400 clamp(3rem,13.4vw,9.2rem)/1.22 var(--script);margin:.08em 0 .02em;text-wrap:balance}
+.t1 .sub{font:900 clamp(.98rem,3.7vw,1.6rem)/1.1 var(--serif);text-transform:uppercase;letter-spacing:-.03em}
+.t1 .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:clamp(16px,3.4vh,30px)}
+.hsea{inset:0;z-index:2;width:100%;height:100%;pointer-events:none}
+.wl{fill:none;stroke:var(--ink);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.ws{fill:none;stroke-width:2.6;stroke-linecap:round}
+.leaf{inset:0;z-index:3;width:100%;height:100%;mix-blend-mode:multiply;opacity:.16;pointer-events:none}
+.hint{position:absolute;z-index:5;left:50%;bottom:16px;transform:translateX(-50%);--sb:var(--ink)}
+.hint svg{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(3px)}}
+.card2{z-index:4;left:clamp(12px,6vw,96px);top:50%;width:min(520px,calc(100% - 24px));max-height:calc(100% - 24px);display:flex;flex-direction:column;background:var(--white);border:5px solid var(--ink);border-radius:24px;box-shadow:0 9px 0 var(--ink);visibility:hidden;translate:0 -50%;perspective:700px}
+.awn{position:relative;height:50px;flex:none;border-radius:19px 19px 0 0;transform-origin:50% 0;background:repeating-linear-gradient(90deg,var(--ink) 0 26px,var(--white) 26px 52px);border-bottom:3px solid var(--ink)}
+.awn::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;background:radial-gradient(circle at 13px 0,var(--ink) 0 11px,transparent 11.5px) 0 0/26px 14px repeat-x}
+.c2ph{position:relative;flex:0 1 auto;aspect-ratio:16/9;min-height:80px;max-height:34vh;margin:20px 18px 0;border:4px solid var(--ink);border-radius:16px;overflow:hidden}
+.ph{background-color:var(--sky);background-image:repeating-linear-gradient(90deg,rgba(19,48,107,.16) 0 18px,transparent 18px 36px)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph img.ko{opacity:0}
+.c2tx{padding:14px 20px 18px}
+.c2tx .gl{overflow:hidden;padding-bottom:.06em}
+.c2tx h2{font:900 clamp(1.55rem,6.4vw,2.5rem)/.96 var(--serif);text-transform:uppercase;letter-spacing:-.045em;text-wrap:balance}
+.c2tx p{margin:.55em 0 .9em;font-size:1rem}
+.c2tx .row{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:700px){
+  .hframe{inset:calc(var(--hh) + 0px) 8px 8px;border-width:5px;border-radius:22px}
+  .card2{left:10px;width:calc(100% - 20px)}
+  .sun{top:auto;bottom:49%;right:7%;width:56px}
+  .cloud{top:41%;width:96px}.cloud.c2{display:none}
+  .c2ph{max-height:28vh;margin:16px 14px 0}
+  .c2tx{padding:12px 16px 14px}
+}
+
+/* ===== PIN (sections collantes) ===== */
+.pin{position:relative}
+.pstage{position:sticky;top:0;height:100vh;overflow:hidden;padding-top:var(--hh);display:flex;flex-direction:column}
+@supports(height:100svh){.pstage{height:100svh}}
+.strip{position:absolute;left:0;right:0;bottom:0;width:100%;height:70px;pointer-events:none}
+
+/* ===== LA CARTE : barillet ===== */
+#carte{height:calc(100vh + 6 * 50vh)}
+#carte .pstage{background:var(--paper)}
+.ch{padding-top:clamp(14px,4vh,48px);text-align:center}
+.ch .kick{justify-content:center}
+.ch .h2{margin:.18em 0 .1em}
+.ch p{font-size:.95rem}
+.drumw{position:relative;flex:1 1 auto;min-height:330px;max-height:470px;perspective:1100px;margin-top:10px}
+.drum{position:absolute;left:50%;top:6px;bottom:6px;width:var(--pw,320px);margin-left:calc(var(--pw,320px) / -2);transform-style:preserve-3d}
+.plate{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 18px 16px;border:5px solid var(--ink);border-radius:26px;background:var(--bg,var(--white));backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:inset 0 -8px 0 rgba(19,48,107,.12)}
+.plate .no{position:absolute;top:12px;left:16px;font:700 .8rem/1 var(--sans);letter-spacing:.12em}
+.plate .tag{position:absolute;top:12px;right:16px;font:700 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.hub{position:relative;width:clamp(96px,17vh,128px);aspect-ratio:1;border-radius:50%;border:6px solid var(--ink);box-shadow:0 0 0 5px var(--white),0 0 0 8px var(--ink);overflow:hidden;flex:none;margin:12px 0 14px;background:var(--sky)}
+.hub svg{width:100%;height:100%}
+.hub img{width:100%;height:100%;object-fit:cover}
+.plate h3{font:900 clamp(1.45rem,5.6vw,1.9rem)/.98 var(--serif);text-transform:uppercase;letter-spacing:-.04em;text-wrap:balance}
+.plate ul{list-style:none;margin-top:.7em;display:grid;gap:.25em;font-weight:500}
+.plate li::before{content:"~ ";color:var(--sea);font-weight:700}
+.dctl{display:flex;align-items:center;justify-content:center;gap:14px;padding:8px 16px 84px;position:relative;z-index:2}
+.dlab{min-width:12.5em;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.cnote{text-align:center;font-size:.85rem;margin-top:-.2em}
+
+/* ===== TERRASSE : cartes postales sur la corde ===== */
+#terrasse .pstage{background:var(--sea);color:var(--white);--sb:var(--sea)}
+#terrasse .kick{color:var(--lemon)}
+#terrasse .kick::before{filter:brightness(0) invert(1)}
+.awn2{position:relative;height:58px;flex:none;margin:0 -2px;transform-origin:50% 0;transform:perspective(500px) rotateX(-24deg);background:repeating-linear-gradient(90deg,var(--white) 0 30px,var(--ink) 30px 60px);border-bottom:3px solid var(--ink)}
+.awn2::after{content:"";position:absolute;left:0;right:0;top:100%;height:16px;background:radial-gradient(circle at 15px 0,var(--white) 0 12px,var(--ink) 12.5px 14px,transparent 14.5px) 0 0/30px 16px repeat-x;background-position:inherit}
+.th{padding-top:14px}
+.th .h2{margin:.12em 0 .05em}
+.th p{font-size:.95rem;opacity:.95}
+.line{position:relative;flex:1 1 auto;min-height:360px}
+.track{position:absolute;left:0;top:18px;height:100%;will-change:transform}
+.rope{position:absolute;left:0;top:-8px;overflow:visible}
+.pc{position:absolute;top:0;width:var(--cw,250px);background:none;border:0;cursor:pointer;transform-origin:50% 0;perspective:900px;padding:0;text-align:left;color:var(--ink)}
+.pcin{display:block;position:relative;height:calc(var(--cw,250px) * 1.22);transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.4,.5,1)}
+.pc[aria-pressed="true"] .pcin{transform:rotateY(180deg)}
+.pf,.pb{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--white);border:4px solid var(--ink);border-radius:10px;padding:10px 10px 0;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 8px 0 rgba(19,48,107,.55)}
+.pf .ph{flex:1;border:3px solid var(--ink);border-radius:4px;overflow:hidden}
+.pf b{display:flex;justify-content:space-between;font:700 .74rem/2.6 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.pb{transform:rotateY(180deg);padding:16px;background:var(--paper);background-image:linear-gradient(90deg,transparent calc(58% - 1.5px),var(--ink) calc(58% - 1.5px) calc(58% + 1.5px),transparent calc(58% + 1.5px))}
+.pb .stamp{position:absolute;right:14px;top:14px;width:58px;height:68px;border:3px dashed var(--ink);background:var(--lemon);display:grid;place-items:center;font:400 1.6rem/1 var(--script)}
+.pb .msg{width:54%;margin-top:auto;margin-bottom:auto;font:400 1.02rem/1.45 var(--script);color:var(--ink)}
+.pb .adr{position:absolute;right:14px;bottom:18px;width:34%;font-size:.78rem;line-height:1.9;border-top:2px solid var(--ink)}
+.pin2{position:absolute;left:50%;top:-14px;width:14px;height:34px;margin-left:-7px;border:3px solid var(--ink);border-radius:4px;background:var(--rose);z-index:2}
+.tnav{display:flex;gap:12px;justify-content:center;padding:0 16px 22px}
+
+/* ===== GLACIER ===== */
+.glacier{background:var(--paper)}
+.g2{display:grid;gap:clamp(28px,5vw,64px);align-items:center}
+@media(min-width:900px){.g2{grid-template-columns:1fr 1fr}}
+.stk{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 26px}
+.stk span{display:inline-block;padding:.5em 1em;border:3px solid var(--ink);border-radius:14px;font-weight:700;background:var(--b);box-shadow:0 5px 0 var(--ink);will-change:transform}
+.ice{position:relative;height:clamp(420px,62vh,580px);border:6px solid var(--ink);border-radius:30px;overflow:hidden;background:var(--sky);background-image:radial-gradient(circle at 20% 22%,var(--white) 0 3px,transparent 3.5px),radial-gradient(circle at 70% 12%,var(--white) 0 2px,transparent 2.5px);background-size:120px 90px}
+.ice canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+.ice.gl canvas{display:block}
+.ice.gl .icss{display:none}
+.icss{position:absolute;inset:0}
+.icss .cone{position:absolute;left:50%;bottom:0}
+.icss .sc{position:absolute;left:50%;top:0;border-radius:50%;border:4px solid var(--ink);background:var(--c);will-change:transform}
+.icss .sc::before{content:"";position:absolute;left:14%;top:16%;width:30%;height:22%;border-radius:50%;border-top:4px solid rgba(255,255,255,.85);transform:rotate(-25deg)}
+.ice .strip{height:56px}
+.ice .cap{position:absolute;left:14px;top:12px;z-index:2;font:700 .78rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;background:var(--white);border:3px solid var(--ink);border-radius:99px;padding:.5em .8em}
+
+/* ===== RÉSERVATION ===== */
+.resa{background:var(--sky);border-block:6px solid var(--ink)}
+.r2{display:grid;gap:clamp(20px,4vw,56px);align-items:start;margin-top:26px}
+@media(min-width:960px){.r2{grid-template-columns:.95fr 1.05fr}}
+.tsc{position:relative;height:clamp(300px,44vw,440px);perspective:900px;display:grid;place-items:center}
+.tbl{--R:104px;position:relative;width:calc(var(--R) * 2);height:calc(var(--R) * 2);transform-style:preserve-3d;transform:rotateX(58deg)}
+@media(min-width:700px){.tbl{--R:140px}}
+.cloth{position:absolute;inset:0;border-radius:50%;background:var(--white);border:5px solid var(--ink);box-shadow:0 0 0 10px var(--sky),0 0 0 14px var(--ink)}
+.cloth::after{content:"";position:absolute;inset:16%;border-radius:50%;border:3px dashed rgba(19,48,107,.35)}
+.lem{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px;border-radius:50%;border:4px solid var(--ink);background:conic-gradient(from 0deg,var(--lemon) 0 13%,var(--white) 13% 14.5%,var(--lemon) 14.5% 26.5%,var(--white) 26.5% 28%,var(--lemon) 28% 40%,var(--white) 40% 41.5%,var(--lemon) 41.5% 53.5%,var(--white) 53.5% 55%,var(--lemon) 55% 67%,var(--white) 67% 68.5%,var(--lemon) 68.5% 80.5%,var(--white) 80.5% 82%,var(--lemon) 82% 100%)}
+.tent{position:absolute;left:50%;top:50%;width:84px;height:34px;margin:-17px -42px;transform:translateZ(30px) rotateX(-70deg) scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1);background:var(--rose);border:3px solid var(--ink);border-radius:6px;font:700 .7rem/28px var(--sans);text-align:center;letter-spacing:.1em;text-transform:uppercase}
+.tbl.res .tent{transform:translateZ(30px) rotateX(-70deg) scale(1)}
+.seat{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:rotate(var(--a,0deg));transition:transform .6s cubic-bezier(.3,1.3,.5,1)}
+.seat i{position:absolute;display:block;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.chair{width:46px;height:30px;left:-23px;top:calc(var(--R) * -1 - 46px);background:repeating-linear-gradient(90deg,var(--ink) 0 6px,var(--white) 6px 12px);border:3px solid var(--ink);border-radius:5px;transform:scale(0)}
+.chair b{position:absolute;left:-3px;right:-3px;top:-3px;height:26px;transform-origin:50% 0;transform:rotateX(90deg);background:repeating-linear-gradient(90deg,var(--ink) 0 6px,var(--white) 6px 12px);border:3px solid var(--ink);border-radius:4px}
+.dish{width:40px;height:40px;left:-20px;top:calc(var(--R) * -.86);border-radius:50%;background:var(--white);border:3px solid var(--ink);box-shadow:inset 0 0 0 6px var(--white),inset 0 0 0 8px var(--sky);transform:scale(0)}
+.dish::before,.dish::after{content:"";position:absolute;top:4px;width:3px;height:26px;background:var(--ink);border-radius:2px}
+.dish::before{left:-9px}.dish::after{right:-9px}
+.glass{width:16px;height:16px;left:18px;top:calc(var(--R) * -.62);border-radius:50%;background:var(--rose);border:3px solid var(--ink);transform:scale(0)}
+.seat.on .chair,.seat.on .dish,.seat.on .glass{transform:scale(1)}
+.seat.on .dish{transition-delay:.08s}.seat.on .glass{transition-delay:.16s}
+.step{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:8px}
+.step output{min-width:7.5em;text-align:center;font:900 1.35rem/1 var(--serif);letter-spacing:-.03em;text-transform:uppercase}
+.big{margin:16px auto 0;max-width:30em;text-align:center;background:var(--white);border:3px solid var(--ink);border-radius:18px;padding:12px 14px}
+.big p{margin-bottom:10px;font-weight:500}
+
+.ticket{position:relative;background:var(--white);border:5px solid var(--ink);border-radius:22px;box-shadow:0 10px 0 var(--ink);--sb:var(--white)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:92px;width:30px;height:30px;border-radius:50%;background:var(--sky);border:5px solid var(--ink)}
+.ticket::before{left:-18px;clip-path:inset(0 0 0 50%)}.ticket::after{right:-18px;clip-path:inset(0 50% 0 0)}
+.tkh{height:107px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 22px;border-bottom:4px dashed var(--ink)}
+.tkh .logo{font-size:1.5rem;margin:0}
+.tkh small{display:block;font:700 .72rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:right}
+.tkb{padding:20px 22px 24px;display:grid;gap:16px}
+.f2{display:grid;gap:16px}
+@media(min-width:560px){.f2{grid-template-columns:1fr 1fr}}
+.fl{display:grid;gap:4px;min-width:0}
+.fl>span,.fl legend{font:700 .78rem/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.fl input,.fl select{width:100%;min-height:46px;border:0;border-bottom:3px solid var(--ink);background:transparent;padding:.4em .1em;font-size:1.05rem;border-radius:0}
+.fl input:focus-visible,.fl select:focus-visible{outline:none;background:rgba(156,195,230,.35)}
+fieldset.fl{border:0}
+.chips{display:flex;gap:10px;margin-top:6px}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1em;border:3px solid var(--ink);border-radius:99px;font-weight:700;cursor:pointer}
+.chip input:checked+span{background:var(--ink);color:var(--white)}
+.chip input:focus-visible+span{outline:3px dashed var(--ink);outline-offset:3px}
+.err{color:#a3241b;font-size:.86rem;font-weight:700;min-height:0}
+[aria-invalid="true"]{border-bottom-color:#a3241b!important}
+.cons{display:flex;gap:12px;align-items:flex-start;font-size:.92rem}
+.cons input{flex:none;width:24px;height:24px;margin-top:2px;accent-color:var(--ink)}
+.note{font-size:.85rem}
+.ok{padding:26px 22px 28px;text-align:center;position:relative}
+.ok h3{font:900 clamp(1.6rem,6vw,2.3rem)/1 var(--serif);text-transform:uppercase;letter-spacing:-.04em;margin:12px 0 8px}
+.ok p{margin:0 auto 12px;max-width:30em}
+.ok .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.stampok{display:inline-grid;place-items:center;width:128px;height:128px;border-radius:50%;border:5px double var(--sea);color:var(--sea);font:400 1.15rem/1.1 var(--script);transform:rotate(-12deg);animation:stamp .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes stamp{from{transform:rotate(-12deg) scale(2.2);opacity:0}}
+
+/* ===== INFOS ===== */
+.infos{background:var(--paper)}
+.i2{display:grid;gap:28px;margin-top:24px}
+@media(min-width:960px){.i2{grid-template-columns:1.1fr .9fr}}
+.box{border:5px solid var(--ink);border-radius:26px;background:var(--white);padding:20px clamp(16px,3vw,28px) 22px;min-width:0}
+.box h3{font:900 1.5rem/1 var(--serif);text-transform:uppercase;letter-spacing:-.04em}
+.hrs{font:900 clamp(1.7rem,6.4vw,2.6rem)/1 var(--serif);letter-spacing:-.04em;margin:.35em 0 .1em;font-variant-numeric:tabular-nums}
+.tide{display:block;width:100%;height:190px;margin:12px 0 8px}
+.tide text{font:700 12px var(--sans);fill:var(--ink)}
+.live{display:inline-flex;align-items:center;gap:.5em;font-weight:700;border:3px solid var(--ink);border-radius:99px;padding:.35em .9em;background:var(--lemon)}
+.live.cl{background:var(--rose)}
+.flags{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px;margin-top:16px}
+@media(min-width:620px){.flags{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.flag{position:relative;padding-left:12px;min-height:84px}
+.flag::before{content:"";position:absolute;left:0;top:-6px;bottom:-4px;width:6px;border-radius:3px;background:var(--ink)}
+.flag::after{content:"";position:absolute;left:-3px;top:-14px;width:12px;height:12px;border-radius:50%;background:var(--lemon);border:3px solid var(--ink)}
+.cl2{display:block;transform-origin:0 50%;padding:.55em .8em;border:3px solid var(--ink);border-left:0;border-radius:0 12px 12px 0;background:var(--b,var(--white));font-weight:700;line-height:1.2;will-change:transform}
+.cl2 small{display:block;font-weight:500;font-size:.78rem;margin-top:.25em}
+.map{position:relative;height:clamp(380px,56vh,520px);border:5px solid var(--ink);border-radius:26px;overflow:hidden;background:var(--sky);isolation:isolate}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.map::before{content:"";position:absolute;inset:0;z-index:1;background:var(--sea);mix-blend-mode:color;pointer-events:none}
+.map::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 45%,transparent 40%,rgba(19,48,107,.55) 100%);pointer-events:none}
+.mapbg{position:absolute;inset:0;width:100%;height:100%}
+.mpin{position:absolute;left:50%;top:42%;z-index:2;width:64px;height:64px;margin:-32px;display:grid;place-items:center;border-radius:50% 50% 50% 8px;transform:rotate(-45deg);background:var(--ink);border:4px solid var(--white)}
+.mpin span{transform:rotate(45deg);font:400 1.9rem/1 var(--script);color:var(--lemon);margin-top:-4px}
+.mpin::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:3px solid var(--white);animation:pulse 2s ease-out infinite;opacity:0}
+@keyframes pulse{from{transform:scale(.6);opacity:.9}to{transform:scale(1.7);opacity:0}}
+.glass2{position:absolute;z-index:3;left:12px;right:12px;bottom:12px;padding:14px 16px;border:3px solid var(--ink);border-radius:18px;background:rgba(255,253,248,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);--sb:var(--white)}
+.glass2 b{display:block;font:400 1.3rem/1.3 var(--script)}
+.glass2 p{font-size:.95rem;margin-bottom:10px}
+.glass2 .row{display:flex;gap:10px;flex-wrap:wrap}
+.contact{display:grid;gap:6px;margin-top:14px;font-weight:500}
+.contact a{font-weight:700}
+
+/* ===== PIED ===== */
+.ft{position:relative;background:var(--ink);color:var(--white);padding:110px 0 30px;--sb:var(--ink)}
+.ft .strip{top:-2px;bottom:auto;height:80px}
+.ft .logo{color:var(--white);font-size:2.2rem}
+.f3{display:grid;gap:26px}
+@media(min-width:860px){.f3{grid-template-columns:1.2fr 1fr 1fr}}
+.ft h4{font:700 .78rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lemon);margin-bottom:10px}
+.ft ul{list-style:none;display:grid;gap:4px}
+.ft .lnk{color:var(--white)}
+.legal{margin-top:34px;padding-top:18px;border-top:2px solid rgba(255,255,255,.3);font-size:.82rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+/* ===== cookies / dialogues ===== */
+.ck{position:fixed;z-index:80;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:460px;margin-left:auto;background:var(--white);border:4px solid var(--ink);border-radius:22px;padding:16px 18px 10px;box-shadow:0 8px 0 var(--ink);--sb:var(--white)}
+.ck-t{font:900 1.15rem/1.1 var(--serif);text-transform:uppercase;letter-spacing:-.03em;margin-bottom:6px}
+.ck p{font-size:.9rem}
+.ckb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.ckb .btn{width:100%}
+dialog{margin:auto;width:min(560px,calc(100vw - 28px));max-height:calc(100vh - 40px);border:5px solid var(--ink);border-radius:22px;background:var(--white);color:var(--ink);padding:24px 22px 22px;--sb:var(--white)}
+dialog::backdrop{background:rgba(19,48,107,.6)}
+dialog h2{font:900 1.6rem/1 var(--serif);text-transform:uppercase;letter-spacing:-.04em;margin:0 44px 14px 0}
+dialog p,dialog li{font-size:.95rem;margin-bottom:.6em}
+dialog ul{padding-left:1.1em}
+.dx{position:absolute;top:12px;right:12px}
+.tbd{background:var(--lemon);padding:0 .25em;border-radius:4px;font-weight:700}
+
+/* curseur rond (souris uniquement) */
+.cur{position:fixed;left:0;top:0;z-index:90;width:34px;height:34px;margin:-17px;border:3px solid var(--ink);border-radius:50%;pointer-events:none;transition:width .2s,height .2s,margin .2s,background .2s}
+.cur.dn{width:54px;height:54px;margin:-27px;background:rgba(244,211,94,.45)}
+.cur.hv{width:50px;height:50px;margin:-25px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#carte">Aller au contenu</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="pointu" stroke="#13306b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-4 -26 L-4 -120" fill="none"/>
+      <path d="M62 -150 L-66 -42 L38 -34 Z" fill="#f2b8a0"/>
+      <path d="M70 -158 L-76 -32" fill="none" stroke-width="4.4"/>
+      <path d="M-104 -52 C-92 -18 -50 2 0 2 C50 2 92 -18 106 -56 C90 -40 50 -30 0 -30 C-50 -30 -88 -38 -104 -52 Z" fill="#fffdf8"/>
+      <path d="M-94 -38 C-66 -20 -40 -16 0 -16 C44 -16 76 -20 98 -40" fill="none" stroke="#1f5fa8" stroke-width="6"/>
+      <path d="M106 -56 L112 -72 M-104 -52 L-109 -66" fill="none"/>
+    </g>
+    <g id="cloudg"><path d="M22 62 C0 62 0 34 24 34 C26 14 54 8 66 24 C76 6 110 8 114 30 C138 26 148 60 124 62 Z" fill="#fffdf8" stroke="#13306b" stroke-width="3.2" stroke-linejoin="round"/></g>
+  </defs>
+</svg>
+
+<header class="hd" id="hd">
+  <a class="logo" href="#top" aria-label="Le Clapotis, retour en haut">Le Clapotis</a>
+  <nav class="nav" aria-label="Sections"><a href="#carte">La carte</a><a href="#terrasse">Terrasse</a><a href="#glacier">Glacier</a><a href="#infos">Infos</a></nav>
+  <a class="btn sm ic" href="tel:+33494585334" aria-label="Appeler le 04 94 58 53 34"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span class="num nw">04 94 58 53 34</span></a>
+  <a class="btn sm y" href="#reserver">Réserver</a>
+</header>
+
+<main id="top">
+<!-- ===== HERO : plan-séquence ===== -->
+<section class="hero" id="hero" aria-label="Accueil">
+  <div class="hstage">
+    <div class="hframe" id="hframe">
+      <div class="sky" aria-hidden="true">
+        <div class="sun"></div>
+        <svg class="cloud" id="cl1" viewBox="0 0 150 70"><use href="#cloudg"/></svg>
+        <svg class="cloud c2" id="cl2" viewBox="0 0 150 70"><use href="#cloudg"/></svg>
+      </div>
+      <div class="t1" id="t1">
+        <p class="kick">Restaurant · Brasserie · Glacier</p>
+        <h1>Le Clapotis</h1>
+        <p class="sub">Face au port de Carqueiranne</p>
+        <div class="row">
+          <a class="btn y" href="#reserver">Réserver une table</a>
+          <a class="btn" href="tel:+33494585334"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span class="nw">04 94 58 53 34</span></a>
+        </div>
+      </div>
+      <svg class="hsea" id="hsea" aria-hidden="true"><g id="boat"><use href="#pointu"/></g></svg>
+      <canvas class="leaf" id="leaf" width="64" height="36" aria-hidden="true"></canvas>
+      <div class="card2" id="card2">
+        <div class="awn" id="awn" aria-hidden="true"></div>
+        <div class="c2ph ph" id="c2ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TI9GRfgJ6nFHrkTAecaQ2SDoSDjoud5r_XXyvAohm6H6DpXI8MAapUHX8_nIl9R2_pZIubPFKVwKXShmK0VgiApyujcFUCoXoD8yK_KS0Ly9SaXW4Gcf7a_VWewotulDrp7qSpUqhl2ean=w1600" alt="La terrasse du Clapotis : chaises de metteur en scène à rayures bleu marine et blanc, tables aux nappes bleu ciel" onerror="this.classList.add('ko')"></div>
+        <div class="c2tx">
+          <p class="kick" id="c2k">La terrasse</p>
+          <div class="gl"><h2 id="c2h">Une table, la vue sur les bateaux</h2></div>
+          <p id="c2p">Chaises rayées bleu marine, nappes bleu ciel, pergola blanche, et le port juste en face.</p>
+          <div class="row" id="c2b"><a class="btn y sm" href="#carte">Voir la carte</a><a class="btn sm" href="#reserver">Réserver</a></div>
+        </div>
+      </div>
+      <button class="btn y sm hint" id="hint" type="button">Embarquer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M5 12l7 7 7-7"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LA CARTE : barillet ===== -->
+<section class="pin" id="carte" aria-labelledby="carte-t">
+  <div class="pstage">
+    <div class="ch wrap">
+      <p class="kick">La carte</p>
+      <h2 class="h2" id="carte-t">Cuisine du port</h2>
+      <p>Méditerranéenne, produits frais. Faites défiler, le barillet tourne.</p>
+    </div>
+    <div class="drumw"><div class="drum" id="drum">
+      <article class="plate" style="--bg:var(--white)"><span class="no">01</span><span class="tag">Maison</span>
+        <div class="hub" style="background:var(--sky)"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="#13306b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 92 C14 62 34 26 70 22 C66 52 58 78 30 92 Z" fill="#13306b"/><path d="M36 82 C44 62 54 44 66 30" fill="none" stroke="#9cc3e6"/><path d="M56 98 C52 70 70 40 98 34 C100 62 88 86 56 98 Z" fill="#1f5fa8"/><path d="M62 90 C70 70 80 54 94 42" fill="none" stroke="#9cc3e6"/><path d="M24 104 l10 -16 l6 18 l8 -14 l4 14" fill="none" stroke="#f4d35e" stroke-width="5"/></g></svg></div>
+        <h3>Moules frites</h3><ul><li>Moules frites maison</li><li>Moules au roquefort</li></ul></article>
+      <article class="plate" style="--bg:var(--sky)"><span class="no">02</span><span class="tag">La mer</span>
+        <div class="hub ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TtpPYioFpV4-NlKHVdlvVlJxwLja9LsH9qFwUSYHCLIwNHy6ZUg7nfz2KmW1JFwVv-cFY8peRd25eG_6T62fjX0wzz73t2kSlFrCmjchtarZw4KiIgN0Su2XI0A1PoWE1y_8g=w900" alt="Assiette de poisson servie au Clapotis, à côté de la carte au logo" loading="lazy" onerror="this.classList.add('ko')"></div>
+        <h3>Poissons &amp; poulpe</h3><ul><li>Poissons</li><li>Assiette de poulpe</li><li>Burrata</li></ul></article>
+      <article class="plate" style="--bg:var(--rose)"><span class="no">03</span><span class="tag">À la cuillère</span>
+        <div class="hub ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RfK5_NSlj_5tSUL0O13GPiR-lsk2YMes61bBYCTDKG7px90jI0HLVlRpmckVs-YVPQoCA2kwpzHJZga4Ob9mxofLidlYXChTXmxs6Ksg0qOWUTyihFYsvAstkxq_9HgqFJog9z9gEnuoWW=w900" alt="Plat servi au Clapotis, présenté à la cuillère" loading="lazy" onerror="this.classList.add('ko')"></div>
+        <h3>Pâtes &amp; paella</h3><ul><li>Linguine au homard</li><li>Paella</li></ul></article>
+      <article class="plate" style="--bg:var(--lemon)"><span class="no">04</span><span class="tag">Au four</span>
+        <div class="hub" style="background:var(--white)"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="#13306b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M22 34 Q60 14 98 34 L60 104 Z" fill="#f4d35e"/><path d="M22 34 Q60 14 98 34 L94 42 Q60 24 26 42 Z" fill="#e8b86d"/><circle cx="52" cy="52" r="7" fill="#f2b8a0"/><circle cx="72" cy="50" r="6" fill="#f2b8a0"/><circle cx="62" cy="74" r="6" fill="#f2b8a0"/><path d="M44 64 l5 4 M74 64 l4 -3" fill="none" stroke="#1f5fa8" stroke-width="4"/></g></svg></div>
+        <h3>Pizzas</h3><ul><li>Des pizzas, face au port</li></ul></article>
+      <article class="plate" style="--bg:var(--white)"><span class="no">05</span><span class="tag">Glacier</span>
+        <div class="hub" style="background:var(--rose)"><svg viewBox="0 0 120 120" aria-hidden="true"><g stroke="#13306b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M40 62 L60 110 L80 62 Z" fill="#e8b86d"/><path d="M46 72 L72 66 M50 84 L68 80 M44 64 L66 96 M76 66 L56 98" fill="none" stroke-width="2.4"/><circle cx="60" cy="48" r="20" fill="#f4d35e"/><circle cx="46" cy="58" r="13" fill="#9cc3e6"/><circle cx="74" cy="58" r="13" fill="#fffdf8"/></g></svg></div>
+        <h3>Glaces &amp; douceurs</h3><ul><li>Glaces italiennes</li><li>Affogato</li><li>Café gourmand</li></ul></article>
+      <article class="plate" style="--bg:var(--sky)"><span class="no">06</span><span class="tag">Le verre</span>
+        <div class="hub ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QQ93NI3daK3wNefUZ8mTi1quXqCwQF9Wx59ksnXoukI01RFcO7dODf2G4qDBv6rWKRVxG54VwBuX28XbIiyqL7kL4hoSgBHDjM9GJ5D5Oncu7sLonZmPMaWUgnN4JigY7w4TbW9dpzcU3a=w900" alt="Un verre et une bouteille de rosé sur une table du Clapotis" loading="lazy" onerror="this.classList.add('ko')"></div>
+        <h3>Rosé de Provence</h3><ul><li>Au verre, en terrasse</li></ul></article>
+    </div></div>
+    <div class="dctl">
+      <button class="btn sm ic" type="button" id="dprev" aria-label="Plat précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <p class="dlab" id="dlab" aria-live="polite">01 / 06 · Moules frites</p>
+      <button class="btn sm ic" type="button" id="dnext" aria-label="Plat suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <svg class="strip" data-sea="carte" aria-hidden="true"></svg>
+  </div>
+</section>
+
+<!-- ===== TERRASSE : cartes postales ===== -->
+<section class="pin dk" id="terrasse" aria-labelledby="ter-t">
+  <div class="pstage">
+    <div class="awn2" id="awn2" aria-hidden="true"></div>
+    <div class="th wrap">
+      <p class="kick">La terrasse</p>
+      <h2 class="h2" id="ter-t">Cartes postales du port</h2>
+      <p>Touchez une carte pour la retourner.</p>
+    </div>
+    <div class="line" id="line">
+      <div class="track" id="track">
+        <svg class="rope" id="rope" aria-hidden="true"><path fill="none" stroke="#fffdf8" stroke-width="3.2" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GLACIER ===== -->
+<section class="sec glacier" id="glacier" aria-labelledby="gl-t">
+  <div class="wrap g2">
+    <div>
+      <p class="kick">Brasserie &amp; glacier</p>
+      <h2 class="h2" id="gl-t">Le glacier du port</h2>
+      <p class="lead">Le Clapotis est aussi glacier. Une glace en terrasse, ou un café pour finir le repas en douceur.</p>
+      <div class="stk" id="stk"><span style="--b:var(--lemon)">Glaces italiennes</span><span style="--b:var(--rose)">Affogato</span><span style="--b:var(--sky)">Café gourmand</span></div>
+      <a class="btn y" href="#reserver">Réserver une table</a>
+    </div>
+    <div class="ice" id="ice" role="img" aria-label="Illustration : un cornet dont les boules de glace tombent et s'empilent quand on fait défiler la page">
+      <span class="cap" aria-hidden="true">Défilez, ça s'empile</span>
+      <canvas id="icecv"></canvas>
+      <div class="icss" id="icss" aria-hidden="true">
+        <svg class="cone" id="cone" viewBox="0 0 100 130"><path d="M4 6 L50 126 L96 6 Z" fill="#e8b86d" stroke="#13306b" stroke-width="4" stroke-linejoin="round"/><path d="M18 8 L62 96 M40 8 L72 70 M62 8 L82 46 M82 8 L38 96 M60 8 L28 70 M38 8 L18 46" stroke="#13306b" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M2 6 H98" stroke="#13306b" stroke-width="6" stroke-linecap="round"/></svg>
+        <i class="sc" style="--c:var(--lemon)"></i><i class="sc" style="--c:var(--rose)"></i><i class="sc" style="--c:var(--white)"></i><i class="sc" style="--c:var(--sky)"></i>
+      </div>
+      <svg class="strip" data-sea="ice" aria-hidden="true"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RÉSERVATION ===== -->
+<section class="sec resa" id="reserver" aria-labelledby="re-t">
+  <div class="wrap">
+    <p class="kick" style="color:var(--ink)">Réservation</p>
+    <h2 class="h2" id="re-t">Dressez votre table</h2>
+    <p class="lead">Les réservations se font par téléphone au <a class="nw" href="tel:+33494585334"><b>04 94 58 53 34</b></a>. Préparez votre demande ici : le restaurant vous la confirme par téléphone.</p>
+    <div class="r2">
+      <div>
+        <div class="tsc" aria-hidden="true"><div class="tbl" id="tbl"><div class="cloth"></div><div class="lem"></div><div class="tent">Réservé</div></div></div>
+        <div class="step">
+          <button class="btn sm ic" type="button" id="nm" aria-label="Retirer un couvert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+          <output id="nOut" aria-live="polite">2 couverts</output>
+          <button class="btn sm ic" type="button" id="np" aria-label="Ajouter un couvert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+        </div>
+        <div class="big" id="big" hidden><p>Une grande tablée ? Passez-nous un appel.</p><a class="btn y sm" href="tel:+33494585334"><span class="nw">Appeler le 04 94 58 53 34</span></a></div>
+      </div>
+
+      <div class="ticket" id="ticket">
+        <div class="tkh"><span class="logo" aria-hidden="true">Le Clapotis</span><small>Billet de table<br>Port de Carqueiranne</small></div>
+        <form class="tkb" id="rf" novalidate>
+          <div class="f2">
+            <label class="fl" for="fd"><span>Jour</span><input type="date" id="fd" name="jour" required aria-describedby="e-fd"><em class="err" id="e-fd"></em></label>
+            <fieldset class="fl" aria-describedby="e-fs"><legend>Service</legend>
+              <div class="chips"><label class="chip"><input type="radio" name="svc" id="svm" value="Midi" checked><span>Midi</span></label><label class="chip"><input type="radio" name="svc" id="svs" value="Soir"><span>Soir</span></label></div>
+              <em class="err" id="e-fs"></em></fieldset>
+          </div>
+          <div class="f2">
+            <label class="fl" for="fh"><span>Heure souhaitée</span><select id="fh" name="heure" required aria-describedby="e-fh"></select><em class="err" id="e-fh"></em></label>
+            <label class="fl" for="fn"><span>Couverts</span><input id="fn" name="couverts" readonly value="2" aria-describedby="e-fnn"><em class="note" id="e-fnn">Réglez le nombre avec la table.</em></label>
+          </div>
+          <div class="f2">
+            <label class="fl" for="fm"><span>Votre nom</span><input id="fm" name="nom" autocomplete="name" required aria-describedby="e-fm"><em class="err" id="e-fm"></em></label>
+            <label class="fl" for="ft"><span>Téléphone</span><input id="ft" name="tel" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="e-ft"><em class="err" id="e-ft"></em></label>
+          </div>
+          <label class="cons" for="fc"><input type="checkbox" id="fc" name="consent" required aria-describedby="e-fc"><span>J'accepte que ces informations servent uniquement à traiter ma demande de réservation (voir <button type="button" class="lnk" data-dlg="privacy">Confidentialité</button>).</span></label>
+          <em class="err" id="e-fc"></em>
+          <p class="note">Horaires de saison : la demande est confirmée par téléphone selon les horaires du moment. Démo : rien n'est envoyé.</p>
+          <div><button class="btn y" type="submit">Valider ma demande</button></div>
+        </form>
+        <div class="ok" id="ok" hidden>
+          <div class="stampok" aria-hidden="true">Demande<br>notée</div>
+          <h3 id="okh" tabindex="-1">Merci !</h3>
+          <p id="oks"></p>
+          <p class="note">Démo : aucune donnée n'a été envoyée. Pour réserver pour de vrai, appelez le restaurant.</p>
+          <div class="row"><a class="btn y" href="tel:+33494585334"><span class="nw">Appeler le 04 94 58 53 34</span></a><button class="btn" type="button" id="again">Nouvelle demande</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFOS ===== -->
+<section class="sec infos" id="infos" aria-labelledby="in-t">
+  <div class="wrap">
+    <p class="kick">Infos pratiques</p>
+    <h2 class="h2" id="in-t">Venir au port</h2>
+    <div class="i2">
+      <div class="box">
+        <h3>La marée des horaires</h3>
+        <p class="hrs">Tous les jours<br>08:00 – 18:00</p>
+        <p class="note">Horaires actuels (Google) : horaires de saison, à confirmer par téléphone.</p>
+        <svg class="tide" id="tide" role="img" aria-label="Frise de la journée : la mer monte entre 8 h et 18 h, heures d'ouverture actuelles ; un petit bateau indique l'heure qu'il est"></svg>
+        <p class="live" id="live">D'après ces horaires…</p>
+        <ul class="flags" id="flags">
+          <li class="flag"><span class="cl2" style="--b:var(--lemon)">Sur place</span></li>
+          <li class="flag"><span class="cl2" style="--b:var(--sky)">À emporter</span></li>
+          <li class="flag"><span class="cl2" style="--b:var(--white)">Pas de livraison</span></li>
+          <li class="flag"><span class="cl2" style="--b:var(--rose)">Accès fauteuil roulant</span></li>
+          <li class="flag"><span class="cl2" style="--b:var(--white)"><span class="nw">20–30 €</span> / pers.<small>budget indiqué par des clients sur Google</small></span></li>
+          <li class="flag"><span class="cl2" style="--b:var(--lemon)">Grandes tablées<small>sur appel</small></span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="map" id="map">
+          <svg class="mapbg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="500" fill="#9cc3e6"/>
+            <path d="M0 0 H400 V170 C340 190 300 150 250 176 C210 196 200 240 150 236 C100 232 60 200 0 214 Z" fill="#f6f4ee" stroke="#13306b" stroke-width="3.2"/>
+            <path d="M40 0 V200 M120 0 L140 228 M0 90 C120 70 260 120 400 96 M220 0 L238 190 M310 0 L300 166" fill="none" stroke="#13306b" stroke-width="2" opacity=".35"/>
+            <path d="M150 236 L170 330 L196 330 L178 232 M250 176 L300 300 L322 292 L276 170" fill="#fffdf8" stroke="#13306b" stroke-width="3.2" stroke-linejoin="round"/>
+            <g fill="none" stroke="#13306b" stroke-width="2.6" stroke-linecap="round" opacity=".7"><path d="M40 300 q10-8 20 0 t20 0"/><path d="M230 380 q10-8 20 0 t20 0"/><path d="M90 420 q10-8 20 0 t20 0"/><path d="M320 440 q10-8 20 0 t20 0"/><path d="M20 470 q10-8 20 0 t20 0"/></g>
+            <g fill="#fffdf8" stroke="#13306b" stroke-width="2.6" stroke-linejoin="round"><path d="M206 270 l26 0 l-6 8 l-16 0 z"/><path d="M206 300 l26 0 l-6 8 l-16 0 z"/><path d="M110 300 l26 0 l-6 8 l-16 0 z"/><path d="M340 330 l26 0 l-6 8 l-16 0 z"/></g>
+          </svg>
+          <div class="mpin" aria-hidden="true"><span>C</span></div>
+          <div class="glass2">
+            <b>Le Clapotis</b>
+            <p>1 Avenue Augustin Thierry, 83320 Carqueiranne · face au port</p>
+            <div class="row">
+              <a class="btn y sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=1%20Avenue%20Augustin%20Thierry%2C%2083320%20Carqueiranne" target="_blank" rel="noopener">Itinéraire</a>
+              <button class="btn sm" type="button" id="showmap">Afficher le plan</button>
+            </div>
+          </div>
+        </div>
+        <div class="contact">
+          <span>Téléphone : <a class="nw" href="tel:+33494585334">04 94 58 53 34</a></span>
+          <span>Instagram : <a href="https://www.instagram.com/leclapotis_carqueiranne/" target="_blank" rel="noopener">@leclapotis_carqueiranne</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft dk">
+  <svg class="strip" data-sea="foot" aria-hidden="true"></svg>
+  <div class="wrap">
+    <div class="f3">
+      <div><p class="logo">Le Clapotis</p><p>Restaurant méditerranéen, brasserie et glacier.<br>Une adresse qui sent bon le bord de mer.</p></div>
+      <div><h4>Nous trouver</h4><p>1 Avenue Augustin Thierry<br>83320 Carqueiranne</p><p><a class="nw" href="tel:+33494585334">04 94 58 53 34</a></p><p><a href="https://www.instagram.com/leclapotis_carqueiranne/" target="_blank" rel="noopener">Instagram @leclapotis_carqueiranne</a></p></div>
+      <div><h4>Informations</h4><ul>
+        <li><button class="lnk" type="button" data-dlg="mentions">Mentions légales</button></li>
+        <li><button class="lnk" type="button" data-dlg="privacy">Confidentialité</button></li>
+        <li><button class="lnk" type="button" data-dlg="cgv">CGV / CGU</button></li>
+        <li><button class="lnk" type="button" data-dlg="cookies">Cookies</button></li>
+        <li><button class="lnk" type="button" data-dlg="refund">Remboursement</button></li>
+      </ul></div>
+    </div>
+    <div class="legal"><span>Ce site est une démo, non officielle. Photos : établissement (Google).</span><a href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a></div>
+  </div>
+</footer>
+
+<div class="ck" id="ck" role="dialog" aria-labelledby="ck-t" aria-describedby="ck-d" hidden>
+  <p class="ck-t" id="ck-t">Un cookie, juste pour le plan</p>
+  <p id="ck-d">Le plan Google Maps dépose des cookies tiers : il ne se charge qu'avec votre accord.</p>
+  <div class="ckb"><button class="btn" type="button" data-ck="refuse">Refuser</button><button class="btn" type="button" data-ck="accept" id="ckok">Accepter</button></div>
+  <button class="lnk" type="button" data-dlg="cookies">Personnaliser</button>
+</div>
+
+<dialog id="dlg-mentions" aria-labelledby="dm-t"><button class="btn sm ic dx" type="button" aria-label="Fermer">✕</button><h2 id="dm-t">Mentions légales</h2>
+<p><b>Ce site est une démo</b> réalisée par ZAHR (zahr.fr) pour présenter une proposition au restaurant. Il n'est pas le site officiel de l'établissement.</p>
+<p>Établissement : Le Clapotis, 1 Avenue Augustin Thierry, 83320 Carqueiranne · 04 94 58 53 34.</p>
+<p>Raison sociale, SIRET, directeur de publication : <span class="tbd">[à compléter par l'établissement]</span>.</p>
+<p>Hébergeur : <span class="tbd">[à compléter par l'établissement]</span>.</p></dialog>
+<dialog id="dlg-privacy" aria-labelledby="dp-t"><button class="btn sm ic dx" type="button" aria-label="Fermer">✕</button><h2 id="dp-t">Confidentialité</h2>
+<p>Dans cette démo, le formulaire de réservation n'envoie aucune donnée : tout reste dans votre navigateur.</p>
+<p>Sur le site final, les données (nom, téléphone, date) serviraient uniquement à traiter votre demande, conservées le temps nécessaire. Vous pourrez exercer vos droits d'accès, de rectification et d'effacement auprès de <span class="tbd">[contact à compléter par l'établissement]</span>, et saisir la CNIL.</p></dialog>
+<dialog id="dlg-cgv" aria-labelledby="dc-t"><button class="btn sm ic dx" type="button" aria-label="Fermer">✕</button><h2 id="dc-t">CGV / CGU</h2>
+<p>Le site présente le restaurant et permet de préparer une demande de réservation. Aucune vente ni aucun paiement en ligne.</p>
+<p>Une réservation n'est valable qu'après confirmation par téléphone par le restaurant. Conditions d'annulation et de groupe : <span class="tbd">[à compléter par l'établissement]</span>.</p></dialog>
+<dialog id="dlg-cookies" aria-labelledby="dk-t"><button class="btn sm ic dx" type="button" aria-label="Fermer">✕</button><h2 id="dk-t">Cookies</h2>
+<p>Le site mémorise votre choix dans votre navigateur (stockage local). Un seul service tiers : le plan Google Maps, chargé uniquement si vous l'acceptez.</p>
+<label class="cons" for="ckmap"><input type="checkbox" id="ckmap"><span>Plan Google Maps (cookies tiers Google)</span></label>
+<p style="margin-top:14px"><button class="btn y sm" type="button" id="cksave">Enregistrer mon choix</button></p></dialog>
+<dialog id="dlg-refund" aria-labelledby="dr-t"><button class="btn sm ic dx" type="button" aria-label="Fermer">✕</button><h2 id="dr-t">Remboursement</h2>
+<p>Le site ne permet aucun paiement en ligne : il n'y a donc rien à rembourser via le site.</p>
+<p>Pour toute question sur une prestation sur place : <span class="tbd">[politique à compléter par l'établissement]</span>, ou appelez le <span class="nw">04 94 58 53 34</span>.</p></dialog>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var NS='http://www.w3.org/2000/svg';
+function clamp(v,a,b){a=a==null?0:a;b=b==null?1:b;return v<a?a:v>b?b:v}
+function lerp(a,b,t){return a+(b-a)*t}
+function eio(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function eob(t){var c=1.70158;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)}
+function seg(q,a,b){return clamp((q-a)/(b-a))}
+function sstep(a,b,x){var t=clamp((x-a)/(b-a));return t*t*(3-2*t)}
+function mk(tag,at){var e=document.createElementNS(NS,tag);for(var k in at)e.setAttribute(k,at[k]);return e}
+var VW=innerWidth,VH=innerHeight;
+function pinP(el){var r=el.getBoundingClientRect();var d=r.height-VH;return d>0?clamp(-r.top/d):0}
+
+/* ---------- boucle unique ---------- */
+var tasks=[];
+function task(el,fn){var o={fn:fn,on:!el};tasks.push(o);
+  if(el&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){o.on=e.isIntersecting})},{rootMargin:'120px 0px'}).observe(el)}else o.on=true;return o}
+var last=performance.now(),T0=last;
+function loop(now){now=now||performance.now();var dt=Math.min(.05,Math.max(.001,(now-last)/1000));last=now;var t=RM?0:(now-T0)/1000;
+  for(var i=0;i<tasks.length;i++){if(tasks[i].on){try{tasks[i].fn(t,dt)}catch(e){console.error(e)}}}
+  requestAnimationFrame(loop)}
+var resizers=[];
+function onResize(){VW=innerWidth;VH=innerHeight;resizers.forEach(function(f){f()})}
+addEventListener('resize',onResize);
+
+/* ---------- vagues dessinées ---------- */
+function waveY(x,L,t){return L.base+L.a*Math.sin(L.f*x+t*L.v+L.ph)+.45*L.a*Math.sin(2.3*L.f*x-.7*t*L.v+1.7*L.ph)}
+function wpath(L,W,t,H,off){var d='',px,py,step=22,first=true,prev=null;
+  for(var x=-step;x<=W+step*2;x+=step){var y=waveY(x,L,t)+(off||0);
+    if(first){d='M'+x+','+y.toFixed(1);first=false}
+    else{var mx=(prev[0]+x)/2,my=(prev[1]+y)/2;d+='Q'+prev[0]+','+prev[1].toFixed(1)+' '+mx+','+my.toFixed(1)}
+    prev=[x,y]}
+  d+='L'+prev[0]+','+prev[1].toFixed(1);
+  if(H!=null)d+='L'+(W+60)+','+(H+40)+'L-60,'+(H+40)+'Z';return d}
+function Sea(svg,specs,before){
+  var S={svg:svg,W:1,H:1,L:[]};
+  specs.forEach(function(sp){var g=mk('g',{});var fill=mk('path',{fill:sp.fill}),line=mk('path',{'class':'wl'});g.appendChild(fill);g.appendChild(line);
+    var span=null;if(sp.span){span=mk('path',{'class':'ws',stroke:sp.sc||'#13306b','stroke-dasharray':sp.span});g.appendChild(span)}
+    svg.appendChild(g);S.L.push({sp:sp,g:g,fill:fill,line:line,span:span,base:0,a:sp.a,f:2*Math.PI/sp.lam,v:sp.v,ph:sp.ph})});
+  S.measure=function(){var r=svg.getBoundingClientRect();S.W=Math.max(1,r.width);S.H=Math.max(1,r.height);svg.setAttribute('viewBox','0 0 '+S.W+' '+S.H)};
+  S.draw=function(t,baseFn,ampK){var W=S.W,H=S.H;S.L.forEach(function(L,i){L.base=baseFn?baseFn(i,L.sp):L.sp.b*H;L.a=L.sp.a*(ampK||1);
+      L.fill.setAttribute('d',wpath(L,W,t,H));L.line.setAttribute('d',wpath(L,W,t));if(L.span)L.span.setAttribute('d',wpath(L,W,t,null,L.sp.off||12))})};
+  S.measure();resizers.push(S.measure);return S}
+
+/* ---------- en-tête ---------- */
+var hd=$('#hd');function hdState(){hd.classList.toggle('on',scrollY>8)}addEventListener('scroll',hdState,{passive:true});hdState();
+
+/* ---------- HERO ---------- */
+var hero=$('#hero'),hframe=$('#hframe'),hsvg=$('#hsea'),boat=$('#boat'),t1=$('#t1'),card2=$('#card2'),awn=$('#awn'),c2h=$('#c2h'),c2p=$('#c2p'),c2b=$('#c2b'),c2k=$('#c2k'),hint=$('#hint'),cl1=$('#cl1'),cl2=$('#cl2');
+var HS=Sea(hsvg,[
+  {b1:.62,b2:.09,a:9,lam:330,v:1.05,ph:0,fill:'#9cc3e6',span:'30 90 60 140',off:16},
+  {b1:.70,b2:.24,a:11,lam:280,v:1.3,ph:1.4,fill:'#6aa0d8',span:'50 120 20 90',off:18},
+  {b1:.79,b2:.46,a:12,lam:380,v:.9,ph:2.6,fill:'#1f5fa8',span:'70 110 30 150',off:20,sc:'#9cc3e6'},
+  {b1:.90,b2:.72,a:13,lam:300,v:1.5,ph:4.1,fill:'#13306b',span:'40 100 80 130',off:22,sc:'#f6f4ee'}
+]);
+hsvg.insertBefore(boat,HS.L[2].g);
+var hq=-1;
+function heroQ(){var p=pinP(hero);return eio(seg(p,.04,.82))}
+task(hero,function(t){
+  var q=heroQ(),W=HS.W,H=HS.H,mob=W<700,k=clamp(Math.min(W,H)/720,.7,1.3);
+  HS.draw(t,function(i,sp){return lerp(sp.b1-(mob?.06:0),sp.b2,q)*H},k);
+  // bateau : posé dans l'eau, incliné selon la pente
+  var s0=mob?.58:.88,s=lerp(s0,s0*.34,q),bx=lerp(W*(mob?.7:.74),W*(mob?.86:.82),q);
+  var L2=HS.L[2],L0=HS.L[0];
+  function sl(L){return (waveY(bx+1,L,t)-waveY(bx-1,L,t))/2}
+  var y=lerp(waveY(bx,L2,t),waveY(bx,L0,t),q),slope=lerp(sl(L2),sl(L0),q);
+  boat.setAttribute('transform','translate('+bx.toFixed(1)+','+(y+6*s).toFixed(1)+') rotate('+(Math.atan(slope)*57.3*.75).toFixed(2)+') scale('+s.toFixed(3)+')');
+  // nuages qui dérivent
+  var cw=cl1.getBoundingClientRect().width||150;
+  cl1.style.transform='translateX('+(((t*16+W*.08)%(W+cw*2))-cw).toFixed(1)+'px)';
+  cl2.style.transform='translateX('+(((t*9+W*.55)%(W+cw*2))-cw).toFixed(1)+'px)';
+  if(Math.abs(q-hq)<.0005)return;hq=q;
+  t1.style.transform='translateY('+(-q*44).toFixed(1)+'px)';
+  var o1=1-seg(q,.42,.8);t1.style.opacity=o1.toFixed(3);t1.style.visibility=o1<.02?'hidden':'visible';
+  hint.style.opacity=(1-seg(q,0,.2)).toFixed(3);hint.style.visibility=q>.2?'hidden':'visible';
+  var c=seg(q,.3,.7);card2.style.visibility=c>0?'visible':'hidden';
+  card2.style.transform='translateX('+((eob(c)-1)*125).toFixed(2)+'%) rotate('+((1-c)*-7-1).toFixed(2)+'deg)';
+  awn.style.transform='rotateX('+((1-eio(seg(q,.5,.8)))*-95).toFixed(1)+'deg)';
+  var g=seg(q,.6,.86);c2h.style.transform='translateY('+((1-eio(g))*105).toFixed(1)+'%)';
+  c2k.style.opacity=seg(q,.6,.75).toFixed(3);
+  var pp=seg(q,.7,.9);c2p.style.opacity=pp.toFixed(3);c2p.style.transform='translateY('+((1-pp)*14).toFixed(1)+'px)';
+  var bb=seg(q,.78,1);c2b.style.opacity=Math.min(1,bb*3).toFixed(3);c2b.style.transform='scale('+(.6+.4*eob(bb)).toFixed(3)+')';c2b.style.transformOrigin='0 50%';
+});
+hint.addEventListener('click',function(){var top=hero.offsetTop+(hero.offsetHeight-VH)*.86;scrollTo({top:top,behavior:RM?'auto':'smooth'})});
+
+/* ombres de feuilles (pergola) */
+(function(){var cv=$('#leaf');if(!cv.getContext)return;var c=cv.getContext('2d');var bl=[];for(var i=0;i<11;i++)bl.push({x:Math.random()*70,y:Math.random()*14,r:3+Math.random()*6,s:.25+Math.random()*.5,ph:Math.random()*6});
+  task(hero,function(t){c.clearRect(0,0,64,36);c.fillStyle='rgba(31,95,168,.55)';bl.forEach(function(b){var x=((b.x+t*b.s*1.4)%80)-8,y=b.y+Math.sin(t*.6+b.ph)*1.6;c.beginPath();c.ellipse(x,y,b.r,b.r*.5,Math.sin(t*.3+b.ph),0,6.29);c.fill()})})})();
+
+/* ---------- LA CARTE : barillet ---------- */
+var carte=$('#carte'),drum=$('#drum'),plates=$$('.plate',drum),N=plates.length,dlab=$('#dlab');
+var names=plates.map(function(p){return p.querySelector('h3').textContent});
+var R=300,cur=0,lastIdx=-1;
+function layDrum(){var pw=Math.min(340,VW-56);drum.style.setProperty('--pw',pw+'px');R=(pw/2)/Math.tan(Math.PI/N)+10;
+  plates.forEach(function(p,i){p.style.transform='rotateY('+(i*360/N)+'deg) translateZ('+R.toFixed(1)+'px)'})}
+layDrum();resizers.push(layDrum);
+function drumTarget(){var f=pinP(carte)*(N-1),fi=Math.floor(f);return Math.min(N-1,fi+sstep(.3,.7,f-fi))}
+task(carte,function(){var tg=drumTarget();cur=RM?tg:cur+(tg-cur)*.16;if(Math.abs(tg-cur)<.001)cur=tg;
+  drum.style.transform='translateZ('+(-R).toFixed(1)+'px) rotateY('+(-cur*360/N).toFixed(2)+'deg)';
+  plates.forEach(function(p,i){var d=Math.abs(i-cur);p.style.opacity=(1-clamp(d,0,1)*.55).toFixed(2)});
+  var idx=Math.round(cur);if(idx!==lastIdx){lastIdx=idx;dlab.textContent=('0'+(idx+1)).slice(-2)+' / 0'+N+' · '+names[idx]}});
+function goDish(i){i=clamp(i,0,N-1);var top=carte.offsetTop+(carte.offsetHeight-VH)*(i/(N-1));scrollTo({top:top+2,behavior:RM?'auto':'smooth'})}
+$('#dprev').addEventListener('click',function(){goDish(Math.round(cur)-1)});
+$('#dnext').addEventListener('click',function(){goDish(Math.round(cur)+1)});
+
+/* ---------- TERRASSE : cartes postales ---------- */
+var PH='https://lh3.googleusercontent.com/gps-cs-s/';
+var cards=[
+ ['ANWiy9TI9GRfgJ6nFHrkTAecaQ2SDoSDjoud5r_XXyvAohm6H6DpXI8MAapUHX8_nIl9R2_pZIubPFKVwKXShmK0VgiApyujcFUCoXoD8yK_KS0Ly9SaXW4Gcf7a_VWewotulDrp7qSpUqhl2ean','Chaises de metteur en scène rayées bleu marine et blanc, nappes bleu ciel sur la terrasse','Les chaises rayées et les nappes bleu ciel.','Terrasse'],
+ ['ANWiy9QZDOU89IQpVVFddC0tuUgsdN9TFyv9yNtpgRya2bUwojLp8OPKtHxdbXsgJzJI7RoDNZF1aLK1RTruz9dff2PRE8M16HkXTivB8wKfZ-pPPBd1U1NpyRv4Mm5-cVkroa8aQlj5','La terrasse couverte du Clapotis avec vue sur le port','La terrasse couverte, vue sur le port.','Vue port'],
+ ['ANWiy9QBIVMN3kipLwu9b2qRFir_RIUcwdX5OdeJ2ohC1uyR2NJuUV2ADU6pLKL7OiCZa4NHrwJPdkGkcMAbIumnAAwZ5q9IbVJHsgyv81lSFKFF9weSx3udYQvT-Mj8ecWZaR6rlCNIoWsYJRKt','Pergola blanche de la terrasse sous un soleil éclatant','La pergola blanche, en plein soleil.','Pergola'],
+ ['ANWiy9Sz6CXjeBQcnFCjAAVmz7t-eN8ER9bnc3T3srkJnZVPr4___FMyQaoo_Y1LIMRj1Lir9f5TXxf2-yF48-L7yivZ3VMYDC5Grpovw8zM1p7-0mvGgNhoAV7RgKxQ61x2ck6pNwrRwg','Façade du Clapotis : terrasse blanche à rayures sous l’immeuble, face au port','La terrasse blanche, face au port.','Façade'],
+ ['ANWiy9SexDUsY09BbtcSvm_Zj3TWrBXxA1EG9vK90Gh0nH9FsyFKct9bB7dEETyKhlSFr64_eZeYbbl0BG7mmIu0OPEQKF_GRruqmCxf5KKIl538XtE2saXCw6_lwe0hYJ7dcFlstV5K','Le port de Carqueiranne sous un ciel bleu','Le port de Carqueiranne, juste en face.','Le port'],
+ ['ANWiy9QQ93NI3daK3wNefUZ8mTi1quXqCwQF9Wx59ksnXoukI01RFcO7dODf2G4qDBv6rWKRVxG54VwBuX28XbIiyqL7kL4hoSgBHDjM9GJ5D5Oncu7sLonZmPMaWUgnN4JigY7w4TbW9dpzcU3a','Verre et bouteille de rosé sur une table de la terrasse','Un verre de rosé de Provence.','Rosé']
+];
+var ter=$('#terrasse'),track=$('#track'),rope=$('#rope'),ropeP=rope.querySelector('path'),awn2=$('#awn2'),line=$('#line');
+var pcs=cards.map(function(c,i){var b=document.createElement('button');b.type='button';b.className='pc';b.setAttribute('aria-pressed','false');
+  b.setAttribute('aria-label','Carte postale : '+c[3]+'. Retourner la carte');
+  b.innerHTML='<span class="pin2" aria-hidden="true"></span><span class="pcin"><span class="pf"><span class="ph"><img src="'+PH+c[0]+'=w900" alt="'+c[1]+'" loading="lazy" onerror="this.classList.add(\'ko\')"></span><b><span>'+c[3]+'</span><span>Carqueiranne</span></b></span><span class="pb"><span class="stamp" aria-hidden="true">C</span><span class="msg">'+c[2]+'</span><span class="adr">Le Clapotis<br>83320 Carqueiranne</span></span></span>';
+  b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')});
+  track.appendChild(b);return {el:b,th:0,om:0,k:46+i*5}});
+var CW=250,GAP=34,PAD=24,TW=0,TX=0,lastTX=0,vel=0;
+function layTer(){CW=Math.round(clamp(VW*.62,200,290));var lh=line.getBoundingClientRect().height;
+  var maxH=Math.max(220,lh-70);CW=Math.min(CW,Math.round(maxH/1.22));
+  GAP=VW<700?30:48;PAD=VW<700?24:Math.max(48,(VW-1180)/2);TW=PAD*2+N*CW+(N-1)*GAP;
+  track.style.width=TW+'px';
+  pcs.forEach(function(p,i){p.el.style.setProperty('--cw',CW+'px');p.el.style.left=(PAD+i*(CW+GAP))+'px';p.el.style.top=(i%2?10:0)+'px'});
+  rope.setAttribute('width',TW);rope.setAttribute('height',60);
+  var d='M0,8';for(var i=0;i<N;i++){var x=PAD+i*(CW+GAP)+CW/2,y=8+(i%2?10:0);var px=i?PAD+(i-1)*(CW+GAP)+CW/2:0;d+=' Q'+((px+x)/2).toFixed(1)+','+(y+26)+' '+x+','+y}
+  d+=' Q'+((PAD+(N-1)*(CW+GAP)+CW/2+TW)/2)+',34 '+TW+',8';ropeP.setAttribute('d',d);
+  var extra=Math.max(TW-VW,VH*.6);ter.style.height=(VH+extra)+'px'}
+layTer();resizers.push(layTer);
+task(ter,function(t,dt){var p=pinP(ter);TX=-p*Math.max(0,TW-VW);track.style.transform='translateX('+TX.toFixed(1)+'px)';
+  awn2.style.backgroundPosition=(TX*.5).toFixed(1)+'px 0';
+  var v=(TX-lastTX)/dt;lastTX=TX;vel+=(v-vel)*.25;
+  pcs.forEach(function(c,i){var target=RM?0:clamp(vel*.012,-16,16);
+    if(RM){c.th=0}else{c.om+=((target-c.th)*c.k-c.om*5.5)*dt;c.th+=c.om*dt}
+    var idle=RM?0:Math.sin(t*1.3+i*1.1)*1.4;c.el.style.transform='rotate('+(c.th+idle).toFixed(2)+'deg)'})});
+
+/* ---------- GLACIER ---------- */
+var ice=$('#ice'),icss=$('#icss'),cone=$('#cone'),scEls=$$('.sc',icss),stk=$$('#stk span');
+var scoops=[0,1,2,3].map(function(i){return {y:14,vy:0,on:false,sq:0,rest:1.95+i*1.2,x:[0,.14,-.12,.06][i]}});
+var BOT=-2.5,VIS=10.4;
+function iceP(){var r=ice.getBoundingClientRect();var den=VH-(VH-r.height)/2;return clamp((VH-r.top)/den)}
+function stepScoops(dt,p){scoops.forEach(function(s,i){var want=p>.18+i*.18;
+  if(want&&!s.on){s.on=true;if(s.y<s.rest+6)s.y=s.rest+6;s.vy=0}
+  if(!want)s.on=false;
+  if(RM){s.y=s.on?s.rest:14;return}
+  if(s.on){s.vy-=40*dt;s.y+=s.vy*dt;if(s.y<s.rest){s.y=s.rest;if(s.vy<-3){s.sq=Math.min(.3,-s.vy*.02);s.vy=-s.vy*.3}else s.vy=0}}
+  else{s.y+=(14-s.y)*Math.min(1,dt*7);s.vy=0}
+  s.sq*=Math.pow(.004,dt)})}
+var three=null;
+function cssIce(){var r=ice.getBoundingClientRect(),u=r.height/VIS,W=r.width;
+  cone.style.width=(2.15*u)+'px';cone.style.height=(2.8*u)+'px';cone.style.marginLeft=(-1.075*u)+'px';cone.style.bottom=((-1.42-BOT)*u)+'px';
+  scEls.forEach(function(e,i){var s=scoops[i],d=1.96*u;e.style.width=e.style.height=d+'px';
+    var cy=r.height-(s.y-BOT)*u;e.style.transform='translate('+(s.x*u-d/2).toFixed(1)+'px,'+(cy-d/2).toFixed(1)+'px) scale('+(1+s.sq).toFixed(3)+','+(1-s.sq).toFixed(3)+')';e.style.zIndex=10+i})}
+var ICE=Sea($('[data-sea="ice"]'),[{b:.42,a:5,lam:160,v:1.6,ph:0,fill:'#1f5fa8'},{b:.66,a:6,lam:200,v:1.2,ph:2,fill:'#13306b',span:'20 60',off:10,sc:'#f6f4ee'}]);
+task(ice,function(t,dt){var p=iceP();stepScoops(dt,p);ICE.draw(t);
+  stk.forEach(function(s,i){s.style.transform='rotate('+(Math.sin(t*1.4+i*2)*3).toFixed(2)+'deg) translateY('+(Math.sin(t*2+i)*2).toFixed(1)+'px)'});
+  if(three)three(t);else cssIce()});
+function initThree(){var T=window.THREE;if(!T)return;try{
+  var cv=$('#icecv'),Rr=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});Rr.setPixelRatio(Math.min(2,devicePixelRatio||1));
+  var sc=new T.Scene(),cam=new T.PerspectiveCamera(32,1,.1,100);var cy=BOT+VIS/2;cam.position.set(0,cy,(VIS/2)/Math.tan(16*Math.PI/180));cam.lookAt(0,cy,0);
+  sc.add(new T.AmbientLight(0xffffff,.78));var dl=new T.DirectionalLight(0xffffff,.5);dl.position.set(4,8,6);sc.add(dl);
+  var grp=new T.Group();sc.add(grp);var ink=new T.MeshBasicMaterial({color:0x13306b,side:T.BackSide});
+  function outl(geo,mat,k){var m=new T.Mesh(geo,mat),o=new T.Mesh(geo,ink);o.scale.setScalar(k);m.add(o);return m}
+  var tc=document.createElement('canvas');tc.width=tc.height=128;var x=tc.getContext('2d');x.fillStyle='#e8b86d';x.fillRect(0,0,128,128);x.strokeStyle='#13306b';x.lineWidth=5;
+  for(var i=-128;i<256;i+=32){x.beginPath();x.moveTo(i,0);x.lineTo(i+128,128);x.stroke();x.beginPath();x.moveTo(i+128,0);x.lineTo(i,128);x.stroke()}
+  var tex=new T.CanvasTexture(tc);tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.repeat.set(3,2);
+  var cg=new T.ConeGeometry(1.06,2.8,32,1,true);var coneM=outl(cg,new T.MeshLambertMaterial({map:tex,side:T.DoubleSide}),1.05);coneM.rotation.x=Math.PI;coneM.position.y=-.02;grp.add(coneM);
+  var cols=[0xf4d35e,0xf2b8a0,0xfffdf8,0x9cc3e6],sg=new T.SphereGeometry(.98,32,24);
+  var meshes=cols.map(function(c){var m=outl(sg,new T.MeshLambertMaterial({color:c}),1.07);grp.add(m);return m});
+  function size(){var r=ice.getBoundingClientRect();Rr.setSize(r.width,r.height,false);cam.aspect=r.width/Math.max(1,r.height);cam.updateProjectionMatrix()}
+  size();resizers.push(size);ice.classList.add('gl');
+  three=function(t){grp.rotation.y=t*.5;meshes.forEach(function(m,i){var s=scoops[i];m.position.set(s.x,s.y,s.x*.6);m.scale.set(1+s.sq,1-s.sq,1+s.sq)});Rr.render(sc,cam)};
+ }catch(e){three=null;ice.classList.remove('gl')}}
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.async=true;s.onload=initThree;s.onerror=function(){};document.head.appendChild(s)}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){load();io.disconnect()}},{rootMargin:'900px 0px'});io.observe(ice)}else load()})();
+
+/* ---------- RÉSERVATION ---------- */
+var tbl=$('#tbl'),seats=[],n=2,nOut=$('#nOut'),big=$('#big'),fn=$('#fn');
+for(var i=0;i<8;i++){var s=document.createElement('div');s.className='seat';s.innerHTML='<i class="chair"><b></b></i><i class="dish"></i><i class="glass"></i>';tbl.appendChild(s);seats.push(s)}
+function setN(v,tried){n=clamp(v,1,8);seats.forEach(function(s,i){var on=i<n;s.classList.toggle('on',on);if(on)s.style.setProperty('--a',(i*360/n)+'deg')});
+  nOut.textContent=n+(n>1?' couverts':' couvert');fn.value=n;big.hidden=!(n>=8||tried)}
+setN(2);
+$('#nm').addEventListener('click',function(){setN(n-1)});
+$('#np').addEventListener('click',function(){setN(n+1,n>=8)});
+task(tbl,function(t){tbl.style.transform='rotateX(58deg) rotateZ('+(t*7%360).toFixed(2)+'deg)'});
+var fd=$('#fd'),fh=$('#fh'),fm=$('#fm'),ft=$('#ft'),fc=$('#fc'),rf=$('#rf'),ok=$('#ok');
+var slots={Midi:['12:00','12:30','13:00','13:30'],Soir:['19:00','19:30','20:00','20:30','21:00']};
+function fillSlots(){var v=($('input[name=svc]:checked')||{}).value||'Midi';fh.innerHTML='<option value="">Choisir…</option>'+slots[v].map(function(h){return '<option>'+h+'</option>'}).join('')}
+fillSlots();$$('input[name=svc]').forEach(function(r){r.addEventListener('change',fillSlots)});
+(function(){var d=new Date();fd.min=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)})();
+function err(el,id,msg){$('#'+id).textContent=msg||'';if(el)el.setAttribute('aria-invalid',msg?'true':'false');return !msg}
+rf.addEventListener('submit',function(e){e.preventDefault();
+  var a=[err(fd,'e-fd',fd.value?(fd.value<fd.min?'Choisissez une date à venir.':''):'Choisissez un jour.'),
+    err(fh,'e-fh',fh.value?'':'Choisissez une heure.'),
+    err(fm,'e-fm',fm.value.trim().length>1?'':'Indiquez votre nom.'),
+    err(ft,'e-ft',ft.value.replace(/[^0-9]/g,'').length>=9?'':'Indiquez un numéro de téléphone valide.'),
+    err(fc,'e-fc',fc.checked?'':'Cochez la case pour accepter le traitement de votre demande.')];
+  var bad=[fd,fh,fm,ft,fc].filter(function(x,i){return !a[i]});
+  if(bad.length){bad[0].focus();return}
+  var ds=fd.value;try{ds=new Date(fd.value+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}catch(_){}
+  var svc=$('input[name=svc]:checked').value;
+  $('#okh').textContent='Merci '+fm.value.trim()+' !';
+  $('#oks').textContent='Votre demande : '+n+(n>1?' couverts':' couvert')+', '+ds+', '+svc.toLowerCase()+' vers '+fh.value+'. Le restaurant vous rappelle au '+ft.value.trim()+' pour confirmer.';
+  rf.hidden=true;ok.hidden=false;tbl.classList.add('res');$('#okh').focus()});
+$('#again').addEventListener('click',function(){rf.reset();fillSlots();ok.hidden=true;rf.hidden=false;tbl.classList.remove('res');fd.focus()});
+
+/* ---------- INFOS : marée des horaires ---------- */
+var tide=$('#tide'),tL=[],tW=1,tH=1,live=$('#live');
+var tw1=mk('path',{fill:'#9cc3e6'}),tl1=mk('path',{'class':'wl'}),tw2=mk('path',{fill:'#1f5fa8'}),tl2=mk('path',{'class':'wl'}),tg=mk('g',{}),tb=mk('g',{});
+var tbu=mk('use',{href:'#pointu'});tb.appendChild(tbu);
+[tw1,tl1,tb,tw2,tl2,tg].forEach(function(e){tide.appendChild(e)});
+function nowH(){try{var p=new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());var h=0,m=0;p.forEach(function(x){if(x.type==='hour')h=+x.value;if(x.type==='minute')m=+x.value});return (h%24)+m/60}catch(e){var d=new Date();return d.getHours()+d.getMinutes()/60}}
+function measureTide(){var r=tide.getBoundingClientRect();tW=Math.max(1,r.width);tH=Math.max(1,r.height);tide.setAttribute('viewBox','0 0 '+tW+' '+tH);
+  var m=14,ax=tH-22;var s='<path d="M'+m+' '+ax+'H'+(tW-m)+'" stroke="#13306b" stroke-width="3" stroke-linecap="round"/>';
+  [0,8,12,18,24].forEach(function(h){var x=m+h/24*(tW-2*m);s+='<path d="M'+x+' '+(ax-5)+'v10" stroke="#13306b" stroke-width="3" stroke-linecap="round"/><text x="'+x+'" y="'+(tH-2)+'" text-anchor="'+(h===0?'start':h===24?'end':'middle')+'">'+(h===24?'24 h':h+' h')+'</text>'});
+  s+='<text x="'+(m+13/24*(tW-2*m))+'" y="'+(tH-58)+'" text-anchor="middle">mer haute = ouvert</text>';
+  tg.innerHTML=s}
+measureTide();resizers.push(measureTide);
+function lvl(h){return sstep(6.6,9.2,h)*(1-sstep(16.8,19.4,h))}
+function tideY(x,t,k){var m=14,h=(x-m)/(tW-2*m)*24,top=34,low=tH-58;return lerp(low,top,lvl(h))+Math.sin(x*.045+t*1.6+k)*3+Math.sin(x*.11-t*1.1+k*2)*1.4}
+var lastOpen=null;
+task(tide,function(t){var ax=tH-22,d1='',d2='';for(var x=-6;x<=tW+6;x+=8){var y=tideY(x,t,0);d1+=(d1?'L':'M')+x+','+y.toFixed(1)}
+  tl1.setAttribute('d',d1);tw1.setAttribute('d',d1+'L'+(tW+6)+','+ax+'L-6,'+ax+'Z');
+  for(var x2=-6;x2<=tW+6;x2+=8){var y2=tH-44+Math.sin(x2*.06+t*1.9)*3;d2+=(d2?'L':'M')+x2+','+y2.toFixed(1)}
+  tl2.setAttribute('d',d2);tw2.setAttribute('d',d2+'L'+(tW+6)+','+ax+'L-6,'+ax+'Z');
+  var h=nowH(),bx=14+h/24*(tW-28),by=tideY(bx,t,0),sl=(tideY(bx+1,t,0)-tideY(bx-1,t,0))/2;
+  tb.setAttribute('transform','translate('+bx.toFixed(1)+','+(by+3).toFixed(1)+') rotate('+(Math.atan(sl)*43).toFixed(1)+') scale(.2)');
+  var open=h>=8&&h<18;if(open!==lastOpen){lastOpen=open;live.textContent=open?"D'après ces horaires : ouvert en ce moment":"D'après ces horaires : fermé en ce moment, ouverture à 08:00";live.classList.toggle('cl',!open)}});
+var flagEls=$$('.cl2');
+task($('#flags'),function(t){flagEls.forEach(function(f,i){f.style.transform='perspective(500px) rotateY('+(Math.sin(t*2.1+i*1.3)*13).toFixed(2)+'deg) skewY('+(Math.sin(t*3+i)*2.2).toFixed(2)+'deg)'})});
+
+/* bandes de mer */
+[['carte',[{b:.45,a:5,lam:180,v:1.4,ph:0,fill:'#9cc3e6',span:'20 70',off:9},{b:.7,a:6,lam:240,v:1,ph:2,fill:'#1f5fa8'}]],
+ ['foot',[{b:.3,a:7,lam:220,v:1.2,ph:0,fill:'#9cc3e6'},{b:.55,a:7,lam:300,v:1.6,ph:1.6,fill:'#1f5fa8',span:'30 80',off:10,sc:'#9cc3e6'},{b:.85,a:6,lam:260,v:1,ph:3,fill:'#13306b'}]]
+].forEach(function(d){var el=$('[data-sea="'+d[0]+'"]');var S=Sea(el,d[1]);task(el,function(t){S.draw(t)})});
+/* le pied de page : la mer descend sur le fond marine */
+(function(){var f=$('[data-sea="foot"]');f.insertBefore(mk('rect',{x:0,y:0,width:'100%',height:'100%',fill:'#f6f4ee'}),f.firstChild)})();
+
+/* ---------- cookies & plan ---------- */
+var KEY='clapotis-consent',ck=$('#ck'),mapEl=$('#map'),ckmap=$('#ckmap');
+function getC(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function setC(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+function loadMap(){if(mapEl.querySelector('iframe'))return;var f=document.createElement('iframe');f.title='Plan Google : Le Clapotis, 1 Avenue Augustin Thierry, Carqueiranne';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';
+  f.src='https://www.google.com/maps?q='+encodeURIComponent('Le Clapotis, 1 Avenue Augustin Thierry, 83320 Carqueiranne')+'&output=embed';mapEl.insertBefore(f,mapEl.firstChild);$('#showmap').hidden=true}
+function unloadMap(){var f=mapEl.querySelector('iframe');if(f)f.remove();$('#showmap').hidden=false}
+function choose(v){setC(v);ck.hidden=true;ckmap.checked=v==='accept';if(v==='accept')loadMap();else unloadMap()}
+$$('[data-ck]').forEach(function(b){b.addEventListener('click',function(){choose(b.dataset.ck)})});
+var c0=getC();if(c0==='accept'){loadMap();ckmap.checked=true}else if(!c0){ck.hidden=false}
+$('#showmap').addEventListener('click',function(){ck.hidden=false;$('#ckok').focus()});
+$('#cksave').addEventListener('click',function(){choose(ckmap.checked?'accept':'refuse');$('#dlg-cookies').close()});
+
+/* ---------- dialogues ---------- */
+$$('[data-dlg]').forEach(function(b){b.addEventListener('click',function(){var d=$('#dlg-'+b.dataset.dlg);if(!d)return;if(b.dataset.dlg==='cookies')ckmap.checked=getC()==='accept';
+  if(d.showModal){if(!d.open)d.showModal()}else d.setAttribute('open','')})});
+$$('dialog').forEach(function(d){$('.dx',d).addEventListener('click',function(){d.close?d.close():d.removeAttribute('open')});
+  d.addEventListener('click',function(e){if(e.target===d&&d.close)d.close()})});
+
+/* ---------- curseur rond ---------- */
+if(!RM&&window.matchMedia&&matchMedia('(pointer:fine)').matches){var cu=document.createElement('div');cu.className='cur';cu.setAttribute('aria-hidden','true');document.body.appendChild(cu);
+  var mx=-99,my=-99,cx=-99,cy=-99;addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cu.classList.toggle('hv',!!(e.target.closest&&e.target.closest('a,button,label,input,select')))},{passive:true});
+  addEventListener('mousedown',function(){cu.classList.add('dn')});addEventListener('mouseup',function(){cu.classList.remove('dn')});
+  task(null,function(){cx+=(mx-cx)*.3;cy+=(my-cy)*.3;cu.style.transform='translate('+cx.toFixed(1)+'px,'+cy.toFixed(1)+'px)'})}
+
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
