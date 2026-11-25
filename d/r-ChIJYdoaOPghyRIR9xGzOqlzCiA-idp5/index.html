@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Le Cabrol · Bar, restaurant, tabac à Carqueiranne</title>
+<meta name="description" content="Le Cabrol, bar, restaurant et tabac à Carqueiranne, ouvert tous les jours de 6 h 20 à 21 h : menu, planches à partager, raclette. Réservez votre table.">
+<meta name="theme-color" content="#ece5d8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Display:wght@800&family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Playfair+Display:ital,wght@1,600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;padding:10px 14px;background:var(--c-fg);color:var(--c-bg);border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--c-acc);outline-offset:3px}
+.nowrap{white-space:nowrap}
+/* cookies */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;max-width:560px;margin:0 auto;background:var(--c-panel);color:var(--c-panel-fg);border:1px solid var(--c-line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.45);transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ck.on{transform:none}
+.ck h2{font-size:16px;margin:0 0 6px;font-family:inherit;letter-spacing:0;text-transform:none}
+.ck p{font-size:13.5px;line-height:1.5;margin:0 0 14px;opacity:.85}
+.ck .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ck button{font:600 14px/1 var(--f-ui);padding:13px 10px;border-radius:12px;cursor:pointer;border:1.5px solid var(--c-panel-fg);min-height:44px}
+.ck .no{background:transparent;color:var(--c-panel-fg)}
+.ck .yes{background:var(--c-panel-fg);color:var(--c-panel)}
+.ck .lk{background:none;border:0;padding:0;min-height:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+/* legal modal */
+.lg{position:fixed;inset:0;z-index:150;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.6);padding:0}
+.lg.on{display:flex}
+.lg .box{background:var(--c-panel);color:var(--c-panel-fg);width:100%;max-width:720px;max-height:86vh;overflow:auto;border-radius:20px 20px 0 0;padding:26px 22px 30px;font:400 14.5px/1.6 var(--f-ui)}
+@media(min-width:760px){.lg{align-items:center}.lg .box{border-radius:20px}}
+.lg h2{font:700 22px/1.2 var(--f-ui);margin:0 0 12px;text-transform:none;letter-spacing:0}
+.lg h3{font:700 15px/1.3 var(--f-ui);margin:18px 0 4px;text-transform:none;letter-spacing:0}
+.lg p{margin:0 0 8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1px solid var(--c-line);background:var(--c-panel);color:var(--c-panel-fg);font-size:22px;cursor:pointer}
+/* map */
+.mapw{position:relative;border-radius:22px;overflow:hidden;min-height:340px;background:var(--c-map-bg);isolation:isolate;border:1px solid var(--c-line)}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapw::before{content:"";position:absolute;inset:0;z-index:2;background:var(--c-map-tint);mix-blend-mode:color;pointer-events:none}
+.mapw::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,0,0,.55) 100%)}
+.mapw .ph{position:absolute;inset:0;z-index:1;background:
+ repeating-linear-gradient(28deg,transparent 0 46px,rgba(255,255,255,.05) 46px 48px),
+ repeating-linear-gradient(-62deg,transparent 0 70px,rgba(255,255,255,.06) 70px 73px),
+ radial-gradient(60% 50% at 30% 70%,var(--c-map-water),transparent 70%),var(--c-map-bg)}
+.mapw .pin{position:absolute;left:50%;top:44%;z-index:4;transform:translate(-50%,-100%);pointer-events:none}
+.mapw .pin i{display:grid;place-items:center;width:58px;height:58px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--c-acc);box-shadow:0 10px 30px rgba(0,0,0,.5);animation:pinb 2.4s ease-in-out infinite}
+.mapw .pin i b{transform:rotate(45deg);font:700 20px/1 var(--f-disp);color:var(--c-acc-fg)}
+.mapw .pin::after{content:"";position:absolute;left:50%;bottom:-10px;width:70px;height:70px;margin-left:-35px;border-radius:50%;border:2px solid var(--c-acc);opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes pinb{50%{transform:rotate(-45deg) translate(3px,-3px)}}
+@keyframes ping{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.mapw .glass{position:absolute;z-index:5;left:14px;right:14px;bottom:14px;padding:16px;border-radius:16px;background:rgba(15,15,18,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16);color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mapw .glass p{margin:0;font:500 14px/1.4 var(--f-ui)}
+.mapw .glass strong{display:block;font-size:15px}
+.mapw .glass a,.mapw .consent button{font:700 14px/1 var(--f-ui);background:var(--c-acc);color:var(--c-acc-fg);padding:12px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+.mapw .consent{position:absolute;z-index:5;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(15,15,18,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 8px 8px 14px;border-radius:999px;color:#fff;font:500 12.5px/1.3 var(--f-ui);width:max-content;max-width:calc(100% - 28px)}
+.mapw.live .consent,.mapw.live .ph{display:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.lk{background:none;border:0;padding:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+.zb{display:inline-block;font:500 11.5px/1.4 var(--f-ui);opacity:.62;margin-top:6px}
+.zb a{color:inherit}
+
+:root{--paper:#ece5d8;--ink:#151312;--navy:#34337f;--red:#c8102e;--night:#0e0d1a;--photo:#f5f2ec;--c-bg:#ece5d8;--c-fg:#151312;--c-acc:#c8102e;--c-acc-fg:#fff;--c-soft:rgba(21,19,18,.72);--c-line:rgba(21,19,18,.18);--c-panel:#1c1b4a;--c-panel-fg:#f5f2ec;--c-map-bg:#1c1b4a;--c-map-water:#2a2970;--c-map-tint:#34337f;--f-disp:"Big Shoulders Display",Impact,sans-serif;--f-ui:"Hanken Grotesk",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,monospace;--f-giant:"Anton",Impact,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 16px/1.6 var(--f-ui);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto}
+.hd{font:800 clamp(38px,6vw,84px)/.9 var(--f-disp);text-transform:uppercase;letter-spacing:.01em}
+.mono{font:500 12px/1.4 var(--f-mono);letter-spacing:.04em;text-transform:uppercase}
+/* header */
+.top{position:fixed;z-index:60;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:rgba(236,229,216,.94);border-bottom:1.5px solid var(--ink);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand b{font:400 26px/1 var(--f-giant);letter-spacing:.02em}
+.brand i{font-style:normal;background:var(--red);color:#fff;font:700 10px/1 var(--f-mono);padding:5px 6px}
+.top nav{display:flex;gap:20px}
+.top nav a{font:800 15px/1 var(--f-disp);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.tb{display:flex;gap:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;font:800 16px/1 var(--f-disp);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap;border:1.5px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn.r{background:var(--red);border-color:var(--red);color:#fff}
+.btn.n{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.w{background:var(--photo);color:var(--ink)}
+.btn.ic{width:46px;padding:0}
+@media(max-width:900px){.top nav{display:none}.tb .tl{display:none}}
+@media(min-width:901px){.tb .ti{display:none}}
+@media(max-width:480px){.brand i{display:none}.brand b{font-size:23px}.top{padding:10px 12px}.btn{padding:0 14px}.btn.ic{padding:0}}
+/* hero */
+.hero{position:relative;min-height:100svh;padding:100px 0 40px;overflow:hidden;display:grid;align-items:center}
+.giant{position:absolute;left:50%;top:50%;transform:translate(-50%,-56%);font:400 clamp(120px,30vw,460px)/.8 var(--f-giant);letter-spacing:-.01em;color:transparent;-webkit-text-stroke:2px rgba(21,19,18,.22);white-space:nowrap;pointer-events:none;user-select:none}
+.hg{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font:800 clamp(44px,7vw,104px)/.88 var(--f-disp);text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .q{font:italic 600 clamp(20px,2vw,26px)/1.3 "Playfair Display",Georgia,serif;margin:16px 0 10px}
+.hero .s{max-width:460px;color:var(--c-soft)}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.pcw{perspective:1400px;display:grid;place-items:center}
+.pcard{position:relative;width:min(470px,86vw);aspect-ratio:3/2;transform-style:preserve-3d;transform:rotateZ(-5deg) rotateX(var(--rx,0deg)) rotateY(calc(var(--ry,0deg) + var(--fl,0deg)));transition:transform .9s cubic-bezier(.2,.8,.2,1);cursor:pointer;animation:drop1 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes drop1{from{opacity:0;transform:translateY(-120px) rotateZ(14deg) rotateX(40deg)}}
+.pcard .fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--photo);padding:12px;box-shadow:0 30px 60px rgba(21,19,18,.35)}
+.pcard .fc img{width:100%;height:100%;object-fit:cover;filter:sepia(.15) saturate(1.1)}
+.pcard .fc .cap{position:absolute;left:24px;bottom:22px;background:var(--photo);padding:4px 8px}
+.pcard .bk{transform:rotateY(180deg);display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding:22px}
+.pcard .bk .msg{font:600 22px/1.3 "Caveat",cursive;color:var(--navy);border-right:1.5px solid var(--c-line);padding-right:14px}
+.pcard .bk .addr{display:grid;align-content:end;gap:10px}
+.pcard .bk .addr span{border-bottom:1.5px solid var(--c-line);font:600 15px/1.3 "Caveat",cursive;color:var(--navy);padding-bottom:2px}
+.stamp{position:absolute;right:18px;top:18px;width:74px;height:88px;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;font:800 12px/1.1 var(--f-disp);letter-spacing:.06em;outline:3px dashed var(--photo);outline-offset:-6px;padding:6px}
+.flipb{position:absolute;right:-8px;bottom:-18px;z-index:2;transform:rotateZ(5deg)}
+@media(max-width:900px){.hg{grid-template-columns:1fr}.pcw{order:-1}.hero{padding-top:84px}.giant{top:30%}}
+/* prints */
+#tirages{background:var(--night);color:var(--photo);height:400vh;position:relative}
+.stk{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;perspective:1200px}
+.stk .ttl{position:absolute;top:86px;left:0;right:0;z-index:3}
+.track{display:flex;gap:min(6vw,70px);padding:0 10vw;will-change:transform;transform-style:preserve-3d;align-items:center;margin-top:40px}
+.print{flex:none;width:min(300px,62vw);background:var(--photo);color:var(--ink);padding:12px 12px 14px;box-shadow:0 30px 60px rgba(0,0,0,.5);transform-style:preserve-3d;will-change:transform}
+.print img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.print .mono{display:flex;justify-content:space-between;gap:8px;margin-top:10px}
+.print .sig{font:600 20px/1 "Caveat",cursive;color:var(--red);text-transform:none;letter-spacing:0}
+.mani{margin-right:12vw;flex:none;width:min(560px,80vw);font:800 clamp(40px,6vw,86px)/.92 var(--f-disp);text-transform:uppercase;color:var(--photo)}
+.mani em{font-style:normal;color:var(--red)}
+.prog{position:absolute;left:16px;right:16px;bottom:26px;height:2px;background:rgba(245,242,236,.2)}
+.prog i{position:absolute;left:0;top:0;bottom:0;background:var(--red);width:var(--p,0%)}
+/* carte stage */
+#carte{background:var(--navy);color:var(--photo);height:440vh;position:relative}
+.cst{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:90px max(16px,(100vw - 1180px)/2) 40px}
+.scn{grid-column:1;grid-row:1;opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.scn.on{opacity:1;transform:none;pointer-events:auto}
+.scn .k{color:#ffb3bf}
+.scn h2{margin:10px 0 14px}
+.scn ul{list-style:none;display:grid;gap:8px;max-width:460px}
+.scn li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed rgba(245,242,236,.35);padding-bottom:7px;font-size:16px}
+.scn li span{font:500 12px/1.5 var(--f-mono);opacity:.8;text-align:right}
+.obj{grid-column:2;grid-row:1;position:relative;height:min(64vh,520px);perspective:1200px}
+.obj canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.o3{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .6s;pointer-events:none}
+.o3.on{opacity:1}
+.o3 .ph{width:min(330px,70vw);background:var(--photo);padding:10px 10px 36px;box-shadow:0 30px 60px rgba(0,0,0,.45);transform:rotate(var(--r,4deg));position:relative}
+.o3 .ph img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.o3 .ph .mono{position:absolute;left:12px;bottom:10px;color:var(--ink)}
+.o3 .ph.b{position:absolute;transform:translate(60px,40px) rotate(-7deg);z-index:-1}
+.board{width:min(360px,74vw);height:160px;transform:rotateX(58deg) rotateZ(-18deg);transform-style:preserve-3d;background:linear-gradient(90deg,#a87445,#c48b55 40%,#a87445);border-radius:18px;box-shadow:0 40px 60px rgba(0,0,0,.5);position:relative}
+.board::after{content:"";position:absolute;right:-56px;top:60px;width:70px;height:40px;border-radius:0 20px 20px 0;background:#a87445}
+.board i{position:absolute;border-radius:50%;transform:translateZ(14px);box-shadow:0 6px 0 rgba(0,0,0,.25)}
+.chip3{position:absolute;right:6%;bottom:8%;transform:rotate(-6deg)}
+.rlc{position:absolute;inset:0;display:none;place-items:center}
+.no3d .rlc{display:grid}
+.rlc .ph{width:min(330px,70vw)}
+.steps{position:absolute;left:max(16px,(100vw - 1180px)/2);bottom:22px;display:flex;gap:8px}
+.steps i{width:28px;height:3px;background:rgba(245,242,236,.3)}
+.steps i.on{background:var(--red)}
+@media(max-width:900px){.cst{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start;padding-top:80px;gap:6px}.obj{grid-column:1;grid-row:1;height:34vh}.scn{grid-column:1;grid-row:2;align-self:start}.scn h2{font-size:38px;margin:6px 0 10px}.scn li{font-size:14.5px}.o3 .ph{width:min(200px,52vw)}.o3 .ph.b{transform:translate(40px,20px) rotate(-7deg)}.board{width:min(250px,64vw);height:110px}}
+/* cord */
+#bar{background:var(--paper);overflow:hidden}
+.cordw{position:relative;margin-top:40px;height:420px}
+.cord{position:absolute;left:-2%;right:-2%;top:30px;height:60px;border-top:2px solid var(--ink);border-radius:0 0 50% 50%/0 0 60px 60px}
+.hang{position:absolute;top:30px;width:min(190px,38vw);transform-origin:50% 0;transform:rotate(var(--a,0deg))}
+.hang::before{content:"";position:absolute;left:50%;top:-10px;width:14px;height:30px;margin-left:-7px;background:#c9a56a;border:1.5px solid var(--ink);z-index:2}
+.hang figure{background:var(--photo);padding:8px 8px 30px;box-shadow:0 18px 30px rgba(21,19,18,.25);margin-top:6px}
+.hang img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.hang figcaption{position:absolute;left:10px;right:10px;bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.facts div{border:1.5px solid var(--ink);padding:18px;background:var(--photo)}
+.facts b{display:block;font:800 30px/1 var(--f-disp);text-transform:uppercase;margin-bottom:6px}
+@media(max-width:900px){.facts{grid-template-columns:1fr}.cordw{height:300px}}
+@media(max-width:640px){.hang{width:24vw}.hang:nth-child(n+6){display:none}.hang:nth-child(2){left:2%!important}.hang:nth-child(3){left:26%!important}.hang:nth-child(4){left:50%!important}.hang:nth-child(5){left:74%!important}.hang figcaption{font-size:9px}.cordw{height:240px}}
+/* postcard booking */
+#reserver{background:#1c1b4a;color:var(--photo);overflow:hidden}
+.bkg{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.pcb{perspective:1600px}
+.pcf{position:relative;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.pcf.done{transform:rotateY(180deg)}
+.side{background:var(--photo);color:var(--ink);padding:24px;box-shadow:0 40px 80px rgba(0,0,0,.45);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.side.bk{position:absolute;inset:0;transform:rotateY(180deg);display:grid;align-content:center;gap:12px;text-align:center}
+.side.bk .big{font:600 34px/1.2 "Caveat",cursive;color:var(--navy)}
+.pst{position:absolute;right:22px;top:20px;width:92px;height:92px;border:3px solid var(--red);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--red);font:800 12px/1.1 var(--f-disp);letter-spacing:.06em;transform:rotate(-14deg) scale(1.6);opacity:0;transition:.4s cubic-bezier(.3,1.6,.5,1)}
+.pcf.done .pst,.side.bk .pst{opacity:1;transform:rotate(-14deg) scale(1)}
+fieldset{border:0;min-width:0}
+legend{margin-bottom:8px;color:var(--c-soft)}
+.sc{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+.sc button,.sl button{flex:none;min-height:46px;padding:6px 12px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:700 13px/1.15 var(--f-ui);cursor:pointer}
+.sc button{width:64px;display:grid;place-content:center;text-align:center}
+.sc button b{font:800 20px/1 var(--f-disp)}
+.sc button[aria-pressed=true],.sl button[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.sl{display:flex;flex-wrap:wrap;gap:6px}
+.sl button:disabled{opacity:.3;cursor:not-allowed}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label.fl{display:grid;gap:4px;font:500 12px/1.4 var(--f-mono);text-transform:uppercase;color:var(--c-soft)}
+input{font:400 16px/1.4 var(--f-ui);color:var(--ink);background:#fff;border:1.5px solid var(--ink);padding:11px 12px;min-height:46px;width:100%}
+.step{display:flex;align-items:center;gap:12px}
+.step button{width:46px;height:46px;border:1.5px solid var(--ink);background:transparent;font-size:20px;cursor:pointer}
+.step output{font:800 26px/1 var(--f-disp);min-width:2ch;text-align:center}
+.ok{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--c-soft)}
+.ok input{width:22px;height:22px;min-height:0;flex:none;accent-color:var(--red)}
+.err{color:var(--red);font-weight:700;min-height:1em;font-size:14px}
+form{display:grid;gap:16px;margin-top:6px}
+.note{font-size:13.5px;opacity:.8}
+@media(max-width:900px){.bkg{grid-template-columns:1fr}.f2{grid-template-columns:1fr}.pst{width:72px;height:72px;font-size:10px;right:12px;top:12px}}
+/* infos */
+#infos{background:var(--paper)}
+.ig{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.ig>*,.bkg>*,.hg>*{min-width:0}
+.hours{list-style:none;margin:20px 0}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1.5px dashed var(--c-line)}
+.hours li span:last-child{white-space:nowrap;font-family:var(--f-mono);font-size:14px}
+.hours li.t{color:var(--red);font-weight:700}
+.co{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:900px){.ig{grid-template-columns:1fr}}
+.sec{padding:110px 0}
+.lead{color:var(--c-soft);max-width:560px;margin-top:14px;font-size:17px}
+footer{background:var(--ink);color:var(--photo);padding:56px 0 36px}
+footer .wrap{display:grid;gap:14px}
+footer .big{font:400 clamp(60px,16vw,220px)/.8 var(--f-giant);color:transparent;-webkit-text-stroke:1.5px rgba(245,242,236,.3)}
+footer p{opacity:.85;font-size:14px}
+.legal{display:flex;flex-wrap:wrap;gap:4px 18px}
+.legal button{background:none;border:0;color:inherit;opacity:.85;font:500 13.5px/1 var(--f-ui);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top"><a class="brand" href="#top" aria-label="Le Cabrol, accueil"><b>LE CABROL</b><i>CARQUEIRANNE</i></a>
+<nav aria-label="Navigation"><a href="#tirages">Tirages</a><a href="#carte">La carte</a><a href="#bar">Le bar</a><a href="#infos">Infos</a></nav>
+<div class="tb"><a class="btn ic ti" href="tel:+33483739715" aria-label="Appeler le 04 83 73 97 15"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a><a class="btn tl" href="tel:+33483739715"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">04 83 73 97 15</span></a><a class="btn r" href="#reserver">Réserver</a></div></header>
+<main id="main">
+<section class="hero" id="top"><div class="giant" aria-hidden="true">CABROL</div><div class="wrap hg">
+<div><p class="mono" style="color:var(--red)">Bar · Restaurant · Tabac · Carqueiranne</p>
+<h1>Le Cabrol<br><em>se réinvente</em></h1>
+<p class="s" style="margin-top:18px">Bar, restaurant et tabac à Carqueiranne. Ouvert tous les jours, du premier café de 6 h 20 au dernier verre de 21 h, avenue du Général-de-Gaulle.</p>
+<div class="acts"><a class="btn r" href="#reserver">Réserver une table</a><a class="btn" href="#carte">Voir la carte</a></div></div>
+<div class="pcw"><div class="pcard" id="pcard" role="button" tabindex="0" aria-label="Retourner la carte postale"><div class="fc"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S_YJYfXNWKEbRXqxfgrGLDA4DzYyCTYa3qjbqbnx5kYsZEWwsa_brKVam1VB6RCrqXbA6yr4c2SF6DOt-EmVX9jVLOXkLF6eE7mXF2TZ5nWiGohDaGXN1PI53-FYg1V1wZ784=w1000" alt="Carte postale ancienne de l'hôtel Cabrol à Carqueiranne"><span class="cap mono">Carqueiranne · Le Cabrol</span></div>
+<div class="fc bk"><p class="msg">Bons baisers du Cabrol !<br>Un café en terrasse, une planche à l'apéro, et on reste dîner.</p><div class="addr"><span>Le Cabrol</span><span>33 av. du Général de Gaulle</span><span>83320 Carqueiranne</span></div><div class="stamp">CABROL<br>83</div></div>
+<span class="btn w flipb mono" aria-hidden="true">Retourner ↻</span></div></div>
+</div></section>
+
+<section id="tirages" aria-labelledby="tT"><div class="stk"><div class="ttl wrap"><p class="mono" style="color:#ffb3bf">Tirages signés · 08</p><h2 class="hd" id="tT">Sorti de cuisine</h2></div>
+<div class="track" id="track"><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tq2M27fe68Q-Ql4VrcDkeiEj9UceRYj-KOG3JkY-SSyz5mIQLczhgkIr1dMMR00EWwMBZHhiuQOciYniAXOT3umiNu9KmlpDBWYwzJww4rchMknH7yKFtpGlD2lpQxtcM_-A=w700" alt="Poulpe snacké" loading="lazy"><figcaption class="mono"><span>Poulpe snacké</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T0SWD8GSa7d6oMGNNCXI9JQpQ4CfIC-TA8eqL9ZszZlF1uac6tcBZqA_hD9dHZj6_9XUApJOKjQcv6h7djMRHJNh-wVCGW0WDnj1nkzHMP6ZpvSbGId4rVgX-L-Hw9htnJyH-7=w700" alt="Plat du jour" loading="lazy"><figcaption class="mono"><span>Plat du jour</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q8KpWBVQrdMOOtyMHgWymeIxetwHXSWB77iqE3ncqWrSetmBo8WpZaIJPSkFi9El4eIGfgo5hYi1vaEeEVRYytTUxnBmwi-BnPelPi9vhwJRNNJQBEwSYj75DiS_HDt5jg2lCFsw=w700" alt="Tomate farcie" loading="lazy"><figcaption class="mono"><span>Tomate farcie</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S-Hn5dJvLY7bivTwIxKDqDhYvX9OTWpowmImoO3JHPHRT74wlX4nV6O4Runa6yb8yv-UL2idLd9W7okwQUBkzli_ItKpA7HnQTImnp2sFqNH6_SR7-6L6kfqpllRldyrP4MzVp=w700" alt="Raclette de Savoie" loading="lazy"><figcaption class="mono"><span>Raclette de Savoie</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SFqw1Lt9enCxwA8jSZIEudgsD3Qydk60Yt7xDs9omqdMTQzrXbdkRZEpcjVpZqs8S6J0By7NgwIqaps7BhjmypsUlnWVmQYUeiIKVJ1Zu34yrSUeQqPpo8juNnFk8aGCjTD1Y1=w700" alt="L'apéro" loading="lazy"><figcaption class="mono"><span>L'apéro</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RKohl2uVSuG2k3I587-beu5xN3XMGptrSCKkuPm5y7kvTG5k-zPCLgwcv8bGh9YZRN8gjyr3eYNwA-KjBUdgH26zH7rE-5ewrkCM1lSlPTViET8NshTdfRT0MIFes1aBAcYpjS=w700" alt="Paella" loading="lazy"><figcaption class="mono"><span>Paella</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TljzuHMufbUKvNTt3xftr1YdSxnY9IzDipc7evACJlOfrtJGmLHXmUD3HR9R1LTLJVjtb3yYuQq4pHlqsiBByq2todZ3Z-EEoaayCup4BWWbgKb1rGQT0zVT1zENC6FflvB98F0g=w700" alt="Salade" loading="lazy"><figcaption class="mono"><span>Salade</span><span class="sig">Cabrol</span></figcaption></figure><figure class="print"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RqAHKk_T4iXZo4iDhfGukbn6ydUgKiijRZV9WI8Y7MMqm4W4mvWcCivFYtPjSDIT2lGh-trkZ41C7XYTEUgxFC5mWz397YfOchC70m7UvT_CrcGQlB0dtiQYARvFLaXwzcAMk-=w700" alt="Fraisier" loading="lazy"><figcaption class="mono"><span>Fraisier</span><span class="sig">Cabrol</span></figcaption></figure><p class="mani">Du premier café<br>au <em>dernier verre</em>.</p></div>
+<div class="prog" id="prog"><i></i></div></div></section>
+
+<section id="carte" aria-label="La carte"><div class="cst" id="cst">
+<div class="obj" id="obj"><div class="o3 on" data-i="0"><figure class="ph" style="--r:4deg"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TNH1g0P_pjR1HvSknyPUSmynQAGMz4cgPeW08sArPbFzn2biO17MkyOkqC_I13syoHdTAQEjt6PkHmoHnj3U6N81kGmReyl5LJiBvLrV95ODZlKi_zKk4VcF0YVui8uvP15_C2=w700" alt="Un plat du Cabrol" loading="lazy"><figcaption class="mono">Le menu · Cabrol</figcaption></figure><figure class="ph b"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RPe4uo8Xha5har-G0WaBwR-y3Q1IX9iGwMsRLLSi5S1dnI5I2eS_BdiD5FxLc_6CBy1XqHTUQBX8gfEDHJl5cJMdaijxgzRm8z_NN7HVBILrpoUHVvYzUMDIWWOr_wSJe0ExLT=w600" alt="" loading="lazy"></figure></div>
+<div class="o3" data-i="1"><div class="board"><i style="left:12%;top:20%;width:46px;height:46px;background:#d94b3a"></i><i style="left:30%;top:52%;width:38px;height:38px;background:#f2d38a"></i><i style="left:52%;top:18%;width:52px;height:52px;background:#b8342b"></i><i style="left:70%;top:50%;width:40px;height:40px;background:#f6e7b8"></i><i style="left:44%;top:62%;width:26px;height:26px;background:#7a9a3a"></i><i style="left:82%;top:14%;width:30px;height:30px;background:#e57a5a"></i></div><figure class="ph chip3" style="width:min(170px,40vw);--r:-6deg"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QnuXaelJ1aKYgq6jWuO5mF9OGbeviY0HmFsLyLuYIaPj7Xpu2Xt1IrWdozS76HMlBd_HnLcu-LHl6g6840wb5I9qOJ4tw6weqVRYBLmIQ7VrrSPkZC6GQfMxaw1dsKSDhRO_2I=w500" alt="Planche à partager" loading="lazy"><figcaption class="mono">Planche</figcaption></figure></div>
+<div class="o3" data-i="2" id="rac"><div class="rlc"><figure class="ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QOfFr6f6co4-pYBNwasiE5o-gXCmwex0sCbIQRtYaL3Hrp6kuYqcH9r72UXJWADyME84IsI_LbFHMpLz9FuOUjF8x27353V4ZjQRNDxenY3yPDK-K-P6SNj4YlStlqVfhBTpYZ=w600" alt="Raclette" loading="lazy"><figcaption class="mono">Raclette</figcaption></figure></div></div>
+<div class="o3" data-i="3"><figure class="ph" style="--r:-3deg"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RqAHKk_T4iXZo4iDhfGukbn6ydUgKiijRZV9WI8Y7MMqm4W4mvWcCivFYtPjSDIT2lGh-trkZ41C7XYTEUgxFC5mWz397YfOchC70m7UvT_CrcGQlB0dtiQYARvFLaXwzcAMk-=w700" alt="Fraisier" loading="lazy"><figcaption class="mono">Fraisier</figcaption></figure><figure class="ph b"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SblI3U_EAfmnCJlacKftrOt3v9TNTbAbELBN0jbxeWbLhzWjhiQtLDKxgRUAYt3crFsLQ-S4PFHs6RUX5XdPBdknZQYItVgVnN5jPK9l8JtUhoYXG17PhdELxq0rKgBxog_9Pv1w=w600" alt="" loading="lazy"></figure></div></div>
+<div class="scn on" data-i="0"><span class="mono k">01 / 04 · La carte du Cabrol</span><h2 class="hd">Le menu</h2><ul><li>Poisson du jour<span>selon la pêche</span></li><li>Entrecôte<span>sauce poivre, frites</span></li><li>Côtelettes d'agneau<span>croûte de pesto</span></li><li>Gnocchis maison<span>crème de truffe</span></li><li>Camembert au four<span>jambon cru</span></li><li>Pavé de saumon<span>fondue de poireaux</span></li></ul></div><div class="scn" data-i="1"><span class="mono k">02 / 04 · À partager</span><h2 class="hd">Planches</h2><ul><li>Charcuterie corse<span>à l'apéro</span></li><li>Mixte<span>charcuterie et fromages</span></li><li>Saumon fumé<span>fumé par nos soins</span></li><li>L'entrée du Cabrol<span>poireaux, fêta, pistaches</span></li></ul></div><div class="scn" data-i="2"><span class="mono k">03 / 04 · De Savoie</span><h2 class="hd">Raclette</h2><ul><li>Raclette de Savoie<span>à partager</span></li><li>Charcuterie<span>pour l'accompagner</span></li><li>Pommes de terre<span>et cornichons</span></li></ul></div><div class="scn" data-i="3"><span class="mono k">04 / 04 · Pour finir</span><h2 class="hd">Douceurs</h2><ul><li>Fraisier<span>de saison</span></li><li>Desserts du jour<span>à l'ardoise</span></li><li>Café gourmand<span>avec le café</span></li></ul></div>
+<div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<section class="sec" id="bar" aria-labelledby="bT"><div class="wrap"><p class="mono" style="color:var(--red)">Le bar · le tabac · la terrasse</p><h2 class="hd" id="bT">Accroché au fil</h2>
+<p class="lead">Passez la souris (ou le doigt) sur le fil : les photos se balancent.</p>
+<div class="cordw" id="cordw"><div class="cord"></div><div class="hang" data-a="-4" style="left:6.0%"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S_YJYfXNWKEbRXqxfgrGLDA4DzYyCTYa3qjbqbnx5kYsZEWwsa_brKVam1VB6RCrqXbA6yr4c2SF6DOt-EmVX9jVLOXkLF6eE7mXF2TZ5nWiGohDaGXN1PI53-FYg1V1wZ784=w500" alt="La façade d'hier" loading="lazy"><figcaption class="mono">La façade d'hier</figcaption></figure></div><div class="hang" data-a="3" style="left:21.5%"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SFqw1Lt9enCxwA8jSZIEudgsD3Qydk60Yt7xDs9omqdMTQzrXbdkRZEpcjVpZqs8S6J0By7NgwIqaps7BhjmypsUlnWVmQYUeiIKVJ1Zu34yrSUeQqPpo8juNnFk8aGCjTD1Y1=w500" alt="L'apéro" loading="lazy"><figcaption class="mono">L'apéro</figcaption></figure></div><div class="hang" data-a="-2" style="left:37.0%"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QnuXaelJ1aKYgq6jWuO5mF9OGbeviY0HmFsLyLuYIaPj7Xpu2Xt1IrWdozS76HMlBd_HnLcu-LHl6g6840wb5I9qOJ4tw6weqVRYBLmIQ7VrrSPkZC6GQfMxaw1dsKSDhRO_2I=w500" alt="Planche" loading="lazy"><figcaption class="mono">Planche</figcaption></figure></div><div class="hang" data-a="4" style="left:52.5%"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q04ldIqlG314Sv2jfliXPoq_afRyqIwBBFKhcP0llU8_TZQZNlFeJB4U88XYmPuUWKvYjnJhPSk5x8cv0sc7KUhflvTuMZbRD6WoYYaM95fPleGFiSguzEjwnIP7SoiDZlQFi8=w500" alt="En cocotte" loading="lazy"><figcaption class="mono">En cocotte</figcaption></figure></div><div class="hang" data-a="-3" style="left:68.0%"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S7TJtuEkXiXaOVyxiDSlhvIqp8hnwFvqkYZ4DXb_tw6SYDfohzMMV31bePWjWHSwd4VS9YU72buXgip5sjxF3Dti857KWI8i1ymEOOCBLe8WaWYYTyAnLek6aqAH1VduNtlw8YCw=w500" alt="Le buffet" loading="lazy"><figcaption class="mono">Le buffet</figcaption></figure></div><div class="hang" data-a="2" style="left:83.5%"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SKNKFaZOQTMkd9tKEMG3Q5Wgyfh1iXrHMuAFhMqtVIb6uuxabosAQ06W0OYJYtepJtSvHQOEWOQU-kLzAZVHQxxsM9BSbvOXg75iNM-Lw4LK5FHKpX2bsLRMSLL1pAHNnpl9j2iw=w500" alt="Dessert" loading="lazy"><figcaption class="mono">Dessert</figcaption></figure></div></div>
+<div class="facts"><div><b>7 j / 7</b>De 6 h 20 à 21 h, tous les jours.</div><div><b>Bar · Tabac</b>Le café du matin, le tabac et le comptoir.</div><div><b>Restaurant</b>Menu, planches à partager et raclette.</div></div>
+</div></section>
+
+<section class="sec" id="reserver" aria-labelledby="rT"><div class="wrap bkg">
+<div><p class="mono" style="color:#ffb3bf">Réserver</p><h2 class="hd" id="rT">Écrivez-nous<br>une carte</h2><p class="lead" style="color:rgba(245,242,236,.8)">Remplissez la carte postale : au moment de l'envoyer, elle est tamponnée et se retourne.</p></div>
+<div class="pcb"><div class="pcf" id="pcf">
+<div class="side fr"><div class="pst" aria-hidden="true">CABROL<br>POSTÉ</div><form id="bf" novalidate>
+<fieldset><legend class="mono">Jour</legend><div class="sc" id="days"></div></fieldset>
+<fieldset><legend class="mono">Heure</legend><div class="sl" id="slots"></div></fieldset>
+<fieldset><legend class="mono">Couverts</legend><div class="step"><button type="button" id="m1" aria-label="Retirer un couvert">−</button><output id="gn">2</output><button type="button" id="p1" aria-label="Ajouter un couvert">+</button></div></fieldset>
+<div class="f2"><label class="fl">Nom<input name="nom" autocomplete="name" required></label><label class="fl">Téléphone<input name="tel" type="tel" inputmode="tel" autocomplete="tel" required></label></div>
+<label class="ok"><input type="checkbox" name="rgpd" required><span>J'accepte que Le Cabrol utilise ces informations pour traiter ma demande. <button class="lk" type="button" data-doc-open="confidentialite">Confidentialité</button></span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="btn r" type="submit" style="justify-self:start">Envoyer la carte</button></form></div>
+<div class="side bk" id="conf" tabindex="-1" aria-live="polite"><div class="pst">CABROL<br>POSTÉ</div><p class="mono">Démo · rien n'est réellement envoyé</p><p class="big" id="cs"></p><p class="note" style="color:var(--c-soft)">Sur le vrai site, Le Cabrol reçoit la demande et vous rappelle pour confirmer.</p></div>
+</div></div>
+</div></section>
+
+<section class="sec" id="infos" aria-labelledby="iT"><div class="wrap ig">
+<div><p class="mono" style="color:var(--red)">Infos</p><h2 class="hd" id="iT">Avenue du<br>Général-de-Gaulle</h2>
+<ul class="hours" id="hours"></ul>
+<div class="co"><a class="btn n" href="tel:+33483739715"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">04 83 73 97 15</span></a><a class="btn" href="https://www.instagram.com/lecabrolcarqueiranne_/" target="_blank" rel="noopener">Instagram</a></div></div>
+<div class="mapw" id="mapw" data-q="Le Cabrol, 33 Av. du Général de Gaulle, 83320 Carqueiranne">
+<div class="ph" aria-hidden="true"></div>
+<div class="consent"><span>Plan Google (cookies)</span><button type="button" data-ck="1">Afficher le plan</button></div>
+<div class="pin" aria-hidden="true"><i><b>C</b></i></div>
+<div class="glass"><p><strong>Le Cabrol</strong>33 Av. du Général de Gaulle, 83320 Carqueiranne</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Le%20Cabrol%2C%2033%20Avenue%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2083320%20Carqueiranne" target="_blank" rel="noopener">Itinéraire</a></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap"><p class="big" aria-hidden="true">CABROL</p>
+<p>Le Cabrol · Bar · Restaurant · Tabac · 33 Av. du Général de Gaulle, 83320 Carqueiranne · <a class="nowrap" href="tel:+33483739715">04 83 73 97 15</a></p>
+<nav class="legal" aria-label="Informations légales"><button type="button" data-doc-open="mentions">Mentions légales</button><button type="button" data-doc-open="confidentialite">Confidentialité</button><button type="button" data-doc-open="cgv">CGV / CGU</button><button type="button" data-doc-open="cookies">Cookies</button><button type="button" data-doc-open="remboursement">Remboursement</button></nav><p class="zb">Démo réalisée par ZAHR · <a href="https://zahr.fr" target="_blank" rel="noopener">zahr.fr</a></p></div></footer>
+
+<div class="lg" id="lg" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="box" tabindex="-1">
+<button class="x" type="button" data-close aria-label="Fermer">×</button>
+<div data-doc="mentions"><h2 id="lgT">Mentions légales</h2>
+<h3>Éditeur du site</h3><p>Le Cabrol, 33 Av. du Général de Gaulle, 83320 Carqueiranne. Téléphone : <span class="nowrap">04 83 73 97 15</span>. Raison sociale, numéro SIRET, capital et directeur de la publication : à compléter avant la mise en ligne.</p>
+<h3>Hébergement</h3><p>Hébergeur : à préciser lors de la mise en ligne (nom, adresse et téléphone de l'hébergeur).</p>
+<h3>Conception</h3><p>Site conçu par ZAHR (zahr.fr), Var.</p>
+<h3>Propriété intellectuelle</h3><p>Les textes, photos et logos de Le Cabrol restent la propriété de leur titulaire. Toute reproduction sans autorisation est interdite.</p></div>
+<div data-doc="confidentialite"><h2>Politique de confidentialité</h2>
+<p>Les informations saisies dans le formulaire (nom, téléphone, e-mail facultatif, détails de la demande) servent uniquement à traiter les demandes de réservation de table. Elles sont destinées à Le Cabrol et ne sont ni vendues ni cédées.</p>
+<h3>Base légale et durée</h3><p>Traitement fondé sur votre consentement (case à cocher du formulaire). Les données sont conservées 12 mois au plus après votre dernière demande.</p>
+<h3>Vos droits</h3><p>Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et retirer votre consentement à tout moment, en contactant Le Cabrol au <span class="nowrap">04 83 73 97 15</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div>
+<div data-doc="cgv"><h2>Conditions générales (CGU / CGV)</h2>
+<h3>Utilisation du site</h3><p>Ce site présente Le Cabrol et permet d'envoyer les demandes de réservation de table. Une demande n'est confirmée qu'après réponse de l'établissement.</p>
+<h3>Prix et disponibilités</h3><p>La carte, les prix et les horaires peuvent évoluer selon la saison et les arrivages : seuls ceux affichés sur place font foi.</p>
+<h3>Responsabilité</h3><p>Le Cabrol s'efforce de tenir les informations à jour mais ne peut garantir l'absence d'erreur. En cas de litige, le droit français s'applique ; vous pouvez recourir gratuitement à un médiateur de la consommation.</p></div>
+<div data-doc="cookies"><h2>Cookies</h2>
+<p>Ce site n'utilise aucun cookie publicitaire ni de mesure d'audience. Seul le plan Google Maps peut déposer des cookies de Google : il ne se charge qu'après votre accord.</p>
+<p>Votre choix est mémorisé sur cet appareil. Vous pouvez le modifier à tout moment :</p>
+<p><button class="lk" type="button" data-ckreset>Modifier mon choix de cookies</button></p></div>
+<div data-doc="remboursement"><h2>Annulation et remboursement</h2><p>La réservation d'une table est gratuite et sans prépaiement. Aucun paiement n'est demandé en ligne : il n'y a donc rien à rembourser. Pour annuler ou modifier, appelez le 04 83 73 97 15.</p></div>
+</div></div>
+<div class="ck" id="ck" role="region" aria-label="Cookies"><h2>Cookies</h2>
+<p>Nous n'utilisons qu'un cookie : celui du plan Google Maps, chargé seulement si vous l'acceptez. <button class="lk" type="button" data-doc-open="cookies">En savoir plus</button></p>
+<div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div></div>
+
+<script>
+(function(){
+var KEY='zahr-ck';
+function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+var ck=document.getElementById('ck'),mw=document.getElementById('mapw');
+function loadMap(){if(!mw||mw.classList.contains('live'))return;var f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q='+encodeURIComponent(mw.dataset.q)+'&z=16&output=embed';mw.insertBefore(f,mw.firstChild.nextSibling);mw.classList.add('live')}
+function apply(v){if(v==='1')loadMap()}
+var v=get(); if(v===null){setTimeout(function(){ck&&ck.classList.add('on')},900)} else apply(v);
+document.addEventListener('click',function(e){
+ var b=e.target.closest('[data-ck]'); if(b){set(b.dataset.ck);ck&&ck.classList.remove('on');apply(b.dataset.ck);return}
+ var o=e.target.closest('[data-doc-open]'); if(o){openDoc(o.dataset.docOpen,o);return}
+ if(e.target.closest('[data-close]')||e.target.id==='lg'){closeDoc();return}
+ if(e.target.closest('[data-ckreset]')){try{localStorage.removeItem(KEY)}catch(_){};closeDoc();ck&&ck.classList.add('on');var f=mw&&mw.querySelector('iframe');if(f){f.remove();mw.classList.remove('live')}}
+});
+var lg=document.getElementById('lg'),last=null;
+function openDoc(id,from){last=from;lg.querySelectorAll('[data-doc]').forEach(function(d){d.hidden=d.dataset.doc!==id});lg.classList.add('on');lg.querySelector('.box').focus();document.documentElement.style.overflow='hidden'}
+function closeDoc(){lg.classList.remove('on');document.documentElement.style.overflow='';last&&last.focus()}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lg.classList.contains('on'))closeDoc()});
+})();
+window.RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.loadThree=function(cb){if(window.THREE){cb(window.THREE);return}var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=function(){try{cb(window.THREE)}catch(e){console.warn(e);document.documentElement.classList.add('no3d')}};s.onerror=function(){document.documentElement.classList.add('no3d')};document.head.appendChild(s)};
+window.frDays=function(n){var o=[],d=new Date(),J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];for(var i=0;i<n;i++){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+i);o.push({d:x,dow:x.getDay(),lab:(i===0?"Auj.":i===1?"Demain":J[x.getDay()]),num:x.getDate(),mon:M[x.getMonth()],long:J[x.getDay()]+' '+x.getDate()+' '+M[x.getMonth()]})}return o};
+
+(function(){
+/* postcard hero */
+var pc=document.getElementById('pcard'),fl=0;
+function flip(){fl=fl?0:180;pc.style.setProperty('--fl',fl+'deg')}
+pc.addEventListener('click',flip);pc.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
+document.querySelector('.hero').addEventListener('pointermove',function(e){if(RM)return;var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;pc.style.setProperty('--ry',(x*16)+'deg');pc.style.setProperty('--rx',(-y*12)+'deg')});
+/* prints */
+var tir=document.getElementById('tirages'),track=document.getElementById('track'),prints=[].slice.call(track.children),prog=document.getElementById('prog');
+/* carte */
+var car=document.getElementById('carte'),scs=[].slice.call(document.querySelectorAll('.scn')),o3=[].slice.call(document.querySelectorAll('.o3')),stp=[].slice.call(document.querySelectorAll('.steps i')),ci=0;
+function setC(i){if(i===ci)return;ci=i;scs.forEach(function(s,j){s.classList.toggle('on',j===i)});o3.forEach(function(s,j){s.classList.toggle('on',j===i)});stp.forEach(function(s,j){s.classList.toggle('on',j===i)});window.__rac&&window.__rac(i===2)}
+/* cord */
+var hangs=[].slice.call(document.querySelectorAll('.hang')),vel=hangs.map(function(){return 0}),ang=hangs.map(function(h){return +h.dataset.a});
+document.getElementById('cordw').addEventListener('pointermove',function(e){hangs.forEach(function(h,i){var r=h.getBoundingClientRect();if(Math.abs(e.clientX-(r.left+r.width/2))<r.width/2&&e.clientY<r.bottom)vel[i]+=(e.movementX||0)*.12})});
+var lastY=scrollY;
+function tick(){var vh=innerHeight;
+ var r=tir.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/(r.height-vh)));var max=track.scrollWidth-innerWidth;track.style.transform='translate3d('+(-p*max)+'px,0,0)';prog.style.setProperty('--p',(p*100)+'%');
+ if(r.top<vh&&r.bottom>0)prints.forEach(function(el,i){var b=el.getBoundingClientRect(),c=(b.left+b.width/2)/innerWidth-.5;el.style.transform=el.classList.contains('mani')?'':'rotateY('+(c*-38)+'deg) translateZ('+(-Math.abs(c)*160)+'px) rotate('+((i%2?1:-1)*2)+'deg)'});
+ var r2=car.getBoundingClientRect(),p2=Math.max(0,Math.min(.999,-r2.top/(r2.height-vh)));setC(Math.floor(p2*4));
+ var dy=scrollY-lastY;lastY=scrollY;hangs.forEach(function(h,i){vel[i]+=(-ang[i]+(+h.dataset.a))*.02+dy*.004*(i%2?1:-1);vel[i]*=.94;ang[i]+=RM?0:vel[i];h.style.setProperty('--a',ang[i].toFixed(2)+'deg')});
+ requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+/* booking */
+var DAYS=frDays(14),st={d:0,t:null,n:2},dz=document.getElementById('days'),sl=document.getElementById('slots');
+var SL=['12:00','12:30','13:00','13:30','14:00','19:00','19:30','20:00','20:30'];
+DAYS.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.innerHTML='<span>'+d.lab+'</span><b>'+d.num+'</b><span>'+d.mon+'</span>';b.setAttribute('aria-label',d.long);b.onclick=function(){st.d=i;st.t=null;rd()};dz.appendChild(b)});
+function rd(){[].forEach.call(dz.children,function(b,i){b.setAttribute('aria-pressed',i===st.d)});sl.innerHTML='';var now=new Date();SL.forEach(function(t){var b=document.createElement('button');b.type='button';b.textContent=t.replace(':',' h ');var m=+t.slice(0,2)*60+ +t.slice(3);b.disabled=st.d===0&&m<=now.getHours()*60+now.getMinutes()+30;b.setAttribute('aria-pressed',st.t===t);b.onclick=function(){st.t=t;rd()};sl.appendChild(b)})}
+rd();
+document.getElementById('m1').onclick=function(){if(st.n>1)document.getElementById('gn').textContent=--st.n};document.getElementById('p1').onclick=function(){if(st.n<20)document.getElementById('gn').textContent=++st.n};
+var f=document.getElementById('bf');f.onsubmit=function(e){e.preventDefault();var m='';if(!st.t)m='Choisissez une heure.';else if(!f.nom.value.trim())m='Indiquez votre nom.';else if(!/^[0-9 +().-]{9,}$/.test(f.tel.value.trim()))m='Indiquez un numéro de téléphone valide.';else if(!f.rgpd.checked)m='Cochez la case de consentement.';document.getElementById('err').textContent=m;if(m)return;
+ document.getElementById('cs').textContent=f.nom.value.trim()+', table pour '+st.n+', le '+DAYS[st.d].long+' à '+st.t.replace(':',' h ')+'.';document.getElementById('pcf').classList.add('done');setTimeout(function(){document.getElementById('conf').focus()},900)};
+/* hours */
+var td=(new Date().getDay()+6)%7,N=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+document.getElementById('hours').innerHTML=N.map(function(n,i){return '<li'+(i===td?' class="t"':'')+'><span>'+n+'</span><span>6 h 20 – 21 h</span></li>'}).join('');
+/* 3D raclette */
+loadThree(function(T){
+ var host=document.getElementById('rac'),R=new T.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));host.appendChild(R.domElement);
+ var S=new T.Scene(),C=new T.PerspectiveCamera(32,1,.1,100);C.position.set(0,3.2,8);C.lookAt(0,0,0);
+ S.add(new T.HemisphereLight(0xfff3d6,0x34337f,.9));var D=new T.DirectionalLight(0xffffff,1.1);D.position.set(4,6,5);S.add(D);var Pl=new T.PointLight(0xff9a3c,1.4,12);Pl.position.set(-2,2.5,2);S.add(Pl);
+ var G=new T.Group();S.add(G);
+ var paste=new T.MeshStandardMaterial({color:0xf4cf6b,roughness:.45}),rind=new T.MeshStandardMaterial({color:0xb5652a,roughness:.8});
+ var half=new T.Mesh(new T.CylinderGeometry(2,2,1.1,64,1,false,0,Math.PI),[rind,paste,paste]);G.add(half);
+ var cut=new T.Mesh(new T.PlaneGeometry(4,1.1),paste);cut.rotation.y=Math.PI/2;G.add(cut);
+ var melt=new T.Mesh(new T.CylinderGeometry(1.9,1.95,.12,64,1,false,0,Math.PI),new T.MeshStandardMaterial({color:0xffd978,roughness:.25,emissive:0x4a2a00,emissiveIntensity:.25}));melt.position.y=.6;G.add(melt);
+ for(var i=0;i<5;i++){var d=new T.Mesh(new T.SphereGeometry(.09,12,10),new T.MeshStandardMaterial({color:0xffd978,roughness:.2}));d.scale.y=1.8;d.position.set(.02,.2-i*.15,-1.6+i*.75);d.userData.b=i;G.add(d)}
+ var board=new T.Mesh(new T.BoxGeometry(5.6,.18,3.4),new T.MeshStandardMaterial({color:0x8b5a2b,roughness:.8}));board.position.y=-.65;S.add(board);
+ for(i=0;i<6;i++){var po=new T.Mesh(new T.SphereGeometry(.28,16,12),new T.MeshStandardMaterial({color:0xd9b26a,roughness:.7}));po.scale.set(1,.8,.9);po.position.set(-2.3+(i%3)*.5,-.35,1+(i>2?.45:0));S.add(po)}
+ G.rotation.y=-.6;
+ function size(){var w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}size();new ResizeObserver(size).observe(host);
+ var on=false;window.__rac=function(v){on=v};var t=0;
+ (function loop(){requestAnimationFrame(loop);if(!on)return;t+=.016;G.rotation.y=-.6+(RM?0:Math.sin(t*.5)*.5);G.children.forEach(function(m){if(m.userData.b!=null)m.position.y=.2-m.userData.b*.15-((t*.4+m.userData.b*.2)%1)*.4});R.render(S,C)})();
+});
+})();
+</script>
+</body>
+</html>
