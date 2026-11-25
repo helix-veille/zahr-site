@@ -386,10 +386,10 @@ loadThree(function(T){
  var storm=new T.Group();S.add(storm);var sc2=[0xf2d49b,0xc0392b,0x6aa84f,0xfff7e6];for(var i=0;i<90;i++){var m=new T.Mesh(i%3?new T.SphereGeometry(.07+Math.random()*.06,10,8):new T.PlaneGeometry(.22,.12),new T.MeshStandardMaterial({color:sc2[i%4],roughness:.5,side:T.DoubleSide}));var a=Math.random()*6.283,r=1.8+Math.random()*2.2;m.userData={a:a,r:r,y:Math.random()*3-1.5,s:.3+Math.random()*.8};storm.add(m)}
  var sel3=0;window.__bowl=function(i){sel3=i};
  function size(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}size();addEventListener('resize',size);
- var t=0;(function loop(){requestAnimationFrame(loop);var p=window.__p;if(p>=1){return}t+=.016;var mob=innerWidth<880,sp=mob?1.9:2.7,hy=mob?1.35:.75;
+ var t=0;(function loop(){requestAnimationFrame(loop);var p=window.__p;if(p>=1){return}t+=.016;var mob=innerWidth<880,sp=mob?1.9:2.7,hy=mob?1.95:.75;
   var sp1=Math.min(1,p/.18),steps=4,ip=Math.max(0,(p-.18)/.82);
-  B.forEach(function(g,i){var k=((i-sel3+D.length+2)%D.length)-2,isS=k===0;var tx=k*sp,tz=-Math.abs(k)*1.6,ty=hy-Math.abs(k)*.25,ts=isS?(mob?1.15:1.35):.78;
-   if(!isS){ts*=1-sp1;}else{tx=tx+(mob?0:-2.6)*sp1;ty=ty+(mob?.9:.1)*sp1;ts=ts*(1-.25*sp1)}
+  B.forEach(function(g,i){var k=((i-sel3+D.length+2)%D.length)-2,isS=k===0;var tx=k*sp,tz=-Math.abs(k)*1.6,ty=hy-Math.abs(k)*.25,ts=isS?(mob?1:1.35):.78;
+   if(!isS){ts*=1-sp1;}else{tx=tx+(mob?0:-2.6)*sp1;ty=ty+(mob?.4:.1)*sp1;ts=ts*(1-.25*sp1)}
    g.position.x+=(tx-g.position.x)*.09;g.position.y+=(ty-g.position.y)*.09;g.position.z+=(tz-g.position.z)*.09;var cs=g.scale.x+(Math.max(.001,ts)-g.scale.x)*.09;g.scale.set(cs,cs,cs);g.visible=cs>.01;
    var flip=isS?Math.floor(ip*steps+.0001)*Math.PI:0;g.userData.fx=(g.userData.fx||0)+((.45+flip)-(g.userData.fx||0))*.08;g.rotation.x=g.userData.fx;g.rotation.y+=RM?0:(isS?.012:.006)});
   var sb=B[sel3];storm.position.copy(sb.position);var sv=Math.max(0,Math.min(1,(ip-.55)/.25))*(1-Math.max(0,(ip-.92)/.08));storm.children.forEach(function(m){var u=m.userData;u.a+=RM?0:.01*u.s;m.position.set(Math.cos(u.a)*u.r,u.y,Math.sin(u.a)*u.r);m.rotation.x+=.02;m.rotation.y+=.03;m.scale.setScalar(Math.max(.001,sv))});
