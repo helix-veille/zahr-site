@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Récif · Restaurant méditerranéen à Carqueiranne</title>
+<meta name="description" content="Récif, restaurant méditerranéen face au port de Carqueiranne : fruits de mer, sushis et poissons, midi et soir 7 j/7. Réservez votre table.">
+<meta name="theme-color" content="#050607">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;padding:10px 14px;background:var(--c-fg);color:var(--c-bg);border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--c-acc);outline-offset:3px}
+.nowrap{white-space:nowrap}
+/* cookies */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;max-width:560px;margin:0 auto;background:var(--c-panel);color:var(--c-panel-fg);border:1px solid var(--c-line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.45);transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ck.on{transform:none}
+.ck h2{font-size:16px;margin:0 0 6px;font-family:inherit;letter-spacing:0;text-transform:none}
+.ck p{font-size:13.5px;line-height:1.5;margin:0 0 14px;opacity:.85}
+.ck .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ck button{font:600 14px/1 var(--f-ui);padding:13px 10px;border-radius:12px;cursor:pointer;border:1.5px solid var(--c-panel-fg);min-height:44px}
+.ck .no{background:transparent;color:var(--c-panel-fg)}
+.ck .yes{background:var(--c-panel-fg);color:var(--c-panel)}
+.ck .lk{background:none;border:0;padding:0;min-height:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+/* legal modal */
+.lg{position:fixed;inset:0;z-index:150;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.6);padding:0}
+.lg.on{display:flex}
+.lg .box{background:var(--c-panel);color:var(--c-panel-fg);width:100%;max-width:720px;max-height:86vh;overflow:auto;border-radius:20px 20px 0 0;padding:26px 22px 30px;font:400 14.5px/1.6 var(--f-ui)}
+@media(min-width:760px){.lg{align-items:center}.lg .box{border-radius:20px}}
+.lg h2{font:700 22px/1.2 var(--f-ui);margin:0 0 12px;text-transform:none;letter-spacing:0}
+.lg h3{font:700 15px/1.3 var(--f-ui);margin:18px 0 4px;text-transform:none;letter-spacing:0}
+.lg p{margin:0 0 8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1px solid var(--c-line);background:var(--c-panel);color:var(--c-panel-fg);font-size:22px;cursor:pointer}
+/* map */
+.mapw{position:relative;border-radius:22px;overflow:hidden;min-height:340px;background:var(--c-map-bg);isolation:isolate;border:1px solid var(--c-line)}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapw::before{content:"";position:absolute;inset:0;z-index:2;background:var(--c-map-tint);mix-blend-mode:color;pointer-events:none}
+.mapw::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,0,0,.55) 100%)}
+.mapw .ph{position:absolute;inset:0;z-index:1;background:
+ repeating-linear-gradient(28deg,transparent 0 46px,rgba(255,255,255,.05) 46px 48px),
+ repeating-linear-gradient(-62deg,transparent 0 70px,rgba(255,255,255,.06) 70px 73px),
+ radial-gradient(60% 50% at 30% 70%,var(--c-map-water),transparent 70%),var(--c-map-bg)}
+.mapw .pin{position:absolute;left:50%;top:44%;z-index:4;transform:translate(-50%,-100%);pointer-events:none}
+.mapw .pin i{display:grid;place-items:center;width:58px;height:58px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--c-acc);box-shadow:0 10px 30px rgba(0,0,0,.5);animation:pinb 2.4s ease-in-out infinite}
+.mapw .pin i b{transform:rotate(45deg);font:700 20px/1 var(--f-disp);color:var(--c-acc-fg)}
+.mapw .pin::after{content:"";position:absolute;left:50%;bottom:-10px;width:70px;height:70px;margin-left:-35px;border-radius:50%;border:2px solid var(--c-acc);opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes pinb{50%{transform:rotate(-45deg) translate(3px,-3px)}}
+@keyframes ping{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.mapw .glass{position:absolute;z-index:5;left:14px;right:14px;bottom:14px;padding:16px;border-radius:16px;background:rgba(15,15,18,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16);color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mapw .glass p{margin:0;font:500 14px/1.4 var(--f-ui)}
+.mapw .glass strong{display:block;font-size:15px}
+.mapw .glass a,.mapw .consent button{font:700 14px/1 var(--f-ui);background:var(--c-acc);color:var(--c-acc-fg);padding:12px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+.mapw .consent{position:absolute;z-index:5;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(15,15,18,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 8px 8px 14px;border-radius:999px;color:#fff;font:500 12.5px/1.3 var(--f-ui);width:max-content;max-width:calc(100% - 28px)}
+.mapw.live .consent{display:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.lk{background:none;border:0;padding:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+.zb{display:inline-block;font:500 11.5px/1.4 var(--f-ui);opacity:.62;margin-top:6px}
+.zb a{color:inherit}
+
+:root{--c-bg:#050607;--c-fg:#f1efe9;--c-soft:rgba(241,239,233,.7);--c-acc:#e8893c;--c-acc-fg:#16120e;--c-line:rgba(255,255,255,.12);--c-panel:#0f1a1d;--c-panel-fg:#f1efe9;--c-map-bg:#0c2329;--c-map-water:#0e3b44;--c-map-tint:#e8893c;--sea1:#0d3a43;--sea2:#082329;--sea3:#050607;--rose:#efa7b4;--f-disp:"Playfair Display",Georgia,serif;--f-ui:"Inter",system-ui,-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 16px/1.6 var(--f-ui);background:var(--c-bg);color:var(--c-fg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-disp);font-weight:500;line-height:1.05;letter-spacing:-.01em}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto}
+.eyb{font:600 12px/1 var(--f-ui);letter-spacing:.18em;text-transform:uppercase;color:var(--c-acc);display:flex;align-items:center;gap:10px}
+.eyb::before{content:"";width:22px;height:1px;background:currentColor}
+/* nav */
+.nav{position:fixed;z-index:60;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,100% - 24px);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(10,14,16,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1)}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font:600 17px/1 var(--f-ui);letter-spacing:.2em;white-space:nowrap}
+.logo svg{width:22px;height:22px;color:var(--rose)}
+.nav ul{list-style:none;display:flex;gap:22px}
+.nav ul a{text-decoration:none;font-size:14px;color:var(--c-soft);transition:color .25s}
+.nav ul a:hover{color:#fff}
+.nav .cta{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;font:600 14px/1 var(--f-ui);text-decoration:none;white-space:nowrap;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.pill.w{background:#f6f4ef;color:#15171a}.pill.w:hover{transform:translateY(-2px)}
+.pill.g{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.16)}
+.pill.c{background:var(--c-acc);color:var(--c-acc-fg)}
+.ic{width:44px;padding:0}
+@media(max-width:860px){.nav ul{display:none}.nav .tel-l{display:none}}
+@media(min-width:861px){.nav .tel-i{display:none}}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:var(--sea3)}
+.hero .bg{position:absolute;inset:-4%;background:url(https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SluB7t6Qr1T4Usp4Z-QJh3qNN7GHncDytY8R69fxm2NXNjNdaUvsj9sO1ITpj6gHIlWntOpo6THN_C50ASqRPw4rd3OsROtk5jUq1VM3qLCseBobJQbpAqGNMj0lD-GVS0Y13gbQ=w1800) center/cover;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.08) translate(-1.5%,1%)}}
+.hero .ov{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 36%,rgba(0,0,0,0) 25%,rgba(0,0,0,.5) 100%),linear-gradient(180deg,rgba(5,6,7,.65) 0%,rgba(5,6,7,.2) 34%,rgba(5,20,24,.55) 70%,#06191d 100%)}
+.caus{position:absolute;inset:0;opacity:.35;mix-blend-mode:soft-light;background:radial-gradient(40% 25% at 20% 30%,#fff,transparent 70%),radial-gradient(35% 22% at 70% 60%,#fff,transparent 70%),radial-gradient(30% 18% at 45% 85%,#fff,transparent 70%);background-size:140% 140%;animation:cs 9s ease-in-out infinite alternate}
+@keyframes cs{to{background-position:30% 20%,70% 40%,40% 70%}}
+.bub{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bub i{position:absolute;bottom:-40px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.6),rgba(255,255,255,.05) 45%,transparent 60%);animation:up linear infinite}
+@keyframes up{to{transform:translate(var(--dx),-115vh)}}
+.hero .in{position:relative;z-index:2;margin:auto auto 0;padding:120px 0 34px}
+.hero h1{font-size:clamp(44px,8.4vw,112px);max-width:12ch;text-shadow:0 4px 40px rgba(0,0,0,.35)}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero .lead{max-width:520px;margin:22px 0 28px;font-size:clamp(16px,1.6vw,18px);color:rgba(241,239,233,.86)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px}
+.hero .foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 0 26px;border-top:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
+.stars{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--c-soft)}
+.stars b{color:var(--c-acc);letter-spacing:2px;font-size:16px}
+.dive{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--c-soft);text-decoration:none;display:flex;gap:10px;align-items:center}
+.dive span{display:inline-block;width:1px;height:28px;background:linear-gradient(var(--c-acc),transparent);animation:dl 1.8s infinite}
+@keyframes dl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* depth gauge */
+.gauge{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;align-items:flex-end;gap:8px;font:500 11px/1 var(--f-ui);letter-spacing:.12em;color:var(--c-soft);pointer-events:none}
+.gauge .tr{position:relative;width:2px;height:220px;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.35) 0 1px,transparent 1px 22px)}
+.gauge .tr i{position:absolute;right:-4px;top:0;width:10px;height:10px;border-radius:50%;background:var(--c-acc);box-shadow:0 0 14px var(--c-acc);transform:translateY(calc(var(--d,0) * 210px))}
+.gauge b{font:600 20px/1 var(--f-disp);color:#fff;letter-spacing:0}
+@media(min-width:1100px){.gauge{display:flex}}
+section{position:relative}
+.sec{padding:110px 0}
+.sec h2{font-size:clamp(36px,5.6vw,72px);margin:14px 0 18px}
+.sec .lead{color:var(--c-soft);max-width:560px}
+/* plateau */
+#carte{background:linear-gradient(180deg,#06191d,var(--sea2) 60%,#071d22)}
+.pl{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 22px}
+.tabs button{font:600 14px/1 var(--f-ui);min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--c-fg);cursor:pointer;transition:.25s}
+.tabs button[aria-selected=true]{background:var(--c-acc);color:var(--c-acc-fg);border-color:var(--c-acc)}
+.dish{list-style:none;border-top:1px solid var(--c-line)}
+.dish li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--c-line);animation:fi .5s both}
+.dish li span{color:var(--c-soft);font-size:14px;text-align:right}
+.dish li b{font:500 19px/1.25 var(--f-disp)}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.note{font-size:13.5px;color:var(--c-soft);margin-top:16px}
+.stage{position:relative;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(closest-side,rgba(232,137,60,.18),rgba(13,58,67,.25) 60%,transparent 72%)}
+.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:pan-y}
+.stage .fb{position:absolute;inset:12%;border-radius:50%;overflow:hidden;display:none;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 10px rgba(255,255,255,.06)}
+.stage .fb img{width:100%;height:100%;object-fit:cover;animation:sp 40s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.no3d .stage .fb{display:block}
+.stage .hint{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft);white-space:nowrap}
+@media(max-width:860px){.pl{grid-template-columns:1fr}.stage{order:-1;width:min(100%,460px);margin:0 auto}}
+/* descente */
+#galerie{height:420vh;background:linear-gradient(180deg,#071d22,#04181c 40%,#030c0e)}
+.pin{position:sticky;top:0;height:100svh;overflow:hidden;perspective:900px;perspective-origin:50% 45%}
+.pin .ttl{position:absolute;z-index:5;left:0;right:0;top:0;padding:96px 0 40px;background:linear-gradient(180deg,#04181c 40%,rgba(4,24,28,0))}
+.pin .ttl h2{margin:10px 0 0;font-size:clamp(32px,5vw,60px)}
+.world{position:absolute;inset:0;transform-style:preserve-3d}
+.shot{position:absolute;left:50%;top:52%;width:var(--w);margin-left:calc(var(--w) / -2);transform-style:preserve-3d;will-change:transform,opacity}
+.shot figure{border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55);background:#0b2a30}
+.shot img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.shot figcaption{font-size:12.5px;letter-spacing:.06em;color:rgba(241,239,233,.82);padding:10px 12px;background:rgba(5,12,14,.8)}
+.fog{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(70% 60% at 50% 55%,transparent 40%,rgba(3,12,14,.85))}
+.depthtag{position:absolute;z-index:6;left:16px;bottom:18px;font:600 13px/1 var(--f-ui);letter-spacing:.14em;color:var(--c-acc)}
+/* sonar */
+#recif{background:#030c0e;overflow:hidden}
+.so{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.radar{position:relative;aspect-ratio:1/1;perspective:1000px}
+.disc{position:absolute;inset:4%;border-radius:50%;transform:rotateX(52deg);transform-style:preserve-3d;background:radial-gradient(circle,#0e3b44 0,#06242a 60%,#041519 100%);box-shadow:0 0 0 1px rgba(232,137,60,.35),0 0 80px rgba(14,59,68,.8) inset}
+.disc::before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 13%,rgba(255,255,255,.12) 13% 13.4%)}
+.disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(232,137,60,.55),rgba(232,137,60,0) 22%,transparent);animation:sw 6s linear infinite}
+@keyframes sw{to{transform:rotate(360deg)}}
+.blip{position:absolute;width:16px;height:16px;margin:-8px;border-radius:50%;background:var(--c-acc);transform-style:preserve-3d;transform:translateZ(0);box-shadow:0 0 18px var(--c-acc)}
+.blip::after{content:"";position:absolute;left:50%;bottom:50%;width:2px;height:70px;margin-left:-1px;background:linear-gradient(to top,var(--c-acc),transparent);transform-origin:bottom;transform:rotateX(-90deg);opacity:.7}
+.blip.on{animation:bp .9s ease-out}
+@keyframes bp{40%{box-shadow:0 0 0 14px rgba(232,137,60,.25),0 0 30px var(--c-acc)}}
+.facts{display:grid;gap:14px}
+.fact{padding:22px;border-radius:18px;border:1px solid var(--c-line);background:rgba(255,255,255,.02);transition:.5s;transform:perspective(800px) rotateY(-8deg);transform-origin:left}
+.fact.on{background:rgba(232,137,60,.08);border-color:rgba(232,137,60,.5);transform:none}
+.fact h3{font-size:24px;margin-bottom:6px}
+.fact p{color:var(--c-soft);font-size:15px}
+@media(max-width:860px){.so{grid-template-columns:1fr}.radar{width:min(100%,420px);margin:0 auto}.fact{transform:none}}
+/* booking */
+#reserver{background:linear-gradient(180deg,#030c0e,#0a2328)}
+.bk{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+.tv{position:sticky;top:100px;perspective:900px;height:440px;display:grid;place-items:center}
+.tbl{position:relative;width:300px;height:300px;transform:rotateX(58deg) rotateZ(var(--rz,0deg));transform-style:preserve-3d;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.tbl .top{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fbf8f2,#e7e0d4 70%,#cfc6b6);box-shadow:0 0 0 8px #d9d0c1,0 40px 60px rgba(0,0,0,.6)}
+.tbl .vase{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px;border-radius:50%;background:var(--rose);transform:translateZ(30px);box-shadow:0 0 0 6px rgba(239,167,180,.35)}
+.seat{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px;transform:rotate(var(--a)) translateY(-112px);transform-style:preserve-3d}
+.seat .pl8{position:absolute;inset:0;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 7px #f2ede4,0 2px 6px rgba(0,0,0,.25);animation:pop .55s cubic-bezier(.3,1.6,.5,1) both}
+.seat .gl{position:absolute;right:-12px;top:-6px;width:14px;height:14px;border-radius:50%;background:rgba(200,230,240,.7);transform:translateZ(22px);box-shadow:0 0 0 2px rgba(255,255,255,.7);animation:pop .55s .12s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{from{transform:scale(0) translateZ(60px);opacity:0}}
+.tv .cap{position:absolute;bottom:4px;left:0;right:0;text-align:center;font:500 22px/1.3 var(--f-disp)}
+.tv .cap small{display:block;font:500 12px/1.4 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft)}
+form{display:grid;gap:22px}
+fieldset{border:0;display:grid;gap:10px}
+legend{font:600 13px/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft);margin-bottom:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.chips button,.seg button{flex:none;min-height:44px;padding:8px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.03);color:var(--c-fg);font:500 14px/1.2 var(--f-ui);cursor:pointer}
+.chips .day{width:66px;display:grid;gap:2px;text-align:center}
+.chips .day b{font:600 18px/1 var(--f-disp)}
+.chips button[aria-pressed=true],.seg button[aria-pressed=true]{background:var(--c-acc);border-color:var(--c-acc);color:var(--c-acc-fg)}
+.chips button:disabled{opacity:.35;cursor:not-allowed}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:14px}
+.step button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:22px;cursor:pointer}
+.step output{font:500 30px/1 var(--f-disp);min-width:2ch;text-align:center}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.fl{display:grid;gap:6px;font-size:13.5px;color:var(--c-soft)}
+input,textarea{font:400 16px/1.4 var(--f-ui);color:var(--c-fg);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:90px;resize:vertical}
+.ok{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--c-soft)}
+.ok input{width:22px;height:22px;min-height:0;flex:none;margin-top:1px;accent-color:var(--c-acc)}
+.err{color:#ffb4a0;font-size:14px;min-height:1em}
+.conf{display:none;padding:28px;border-radius:20px;background:rgba(232,137,60,.1);border:1px solid rgba(232,137,60,.45);animation:fi .6s both}
+.conf.on{display:block}
+.conf h3{font-size:30px;margin-bottom:8px}
+@media(max-width:860px){.bk{grid-template-columns:1fr}.tv{position:relative;top:0;height:300px}.tbl{width:220px;height:220px}.seat{transform:rotate(var(--a)) translateY(-84px);width:44px;height:44px;margin:-22px}.f2{grid-template-columns:1fr}}
+/* infos */
+#infos{background:#0a2328}
+.inf{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:stretch}
+.hours{list-style:none;margin:20px 0}
+.hours li span:last-child{white-space:nowrap}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--c-line);font-size:15px}
+.hours li.t{color:var(--c-acc);font-weight:600}
+.co{display:grid;gap:10px;margin-top:10px}
+.co a{text-decoration:none}
+@media(max-width:860px){.inf{grid-template-columns:1fr}}
+footer{background:#050607;padding:56px 0 34px;border-top:1px solid var(--c-line)}
+footer .wrap{display:grid;gap:18px}
+footer .big{font:500 clamp(46px,12vw,150px)/.9 var(--f-disp);letter-spacing:.04em;color:rgba(241,239,233,.08)}
+.legal{display:flex;flex-wrap:wrap;gap:6px 18px}
+.legal button{background:none;border:0;color:var(--c-soft);font:500 13.5px/1 var(--f-ui);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:3px}
+footer p{color:var(--c-soft);font-size:14px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="nav"><a class="logo" href="#top" aria-label="Récif, accueil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 22V12M12 12C12 8 9 7 9 3M12 12c0-3 4-4 4-8M12 15c-3 0-5-2-6-5M12 17c3 0 6-2 7-6"/></svg>RÉCIF</a>
+<ul><li><a href="#carte">La carte</a></li><li><a href="#galerie">La descente</a></li><li><a href="#recif">Le lieu</a></li><li><a href="#infos">Infos</a></li></ul>
+<div class="cta"><a class="pill g ic tel-i" href="tel:+33613624555" aria-label="Appeler le 06 13 62 45 55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a><a class="pill g tel-l" href="tel:+33613624555"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">06 13 62 45 55</span></a><a class="pill w" href="#reserver">Réserver</a></div></header>
+<div class="gauge" aria-hidden="true"><span>PROFONDEUR</span><b id="gm">0 m</b><div class="tr" id="gt"><i></i></div></div>
+<main id="main">
+<section class="hero" id="top">
+<div class="bg" role="img" aria-label="La terrasse du Récif face au port de Carqueiranne"></div><div class="caus"></div><div class="ov"></div><div class="bub" id="bub" aria-hidden="true"></div>
+<div class="wrap in"><p class="eyb">Restaurant méditerranéen · Carqueiranne</p>
+<h1>Le port en terrasse, <em>la mer</em> dans l'assiette.</h1>
+<p class="lead">Fruits de mer, sushis et poissons, face aux bateaux. Midi et soir, sept jours sur sept.</p>
+<div class="acts"><a class="pill w" href="#reserver">Réserver une table</a><a class="pill g" href="#carte">Plonger dans la carte</a></div></div>
+<div class="wrap foot"><div class="stars"><b aria-hidden="true">★★★★★</b><span>4,3 sur Google · 1 130 avis</span></div><a class="dive" href="#carte"><span></span>Plongez</a></div>
+</section>
+
+<section class="sec" id="carte" aria-labelledby="cT"><div class="wrap pl">
+<div><p class="eyb">Palier 1 · La carte</p><h2 id="cT">Le plateau du Récif</h2>
+<p class="lead">Choisissez un coin du plateau : il tourne vers vous.</p>
+<div class="tabs" role="tablist" aria-label="Catégories de la carte" id="tabs"></div>
+<ul class="dish" id="dish" aria-live="polite"></ul>
+<p class="note">La carte suit les arrivages : demandez les suggestions du jour en salle.</p></div>
+<div class="stage" id="plateau"><div class="fb"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SuMZqLhv6wLWJRo2CJyEN7pJOxpSUyGgjfLQEYdXMxozU3jZ8Wf4WvogY1s-RdJ3dbEnTRqvOyBVdj2cyvYYPfTGUDo2l9__xBkZ6un8W_9Et34_DU3C6jQ6NLtKKmOFU9E7U=w900" alt="Plateaux de fruits de mer du Récif"></div><span class="hint">Glissez pour tourner</span></div>
+</div></section>
+
+<section id="galerie" aria-labelledby="gT"><div class="pin">
+<div class="ttl"><div class="wrap"><p class="eyb">Palier 2 · La descente</p><h2 id="gT">Douze vues du Récif</h2></div></div>
+<div class="world" id="world"><div class="shot" style="--w:min(62vw,520px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S4hOM01-2P9jLGS9CenZYPUzltkd5b3A0FpG74j_fHr3Yd79IkskAG87EXRMNl8ZWQ98M98XwdVoIqrdtKjbXKtEUwbCltS6gVb2qKFQYnL6mcK-dDkKFBgXIhWcEW8TDvd4D3p3j24yjB=w900" alt="La terrasse, côté roses" loading="lazy"><figcaption>La terrasse, côté roses</figcaption></figure></div><div class="shot" style="--w:min(54vw,420px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SuMZqLhv6wLWJRo2CJyEN7pJOxpSUyGgjfLQEYdXMxozU3jZ8Wf4WvogY1s-RdJ3dbEnTRqvOyBVdj2cyvYYPfTGUDo2l9__xBkZ6un8W_9Et34_DU3C6jQ6NLtKKmOFU9E7U=w900" alt="Plateaux de fruits de mer" loading="lazy"><figcaption>Plateaux de fruits de mer</figcaption></figure></div><div class="shot" style="--w:min(60vw,480px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SjvrJ3Bu39CmmQ7Pf828lNVOdRbJCIpF-gKlAH06rdwn_UyUYXsCYHqy5AAECEPQ2LKmHFXquh8xAPEF5gpoiNCtmXoi1Kto4Vx8VA29SA3sl0DGAI0kS_dGyOmrkncFI6jAFTesG53jx8=w900" alt="La salle" loading="lazy"><figcaption>La salle</figcaption></figure></div><div class="shot" style="--w:min(56vw,440px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RvlMJSdbpeq23aMVgGASC6FIBOpRoW31Cv8AMv_rTcaxQwu2IT1veTUXNU3bbTyB8oKNZ4b305teT-qbLz7PMJ4wEB-X14NA7xO1HzX42tPBxQX6P4eIYcrvdY2EZy19Y20CBMTZTePsJQ=w900" alt="Huîtres et crevettes" loading="lazy"><figcaption>Huîtres et crevettes</figcaption></figure></div><div class="shot" style="--w:min(52vw,400px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QzMWs-7qpw-7NsW1adDcX0rXic_LDrLA8NA59gBbMHc_ON2CVy_HSnWNPU2lzY748UosJXicKHrwrWTRdSK6QsjzANuaLtXgoT-43qXuPyhmSDgYDKwflAEYCEA0Wz6qT62uRXkNjsVOnw=w900" alt="Oursins" loading="lazy"><figcaption>Oursins</figcaption></figure></div><div class="shot" style="--w:min(64vw,540px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QGnMUYqoW7t3TvmYq6NuwVhjKC0vBecYjWNk1VpInoXbieknUE0bIp8vyE3Cy3bjN91oEOZYD1yyyzJs11NrbWHCOq1aNK4w9LVm1RTebYo40M5BqED9b9YGXgv28_WOLNS6kG8Wt-Z8yL=w900" alt="Vue sur le port" loading="lazy"><figcaption>Vue sur le port</figcaption></figure></div><div class="shot" style="--w:min(54vw,420px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tmftx8WRKuwJAarhUB1hZiMjyU4mw-nU5V9X8ECs1WJOONZJZCuPaCfybOxy_zk0hZkwebQfvOvMnOBewmLqhxRZQDxZ6F910aKmWWccttvltDVEPqZOnuNIBApHvQTt_WvJTaa4zQCcdT=w900" alt="Sushis" loading="lazy"><figcaption>Sushis</figcaption></figure></div><div class="shot" style="--w:min(58vw,460px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tdm-qg_ne9hrh05kkAo-HJx3vDUD0SJGk9_gGUqHn69TyLbtTCSZIVIo51fE4IXjsGOWd6csSeTl_mX0HNR1bEXQOwX8MFJqZZLUG3Wu2oFT5b_0kXJ69Exymha2tUskzy0ImsMBxteQA=w900" alt="Assiette du Récif" loading="lazy"><figcaption>Assiette du Récif</figcaption></figure></div><div class="shot" style="--w:min(54vw,420px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Ryi_mpefKeO9elp7Aj7PIrMacnqJEy8cPszvqQlHVW2_NqagqkYXTuc_YGm-7-eLSLowHb7kPgUIIlybsNVuffoRk79VrDa0cSoLk5jmsepELfOWfkV6lzlUnxuOBg4m1odndwEfHMhhqY=w900" alt="Crevettes sur glace" loading="lazy"><figcaption>Crevettes sur glace</figcaption></figure></div><div class="shot" style="--w:min(56vw,430px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S1U_RuwSq6bSXZQxmD5wTOqeqFVNStn9LvEsKmSgDUhAM-AoEPSYvl0ADPfLKcOPJgkEafgPI0SW8hDUKDMVDAbfiFIRkczk1ougSS-wky-QvJunQ68H7WKUfluaKqFO6C2c8iPGg4yqOn=w900" alt="Bowl de la mer" loading="lazy"><figcaption>Bowl de la mer</figcaption></figure></div><div class="shot" style="--w:min(52vw,400px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q37c-Hiz41rt9H2u8Bnjp19AtDBLM4ScKXmYIhCAEcMjcrlc5_Y3L03llddntQ8aSMSIACUPJTaLSvH3aFycd_UZ5nTjFpoT9wJfF1l4_MnNzTCrlNS9RJhJ0hC2SWHLLemav2IfQ5rWCX=w900" alt="Dessert" loading="lazy"><figcaption>Dessert</figcaption></figure></div><div class="shot" style="--w:min(66vw,560px)"><figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Sb0tJx61O_AW3npFuj4-QnL-MOvkSL4aTq68uko460Nvu0p0FrPaDpuBd0IETMQ7pV4V3bQ50vZwpqRM7POmEfUzad58rkt_sUzRSYlmO1f1rKm8MLj9W3EZvThQcNhYX3U2xXpgXLlreO=w900" alt="Le soir sur le port" loading="lazy"><figcaption>Le soir sur le port</figcaption></figure></div></div>
+<div class="fog"></div><div class="depthtag" id="dt">− 0 m</div>
+</div></section>
+
+<section class="sec" id="recif" aria-labelledby="rT"><div class="wrap so">
+<div class="radar" aria-hidden="true"><div class="disc" id="disc"><i class="blip" style="left:68%;top:28%"></i><i class="blip" style="left:26%;top:44%"></i><i class="blip" style="left:58%;top:74%"></i></div></div>
+<div><p class="eyb">Palier 3 · Le lieu</p><h2 id="rT">Ce que le sonar a repéré</h2>
+<div class="facts" id="facts">
+<div class="fact"><h3>Midi &amp; soir, 7 j/7</h3><p>Service de 10 h 30 à 15 h, puis de 18 h à 23 h, tous les jours.</p></div>
+<div class="fact"><h3>Fruits de mer &amp; sushis</h3><p>Plateaux, huîtres, oursins, crevettes et poulpe, avec une carte de sushis.</p></div>
+<div class="fact"><h3>Face au port</h3><p>Une terrasse au bord des bateaux, avenue Élie Gautier à Carqueiranne.</p></div>
+</div></div></div></section>
+
+<section class="sec" id="reserver" aria-labelledby="bT"><div class="wrap bk">
+<div class="tv" aria-hidden="true"><div class="tbl" id="tbl"><div class="top"></div><div class="vase"></div></div><p class="cap" id="cap">Table pour 2<small>Le couvert se dresse en direct</small></p></div>
+<div><p class="eyb">Palier 4 · Réserver</p><h2 id="bT">Votre table au bord de l'eau</h2>
+<form id="bf" novalidate>
+<fieldset><legend>Jour</legend><div class="chips" id="days"></div></fieldset>
+<fieldset><legend>Service</legend><div class="seg" id="svc"><button type="button" data-s="midi" aria-pressed="true">Midi</button><button type="button" data-s="soir" aria-pressed="false">Soir</button></div><div class="chips" id="slots"></div></fieldset>
+<fieldset><legend>Couverts</legend><div class="step"><button type="button" id="gm1" aria-label="Retirer un couvert">−</button><output id="gn" aria-live="polite">2</output><button type="button" id="gp1" aria-label="Ajouter un couvert">+</button></div></fieldset>
+<div class="f2"><label class="fl">Nom<input name="nom" autocomplete="name" required></label><label class="fl">Téléphone<input name="tel" type="tel" autocomplete="tel" inputmode="tel" required></label></div>
+<label class="fl">E-mail (facultatif)<input name="mail" type="email" autocomplete="email"></label>
+<label class="fl">Une demande particulière ?<textarea name="msg" placeholder="Terrasse, allergie, anniversaire…"></textarea></label>
+<label class="ok"><input type="checkbox" name="rgpd" required><span>J'accepte que Récif utilise ces informations pour traiter ma demande. <button class="lk" type="button" data-doc-open="confidentialite" style="background:none;border:0;color:inherit;text-decoration:underline;font:inherit;cursor:pointer">Confidentialité</button></span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="pill c" type="submit" style="justify-self:start;padding:0 28px">Demander ma table</button>
+</form>
+<div class="conf" id="conf" tabindex="-1"><h3>Demande envoyée</h3><p id="cs"></p><p class="note">Démo : aucune demande n'est réellement transmise. Sur le vrai site, le restaurant la reçoit et vous confirme par téléphone.</p></div>
+</div></div></section>
+
+<section class="sec" id="infos" aria-labelledby="iT"><div class="wrap inf">
+<div><p class="eyb">Surface · Infos</p><h2 id="iT">Nous trouver</h2>
+<ul class="hours" id="hours"></ul>
+<div class="co"><a class="pill w" href="tel:+33613624555" style="justify-self:start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="nowrap">06 13 62 45 55</span></a><a class="pill g" href="https://www.instagram.com/recif_carqueiranne/" target="_blank" rel="noopener" style="justify-self:start">Instagram @recif_carqueiranne</a></div></div>
+<div class="mapw" id="mapw" data-q="Récif, 8 Av. Élie Gautier, 83320 Carqueiranne">
+<div class="ph" aria-hidden="true"></div>
+<div class="consent"><span>Plan Google (cookies)</span><button type="button" data-ck="1">Afficher le plan</button></div>
+<div class="pin" aria-hidden="true"><i><b>R</b></i></div>
+<div class="glass"><p><strong>Récif</strong>8 Av. Élie Gautier, 83320 Carqueiranne</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=R%C3%A9cif%2C%208%20Av.%20%C3%89lie%20Gautier%2C%2083320%20Carqueiranne" target="_blank" rel="noopener">Itinéraire</a></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap"><p class="big" aria-hidden="true">RÉCIF</p>
+<p>Récif · 8 Av. Élie Gautier, 83320 Carqueiranne · <a class="nowrap" href="tel:+33613624555">06 13 62 45 55</a></p>
+<nav class="legal" aria-label="Informations légales"><button type="button" data-doc-open="mentions">Mentions légales</button><button type="button" data-doc-open="confidentialite">Confidentialité</button><button type="button" data-doc-open="cgv">CGV / CGU</button><button type="button" data-doc-open="cookies">Cookies</button><button type="button" data-doc-open="remboursement">Remboursement</button></nav><p class="zb">Démo réalisée par ZAHR · <a href="https://zahr.fr" target="_blank" rel="noopener">zahr.fr</a></p></div></footer>
+
+<div class="lg" id="lg" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="box" tabindex="-1">
+<button class="x" type="button" data-close aria-label="Fermer">×</button>
+<div data-doc="mentions"><h2 id="lgT">Mentions légales</h2>
+<h3>Éditeur du site</h3><p>Récif, 8 Av. Élie Gautier, 83320 Carqueiranne. Téléphone : <span class="nowrap">06 13 62 45 55</span>. Raison sociale, numéro SIRET, capital et directeur de la publication : à compléter avant la mise en ligne.</p>
+<h3>Hébergement</h3><p>Hébergeur : à préciser lors de la mise en ligne (nom, adresse et téléphone de l'hébergeur).</p>
+<h3>Conception</h3><p>Site conçu par ZAHR (zahr.fr), Var.</p>
+<h3>Propriété intellectuelle</h3><p>Les textes, photos et logos de Récif restent la propriété de leur titulaire. Toute reproduction sans autorisation est interdite.</p></div>
+<div data-doc="confidentialite"><h2>Politique de confidentialité</h2>
+<p>Les informations saisies dans le formulaire (nom, téléphone, e-mail facultatif, détails de la demande) servent uniquement à traiter les demandes de réservation de table. Elles sont destinées à Récif et ne sont ni vendues ni cédées.</p>
+<h3>Base légale et durée</h3><p>Traitement fondé sur votre consentement (case à cocher du formulaire). Les données sont conservées 12 mois au plus après votre dernière demande.</p>
+<h3>Vos droits</h3><p>Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et retirer votre consentement à tout moment, en contactant Récif au <span class="nowrap">06 13 62 45 55</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div>
+<div data-doc="cgv"><h2>Conditions générales (CGU / CGV)</h2>
+<h3>Utilisation du site</h3><p>Ce site présente Récif et permet d'envoyer les demandes de réservation de table. Une demande n'est confirmée qu'après réponse de l'établissement.</p>
+<h3>Prix et disponibilités</h3><p>La carte, les prix et les horaires peuvent évoluer selon la saison et les arrivages : seuls ceux affichés sur place font foi.</p>
+<h3>Responsabilité</h3><p>Récif s'efforce de tenir les informations à jour mais ne peut garantir l'absence d'erreur. En cas de litige, le droit français s'applique ; vous pouvez recourir gratuitement à un médiateur de la consommation.</p></div>
+<div data-doc="cookies"><h2>Cookies</h2>
+<p>Ce site n'utilise aucun cookie publicitaire ni de mesure d'audience. Seul le plan Google Maps peut déposer des cookies de Google : il ne se charge qu'après votre accord.</p>
+<p>Votre choix est mémorisé sur cet appareil. Vous pouvez le modifier à tout moment :</p>
+<p><button class="lk" type="button" data-ckreset>Modifier mon choix de cookies</button></p></div>
+<div data-doc="remboursement"><h2>Annulation et remboursement</h2><p>La réservation d'une table est gratuite et sans prépaiement. Aucun paiement n'est demandé en ligne : il n'y a donc rien à rembourser. Pour annuler ou modifier, appelez le 06 13 62 45 55.</p></div>
+</div></div>
+<div class="ck" id="ck" role="region" aria-label="Cookies"><h2>Cookies</h2>
+<p>Nous n'utilisons qu'un cookie : celui du plan Google Maps, chargé seulement si vous l'acceptez. <button class="lk" type="button" data-doc-open="cookies">En savoir plus</button></p>
+<div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div></div>
+
+<script>
+(function(){
+var KEY='zahr-ck';
+function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+var ck=document.getElementById('ck'),mw=document.getElementById('mapw');
+function loadMap(){if(!mw||mw.classList.contains('live'))return;var f=document.createElement('iframe');f.title='Plan Google Maps';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q='+encodeURIComponent(mw.dataset.q)+'&z=16&output=embed';mw.insertBefore(f,mw.firstChild.nextSibling);mw.classList.add('live')}
+function apply(v){if(v==='1')loadMap()}
+var v=get(); if(v===null){setTimeout(function(){ck&&ck.classList.add('on')},900)} else apply(v);
+document.addEventListener('click',function(e){
+ var b=e.target.closest('[data-ck]'); if(b){set(b.dataset.ck);ck&&ck.classList.remove('on');apply(b.dataset.ck);return}
+ var o=e.target.closest('[data-doc-open]'); if(o){openDoc(o.dataset.docOpen,o);return}
+ if(e.target.closest('[data-close]')||e.target.id==='lg'){closeDoc();return}
+ if(e.target.closest('[data-ckreset]')){try{localStorage.removeItem(KEY)}catch(_){};closeDoc();ck&&ck.classList.add('on');var f=mw&&mw.querySelector('iframe');if(f){f.remove();mw.classList.remove('live')}}
+});
+var lg=document.getElementById('lg'),last=null;
+function openDoc(id,from){last=from;lg.querySelectorAll('[data-doc]').forEach(function(d){d.hidden=d.dataset.doc!==id});lg.classList.add('on');lg.querySelector('.box').focus();document.documentElement.style.overflow='hidden'}
+function closeDoc(){lg.classList.remove('on');document.documentElement.style.overflow='';last&&last.focus()}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lg.classList.contains('on'))closeDoc()});
+})();
+window.RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.loadThree=function(cb){if(window.THREE){cb(window.THREE);return}var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=function(){try{cb(window.THREE)}catch(e){console.warn(e);document.documentElement.classList.add('no3d')}};s.onerror=function(){document.documentElement.classList.add('no3d')};document.head.appendChild(s)};
+window.frDays=function(n){var o=[],d=new Date(),J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],M=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];for(var i=0;i<n;i++){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+i);o.push({d:x,dow:x.getDay(),lab:(i===0?"Auj.":i===1?"Demain":J[x.getDay()]),num:x.getDate(),mon:M[x.getMonth()],long:J[x.getDay()]+' '+x.getDate()+' '+M[x.getMonth()]})}return o};
+
+(function(){
+var MENU=[
+ {k:'Fruits de mer',items:[['Plateaux de fruits de mer','à partager'],['Huîtres','à la douzaine'],['Oursins','selon arrivage'],['Crevettes & coquillages','sur glace'],['Homard','sur commande']]},
+ {k:'Sushis',items:[['Makis & california rolls','saumon, avocat'],['Sushis assortis','à la pièce'],['Plateau mixte','pour deux']]},
+ {k:'Poissons',items:[['Poulpe','grillé'],['Filet de loup','légumes du moment'],['Poisson façon bouillabaisse','le classique du port'],['Viandes','pour les terriens']]},
+ {k:'Douceurs',items:[['Desserts du moment','à la carte'],['Fruits rouges','en saison'],['Café gourmand','pour finir']]}];
+var tabs=document.getElementById('tabs'),dish=document.getElementById('dish'),cur=0,auto=true;
+MENU.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.role='tab';b.textContent=m.k;b.onclick=function(){auto=false;sel(i)};tabs.appendChild(b)});
+function sel(i){cur=i;[].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-selected',j===i)});dish.innerHTML=MENU[i].items.map(function(x,j){return '<li style="animation-delay:'+(j*60)+'ms"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join('');window.__plSel&&window.__plSel(i)}
+sel(0);
+setInterval(function(){if(auto&&!document.hidden)sel((cur+1)%4)},6500);
+/* bubbles */
+var bb=document.getElementById('bub');for(var i=0;i<(RM?0:22);i++){var e=document.createElement('i'),s=4+Math.random()*16;e.style.cssText='left:'+(Math.random()*100)+'%;width:'+s+'px;height:'+s+'px;--dx:'+(Math.random()*60-30)+'px;animation-duration:'+(8+Math.random()*12)+'s;animation-delay:-'+(Math.random()*16)+'s';bb.appendChild(e)}
+/* gauge + descente */
+var gm=document.getElementById('gm'),gt=document.getElementById('gt'),gal=document.getElementById('galerie'),world=document.getElementById('world'),shots=[].slice.call(world.children),dt=document.getElementById('dt');
+var pos=shots.map(function(s,i){var a=i*2.4;return{x:Math.sin(a)*(i%2?26:18),y:Math.cos(a*1.3)*10,z:-i*620}});
+function tick(){var sh=document.documentElement.scrollHeight-innerHeight,f=Math.max(0,Math.min(1,scrollY/sh)),m=Math.round(f*40);gm.textContent=m+' m';gt.style.setProperty('--d',f);
+ var r=gal.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));var cam=p*((shots.length-1)*620+60);dt.textContent='− '+Math.round(8+p*24)+' m';
+ shots.forEach(function(s,i){var z=pos[i].z+cam;var o=z>260?Math.max(0,1-(z-260)/240):z<-3200?0:Math.min(1,1+(z+1800)/1400);s.style.opacity=o.toFixed(3);s.style.transform='translate3d('+pos[i].x+'vw,'+pos[i].y+'vh,'+z+'px)';s.style.visibility=o<.02?'hidden':'visible'});
+ requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+/* sonar */
+var blips=[].slice.call(document.querySelectorAll('.blip')),facts=[].slice.call(document.querySelectorAll('.fact')),ang=[60,250,150],t0=performance.now();
+function son(){var a=((performance.now()-t0)/6000*360)%360;blips.forEach(function(b,i){var d=(a-ang[i]+360)%360;if(d<6&&!b.classList.contains('on')){b.classList.add('on');facts.forEach(function(f,j){f.classList.toggle('on',j===i)});setTimeout(function(){b.classList.remove('on')},900)}});requestAnimationFrame(son)}
+facts.forEach(function(f,j){f.addEventListener('mouseenter',function(){facts.forEach(function(g,k){g.classList.toggle('on',k===j)})})});
+if(RM)facts.forEach(function(f){f.classList.add('on')});else{
+ /* place blips by angle on disc */
+ blips.forEach(function(b,i){var r=[.36,.3,.38][i],a=(ang[i]-90)*Math.PI/180;b.style.left=(50+Math.cos(a)*r*100)+'%';b.style.top=(50+Math.sin(a)*r*100)+'%'});
+ requestAnimationFrame(son)}
+/* booking */
+var DAYS=frDays(14),st={d:0,s:'midi',t:null,n:2},dz=document.getElementById('days'),sl=document.getElementById('slots'),tbl=document.getElementById('tbl'),cap=document.getElementById('cap');
+DAYS.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.className='day';b.innerHTML='<span>'+d.lab+'</span><b>'+d.num+'</b><span>'+d.mon+'</span>';b.setAttribute('aria-label',d.long);b.onclick=function(){st.d=i;rd()};dz.appendChild(b)});
+var SL={midi:['12:00','12:30','13:00','13:30','14:00'],soir:['19:00','19:30','20:00','20:30','21:00','21:30','22:00']};
+document.getElementById('svc').onclick=function(e){var b=e.target.closest('button');if(!b)return;st.s=b.dataset.s;st.t=null;rd()};
+function rd(){[].forEach.call(dz.children,function(b,i){b.setAttribute('aria-pressed',i===st.d)});[].forEach.call(document.querySelectorAll('#svc button'),function(b){b.setAttribute('aria-pressed',b.dataset.s===st.s)});
+ var now=new Date(),today=st.d===0;sl.innerHTML='';SL[st.s].forEach(function(t){var b=document.createElement('button');b.type='button';b.textContent=t.replace(':',' h ');var hh=+t.slice(0,2),mm=+t.slice(3);b.disabled=today&&(hh*60+mm)<=(now.getHours()*60+now.getMinutes()+30);b.setAttribute('aria-pressed',st.t===t);b.onclick=function(){st.t=t;rd()};sl.appendChild(b)})}
+function seats(){var n=st.n;tbl.querySelectorAll('.seat').forEach(function(s){s.remove()});for(var i=0;i<n;i++){var s=document.createElement('div');s.className='seat';s.style.setProperty('--a',(i*360/n)+'deg');s.innerHTML='<i class="pl8"></i><i class="gl"></i>';tbl.appendChild(s)}tbl.style.setProperty('--rz',(n*24)+'deg');tbl.style.width=tbl.style.height='';cap.firstChild.textContent='Table pour '+n+' ';document.getElementById('gn').textContent=n}
+document.getElementById('gm1').onclick=function(){if(st.n>1){st.n--;seats()}};document.getElementById('gp1').onclick=function(){if(st.n<12){st.n++;seats()}};
+rd();seats();
+var f=document.getElementById('bf');f.onsubmit=function(e){e.preventDefault();var er=document.getElementById('err'),m='';
+ if(!st.t)m='Choisissez un horaire.';else if(!f.nom.value.trim())m='Indiquez votre nom.';else if(!/^[0-9 +().-]{9,}$/.test(f.tel.value.trim()))m='Indiquez un numéro de téléphone valide.';else if(!f.rgpd.checked)m='Cochez la case de consentement pour envoyer la demande.';
+ er.textContent=m;if(m)return;f.style.display='none';var c=document.getElementById('conf');document.getElementById('cs').textContent=f.nom.value.trim()+', table pour '+st.n+' le '+DAYS[st.d].long+' à '+st.t.replace(':',' h ')+'.';c.classList.add('on');c.focus()};
+/* hours */
+var H=[['Lundi','10 h 30 – 15 h · 18 h – 23 h'],['Mardi','10 h 30 – 15 h · 18 h – 23 h'],['Mercredi','10 h 30 – 15 h · 18 h – 23 h'],['Jeudi','10 h 30 – 15 h · 18 h – 23 h'],['Vendredi','10 h 30 – 15 h · 18 h – 23 h'],['Samedi','10 h 30 – 15 h · 18 h – 23 h'],['Dimanche','10 h 30 – 15 h · 18 h – 23 h']],td=(new Date().getDay()+6)%7;
+document.getElementById('hours').innerHTML=H.map(function(h,i){return '<li'+(i===td?' class="t"':'')+'><span>'+h[0]+(i===td?' (aujourd\'hui)':'')+'</span><span>'+h[1]+'</span></li>'}).join('');
+/* 3D plateau */
+loadThree(function(T){
+ var host=document.getElementById('plateau'),R=new T.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));host.insertBefore(R.domElement,host.firstChild);
+ var S=new T.Scene(),C=new T.PerspectiveCamera(34,1,.1,100);C.position.set(0,7,9.2);C.lookAt(0,-.3,0);
+ S.add(new T.HemisphereLight(0xfff4ea,0x0b2a33,.95));var D=new T.DirectionalLight(0xffffff,1.05);D.position.set(4,9,6);S.add(D);var Pl=new T.PointLight(0xe8893c,1,22);Pl.position.set(-5,3,-1);S.add(Pl);
+ var G=new T.Group();S.add(G);
+ function M(c,o){o=o||{};return new T.MeshStandardMaterial({color:c,roughness:o.r==null?.55:o.r,metalness:o.m||0,transparent:!!o.t,opacity:o.t||1})}
+ var tray=new T.Mesh(new T.CylinderGeometry(4.25,4.05,.4,72),M(0xa9b2b7,{m:.85,r:.28}));tray.position.y=-.24;G.add(tray);
+ var ice=new T.Mesh(new T.CylinderGeometry(4,4,.14,72),M(0xe8f4f8,{r:.2}));G.add(ice);
+ var chips=new T.InstancedMesh(new T.IcosahedronGeometry(.13,0),M(0xffffff,{r:.08,t:.8}),300),mx=new T.Matrix4(),q=new T.Quaternion(),eu=new T.Euler(),sc=new T.Vector3(),ps=new T.Vector3();
+ for(var i=0;i<300;i++){var r=Math.sqrt(Math.random())*3.85,a=Math.random()*6.283;ps.set(Math.cos(a)*r,.09,Math.sin(a)*r);eu.set(Math.random()*3,Math.random()*3,Math.random()*3);q.setFromEuler(eu);var k=.5+Math.random()*.9;sc.set(k,k*.6,k);mx.compose(ps,q,sc);chips.setMatrixAt(i,mx)}G.add(chips);
+ var groups=[];function cl(i){var g=new T.Group(),a=i*Math.PI/2;g.position.set(Math.sin(a)*2.15,.12,Math.cos(a)*2.15);g.rotation.y=a;G.add(g);groups.push(g);return g}
+ // 0 fruits de mer
+ var g0=cl(0);for(i=0;i<7;i++){var o=new T.Group(),sh=new T.Mesh(new T.SphereGeometry(.42,20,12),M(0x8b8c82,{r:.9}));sh.scale.set(1,.3,.72);o.add(sh);var inn=new T.Mesh(new T.SphereGeometry(.34,20,12),M(0xe2dccb,{r:.25,m:.15}));inn.scale.set(1,.14,.66);inn.position.y=.07;o.add(inn);var meat=new T.Mesh(new T.SphereGeometry(.2,16,10),M(0xcdb79a,{r:.4}));meat.scale.set(1,.25,.7);meat.position.y=.1;o.add(meat);var a2=i/7*6.283;o.position.set(Math.cos(a2)*.95,0,Math.sin(a2)*.95);o.rotation.y=-a2;g0.add(o)}
+ var spG=new T.ConeGeometry(.022,.3,5),spM=M(0x3a1d3f,{r:.6});[[-.15,.2],[.25,-.25]].forEach(function(p){var u=new T.Group(),core=new T.Mesh(new T.SphereGeometry(.27,18,14),M(0x2a1430,{r:.7}));u.add(core);var inst=new T.InstancedMesh(spG,spM,90),up=new T.Vector3(0,1,0),n=new T.Vector3();for(var j=0;j<90;j++){n.set(Math.random()-.5,Math.random()*.9,Math.random()-.5).normalize();q.setFromUnitVectors(up,n);ps.copy(n).multiplyScalar(.36);sc.set(1,1,1);mx.compose(ps,q,sc);inst.setMatrixAt(j,mx)}u.add(inst);u.position.set(p[0],.15,p[1]);g0.add(u)});
+ for(i=0;i<4;i++){var sp=new T.Mesh(new T.TorusGeometry(.26,.075,10,22,Math.PI*1.3),M(0xf08a5d,{r:.45}));sp.rotation.x=-Math.PI/2;sp.position.set(-1.6+i*.0,.12,-.6+i*.4);sp.rotation.z=i;sp.scale.set(1,1,.8);sp.position.x=1.55;g0.add(sp)}
+ var lem=new T.Mesh(new T.CylinderGeometry(.3,.3,.08,24,1,false,0,Math.PI),M(0xf4d03f,{r:.35}));lem.position.set(-1.55,.1,.3);lem.rotation.z=Math.PI/2;g0.add(lem);
+ // 1 sushis
+ var g1=cl(1),board=new T.Mesh(new T.BoxGeometry(2.4,.1,1.2),M(0x262626,{r:.8}));board.position.y=.02;g1.add(board);
+ for(i=0;i<8;i++){var s=new T.Group(),nori=new T.Mesh(new T.CylinderGeometry(.22,.22,.26,24),M(0x101512,{r:.7}));s.add(nori);var rice=new T.Mesh(new T.CylinderGeometry(.19,.19,.265,24),M(0xf6f3ea,{r:.9}));s.add(rice);var fill=new T.Mesh(new T.CylinderGeometry(.085,.085,.27,16),M(i%2?0x9bbf4a:0xff7e55,{r:.4}));s.add(fill);s.position.set(-.9+(i%4)*.6,.2,i<4?-.25:.3);g1.add(s)}
+ // 2 poissons
+ var g2=cl(2),fish=new T.Group(),bd=new T.Mesh(new T.SphereGeometry(.5,28,18),M(0xb9c6cc,{m:.45,r:.35}));bd.scale.set(1.7,.38,.6);fish.add(bd);var tl=new T.Mesh(new T.ConeGeometry(.32,.5,4),M(0x9fb0b8,{m:.4,r:.4}));tl.rotation.z=Math.PI/2;tl.scale.set(1,1,.25);tl.position.x=-1.02;fish.add(tl);for(i=0;i<4;i++){var gr=new T.Mesh(new T.BoxGeometry(.05,.02,.5),M(0x3b2a20,{r:.9}));gr.position.set(-.45+i*.3,.19,0);gr.rotation.y=.5;fish.add(gr)}fish.position.y=.2;g2.add(fish);
+ for(i=0;i<3;i++){var ls=new T.Mesh(new T.CylinderGeometry(.2,.2,.05,22),M(0xf7dc6f,{r:.35}));ls.position.set(.9-i*.35,.1,.6);g2.add(ls)}
+ var oct=new T.Mesh(new T.TorusKnotGeometry(.28,.07,64,8,2,3),M(0xb5523b,{r:.5}));oct.position.set(-.6,.25,.7);oct.scale.set(1,.5,1);g2.add(oct);
+ // 3 douceurs
+ var g3=cl(3);[[-.6,0,0xc0394b],[.6,0,0xe9a3b0],[0,.7,0x6b3b2a]].forEach(function(c){var d=new T.Group(),base=new T.Mesh(new T.CylinderGeometry(.36,.36,.14,28),M(0xe9d6b9,{r:.7}));d.add(base);var dome=new T.Mesh(new T.SphereGeometry(.34,28,16,0,6.283,0,Math.PI/2),M(c[2],{r:.25}));dome.position.y=.07;d.add(dome);var be=new T.Mesh(new T.SphereGeometry(.07,12,10),M(0xd81e3c,{r:.3}));be.position.y=.44;d.add(be);d.position.set(c[0],.12,c[1]-.2);g3.add(d)});
+ for(i=0;i<10;i++){var rb=new T.Mesh(new T.SphereGeometry(.06,10,8),M(i%2?0x7a1838:0xd81e3c,{r:.35}));rb.position.set(Math.random()*1.8-.9,.12,.55+Math.random()*.3);g3.add(rb)}
+ var target=0,cur3=0,drag=0,dx=0,last=null,sel3=0;
+ window.__plSel=function(i){sel3=i;target=-i*Math.PI/2;drag=0};window.__plSel(cur);
+ var cv=R.domElement;cv.addEventListener('pointerdown',function(e){last=e.clientX;auto=false;cv.setPointerCapture(e.pointerId)});cv.addEventListener('pointermove',function(e){if(last==null)return;drag+=(e.clientX-last)*.01;last=e.clientX});cv.addEventListener('pointerup',function(){last=null;var tot=target+drag,k=Math.round(-tot/(Math.PI/2));k=((k%4)+4)%4;var full=Math.round((tot+k*Math.PI/2)/(2*Math.PI))*2*Math.PI;target=-k*Math.PI/2+full;drag=0;if(k!==cur)sel(k)});
+ function size(){var w=host.clientWidth;R.setSize(w,w,false);C.aspect=1;C.updateProjectionMatrix()}size();new ResizeObserver(size).observe(host);
+ var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(host);
+ var t=0;(function loop(){requestAnimationFrame(loop);if(!vis)return;t+=.016;cur3+=(target+drag-cur3)*.07;G.rotation.y=cur3+(RM?0:Math.sin(t*.5)*.04);G.position.y=RM?0:Math.sin(t)*.06;groups.forEach(function(g,i){var s=i===sel3?1.14:.9;g.scale.x+=(s-g.scale.x)*.08;g.scale.y=g.scale.z=g.scale.x});R.render(S,C)})();
+});
+})();
+</script>
+</body>
+</html>
