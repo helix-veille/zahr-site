@@ -18,7 +18,7 @@
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-html,body{overflow-x:hidden}
+html,body{overflow-x:clip}
 body{background:var(--ink);color:var(--milk);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -175,10 +175,13 @@ section{position:relative}
 /* RESERVATION : compact */
 #rdv{background:radial-gradient(60% 50% at 50% 20%,rgba(255,63,164,.2),transparent 70%),#0c0609}
 .compact{position:relative;max-width:520px;margin:34px auto 0;perspective:1600px}
-.lid{position:relative;height:190px;transform-origin:50% 100%;transform-style:preserve-3d;transition:transform 1.4s var(--ease);z-index:2}
-.compact.open .lid{transform:rotateX(-112deg)}
+.lid{position:relative;height:230px;transform-origin:50% 100%;transform-style:preserve-3d;transition:transform 1.6s var(--ease);z-index:2;transform:rotateX(84deg)}
+.compact.open .lid{transform:rotateX(0deg)}
 .lid .out,.lid .in{position:absolute;inset:0;border-radius:200px 200px 24px 24px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .lid .out{background:radial-gradient(circle at 50% 30%,#ffe3f0,#ff8fc6 45%,#d62a83);display:grid;place-items:center;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 20px 40px -10px rgba(255,63,164,.6)}
+.lid .out .mphoto{position:absolute;inset:12px;border-radius:190px 190px 14px 14px;background:#2a1020 center 28%/cover;box-shadow:inset 0 0 0 3px #ffd3e8,inset 0 0 40px rgba(255,255,255,.35)}
+.lid .out .mphoto::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(120deg,rgba(255,255,255,.45) 0 12%,transparent 12% 30%,rgba(255,255,255,.18) 30% 36%,transparent 36%)}
+.lid .out span{position:absolute;bottom:12px;font-size:30px!important;z-index:2}
 .lid .out span{font:400 46px var(--neon);color:#fff;text-shadow:0 2px 0 #b0145f}
 .lid .in{transform:rotateX(180deg);background:linear-gradient(160deg,#eae6ec,#9e97a1 50%,#f5f2f6);box-shadow:inset 0 0 0 8px #d9a3bf}
 .base{position:relative;margin-top:-6px;border-radius:24px;background:linear-gradient(180deg,#2b1020,#170a11);border:1px solid var(--line);padding:24px 18px 20px;box-shadow:0 50px 90px -40px rgba(255,63,164,.6)}
@@ -247,6 +250,55 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0}
 footer nav button{background:none;border:0;padding:0;text-decoration:underline;color:var(--muted);cursor:pointer;font-size:13px}
 .zahr{font-size:11.5px;opacity:.75}
 
+/* hero photo halo */
+.hero-strip{position:absolute;left:0;right:0;top:74px;display:flex;gap:8px;justify-content:center;pointer-events:none;opacity:0;transition:opacity 1.2s}
+/* lab photos */
+.lab-ph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+.lab-ph figure{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;border:1px solid rgba(255,211,232,.18);transform:perspective(600px) rotateY(var(--ry,0deg));transition:transform .8s var(--ease),border-color .4s}
+.lab-ph figure.on{border-color:var(--pink);box-shadow:0 0 24px -6px var(--pink)}
+.lab-ph img{width:100%;height:100%;object-fit:cover}
+.lab-ph figcaption{position:absolute;left:6px;bottom:6px;font-size:10.5px;background:rgba(12,6,9,.7);padding:3px 7px;border-radius:99px}
+/* mirror photo */
+.mir .glass .refl{position:absolute;inset:0;background-size:cover;background-position:center 30%;opacity:.28;filter:blur(1px) saturate(1.2);mix-blend-mode:screen;pointer-events:none}
+.mir .glass>*:not(.refl){position:relative}
+/* BOOK 3D helix */
+#book{height:420vh;background:#0c0609}
+#book .stick{position:sticky;top:0;height:100svh;overflow:hidden}
+#helix{position:absolute;inset:0;width:100%;height:100%}
+#book .cap{position:absolute;left:0;right:0;top:86px;text-align:center;pointer-events:none;z-index:2}
+#book .cap h2{font-size:clamp(40px,11vw,90px);text-shadow:0 10px 40px rgba(0,0,0,.8)}
+#book .cnt{position:absolute;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom));text-align:center;font:500 italic 20px var(--serif);color:var(--blush);z-index:2;text-shadow:0 2px 12px #000}
+#book .fb{position:absolute;inset:0;display:none;grid-template-columns:repeat(3,1fr);gap:6px;padding:150px 12px 90px;overflow:auto}
+.noThree #book{height:auto}.noThree #book .stick{position:relative;height:auto}.noThree #book .fb{display:grid;position:relative}
+#book .fb img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px}
+/* HAIR cylinder */
+#cheveux{background:radial-gradient(70% 60% at 50% 40%,rgba(255,63,164,.18),transparent 70%),#0f070b;overflow:hidden}
+.cyl{position:relative;height:440px;perspective:1100px;margin-top:30px}
+.cyl-in{position:absolute;left:50%;top:20px;width:190px;height:330px;margin-left:-95px;transform-style:preserve-3d}
+.cyl-in figure{position:absolute;inset:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.9);border:1px solid rgba(255,211,232,.25)}
+.cyl-in img{width:100%;height:100%;object-fit:cover}
+.cyl-in figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;background:linear-gradient(transparent,rgba(12,6,9,.85));font:400 22px var(--neon);text-align:center}
+.cyl .floor{position:absolute;left:50%;bottom:28px;width:520px;height:120px;margin-left:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,63,164,.4),transparent);filter:blur(10px)}
+.ba{position:relative;max-width:520px;margin:34px auto 0;aspect-ratio:4/5;border-radius:22px;overflow:hidden;border:1px solid var(--line);touch-action:pan-y;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .af{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;box-shadow:0 0 14px var(--pink)}
+.ba .bar::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;color:#fff;font-size:18px}
+.ba .tg{position:absolute;top:12px;padding:5px 10px;border-radius:99px;background:rgba(12,6,9,.7);font:600 11px var(--sans);letter-spacing:.2em}
+.hairlist{display:grid;gap:10px;margin-top:22px}
+/* smile photo card */
+.smile-photo{position:relative;max-width:420px;margin:0 auto 6px;aspect-ratio:4/5;border-radius:24px;overflow:hidden;transform:perspective(900px) rotateY(-14deg) rotateX(6deg);box-shadow:30px 40px 80px -30px rgba(255,63,164,.55);border:1px solid var(--line)}
+.smile-photo img{width:100%;height:100%;object-fit:cover}
+.smile-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-100%);animation:foil 5s ease-in-out infinite}
+/* formation flyer */
+.flyer{position:absolute;inset:0;border-radius:18px;overflow:hidden}
+.flyer img{width:100%;height:100%;object-fit:cover;object-position:top}
+/* IG strip */
+.igstrip{overflow:hidden;padding:18px 0;background:#0c0609;border-top:1px solid var(--line)}
+.igstrip div{display:flex;gap:10px;width:max-content;animation:mq 60s linear infinite}
+.igstrip img{width:120px;height:160px;object-fit:cover;border-radius:12px;transform:rotate(var(--r));border:2px solid #fff}
+/* compact mirror photo */
+.lid .in .mphoto{position:absolute;inset:14px;border-radius:190px 190px 14px 14px;background-size:cover;background-position:center 30%;opacity:.9;filter:saturate(1.15) brightness(1.05);box-shadow:inset 0 0 30px rgba(255,255,255,.5)}
 /* sticky book */
 .sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;display:flex;gap:8px;transform:translateY(140%);transition:transform .5s var(--ease)}
 .sticky.on{transform:none}
@@ -318,6 +370,7 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
         <button class="vol reveal" data-v="1" aria-pressed="false"><b>Volume russe</b><small>Bouquets fins · 1 h 30</small><span class="pr">60 €</span></button>
         <button class="vol reveal" data-v="2" aria-pressed="false"><b>Intense · mega · whispy</b><small>Effet spectaculaire · 1 h 30</small><span class="pr">70 €</span></button>
         <p class="lab-note reveal">Remplissage pose légère 45 € · remplissage volume russe 50 € (toutes les 2 à 3 semaines).</p>
+        <div class="lab-ph reveal" id="labPh"></div>
         <a class="btn p reveal" href="#rdv" id="labBook">Réserver ce volume</a>
       </div>
     </div>
@@ -349,6 +402,7 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
         <span class="tooth-hint">Touche la dent : pose un strass ✦</span>
       </div>
       <div class="smile-list">
+        <div class="smile-photo reveal"><img id="smilePh" alt="Résultat sourire extra white chez Melesthetic"></div>
         <div class="chip reveal"><div><b>Sourire extra white</b><small>Sourire entier · 1 h</small></div><i>70 €</i></div>
         <div class="chip reveal"><div><b>1ʳᵉ retouche extra white</b><small>Effet facette · 1 h</small></div><i>60 €</i></div>
         <div class="chip reveal"><div><b>Pose strass dentaire</b><small>15 min</small></div><i>dès 15 €</i></div>
@@ -358,12 +412,27 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
   </div>
 </section>
 
-<section id="galerie" class="pad">
+<section id="book" aria-label="Le book Melesthetic, photos du studio">
+  <div class="stick">
+    <canvas id="helix" aria-hidden="true"></canvas>
+    <div class="cap"><p class="eyebrow">Le book</p><h2>Ses <em>regards.</em></h2></div>
+    <p class="cnt" id="bookCnt">Fais défiler : tu traverses ses poses</p>
+    <div class="fb" id="bookFb"></div>
+  </div>
+</section>
+
+<section id="cheveux" class="pad">
   <div class="wrap">
-    <p class="eyebrow reveal">Résultats</p>
-    <h2 class="reveal">Le book <em>Melesthetic.</em></h2>
-    <div class="deck" id="deck" aria-label="Photos du studio, faire glisser pour passer à la suivante"></div>
-    <p class="deck-hint">Fais glisser la photo ←→</p>
+    <p class="eyebrow reveal">Luxe Hair · extensions</p>
+    <h2 class="reveal">Des cheveux <em>de rêve.</em></h2>
+    <p class="lead reveal" style="margin-top:12px">Cheveux humains indiens raw hair, posés à froid ou aux micro-anneaux. Longueur, volume, couleur : on construit ta crinière.</p>
+    <div class="cyl" id="cyl"><div class="floor"></div><div class="cyl-in" id="cylIn"></div></div>
+    <div class="ba reveal" id="ba"><img class="bf" id="baB" alt="Avant / après extensions de cheveux Melesthetic"><img class="af" id="baA" alt="" aria-hidden="true"><span class="tg" style="left:12px">AVANT · APRÈS</span><i class="bar"></i></div>
+    <div class="hairlist">
+      <div class="chip reveal"><div><b>Extensions de cheveux</b><small>Méthode à froid / micro-anneaux · 2 h</small></div><i>Sur devis</i></div>
+      <div class="chip reveal"><div><b>Dépose + repose</b><small>2 h</small></div><i>80 €</i></div>
+      <div class="chip reveal"><div><b>Brushing hollywoodien</b><small>1 h</small></div><i>30 €</i></div>
+    </div>
   </div>
 </section>
 
@@ -381,6 +450,7 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
           <div class="bot"><span>Toulon · Paris</span><div class="seal" aria-hidden="true">M</div><span>Votre nom ici</span></div>
         </div>
         <div class="b">
+          <div class="flyer" id="flyer" style="display:none"><img id="flyerImg" alt="Affiche de la formation cils intensive Melesthetic"></div>
           <ul>
             <li>Extensions de cils</li>
             <li>Extensions de cheveux</li>
@@ -399,7 +469,7 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
     <p class="eyebrow reveal" style="text-align:center">Réservation</p>
     <h2 class="reveal" style="text-align:center">Ton moment <em>beauté.</em></h2>
     <div class="compact" id="compact">
-      <div class="lid" aria-hidden="true"><div class="out"><span>M</span></div><div class="in"></div></div>
+      <div class="lid" aria-hidden="true"><div class="out"><i class="mphoto" id="mphoto"></i><span>Melesthetic</span></div></div>
       <div class="base">
         <div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
         <div class="stp on" data-s="0"><h3>Ta prestation</h3><div class="opts" id="optsSvc"></div></div>
@@ -432,6 +502,7 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
     </div>
   </div>
 </section>
+<div class="igstrip" aria-label="Instagram @melesthetic._"><div id="igs"></div></div>
 </main>
 
 <footer><div class="wrap">
@@ -450,6 +521,7 @@ dialog p{color:var(--muted);font-size:14px;margin-bottom:8px}
 <dialog id="legal"><h3 id="lgT"></h3><div id="lgB"></div><form method="dialog"><button class="btn p" style="margin-top:10px">Fermer</button></form></dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="photos1.js" defer></script><script src="photos2.js" defer></script><script src="photos3.js" defer></script><script src="photos4.js" defer></script>
 <script>
 (()=>{
 "use strict";
@@ -507,41 +579,48 @@ function makeEye(canvas, opts){
   const scl=new T.Mesh(sgeo,new T.MeshPhysicalMaterial({map:tex,roughness:.3,clearcoat:1,clearcoatRoughness:.08,emissive:0x2a0614,emissiveIntensity:.25}));
   scl.position.z=-.2; G.add(scl);
   // lashes
-  const lashMat=new T.MeshPhysicalMaterial({color:0x1c0812,emissive:0x5a1236,emissiveIntensity:.55,roughness:.3,clearcoat:1,clearcoatRoughness:.2,sheen:new T.Color(0x5a1636)});
-  const lashes=[]; const LG=new T.Group(); G.add(LG);
-  function lashGeo(len,curl,thick){
-    const pts=[]; for(let i=0;i<=8;i++){ const t=i/8; pts.push(new T.Vector3(0,len*t,curl*t*t)); }
-    return new T.TubeGeometry(new T.CatmullRomCurve3(pts),12,thick,5,false);
-  }
+  const lashMat=new T.MeshStandardMaterial({color:0x1c0812,emissive:0x5a1236,emissiveIntensity:.55,roughness:.3,metalness:.1});
+  const LG=new T.Group(); G.add(LG);
+  // one curved lash, instanced (1 draw call for all lashes)
+  const lpts=[]; for(let i=0;i<=8;i++){ const t=i/8; lpts.push(new T.Vector3(0,t,.45*t*t)); }
+  const lashBase=new T.TubeGeometry(new T.CatmullRomCurve3(lpts),10,.012,5,false);
+  let inst=null, data=[];
+  const tmpM=new T.Matrix4(), tq=new T.Quaternion(), te=new T.Euler(), tv=new T.Vector3(), ts=new T.Vector3();
   function setVolume(v, animate){
-    lashes.forEach(m=>{ LG.remove(m); m.geometry.dispose(); }); lashes.length=0;
-    const cfg=[{n:70,len:.75,spread:.0,fan:1,th:.016},{n:150,len:.9,spread:.16,fan:3,th:.011},{n:230,len:1.18,spread:.26,fan:4,th:.010}][v];
+    if(inst){ LG.remove(inst); inst.dispose&&inst.dispose(); }
+    const cfg=[{n:70,len:.75,spread:.0,th:.016},{n:150,len:.9,spread:.16,th:.011},{n:230,len:1.18,spread:.26,th:.010}][v];
+    data=[];
     for(let i=0;i<cfg.n;i++){
-      const t=(i+Math.random()*.6)/cfg.n; const xx=-W*.92+2*W*.92*t; const y=up(xx);
-      const edge=Math.abs(xx/W); const L=cfg.len*(1-.45*edge**2)*(v===2&&i%5===0?1.25:1)*(0.85+Math.random()*.3);
-      const fanAng=(Math.random()-.5)*cfg.spread;
-      const m=new T.Mesh(lashGeo(L,.35+L*.3,cfg.th*(1-edge*.4)),lashMat);
-      const tilt=-xx/W*.85+fanAng; // radiate outward
-      m.position.set(xx,y,Math.cos(xx/W*1.4)*.35);
-      m.rotation.set(-.35,0,tilt);
-      m.userData={t:i/cfg.n, s:0, delay:animate?i*(1.6/cfg.n):0};
-      m.scale.setScalar(animate?0.001:1); LG.add(m); lashes.push(m);
+      const t=(i+Math.random()*.6)/cfg.n; const xx=-W*.92+2*W*.92*t; const edge=Math.abs(xx/W);
+      const L=cfg.len*(1-.45*edge**2)*(v===2&&i%5===0?1.25:1)*(0.85+Math.random()*.3);
+      data.push({x:xx,y:up(xx),z:Math.cos(xx/W*1.4)*.35,rx:-.35,rz:-xx/W*.85+(Math.random()-.5)*cfg.spread,L,th:cfg.th*(1-edge*.4),d:animate?i*(1.6/cfg.n):0});
     }
-    // lower lashes
-    for(let i=0;i<Math.round(cfg.n*.25);i++){
-      const t=(i+.5)/Math.round(cfg.n*.25); const xx=-W*.7+1.4*W*t; const y=lo(xx);
-      const m=new T.Mesh(lashGeo(.22+.1*Math.random(),-.05,.007),lashMat);
-      m.position.set(xx,y,Math.cos(xx/W*1.4)*.35); m.rotation.set(.2,0,Math.PI-xx/W*.6);
-      m.userData={t:.5,s:0,delay:animate?1.6+i*.01:0}; m.scale.setScalar(animate?0.001:1); LG.add(m); lashes.push(m);
-    }
-    born=performance.now();
+    const nl=Math.round(cfg.n*.25);
+    for(let i=0;i<nl;i++){ const xx=-W*.7+1.4*W*(i+.5)/nl; data.push({x:xx,y:lo(xx),z:Math.cos(xx/W*1.4)*.35,rx:.2,rz:Math.PI-xx/W*.6,L:.22+.1*Math.random(),th:.007,d:animate?1.6+i*.01:0}); }
+    inst=new T.InstancedMesh(lashBase,lashMat,data.length); LG.add(inst);
+    born=performance.now(); grown=false; place(0);
     return cfg.n;
+  }
+  let grown=false;
+  function place(el){
+    if(!inst||grown) return; let all=true;
+    data.forEach((d,i)=>{ const k=Math.min(1,Math.max(0,(el-d.d)/.35)); if(k<1) all=false; const e=Math.max(.001,1-Math.pow(1-k,3));
+      te.set(d.rx,0,d.rz); tq.setFromEuler(te); tv.set(d.x,d.y,d.z); ts.setScalar(d.L*e); tmpM.compose(tv,tq,ts); inst.setMatrixAt(i,tmpM); });
+    inst.instanceMatrix.needsUpdate=true; if(all) grown=true;
   }
   let born=performance.now();
   // sparkles
   const SP=new T.Group(); S.add(SP);
   if(opts.sparkles){ const g=new T.OctahedronGeometry(.06,0); const mt=new T.MeshBasicMaterial({color:0xffd3e8});
     for(let i=0;i<60;i++){ const m=new T.Mesh(g,mt); m.position.set((Math.random()-.5)*12,(Math.random()-.5)*9,-2-Math.random()*5); m.userData={sp:.2+Math.random()*.6,ph:Math.random()*6}; SP.add(m);} }
+  // photo halo (hero): her Instagram portraits orbiting behind the eye
+  const RG=new T.Group(); S.add(RG); const ringCards=[];
+  if(opts.ring){ const ks=['m13','m19','m01','m17','m24','m00','m21','m31','m15','m35'];
+    const g=new T.PlaneGeometry(1.15,1.7); const ld=new T.TextureLoader();
+    ks.forEach((k,i)=>{ const m=new T.Mesh(g,new T.MeshBasicMaterial({color:0x3a1528,transparent:true,opacity:.0,side:T.DoubleSide,depthWrite:false}));
+      const a=i/ks.length*Math.PI*2; m.userData={a,k,done:false}; RG.add(m); ringCards.push(m); });
+    const tx=()=>ringCards.forEach(m=>{ if(!m.userData.done && PH(m.userData.k)){ m.userData.done=true; ld.load(PH(m.userData.k),t=>{ m.material.map=t; m.material.color.set(0xffffff); m.material.needsUpdate=true; }); } });
+    onPhotos(tx); }
   let mx=0,my=0, blinkT=2.5, blink=0, open=opts.openStart?0:1, t0=performance.now();
   addEventListener('pointermove',e=>{ mx=e.clientX/innerWidth-.5; my=e.clientY/innerHeight-.5; },{passive:true});
   function size(){ const w=canvas.clientWidth,h=canvas.clientHeight; if(!w||!h) return; R.setSize(w,h,false); C.aspect=w/h;
@@ -551,7 +630,7 @@ function makeEye(canvas, opts){
   function frame(now){
     requestAnimationFrame(frame); if(!vis) return;
     const t=(now-t0)/1000, el=(now-born)/1000;
-    lashes.forEach(m=>{ const k=Math.min(1,Math.max(0,(el-m.userData.delay)/.35)); const e=k<1?1-Math.pow(1-k,3):1; m.scale.setScalar(Math.max(.001,e)); });
+    place(el);
     // blink
     blinkT-=1/60; if(blinkT<0 && !RM){ blink=1; blinkT=3+Math.random()*3; }
     if(blink>0){ blink=Math.max(0,blink-0.08); }
@@ -564,6 +643,12 @@ function makeEye(canvas, opts){
     G.rotation.y = mx*.35 + Math.sin(t*.4)*.06; G.rotation.x = my*.2 + Math.sin(t*.3)*.04 - sc*.5;
     G.position.y = (opts.y||0) + sc*1.2; G.position.z = sc*3;
     tex.offset.set(-mx*.09, my*.05);
+    if(ringCards.length){ const sc2=opts.scrollFx? Math.min(1,scrollY/innerHeight):0;
+      ringCards.forEach(m=>{ const a=m.userData.a + t*.18; const rx=W*1.55, ry=W*1.05;
+        m.position.set(Math.cos(a)*rx, Math.sin(a)*ry*.9+(opts.y||0)+.2, -2.2+Math.sin(a)*1.2);
+        m.lookAt(C.position.x*.3, (opts.y||0), C.position.z); m.rotation.z += Math.sin(a)*.08;
+        const target = m.material.map ? (Math.sin(a)>.55? .25 : Math.sin(a)<-.35? .3 : .9) : 0; m.material.opacity += (target*(1-sc2*.7) - m.material.opacity)*.06; });
+      RG.position.y = sc2*1.2; }
     SP.children.forEach(m=>{ m.rotation.x+=.02; m.rotation.y+=.03; m.position.y+= .004*m.userData.sp; if(m.position.y>5) m.position.y=-5; m.scale.setScalar(.6+.4*Math.sin(t*3+m.userData.ph)); });
     R.render(S,C);
   }
@@ -573,20 +658,22 @@ function makeEye(canvas, opts){
 
 let eyeA=null, eyeB=null;
 function boot3D(){
-  if(!window.THREE){ document.documentElement.classList.add('noThree'); return; }
+  if(!window.THREE){ document.documentElement.classList.add('noThree'); try{bootHelix()}catch(e){} return; }
   try{
-    eyeA=makeEye($('#eye'),{z:9,y:.9,sparkles:true,scrollFx:true,openStart:true,bg:0x14070e,mask:true,w:3.2,h:1.25});
+    eyeA=makeEye($('#eye'),{ring:true,z:9,y:.9,sparkles:true,scrollFx:true,openStart:true,bg:0x14070e,mask:true,w:3.2,h:1.25});
     eyeA && eyeA.setVolume(2,true);
     eyeB=makeEye($('#eye2'),{z:8,y:-.15,bg:0x1d0a14,w:3.0,h:1.2});
     if(eyeB){ $('#lashCount').textContent = eyeB.setVolume(0,true)+' cils'; }
   }catch(e){ console.error(e); document.documentElement.classList.add('noThree'); }
+  try{ bootHelix(); }catch(e){ console.error(e); }
+  markLab();
 }
 if(document.readyState==='complete') boot3D(); else addEventListener('load',boot3D);
 
 /* volumes */
 const VOL=['Pose légère 2D/3D','Volume russe','Volume intense / mega / whispy'];
 let curVol=0;
-$$('.vol').forEach(b=>b.addEventListener('click',()=>{ curVol=+b.dataset.v; $$('.vol').forEach(x=>x.setAttribute('aria-pressed',x===b)); if(eyeB) $('#lashCount').textContent=eyeB.setVolume(curVol,true)+' cils'; }));
+$$('.vol').forEach(b=>b.addEventListener('click',()=>{ curVol=+b.dataset.v; $$('.vol').forEach(x=>x.setAttribute('aria-pressed',x===b)); if(eyeB) $('#lashCount').textContent=eyeB.setVolume(curVol,true)+' cils'; markLab(); }));
 $('#labBook').addEventListener('click',()=>{ pickSvc('c'+curVol); });
 
 /* ===================== CARTE ===================== */
@@ -627,17 +714,88 @@ tooth.addEventListener('click',e=>{ const r=tooth.getBoundingClientRect(); addSt
 tooth.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); addStrass(35+Math.random()*30,30+Math.random()*20);} });
 new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); setTimeout(()=>addStrass(40,32),700); setTimeout(()=>addStrass(58,36),1100); } },{threshold:.5}).observe(tooth);
 
-/* ===================== GALERIE ===================== */
-const PH=[['vvawkhcduysrxxof6u7o','Brow lift','50% 45%'],['fyoboftbut9jrcxrd76i','Regard de biche','50% 30%'],['i3hz23gi3eukdapprrfz','Le studio','50% 50%'],['ae8q6cyjwxsszeraxcoq','Volume russe','50% 32%'],['qypl5ujm6tssfruuebrs','Mega volume','50% 30%'],['ovy1vax8e9cyxbvani4c','Effet whispy','50% 30%'],['hhywuoubizfhi2ybjuvd','Sourire white','50% 40%']];
-const deck=$('#deck'); let order=PH.map((_,i)=>i);
-PH.forEach(([id,cap,pos],i)=>{ const d=document.createElement('figure'); d.className='pola'; d.dataset.i=i;
-  d.innerHTML=`<div class="ph"><img src="${IMG(id)}" alt="${cap} — Melesthetic Toulon" loading="lazy" style="object-position:${pos}"></div><p>${cap}</p>`; deck.appendChild(d); });
-function layDeck(){ order.forEach((idx,k)=>{ const el=deck.children[idx]; const r=[-7,5,-3,8,-5,3,-8][idx%7]; el.style.zIndex=PH.length-k;
-  el.style.transform=k===0?`rotate(${r*.3}deg)`:`translate(${(k%2?1:-1)*k*9}px,${k*6}px) rotate(${r}deg) scale(${1-k*.03})`; el.style.opacity=k>4?0:1; }); }
-function nextCard(dir){ const top=deck.children[order[0]]; top.style.transform=`translate(${dir*120}vw,-40px) rotate(${dir*30}deg)`; setTimeout(()=>{ order.push(order.shift()); layDeck(); },380); }
-layDeck();
-(()=>{ let sx=null; deck.addEventListener('pointerdown',e=>{sx=e.clientX}); deck.addEventListener('pointerup',e=>{ if(sx==null) return; const d=e.clientX-sx; if(Math.abs(d)>30) nextCard(d>0?1:-1); else nextCard(1); sx=null; }); })();
-new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); if(!RM){ setTimeout(()=>nextCard(1),1200); setTimeout(()=>nextCard(-1),2400);} } },{threshold:.5}).observe(deck);
+/* ===================== PHOTOS (Instagram @melesthetic._) ===================== */
+const PH = k => (window.MP && MP[k] && MP[k].s) || '';
+const PORTRAITS=['m00','m01','m02','m03','m13','m14','m15','m16','m17','m18','m19','m20','m21','m22','m23','m24','m25','m26','m29','m31','m32','m34','m35','m04','m05','m27','m28'];
+const HAIR=[['m07','Longueur'],['m06','Blond polaire'],['m09','Volume'],['m11','Brun miel'],['m12','Raw hair'],['m33','Lisse miroir'],['m26','Blond glam'],['m21','Glam']];
+const photoHooks=[];
+const onPhotos=f=>{ photoHooks.push(f); f(); };
+addEventListener('mp',()=>photoHooks.forEach(f=>{ try{f()}catch(e){} }));
+const setImg=(el,k)=>{ if(el && PH(k) && el.getAttribute('src')!==PH(k)) el.src=PH(k); };
+
+/* lab examples */
+const LABPH=[['m14','Naturel'],['m01','Volume'],['m03','Intense']];
+$('#labPh').innerHTML=LABPH.map(([k,c],i)=>`<figure data-i="${i}" style="--ry:${(i-1)*-10}deg"><img alt="Pose de cils Melesthetic, effet ${c.toLowerCase()}"><figcaption>${c}</figcaption></figure>`).join('');
+onPhotos(()=>$$('#labPh figure').forEach((f,i)=>setImg($('img',f),LABPH[i][0])));
+const markLab=()=>$$('#labPh figure').forEach((f,i)=>f.classList.toggle('on',i===curVol));
+
+/* mirrors reflections */
+const MIRPH=['m04','m30','m07','m21'];
+onPhotos(()=>$$('.mir .glass').forEach((g,i)=>{ let r=$('.refl',g); if(!r){ r=document.createElement('i'); r.className='refl'; g.prepend(r);} if(PH(MIRPH[i])) r.style.backgroundImage=`url(${PH(MIRPH[i])})`; }));
+
+/* smile, flyer, compact mirror */
+onPhotos(()=>{ setImg($('#smilePh'),'m30'); if(PH('m36')){ setImg($('#flyerImg'),'m36'); } const m=$('#mphoto'); if(m&&PH('m19')) m.style.backgroundImage=`url(${PH('m19')})`; });
+
+/* hair cylinder */
+const cylIn=$('#cylIn'); const NH=HAIR.length, HR=Math.round(95/Math.tan(Math.PI/NH))+24;
+HAIR.forEach(([k,c],i)=>{ const f=document.createElement('figure'); f.style.transform=`rotateY(${i*360/NH}deg) translateZ(${HR}px)`; f.innerHTML=`<img alt="Extensions de cheveux Melesthetic : ${c}"><figcaption>${c}</figcaption>`; cylIn.appendChild(f); });
+onPhotos(()=>$$('#cylIn img').forEach((im,i)=>setImg(im,HAIR[i][0])));
+let cylA=0; (function spin(){ requestAnimationFrame(spin); const r=$('#cyl').getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return; cylA += RM?0:.18; const sc=(innerHeight-r.top)/(innerHeight+r.height); cylIn.style.transform=`translateZ(${-HR}px) rotateX(-6deg) rotateY(${-cylA - sc*140}deg)`; })();
+
+/* before / after (composite photo: left = avant, right = après) */
+(()=>{ const ba=$('#ba'), B=$('#baB'), A=$('#baA');
+  [B,A].forEach(im=>{ im.style.width='200%'; im.style.maxWidth='none'; }); A.style.left='-100%';
+  onPhotos(()=>{ setImg(B,'m08'); setImg(A,'m08'); });
+  const set=x=>{ const r=ba.getBoundingClientRect(); const p=Math.max(4,Math.min(96,(x-r.left)/r.width*100)); ba.style.setProperty('--x',p+'%'); };
+  let drag=false; ba.addEventListener('pointerdown',e=>{drag=true;set(e.clientX)}); addEventListener('pointermove',e=>{ if(drag) set(e.clientX)}); addEventListener('pointerup',()=>drag=false);
+  new IntersectionObserver((es,o)=>{ if(es[0].isIntersecting){ o.disconnect(); if(RM) return; let t=0; const an=()=>{ t+=.02; ba.style.setProperty('--x',(50+38*Math.sin(t*2.2)*Math.exp(-t*.35))+'%'); if(t<6&&!drag) requestAnimationFrame(an); }; an(); } },{threshold:.5}).observe(ba);
+})();
+
+/* Instagram strip */
+const IGK=PORTRAITS.concat(HAIR.map(h=>h[0]),['m30']);
+$('#igs').innerHTML=[...IGK,...IGK].map((k,i)=>`<img alt="" style="--r:${[-3,2,-1,3,-2][i%5]}deg" data-k="${k}">`).join('');
+onPhotos(()=>$$('#igs img').forEach(im=>setImg(im,im.dataset.k)));
+
+/* BOOK : 3D helix of photos, scroll-driven */
+function bootHelix(){
+  const T=window.THREE, cv=$('#helix');
+  $('#bookFb').innerHTML=PORTRAITS.map(k=>`<img data-k="${k}" alt="Pose Melesthetic">`).join('');
+  onPhotos(()=>$$('#bookFb img').forEach(im=>setImg(im,im.dataset.k)));
+  if(!T) return;
+  const R=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true}); R.setPixelRatio(Math.min(devicePixelRatio,2));
+  const S=new T.Scene(); S.fog=new T.Fog(0x0c0609,6,26);
+  const C=new T.PerspectiveCamera(55,1,.1,60);
+  S.add(new T.AmbientLight(0xffffff,.9)); const pl=new T.PointLight(0xff3fa4,2.5,20); S.add(pl);
+  const N=PORTRAITS.length, STEP=1.35, RAD=2.7; const cards=[];
+  const geo=new T.PlaneGeometry(1.5,2.2,1,1);
+  const loader=new T.TextureLoader();
+  PORTRAITS.forEach((k,i)=>{
+    const m=new T.Mesh(geo,new T.MeshBasicMaterial({color:0x3a1528,side:T.DoubleSide}));
+    const a=i*1.05; m.position.set(Math.cos(a)*RAD,Math.sin(a)*RAD*.62,-i*STEP);
+    m.lookAt(0,0,m.position.z+3); m.rotation.z+= (i%2?.06:-.06);
+    // pink frame
+    const fr=new T.Mesh(new T.PlaneGeometry(1.62,2.32),new T.MeshBasicMaterial({color:0xff3fa4,transparent:true,opacity:.55,side:T.DoubleSide})); fr.position.z=-.01; m.add(fr);
+    S.add(m); cards.push({m,k,done:false});
+  });
+  // sparkles tunnel
+  const sg=new T.BufferGeometry(); const sp=[]; for(let i=0;i<500;i++){ const a=Math.random()*6.28, r=1+Math.random()*4; sp.push(Math.cos(a)*r,Math.sin(a)*r,-Math.random()*N*STEP-4); }
+  sg.setAttribute('position',new T.Float32BufferAttribute(sp,3));
+  S.add(new T.Points(sg,new T.PointsMaterial({color:0xffd3e8,size:.04})));
+  const tex=()=>cards.forEach(c=>{ if(!c.done && PH(c.k)){ c.done=true; loader.load(PH(c.k),t=>{ c.m.material.map=t; c.m.material.color.set(0xffffff); c.m.material.needsUpdate=true; }); } });
+  onPhotos(tex);
+  const size=()=>{ const w=cv.clientWidth,h=cv.clientHeight; R.setSize(w,h,false); C.aspect=w/h; C.fov=w<h?62:50; C.updateProjectionMatrix(); }; size(); addEventListener('resize',size);
+  const sec=$('#book'); let vis=false; new IntersectionObserver(es=>vis=es[0].isIntersecting).observe(sec);
+  let z=4, t0=performance.now();
+  (function fr(now){ requestAnimationFrame(fr); if(!vis) return;
+    const r=sec.getBoundingClientRect(); const p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));
+    const tz=4-p*(N*STEP+1); z+= (tz-z)*.12; const t=(now-t0)/1000;
+    C.position.set(Math.sin(z*.18)*.35,Math.cos(z*.15)*.25,z); C.lookAt(Math.sin(z*.2)*.2,0,z-6); C.rotation.z = -z*.035;
+    pl.position.set(0,0,z-2);
+    cards.forEach((c,i)=>{ c.m.position.x=Math.cos(i*1.05+Math.sin(t*.3)*.05)*RAD; });
+    const idx=Math.min(N,Math.max(1,Math.round((4-z)/STEP)+1)); $('#bookCnt').textContent = p<.02?'Fais défiler : tu traverses ses poses':`${idx} / ${N} · @melesthetic._`;
+    R.render(S,C);
+  })(performance.now());
+}
 
 /* ===================== FORMATIONS ===================== */
 const cert=$('#cert'); const flip=()=>cert.classList.toggle('flip');
