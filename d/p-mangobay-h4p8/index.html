@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mango Bay · Brasserie du port de Hyères</title>
+<meta name="description" content="Mango Bay, brasserie pizzeria sur le port de Hyères : terrasse XXL face aux bateaux, moules, pizzas fines cuites sur place, cocktails et vendredis karaoké. Carte, horaires et réservation.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=Antonio:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sun:#f07a00;--sun2:#ff9d2e;--sand:#fbf4e7;--sand2:#f3e6cf;--ink:#24150c;--wood:#6b3d22;--wood2:#3a2114;
+  --sea:#0c3a4c;--sea2:#0f5b73;--muted:#7a6352;--line:rgba(36,21,12,.14);
+  --serif:"Fraunces",Georgia,serif;--cond:"Antonio","Arial Narrow",sans-serif;--sans:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--sand);color:var(--ink);font:400 16.5px/1.65 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+.wrap{width:min(1240px,100% - 36px);margin-inline:auto}
+section{position:relative;padding:clamp(80px,11vw,140px) 0}
+.eyebrow{font:600 .8rem/1 var(--cond);letter-spacing:.32em;text-transform:uppercase;color:var(--sun);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+.h2{font:300 clamp(2.6rem,6vw,5rem)/1 var(--serif);letter-spacing:-.02em;margin:.35em 0 .4em;text-wrap:balance}
+.h2 em{font-style:italic;color:var(--sun)}
+.lead{color:var(--muted);max-width:560px;font-size:1.08rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;text-decoration:none;font:600 .82rem/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;transition:background .3s,color .3s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.sun{background:var(--sun);border-color:var(--sun);color:#fff}.btn.sun:hover{background:#d96c00}
+.btn.light{border-color:#fff;color:#fff}.btn.light:hover{background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid var(--sea2);outline-offset:3px}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}
+.skip{position:absolute;left:-999px}.skip:focus{left:10px;top:10px;z-index:200;background:#fff;padding:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* LOADER */
+.loader{position:fixed;inset:0;z-index:120;background:var(--sea);display:grid;place-items:center;color:#fff;transition:opacity .9s,visibility .9s}
+.loader.done{opacity:0;visibility:hidden}
+.loader .ring{width:120px;height:120px;border-radius:50%;border:9px solid #e9e1d4;box-shadow:inset 0 0 0 3px #b9ad9b,0 0 0 3px #8c8273;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#2d7f98,#0c3a4c);position:relative;overflow:hidden}
+.loader .ring i{position:absolute;inset:auto 0 0;height:0;background:linear-gradient(var(--sun2),var(--sun));transition:height .3s}
+.loader .ring b{position:relative;font:700 1.3rem var(--cond);letter-spacing:.06em}
+.loader small{display:block;text-align:center;margin-top:16px;font:400 .75rem var(--cond);letter-spacing:.4em}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;gap:20px;padding:14px clamp(16px,4vw,44px);transition:background .4s,box-shadow .4s;color:#fff}
+.nav.solid{background:rgba(251,244,231,.92);backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px currentColor}
+.word{font:700 1.5rem/1 var(--cond);letter-spacing:.02em;white-space:nowrap}@media(max-width:420px){.word{font-size:1.15rem}.brand img{width:36px;height:36px}}.word span{color:var(--sun)}
+.nav ul{display:flex;gap:26px;list-style:none;margin-left:auto;font:500 .78rem var(--cond);letter-spacing:.22em;text-transform:uppercase}
+.nav ul a{text-decoration:none;opacity:.85}.nav ul a:hover{opacity:1;color:var(--sun)}
+.nav .btn{min-height:42px;padding:0 20px}
+.nav:not(.solid) .btn:not(.sun){border-color:#fff}
+@media(max-width:940px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+
+/* HERO 3D */
+.hero{height:620vh;position:relative;background:var(--sea)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(180deg,#123f57 0%,#3d7090 26%,#e89a58 58%,#ffd39a 66%,#0f5b73 66.2%)}
+#port{position:absolute;inset:0;width:100%;height:100%;display:block}
+.htitle{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;pointer-events:none;padding:0 16px}
+.htitle small{font:400 .82rem var(--cond);letter-spacing:.55em;text-transform:uppercase;text-shadow:0 2px 14px rgba(0,0,0,.4)}
+.htitle h1{font:700 clamp(4.5rem,17vw,15rem)/.86 var(--cond);letter-spacing:-.01em;text-shadow:0 14px 60px rgba(0,0,0,.35);margin:.12em 0}
+.htitle h1 span{color:var(--sun2)}
+.htitle p{font:italic 300 clamp(1.3rem,2.6vw,2rem) var(--serif)}
+.msg{position:absolute;z-index:3;left:0;right:0;bottom:16vh;text-align:center;color:#fff;padding:0 18px;opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;pointer-events:none}
+.msg.on{opacity:1;transform:none}
+.msg h2{font:300 clamp(2.3rem,5.6vw,4.8rem)/1.02 var(--serif);text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.msg h2 em{color:var(--sun2)}
+.msg p{margin-top:14px;font:500 .8rem var(--cond);letter-spacing:.32em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.msg .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px;pointer-events:auto}
+.hud{position:absolute;z-index:4;left:clamp(16px,4vw,44px);right:clamp(16px,4vw,44px);bottom:22px;display:flex;justify-content:space-between;align-items:center;color:#fff;font:500 .72rem var(--cond);letter-spacing:.3em;text-transform:uppercase;pointer-events:none}
+.hud .bar{position:absolute;left:0;bottom:-10px;height:2px;background:var(--sun2);width:0}
+.live{display:inline-flex;align-items:center;gap:8px;pointer-events:auto}
+.live i{width:9px;height:9px;border-radius:50%;background:#bbb}.live.on i{background:#4de08a;box-shadow:0 0 0 0 #4de08a;animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px transparent}}
+.stage::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(12,58,76,.45) 0%,rgba(12,58,76,0) 28%,rgba(12,58,76,0) 55%,rgba(12,30,40,.55) 100%)}
+.fallback{position:absolute;inset:0;background:url(img/port-parasol.jpg) center/cover;display:none}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:110;background:rgba(10,30,40,.86);backdrop-filter:blur(6px);display:none;place-items:center;padding:20px}
+.lb.on{display:grid}
+.lb figure{max-width:min(680px,92vw);color:#fff;text-align:center}
+.lb img{border-radius:18px;max-height:76vh;width:auto;margin:auto;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb figcaption{margin-top:14px;font:italic 300 1.4rem var(--serif)}
+.lb button{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:1px solid #fff;background:none;color:#fff;font-size:1.4rem}
+
+/* MARQUEE */
+.marquee{background:var(--sun);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0;position:relative;z-index:2}
+.marquee div{display:inline-flex;gap:46px;animation:mq 36s linear infinite;font:600 1.15rem var(--cond);letter-spacing:.2em;text-transform:uppercase}
+.marquee span::after{content:"✺";margin-left:46px;opacity:.7}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* MAISON */
+.maison{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:center}
+.stack{position:relative;aspect-ratio:1/1.05}
+.stack figure{position:absolute;overflow:hidden;box-shadow:0 30px 60px rgba(60,30,10,.25)}
+.stack .a{inset:0 22% 18% 0;border-radius:999px 999px 24px 24px}
+.stack .b{inset:46% 0 0 44%;border-radius:24px}
+.stack img{width:100%;height:100%;object-fit:cover}
+.seal{position:absolute;left:30%;top:66%;width:136px;height:136px;z-index:2;animation:spin 22s linear infinite}
+.seal text{font:600 10.5px var(--cond);letter-spacing:.26em;fill:var(--ink)}
+@keyframes spin{to{transform:rotate(1turn)}}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:34px}
+.facts div{padding:20px 14px 0 0}
+.facts b{display:block;font:700 2.4rem/1 var(--cond);color:var(--sun)}
+.facts span{font-size:.86rem;color:var(--muted)}
+@media(max-width:860px){.maison{grid-template-columns:1fr}.stack{max-width:520px}}
+
+/* 1 JOUR 1 PLAT (insta) */
+.feed{background:var(--sand2)}
+.rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px max(18px,calc((100vw - 1240px)/2)) 20px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.post{flex:0 0 min(300px,78vw);scroll-snap-align:start;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(60,30,10,.12);transition:transform .4s}
+.post:hover{transform:translateY(-8px) rotate(-1deg)}
+.post header{display:flex;align-items:center;gap:10px;padding:12px 14px;font-weight:700;font-size:.88rem}
+.post header img{width:32px;height:32px;border-radius:50%}
+.post header small{display:block;font-weight:400;color:var(--muted);font-size:.74rem}
+.post>img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.post p{padding:12px 14px 16px;font-size:.92rem}
+.post p b{font-weight:700}
+.railnav{display:flex;gap:10px}
+.railnav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:none;font-size:1.1rem}
+.feedhead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+
+/* CARTE */
+.carte{background:var(--sand)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 30px}
+.tabs button{min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:600 .8rem var(--cond);letter-spacing:.18em;text-transform:uppercase}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:start}
+.porthole{position:sticky;top:110px;aspect-ratio:1;border-radius:50%;padding:22px;background:conic-gradient(from 200deg,#f4efe6,#bdb2a2,#fffaf2,#a99d8b,#f4efe6,#c9beac,#f4efe6);box-shadow:0 40px 80px rgba(60,30,10,.25),inset 0 0 0 2px rgba(255,255,255,.6)}
+.porthole .glass{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 6px #8f8473,inset 0 0 40px rgba(0,0,0,.4)}
+.porthole img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .6s,transform 1.2s}
+.porthole img.on{opacity:1;transform:scale(1)}
+.porthole .glass::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(135deg,rgba(255,255,255,.35),transparent 38%)}
+.bolt{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#9a8f7f);box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.porthole figcaption{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);background:var(--sun);color:#fff;font:600 .8rem var(--cond);letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;border-radius:999px;white-space:nowrap}
+.sheet{background:#fff;border-radius:24px;padding:clamp(22px,4vw,44px);box-shadow:0 20px 50px rgba(60,30,10,.08);position:relative;overflow:hidden}
+.sheet h3{font:700 2rem/1 var(--cond);text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:14px}
+.sheet h3::after{content:"";flex:1;height:2px;background:var(--ink)}
+.sheet .sub{color:var(--muted);font-size:.9rem;margin:8px 0 14px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;padding:16px 10px;border-bottom:1px dashed var(--line);border-radius:12px;transition:background .25s;cursor:default}
+.item:hover,.item:focus-within{background:var(--sand)}
+.item b{font:500 1.18rem/1.2 var(--serif)}
+.item .p{font:700 1.25rem var(--cond);color:var(--sun);white-space:nowrap;align-self:start}
+.item small{grid-column:1/-1;color:var(--muted);font-size:.88rem}
+.fm{display:inline-flex;vertical-align:middle;margin-left:6px;color:var(--sun)}
+.menubox{border:2.5px solid var(--ink);border-radius:6px;padding:26px 22px 20px;margin:12px 0 26px;position:relative;overflow:hidden}
+.menubox .rib{position:absolute;right:-42px;top:20px;transform:rotate(40deg);background:var(--sun);color:#fff;font:700 1.25rem var(--cond);padding:6px 50px}
+.menubox h4{font:700 1.7rem/1 var(--cond);text-transform:uppercase;margin-bottom:4px}
+.menubox p{font-family:var(--serif);text-align:center;margin:10px 0}
+.menubox .or{color:var(--sun);font-family:var(--cond);letter-spacing:.3em}
+.note{font-size:.8rem;color:var(--muted);margin-top:18px}
+@media(max-width:860px){.menu{grid-template-columns:1fr}.porthole{position:relative;top:0;width:min(340px,82vw);margin:0 auto 30px}}
+
+/* COCKTAILS */
+.drinks{background:var(--sea);color:#fff;overflow:hidden}
+.drinks .lead{color:#b9d3dc}
+.dgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px;perspective:1200px}
+.dcard{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/4;transform-style:preserve-3d;transition:transform .25s}
+.dcard img{width:100%;height:100%;object-fit:cover}
+.dcard div{position:absolute;inset:auto 0 0;padding:60px 22px 22px;background:linear-gradient(transparent,rgba(5,25,35,.85))}
+.dcard h3{font:300 1.9rem var(--serif)}
+.dcard p{font-size:.9rem;color:#d4e6ec}
+@media(max-width:760px){.dgrid{grid-template-columns:1fr 1fr}.dgrid .dcard:last-child{display:none}}
+
+/* KARAOKE */
+.karaoke{background:#12081c;color:#fff;overflow:hidden}
+.karaoke::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 75% 40%,rgba(240,122,0,.25),transparent 70%),radial-gradient(500px 400px at 20% 80%,rgba(255,60,140,.18),transparent 70%)}
+.kgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;position:relative}
+.neon{font:700 clamp(3.6rem,10vw,8.4rem)/.9 var(--cond);text-transform:uppercase;color:#fff6e8;text-shadow:0 0 6px #fff,0 0 20px var(--sun2),0 0 50px var(--sun),0 0 90px #ff3c8c;animation:flick 6s infinite}
+@keyframes flick{0%,19%,23%,60%,63%,100%{opacity:1}21%,62%{opacity:.5}}
+#ball{width:100%;aspect-ratio:1;max-width:520px;margin:auto;display:block}
+.fridays{list-style:none;display:grid;gap:10px;margin-top:26px}
+.fridays li{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border:1px solid rgba(255,157,46,.35);border-radius:14px;background:rgba(255,255,255,.04)}
+.fridays b{font:500 1.15rem var(--serif);text-transform:capitalize}
+.fridays span{font:500 .8rem var(--cond);letter-spacing:.2em;color:var(--sun2);text-transform:uppercase}
+@media(max-width:860px){.kgrid{grid-template-columns:1fr}#ball{max-width:320px}}
+
+/* AVIS */
+.avis{background:var(--sand2)}
+.agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:36px}
+.review{background:#fff;border-radius:22px;padding:30px;position:relative;box-shadow:0 18px 40px rgba(60,30,10,.08)}
+.review .st{color:#00aa6c;letter-spacing:3px;font-size:1.1rem}
+.review blockquote{font:300 1.35rem/1.4 var(--serif);margin:14px 0}
+.review cite{font:500 .78rem var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-style:normal}
+
+/* RESERVER */
+.resa{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(30px,5vw,60px);align-items:start;margin-top:34px}
+.step{padding:24px 0;border-top:1px solid var(--line)}
+.step h3{font:400 1.45rem var(--serif);margin-bottom:14px}.step h3 span{font:600 .8rem var(--cond);color:var(--sun);letter-spacing:.2em;margin-right:10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills button{min-height:48px;min-width:52px;padding:6px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;font:600 .95rem var(--cond);letter-spacing:.06em;line-height:1.1}
+.pills button small{display:block;font:400 .66rem var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pills button[aria-pressed=true]{background:var(--sun);border-color:var(--sun);color:#fff}.pills button[aria-pressed=true] small{color:#fff}
+.pills button:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields label{display:grid;gap:6px;font-weight:700;font-size:.88rem}
+input,select,textarea{font:16px var(--sans);min-height:50px;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus{border-color:var(--sun);outline:none}
+.consent{display:flex;gap:12px;align-items:flex-start;margin-top:16px;font-size:.88rem;color:var(--muted)}
+.consent input{width:22px;height:22px;min-height:0;flex:none;margin-top:2px;accent-color:var(--sun)}
+.ticket{position:sticky;top:110px;background:var(--wood2);color:#fbe9d2;border-radius:26px;overflow:hidden;box-shadow:0 40px 80px rgba(40,20,10,.35)}
+.ticket .top{padding:28px;display:flex;align-items:center;gap:14px;border-bottom:2px dashed rgba(251,233,210,.35);position:relative}
+.ticket .top::before,.ticket .top::after{content:"";position:absolute;bottom:-14px;width:28px;height:28px;border-radius:50%;background:var(--sand)}
+.ticket .top::before{left:-14px}.ticket .top::after{right:-14px}
+.ticket .top img{width:58px;height:58px;border-radius:50%}
+.ticket .top b{font:700 1.6rem/1 var(--cond)}.ticket .top small{display:block;font:400 .7rem var(--cond);letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+.ticket dl{padding:24px 28px;display:grid;grid-template-columns:auto 1fr;gap:12px 18px}
+.ticket dt{font:500 .7rem var(--cond);letter-spacing:.24em;text-transform:uppercase;opacity:.65;align-self:center}
+.ticket dd{font:400 1.2rem var(--serif);text-align:right}
+.ticket .bc{height:54px;margin:0 28px 24px;background:repeating-linear-gradient(90deg,#fbe9d2 0 2px,transparent 2px 5px,#fbe9d2 5px 6px,transparent 6px 10px,#fbe9d2 10px 13px,transparent 13px 15px);opacity:.8}
+.ticket .go{margin:0 28px 28px;width:calc(100% - 56px)}
+.ticket .ok{display:none;margin:0 28px 28px;padding:16px;border-radius:14px;background:rgba(77,224,138,.14);font-size:.92rem}
+.err{color:#b4001e;font-weight:700;margin-top:12px;min-height:1.4em}
+@media(max-width:900px){.resa{grid-template-columns:1fr}.ticket{position:relative;top:0}.fields{grid-template-columns:1fr}}
+
+/* INFOS */
+.infos{background:var(--sea);color:#e8f2f5}
+.igrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:30px;margin-top:30px}
+.igrid h4{font:600 .75rem var(--cond);letter-spacing:.3em;text-transform:uppercase;color:var(--sun2);margin-bottom:10px}
+.mapcard{position:relative;margin:36px 0;border-radius:28px;overflow:hidden;background:#0a2f3d;aspect-ratio:16/7;min-height:340px}
+.mapcard svg{position:absolute;inset:0;width:100%;height:100%}
+.mapcard .inner{position:absolute;left:0;right:0;bottom:0;padding:26px 30px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;background:linear-gradient(transparent,rgba(5,25,35,.85))}
+.mapcard b{display:block;font:300 1.8rem var(--serif)}
+.mapcard small{font:500 .72rem var(--cond);letter-spacing:.26em;text-transform:uppercase;opacity:.75}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.hours td+td{text-align:right;white-space:nowrap}
+.hours tr.today td{color:var(--sun2);font-weight:700}
+.i3{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px;font-size:.84rem}
+@media(max-width:900px){.igrid{grid-template-columns:1fr 1fr}.i3{grid-template-columns:1fr}.mapcard{aspect-ratio:auto;height:380px}}
+
+footer{background:var(--wood2);color:#f0dcc4;padding:70px 0 100px}
+footer .big{font:700 clamp(4rem,16vw,13rem)/.85 var(--cond);color:var(--sun);letter-spacing:-.01em}
+footer .cols{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;margin-top:40px;font-size:.92rem}
+footer button.l{background:none;border:0;text-decoration:underline;padding:4px 0;display:block}
+dialog{max-width:720px;width:92vw;border:0;border-radius:22px;padding:30px;background:var(--sand);color:var(--ink);max-height:86vh}
+dialog::backdrop{background:rgba(12,58,76,.7)}
+dialog h2{font:300 2.2rem var(--serif);margin-bottom:10px}dialog h3{font:700 1rem var(--sans);margin-top:16px}dialog p{margin-top:6px}
+#ck{position:fixed;left:16px;bottom:16px;z-index:90;max-width:440px;background:#fff;border-radius:20px;padding:20px;box-shadow:0 24px 60px rgba(0,0,0,.25);display:none}
+#ck .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.demo{position:fixed;right:14px;bottom:14px;z-index:80;background:rgba(36,21,12,.8);color:#fff;font:500 .7rem var(--cond);letter-spacing:.2em;text-transform:uppercase;padding:8px 14px;border-radius:999px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="loader" id="loader" aria-hidden="true"><div><div class="ring"><i id="lfill"></i><b id="lpct">0%</b></div><small>Cap sur le port</small></div></div>
+
+<nav class="nav" id="nav" aria-label="Navigation">
+  <a class="brand" href="#top"><img src="img/logo.jpg" alt="Logo du Mango Bay, un hublot sur fond de bois"><span class="word">MANGO <span>BAY</span></span></a>
+  <ul><li><a href="#maison">La maison</a></li><li><a href="#carte">La carte</a></li><li><a href="#drinks">Cocktails</a></li><li><a href="#karaoke">Karaoké</a></li><li><a href="#infos">Infos</a></li></ul>
+  <a class="btn sun" href="#reserver">Réserver</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="stage">
+    <canvas id="port" role="img" aria-label="Animation 3D : on longe le ponton du port au coucher du soleil, entre des voiliers dont les voiles portent les photos du Mango Bay, jusqu'à la terrasse sous les palmiers."></canvas>
+    <div class="fallback" id="fb"></div>
+    <div class="htitle" id="htitle"><small>Brasserie · Pizzeria · Bar</small><h1>MANGO <span>BAY</span></h1><p>Hyères les Palmiers</p></div>
+    <div class="msg" data-a=".16" data-b=".38"><h2>La terrasse la plus <em>ensoleillée</em><br>du port de Hyères.</h2><p>Face aux bateaux · Port La Gavine</p></div>
+    <div class="msg" data-a=".42" data-b=".64"><h2>Moules, pizzas fines,<br><em>cocktails</em> au soleil.</h2><p>Chaque voile, une photo du Mango</p></div>
+    <div class="msg" data-a=".7" data-b="1.1"><h2>Votre table vous attend<br><em>sur le pont.</em></h2><p>Service rapide · 7 j / 7 sauf le mercredi</p><div class="ctas"><a class="btn sun" href="#reserver">Réserver une table</a><a class="btn light" href="#carte">Voir la carte</a></div></div>
+    <div class="hud"><span class="live" id="live"><i></i><span>…</span></span><span id="hint">Défilez pour longer le ponton</span><i class="bar" id="hbar"></i></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div><span>Moules frites</span><span>Pizzas fines · 32 cm</span><span>Cocktails du bar</span><span>Terrasse XXL</span><span>Karaoké le vendredi</span><span>Face aux bateaux</span><span>Moules frites</span><span>Pizzas fines · 32 cm</span><span>Cocktails du bar</span><span>Terrasse XXL</span><span>Karaoké le vendredi</span><span>Face aux bateaux</span></div></div>
+
+<main id="main">
+<section id="maison">
+  <div class="wrap maison">
+    <div class="stack reveal">
+      <figure class="a"><img src="img/facade.jpg" alt="La façade du Mango Bay au pied de l'immeuble blanc à arches, enseigne orange" loading="lazy"></figure>
+      <figure class="b"><img src="img/vue-terrasse.jpg" alt="Vue depuis la terrasse du Mango Bay sur les bateaux du port" loading="lazy"></figure>
+      <svg class="seal" viewBox="0 0 136 136" aria-hidden="true"><defs><path id="c" d="M68,68 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><circle cx="68" cy="68" r="66" fill="#fbf4e7"/><text><textPath href="#c">HYÈRES · LES PALMIERS · PORT LA GAVINE ·</textPath></text><circle cx="68" cy="68" r="24" fill="#f07a00"/><path d="M68 54v28M56 64q12-10 24 0M58 72q10-6 20 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">La maison</div>
+      <h2 class="h2">Au coin du port, <em>les pieds face aux bateaux.</em></h2>
+      <p class="lead">À l'angle du port La Gavine, la grande terrasse en bois du Mango Bay vous accueille du petit-déjeuner au dîner. Plat du jour le midi, moules et pizzas fines cuites sur place, cocktails au coucher du soleil, et une glace, une crêpe ou une gaufre à toute heure.</p>
+      <div class="facts"><div><b>200</b><span>couverts en terrasse</span></div><div><b>9h–23h</b><span>service rapide</span></div><div><b>32 cm</b><span>pizzas pétries ici</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="feed" id="feed" aria-labelledby="feed-t">
+  <div class="wrap feedhead reveal">
+    <div><div class="eyebrow">Sur notre Instagram</div><h2 class="h2" id="feed-t">Un jour, <em>une assiette.</em></h2><p class="lead">Ce qui sort de la cuisine, comme on vous le montre chaque jour sur @lemangobay.</p></div>
+    <div class="railnav"><button id="rp" aria-label="Publications précédentes">←</button><button id="rn" aria-label="Publications suivantes">→</button></div>
+  </div>
+  <div class="rail" id="rail"></div>
+</section>
+
+<section class="carte" id="carte" aria-labelledby="carte-t">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">La carte</div><h2 class="h2" id="carte-t">La carte du <em>Mango.</em></h2><p class="lead">Survolez un plat pour le voir apparaître dans le hublot. Les plats marqués d'une cocotte sont faits maison, à partir de produits bruts.</p></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="menu">
+      <figure class="porthole" aria-hidden="true"><div class="glass" id="glass"></div><figcaption id="pcap">Moules</figcaption></figure>
+      <div class="sheet" id="sheet" role="tabpanel"></div>
+    </div>
+    <p class="note">Prix en euros TTC, relevés sur la carte publiée par le Mango Bay ; ils peuvent évoluer. Allergènes : demandez à l'équipe, elle vous renseigne. Paiement : CB, Amex, titres-restaurant, chèques-vacances (pas de chèques bancaires).</p>
+  </div>
+</section>
+
+<section class="drinks" id="drinks" aria-labelledby="d-t">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Le bar</div><h2 class="h2" id="d-t">Les cocktails, <em>vue sur les mâts.</em></h2><p class="lead">Les meilleurs cocktails du bar, à siroter en terrasse quand le soleil passe derrière les voiliers.</p></div>
+    <div class="dgrid" id="dgrid">
+      <article class="dcard reveal"><img src="img/trinquer.jpg" alt="Deux verres qui trinquent : un mojito fraise et un Blue Lagoon" loading="lazy"><div><h3>Mojito &amp; Blue Lagoon</h3><p>Le duo star de la terrasse.</p></div></article>
+      <article class="dcard reveal"><img src="img/cocktail-soleil.jpg" alt="Un client sirote un cocktail orangé au soleil en terrasse" loading="lazy"><div><h3>Le coucher de soleil</h3><p>Agrumes, couleur orange Mango.</p></div></article>
+      <article class="dcard reveal"><img src="img/cocktails.jpg" alt="Un mojito fraise et un cocktail bleu posés sur une table" loading="lazy"><div><h3>À la fraîche</h3><p>Menthe, citron vert, glace pilée.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="karaoke" id="karaoke" aria-labelledby="k-t">
+  <div class="wrap kgrid">
+    <div class="reveal">
+      <div class="eyebrow" style="color:#ff9d2e">Les vendredis du Mango</div>
+      <p class="neon" id="k-t">Karaoké</p>
+      <h2 class="h2" style="font-size:clamp(2rem,4vw,3rem)">Montez sur la scène, <em>devenez la star d'un soir.</em></h2>
+      <p class="lead" style="color:#cdbfd8">Chaque vendredi, le port s'illumine et le micro passe de table en table. Chanter, danser, partager : réservez tôt, la terrasse se remplit vite.</p>
+      <ul class="fridays" id="fridays"></ul>
+    </div>
+    <canvas id="ball" aria-label="Boule à facettes en 3D qui tourne"></canvas>
+  </div>
+</section>
+
+<section class="avis" id="avis" aria-labelledby="a-t">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Vos avis</div><h2 class="h2" id="a-t">Ils en parlent <em>mieux que nous.</em></h2></div>
+    <div class="agrid">
+      <figure class="review reveal"><div class="st" aria-label="5 sur 5">●●●●●</div><blockquote>« Table de 7 amis. Accueil très sympa, plats de très haute qualité, service génial. La terrasse est splendide. Lieu incontournable pour bien manger. »</blockquote><cite>Orazio L. · Tripadvisor</cite></figure>
+      <figure class="review reveal"><div class="st" aria-label="5 sur 5">●●●●●</div><blockquote>« Nous avons tout apprécié : l'accueil, la gentillesse, le service attentif. La cuisine aussi, dont la crème brûlée tiède géniale ! Bravo ! »</blockquote><cite>Avis Tripadvisor · avril 2024</cite></figure>
+    </div>
+  </div>
+</section>
+
+<section id="reserver" aria-labelledby="r-t">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Réservation</div><h2 class="h2" id="r-t">Embarquez <em>en quatre gestes.</em></h2><p class="lead">Votre carte d'embarquement se remplit à droite au fil de vos choix.</p></div>
+    <div class="resa">
+      <form id="resa" novalidate>
+        <div class="step"><h3><span>01</span>Vous serez combien ?</h3><div class="pills" id="pax"></div></div>
+        <div class="step"><h3><span>02</span>Quel jour ?</h3><div class="pills" id="days"></div></div>
+        <div class="step"><h3><span>03</span>À quelle heure ?</h3><div class="pills" id="slots"></div></div>
+        <div class="step"><h3><span>04</span>À quel nom ?</h3>
+          <div class="fields"><label>Nom<input id="nom" autocomplete="name"></label><label>Téléphone<input id="tel" type="tel" autocomplete="tel"></label>
+          <label style="grid-column:1/-1">Une précision ? (anniversaire, poussette, chien…)<input id="msg"></label></div>
+          <label class="consent"><input type="checkbox" id="ok"><span>J'accepte que le Mango Bay utilise mon nom et mon téléphone uniquement pour gérer cette réservation (<button type="button" data-d="d-conf" style="background:none;border:0;text-decoration:underline;color:inherit">confidentialité</button>).</span></label>
+          <p class="err" id="err" role="alert"></p>
+        </div>
+      </form>
+      <aside class="ticket" aria-live="polite">
+        <div class="top"><img src="img/logo.jpg" alt=""><div><b>MANGO BAY</b><small>Carte d'embarquement</small></div></div>
+        <dl><dt>Passagers</dt><dd id="tPax">2</dd><dt>Jour</dt><dd id="tDay">—</dd><dt>Heure</dt><dd id="tTime">—</dd><dt>Nom</dt><dd id="tNom">—</dd><dt>Quai</dt><dd>Port La Gavine</dd></dl>
+        <div class="bc" aria-hidden="true"></div>
+        <button class="btn sun go" form="resa" type="submit">Envoyer ma demande</button>
+        <div class="ok" id="okmsg" role="status"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="infos" id="infos" aria-labelledby="i-t">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--sun2)">Infos pratiques</div>
+    <h2 class="h2" id="i-t">Cap sur <em>le Mango.</em></h2>
+    <div class="igrid">
+      <div><h4>Adresse</h4>4 avenue du Docteur Robin<br>Port La Gavine, 83400 Hyères</div>
+      <div><h4>Téléphone</h4><a href="tel:+33494354673">04 94 35 46 73</a></div>
+      <div><h4>Instagram</h4><a href="https://www.instagram.com/lemangobay/">@lemangobay</a></div>
+      <div><h4>Le service</h4>Rapide, de 9h à 23h<br>Fermé le mercredi</div>
+    </div>
+    <div class="mapcard">
+      <svg id="mapsvg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plan du port La Gavine avec le Mango Bay à l'angle du port">
+        <defs><pattern id="wv" width="60" height="22" patternUnits="userSpaceOnUse"><path d="M0 11q15-10 30 0t30 0" fill="none" stroke="#2c7d98" stroke-opacity=".35" stroke-width="2"/></pattern>
+        <clipPath id="pc"><circle r="34"/></clipPath><radialGradient id="glow"><stop offset="0" stop-color="#f07a00" stop-opacity=".55"/><stop offset="1" stop-color="#f07a00" stop-opacity="0"/></radialGradient></defs>
+        <rect width="1200" height="520" fill="#0d3d50"/><rect width="1200" height="520" fill="url(#wv)"/>
+        <path d="M0 0H1200V150Q1000 175 860 160V330H560V170Q300 170 0 210Z" fill="#14485c"/>
+        <path d="M0 120Q600 100 1200 90" stroke="#2a6378" stroke-width="22" fill="none"/>
+        <text x="40" y="104" font-family="Antonio" font-size="18" letter-spacing="4" fill="#9cc3d0">AVENUE DU DOCTEUR ROBIN</text>
+        <g stroke="#3f8aa3" stroke-width="7" stroke-linecap="round"><path d="M610 190V310M670 190V310M730 190V310M790 190V310"/></g>
+        <g fill="#e8f2f5"><g class="boat"><path d="M585 220h22l-4 8h-14z"/></g><g class="boat"><path d="M640 260h22l-4 8h-14z"/></g><g class="boat"><path d="M700 210h22l-4 8h-14z"/></g><g class="boat"><path d="M755 280h22l-4 8h-14z"/></g><g class="boat"><path d="M815 235h-22l4 8h14z"/></g></g>
+        <text x="710" y="380" text-anchor="middle" font-family="Antonio" font-size="26" letter-spacing="8" fill="#7fb3c4">PORT LA GAVINE</text>
+        <g fill="#2f8a5a"><circle cx="420" cy="150" r="10"/><circle cx="470" cy="146" r="10"/><circle cx="960" cy="140" r="10"/><circle cx="1010" cy="136" r="10"/></g>
+        <circle cx="860" cy="160" r="90" fill="url(#glow)"><animate attributeName="r" values="70;110;70" dur="3s" repeatCount="indefinite"/></circle>
+        <g transform="translate(860,160)"><path d="M0 0C-34-44-46-66-46-86A46 46 0 1 1 46-86C46-66 34-44 0 0Z" fill="#f07a00" stroke="#fff" stroke-width="4"/><g transform="translate(0,-88)" clip-path="url(#pc)"><image href="img/logo.jpg" x="-34" y="-34" width="68" height="68"/></g></g>
+      </svg>
+      <div class="inner"><div><small>Brasserie · Pizzeria · Bar</small><b>4 av. du Docteur Robin, Hyères</b><small>À l'angle du port La Gavine</small></div><a class="btn sun" href="https://www.google.com/maps/dir/?api=1&amp;destination=Mango+Bay+4+avenue+du+Docteur+Robin+83400+Hy%C3%A8res">Itinéraire</a></div>
+    </div>
+    <div class="i3">
+      <div><h4 class="eyebrow" style="color:var(--sun2);margin-bottom:12px">Horaires</h4><table class="hours" id="hours" aria-label="Horaires d'ouverture"></table><p style="font-size:.8rem;opacity:.7;margin-top:10px">Horaires publiés par le Mango Bay, à confirmer les jours fériés.</p></div>
+      <div><h4 class="eyebrow" style="color:var(--sun2);margin-bottom:12px">Sur place</h4><div class="chips"><span>Terrasse XXL</span><span>Accès fauteuil de plain-pied</span><span>Animaux bienvenus</span><span>Chaise bébé</span><span>Wi-Fi</span><span>Climatisation</span><span>Groupes &amp; séminaires</span></div></div>
+      <div><h4 class="eyebrow" style="color:var(--sun2);margin-bottom:12px">On parle</h4><p>Français, anglais, allemand.</p><h4 class="eyebrow" style="color:var(--sun2);margin:22px 0 12px">Paiement</h4><p>CB, Amex, titres-restaurant, chèques-vacances.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big">MANGO BAY</div>
+    <div class="cols">
+      <div>Brasserie · Pizzeria · Bar<br>4 av. du Docteur Robin, 83400 Hyères<br><a href="tel:+33494354673">04 94 35 46 73</a></div>
+      <div><button class="l" data-d="d-ml">Mentions légales</button><button class="l" data-d="d-conf">Confidentialité</button><button class="l" data-d="d-cgu">Conditions de réservation</button><button class="l" data-d="d-annul">Annulation &amp; remboursement</button><button class="l" data-d="d-cook">Cookies</button></div>
+      <div>Photos © Mango Bay<br>Site conçu par <a href="https://zahr.fr">ZAHR</a></div>
+    </div>
+  </div>
+</footer>
+
+<dialog id="d-ml"><h2>Mentions légales</h2><h3>Éditeur</h3><p>Mango Bay, 4 avenue du Docteur Robin, Port La Gavine, 83400 Hyères · 04 94 35 46 73. Raison sociale, forme juridique, SIRET, RCS et directeur de la publication : à compléter avec l'exploitant avant la mise en ligne.</p><h3>Conception</h3><p>ZAHR, création de sites web, Var · zahr.fr</p><h3>Hébergement</h3><p>GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Propriété intellectuelle</h3><p>Photos, logo et carte : © Mango Bay. Polices Fraunces, Antonio et Manrope sous licence SIL Open Font License. Bibliothèque 3D three.js sous licence MIT. Animation 3D du port réalisée par ZAHR sous Blender (textures Poly Haven, licence CC0) : il s’agit d’une illustration, pas d\u2019une vue réelle du port.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
+<dialog id="d-conf"><h2>Confidentialité</h2><p>Responsable du traitement : l'exploitant du Mango Bay (voir mentions légales).</p><h3>Ce que nous collectons</h3><p>Uniquement ce qui sert à votre réservation : nombre de personnes, jour, heure, nom, téléphone et votre précision éventuelle. Aucune donnée bancaire, aucun profilage, aucune revente.</p><h3>Base légale et durée</h3><p>Votre consentement et la gestion de votre réservation. Données supprimées au plus tard 3 mois après la date réservée.</p><h3>Outils tiers</h3><p>Polices chargées depuis Google Fonts (votre adresse IP est transmise à Google) et bibliothèque 3D depuis cdnjs (Cloudflare). Le bouton Itinéraire n'ouvre Google Maps que si vous cliquez. Aucun outil de mesure d'audience ni publicité.</p><h3>Vos droits</h3><p>Accès, rectification, effacement, opposition : par téléphone au 04 94 35 46 73 ou sur place, réponse sous un mois. Réclamation possible auprès de la CNIL (cnil.fr). Les réservations de mineurs se font par un parent ou un adulte responsable.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
+<dialog id="d-cgu"><h2>Conditions de réservation</h2><p>La réservation en ligne est gratuite, sans paiement ni empreinte bancaire. Elle devient ferme après confirmation du restaurant par SMS ou téléphone. La table est gardée 15 minutes après l'heure prévue. Prix affichés en euros TTC, service compris ; photos non contractuelles. Groupes de plus de 10 personnes : appelez-nous.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
+<dialog id="d-annul"><h2>Annulation &amp; remboursement</h2><p>Aucun acompte n'est demandé pour une réservation classique : annulez gratuitement par téléphone, idéalement 2 heures avant. Pour un groupe ou une privatisation avec acompte, les conditions d'annulation et de remboursement vous sont remises par écrit avant tout paiement. Une remarque sur une addition se règle sur place ou par téléphone.</p><form method="dialog"><button class="btn" style="margin-top:20px">Fermer</button></form></dialog>
+<dialog id="d-cook"><h2>Cookies</h2><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Seul votre choix sur le bandeau est gardé dans votre navigateur.</p><div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="btn" id="ckReset">Modifier mon choix</button><form method="dialog"><button class="btn">Fermer</button></form></div></dialog>
+
+<div id="ck" role="dialog" aria-labelledby="ck-t"><b id="ck-t" style="font-family:var(--serif);font-size:1.2rem;font-weight:500">Cookies</b><p style="font-size:.9rem;color:var(--muted);margin-top:6px">Pas de pub, pas de pistage : seulement le strict nécessaire. <button data-d="d-cook" style="background:none;border:0;text-decoration:underline;color:inherit">En savoir plus</button></p><div class="row"><button class="btn" id="ckNo">Refuser</button><button class="btn" id="ckYes">Accepter</button></div></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie"><button id="lbx" aria-label="Fermer">✕</button><figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure></div>
+<div class="demo">Démo ZAHR</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mob=()=>innerWidth<760;
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+
+/* ---------- HORAIRES (publiés par le Mango Bay) ---------- */
+const H={0:[[540,1380]],1:[[540,1380]],2:[[540,900]],3:[],4:[[540,1380]],5:[[540,1380]],6:[[540,1380]]};
+const DN=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+const hm=m=>Math.floor(m/60)+'h'+(m%60?String(m%60).padStart(2,'0'):'');
+const pz=()=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Paris',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()),g=t=>p.find(x=>x.type==t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+ +g('minute')}};
+const now=pz(),sl=H[now.d],open=sl.find(([a,b])=>now.m>=a&&now.m<b),nx=sl.find(([a])=>a>now.m);
+$('#live').classList.toggle('on',!!open);
+$('#live span').textContent=open?'Ouvert · jusqu’à '+hm(open[1]):nx?'Ouvre à '+hm(nx[0]):now.d===3?'Fermé le mercredi':'Fermé · demain dès 9h';
+$('#hours').innerHTML=[1,2,3,4,5,6,0].map(d=>`<tr class="${d===now.d?'today':''}"><td>${DN[d]}</td><td>${H[d].length?H[d].map(([a,b])=>hm(a)+' – '+hm(b)).join(''):'Fermé'}</td></tr>`).join('');
+
+/* ---------- REVEAL ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- INSTA RAIL ---------- */
+const posts=[['moules','Les moules en cocotte, versées à table. Frites maison à côté, évidemment.'],['pizza','Pizza à la truffe : champignons, jambon speck, roquette, mozzarella, parmesan.'],['bowl','Le bowl du port, plein de couleurs et de fraîcheur.'],['pates','Linguines à la truffe d’été. On enroule, on savoure.'],['crevettes','Crevettes poêlées, riz et petits légumes, un filet de citron.'],['burger','Le burger du Mango, cheddar fondant et frites croustillantes.'],['fondant','Moelleux au chocolat et sa boule de glace vanille.'],['gaufre','Gaufre gourmande, chocolat et amandes, à l’heure du goûter.'],['dejeuner','Assiette de légumes grillés au soleil, la terrasse en fond.']];
+$('#rail').innerHTML=posts.map(([f,t])=>`<article class="post"><header><img src="img/logo.jpg" alt=""><div>lemangobay<small>Port de Hyères</small></div></header><img src="img/${f}.jpg" alt="${t}" loading="lazy"><p><b>lemangobay</b> ${t}</p></article>`).join('');
+const rail=$('#rail');$('#rn').onclick=()=>rail.scrollBy({left:320,behavior:'smooth'});$('#rp').onclick=()=>rail.scrollBy({left:-320,behavior:'smooth'});
+rail.tabIndex=0;rail.setAttribute('aria-label','Publications Instagram du Mango Bay');rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight')rail.scrollBy({left:320,behavior:'smooth'});if(e.key==='ArrowLeft')rail.scrollBy({left:-320,behavior:'smooth'})});
+
+/* ---------- LA CARTE (relevée sur la carte publiée par le Mango Bay) ---------- */
+const FM='<span class="fm" title="Fait maison" aria-label="Fait maison"><svg width="18" height="16" viewBox="0 0 18 16" aria-hidden="true"><path d="M3 6h12v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zM1 7h2M15 7h2M5 3h8M9 1v2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></span>';
+const C=[
+ {k:'Menus',img:'facade',cap:'Le menu Mango',html:`<div class="menubox"><span class="rib">29,90</span><h4>Menu Mango</h4><p class="sub" style="text-align:center">Servi le midi jusqu’à 13h30, le soir jusqu’à 21h30</p><p>Salade César <span class="or">ou</span> saumon mariné</p><p class="or">✺</p><p>Daurade rôtie, parfum de fenouil (300 / 400 g)<br><span class="or">ou</span><br>Buchette d’onglet de bœuf (210 g) à l’échalote</p><p class="or">✺</p><p>Nougat glacé <span class="or">ou</span> crème brûlée</p><p class="sub" style="text-align:center">Changement de dessert : supplément de 2,00 €</p></div><div class="menubox"><span class="rib">11,90</span><h4>Menu enfant</h4><p>Steak haché (120 g), mini moules marinières ou nuggets, avec frites, pâtes ou légumes</p><p class="or">✺</p><p>Glace petit pot ou compote de pomme</p><p class="or">✺</p><p>Sirop à l’eau</p></div>`},
+ {k:'Entrées',img:'moules',cap:'Mini moules',fm:1,items:[['Mini moules, sauce au choix','Poulette, roquefort, poivre vert ou lardons','9,90','moules'],['Moules gratinées','Par 14','13,70','moules']]},
+ {k:'Salades',img:'bowl',cap:'Salades',fm:1,items:[['Salade César','Salades mêlées, blanc de poulet, parmesan, croûtons, sauce César','15,80','bowl'],['Salade de crottins de chèvre','Salades mêlées, pain de campagne, légumes grillés, tranches de lard, crottins de chèvre','16,90','dejeuner'],['Assiette italienne','Salades mêlées, tomates, jambon cru, burrata, tomates séchées','16,80','bowl'],['Saumon mariné','Salades mêlées, toasts, saumon, crème ciboulette','17,40','dejeuner']]},
+ {k:'Pâtes',img:'pates',cap:'Pâtes',fm:1,items:[['Ravioles à la truffe d’été','','20,50','pates'],['Linguines au roquefort','','15,80','pates'],['Linguines à la carbonara','','15,90','pates'],['Linguines à la truffe d’été et jambon speck','','20,50','pates']]},
+ {k:'Pizzas',img:'pizza',cap:'Pizzas · 32 cm',fm:1,sub:'Pâte fine, pétrie et cuite sur place. Diamètre : 32 cm.',items:[['Napolitaine','Tomates, anchois, olives, câpres','11,90'],['Parmesane','Sauce tomate, jambon cru, emmental, parmesan, olives','16,80'],['Provençale','Sauce tomate, tomate fraîche, mozzarella, origan, olives','16,80'],['Corsica','Sauce tomate, emmental, figatelli, mozzarella, origan, olives','16,90'],['Royale','Sauce tomate, jambon, champignons, emmental, origan, olives','15,50'],['Quatre fromages','Sauce tomate, emmental, roquefort, chèvre, mozzarella, origan, olives','16,90'],['Norvégienne','Crème fraîche, saumon mariné, emmental, aneth, olives','15,80'],['Savoyarde','Crème fraîche, lardons, oignons, pomme de terre, reblochon, origan, olives','16,80'],['Seguin','Crème fraîche, lardons, oignon rouge, emmental, chèvre miel, olives','15,90'],['Pizza à la truffe','Crème de champignons à la truffe, champignons, jambon speck, roquette, mozzarella, olives, parmesan','17,80']].map(i=>[...i,'pizza'])},
+ {k:'Desserts',img:'fondant',cap:'Côté dessert',items:[['Moelleux au chocolat','Et sa boule de glace vanille','9,90','fondant',1],['Tiramisu au café','','9,90','fondant',1],['Gaufre liégeoise gourmande','Chocolat chaud, crème fouettée et sa boule de glace vanille','9,90','gaufre'],['Baba au rhum','','10,90','fondant'],['Brioche façon pain perdu','Et sa boule de glace caramel beurre salé','9,90','gaufre',1],['Crème brûlée','','7,50','fondant'],['Café, décaféiné ou thé gourmand','','10,50','fondant',1]]}
+];
+const glass=$('#glass'),pics=[...new Set(['facade','moules','bowl','dejeuner','pates','pizza','fondant','gaufre'])];
+glass.innerHTML=pics.map(p=>`<img src="img/${p}.jpg" alt="" data-p="${p}" loading="lazy">`).join('');
+const por=$('.porthole');for(let i=0;i<12;i++){const a=i/12*Math.PI*2,b=document.createElement('i');b.className='bolt';b.style.left=`calc(50% + ${Math.cos(a)*47}% - 6px)`;b.style.top=`calc(50% + ${Math.sin(a)*47}% - 6px)`;por.appendChild(b)}
+const showPic=(p,cap)=>{glass.querySelectorAll('img').forEach(i=>i.classList.toggle('on',i.dataset.p===p));if(cap)$('#pcap').textContent=cap};
+const tabs=$('#tabs'),sheet=$('#sheet');
+tabs.innerHTML=C.map((c,i)=>`<button role="tab" id="tab${i}" aria-controls="sheet" aria-selected="${i===1}">${c.k}</button>`).join('');
+const renderTab=i=>{const c=C[i];$$('#tabs button').forEach((b,j)=>b.setAttribute('aria-selected',j===i));sheet.setAttribute('aria-labelledby','tab'+i);
+  sheet.innerHTML=`<h3>${c.k}${c.fm?FM:''}</h3>${c.sub?`<p class="sub">${c.sub}</p>`:''}`+(c.html||c.items.map(([n,d,p,img,fm])=>`<div class="item" tabindex="0" data-img="${img}" data-n="${n}"><b>${n}${fm?FM:''}</b><span class="p">${p} €</span>${d?`<small>${d}</small>`:''}</div>`).join(''));
+  showPic(c.img,c.cap);
+  sheet.querySelectorAll('.item').forEach(it=>{const f=()=>showPic(it.dataset.img,it.dataset.n);it.addEventListener('mouseenter',f);it.addEventListener('focus',f)})};
+tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderTab([...tabs.children].indexOf(b))});
+tabs.addEventListener('keydown',e=>{const i=[...tabs.children].findIndex(b=>b.getAttribute('aria-selected')==='true');if(e.key==='ArrowRight'){renderTab((i+1)%C.length);tabs.children[(i+1)%C.length].focus()}if(e.key==='ArrowLeft'){const j=(i-1+C.length)%C.length;renderTab(j);tabs.children[j].focus()}});
+renderTab(1);
+
+/* ---------- COCKTAILS : inclinaison 3D ---------- */
+if(!reduce)$$('.dcard').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg) translateZ(20px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+
+/* ---------- KARAOKÉ : vendredis ---------- */
+const fr=[];const d0=new Date();d0.setHours(12);while(fr.length<4){if(d0.getDay()===5)fr.push(new Date(d0));d0.setDate(d0.getDate()+1)}
+$('#fridays').innerHTML=fr.map((x,i)=>`<li><b>${x.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</b><span>${i?'Soirée karaoké':'Ce vendredi'}</span></li>`).join('');
+
+/* ---------- RÉSERVATION ---------- */
+const st={pax:2,day:null,time:null};
+$('#pax').innerHTML=[1,2,3,4,5,6,8,'10+'].map(n=>`<button type="button" aria-pressed="${n===2}" data-v="${n}">${n}</button>`).join('');
+const days=[];const t0=new Date();for(let i=0;days.length<10;i++){const d=new Date(t0);d.setDate(t0.getDate()+i);days.push(d)}
+$('#days').innerHTML=days.map((d,i)=>`<button type="button" aria-pressed="false" data-i="${i}" ${H[d.getDay()].length?'':'disabled'}><small>${d.toLocaleDateString('fr-FR',{weekday:'short'})}</small>${d.getDate()}<small>${H[d.getDay()].length?d.toLocaleDateString('fr-FR',{month:'short'}):'fermé'}</small></button>`).join('');
+const press=(box,btn)=>{box.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b===btn))};
+const drawSlots=()=>{const box=$('#slots');if(!st.day){box.innerHTML='<p style="color:var(--muted)">Choisissez d’abord un jour.</p>';return}
+  const s=H[st.day.getDay()],L=[];const isToday=st.day.toDateString()===new Date().toDateString();
+  s.forEach(([a,b])=>{[720,750,780,810,1140,1170,1200,1230,1260,1290].forEach(m=>{if(m>=a&&m<=b-90&&(!isToday||m>now.m+30))L.push(m)})});
+  box.innerHTML=L.length?L.map(m=>`<button type="button" aria-pressed="false" data-m="${m}"><small>${m<900?'midi':'soir'}</small>${hm(m)}</button>`).join(''):'<p style="color:var(--muted)">Plus de créneau ce jour-là, essayez un autre jour.</p>';st.time=null;$('#tTime').textContent='—'};
+$('#pax').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;press($('#pax'),b);st.pax=b.dataset.v;$('#tPax').textContent=st.pax});
+$('#days').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;press($('#days'),b);st.day=days[+b.dataset.i];$('#tDay').textContent=st.day.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});drawSlots()});
+$('#slots').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;press($('#slots'),b);st.time=hm(+b.dataset.m);$('#tTime').textContent=st.time});
+$('#nom').addEventListener('input',e=>$('#tNom').textContent=e.target.value.trim()||'—');
+drawSlots();
+$('#resa').addEventListener('submit',e=>{e.preventDefault();const er=[];if(!st.day)er.push('un jour');if(!st.time)er.push('une heure');if(!$('#nom').value.trim())er.push('votre nom');if(!/^[0-9 +().-]{9,}$/.test($('#tel').value))er.push('un téléphone valide');if(!$('#ok').checked)er.push('votre accord');
+  $('#err').textContent=er.length?'Il manque : '+er.join(', ')+'.':'';if(er.length)return;
+  const o=$('#okmsg');o.style.display='block';o.textContent=`C’est noté, ${$('#nom').value.trim()} ! ${st.pax} pers. ${$('#tDay').textContent} à ${st.time}. Une fois le site en ligne, cette demande arrive directement au Mango Bay, qui confirme par SMS. Démo : rien n’a été envoyé.`});
+
+/* ---------- LÉGAL, COOKIES ---------- */
+$$('[data-d]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.d).showModal()));
+const ck=$('#ck');let cv=null;try{cv=localStorage.getItem('mb-ck')}catch(e){}if(!cv)ck.style.display='block';
+const setCk=v=>{try{localStorage.setItem('mb-ck',v)}catch(e){}ck.style.display='none'};
+$('#ckYes').onclick=()=>setCk('ok');$('#ckNo').onclick=()=>setCk('no');
+$('#ckReset').onclick=()=>{try{localStorage.removeItem('mb-ck')}catch(e){}$('#d-cook').close();ck.style.display='block'};
+
+const ms=$('#mapsvg'),fitMap=()=>ms.setAttribute('preserveAspectRatio',innerWidth<900?'xMaxYMid slice':'xMidYMid slice');fitMap();addEventListener('resize',fitMap);
+/* ---------- LIGHTBOX ---------- */
+const lb=$('#lb');const openLB=(src,cap)=>{$('#lbimg').src=src;$('#lbimg').alt=cap;$('#lbcap').textContent=cap;lb.classList.add('on');$('#lbx').focus()};
+const closeLB=()=>lb.classList.remove('on');$('#lbx').onclick=closeLB;lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+
+/* ---------- HERO : le port en 3D ---------- */
+const hero=$('#top'),nav=$('#nav'),msgs=$$('.msg'),htitle=$('#htitle');let P=0;
+const heroP=()=>clamp(-hero.getBoundingClientRect().top/(hero.offsetHeight-innerHeight));
+const onScroll=()=>{P=reduce?Math.min(heroP(),1):heroP();
+  msgs.forEach(m=>m.classList.toggle('on',P>=+m.dataset.a&&P<+m.dataset.b));
+  htitle.style.opacity=1-clamp(P/.12);htitle.style.transform=`translateY(${-P*240}px)`;
+  $('#hbar').style.width=P*100+'%';$('#hint').style.opacity=P>.03?0:1;
+  nav.classList.toggle('solid',scrollY>hero.offsetHeight-innerHeight-10)};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const loader=$('#loader'),setPct=p=>{$('#lfill').style.height=p+'%';$('#lpct').textContent=p+'%';if(p>=100)setTimeout(()=>loader.classList.add('done'),300)};
+const fail=()=>{$('#port').style.display='none';$('#fb').style.display='block';setPct(100)};
+/* rendu Blender (Cycles) : sequence d'images pilotee par le defilement */
+try{
+  const cv=$('#port'),cx=cv.getContext('2d'),N=150,F=[],isM=innerWidth<760,dir=isM?'frames-m/':'frames/';let ok=0,last=-1,cur=0;
+  const draw=i=>{const im=F[i];if(!im||!im.complete||!im.naturalWidth)return false;const w=cv.width,h=cv.height,s=Math.max(w/im.naturalWidth,h/im.naturalHeight),dw=im.naturalWidth*s,dh=im.naturalHeight*s;cx.drawImage(im,(w-dw)/2,(h-dh)/2,dw,dh);return true};
+  const size=()=>{const d=Math.min(devicePixelRatio,2);cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;last=-1};size();addEventListener('resize',size);
+  const near=i=>{for(let k=0;k<N;k++){if(F[i-k]&&F[i-k].complete&&F[i-k].naturalWidth)return i-k}return -1};
+  const order=[];for(let st=16;st>=1;st=st>>1)for(let i=0;i<N;i+=st)if(!order.includes(i))order.push(i);
+  order.forEach((i,n)=>{const im=new Image();im.decoding='async';im.onload=()=>{ok++;if(n<40)setPct(Math.min(100,Math.round(ok/Math.min(40,N)*100)))};im.onerror=()=>{ok++};im.src=dir+'f_'+String(i+1).padStart(4,'0')+'.jpg';F[i]=im});
+  let t0=performance.now();
+  const loop=()=>{requestAnimationFrame(loop);cur+=(P*(N-1)-cur)*.12;const i=Math.round(cur),j=near(i);if(j>=0&&j!==last){if(draw(j))last=j}};loop();
+  setTimeout(()=>{if(ok<40)setPct(100)},7000);
+}catch(err){fail()}
+
+/* ---------- BOULE À FACETTES ---------- */
+try{
+  if(!window.THREE)throw 0;
+  const c=$('#ball'),R2=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});R2.setPixelRatio(Math.min(devicePixelRatio,2));
+  const S2=new THREE.Scene(),C2=new THREE.PerspectiveCamera(35,1,.1,50);C2.position.set(0,0,7);
+  const ball=new THREE.Mesh(new THREE.IcosahedronGeometry(1.6,4),new THREE.MeshStandardMaterial({color:0xd8d8e0,metalness:.85,roughness:.12,flatShading:true}));S2.add(ball);
+  const cord=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,3,6),new THREE.MeshStandardMaterial({color:0x444444}));cord.position.y=3.1;S2.add(cord);
+  S2.add(new THREE.AmbientLight(0x331a40,.8));
+  const L=[[0xff9d2e,6],[0xff3c8c,5],[0x2ec5ff,4],[0xffffff,3]].map(([col,i])=>{const l=new THREE.PointLight(col,i,14);S2.add(l);return l});
+  const sz=()=>{const w=c.clientWidth;R2.setSize(w,w,false)};sz();new ResizeObserver(sz).observe(c);
+  let vis=false;new IntersectionObserver(([e])=>vis=e.isIntersecting).observe(c);
+  const lp=t=>{requestAnimationFrame(lp);if(!vis)return;t/=1000;ball.rotation.y=reduce?0:t*.5;ball.rotation.x=.25;
+    L.forEach((l,i)=>{const a=t*(.6+i*.25)+i*1.7;l.position.set(Math.cos(a)*4,Math.sin(a*.7)*2.5,Math.sin(a)*4+1)});R2.render(S2,C2)};
+  requestAnimationFrame(lp);
+}catch(e){$('#ball').style.display='none'}
+}
+</script>
+</body>
+</html>
