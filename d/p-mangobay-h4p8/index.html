@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mango Bay · Brasserie du port de Hyères</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mango Bay · Le port de Hyères, servi à table">
+<meta property="og:description" content="Terrasse face aux bateaux, moules, pizzas fines, cocktails et vendredis karaoké. Carte, horaires et réservation.">
+<meta property="og:image" content="https://zahr.fr/d/p-mangobay-h4p8/img/og.jpg">
+<meta property="og:url" content="https://zahr.fr/d/p-mangobay-h4p8/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0c3a4c">
 <meta name="description" content="Mango Bay, brasserie pizzeria sur le port de Hyères : terrasse XXL face aux bateaux, moules, pizzas fines cuites sur place, cocktails et vendredis karaoké. Carte, horaires et réservation.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=Antonio:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -173,9 +180,9 @@ section{position:relative;padding:clamp(80px,11vw,140px) 0}
 .karaoke{background:#12081c;color:#fff;overflow:hidden}
 .karaoke::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 75% 40%,rgba(240,122,0,.25),transparent 70%),radial-gradient(500px 400px at 20% 80%,rgba(255,60,140,.18),transparent 70%)}
 .kgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;position:relative}
-.neon{font:700 clamp(3.6rem,10vw,8.4rem)/.9 var(--cond);text-transform:uppercase;color:#fff6e8;text-shadow:0 0 6px #fff,0 0 20px var(--sun2),0 0 50px var(--sun),0 0 90px #ff3c8c;animation:flick 6s infinite}
+.neon{margin:.18em 0 .32em;letter-spacing:.04em;font:700 clamp(3.6rem,10vw,8.4rem)/.9 var(--cond);text-transform:uppercase;color:#fff6e8;text-shadow:0 0 6px #fff,0 0 20px var(--sun2),0 0 50px var(--sun),0 0 90px #ff3c8c;animation:flick 6s infinite}
 @keyframes flick{0%,19%,23%,60%,63%,100%{opacity:1}21%,62%{opacity:.5}}
-#kstage{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}.karaoke{position:relative;min-height:100vh;display:flex;align-items:center}.karaoke .wrap{position:relative;z-index:2;width:100%}.kspace{min-height:420px}
+#kstage{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}.karaoke{position:relative;min-height:100vh;display:flex;align-items:center}.karaoke .wrap{position:relative;z-index:2}.kspace{min-height:420px}
 .fridays{list-style:none;display:grid;gap:10px;margin-top:26px}
 .fridays li{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border:1px solid rgba(255,157,46,.35);border-radius:14px;background:rgba(255,255,255,.04)}
 .fridays b{font:500 1.15rem var(--serif);text-transform:capitalize}
@@ -291,6 +298,36 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
 .kbadge{display:flex;align-items:center;gap:10px;margin:0 0 6px;font:600 .74rem var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--sun)}
 .kbadge svg{width:76px;height:44px;animation:bob 3s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-4px) rotate(-3deg)}}
+
+/* karaoké : invitations */
+.fridays li{padding:0;border:0;background:none}
+.inv-btn{width:100%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;text-align:left;padding:14px 18px;border:1px solid rgba(255,157,46,.35);border-radius:14px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;transition:background .3s,transform .3s,border-color .3s}
+.inv-btn em{grid-column:1/-1;font:500 .72rem var(--cond);letter-spacing:.22em;text-transform:uppercase;color:#cdbfd8;font-style:normal}
+.inv-btn:hover,.inv-btn:focus-visible{background:rgba(255,157,46,.14);border-color:var(--sun2);transform:translateX(8px)}
+.invite{position:fixed;inset:0;z-index:150;display:none;place-items:center;padding:20px;background:radial-gradient(circle at 50% 40%,rgba(60,20,70,.85),rgba(8,4,14,.94));perspective:1600px}
+.invite.on{display:grid}
+.inv-card{position:relative;width:min(860px,100%);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);background:#1b0d29;color:#fff;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,157,46,.5),0 40px 120px rgba(0,0,0,.6),0 0 80px rgba(255,60,140,.25);transform-origin:50% 0;animation:unfold 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes unfold{0%{transform:rotateX(-95deg) translateY(-60px);opacity:0}55%{opacity:1}100%{transform:none}}
+.inv-media{position:relative;min-height:420px;background:#000}
+.inv-media video,.inv-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.inv-media figcaption{position:absolute;left:12px;bottom:12px;right:12px;font:500 .7rem var(--cond);letter-spacing:.18em;text-transform:uppercase;background:rgba(0,0,0,.55);padding:6px 10px;border-radius:8px}
+.inv-body{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;justify-content:center;gap:14px;background:radial-gradient(400px 260px at 80% 0%,rgba(240,122,0,.28),transparent 70%)}
+.inv-body small{font:500 .74rem var(--cond);letter-spacing:.35em;text-transform:uppercase;color:var(--sun2)}
+.inv-body h3{font:700 clamp(2.6rem,6vw,4.4rem)/.9 var(--cond);text-transform:uppercase;color:#fff6e8;text-shadow:0 0 6px #fff,0 0 20px var(--sun2),0 0 50px #ff3c8c}
+.inv-body .when{font:300 clamp(1.4rem,2.6vw,2rem)/1.15 var(--serif);text-transform:capitalize}
+.inv-body p{color:#d9cbe4;font-size:.95rem}
+.inv-body .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.inv-x{position:absolute;top:12px;right:12px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;font-size:1.1rem;cursor:pointer}
+.inv-conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.inv-conf i{position:absolute;top:-20px;width:8px;height:14px;border-radius:2px;animation:fall 2.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(720px) rotate(540deg);opacity:0}}
+@media(max-width:700px){.inv-card{grid-template-columns:1fr}.inv-media{min-height:300px}}
+/* avis flottants */
+.cloud{position:relative;margin-top:30px;height:340px}
+.cloud .note{position:absolute;max-width:300px;background:rgba(255,250,240,.94);color:var(--ink);border-radius:16px 16px 16px 4px;padding:16px 18px;box-shadow:0 20px 40px rgba(0,0,0,.35);font:300 1.02rem/1.35 var(--serif);animation:drift 14s ease-in-out infinite;animation-delay:var(--dl)}
+.cloud .note cite{display:block;margin-top:8px;font:500 .68rem var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#6b5a4a;font-style:normal}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(var(--r,-2deg))}33%{transform:translate(18px,-14px) rotate(calc(var(--r,-2deg)*-1))}66%{transform:translate(-14px,10px) rotate(var(--r,-2deg))}}
+@media(max-width:860px){.cloud{height:auto;display:flex;gap:14px;overflow-x:auto;padding:10px 4px 20px;scroll-snap-type:x mandatory}.cloud .note{position:static;flex:0 0 78%;scroll-snap-align:center;animation:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.h2 .w>i{transform:none}#sunc{display:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -401,7 +438,8 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
       <figure class="review reveal"><div class="st" aria-label="5 sur 5">●●●●●</div><blockquote>« Table de 7 amis. Accueil très sympa, plats de très haute qualité, service génial. La terrasse est splendide. Lieu incontournable pour bien manger. »</blockquote><cite>Orazio L. · Tripadvisor</cite></figure>
       <figure class="review reveal"><div class="st" aria-label="5 sur 5">●●●●●</div><blockquote>« Nous avons tout apprécié : l'accueil, la gentillesse, le service attentif. La cuisine aussi, dont la crème brûlée tiède géniale ! Bravo ! »</blockquote><cite>Avis Tripadvisor · avril 2024</cite></figure>
     </div>
-    <p class="note">Avis réels publiés sur Tripadvisor, reproduits sans modification. En fond : la terrasse imaginée en 3D par ZAHR.</p>
+    <div class="cloud" aria-label="D’autres avis de clients"><figure class="note" style="left:2%;top:4%;--r:-3deg;--dl:0s"><blockquote>« Accueil très agréable avec une cuisine super bonne. Serveuses et serveurs très souriants. »</blockquote><cite>Tripadvisor · juin 2024</cite></figure><figure class="note" style="left:36%;top:0%;--r:2deg;--dl:-3s"><blockquote>« J’ai passé un excellent moment. La nourriture était délicieuse et pleine de saveurs. »</blockquote><cite>Florinne L. · Google</cite></figure><figure class="note" style="left:70%;top:8%;--r:-2deg;--dl:-6s"><blockquote>« Bon resto sur le port… Bon rapport qualité prix… »</blockquote><cite>Gilles F. · Google</cite></figure><figure class="note" style="left:10%;top:56%;--r:3deg;--dl:-2s"><blockquote>« Adresse sympa au bout du port. Je recommande cette adresse. »</blockquote><cite>Guillaume D. · Google</cite></figure><figure class="note" style="left:44%;top:52%;--r:-2deg;--dl:-8s"><blockquote>« Le service est excellent, la cuisine délicieuse et les serveurs sont très agréables et à l’écoute. »</blockquote><cite>Avis Google</cite></figure><figure class="note" style="left:76%;top:58%;--r:2deg;--dl:-5s"><blockquote>« Que demander de plus que de siroter un bon apéro au Mango Bay ? »</blockquote><cite>@liza.springs_ecrivaine · Instagram</cite></figure></div>
+    <p class="note">Avis réels publiés par des clients sur Tripadvisor, Google et Instagram (extraits). En fond : la terrasse imaginée en 3D par ZAHR.</p>
   </div>
 </section>
 
@@ -485,6 +523,7 @@ footer .big{background:url(img/scene-terrasse-hd.jpg) center 35%/cover;-webkit-b
 <dialog id="d-cook"><h2>Cookies</h2><p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Seul votre choix sur le bandeau est gardé dans votre navigateur.</p><div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="btn" id="ckReset">Modifier mon choix</button><form method="dialog"><button class="btn">Fermer</button></form></div></dialog>
 
 <div id="ck" role="dialog" aria-labelledby="ck-t"><b id="ck-t" style="font-family:var(--serif);font-size:1.2rem;font-weight:500">Cookies</b><p style="font-size:.9rem;color:var(--muted);margin-top:6px">Pas de pub, pas de pistage : seulement le strict nécessaire. <button data-d="d-cook" style="background:none;border:0;text-decoration:underline;color:inherit">En savoir plus</button></p><div class="row"><button class="btn" id="ckNo">Refuser</button><button class="btn" id="ckYes">Accepter</button></div></div>
+<div class="invite" id="invite" role="dialog" aria-modal="true" aria-labelledby="inv-t"><div class="inv-card" id="invcard"><button class="inv-x" id="invx" aria-label="Fermer l’invitation">✕</button><figure class="inv-media"><video id="invv" src="img/soiree/dj.mp4" poster="img/soiree/dj.jpg" muted loop playsinline preload="none" aria-label="Extrait vidéo d’une soirée au Mango Bay, publié sur leur Instagram"></video><figcaption>Une soirée au Mango, en story sur @lemangobay</figcaption></figure><div class="inv-body"><small>Vous êtes invité·e</small><h3 id="inv-t">Soirée karaoké</h3><div class="when" id="invwhen"></div><p>Le micro passe de table en table, la terrasse s’illumine face aux bateaux. Venez chanter, ou juste applaudir, au Mango Bay.</p><p style="font-size:.82rem">Port La Gavine, Hyères · 04 94 35 46 73</p><div class="row"><a class="btn sun" href="#reserver" id="invres">Réserver ma table ce soir-là</a></div></div><div class="inv-conf" id="invconf" aria-hidden="true"></div></div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie"><button id="lbx" aria-label="Fermer">✕</button><figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure></div>
 <div class="demo">Démo ZAHR</div>
 
@@ -580,7 +619,7 @@ if(!reduce)$$('.dcard').forEach(c=>{c.addEventListener('pointermove',e=>{const r
 
 /* ---------- KARAOKÉ : vendredis ---------- */
 const fr=[];const d0=new Date();d0.setHours(12);while(fr.length<4){if(d0.getDay()===5)fr.push(new Date(d0));d0.setDate(d0.getDate()+1)}
-$('#fridays').innerHTML=fr.map((x,i)=>`<li><b>${x.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</b><span>${i?'Soirée karaoké':'Ce vendredi'}</span></li>`).join('');
+$('#fridays').innerHTML=fr.map((x,i)=>`<li><button type="button" class="inv-btn" data-date="${x.toISOString()}" aria-haspopup="dialog"><b>${x.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</b><span>${i?'Soirée karaoké':'Ce vendredi'}</span><em>Voir l’invitation ✉</em></button></li>`).join('');
 
 /* ---------- RÉSERVATION ---------- */
 const st={pax:2,day:null,time:null};
@@ -665,7 +704,7 @@ try{
   const pick=[];for(let i=0;i<NS;i++)pick.push(N[(i*37)%N.length]);
   /* faisceaux de scène */
   const beams=[];[[-5,0xff8a00],[5,0xff2e88],[0,0x2ec5ff]].forEach(([x,col])=>{const g=new THREE.ConeGeometry(1.4,14,24,1,true);g.translate(0,-7,0);const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.1,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));m.position.set(x,-7,-3);S2.add(m);beams.push(m)});
-  let baseY=0;const sz=()=>{const w=c.clientWidth,h=c.clientHeight;R2.setSize(w,h,false);C2.aspect=w/h;C2.updateProjectionMatrix();rig.position.x=w>860?3.2:0;rig.scale.setScalar(w>860?1:.7);baseY=w>860?0:3.2};sz();new ResizeObserver(sz).observe(c);
+  let baseY=0;const sz=()=>{const w=c.clientWidth,h=c.clientHeight;R2.setSize(w,h,false);C2.aspect=w/h;C2.updateProjectionMatrix();rig.position.x=w>860?3.2:0;rig.scale.setScalar(w>860?1:.55);baseY=w>860?0:2.7};sz();new ResizeObserver(sz).observe(c);
   let vis=false,t0=null;new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(vis&&t0===null)t0=performance.now()},{threshold:.25}).observe(sec);
   const L=new THREE.Vector3(),q=new THREE.Quaternion(),tmp=new THREE.Vector3(),ref=new THREE.Vector3();
   const lp=n=>{requestAnimationFrame(lp);if(!vis)return;const t=n/1000,k=t0===null?0:Math.min(6,(n-t0)/1000);
@@ -679,6 +718,18 @@ try{
     dg.attributes.position.needsUpdate=true;R2.render(S2,C2)};
   requestAnimationFrame(lp);
 }catch(e){const k=$('#kstage');if(k)k.style.display='none'}
+
+/* ---------- invitations karaoké ---------- */
+{const inv=$('#invite'),v=$('#invv');let last=null,dSel=null;
+ const open=(d,btn)=>{last=btn;dSel=new Date(d);$('#invwhen').textContent=dSel.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})+' · en soirée';
+  const card=$('#invcard');card.style.animation='none';void card.offsetWidth;card.style.animation='';inv.classList.add('on');document.body.style.overflow='hidden';try{v.play()}catch(e){}
+  const cf=$('#invconf');cf.innerHTML='';if(!reduce)for(let i=0;i<46;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.background=['#ff9d2e','#ff3c8c','#2ec5ff','#fff6e8','#8a3cff'][i%5];p.style.animationDelay=(Math.random()*.9)+'s';cf.appendChild(p)}
+  $('#invx').focus()};
+ const close=()=>{inv.classList.remove('on');document.body.style.overflow='';v.pause();if(last)last.focus()};
+ $('#fridays').addEventListener('click',e=>{const b=e.target.closest('.inv-btn');if(b)open(b.dataset.date,b)});
+ $('#invx').onclick=close;inv.addEventListener('click',e=>{if(e.target===inv)close()});addEventListener('keydown',e=>{if(e.key==='Escape'&&inv.classList.contains('on'))close()});
+ $('#invres').addEventListener('click',()=>{close();setTimeout(()=>{const i=days.findIndex(x=>x.toDateString()===dSel.toDateString());const b=i>=0&&$(`#days button[data-i="${i}"]`);if(b&&!b.disabled)b.click()},700)});
+}
 /* ---------- finitions ---------- */
 $$('.h2').forEach(h=>{let k=0;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}const w=document.createElement('span');w.className='w';const i=document.createElement('i');i.textContent=p;i.style.setProperty('--d',(k++*0.06)+'s');w.appendChild(i);f.appendChild(w)});c.replaceWith(f)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})};walk(h);if(!h.closest('.reveal'))h.classList.add('in')});
 const sc_=$('#sunc');if(sc_&&matchMedia('(pointer:fine)').matches&&!reduce){let x=-99,y=-99,tx=-99,ty=-99;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;sc_.style.opacity=1});document.addEventListener('pointerleave',()=>sc_.style.opacity=0);
