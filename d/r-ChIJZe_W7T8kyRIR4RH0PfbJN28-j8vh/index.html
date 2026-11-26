@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>L'Abri-Cotier · Resto, cocktails & breakfast face à la mer à Hyères</title>
+<meta name="description" content="L'Abri-Cotier, cabane colorée place Daviddi à L'Ayguade (Hyères) : kfé & breakfast, tapas, poulpe à la plancha, cocktails face à la mer. Ouvert tous les jours sauf le mercredi.">
+<meta name="theme-color" content="#0e3b43">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--sand:#fff3d6;--paper:#fffaf0;--ink:#0e3b43;--ink2:#2d5a61;--sun:#ffd21f;--sun2:#ffb800;--green:#1f9d55;--coral:#ff5d73;--orange:#ff8a1f;--sea:#2bb3c0;--deep:#0b2f36;--line:rgba(14,59,67,.14);
+--f-d:"Shrikhand","Cooper Black",Georgia,serif;--f-u:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;--f-m:"Space Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{background:var(--sand);color:var(--ink);font:400 16px/1.55 var(--f-u);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:300;padding:10px 14px;background:var(--ink);color:#fff;border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.nowrap{white-space:nowrap}
+.mono{font:700 11px/1.3 var(--f-m);letter-spacing:.14em;text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 11px;background:var(--sun);color:var(--ink);border-radius:999px;font:700 10.5px/1 var(--f-m);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto}
+.sec{padding:96px 0;position:relative}
+.kick{display:inline-block;margin-bottom:14px}
+h2.big{font:400 clamp(38px,7vw,84px)/.98 var(--f-d);letter-spacing:-.01em;color:var(--ink)}
+.lead{font-size:clamp(16px,1.6vw,19px);max-width:560px;color:var(--ink2);margin-top:16px}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:90;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;transition:background .3s,box-shadow .3s}
+.hd.solid{background:rgba(255,243,214,.96);box-shadow:0 6px 24px rgba(14,59,67,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.logo svg{width:40px;height:40px;flex:none;filter:drop-shadow(0 3px 8px rgba(0,0,0,.18))}
+.logo b{font:400 21px/1 var(--f-d);letter-spacing:.01em}
+.hd nav{display:flex;align-items:center;gap:8px}
+.hd .nl{display:none;font:600 14px/1 var(--f-u);text-decoration:none;padding:10px 12px;border-radius:999px}
+.hd .nl:hover{background:rgba(14,59,67,.08)}
+.ib{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);border:1.5px solid var(--ink);text-decoration:none}
+.cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--coral);color:#fff;font:700 14.5px/1 var(--f-u);text-decoration:none;border:0;cursor:pointer;white-space:nowrap;box-shadow:0 4px 0 #c93a50}
+.cta:active{transform:translateY(2px);box-shadow:0 2px 0 #c93a50}
+@media(min-width:900px){.hd{padding:16px 34px}.hd .nl{display:inline-flex}}
+
+/* ===== story ===== */
+#story{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(#ffe7b0,#bfeaf0 60%,#7fd3dc)}
+#sky{position:absolute;inset:0;transition:none}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fb{position:absolute;inset:0;display:none;background:center/cover no-repeat}
+.no3d .fb{display:block}
+.no3d #cv{display:none}
+.layer{position:absolute;inset:0;pointer-events:none}
+.layer>*{pointer-events:auto}
+.hero-copy{position:absolute;left:0;right:0;top:15vh;text-align:center;padding:0 16px}
+.hero-copy h1{font:400 clamp(50px,13vw,150px)/.9 var(--f-d);color:var(--ink);margin-top:14px;letter-spacing:-.01em;text-shadow:0 2px 0 #fff,0 8px 30px rgba(255,255,255,.65)}
+.hero-copy h1 .ln{display:block;overflow:hidden;padding:.04em 0 .1em}
+.hero-copy h1 .ln span{display:inline-block;transform:translateY(105%);animation:rise 1.1s cubic-bezier(.2,.8,.2,1) .15s forwards}
+.hero-copy p{margin:12px auto 0;max-width:420px;font:600 15px/1.45 var(--f-u);color:var(--ink);background:rgba(255,250,240,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:8px 14px;border-radius:14px;display:inline-block}
+@keyframes rise{to{transform:none}}
+.hero-act{position:absolute;left:16px;right:16px;bottom:72px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.ghost{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:rgba(255,250,240,.85);color:var(--ink);font:700 14.5px/1 var(--f-u);text-decoration:none;border:1.5px solid var(--ink);white-space:nowrap}
+.cap{position:absolute;left:16px;bottom:22px;padding-left:12px;border-left:3px solid var(--coral);font:700 10.5px/1.7 var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);display:none}
+.hint{position:absolute;right:16px;bottom:24px;display:flex;align-items:center;gap:10px;font:700 10.5px/1 var(--f-m);letter-spacing:.14em;color:var(--ink)}
+.hint i{width:22px;height:22px;border:1.5px solid currentColor;border-radius:50%;display:grid;place-items:center}
+.hint i::after{content:"";width:6px;height:6px;border-right:1.5px solid;border-bottom:1.5px solid;transform:translateY(-2px) rotate(45deg);animation:nud 1.6s ease-in-out infinite}
+@keyframes nud{50%{transform:translateY(1px) rotate(45deg)}}
+@media(min-width:900px){.cap{display:block;left:34px;bottom:30px}.hint{right:34px;bottom:32px}.hero-act{bottom:90px}}
+.vision{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(820px,92vw);text-align:center;color:#fff}
+.vision::before{content:"";position:absolute;inset:-14% -10%;z-index:-1;background:radial-gradient(closest-side,rgba(8,40,46,.62),rgba(8,40,46,.35) 60%,transparent);opacity:var(--vo,0);pointer-events:none}
+.vision h2{font:400 clamp(36px,6.4vw,82px)/1.02 var(--f-d);margin:16px 0 14px;text-shadow:0 2px 30px rgba(8,40,46,.55),0 1px 3px rgba(8,40,46,.4)}
+.vision h2 span{display:inline-block;margin:0 .12em;opacity:0}
+.vision p{font:600 16px/1.45 var(--f-u);text-shadow:0 1px 14px rgba(8,40,46,.8);max-width:460px;margin:0 auto}
+.acct{position:absolute;left:16px;right:16px;top:86px;max-width:560px;font:600 clamp(19px,2vw,28px)/1.2 var(--f-u);letter-spacing:-.01em;color:var(--ink);background:rgba(255,250,240,.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:14px 16px;border-radius:18px;opacity:0}
+.acct span{opacity:.15}
+@media(min-width:900px){.acct{left:34px;top:110px;padding:18px 22px}}
+.hs{position:absolute;left:0;top:0;transform:scale(0);transform-origin:11px 11px;display:flex;align-items:flex-start;gap:8px;cursor:pointer;background:none;border:0;padding:0;text-align:left}
+.hs .dot{flex:none;width:22px;height:22px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);position:relative;animation:ping 2.4s infinite}
+.hs .dot::before,.hs .dot::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:2px;margin:-1px 0 0 -5px;background:var(--ink)}
+.hs .dot::after{transform:rotate(90deg)}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,210,31,.8)}70%,100%{box-shadow:0 0 0 14px rgba(255,210,31,0)}}
+.hs .lb{background:rgba(255,250,240,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:10px;padding:6px 9px;font:700 10px/1.3 var(--f-m);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.hs .lb em{display:block;font:600 13px/1.3 var(--f-u);letter-spacing:0;text-transform:none;color:var(--green);max-height:0;overflow:hidden;transition:max-height .4s}
+.hs.on .lb em,.hs:hover .lb em{max-height:22px}
+.cred{position:absolute;left:16px;right:16px;top:84px;max-width:380px}
+.cred .tag{display:inline-flex;background:var(--sun);font:700 10.5px/1 var(--f-m);letter-spacing:.14em;text-transform:uppercase;padding:6px 9px;border-radius:6px}
+.cred h3{margin-top:10px;background:rgba(255,250,240,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:10px 14px;border-radius:16px;font:400 clamp(26px,3vw,40px)/1.04 var(--f-d);color:var(--ink);text-shadow:0 0 24px rgba(255,255,255,.9)}
+.card{position:absolute;left:16px;top:44vh;width:min(270px,calc(100vw - 32px));padding:16px;border-radius:16px;background:rgba(14,59,67,.42);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);color:#fff}
+.card h4{font:600 15px/1.25 var(--f-u)}
+.card .n{font:800 44px/1 var(--f-u);letter-spacing:-.03em;margin-top:8px}
+.card .n small{font:700 11px/1 var(--f-m);letter-spacing:.1em;opacity:.8;margin-left:4px}
+.card svg{display:block;width:100%;height:64px;margin-top:6px}
+.card .ft{font:700 9.5px/1 var(--f-m);letter-spacing:.14em;opacity:.75;display:flex;justify-content:space-between}
+.feats{position:absolute;left:16px;right:16px;bottom:24px;padding:4px 14px;border-radius:14px;background:rgba(255,250,240,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);list-style:none}
+.feats li{display:grid;grid-template-columns:30px 1fr 16px;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font:700 10.5px/1.3 var(--f-m);letter-spacing:.1em;text-transform:uppercase}
+.feats li:last-child{border:0}
+.feats li i{font-style:normal;opacity:.55}
+@media(max-width:899px){.card{top:auto;bottom:268px}}
+@media(min-width:900px){.cred{left:34px;top:120px}.card{left:38%;top:36vh}.feats{left:auto;right:34px;top:30vh;bottom:auto;width:min(400px,34vw)}}
+.prog{position:absolute;left:50%;bottom:10px;width:120px;height:3px;margin-left:-60px;border-radius:3px;background:rgba(14,59,67,.18);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--coral);transform-origin:left;transform:scaleX(0)}
+
+/* ===== panel (cabane en vrai) ===== */
+.panel{position:relative;z-index:2;margin-top:-18vh;background:var(--paper);border-radius:34px 34px 0 0;padding:72px 0 80px;box-shadow:0 -20px 60px rgba(14,59,67,.18)}
+.tilts{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px;perspective:1100px}
+.tilt{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#cde;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1);box-shadow:0 20px 40px rgba(14,59,67,.18)}
+.tilt img{width:100%;height:100%;object-fit:cover}
+.tilt figcaption{position:absolute;left:12px;bottom:12px;background:var(--paper);border-radius:999px;padding:7px 12px;font:700 10.5px/1 var(--f-m);letter-spacing:.12em;text-transform:uppercase}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.stat{border-top:2px solid var(--ink);padding-top:12px}
+.stat b{display:block;font:800 clamp(34px,5vw,56px)/1 var(--f-u);letter-spacing:-.03em}
+.stat span{font:700 10.5px/1.4 var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.note{margin-top:14px;font-size:12.5px;color:var(--ink2)}
+@media(min-width:800px){.tilts{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(4,1fr)}}
+
+/* ===== carte : rack de planches ===== */
+#carte{background:var(--deep);color:#fff;overflow:hidden}
+#carte h2.big{color:var(--sun)}
+#carte .lead{color:rgba(255,255,255,.8)}
+.tabs{display:flex;gap:8px;margin-top:26px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:#fff;font:700 14px/1 var(--f-u);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{background:var(--sun);color:var(--ink);border-color:var(--sun)}
+.rack{position:relative;height:470px;margin-top:20px;perspective:1000px;touch-action:pan-y;user-select:none}
+.ring{position:absolute;left:50%;top:40px;width:0;height:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.board{position:absolute;left:-74px;top:0;width:148px;height:380px;transform-style:preserve-3d;cursor:pointer;background:none;border:0;padding:0}
+.board .fl{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.board.flip .fl{transform:rotateY(180deg)}
+.board .f,.board .b{position:absolute;inset:0;border-radius:50% 50% 46% 46%/22% 22% 14% 14%;-webkit-backface-visibility:hidden;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 16px;overflow:hidden;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35),0 18px 30px rgba(0,0,0,.35)}
+.board .f::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;background:rgba(14,59,67,.25)}
+.board .f::after{content:"";position:absolute;left:0;right:0;top:58%;height:34px;background:var(--st,#fff);opacity:.9}
+.board .f h3{position:relative;z-index:1;font:400 21px/1.05 var(--f-d);color:var(--ink);text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.board .f .p{position:relative;z-index:1;margin-top:10px;font:800 18px/1 var(--f-u);color:var(--ink);background:rgba(255,250,240,.9);border-radius:999px;padding:7px 12px}
+.board .b{transform:rotateY(180deg);background:var(--paper);color:var(--ink)}
+.board .b h3{font:400 18px/1.1 var(--f-d)}
+.board .b p{font-size:13.5px;line-height:1.4;margin-top:10px}
+.board .b .p{margin-top:12px;font:800 16px/1 var(--f-u);color:var(--coral)}
+.rnav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;gap:14px}
+.rnav button{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.6);background:rgba(255,255,255,.06);color:#fff;font-size:22px;cursor:pointer}
+.rnav span{font:700 11px/1 var(--f-m);letter-spacing:.14em;min-width:130px;text-align:center}
+.cnote{margin-top:16px;font-size:12.5px;color:rgba(255,255,255,.7)}
+
+/* ===== galerie : marée de photos ===== */
+#galerie{background:linear-gradient(#bfeaf0,#7fd3dc 40%,#2bb3c0);overflow:hidden}
+#galerie h2.big,#galerie .lead{color:var(--deep)}
+.sea{position:relative;height:560px;margin-top:10px;perspective:700px;perspective-origin:50% 20%;overflow:hidden;contain:paint}
+.plane{position:absolute;left:50%;top:50%;width:900px;height:1400px;margin:-700px 0 0 -450px;transform-style:preserve-3d;transform:rotateX(64deg) translateZ(-60px)}
+.plane::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 30%,rgba(255,255,255,.28) 0 2px,transparent 3px 46px),linear-gradient(#5fd0da,#1b8f9d);border-radius:50%;filter:blur(.3px);animation:swell 7s ease-in-out infinite alternate}
+@keyframes swell{to{transform:scale(1.04) translateY(-14px)}}
+.buoy{position:absolute;width:190px;transform-style:preserve-3d;transform-origin:50% 100%}
+.buoy .in{transform:rotateX(-64deg);transform-origin:50% 100%;animation:bob 5s ease-in-out infinite alternate}
+.buoy figure{background:#fff;padding:7px 7px 30px;border-radius:6px;box-shadow:0 30px 30px -14px rgba(8,40,46,.45)}
+.buoy img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px}
+.buoy figcaption{font:400 15px/1 var(--f-d);color:var(--ink);text-align:center;margin-top:8px}
+@keyframes bob{from{transform:rotateX(-64deg) translateY(0) rotate(-2deg)}to{transform:rotateX(-64deg) translateY(-14px) rotate(2deg)}}
+
+/* ===== réservation ===== */
+#reserver{background:var(--sand)}
+.bk{display:grid;gap:26px;margin-top:30px}
+.bk>*{min-width:0}
+@media(min-width:980px){.bk{grid-template-columns:1.1fr .9fr;align-items:start}}
+.beach{position:relative;height:230px;border-radius:24px;overflow:hidden;background:linear-gradient(#bfeaf0 0 46%,#2bb3c0 46% 58%,#f6dca6 58%);box-shadow:inset 0 0 0 2px var(--ink)}
+.beach .sunb{position:absolute;right:30px;top:20px;width:58px;height:58px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 10px rgba(255,210,31,.25)}
+.beach .wv{position:absolute;left:0;right:0;top:44%;height:24px;background:radial-gradient(circle at 12px -4px,transparent 12px,#2bb3c0 13px) 0 0/24px 24px repeat-x;animation:wv 6s linear infinite}
+@keyframes wv{to{background-position:240px 0}}
+.paras{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;align-items:flex-end;gap:2px;padding:0 10px;flex-wrap:nowrap}
+.pa{position:relative;width:54px;height:110px;flex:none;transform-origin:50% 100%;animation:plant .7s cubic-bezier(.3,1.6,.5,1) both}
+.pa svg{width:100%;height:100%;overflow:visible}
+.pa .cn{transform-origin:27px 30px;animation:open .7s .25s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes plant{from{transform:translateY(40px) scaleY(.2);opacity:0}}
+@keyframes open{from{transform:scaleX(.05)}}
+.bcount{position:absolute;left:14px;top:14px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:8px 12px;font:700 12px/1 var(--f-m);letter-spacing:.08em}
+.form{background:var(--paper);border:2px solid var(--ink);border-radius:24px;padding:20px;box-shadow:8px 8px 0 var(--ink)}
+.fs{border:0;margin-bottom:18px;min-width:0}
+.fs legend,.fl{font:700 11px/1.3 var(--f-m);letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;display:block}
+.days{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.day{flex:none;width:62px;min-height:66px;border-radius:14px;border:1.5px solid var(--ink);background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;font:600 12px/1.2 var(--f-u)}
+.day b{font:800 20px/1 var(--f-u)}
+.day[aria-pressed=true]{background:var(--ink);color:#fff}
+.day:disabled{opacity:.45;cursor:not-allowed;background:repeating-linear-gradient(45deg,#fff 0 6px,#f1e6cc 6px 12px)}
+.moms{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mom,.slot{min-height:46px;border-radius:12px;border:1.5px solid var(--ink);background:#fff;cursor:pointer;font:600 14px/1.2 var(--f-u);padding:6px 8px}
+.mom small{display:block;font:400 11.5px/1.2 var(--f-u);opacity:.75}
+.mom[aria-pressed=true],.slot[aria-pressed=true]{background:var(--sun);box-shadow:3px 3px 0 var(--ink)}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.slot{min-width:70px}
+.step{display:flex;align-items:center;gap:12px}
+.step button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;font:700 22px/1 var(--f-u);cursor:pointer}
+.step output{font:800 26px/1 var(--f-u);min-width:110px;text-align:center}
+.seg{display:flex;gap:8px}
+.seg button{flex:1;min-height:46px;border-radius:12px;border:1.5px solid var(--ink);background:#fff;cursor:pointer;font:600 14px/1 var(--f-u)}
+.seg button[aria-pressed=true]{background:var(--green);color:#fff}
+.in{display:grid;gap:12px}
+.in label{display:block;font:600 13.5px/1.3 var(--f-u)}
+.in input,.in textarea{display:block;width:100%;margin-top:6px;min-height:48px;border-radius:12px;border:1.5px solid var(--ink);background:#fff;padding:12px 14px;font:400 16px/1.3 var(--f-u);color:var(--ink)}
+.in textarea{min-height:84px;resize:vertical}
+.cons{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;line-height:1.45}
+.cons input{flex:none;width:22px;height:22px;margin-top:1px;accent-color:var(--coral)}
+.lk{background:none;border:0;padding:0;font:inherit;text-decoration:underline;color:inherit;cursor:pointer}
+.err{color:#b3261e;font-weight:600;font-size:13.5px;margin-top:10px;min-height:1px}
+.send{width:100%;justify-content:center;margin-top:14px;min-height:52px;font-size:16px}
+.tk{margin-top:16px;border-radius:16px;background:var(--sun);border:2px dashed var(--ink);padding:14px 16px;display:none}
+.tk.on{display:block;animation:pop .5s cubic-bezier(.3,1.5,.5,1)}
+@keyframes pop{from{transform:scale(.8);opacity:0}}
+.tk b{font:400 20px/1.1 var(--f-d)}
+.tk p{font-size:14px;margin-top:6px}
+
+/* ===== infos : course du soleil ===== */
+#infos{background:var(--paper)}
+.ig{display:grid;gap:28px}
+@media(min-width:980px){.ig{grid-template-columns:1fr 1fr;align-items:start}}
+.arc{position:relative;margin-top:24px;border-radius:24px;background:linear-gradient(#fff6dc,#ffe2a8);border:2px solid var(--ink);padding:18px 16px 16px;overflow:hidden}
+.arc svg{display:block;width:100%;height:auto}
+.arc .lbl{display:flex;justify-content:space-between;font:700 10.5px/1 var(--f-m);letter-spacing:.12em;margin-top:6px}
+.live{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font:700 12px/1 var(--f-m);letter-spacing:.08em;background:var(--ink);color:#fff;padding:9px 12px;border-radius:999px}
+.live i{width:9px;height:9px;border-radius:50%;background:#6ee7a0;box-shadow:0 0 0 0 rgba(110,231,160,.7);animation:lv 2s infinite}
+.live.off i{background:#ff8f8f;animation:none}
+@keyframes lv{70%,100%{box-shadow:0 0 0 9px rgba(110,231,160,0)}}
+.hours{list-style:none;margin-top:16px;border-top:1.5px solid var(--ink)}
+.hours li{display:flex;justify-content:space-between;gap:10px;padding:11px 2px;border-bottom:1px solid var(--line);font-size:15px}
+.hours li.t{font-weight:700;background:rgba(255,210,31,.35)}
+.hours li.c span:last-child{color:var(--coral);font-weight:700}
+.co{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.mapw{position:relative;border-radius:24px;overflow:hidden;min-height:380px;background:#173a40;isolation:isolate;border:2px solid var(--ink)}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.3) brightness(.72) contrast(1.15)}
+.mapw::before{content:"";position:absolute;inset:0;z-index:2;background:#16a3b3;mix-blend-mode:color;pointer-events:none}
+.mapw::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(4,24,28,.6) 100%)}
+.mapw>svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+#mapw>iframe~svg{display:none}
+.pin{position:absolute;left:50%;top:42%;z-index:4;transform:translate(-50%,-100%);pointer-events:none;text-align:center}
+.pin .lg2{width:64px;height:64px;border-radius:50%;background:var(--sun);border:3px solid #fff;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.45);animation:pinb 2.4s ease-in-out infinite}
+.pin .lg2 svg{width:46px;height:46px}
+.pin::after{content:"";position:absolute;left:50%;top:50%;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;border:2px solid var(--sun);opacity:0;animation:ring 2.4s ease-out infinite}
+@keyframes pinb{50%{transform:translateY(-7px)}}
+@keyframes ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.8);opacity:0}}
+.glass{position:absolute;z-index:5;left:12px;right:12px;bottom:12px;padding:14px;border-radius:16px;background:rgba(8,40,46,.58);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.2);color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.glass p{font:500 14px/1.4 var(--f-u)}
+.glass strong{display:block;font-size:15px}
+.glass a,.consent button{font:700 14px/1 var(--f-u);background:var(--sun);color:var(--ink);padding:12px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+.consent{position:absolute;z-index:5;left:50%;top:12px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(8,40,46,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:6px 6px 6px 14px;border-radius:999px;color:#fff;font:500 12.5px/1.3 var(--f-u);width:max-content;max-width:calc(100% - 24px)}
+.mapw.live .consent{display:none}
+
+/* footer */
+footer{position:relative;background:var(--deep);color:#fff;padding:120px 0 40px;overflow:hidden}
+.waves{position:absolute;left:0;right:0;top:-1px;height:90px}
+.waves svg{position:absolute;left:0;top:0;width:200%;height:100%;animation:wf 14s linear infinite}
+.waves svg+svg{animation-duration:9s;opacity:.6}
+@keyframes wf{to{transform:translateX(-50%)}}
+.fbig{font:400 clamp(44px,13vw,170px)/.9 var(--f-d);color:transparent;-webkit-text-stroke:1.5px var(--sun);letter-spacing:-.01em;white-space:nowrap}
+footer p{margin-top:16px;font-size:14px;color:rgba(255,255,255,.82)}
+.legal{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:18px}
+.legal button{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer;font-size:13.5px;min-height:44px}
+.zb{font-size:12.5px!important;opacity:.75}
+
+/* cookies + modal */
+.ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:220;max-width:560px;margin:0 auto;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:18px;padding:16px;box-shadow:6px 6px 0 var(--ink);transform:translateY(150%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ck.on{transform:none}
+.ck h2{font:400 19px/1 var(--f-d);margin-bottom:6px}
+.ck p{font-size:13.5px;line-height:1.5;margin-bottom:12px}
+.ck .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ck .row button{font:700 14.5px/1 var(--f-u);padding:13px 10px;border-radius:12px;cursor:pointer;border:2px solid var(--ink);min-height:46px}
+.ck .no{background:#fff;color:var(--ink)}
+.ck .yes{background:var(--ink);color:#fff}
+.lg{position:fixed;inset:0;z-index:250;display:none;align-items:flex-end;justify-content:center;background:rgba(8,40,46,.6)}
+.lg.on{display:flex}
+.lg .box{background:var(--paper);color:var(--ink);width:100%;max-width:720px;max-height:86vh;overflow:auto;border-radius:22px 22px 0 0;padding:24px 20px 30px;font:400 14.5px/1.6 var(--f-u)}
+@media(min-width:760px){.lg{align-items:center}.lg .box{border-radius:22px}}
+.lg h2{font:400 24px/1.15 var(--f-d);margin-bottom:12px}
+.lg h3{font:700 15px/1.3 var(--f-u);margin:16px 0 4px}
+.lg p{margin-bottom:8px}
+.lg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper);font-size:22px;cursor:pointer}
+.lg [data-doc]{display:none}.lg [data-doc].on{display:block}
+.zbadge{position:fixed;right:10px;bottom:10px;z-index:80;font:700 9.5px/1 var(--f-m);letter-spacing:.08em;background:rgba(255,250,240,.88);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 9px;text-decoration:none;opacity:.85}
+@media(max-width:899px){.zbadge{display:none}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.hero-copy h1 .ln span{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="lg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#ffd21f"/><circle cx="45" cy="21" r="7" fill="none" stroke="#0e3b43" stroke-width="2.4"/><path d="M14 44h36" stroke="#0e3b43" stroke-width="2.6" stroke-linecap="round"/><path d="M22 30h22v12H22z" fill="#1f9d55" stroke="#0e3b43" stroke-width="2.2"/><path d="M19 31l14-8 14 8" fill="#ff5d73" stroke="#0e3b43" stroke-width="2.2" stroke-linejoin="round"/><path d="M29 35h6v7h-6z" fill="#ffd21f" stroke="#0e3b43" stroke-width="1.8"/><path d="M24 42v4M42 42v4" stroke="#0e3b43" stroke-width="2.2"/><path d="M15 43c1-9 0-16-3-22" stroke="#0e3b43" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M12 21c-5-2-8 1-9 3 4-2 6-1 9-3zm0 0c2-5 6-6 8-5-4 1-5 3-8 5zm0 0c5-1 8 1 9 4-3-2-6-2-9-4zm0 0c-3 3-3 7-2 9 0-4 1-6 2-9z" fill="#1f9d55" stroke="#0e3b43" stroke-width="1.4" stroke-linejoin="round"/><rect x="50" y="27" width="4" height="17" rx="2" fill="#ff8a1f" stroke="#0e3b43" stroke-width="1.6"/></symbol>
+</defs></svg>
+
+<header class="hd" id="hd">
+<a class="logo" href="#top" aria-label="L'Abri-Cotier, retour en haut"><svg aria-hidden="true"><use href="#lg"/></svg><b>L'Abri-Cotier</b></a>
+<nav aria-label="Navigation principale"><a class="nl" href="#carte">La carte</a><a class="nl" href="#galerie">Photos</a><a class="nl" href="#infos">Infos</a>
+<a class="ib" href="tel:+33494664258" aria-label="Appeler L'Abri-Cotier au 04 94 66 42 58"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+<a class="cta" href="#reserver">Réserver</a></nav>
+</header>
+
+<main id="main">
+<section id="story" aria-label="Bienvenue à L'Abri-Cotier">
+<div class="stage" id="stage">
+<div id="sky"></div>
+<div class="fb" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TOYFYv4EHjLj7lR1_o4Qpt7Hs3C40dJDc4ebTW0fmm3KE1M2LBbTpbzA__CbayCLdcSgPAQI2AwIF9MA0qv1NNmakRAiOP5HoVBtzITmRks4azN3Q-jEJZSn3UX7czG8iIvB62=w1400')" aria-hidden="true"></div>
+<canvas id="cv" aria-hidden="true"></canvas>
+<div class="layer" id="L0"><div class="hero-copy" id="top"><span class="chip">Hyères · L'Ayguade</span>
+<h1><span class="ln"><span>L'Abri-</span></span><span class="ln"><span>Cotier</span></span></h1>
+<p>Resto · Cocktails · Tapas · Kfé &amp; Breakfast, face à la mer.</p></div>
+<div class="hero-act"><a class="cta" href="#reserver">Réserver une table</a><a class="ghost" href="#carte">Voir la carte</a></div>
+<div class="cap">Place Daviddi · L'Ayguade<br>Ouvert tous les jours<br>sauf le mercredi</div>
+<div class="hint" aria-hidden="true">DÉFILEZ <i></i></div></div>
+<div class="layer" id="L2"><div class="vision" id="vis"><span class="chip">Good vibes</span>
+<h2 aria-label="Du premier kfé au dernier cocktail."><span>Du</span> <span>premier</span> <span>kfé</span><br><span>au</span> <span>dernier</span><br><span>cocktail.</span></h2>
+<p>Une cabane colorée posée face à la plage de L'Ayguade, de 8 h à 23 h.</p></div></div>
+<div class="layer" id="L3"><p class="acct" id="acct">On y vient pour le kfé du matin, le poulpe à la plancha du midi, les tapas de l'apéro et les cocktails quand le soleil descend sur la mer.</p>
+<div id="hss"></div></div>
+<div class="layer" id="L4"><div class="cred" id="cred"><span class="tag">✕ Place Daviddi</span><h3>Ouvert tous les jours, sauf le mercredi</h3></div>
+<div class="card" id="card"><h4>Aujourd'hui à la cabane</h4><div class="n"><span id="cnt">8</span><small>H</small></div><p class="mono" style="opacity:.8;margin-top:4px">Ouvert de 8 h à 23 h</p>
+<svg viewBox="0 0 220 64" aria-hidden="true"><path d="M4 60 Q110 -30 216 60" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-dasharray="3 5"/><path id="sunp" d="M4 60 Q110 -30 216 60" fill="none" stroke="#ffd21f" stroke-width="2.4" stroke-linecap="round"/><circle id="sund" cx="4" cy="60" r="6" fill="#ffd21f"/></svg>
+<div class="ft"><span>KFÉ</span><span>DÉJ'</span><span>APÉRO</span><span>DÎNER</span></div></div>
+<ol class="feats" id="feats"><li><i>01</i>Kfé &amp; breakfast<span>→</span></li><li><i>02</i>Tapas « Mise à l'eau »<span>→</span></li><li><i>03</i>Plats « Line Up »<span>→</span></li><li><i>04</i>Cocktails &amp; bière des Îles d'Or<span>→</span></li><li><i>05</i>Menu des minots<span>→</span></li></ol></div>
+<div class="prog" aria-hidden="true"><i id="prog"></i></div>
+</div>
+</section>
+
+<section class="panel" aria-labelledby="pT"><div class="wrap">
+<span class="chip kick">La cabane en vrai</span>
+<h2 class="big" id="pT">Les pieds presque<br>dans le sable</h2>
+<p class="lead">Une terrasse sous les parasols, un comptoir vert et jaune plein de bouteilles, et la mer juste en face.</p>
+<div class="tilts" id="tilts">
+<figure class="tilt"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TOYFYv4EHjLj7lR1_o4Qpt7Hs3C40dJDc4ebTW0fmm3KE1M2LBbTpbzA__CbayCLdcSgPAQI2AwIF9MA0qv1NNmakRAiOP5HoVBtzITmRks4azN3Q-jEJZSn3UX7czG8iIvB62=w900" alt="Terrasse de L'Abri-Cotier sous les parasols, la mer et les palmiers au fond" loading="lazy"><figcaption>La terrasse</figcaption></figure>
+<figure class="tilt"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R_lXgn5JKdHJu1Idtc78qhtzz1TFhJIVGYhv3MFER8SbettKVwLADVxsIcINhksG7eJT6PgKgNu1qT_wjxkaOlS2ahBezoP67N1yLjAnD3t1by-ZcfTQl4czZ4R9ZGe69MRzKPZQ=w900" alt="Le comptoir coloré jaune, vert et rose de L'Abri-Cotier" loading="lazy"><figcaption>Le comptoir</figcaption></figure>
+<figure class="tilt"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SxEZHSTeGK_pG0Q3vRM_vFSor6OUEnJNJYXNQPqub_CNjYWz4hGmm_oDvq2RkFqhPxXmmsO_GC3-jRhinWxhhfIXgBiPWFZAIWyeJow5dPyhJ2doep6cHeqIX6ziLie0mt0Q9i=w900" alt="Apéritif en terrasse face à la plage et à la mer" loading="lazy"><figcaption>L'apéro face à la mer</figcaption></figure>
+</div>
+<div class="stats" id="stats">
+<div class="stat"><b data-to="4.3" data-dec="1">0</b><span>sur 5 · note Google</span></div>
+<div class="stat"><b data-to="1800" data-pre="+ ">0</b><span>avis Google</span></div>
+<div class="stat"><b data-to="6" data-suf="/7">0</b><span>jours d'ouverture</span></div>
+<div class="stat"><b data-to="15" data-suf=" h">0</b><span>d'ouverture par jour</span></div>
+</div>
+<p class="note">Note et nombre d'avis relevés sur la fiche Google de L'Abri-Cotier en novembre 2026.</p>
+</div></section>
+
+<section class="sec" id="carte" aria-labelledby="cT"><div class="wrap">
+<span class="chip kick">La carte</span>
+<h2 class="big" id="cT">Le rack<br>à planches</h2>
+<p class="lead">Chaque planche porte un plat. Faites tourner le rack, touchez une planche pour la retourner.</p>
+<div class="tabs" role="tablist" aria-label="Catégories de la carte" id="tabs"></div>
+<div class="rack" id="rack"><div class="ring" id="ring"></div>
+<div class="rnav"><button type="button" id="rprev" aria-label="Planche précédente">‹</button><span id="rpos" aria-live="polite"></span><button type="button" id="rnext" aria-label="Planche suivante">›</button></div></div>
+<p class="cnote">Prix relevés sur la carte de L'Abri-Cotier ; la carte change avec les saisons, seuls les prix affichés sur place font foi.</p>
+</div></section>
+
+<section class="sec" id="galerie" aria-labelledby="gT"><div class="wrap">
+<span class="chip kick">En images</span>
+<h2 class="big" id="gT">À marée haute</h2>
+<p class="lead">Les photos remontent à la surface quand vous descendez.</p>
+</div>
+<div class="sea" id="sea" aria-label="Photos de L'Abri-Cotier"><div class="plane" id="plane"></div></div>
+</section>
+
+<section class="sec" id="reserver" aria-labelledby="rT"><div class="wrap">
+<span class="chip kick">Réservation</span>
+<h2 class="big" id="rT">Plantez<br>votre parasol</h2>
+<p class="lead">Choisissez le jour, le moment et le nombre de personnes : un parasol s'ouvre pour chacun.</p>
+<div class="bk">
+<div><div class="beach" aria-hidden="true"><div class="sunb"></div><div class="wv"></div><div class="paras" id="paras"></div><div class="bcount" id="bcount">2 PARASOLS</div></div>
+<div class="tk" id="tk" role="status"><b>Demande prête !</b><p id="tkT"></p></div></div>
+<form class="form" id="bf" novalidate>
+<fieldset class="fs"><legend>Le jour</legend><div class="days" id="days"></div></fieldset>
+<fieldset class="fs"><legend>Le moment</legend><div class="moms" id="moms"></div><div class="slots" id="slots"></div></fieldset>
+<fieldset class="fs"><legend>Combien de personnes ?</legend><div class="step"><button type="button" id="gm" aria-label="Une personne de moins">−</button><output id="gn" aria-live="polite">2 pers.</output><button type="button" id="gp" aria-label="Une personne de plus">+</button></div></fieldset>
+<fieldset class="fs"><legend>Où ?</legend><div class="seg" id="where"><button type="button" aria-pressed="true" data-v="En terrasse">En terrasse</button><button type="button" aria-pressed="false" data-v="À l'intérieur">À l'intérieur</button></div></fieldset>
+<div class="in"><label>Nom<input id="fn" name="nom" autocomplete="name" required></label>
+<label>Téléphone<input id="ft" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></label>
+<label>Un mot pour l'équipe (facultatif)<textarea id="fm" name="message"></textarea></label></div>
+<label class="cons"><input type="checkbox" id="fc" required><span>J'accepte que L'Abri-Cotier utilise ces informations pour traiter ma demande de réservation (<button type="button" class="lk" data-doc-open="confidentialite">confidentialité</button>).</span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="cta send" type="submit">Envoyer ma demande</button>
+<p class="note" style="font-size:12px;margin-top:10px">Démo : aucune demande n'est réellement envoyée. La réservation n'est confirmée qu'après réponse de la cabane.</p>
+</form></div></div></section>
+
+<section class="sec" id="infos" aria-labelledby="iT"><div class="wrap ig">
+<div><span class="chip kick">Infos</span><h2 class="big" id="iT">La course<br>du soleil</h2>
+<div class="arc"><svg viewBox="0 0 320 150" role="img" aria-label="Horaires du jour sur l'arc du soleil, de 8 h à 23 h"><path d="M14 140 Q160 -40 306 140" fill="none" stroke="#0e3b43" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 6"/><path id="arcO" d="M14 140 Q160 -40 306 140" fill="none" stroke="#ff8a1f" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="140" x2="320" y2="140" stroke="#0e3b43" stroke-width="2"/><g id="arcS"><circle r="13" fill="#ffd21f" stroke="#0e3b43" stroke-width="2"/><g stroke="#0e3b43" stroke-width="2" stroke-linecap="round"><path d="M0-19v-5M0 19v5M19 0h5M-19 0h-5M13 13l4 4M-13-13l-4-4M13-13l4-4M-13 13l-4 4"/></g></g></svg>
+<div class="lbl"><span>8 H</span><span>MIDI</span><span>APÉRO</span><span>23 H</span></div></div>
+<p class="live" id="live"><i></i><span id="liveT">…</span></p>
+<ul class="hours" id="hours"></ul>
+<p class="note">Horaires relevés sur la fiche Google ; ils peuvent varier selon la saison.</p>
+<div class="co"><a class="cta" href="tel:+33494664258"><span class="nowrap">04 94 66 42 58</span></a><a class="ghost" href="https://www.instagram.com/labricotierhyeres/" target="_blank" rel="noopener">@labricotierhyeres</a></div></div>
+<div class="mapw" id="mapw" data-q="L'Abri-Cotier, Place Jean-Pierre Daviddi, 83400 Hyères">
+<svg viewBox="0 0 400 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="380" fill="#1d4a52"/><path d="M250 0 C230 120 270 220 240 380 L400 380 L400 0z" fill="#0f6f7c"/><path d="M250 0 C230 120 270 220 240 380" stroke="#f6dca6" stroke-width="10" fill="none" opacity=".75"/><g stroke="#2f6971" stroke-width="7" fill="none"><path d="M0 120 H240"/><path d="M0 250 H250"/><path d="M90 0 V380"/><path d="M180 0 V380"/></g><g fill="#285c64"><rect x="100" y="135" width="66" height="100" rx="6"/><rect x="10" y="135" width="66" height="100" rx="6"/><rect x="10" y="10" width="66" height="96" rx="6"/></g></svg>
+<div class="consent"><span>Plan Google (cookies)</span><button type="button" data-ck="1">Afficher le plan</button></div>
+<div class="pin" aria-hidden="true"><div class="lg2"><svg><use href="#lg"/></svg></div></div>
+<div class="glass"><p><strong>L'Abri-Cotier</strong>Place Jean-Pierre Daviddi, 83400 Hyères</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=L%27Abri-Cotier%2C%20Place%20Jean-Pierre%20Daviddi%2C%2083400%20Hy%C3%A8res" target="_blank" rel="noopener">Itinéraire</a></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="waves" aria-hidden="true"><svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 40 Q75 0 150 40 T300 40 T450 40 T600 40 T750 40 T900 40 T1050 40 T1200 40 V0 H0z" fill="#fffaf0"/></svg><svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 55 Q75 20 150 55 T300 55 T450 55 T600 55 T750 55 T900 55 T1050 55 T1200 55 V0 H0z" fill="#2bb3c0"/></svg></div>
+<div class="wrap"><p class="fbig" aria-hidden="true">L'Abri-Cotier</p>
+<p>L'Abri-Cotier · Resto, cocktails, tapas, kfé &amp; breakfast · Place Jean-Pierre Daviddi, 83400 Hyères · <a class="nowrap" href="tel:+33494664258">04 94 66 42 58</a></p>
+<nav class="legal" aria-label="Informations légales"><button type="button" data-doc-open="mentions">Mentions légales</button><button type="button" data-doc-open="confidentialite">Confidentialité</button><button type="button" data-doc-open="cgv">CGV / CGU</button><button type="button" data-doc-open="cookies">Cookies</button><button type="button" data-doc-open="remboursement">Remboursement</button></nav>
+<p class="zb">Démo réalisée par ZAHR · <a href="https://zahr.fr" target="_blank" rel="noopener">zahr.fr</a></p></div></footer>
+<a class="zbadge" href="https://zahr.fr" target="_blank" rel="noopener">Démo réalisée par ZAHR</a>
+
+<div class="lg" id="lgm" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="box" tabindex="-1">
+<button class="x" type="button" data-close aria-label="Fermer">×</button>
+<div data-doc="mentions"><h2 id="lgT">Mentions légales</h2>
+<h3>Éditeur du site</h3><p>L'Abri-Cotier, Place Jean-Pierre Daviddi, 83400 Hyères. Téléphone : <span class="nowrap">04 94 66 42 58</span>. Raison sociale, numéro SIRET, capital et directeur de la publication : à compléter avant la mise en ligne.</p>
+<h3>Hébergement</h3><p>Hébergeur : à préciser lors de la mise en ligne (nom, adresse et téléphone).</p>
+<h3>Conception</h3><p>Site conçu par ZAHR (zahr.fr), Var.</p>
+<h3>Propriété intellectuelle</h3><p>Les textes, photos et logos de L'Abri-Cotier restent la propriété de leurs titulaires. Toute reproduction sans autorisation est interdite.</p></div>
+<div data-doc="confidentialite"><h2>Politique de confidentialité</h2>
+<p>Les informations saisies dans le formulaire (nom, téléphone, message facultatif, détails de la demande) servent uniquement à traiter les demandes de réservation. Elles sont destinées à L'Abri-Cotier et ne sont ni vendues ni cédées.</p>
+<h3>Base légale et durée</h3><p>Traitement fondé sur votre consentement (case à cocher du formulaire). Les données sont conservées 12 mois au plus après votre dernière demande.</p>
+<h3>Vos droits</h3><p>Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et retirer votre consentement à tout moment, en contactant L'Abri-Cotier au <span class="nowrap">04 94 66 42 58</span>. Vous pouvez aussi saisir la CNIL (cnil.fr).</p></div>
+<div data-doc="cgv"><h2>Conditions générales (CGU / CGV)</h2>
+<h3>Utilisation du site</h3><p>Ce site présente L'Abri-Cotier et permet d'envoyer des demandes de réservation de table. Une demande n'est confirmée qu'après réponse de l'établissement.</p>
+<h3>Prix et disponibilités</h3><p>La carte, les prix et les horaires peuvent évoluer selon la saison : seuls ceux affichés sur place font foi.</p>
+<h3>Responsabilité</h3><p>L'Abri-Cotier s'efforce de tenir les informations à jour mais ne peut garantir l'absence d'erreur. En cas de litige, le droit français s'applique ; vous pouvez recourir gratuitement à un médiateur de la consommation.</p></div>
+<div data-doc="cookies"><h2>Cookies</h2>
+<p>Ce site n'utilise aucun cookie publicitaire ni de mesure d'audience. Seul le plan Google Maps peut déposer des cookies de Google : il ne se charge qu'après votre accord.</p>
+<p>Votre choix est mémorisé sur cet appareil. Vous pouvez le modifier à tout moment :</p>
+<p><button class="lk" type="button" data-ckreset>Modifier mon choix de cookies</button></p></div>
+<div data-doc="remboursement"><h2>Annulation et remboursement</h2><p>La réservation d'une table est gratuite et sans prépaiement. Aucun paiement n'est demandé en ligne : il n'y a donc rien à rembourser. Pour annuler ou modifier, appelez le <span class="nowrap">04 94 66 42 58</span>.</p></div>
+</div></div>
+<div class="ck" id="ck" role="region" aria-label="Cookies"><h2>Cookies</h2>
+<p>Un seul cookie possible : celui du plan Google Maps, chargé seulement si vous l'acceptez. <button class="lk" type="button" data-doc-open="cookies">En savoir plus</button></p>
+<div class="row"><button class="no" type="button" data-ck="0">Refuser</button><button class="yes" type="button" data-ck="1">Accepter</button></div></div>
+
+<script>
+/* ===== cookies, modal, header ===== */
+(function(){
+var KEY='zahr-ck';
+function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+var ck=document.getElementById('ck'),mw=document.getElementById('mapw');
+function loadMap(){if(!mw||mw.classList.contains('live'))return;var f=document.createElement('iframe');f.title='Plan Google Maps de L\'Abri-Cotier';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src='https://www.google.com/maps?q='+encodeURIComponent(mw.dataset.q)+'&z=16&output=embed';mw.insertBefore(f,mw.firstChild);mw.classList.add('live')}
+var v=get(); if(v==='1')loadMap(); if(v===null)setTimeout(function(){ck.classList.add('on')},900);
+document.addEventListener('click',function(e){var b=e.target.closest('[data-ck]');if(b){set(b.dataset.ck);ck.classList.remove('on');if(b.dataset.ck==='1')loadMap()}
+var r=e.target.closest('[data-ckreset]');if(r){try{localStorage.removeItem(KEY)}catch(x){}closeM();ck.classList.add('on')}
+var o=e.target.closest('[data-doc-open]');if(o)openM(o.dataset.docOpen);
+if(e.target.closest('[data-close]')||e.target.id==='lgm')closeM()});
+var lgm=document.getElementById('lgm'),last=null;
+function openM(id){last=document.activeElement;lgm.querySelectorAll('[data-doc]').forEach(function(d){d.classList.toggle('on',d.dataset.doc===id)});lgm.classList.add('on');lgm.querySelector('.box').focus()}
+function closeM(){if(!lgm.classList.contains('on'))return;lgm.classList.remove('on');if(last)last.focus()}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM()});
+var hd=document.getElementById('hd');
+function hs(){hd.classList.toggle('solid',scrollY>innerHeight*5.4)}
+addEventListener('scroll',hs,{passive:true});hs();
+})();
+
+/* ===== story : island in Three.js ===== */
+(function(){
+var stage=document.getElementById('stage'),story=document.getElementById('story'),cv=document.getElementById('cv'),sky=document.getElementById('sky');
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function clamp(x){return x<0?0:x>1?1:x}
+function seg(p,a,b){return clamp((p-a)/(b-a))}
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function mix(a,b,t){return a+(b-a)*t}
+function lerpC(a,b,t){return [0,1,2].map(function(i){return Math.round(mix(a[i],b[i],t))})}
+var SK=[[[255,231,176],[191,234,240]],[[156,224,236],[96,196,214]],[[255,190,140],[255,122,120]],[[255,140,96],[94,72,140]]];
+function skyAt(p){var x=p*3,i=Math.min(2,Math.floor(x)),t=x-i;var a=lerpC(SK[i][0],SK[i+1][0],t),b=lerpC(SK[i][1],SK[i+1][1],t);return [a,b]}
+var vis=document.getElementById('vis'),words=[].slice.call(vis.querySelectorAll('h2 span')),vchip=vis.querySelector('.chip'),vp=vis.querySelector('p');
+var L0=document.getElementById('L0'),acct=document.getElementById('acct'),cred=document.getElementById('cred'),card=document.getElementById('card'),feats=document.getElementById('feats'),prog=document.getElementById('prog'),cnt=document.getElementById('cnt'),sund=document.getElementById('sund'),sunp=document.getElementById('sunp');
+var aw=acct.textContent.split(' ');acct.innerHTML=aw.map(function(w){return '<span>'+w+'</span>'}).join(' ');var aws=[].slice.call(acct.children);
+var HS=[['Kfé & breakfast','Dès 8 h'],['Poulpe à la plancha','28 €'],['Cocktails','Au comptoir'],['Menu des minots','13 €']];
+var hsBox=document.getElementById('hss');
+var hsEls=HS.map(function(h,i){var b=document.createElement('button');b.type='button';b.className='hs';b.innerHTML='<span class="dot"></span><span class="lb">'+h[0]+'<em>'+h[1]+'</em></span>';b.addEventListener('click',function(){hsEls.forEach(function(o){if(o!==b)o.classList.remove('on')});b.classList.toggle('on')});hsBox.appendChild(b);return b});
+var spl=sunp.getTotalLength?sunp.getTotalLength():300;sunp.style.strokeDasharray=spl;
+var W=innerWidth,H=innerHeight,sp=0,T=null,R,S,C,isl,sunM,dl,anchors=[],sea,minis=[],clouds=[];
+function prog3(){var r=story.getBoundingClientRect();var tot=story.offsetHeight-innerHeight;return clamp(-r.top/tot)}
+function dom(){
+ var mob=W<900;
+ var heroOut=seg(sp,.06,.16);L0.style.opacity=1-heroOut;L0.style.transform='translateY('+(-heroOut*40)+'px)';L0.style.visibility=heroOut>=1?'hidden':'visible';
+ var vIn=seg(sp,.15,.26),vOut=seg(sp,.33,.41);
+ words.forEach(function(w,i){var k=clamp(vIn*1.6-i*.09);w.style.opacity=k*(1-vOut);w.style.transform='translate3d(0,'+((1-k)*30-vOut*60)+'px,0)';w.style.filter='blur('+((1-k)*12+vOut*14)+'px)'});
+ var o=clamp(vIn*2-.6)*(1-vOut);vis.style.setProperty('--vo',clamp(vIn*2)*(1-vOut));vchip.style.opacity=o;vp.style.opacity=o;vp.style.transform='translateY('+(-vOut*50)+'px)';
+ var aIn=seg(sp,.43,.53),aOut=seg(sp,.64,.69);acct.style.opacity=(aIn>0?1:0)*(1-aOut);acct.style.transform='translateY('+(-aOut*30)+'px)';
+ aws.forEach(function(w,i){var k=clamp(aIn*2.2-i/aws.length*1.2);w.style.opacity=.15+.85*k});
+ hsEls.forEach(function(h,i){var k=seg(sp,.48+i*.025,.53+i*.025);h.dataset.k=k*(1-aOut)});
+ var sIn=seg(sp,.71,.8),sOut=seg(sp,.96,1);
+ [cred,card,feats].forEach(function(e,i){var k=clamp(sIn*1.8-i*.25);e.style.opacity=k*(1-sOut);e.style.transform='translateY('+((1-k)*40)+'px)';e.style.visibility=k>0?'visible':'hidden'});
+ var hrs=Math.round(mix(8,23,seg(sp,.74,.92)));cnt.textContent=hrs;var t=seg(sp,.74,.92);sunp.style.strokeDashoffset=spl*(1-t);
+ if(sunp.getPointAtLength){var pt=sunp.getPointAtLength(spl*t);sund.setAttribute('cx',pt.x);sund.setAttribute('cy',pt.y)}
+ prog.style.transform='scaleX('+sp+')';
+ var c=skyAt(sp);sky.style.background='linear-gradient(rgb('+c[0]+'),rgb('+c[1]+'))';
+}
+function build(){
+ T=THREE;R=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});R.setPixelRatio(Math.min(2,devicePixelRatio||1));R.setSize(W,H,false);
+ S=new T.Scene();S.fog=new T.Fog(0xbfeaf0,26,60);
+ C=new T.PerspectiveCamera(W<900?52:40,W/H,.1,200);
+ S.add(new T.HemisphereLight(0xfff4dc,0x2bb3c0,.85));
+ dl=new T.DirectionalLight(0xffffff,.9);dl.position.set(6,10,6);S.add(dl);
+ function M(c,o){o=o||{};o.color=c;o.flatShading=true;return new T.MeshStandardMaterial(o)}
+ isl=new T.Group();S.add(isl);
+ // sand top
+ var top=new T.CylinderGeometry(3.3,3.05,.55,30,1);var tp=top.attributes.position;for(var i=0;i<tp.count;i++){var y=tp.getY(i);if(y>0){tp.setY(i,y+Math.sin(tp.getX(i)*2.1)*.05+Math.cos(tp.getZ(i)*1.7)*.05)}}top.computeVertexNormals();
+ isl.add(new T.Mesh(top,M(0xf6dca6)));
+ var grass=new T.Mesh(new T.CylinderGeometry(1.05,1.1,.1,14),M(0x3cb371));grass.position.set(-1.5,.3,-.9);isl.add(grass);
+ // rock underside
+ var rk=new T.ConeGeometry(3.05,4.6,30,7,true);rk.rotateX(Math.PI);rk.translate(0,-2.55,0);var rp=rk.attributes.position,cols=[];
+ for(i=0;i<rp.count;i++){var x=rp.getX(i),y2=rp.getY(i),z=rp.getZ(i);var n=Math.sin(x*3.1+y2*1.7)*.18+Math.cos(z*2.7-y2*2.2)*.16;if(y2<-.4){rp.setX(i,x*(1+n));rp.setZ(i,z*(1+n));}var t2=clamp(-y2/4.6);var c=new T.Color().setRGB(mix(.86,.55,t2),mix(.6,.36,t2),mix(.38,.26,t2));cols.push(c.r,c.g,c.b)}
+ rk.setAttribute('color',new T.Float32BufferAttribute(cols,3));rk.computeVertexNormals();
+ isl.add(new T.Mesh(rk,new T.MeshStandardMaterial({vertexColors:true,flatShading:true,side:T.DoubleSide})));
+ // little waterfall of sea water
+ var wf=new T.Mesh(new T.CylinderGeometry(.12,.04,3.2,8,1,true),new T.MeshStandardMaterial({color:0x7fe0ea,transparent:true,opacity:.75}));wf.position.set(2.6,-1.4,1.3);isl.add(wf);
+ // cabane
+ var cab=new T.Group();cab.position.set(.2,.27,-.3);isl.add(cab);
+ [[-.75,-.5],[.75,-.5],[-.75,.5],[.75,.5]].forEach(function(p){var s=new T.Mesh(new T.CylinderGeometry(.06,.06,.45,6),M(0x8a5a3b));s.position.set(p[0],.22,p[1]);cab.add(s)});
+ var floor=new T.Mesh(new T.BoxGeometry(1.9,.1,1.4),M(0xb07a4f));floor.position.y=.47;cab.add(floor);
+ var cvs=document.createElement('canvas');cvs.width=256;cvs.height=128;var g=cvs.getContext('2d');var stc=['#1f9d55','#ffd21f','#ff5d73','#2bb3c0','#ff8a1f'];for(i=0;i<16;i++){g.fillStyle=stc[i%5];g.fillRect(i*16,0,16,128)}g.fillStyle='rgba(0,0,0,.15)';for(i=0;i<16;i++)g.fillRect(i*16+15,0,1,128);
+ var wt=new T.CanvasTexture(cvs);
+ var walls=new T.Mesh(new T.BoxGeometry(1.7,1,1.2),[new T.MeshStandardMaterial({map:wt}),new T.MeshStandardMaterial({map:wt}),M(0xffd21f),M(0xffd21f),new T.MeshStandardMaterial({map:wt}),new T.MeshStandardMaterial({map:wt})]);walls.position.y=1.02;cab.add(walls);
+ var door=new T.Mesh(new T.BoxGeometry(.42,.66,.04),M(0x0e3b43));door.position.set(-.3,.86,.61);cab.add(door);
+ var win=new T.Mesh(new T.BoxGeometry(.46,.32,.04),new T.MeshStandardMaterial({color:0xfff4c2,emissive:0xffb800,emissiveIntensity:.0}));win.position.set(.38,1.1,.61);cab.add(win);cab.userData.win=win;
+ var roofG=new T.ConeGeometry(1.45,.75,4,1);roofG.rotateY(Math.PI/4);var roof=new T.Mesh(roofG,M(0xff5d73));roof.scale.set(1.25,1,.95);roof.position.y=1.9;cab.add(roof);
+ var sc=document.createElement('canvas');sc.width=256;sc.height=64;var sg=sc.getContext('2d');sg.fillStyle='#ffd21f';sg.fillRect(0,0,256,64);sg.fillStyle='#0e3b43';sg.font='bold 34px Georgia,serif';sg.textAlign='center';sg.textBaseline='middle';sg.fillText("L'ABRI",128,34);
+ var sign=new T.Mesh(new T.BoxGeometry(1,.26,.05),[M(0xffd21f),M(0xffd21f),M(0xffd21f),M(0xffd21f),new T.MeshStandardMaterial({map:new T.CanvasTexture(sc)}),M(0xffd21f)]);sign.position.set(0,1.62,.66);cab.add(sign);
+ // awning
+ var aw=new T.Mesh(new T.BoxGeometry(1.9,.05,.6),M(0x1f9d55));aw.position.set(0,1.5,.9);aw.rotation.x=.35;cab.add(aw);
+ // palm
+ var palm=new T.Group();palm.position.set(-1.9,.27,.6);isl.add(palm);var px=0,py=0;
+ for(i=0;i<7;i++){var tr=new T.Mesh(new T.CylinderGeometry(.09-i*.006,.11-i*.006,.42,7),M(i%2?0x9b6b43:0x86592f));px+=.035*i*.6;tr.position.set(px,py+.21,0);tr.rotation.z=-.06*i;palm.add(tr);py+=.4}
+ for(i=0;i<8;i++){var lf=new T.Mesh(new T.ConeGeometry(.16,1.5,4),M(i%2?0x1f9d55:0x2fbf6a));lf.geometry.translate(0,.75,0);lf.scale.z=.25;lf.position.set(px+.1,py,0);lf.rotation.z=Math.PI/2+.45;lf.rotation.y=i/8*Math.PI*2;var hold=new T.Group();hold.position.set(px+.1,py,0);hold.rotation.y=i/8*Math.PI*2;lf.position.set(0,0,0);lf.rotation.set(0,0,-(Math.PI/2-.5));hold.add(lf);palm.add(hold)}
+ var coco=new T.Mesh(new T.SphereGeometry(.1,6,5),M(0x6b4226));coco.position.set(px+.1,py-.1,.08);palm.add(coco);
+ // parasols + tables
+ function parasol(c1,c2){var p=new T.Group();var pole=new T.Mesh(new T.CylinderGeometry(.03,.03,1.2,6),M(0xffffff));pole.position.y=.6;p.add(pole);for(var k=0;k<8;k++){var s=new T.Mesh(new T.ConeGeometry(.72,.32,8,1,true,k*Math.PI/4,Math.PI/4),M(k%2?c1:c2,{side:T.DoubleSide}));s.position.y=1.2;p.add(s)}var tb=new T.Mesh(new T.CylinderGeometry(.28,.28,.05,10),M(0xffffff));tb.position.y=.45;p.add(tb);var tl=new T.Mesh(new T.CylinderGeometry(.03,.03,.45,6),M(0xffffff));tl.position.y=.22;p.add(tl);return p}
+ var p1=parasol(0xff5d73,0xfff4dc);p1.position.set(1.7,.27,.9);isl.add(p1);
+ var p2=parasol(0xffd21f,0xfff4dc);p2.position.set(.6,.27,1.9);isl.add(p2);
+ var p3=parasol(0x2bb3c0,0xfff4dc);p3.position.set(2.2,.27,-.9);isl.add(p3);
+ // surfboard leaning
+ var sb=new T.Mesh(new T.SphereGeometry(.5,14,10),M(0xff8a1f));sb.scale.set(.32,1.25,.06);sb.position.set(1.15,1.05,-.05);sb.rotation.z=-.18;isl.add(sb);
+ var sb2=new T.Mesh(new T.SphereGeometry(.5,14,10),M(0x2bb3c0));sb2.scale.set(.3,1.1,.06);sb2.position.set(1.32,.95,-.2);sb2.rotation.z=-.3;isl.add(sb2);
+ // cocktail glass giant on the sand
+ var gl=new T.Group();gl.position.set(-.6,.27,1.75);isl.add(gl);var cup=new T.Mesh(new T.CylinderGeometry(.26,.16,.5,14,1,true),new T.MeshStandardMaterial({color:0xff8a1f,transparent:true,opacity:.85,side:T.DoubleSide}));cup.position.y=.25;gl.add(cup);var lime=new T.Mesh(new T.TorusGeometry(.14,.04,6,14),M(0x9ad94a));lime.position.set(.2,.5,0);lime.rotation.y=1.2;gl.add(lime);var straw=new T.Mesh(new T.CylinderGeometry(.02,.02,.7,5),M(0xff5d73));straw.position.set(-.06,.55,0);straw.rotation.z=.3;gl.add(straw);
+ // anchors for hotspots (world-space in island group)
+ anchors=[new T.Vector3(-.3,1.2,.6),new T.Vector3(1.8,1.5,.9),new T.Vector3(-.55,.9,1.75),new T.Vector3(-1.8,2.6,.6)];
+ // mini floating rocks with umbrellas
+ [[-6,1.5,-3,.6,0xffd21f],[6.2,-.5,-2,.75,0xff5d73],[-4.5,-2.8,2,.5,0x2bb3c0]].forEach(function(m){var gq=new T.Group();var r=new T.Mesh(new T.ConeGeometry(m[3],m[3]*1.7,9,2),M(0xc08a5a));r.rotation.x=Math.PI;r.position.y=-m[3]*.85;gq.add(r);var tt=new T.Mesh(new T.CylinderGeometry(m[3],m[3]*.95,.16,9),M(0xf6dca6));gq.add(tt);var pp=parasol(m[4],0xfff4dc);pp.scale.setScalar(m[3]*.9);pp.position.y=.08;gq.add(pp);gq.position.set(m[0],m[1],m[2]);gq.userData.y=m[1];gq.userData.ph=Math.random()*6;S.add(gq);minis.push(gq)});
+ // sea far below
+ var sg2=new T.PlaneGeometry(160,160,40,40);sg2.rotateX(-Math.PI/2);sea=new T.Mesh(sg2,new T.MeshStandardMaterial({color:0x2bb3c0,flatShading:true,roughness:.6}));sea.position.y=-9;S.add(sea);
+ // sun
+ sunM=new T.Mesh(new T.SphereGeometry(1.6,20,14),new T.MeshBasicMaterial({color:0xffe066,fog:false}));S.add(sunM);
+ // clouds
+ for(i=0;i<5;i++){var cl=new T.Group();for(var k=0;k<4;k++){var b=new T.Mesh(new T.SphereGeometry(.6+Math.random()*.5,8,6),new T.MeshStandardMaterial({color:0xffffff,flatShading:true}));b.position.set(k*.75-1.1,Math.random()*.3,Math.random()*.4);cl.add(b)}cl.position.set(-14+i*7,4+Math.random()*3,-14-Math.random()*8);cl.scale.setScalar(.9+Math.random()*.6);S.add(cl);clouds.push(cl)}
+}
+var camP=[[0,1.3,15.5],[0,1.6,11],[3.2,2.4,6.2],[-1.6,1.9,6.4],[-5.6,3.4,4.6],[0,7.5,10.5]],camK=[0,.12,.38,.55,.72,1];
+var lookP=[[0,.2,0],[0,.6,0],[.3,1,0],[0,.9,0],[0,.8,0],[0,0,0]];
+function pathAt(arr,p){for(var i=0;i<camK.length-1;i++){if(p<=camK[i+1]){var t=ease((p-camK[i])/(camK[i+1]-camK[i]));return [mix(arr[i][0],arr[i+1][0],t),mix(arr[i][1],arr[i+1][1],t),mix(arr[i][2],arr[i+1][2],t)]}}return arr[arr.length-1]}
+var tm=0,last=performance.now();
+function frame(now){
+ var dt=Math.min(.05,(now-last)/1000);last=now;tm+=dt;
+ sp=prog3();dom();
+ if(R){
+  var mob=W<900;
+  var cp=pathAt(camP,sp),lp=pathAt(lookP,sp);var zf=mob?1.5:1;
+  C.position.set(cp[0]*zf,cp[1]+(mob?.6:0),cp[2]*zf);C.lookAt(lp[0],lp[1]+(mob?1.7:3.4)*(1-seg(sp,.05,.3)),lp[2]);
+  isl.position.y=Math.sin(tm*.8)*.12;isl.rotation.y=sp*.9+Math.sin(tm*.3)*.03;
+  minis.forEach(function(m,i){m.position.y=m.userData.y+Math.sin(tm*.9+m.userData.ph)*.25;m.rotation.y+=dt*.15});
+  clouds.forEach(function(c,i){c.position.x+=dt*.25;if(c.position.x>20)c.position.x=-20});
+  var sa=mix(.15,Math.PI-.1,sp);sunM.position.set(Math.cos(sa)*-22,Math.sin(sa)*11-1,-28);dl.position.copy(sunM.position).normalize().multiplyScalar(12);
+  var sc=new T.Color().setHSL(mix(.14,.04,sp),1,mix(.62,.6,sp));sunM.material.color=sc;dl.color=new T.Color().setHSL(mix(.12,.05,sp),.8,mix(.95,.72,sp));
+  var c=skyAt(sp);S.fog.color.setRGB(c[1][0]/255,c[1][1]/255,c[1][2]/255);
+  isl.children.forEach(function(){});
+  var win=isl.children.filter(function(o){return o.userData&&o.userData.win})[0];if(win)win.userData.win.material.emissiveIntensity=seg(sp,.7,.95)*1.2;
+  var pa=sea.geometry.attributes.position;for(var i=0;i<pa.count;i+=1){var x=pa.getX(i),z=pa.getZ(i);pa.setY(i,Math.sin(x*.35+tm*1.2)*.25+Math.cos(z*.3+tm)*.25)}pa.needsUpdate=true;sea.geometry.computeVertexNormals();
+  R.render(S,C);
+  // hotspots
+  hsEls.forEach(function(h,i){var k=+h.dataset.k||0;if(k<=0){h.style.transform='scale(0)';h.style.visibility='hidden';return}var v=anchors[i].clone();isl.localToWorld(v);v.project(C);var x=(v.x*.5+.5)*W,y=(-v.y*.5+.5)*H;x=Math.max(8,Math.min(W-170,x));h.style.visibility='visible';h.style.transform='translate3d('+(x-11)+'px,'+(y-11)+'px,0) scale('+k+')'});
+ }else{hsEls.forEach(function(h,i){var k=+h.dataset.k||0;var pos=[[.12,.55],[.6,.48],[.2,.68],[.55,.64]][i];h.style.visibility=k>0?'visible':'hidden';h.style.transform='translate3d('+(pos[0]*W)+'px,'+(pos[1]*H)+'px,0) scale('+k+')'})}
+ requestAnimationFrame(frame);
+}
+function rs(){W=innerWidth;H=innerHeight;if(R){R.setSize(W,H,false);C.aspect=W/H;C.fov=W<900?52:40;C.updateProjectionMatrix()}}
+addEventListener('resize',rs);
+function start(){try{if(window.THREE){build()}else{document.documentElement.classList.add('no3d')}}catch(e){R=null;document.documentElement.classList.add('no3d')}requestAnimationFrame(frame)}
+var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=start;s.onerror=start;document.head.appendChild(s);
+setTimeout(function(){if(!R&&!window.THREE&&!document.documentElement.classList.contains('no3d')){}},4000);
+})();
+
+/* ===== count-up + tilt ===== */
+(function(){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var b=e.target,to=+b.dataset.to,dec=+(b.dataset.dec||0),t0=performance.now();function st(n){var t=Math.min(1,(n-t0)/1400),v=to*(1-Math.pow(1-t,3));b.textContent=(b.dataset.pre||'')+v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(b.dataset.suf||'');if(t<1)requestAnimationFrame(st)}requestAnimationFrame(st)})},{threshold:.4});
+document.querySelectorAll('[data-to]').forEach(function(b){io.observe(b)});
+var tl=[].slice.call(document.querySelectorAll('.tilt'));
+function tilt(){tl.forEach(function(t,i){var r=t.getBoundingClientRect();var c=(r.top+r.height/2)/innerHeight-.5;t.style.transform='rotateX('+(c*-14)+'deg) rotateY('+(innerWidth<800?0:(i-1)*8*(1-Math.abs(c)))+'deg) translateZ('+(innerWidth<800?0:(1-Math.abs(c))*20)+'px)'})}
+addEventListener('scroll',tilt,{passive:true});tilt();
+})();
+
+/* ===== carte : rack de planches ===== */
+(function(){
+var CAT=[
+ {n:"Mise à l'eau",s:"Tapas & entrées",d:[["Frites de patates douces","Sauce paprika fumé maison.","9 €"],["Camembert ô pistou rôti au four","Mouillettes & pignons de pin.","14 €"],["Boudins de cochon antillais","Sauce vierge.","13 €"],["Wings de poulet satay","Sauce cacahuète.","13 €"],["Fromage de chèvre du copain « Jo »","De la fromagerie du coin.","9 €"],["Labneh et falafels","Pistaches et grenade.","13 €"],["Houmous de pois chiche","Son pain pita.","10 €"],["Accras de morue","Sauce vierge.","13 €"],["Rillettes d'espadon","Ô piment végétarien & chips de pain bio.","13 €"]]},
+ {n:"Line Up",s:"Les plats",d:[["Las Vegan","Riz complet, falafel, houmous, olives kalamata, légumes de saison crus et cuits, dahl de lentilles corail, vinaigrette umeboshi.","24 €"],["Le ceviche d'espadon","Tartare d'espadon et « leche de tigre », patates douces, avocat, pickles d'oignons rouges, canchas, coriandre.","26 €"],["Le poulpe à la plancha","Ail, persil, piment d'Espelette, coulis de piquillos, pommes de terre grenailles, aïoli.","28 €"],["La brochette poulet crevettes","Sauce cacahuète, riz parfumé, salade croquante.","26 €"],["La bavette roulée ô chèvre","Crème pistou, pommes de terre grenailles.","28 €"],["L'entrecôte de bœuf grillée","Environ 300 g, frites maison, salade mixte, sauce bistro.","32 €"]]},
+ {n:"Pour les minots",s:"Jusqu'à 12 ans, dessert non inclus",d:[["Fish'n chips","Au choix dans le menu des minots.","13 €"],["Cheese burger frites maison","Au choix dans le menu des minots.","13 €"],["Ravioles de Royans à la crème","Au choix dans le menu des minots.","13 €"]]}
+];
+var COL=[["#ffd21f","#ff5d73"],["#2bb3c0","#ffd21f"],["#ff5d73","#fff3d6"],["#1f9d55","#ffd21f"],["#ff8a1f","#2bb3c0"],["#fff3d6","#1f9d55"]];
+var tabs=document.getElementById('tabs'),ring=document.getElementById('ring'),pos=document.getElementById('rpos'),cur=0,idx=0,N=0,R=330;
+CAT.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.role='tab';b.setAttribute('aria-selected',i===0);b.textContent=c.n;b.onclick=function(){show(i)};tabs.appendChild(b)});
+function show(ci){cur=ci;idx=0;[].forEach.call(tabs.children,function(b,i){b.setAttribute('aria-selected',i===ci)});var d=CAT[ci].d;N=d.length;R=Math.max(170,Math.round(156/2/Math.tan(Math.PI/Math.max(N,3))+40));if(innerWidth<600)R=Math.round(R*.82);
+ ring.innerHTML=d.map(function(x,i){var c=COL[(i+ci*2)%COL.length];return '<button type="button" class="board" aria-label="'+x[0]+', '+x[2]+'. Retourner la planche" style="transform:rotateY('+(i*360/N)+'deg) translateZ('+R+'px)"><span class="fl"><span class="f" style="background:'+c[0]+';--st:'+c[1]+'"><h3>'+x[0]+'</h3><span class="p">'+x[2]+'</span></span><span class="b"><h3>'+x[0]+'</h3><p>'+x[1]+'</p><span class="p">'+x[2]+'</span></span></span></button>'}).join('');
+ [].forEach.call(ring.children,function(b){b.onclick=function(){b.classList.toggle('flip')}});rot()}
+function rot(){ring.style.transform='translateZ('+(-R)+'px) rotateY('+(-idx*360/N)+'deg)';pos.textContent=CAT[cur].s.toUpperCase()+' · '+(((idx%N)+N)%N+1)+'/'+N;[].forEach.call(ring.children,function(b,i){var on=(((idx%N)+N)%N)===i;b.tabIndex=on?0:-1;if(!on)b.classList.remove('flip')})}
+document.getElementById('rprev').onclick=function(){idx--;rot()};document.getElementById('rnext').onclick=function(){idx++;rot()};
+var rk=document.getElementById('rack'),sx=null;rk.addEventListener('pointerdown',function(e){sx=e.clientX});rk.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;sx=null;if(Math.abs(d)>40){idx+=d<0?1:-1;rot()}});
+rk.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){idx++;rot()}if(e.key==='ArrowLeft'){idx--;rot()}});
+show(0);
+// slow auto-turn while visible, stops after interaction
+var auto=true;rk.addEventListener('pointerdown',function(){auto=false});
+setInterval(function(){if(!auto||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var r=rk.getBoundingClientRect();if(r.top<innerHeight*.7&&r.bottom>innerHeight*.3){idx++;rot()}},2600);
+})();
+
+/* ===== galerie : marée de photos ===== */
+(function(){
+var P=[["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tiq2Sfdvxqcwv89jtUlDz0anrv37RsVy8FEqywJmvRVaej9PTtIP9BWTv0KP_DrWfZJZRwAr1gxOwAcYX58Fqyqx_7CjT1PeanocwEe_FvSV9XnHG8QMzHmz6rUHoJDuleHDGgmmoafIYJ","Dans l'assiette","Une assiette servie à L'Abri-Cotier"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9ThW4b2JHGZzVf7rF9LSHPRue7Yv9ADF2m6o457qF4rOLJRH8jHeMHJotoEld0tFxsReBjwSiqF2TxjuAeXLGY0OawU97OXpNmIsloVqaB6wnCGK21I1COC4l_YxIfZErfWT-Sv","Cocktails","Deux cocktails colorés sur une table"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QYdQbkhSVUaRxlCr6m-xVxkBuIUVq2HmwbRryFQhqHS-zvdIf0zwkWup_83K3hJ8Gbqt-RpiMiVT7u-yD5UJjTkHRt8THFKAUuK--CrY1IjO1ToN4XBVPYE7H7jhZXVoldgl9O","Le bar","Le bar vert et ses bouteilles"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qd6iGroCthmFbqOEqWEM1EuWzBFySEdh4EJ6OB3lzT8RkFDLwWW-QjQwk6w6rXpMfl6qnrsFdnEGJsleKHrhvWOTMj8_J-q06CzO273EEsK62LnsMUcQ3aCUIscQn-wYfDsKWtzo-NB90i","De la mer","Une assiette de crevettes"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QcTw_cbMuhfsE2-AbIEvSypLtElfmTDaOr4d6Hd8mE5u6e0KO0-NptL2qU35sJQnUSTcEiIC6-LHHsh8VqExk1m4ySxzO4uyg3DHJH8EbN3dxO_ifDYMT1YVoI4JFjWtNv85FmNA","Couleurs","Une assiette colorée de légumes et de fleurs"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TpxbNqA6VoN0MDXGWvvDZnXgr6mlvJuIHqhXQYlQLg8M09GxYUSj8TdAel7F9uXCVAL5Rp-D9-j3GzuGyLoy5cyZIVUMPpGipk7akQ8PPf-R4j-htocsOerjAcNMpK8X-2Y5_h","Le soir","La terrasse en fin de journée"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SdWUlZ8TzVaS8za6YRZHOAML1vpiaqDC_s9eP0xir0ZE3m1KpAzMcfHen5_3VMrR6-eMZm4qsIwnE5Ebw4wvd7adY1pCIXyRvi1rD8Mt7FvMhyi_h8zSvGbbrYwMFDw0RdvnRBHSgmm0E","Gourmand","Un dessert gourmand"],
+["https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q5SAPmAju6Y4NH_tNdNgcqHiG6TZr42DxcAwBzbizaOGNiMS10fMF2OVmxVSdVa7Iexdti4rT26cNpV6WQD-aEizfLPE4PM0LeclsefSsR2p4AIstzjj92G-1g4Lr1gQdK5P1Y","Mojito","Un mojito frais"]];
+var pl=document.getElementById('plane'),sea=document.getElementById('sea');
+var xs=innerWidth<600?[250,470,280,480,240,460,300,470]:[90,520,250,620,60,400,170,560],ys=[300,360,520,600,760,820,1000,1060];
+pl.innerHTML=P.map(function(p,i){return '<div class="buoy" style="left:'+xs[i]+'px;top:'+ys[i]+'px"><div class="in" style="animation-delay:'+(-i*.7)+'s"><figure><img src="'+p[0]+'=w500" alt="'+p[2]+'" loading="lazy"><figcaption>'+p[1]+'</figcaption></figure></div></div>'}).join('');
+function sc(){var r=sea.getBoundingClientRect();var t=Math.max(-.2,Math.min(1.2,1-(r.top+r.height)/(innerHeight+r.height)));var s=innerWidth<600?.62:1;pl.style.transform='scale('+s+') rotateX(64deg) translateY('+(-t*820+260)+'px) translateZ(-60px)'}
+addEventListener('scroll',sc,{passive:true});addEventListener('resize',sc);sc();
+})();
+
+/* ===== réservation ===== */
+(function(){
+var J=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'],MO=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+var days=document.getElementById('days'),moms=document.getElementById('moms'),slots=document.getElementById('slots'),st={d:null,m:null,s:null,g:2,w:'En terrasse'};
+var now=new Date();for(var i=0;i<14;i++){(function(i){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);var b=document.createElement('button');b.type='button';b.className='day';var closed=d.getDay()===3;b.disabled=closed;b.setAttribute('aria-pressed','false');b.innerHTML=(i===0?'auj.':J[d.getDay()])+'<b>'+d.getDate()+'</b>'+(closed?'fermé':MO[d.getMonth()]);b.setAttribute('aria-label',d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})+(closed?', fermé':''));b.onclick=function(){[].forEach.call(days.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');st.d=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})};days.appendChild(b)})(i)}
+var M=[["Kfé & breakfast","8 h – 11 h",["8:30","9:00","9:30","10:00","10:30"]],["Déjeuner","12 h – 14 h 30",["12:00","12:30","13:00","13:30","14:00"]],["Apéro","17 h – 19 h 30",["17:30","18:00","18:30","19:00"]],["Dîner","19 h 30 – 22 h",["19:30","20:00","20:30","21:00","21:30"]]];
+M.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='mom';b.setAttribute('aria-pressed','false');b.innerHTML=m[0]+'<small>'+m[1]+'</small>';b.onclick=function(){[].forEach.call(moms.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');st.m=m[0];st.s=null;slots.innerHTML=m[2].map(function(s){return '<button type="button" class="slot" aria-pressed="false">'+s.replace(':',' h ').replace(' h 00',' h')+'</button>'}).join('');[].forEach.call(slots.children,function(s){s.onclick=function(){[].forEach.call(slots.children,function(x){x.setAttribute('aria-pressed','false')});s.setAttribute('aria-pressed','true');st.s=s.textContent}})};moms.appendChild(b)});
+var paras=document.getElementById('paras'),gn=document.getElementById('gn'),bc=document.getElementById('bcount');var PC=['#ff5d73','#ffd21f','#2bb3c0','#1f9d55','#ff8a1f'];
+function para(i){var c=PC[i%PC.length];return '<div class="pa" style="animation-delay:'+(i*.05)+'s"><svg viewBox="0 0 54 110" aria-hidden="true"><line x1="27" y1="30" x2="27" y2="108" stroke="#0e3b43" stroke-width="3"/><g class="cn"><path d="M2 32 Q27 2 52 32z" fill="'+c+'" stroke="#0e3b43" stroke-width="2"/><path d="M27 6 Q19 18 15 32 M27 6 Q35 18 39 32" stroke="#0e3b43" stroke-width="1.6" fill="#fff3d6" fill-opacity=".9"/></g></svg></div>'}
+function draw(){var n=st.g;while(paras.children.length<n)paras.insertAdjacentHTML('beforeend',para(paras.children.length));while(paras.children.length>n)paras.removeChild(paras.lastChild);var w=Math.min(54,Math.floor((paras.clientWidth-20)/n)-2);[].forEach.call(paras.children,function(p){p.style.width=w+'px';p.style.height=(w*110/54)+'px'});gn.textContent=n+' pers.';bc.textContent=n+(n>1?' PARASOLS':' PARASOL')}
+document.getElementById('gm').onclick=function(){if(st.g>1){st.g--;draw()}};document.getElementById('gp').onclick=function(){if(st.g<12){st.g++;draw()}};
+addEventListener('resize',draw);draw();
+var wh=document.getElementById('where');[].forEach.call(wh.children,function(b){b.onclick=function(){[].forEach.call(wh.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');st.w=b.dataset.v}});
+var f=document.getElementById('bf'),err=document.getElementById('err'),tk=document.getElementById('tk');
+f.addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('fn').value.trim(),t=document.getElementById('ft').value.trim(),c=document.getElementById('fc').checked;var m=[];if(!st.d)m.push('le jour');if(!st.m||!st.s)m.push('le moment et l\'heure');if(!n)m.push('votre nom');if(t.replace(/\D/g,'').length<10)m.push('un téléphone valide');if(!c)m.push('votre accord');if(m.length){err.textContent='Il manque : '+m.join(', ')+'.';return}err.textContent='';document.getElementById('tkT').textContent=st.d+' · '+st.m+' à '+st.s+' · '+st.g+' pers. · '+st.w+'. Au nom de '+n+'. La cabane vous rappelle pour confirmer (démo : rien n\'est envoyé).';tk.classList.add('on');tk.scrollIntoView({behavior:'smooth',block:'center'})});
+})();
+
+/* ===== infos : course du soleil ===== */
+(function(){
+var N=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];var H=[[8,23],[8,23],null,[8,23],[8,23],[8,23],[8,23]];
+var d=new Date(),td=(d.getDay()+6)%7,h=d.getHours()+d.getMinutes()/60;
+document.getElementById('hours').innerHTML=N.map(function(n,i){return '<li class="'+(i===td?'t ':'')+(H[i]?'':'c')+'"><span>'+n+'</span><span>'+(H[i]?'8 h – 23 h':'Fermé')+'</span></li>'}).join('');
+var op=H[td]&&h>=H[td][0]&&h<H[td][1];var lv=document.getElementById('live');lv.classList.toggle('off',!op);document.getElementById('liveT').textContent=op?'OUVERT · JUSQU\'À 23 H':(H[td]&&h<8?'OUVRE À 8 H':'FERMÉ POUR LE MOMENT');
+var p=document.getElementById('arcO'),s=document.getElementById('arcS'),L=p.getTotalLength();p.style.strokeDasharray=L;
+var t=H[td]?Math.max(0,Math.min(1,(h-8)/15)):0;var done=false;
+var io=new IntersectionObserver(function(e){if(!e[0].isIntersecting||done)return;done=true;var t0=performance.now();function st(n){var k=Math.min(1,(n-t0)/1600),e2=1-Math.pow(1-k,3),v=t*e2;p.style.strokeDashoffset=L*(1-v);var pt=p.getPointAtLength(L*v);s.setAttribute('transform','translate('+pt.x+','+pt.y+')');if(k<1)requestAnimationFrame(st)}requestAnimationFrame(st)},{threshold:.4});
+p.style.strokeDashoffset=L;var pt0=p.getPointAtLength(0);s.setAttribute('transform','translate('+pt0.x+','+pt0.y+')');io.observe(p.closest('.arc'));
+})();
+</script>
+</body>
+</html>
