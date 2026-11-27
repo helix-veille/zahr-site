@@ -90,21 +90,24 @@
       "url": "https://zahr.fr/motion/reels/2611-nuit.mp4",
       "caption": "23 h 47. Tu as fermé. 🌙\n\nTon site, lui, prend la réservation, envoie la confirmation au client et range ton agenda. Au réveil, tout est là. Exemple avec des données fictives.\n\nÉcris « nuit » en message privé pour en parler.\n\n#reservationenligne #automatisation #commerce #entrepreneur #var #zahr",
       "delivered": "",
-      "voix": "à ajouter (Gemini)"
+      "voix": "à ajouter (Gemini)",
+      "bruitages": "sfx2 (27/11)"
     },
     {
       "file": "2611-mer.mp4",
       "url": "https://zahr.fr/motion/reels/2611-mer.mp4",
       "caption": "On sort en mer ? 🌊\n\nSur le site exemple ZAHR Nautique, on fait glisser le vent et la mer bouge : calme plat, petite brise ou coup de vent, le site dit si c’est le bon jour pour sortir. Un exemple de démonstration à voir sur zahr.fr.\n\nTon activité mérite aussi son idée. Écris « mer » en message privé.\n\n#bateau #location #siteweb #webdesign #var #zahr",
       "delivered": "",
-      "voix": "à ajouter (Gemini)"
+      "voix": "à ajouter (Gemini)",
+      "bruitages": "sfx2 (27/11)"
     },
     {
       "file": "2611-horaires.mp4",
       "url": "https://zahr.fr/motion/reels/2611-horaires.mp4",
       "caption": "Fermé ?! Pourtant, le site dit « ouvert ». 🚪\n\nDes horaires pas à jour, c’est un client qui se déplace pour rien. Congés, jour férié, fermeture exceptionnelle : mets-les à jour partout, le jour même.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je le vérifie.\n\n#conseil #horaires #commerce #entrepreneur #var #zahr",
       "delivered": "",
-      "voix": "à ajouter (Gemini)"
+      "voix": "à ajouter (Gemini)",
+      "bruitages": "sfx2 (27/11)"
     },
     {
       "file": "2711-bijou.mp4",
@@ -113,7 +116,8 @@
       "delivered": "",
       "voix": "à ajouter (Gemini)",
       "voix_texte": "Avant de venir, ta cliente compose sa bague. Or rose, émeraude, saphir : elle change en direct. Une gravure, puis elle prend rendez-vous. C’est un site exemple ZAHR, à voir sur zahr.fr.",
-      "fond": "sombre"
+      "fond": "sombre",
+      "bruitages": "sfx2 (27/11)"
     },
     {
       "file": "2711-qr.mp4",
@@ -122,7 +126,8 @@
       "delivered": "",
       "voix": "à ajouter (Gemini)",
       "voix_texte": "Ton QR code, il mène où ? Colle-le sur ta vitrine, à hauteur d’yeux. Un scan, et il ouvre directement la réservation, pas ta page d’accueil.",
-      "fond": "clair"
+      "fond": "clair",
+      "bruitages": "sfx2 (27/11)"
     },
     {
       "file": "2711-mail.mp4",
@@ -131,7 +136,8 @@
       "delivered": "",
       "voix": "à ajouter (Gemini)",
       "voix_texte": "Ton adresse mail, c’est ta carte de visite. Une adresse gratuite, ça passe. À ton nom, avec le même nom que ton site, ça fait tout de suite plus pro.",
-      "fond": "sauge"
+      "fond": "sauge",
+      "bruitages": "sfx2 (27/11)"
     }
   ]
 }
