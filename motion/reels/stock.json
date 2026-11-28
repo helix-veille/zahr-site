@@ -222,6 +222,40 @@
    "url": "https://zahr.fr/motion/reels/2811-devis.mp4",
    "voix": "aucune (navigateur du PC indisponible cette nuit)",
    "style": "morph UI"
+  },
+  {
+   "file": "2811-saas.mp4",
+   "url": "https://zahr.fr/motion/reels/2811-saas.mp4",
+   "delivered": "",
+   "style": "morph UI (45 s, textes animés)",
+   "sujet": "Présentation complète de l’outil ZAHR : gestion V1, veille V2, robots, assistant, 2 versions",
+   "bpm": 124,
+   "son": "pop instrumentale composée en code, sans bruitages",
+   "voix": "à ajouter (Gemini Rami) quand le PC sera relié",
+   "voix_texte": "Ton entreprise, pilotée depuis un seul écran. Avec la gestion ZAHR, ton devis devient facture en un clic, ta banque se trie toute seule, et la TVA et l’URSSAF sont calculées pour toi. Avec la version 2, une veille cherche tes futurs clients et prépare le message : toi, tu valides. Des robots envoient les rappels, les relances et les demandes d’avis, jour et nuit. Et un assistant répond à tes questions sur tes chiffres. Deux versions, construites pour ton métier. Essaie la démo sur zahr.fr.",
+   "etats": [
+    "ZAHR Gestion",
+    "tableau Aujourd’hui",
+    "devis→facture",
+    "acompte glissé",
+    "toast facture",
+    "banque triée",
+    "URSSAF/TVA + alerte",
+    "radar",
+    "île nouvelle piste",
+    "pistes garder/écarter",
+    "message préparé",
+    "toast envoyé",
+    "robots déclencheur→action",
+    "notifications 09:00",
+    "assistant question/réponse",
+    "2 versions",
+    "barre zahr.fr",
+    "trèfle zahr.fr",
+    "retour"
+   ],
+   "promptMotion": "https://prompt-motion.com/twoclipping-5cba86",
+   "caption": "Ton entreprise, pilotée depuis un seul écran. 🍀\n\nGestion (V1) : le devis devient facture en un clic, l’acompte se règle d’un geste, la banque se trie et la TVA et l’URSSAF sont calculées pour toi.\nProspection (V2) : une veille repère tes futurs clients et prépare le message, des robots s’occupent des rappels, relances et demandes d’avis, et un assistant répond sur tes chiffres.\n\nConstruit pour ton métier, à tes couleurs. Démo avec une entreprise et des chiffres fictifs : essaie-la sur zahr.fr. Devis gratuit et sans engagement.\n\n#gestion #automatisation #entrepreneur #artisan #var #zahr"
   }
  ]
 }
