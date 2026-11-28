@@ -1,143 +1,227 @@
 {
-  "note": "Stock des Reels ZAHR. delivered = date et heure prévues quand le Reel a été donné à Redha pour publication manuelle ; vide = encore en stock.",
-  "reels": [
-    {
-      "file": "2411-ronde.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-ronde.mp4",
-      "caption": "Un site par métier. 🍀\n\nFleuriste, glacier, spa, location de voitures… Sur zahr.fr, plus de 20 sites exemples imaginés et construits à la main, chacun avec son idée : réservation, commande, composition en ligne.\n\nTon métier n’y est pas ? Écris « exemple » en message privé, je te montre ce que ça pourrait donner.\n\n#siteweb #webdesign #surmesure #entrepreneur #var #zahr",
-      "delivered": "2026-11-24 10:00"
-    },
-    {
-      "file": "2411-bouton.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-bouton.mp4",
-      "caption": "Trop de boutons, et ton client ne sait plus où cliquer. 🎯\n\nSur chaque écran, une action principale : réserver, appeler ou demander un devis. Le reste peut attendre plus bas dans la page.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je te dis quoi enlever.\n\n#conseil #siteweb #ux #entrepreneur #var #zahr",
-      "delivered": "2026-11-25 14:00"
-    },
-    {
-      "file": "2411-fleur.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-fleur.mp4",
-      "caption": "Écris un prénom, il fleurit. 🌺\n\nSur le site exemple ZAHR Fleurs, le visiteur tape un prénom et les fleurs poussent autour, puis il compose son bouquet en ligne. Un site qui a une idée, on s’en souvient.\n\nTu veux un site qui te ressemble ? Écris « fleur » en message privé.\n\n#fleuriste #siteweb #webdesign #surmesure #var #zahr",
-      "delivered": "2026-11-25 18:00"
-    },
-    {
-      "file": "2411-rappel.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-rappel.mp4",
-      "caption": "Ton client a oublié son rendez-vous ? 📅\n\nLa veille à 18 h, il reçoit un rappel automatique et peut confirmer en un message. Toi, tu vois qui a confirmé, sans décrocher ton téléphone.\n\nTu veux la même chose chez toi ? Écris « auto » en message privé.\n\n#automatisation #rendezvous #gaindetemps #artisan #var #zahr",
-      "delivered": "2026-11-24 14:00"
-    },
-    {
-      "file": "2411-facture.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-facture.mp4",
-      "caption": "Ton devis est signé ? Un clic, et c’est une facture. 🧾\n\nMême client, mêmes lignes, numéro suivant : dans l’outil de gestion ZAHR (V1), le devis devient facture et tout reste rangé. Démo avec des données fictives.\n\nÉcris « gestion » en message privé pour la voir.\n\n#facturation #devis #autoentrepreneur #gestion #var #zahr",
-      "delivered": "2026-11-25 10:00"
-    },
-    {
-      "file": "2411-glace.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-glace-voix.mp4",
-      "caption": "Un site qui change de parfum. 🍦\n\nSur le site exemple ZAHR Glacier, la page prend la couleur de chaque parfum, et on compose sa glace boule par boule. Un exemple de démonstration à voir sur zahr.fr.\n\nTon commerce mérite aussi son idée. Écris « site » en message privé.\n\n#glacier #siteweb #webdesign #commerce #var #zahr",
-      "delivered": "2026-11-27 10:00"
-    },
-    {
-      "file": "2411-ecrans.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-ecrans.mp4",
-      "caption": "Un site, trois écrans. 💻📱\n\nOrdinateur, tablette, téléphone : zahr.fr s’adapte à chaque écran, avec le même contenu et le même soin. Mais je le pense d’abord pour le téléphone, là où tes clients te cherchent.\n\nÉcris « site » en message privé pour en parler.\n\n#siteweb #responsive #webdesign #entrepreneur #var #zahr",
-      "delivered": "2026-11-26 21:51"
-    },
-    {
-      "file": "2411-balance.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-balance-voix.mp4",
-      "caption": "Ton site rame ? Souvent, c’est la photo. 🐢\n\nUne photo de téléphone mise telle quelle peut alourdir toute la page. Bien compressée, elle reste aussi belle à l’écran et s’affiche plus vite. Sur chaque site ZAHR, je m’en occupe.\n\nEnvoie « vitesse » en message privé avec le lien de ton site, je regarde.\n\n#conseil #siteweb #vitesse #entrepreneur #var #zahr",
-      "delivered": "2026-11-27 18:00"
-    },
-    {
-      "file": "2411-radar.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-radar.mp4",
-      "caption": "Un radar à clients ? 📡\n\nDans l’outil ZAHR V2, une veille repère chaque jour de nouvelles pistes dans ton secteur. Tu gardes ou tu écartes, en un geste. Exemple avec des données fictives.\n\nÉcris « veille » en message privé pour la démo.\n\n#prospection #veille #entrepreneur #gestion #var #zahr",
-      "delivered": "2026-11-24 18:00"
-    },
-    {
-      "file": "2411-avant.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-avant-voix.mp4",
-      "caption": "Avant. Après. ✨\n\nMême commerce, autre première impression : un seul bouton clair, les infos utiles en haut, un texte qu’on lit d’un coup d’œil. Illustration avec un commerce fictif.\n\nEnvoie-moi le lien de ton site avec le mot « avant » en message privé, je te dis quoi changer.\n\n#avantapres #siteweb #webdesign #entrepreneur #var #zahr",
-      "delivered": "2026-11-27 14:00"
-    },
-    {
-      "file": "2411-compas.mp4",
-      "url": "https://zahr.fr/motion/reels/2411-compas.mp4",
-      "caption": "Le trèfle ZAHR, tracé au compas. 🍀\n\nUn cercle, deux tangentes : un pétale. Quatre fois, en rotation. Le logo est une construction géométrique, et le même soin va dans chaque site.\n\nÉcris « zahr » en message privé pour parler de ton projet.\n\n#logo #design #identite #webdesign #var #zahr",
-      "delivered": ""
-    },
-    {
-      "file": "2511-hotel.mp4",
-      "url": "https://zahr.fr/motion/reels/2511-hotel.mp4",
-      "caption": "Quel étage ? 🛗\n\nSur le site exemple ZAHR Hôtel, on choisit sa chambre comme on prend l’ascenseur : à chaque étage, une ambiance, une chambre, puis la réservation. Un exemple de démonstration à voir sur zahr.fr.\n\nTu veux un site avec une vraie idée ? Écris « étage » en message privé.\n\n#hotel #siteweb #webdesign #reservation #var #zahr",
-      "delivered": "2026-11-26 14:00"
-    },
-    {
-      "file": "2511-numero.mp4",
-      "url": "https://zahr.fr/motion/reels/2511-numero.mp4",
-      "caption": "Ton numéro, il se clique ? 📞\n\nSur téléphone, ton client veut appeler en un geste. Si ton numéro n’est qu’un texte, il doit le recopier. Rends-le cliquable, sur chaque page, et place un bouton « Appeler » à portée de pouce.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je le teste.\n\n#conseil #siteweb #mobile #entrepreneur #var #zahr",
-      "delivered": "2026-11-26 18:00"
-    },
-    {
-      "file": "2511-treso.mp4",
-      "url": "https://zahr.fr/motion/reels/2511-treso.mp4",
-      "caption": "Ta tréso, tu la vois ? 💶\n\nCe qui est entré, ce qui est sorti, et ce qui te reste, mois par mois. Dans l’outil de gestion ZAHR (V1), c’est sous tes yeux, sans tableur. Démo avec des données fictives.\n\nÉcris « gestion » en message privé pour la voir.\n\n#tresorerie #gestion #autoentrepreneur #entrepreneur #var #zahr",
-      "delivered": "2026-11-26 10:00"
-    },
-    {
-      "file": "2611-nuit.mp4",
-      "url": "https://zahr.fr/motion/reels/2611-nuit.mp4",
-      "caption": "23 h 47. Tu as fermé. 🌙\n\nTon site, lui, prend la réservation, envoie la confirmation au client et range ton agenda. Au réveil, tout est là. Exemple avec des données fictives.\n\nÉcris « nuit » en message privé pour en parler.\n\n#reservationenligne #automatisation #commerce #entrepreneur #var #zahr",
-      "delivered": "",
-      "voix": "à ajouter (Gemini)",
-      "bruitages": "sfx2 (27/11)"
-    },
-    {
-      "file": "2611-mer.mp4",
-      "url": "https://zahr.fr/motion/reels/2611-mer.mp4",
-      "caption": "On sort en mer ? 🌊\n\nSur le site exemple ZAHR Nautique, on fait glisser le vent et la mer bouge : calme plat, petite brise ou coup de vent, le site dit si c’est le bon jour pour sortir. Un exemple de démonstration à voir sur zahr.fr.\n\nTon activité mérite aussi son idée. Écris « mer » en message privé.\n\n#bateau #location #siteweb #webdesign #var #zahr",
-      "delivered": "",
-      "voix": "à ajouter (Gemini)",
-      "bruitages": "sfx2 (27/11)"
-    },
-    {
-      "file": "2611-horaires.mp4",
-      "url": "https://zahr.fr/motion/reels/2611-horaires.mp4",
-      "caption": "Fermé ?! Pourtant, le site dit « ouvert ». 🚪\n\nDes horaires pas à jour, c’est un client qui se déplace pour rien. Congés, jour férié, fermeture exceptionnelle : mets-les à jour partout, le jour même.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je le vérifie.\n\n#conseil #horaires #commerce #entrepreneur #var #zahr",
-      "delivered": "",
-      "voix": "à ajouter (Gemini)",
-      "bruitages": "sfx2 (27/11)"
-    },
-    {
-      "file": "2711-bijou.mp4",
-      "url": "https://zahr.fr/motion/reels/2711-bijou.mp4",
-      "caption": "Elle compose sa bague avant de venir. 💍\n\nSur le site exemple ZAHR Joaillerie, on choisit le métal, la pierre et la gravure : la bague change en direct à l’écran, puis on prend rendez-vous à l’atelier. Un exemple de démonstration à voir sur zahr.fr.\n\nTon commerce mérite aussi son idée. Écris « bijou » en message privé.\n\n#bijouterie #joaillerie #siteweb #webdesign #var #zahr",
-      "delivered": "",
-      "voix": "à ajouter (Gemini)",
-      "voix_texte": "Avant de venir, ta cliente compose sa bague. Or rose, émeraude, saphir : elle change en direct. Une gravure, puis elle prend rendez-vous. C’est un site exemple ZAHR, à voir sur zahr.fr.",
-      "fond": "sombre",
-      "bruitages": "sfx2 (27/11)"
-    },
-    {
-      "file": "2711-qr.mp4",
-      "url": "https://zahr.fr/motion/reels/2711-qr.mp4",
-      "caption": "Ton QR code, il mène où ? 📲\n\nCollé sur ta vitrine, à hauteur d’yeux, il doit ouvrir directement la page de réservation, pas ta page d’accueil. Un scan, un créneau. Illustration avec un commerce fictif.\n\nÉcris « qr » en message privé, je te dis comment le mettre en place.\n\n#conseil #qrcode #reservationenligne #commerce #var #zahr",
-      "delivered": "",
-      "voix": "à ajouter (Gemini)",
-      "voix_texte": "Ton QR code, il mène où ? Colle-le sur ta vitrine, à hauteur d’yeux. Un scan, et il ouvre directement la réservation, pas ta page d’accueil.",
-      "fond": "clair",
-      "bruitages": "sfx2 (27/11)"
-    },
-    {
-      "file": "2711-mail.mp4",
-      "url": "https://zahr.fr/motion/reels/2711-mail.mp4",
-      "caption": "Ton adresse mail, c’est ta carte de visite. ✉️\n\nUne adresse gratuite, ça dépanne. Une adresse au nom de ton commerce, avec le même nom que ton site, fait tout de suite plus pro. Illustration avec un commerce fictif.\n\nEnvoie-moi le nom de ton commerce avec le mot « mail » en message privé.\n\n#conseil #emailpro #nomdedomaine #entrepreneur #var #zahr",
-      "delivered": "",
-      "voix": "à ajouter (Gemini)",
-      "voix_texte": "Ton adresse mail, c’est ta carte de visite. Une adresse gratuite, ça passe. À ton nom, avec le même nom que ton site, ça fait tout de suite plus pro.",
-      "fond": "sauge",
-      "bruitages": "sfx2 (27/11)"
-    }
-  ]
+ "note": "Stock des Reels ZAHR. delivered = date et heure prévues quand le Reel a été donné à Redha pour publication manuelle ; vide = encore en stock.",
+ "reels": [
+  {
+   "file": "2411-ronde.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-ronde.mp4",
+   "caption": "Un site par métier. 🍀\n\nFleuriste, glacier, spa, location de voitures… Sur zahr.fr, plus de 20 sites exemples imaginés et construits à la main, chacun avec son idée : réservation, commande, composition en ligne.\n\nTon métier n’y est pas ? Écris « exemple » en message privé, je te montre ce que ça pourrait donner.\n\n#siteweb #webdesign #surmesure #entrepreneur #var #zahr",
+   "delivered": "2026-11-24 10:00"
+  },
+  {
+   "file": "2411-bouton.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-bouton.mp4",
+   "caption": "Trop de boutons, et ton client ne sait plus où cliquer. 🎯\n\nSur chaque écran, une action principale : réserver, appeler ou demander un devis. Le reste peut attendre plus bas dans la page.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je te dis quoi enlever.\n\n#conseil #siteweb #ux #entrepreneur #var #zahr",
+   "delivered": "2026-11-25 14:00"
+  },
+  {
+   "file": "2411-fleur.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-fleur.mp4",
+   "caption": "Écris un prénom, il fleurit. 🌺\n\nSur le site exemple ZAHR Fleurs, le visiteur tape un prénom et les fleurs poussent autour, puis il compose son bouquet en ligne. Un site qui a une idée, on s’en souvient.\n\nTu veux un site qui te ressemble ? Écris « fleur » en message privé.\n\n#fleuriste #siteweb #webdesign #surmesure #var #zahr",
+   "delivered": "2026-11-25 18:00"
+  },
+  {
+   "file": "2411-rappel.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-rappel.mp4",
+   "caption": "Ton client a oublié son rendez-vous ? 📅\n\nLa veille à 18 h, il reçoit un rappel automatique et peut confirmer en un message. Toi, tu vois qui a confirmé, sans décrocher ton téléphone.\n\nTu veux la même chose chez toi ? Écris « auto » en message privé.\n\n#automatisation #rendezvous #gaindetemps #artisan #var #zahr",
+   "delivered": "2026-11-24 14:00"
+  },
+  {
+   "file": "2411-facture.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-facture.mp4",
+   "caption": "Ton devis est signé ? Un clic, et c’est une facture. 🧾\n\nMême client, mêmes lignes, numéro suivant : dans l’outil de gestion ZAHR (V1), le devis devient facture et tout reste rangé. Démo avec des données fictives.\n\nÉcris « gestion » en message privé pour la voir.\n\n#facturation #devis #autoentrepreneur #gestion #var #zahr",
+   "delivered": "2026-11-25 10:00"
+  },
+  {
+   "file": "2411-glace.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-glace-voix.mp4",
+   "caption": "Un site qui change de parfum. 🍦\n\nSur le site exemple ZAHR Glacier, la page prend la couleur de chaque parfum, et on compose sa glace boule par boule. Un exemple de démonstration à voir sur zahr.fr.\n\nTon commerce mérite aussi son idée. Écris « site » en message privé.\n\n#glacier #siteweb #webdesign #commerce #var #zahr",
+   "delivered": "2026-11-27 10:00"
+  },
+  {
+   "file": "2411-ecrans.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-ecrans.mp4",
+   "caption": "Un site, trois écrans. 💻📱\n\nOrdinateur, tablette, téléphone : zahr.fr s’adapte à chaque écran, avec le même contenu et le même soin. Mais je le pense d’abord pour le téléphone, là où tes clients te cherchent.\n\nÉcris « site » en message privé pour en parler.\n\n#siteweb #responsive #webdesign #entrepreneur #var #zahr",
+   "delivered": "2026-11-26 21:51"
+  },
+  {
+   "file": "2411-balance.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-balance-voix.mp4",
+   "caption": "Ton site rame ? Souvent, c’est la photo. 🐢\n\nUne photo de téléphone mise telle quelle peut alourdir toute la page. Bien compressée, elle reste aussi belle à l’écran et s’affiche plus vite. Sur chaque site ZAHR, je m’en occupe.\n\nEnvoie « vitesse » en message privé avec le lien de ton site, je regarde.\n\n#conseil #siteweb #vitesse #entrepreneur #var #zahr",
+   "delivered": "2026-11-27 18:00"
+  },
+  {
+   "file": "2411-radar.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-radar.mp4",
+   "caption": "Un radar à clients ? 📡\n\nDans l’outil ZAHR V2, une veille repère chaque jour de nouvelles pistes dans ton secteur. Tu gardes ou tu écartes, en un geste. Exemple avec des données fictives.\n\nÉcris « veille » en message privé pour la démo.\n\n#prospection #veille #entrepreneur #gestion #var #zahr",
+   "delivered": "2026-11-24 18:00"
+  },
+  {
+   "file": "2411-avant.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-avant-voix.mp4",
+   "caption": "Avant. Après. ✨\n\nMême commerce, autre première impression : un seul bouton clair, les infos utiles en haut, un texte qu’on lit d’un coup d’œil. Illustration avec un commerce fictif.\n\nEnvoie-moi le lien de ton site avec le mot « avant » en message privé, je te dis quoi changer.\n\n#avantapres #siteweb #webdesign #entrepreneur #var #zahr",
+   "delivered": "2026-11-27 14:00"
+  },
+  {
+   "file": "2411-compas.mp4",
+   "url": "https://zahr.fr/motion/reels/2411-compas.mp4",
+   "caption": "Le trèfle ZAHR, tracé au compas. 🍀\n\nUn cercle, deux tangentes : un pétale. Quatre fois, en rotation. Le logo est une construction géométrique, et le même soin va dans chaque site.\n\nÉcris « zahr » en message privé pour parler de ton projet.\n\n#logo #design #identite #webdesign #var #zahr",
+   "delivered": ""
+  },
+  {
+   "file": "2511-hotel.mp4",
+   "url": "https://zahr.fr/motion/reels/2511-hotel.mp4",
+   "caption": "Quel étage ? 🛗\n\nSur le site exemple ZAHR Hôtel, on choisit sa chambre comme on prend l’ascenseur : à chaque étage, une ambiance, une chambre, puis la réservation. Un exemple de démonstration à voir sur zahr.fr.\n\nTu veux un site avec une vraie idée ? Écris « étage » en message privé.\n\n#hotel #siteweb #webdesign #reservation #var #zahr",
+   "delivered": "2026-11-26 14:00"
+  },
+  {
+   "file": "2511-numero.mp4",
+   "url": "https://zahr.fr/motion/reels/2511-numero.mp4",
+   "caption": "Ton numéro, il se clique ? 📞\n\nSur téléphone, ton client veut appeler en un geste. Si ton numéro n’est qu’un texte, il doit le recopier. Rends-le cliquable, sur chaque page, et place un bouton « Appeler » à portée de pouce.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je le teste.\n\n#conseil #siteweb #mobile #entrepreneur #var #zahr",
+   "delivered": "2026-11-26 18:00"
+  },
+  {
+   "file": "2511-treso.mp4",
+   "url": "https://zahr.fr/motion/reels/2511-treso.mp4",
+   "caption": "Ta tréso, tu la vois ? 💶\n\nCe qui est entré, ce qui est sorti, et ce qui te reste, mois par mois. Dans l’outil de gestion ZAHR (V1), c’est sous tes yeux, sans tableur. Démo avec des données fictives.\n\nÉcris « gestion » en message privé pour la voir.\n\n#tresorerie #gestion #autoentrepreneur #entrepreneur #var #zahr",
+   "delivered": "2026-11-26 10:00"
+  },
+  {
+   "file": "2611-nuit.mp4",
+   "url": "https://zahr.fr/motion/reels/2611-nuit.mp4",
+   "caption": "23 h 47. Tu as fermé. 🌙\n\nTon site, lui, prend la réservation, envoie la confirmation au client et range ton agenda. Au réveil, tout est là. Exemple avec des données fictives.\n\nÉcris « nuit » en message privé pour en parler.\n\n#reservationenligne #automatisation #commerce #entrepreneur #var #zahr",
+   "delivered": "",
+   "voix": "à ajouter (Gemini)",
+   "bruitages": "sfx2 (27/11)"
+  },
+  {
+   "file": "2611-mer.mp4",
+   "url": "https://zahr.fr/motion/reels/2611-mer.mp4",
+   "caption": "On sort en mer ? 🌊\n\nSur le site exemple ZAHR Nautique, on fait glisser le vent et la mer bouge : calme plat, petite brise ou coup de vent, le site dit si c’est le bon jour pour sortir. Un exemple de démonstration à voir sur zahr.fr.\n\nTon activité mérite aussi son idée. Écris « mer » en message privé.\n\n#bateau #location #siteweb #webdesign #var #zahr",
+   "delivered": "",
+   "voix": "à ajouter (Gemini)",
+   "bruitages": "sfx2 (27/11)"
+  },
+  {
+   "file": "2611-horaires.mp4",
+   "url": "https://zahr.fr/motion/reels/2611-horaires.mp4",
+   "caption": "Fermé ?! Pourtant, le site dit « ouvert ». 🚪\n\nDes horaires pas à jour, c’est un client qui se déplace pour rien. Congés, jour férié, fermeture exceptionnelle : mets-les à jour partout, le jour même.\n\nEnvoie-moi le lien de ton site avec le mot « audit » en message privé, je le vérifie.\n\n#conseil #horaires #commerce #entrepreneur #var #zahr",
+   "delivered": "",
+   "voix": "à ajouter (Gemini)",
+   "bruitages": "sfx2 (27/11)"
+  },
+  {
+   "file": "2711-bijou.mp4",
+   "url": "https://zahr.fr/motion/reels/2711-bijou.mp4",
+   "caption": "Elle compose sa bague avant de venir. 💍\n\nSur le site exemple ZAHR Joaillerie, on choisit le métal, la pierre et la gravure : la bague change en direct à l’écran, puis on prend rendez-vous à l’atelier. Un exemple de démonstration à voir sur zahr.fr.\n\nTon commerce mérite aussi son idée. Écris « bijou » en message privé.\n\n#bijouterie #joaillerie #siteweb #webdesign #var #zahr",
+   "delivered": "",
+   "voix": "à ajouter (Gemini)",
+   "voix_texte": "Avant de venir, ta cliente compose sa bague. Or rose, émeraude, saphir : elle change en direct. Une gravure, puis elle prend rendez-vous. C’est un site exemple ZAHR, à voir sur zahr.fr.",
+   "fond": "sombre",
+   "bruitages": "sfx2 (27/11)"
+  },
+  {
+   "file": "2711-qr.mp4",
+   "url": "https://zahr.fr/motion/reels/2711-qr.mp4",
+   "caption": "Ton QR code, il mène où ? 📲\n\nCollé sur ta vitrine, à hauteur d’yeux, il doit ouvrir directement la page de réservation, pas ta page d’accueil. Un scan, un créneau. Illustration avec un commerce fictif.\n\nÉcris « qr » en message privé, je te dis comment le mettre en place.\n\n#conseil #qrcode #reservationenligne #commerce #var #zahr",
+   "delivered": "",
+   "voix": "à ajouter (Gemini)",
+   "voix_texte": "Ton QR code, il mène où ? Colle-le sur ta vitrine, à hauteur d’yeux. Un scan, et il ouvre directement la réservation, pas ta page d’accueil.",
+   "fond": "clair",
+   "bruitages": "sfx2 (27/11)"
+  },
+  {
+   "file": "2711-mail.mp4",
+   "url": "https://zahr.fr/motion/reels/2711-mail.mp4",
+   "caption": "Ton adresse mail, c’est ta carte de visite. ✉️\n\nUne adresse gratuite, ça dépanne. Une adresse au nom de ton commerce, avec le même nom que ton site, fait tout de suite plus pro. Illustration avec un commerce fictif.\n\nEnvoie-moi le nom de ton commerce avec le mot « mail » en message privé.\n\n#conseil #emailpro #nomdedomaine #entrepreneur #var #zahr",
+   "delivered": "",
+   "voix": "à ajouter (Gemini)",
+   "voix_texte": "Ton adresse mail, c’est ta carte de visite. Une adresse gratuite, ça passe. À ton nom, avec le même nom que ton site, ça fait tout de suite plus pro.",
+   "fond": "sauge",
+   "bruitages": "sfx2 (27/11)"
+  },
+  {
+   "file": "2811-veille.mp4",
+   "delivered": "2026-11-28 10:00",
+   "sujet": "Veille V2 : trouve un commerce sans site et prépare le message",
+   "bpm": 116,
+   "son": "électro minimale composée en code (La mineur), sans bruitages",
+   "etats": [
+    "bouton Lancer la veille",
+    "radar",
+    "liste sans site",
+    "survol",
+    "fiche commerce",
+    "pastille Pas de site",
+    "bouton Préparer",
+    "message tapé mot à mot",
+    "interrupteur envoi programmé",
+    "kanban glisser-déposer",
+    "toast Message prêt",
+    "zahr.fr",
+    "retour"
+   ],
+   "promptMotion": "https://prompt-motion.com/rossaxbt-94583b",
+   "caption": "Ta veille trouve tes prochains clients. 📡\n\nElle repère les entreprises qui correspondent à ta cible (ici, des commerces sans site), ouvre leur fiche et prépare un premier message. Toi, tu relis et tu valides. C’est la V2 de l’outil ZAHR, montrée avec des commerces fictifs.\n\nÉcris « veille » en message privé pour voir la démo.\n\n#prospection #automatisation #entrepreneur #gestion #var #zahr",
+   "url": "https://zahr.fr/motion/reels/2811-veille.mp4",
+   "voix": "aucune (navigateur du PC indisponible cette nuit)",
+   "style": "morph UI"
+  },
+  {
+   "file": "2811-resto.mp4",
+   "delivered": "2026-11-28 14:00",
+   "sujet": "Commande en ligne d’un restaurant (retrait du midi)",
+   "bpm": 122,
+   "son": "house douce composée en code (Rém7-Sol7-Domaj7-Lam7), sans bruitages",
+   "etats": [
+    "bouton Commander",
+    "menu du midi",
+    "ajout plat 1",
+    "ajout plat 2",
+    "barre panier",
+    "créneau glissé 12:15→12:45",
+    "Confirmer",
+    "Reçue",
+    "En cuisine",
+    "Prête",
+    "île Commande prête",
+    "tableau des commandes",
+    "toast Retirée",
+    "zahr.fr",
+    "retour"
+   ],
+   "promptMotion": "https://prompt-motion.com/zheke-38deff",
+   "caption": "Commander le midi, sans appeler. 🍽️\n\nSur le site, ton client choisit ses plats, glisse jusqu’à son heure de retrait et confirme. Il suit sa commande jusqu’à « Prête », et toi tu vois tout ton service du midi d’un coup d’œil. Restaurant et chiffres fictifs, pour l’exemple.\n\nTu tiens un restaurant dans le Var ? Écris « resto » en message privé.\n\n#restaurant #clickandcollect #commandeenligne #siteweb #var #zahr",
+   "url": "https://zahr.fr/motion/reels/2811-resto.mp4",
+   "voix": "aucune (navigateur du PC indisponible cette nuit)",
+   "style": "morph UI"
+  },
+  {
+   "file": "2811-devis.mp4",
+   "delivered": "2026-11-28 18:00",
+   "sujet": "Devis → signature → facture → paiement (outil V1)",
+   "bpm": 112,
+   "son": "lo-fi rythmé composé en code (Famaj7-Mim7-Rém7-Domaj7), sans bruitages",
+   "etats": [
+    "bouton Nouveau devis",
+    "devis lignes + total",
+    "Envoyer",
+    "toast Devis envoyé",
+    "signature tracée",
+    "coche Signé",
+    "Devis→Facture (onglet)",
+    "facture + relance auto",
+    "statut Payée",
+    "trésorerie qui se trace",
+    "point qui monte + info-bulle",
+    "toast Paiement reçu",
+    "zahr.fr",
+    "retour"
+   ],
+   "promptMotion": "https://prompt-motion.com/daniel-haida-8691d4",
+   "caption": "Du devis au paiement, sans rien ressaisir. 🧾\n\nLe devis part, le client signe sur son téléphone, il devient facture en un clic, la relance se programme toute seule et le paiement arrive dans ta trésorerie. C’est l’outil de gestion ZAHR (V1), montré avec des montants fictifs.\n\nÉcris « gestion » en message privé pour voir la démo.\n\n#devis #facturation #autoentrepreneur #tresorerie #var #zahr",
+   "url": "https://zahr.fr/motion/reels/2811-devis.mp4",
+   "voix": "aucune (navigateur du PC indisponible cette nuit)",
+   "style": "morph UI"
+  }
+ ]
 }
